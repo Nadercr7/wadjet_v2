@@ -1,0 +1,22 @@
+{
+  "wikipedia": {
+    "en": {
+      "title": "Philae temple complex",
+      "extract": "The Philae temple complex is an island-based temple complex in the reservoir of the Aswan Low Dam, downstream of the Aswan Dam and Lake Nasser, Egypt in Africa.",
+      "description": "Island in the Nile, Egypt",
+      "coordinates": {
+        "lat": 24.02083333,
+        "lon": 32.88944444
+      },
+      "thumbnail": "",
+      "original_image": "",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Philae_temple_complex"
+    },
+    "ar": {
+      "title": "فيلة",
+      "extract": "جزيرة فيلة، هي جزيرة في منتصف نهر النيل وهي إحدى الحصون الأقوى على طول حدود مصر الجنوبية، وتفصل النيل إلى قناتين معاكستين في أسوان، كان بها معبد فيلة وانتقل من مكانه الأصلي على جزيرة فيلة وتم تجميعه على جزيرة أجيليكا، وذلك في أعقاب بناء السد العالي.",
+      "description": "جزيرة مصرية",
+      "wikipedia_url": "https://ar.wikipedia.org/wiki/%D9%81%D9%8A%D9%84%D8%A9"
+    }
+  }
+}

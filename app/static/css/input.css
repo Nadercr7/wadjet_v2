@@ -1,0 +1,506 @@
+@import "tailwindcss";
+
+/* ========================================
+   WADJET v2 — Design System
+   Black & Gold Egyptian Heritage Theme
+   ======================================== */
+
+@theme {
+  /* Gold palette */
+  --color-gold: #D4AF37;
+  --color-gold-light: #E8C547;
+  --color-gold-dark: #B8941F;
+  --color-gold-muted: #A08520;
+  --color-gold-glow: oklch(0.75 0.15 85 / 0.12);
+
+  /* Surface palette */
+  --color-night: #0A0A0A;
+  --color-surface: #141414;
+  --color-surface-alt: #1E1E1E;
+  --color-surface-hover: #252525;
+
+  /* Border palette */
+  --color-border: #2A2A2A;
+  --color-border-light: #3A3A3A;
+
+  /* Text palette */
+  --color-text: #F0F0F0;
+  --color-text-muted: #8A8A8A;
+  --color-text-dim: #5A5A5A;
+
+  /* Semantic */
+  --color-success: #4CAF50;
+  --color-error: #EF4444;
+  --color-warning: #F59E0B;
+
+  /* Fonts */
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --font-hieroglyph: "Noto Sans Egyptian Hieroglyphs", serif;
+
+  /* Animations */
+  --animate-shimmer: shimmer 2s linear infinite;
+  --animate-fade-up: fade-up 0.5s ease-out;
+  --animate-pulse-gold: pulse-gold 2s ease-in-out infinite;
+}
+
+/* ========================================
+   Base styles
+   ======================================== */
+
+@layer base {
+  body {
+    @apply bg-night text-text font-body antialiased;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  /* Keyboard focus ring (only on keyboard nav, not clicks) */
+  :focus-visible {
+    outline: 2px solid #D4AF37;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl font-semibold tracking-tight;
+  }
+
+  h3 {
+    @apply text-2xl font-semibold;
+  }
+
+  h4 {
+    @apply text-xl font-semibold;
+  }
+
+  ::selection {
+    background-color: #D4AF3740;
+    color: #F0F0F0;
+  }
+
+  /* Scrollbar for dark theme */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0A0A0A;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #2A2A2A;
+    border-radius: 4px;
+  }
+
+  /* View Transitions API — fade between pages */
+  @view-transition {
+    navigation: auto;
+  }
+  ::view-transition-old(root) {
+    animation: fade-out 150ms ease-out;
+  }
+  ::view-transition-new(root) {
+    animation: fade-in 200ms ease-in;
+  }
+  @keyframes fade-out { from { opacity: 1; } to { opacity: 0; } }
+  @keyframes fade-in  { from { opacity: 0; } to { opacity: 1; } }
+
+  /* Page content entrance */
+  #main-content {
+    animation: page-enter 0.3s ease-out;
+  }
+  @keyframes page-enter {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+}
+
+/* ========================================
+   Component classes
+   ======================================== */
+
+@layer components {
+  /* HTMX indicator helpers */
+  .htmx-indicator { display: none; }
+  .htmx-request .htmx-indicator { display: inline-flex; }
+  .htmx-request .htmx-indicator-hide { display: none; }
+
+  /* Buttons */
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-2
+           px-6 py-3 rounded-lg font-body font-medium text-sm
+           bg-gold text-night
+           hover:bg-gold-light
+           focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-night
+           transition-all duration-200
+           shadow-[0_0_20px_rgba(212,175,55,0.15)]
+           hover:shadow-[0_0_30px_rgba(212,175,55,0.25)];
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2
+           px-6 py-3 rounded-lg font-body font-medium text-sm
+           bg-transparent text-gold border border-gold/30
+           hover:bg-gold/10 hover:border-gold/50
+           focus:outline-none focus:ring-2 focus:ring-gold/50 focus:ring-offset-2 focus:ring-offset-night
+           transition-all duration-200;
+  }
+
+  .btn-dark {
+    @apply inline-flex items-center justify-center gap-2
+           px-6 py-3 rounded-lg font-body font-medium text-sm
+           bg-surface text-text border border-border
+           hover:bg-surface-alt hover:border-border-light
+           focus:outline-none focus:ring-2 focus:ring-border-light focus:ring-offset-2 focus:ring-offset-night
+           transition-all duration-200;
+  }
+
+  .btn-sm {
+    @apply px-4 py-2 text-xs;
+  }
+
+  .btn-lg {
+    @apply px-8 py-4 text-base;
+  }
+
+  /* Cards */
+  .card {
+    @apply bg-surface border border-border rounded-xl p-6
+           transition-all duration-300;
+  }
+
+  .card-hover {
+    @apply bg-surface border border-border rounded-xl p-6
+           transition-all duration-300
+           hover:border-border-light hover:bg-surface-alt
+           hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/20;
+  }
+
+  .card-glow {
+    @apply bg-surface border border-border rounded-xl p-6
+           transition-all duration-300
+           hover:border-gold/20 hover:bg-surface-alt
+           hover:-translate-y-0.5
+           hover:shadow-[0_0_30px_rgba(212,175,55,0.08)];
+  }
+
+  /* Inputs */
+  .input {
+    @apply w-full bg-surface border border-border rounded-lg
+           px-4 py-3 text-text placeholder-text-dim
+           focus:outline-none focus:border-gold/50 focus:ring-1 focus:ring-gold/30
+           transition-all duration-200;
+  }
+
+  .input-sm {
+    @apply w-full bg-surface border border-border rounded-lg
+           px-3 py-2 text-sm text-text placeholder-text-dim
+           focus:outline-none focus:border-gold/50 focus:ring-1 focus:ring-gold/30
+           transition-all duration-200;
+  }
+
+  /* Badges */
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full
+           text-xs font-medium;
+  }
+
+  .badge-gold {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full
+           text-xs font-medium bg-gold/15 text-gold;
+  }
+
+  .badge-muted {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full
+           text-xs font-medium bg-surface-alt text-text-muted;
+  }
+
+  .badge-success {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full
+           text-xs font-medium bg-success/15 text-success;
+  }
+
+  /* Layout */
+  .section {
+    @apply px-4 sm:px-6 lg:px-8 py-16 md:py-24;
+  }
+
+  .container-narrow {
+    @apply max-w-4xl mx-auto;
+  }
+
+  .container-wide {
+    @apply max-w-7xl mx-auto;
+  }
+
+  /* Divider */
+  .divider {
+    @apply h-px bg-gradient-to-r from-transparent via-border to-transparent;
+  }
+
+  /* Gold gradient text */
+  .text-gold-gradient {
+    @apply bg-clip-text text-transparent
+           bg-gradient-to-r from-gold-dark via-gold to-gold-light;
+  }
+
+  /* Glow effects */
+  .glow-gold {
+    box-shadow: 0 0 40px rgba(212, 175, 55, 0.1),
+                0 0 80px rgba(212, 175, 55, 0.05);
+  }
+
+  /* Hieroglyph text */
+  .hieroglyph {
+    @apply font-hieroglyph text-gold text-2xl leading-relaxed;
+  }
+}
+
+/* ========================================
+   Keyframe animations
+   ======================================== */
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-gold {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(212, 175, 55, 0.3);
+  }
+}
+
+/* Animated gradient text — gold sweep
+   Usage: <span class="text-gold-animated">text</span> */
+@keyframes gradient-sweep {
+  to { background-position: 300% 0; }
+}
+
+/* Border glow orbit — use on parent with overflow:hidden
+   Usage: <div class="border-beam"></div> inside a relative container */
+@keyframes border-beam {
+  from { offset-distance: 0%; }
+  to   { offset-distance: 100%; }
+}
+
+/* Meteor shower — for decorative falling streaks
+   Usage: <span class="meteor" style="--angle:-215deg;top:-5%;left:40%"> */
+@keyframes meteor {
+  0% { transform: rotate(var(--angle, -215deg)) translateX(0); opacity: 1; }
+  70% { opacity: 1; }
+  100% { transform: rotate(var(--angle, -215deg)) translateX(-500px); opacity: 0; }
+}
+
+/* Dot glow pulse — for dot-pattern backgrounds */
+@keyframes dot-glow {
+  from { opacity: 0.4; }
+  to   { opacity: 1; }
+}
+
+/* Shine sweep on borders */
+@keyframes shine {
+  0%   { background-position: 0% 0%; }
+  50%  { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
+}
+
+/* ========================================
+   Button effects
+   ======================================== */
+
+/* Shimmer button effect */
+.btn-shimmer {
+  background-image: linear-gradient(
+    110deg,
+    transparent 33%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 67%
+  );
+  background-size: 200% 100%;
+}
+
+.btn-shimmer:hover {
+  animation: shimmer 1.5s ease-in-out;
+}
+
+/* ========================================
+   Decorative components (from MagicUI)
+   ======================================== */
+
+/* Animated gold gradient text */
+.text-gold-animated {
+  display: inline;
+  background: linear-gradient(to right, #B8941F, #D4AF37, #E8C547, #D4AF37, #B8941F);
+  background-size: 300% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: gradient-sweep 6s linear infinite;
+}
+
+/* Dot pattern background */
+.dot-pattern {
+  --dot-color: rgb(255 255 255 / 8%);
+  --dot-size: 1px;
+  --dot-spacing: 22px;
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, var(--dot-color) var(--dot-size), transparent var(--dot-size));
+  background-size: var(--dot-spacing) var(--dot-spacing);
+  pointer-events: none;
+}
+
+/* Gold dot variant */
+.dot-pattern-gold {
+  --dot-color: rgb(212 175 55 / 15%);
+}
+
+/* Meteor streak — position:absolute, spawn via Alpine x-for */
+.meteor {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 9999px;
+  background-color: #D4AF37;
+  box-shadow: 0 0 0 1px rgb(212 175 55 / 20%);
+  pointer-events: none;
+  animation: meteor 5s linear infinite;
+}
+
+.meteor::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 1px;
+  width: 40px;
+  transform: translateY(-50%);
+  background: linear-gradient(to right, rgb(212 175 55 / 60%), transparent);
+}
+
+/* Border beam — child of a relative container */
+.border-beam {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(to left, #D4AF37, #E8C547, transparent);
+  border-radius: 9999px;
+  opacity: 0.7;
+  offset-path: rect(0 100% 100% 0 round 12px);
+  animation: border-beam 6s infinite linear;
+  pointer-events: none;
+}
+
+/* ========================================
+   Hover Effects (adapted from Hover.css)
+   ======================================== */
+
+/* Gold glow on hover */
+.hvr-glow {
+  transition: box-shadow 0.3s ease;
+}
+.hvr-glow:hover, .hvr-glow:focus {
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.6);
+}
+
+/* Background sweep left→right (gold) */
+.hvr-sweep-gold {
+  position: relative;
+  overflow: hidden;
+  transition: color 0.3s ease;
+}
+.hvr-sweep-gold::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: #D4AF37;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  transition: transform 0.3s ease-out;
+}
+.hvr-sweep-gold:hover::before, .hvr-sweep-gold:focus::before {
+  transform: scaleX(1);
+}
+.hvr-sweep-gold:hover { color: #0A0A0A; }
+
+/* Nav link underline from center (gold) */
+.hvr-underline-gold {
+  position: relative;
+  overflow: hidden;
+}
+.hvr-underline-gold::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 51%;
+  right: 51%;
+  bottom: 0;
+  background: #D4AF37;
+  height: 2px;
+  transition: left 0.3s ease-out, right 0.3s ease-out;
+}
+.hvr-underline-gold:hover::before,
+.hvr-underline-gold:focus::before {
+  left: 0;
+  right: 0;
+}
+
+/* Float with gold shadow below */
+.hvr-float-gold {
+  transition: transform 0.3s ease;
+}
+.hvr-float-gold::before {
+  pointer-events: none;
+  position: absolute;
+  z-index: -1;
+  content: '';
+  top: 100%;
+  left: 5%;
+  height: 10px;
+  width: 90%;
+  opacity: 0;
+  background: radial-gradient(ellipse at center, rgba(212, 175, 55, 0.4) 0%, transparent 80%);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.hvr-float-gold:hover {
+  transform: translateY(-5px);
+}
+.hvr-float-gold:hover::before {
+  opacity: 1;
+  transform: translateY(5px);
+}
+
+/* Subtle grow on hover */
+.hvr-grow {
+  transition: transform 0.3s ease;
+}
+.hvr-grow:hover, .hvr-grow:focus {
+  transform: scale(1.05);
+}

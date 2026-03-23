@@ -1,0 +1,648 @@
+[
+  {
+    "hash": "c9b0ad590a2cc420",
+    "original_name": "800px-Courtyard_of_Al-Azhar_Mosque_Cairo_Egypt_2019_6_20220729130400.jpg",
+    "original_class": "Azhar Mosque",
+    "size_bytes": 43215,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:05"
+  },
+  {
+    "hash": "b4e9863e8759e703",
+    "original_name": "download (1).jpeg",
+    "original_class": "Azhar Mosque",
+    "size_bytes": 24375,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:05"
+  },
+  {
+    "hash": "24e66f36073a0cf4",
+    "original_name": "download (10).jpeg",
+    "original_class": "Azhar Mosque",
+    "size_bytes": 16503,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:05"
+  },
+  {
+    "hash": "e9c58f67b9360b80",
+    "original_name": "download (11).jpeg",
+    "original_class": "Azhar Mosque",
+    "size_bytes": 20602,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:05"
+  },
+  {
+    "hash": "5a6e0b48a8676428",
+    "original_name": "download (12).jpeg",
+    "original_class": "Azhar Mosque",
+    "size_bytes": 19986,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:05"
+  },
+  {
+    "hash": "cfec8d75e9b8b3ef",
+    "original_name": "download (2).jpeg",
+    "original_class": "Azhar Mosque",
+    "size_bytes": 22436,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:05"
+  },
+  {
+    "hash": "cb7e5c12250cb0ce",
+    "original_name": "download (3).jpeg",
+    "original_class": "Azhar Mosque",
+    "size_bytes": 16174,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:05"
+  },
+  {
+    "hash": "8f7ea7d8eca2950c",
+    "original_name": "download (5).jpeg",
+    "original_class": "Azhar Mosque",
+    "size_bytes": 28534,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:05"
+  },
+  {
+    "hash": "a696f4df669222a0",
+    "original_name": "download (6).jpeg",
+    "original_class": "Azhar Mosque",
+    "size_bytes": 13761,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:05"
+  },
+  {
+    "hash": "9d13b7b45e7c7a2a",
+    "original_name": "download (9).jpeg",
+    "original_class": "Azhar Mosque",
+    "size_bytes": 28284,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:05"
+  },
+  {
+    "hash": "ef5afab0ddf934ab",
+    "original_name": "download.jpeg",
+    "original_class": "Azhar Mosque",
+    "size_bytes": 11482,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:05"
+  },
+  {
+    "hash": "00196f8a93a814fd",
+    "original_name": "img-600600p9570EDNmainimg-sdfasfra-(13-of-40)1.jpg",
+    "original_class": "Azhar Mosque",
+    "size_bytes": 96882,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:05"
+  },
+  {
+    "hash": "58b1df8183b55f59",
+    "original_name": "OIP (1).jpeg",
+    "original_class": "Azhar Mosque",
+    "size_bytes": 20985,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:05"
+  },
+  {
+    "hash": "8c15a70cdeef44e2",
+    "original_name": "OIP (10).jpeg",
+    "original_class": "Azhar Mosque",
+    "size_bytes": 14883,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:05"
+  },
+  {
+    "hash": "4dc25106ca0a94f1",
+    "original_name": "OIP (13).jpeg",
+    "original_class": "Azhar Mosque",
+    "size_bytes": 11234,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:05"
+  },
+  {
+    "hash": "b970ac083e938704",
+    "original_name": "OIP (14).jpeg",
+    "original_class": "Azhar Mosque",
+    "size_bytes": 21045,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:05"
+  },
+  {
+    "hash": "f12093bab84e2d73",
+    "original_name": "OIP (2).jpeg",
+    "original_class": "Azhar Mosque",
+    "size_bytes": 20130,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:05"
+  },
+  {
+    "hash": "bc15f3aef785f98a",
+    "original_name": "OIP (3).jpeg",
+    "original_class": "Azhar Mosque",
+    "size_bytes": 21915,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:05"
+  },
+  {
+    "hash": "d4a621d0b66b754c",
+    "original_name": "OIP (4).jpeg",
+    "original_class": "Azhar Mosque",
+    "size_bytes": 9519,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:05"
+  },
+  {
+    "hash": "a1be788a5863c0ac",
+    "original_name": "OIP (7).jpeg",
+    "original_class": "Azhar Mosque",
+    "size_bytes": 23871,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:05"
+  },
+  {
+    "hash": "c106cb967044235e",
+    "original_name": "OIP (8).jpeg",
+    "original_class": "Azhar Mosque",
+    "size_bytes": 23684,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:05"
+  },
+  {
+    "hash": "cb66256966bb24d1",
+    "original_name": "OIP (9).jpeg",
+    "original_class": "Azhar Mosque",
+    "size_bytes": 17395,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:05"
+  },
+  {
+    "hash": "1697969381707e09",
+    "original_name": "OIP.jpeg",
+    "original_class": "Azhar Mosque",
+    "size_bytes": 23106,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:05"
+  },
+  {
+    "hash": "9cc8da4f171ea8a0",
+    "original_name": "جامع-الأزهر1.jpg",
+    "original_class": "Azhar Mosque",
+    "size_bytes": 95336,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:05"
+  },
+  {
+    "filename": "082a823cba726e35.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Egyptian_government_officials_at_al-Azhar_Mosque%2C_1966.jpg",
+    "title": "File:Egyptian government officials at al-Azhar Mosque, 1966.jpg",
+    "license": "Public domain",
+    "artist": "Not credited",
+    "width": 434,
+    "height": 421,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T02:02:59"
+  },
+  {
+    "filename": "e13b1a9908935e0e.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Al-Azhar_Mosque_%288590203917%29.jpg",
+    "title": "File:Al-Azhar Mosque (8590203917).jpg",
+    "license": "CC BY 2.0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/79721788@N00\">David Stanley</a> from Nanaimo, Canada",
+    "width": 1024,
+    "height": 768,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T02:02:59"
+  },
+  {
+    "filename": "01b5842f2c894592.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/34/The_Courtyard_of_Al-Azhar_Mosque%2C_Cairo%2C_Egypt.jpg",
+    "title": "File:The Courtyard of Al-Azhar Mosque, Cairo, Egypt.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Argenberg\" title=\"User:Argenberg\">Vyacheslav Argenberg</a>",
+    "width": 3072,
+    "height": 2048,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T02:02:59"
+  },
+  {
+    "filename": "a30ccede4a7f8e7d.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Wooden_mihrab_al-Azhar_Mosque.jpg",
+    "title": "File:Wooden mihrab al-Azhar Mosque.jpg",
+    "license": "CC BY 2.0",
+    "artist": "Richard Mortel",
+    "width": 1914,
+    "height": 3566,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T02:02:59"
+  },
+  {
+    "filename": "01bfa626166a3e7c.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/5b/Rajmohan_and_Usha_Gandhi_at_Al-Azhar_Mosque%2C_2012.jpg",
+    "title": "File:Rajmohan and Usha Gandhi at Al-Azhar Mosque, 2012.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:EducationMENA\" title=\"User:EducationMENA\">EducationMENA</a>",
+    "width": 1046,
+    "height": 1121,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T02:02:59"
+  },
+  {
+    "filename": "e335ab45560479ad.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Mosqu%C3%A9e_Al-Azhar.jpg/3000px-Mosqu%C3%A9e_Al-Azhar.jpg",
+    "wikipedia_title": "Al-Azhar_Mosque",
+    "source": "wikipedia",
+    "downloaded_at": "2026-03-02T02:10:55"
+  },
+  {
+    "filename": "b2c9184c1e294ca0.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Mosqu%C3%A9e_Al-Azhar.jpg/1280px-Mosqu%C3%A9e_Al-Azhar.jpg",
+    "wikipedia_title": "Al-Azhar_Mosque",
+    "source": "wikipedia",
+    "downloaded_at": "2026-03-02T02:10:55"
+  },
+  {
+    "filename": "e52bb97f456ca462.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Cario_-_Islamic_district_-_Al-Azhar_Mosque_-_courtyard.JPG",
+    "title": "File:Cario - Islamic district - Al-Azhar Mosque - courtyard.JPG",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Maveric149\" class=\"mw-redirect\" title=\"User:Maveric149\">Daniel Mayer</a>",
+    "width": 3141,
+    "height": 1089,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:18:34"
+  },
+  {
+    "filename": "082a823cba726e35.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Egyptian_government_officials_at_al-Azhar_Mosque%2C_1966.jpg",
+    "title": "File:Egyptian government officials at al-Azhar Mosque, 1966.jpg",
+    "license": "Public domain",
+    "artist": "Not credited",
+    "width": 434,
+    "height": 421,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:18:34"
+  },
+  {
+    "filename": "c3fc5124a209a53f.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/26/Al-Azhar_Mosque_01.jpg",
+    "title": "File:Al-Azhar Mosque 01.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Ahmedalbadawy&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Ahmedalbadawy (page does not exist)\">Ahmedalbadawy</a>",
+    "width": 1500,
+    "height": 829,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:18:34"
+  },
+  {
+    "filename": "e13b1a9908935e0e.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Al-Azhar_Mosque_%288590203917%29.jpg",
+    "title": "File:Al-Azhar Mosque (8590203917).jpg",
+    "license": "CC BY 2.0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/79721788@N00\">David Stanley</a> from Nanaimo, Canada",
+    "width": 1024,
+    "height": 768,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:18:34"
+  },
+  {
+    "filename": "1a117f0c130f251a.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Courtyard_of_Al-Azhar_Mosque.jpg",
+    "title": "File:Courtyard of Al-Azhar Mosque.jpg",
+    "license": "Public domain",
+    "artist": "Lekegian, G.",
+    "width": 632,
+    "height": 774,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:18:34"
+  },
+  {
+    "filename": "50b278f0ed3f0a03.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Al-Azhar_mosque.jpg",
+    "title": "File:Al-Azhar mosque.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Ashashyou\" title=\"User:Ashashyou\">Ashashyou</a>",
+    "width": 3968,
+    "height": 2976,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:18:34"
+  },
+  {
+    "filename": "01b5842f2c894592.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/34/The_Courtyard_of_Al-Azhar_Mosque%2C_Cairo%2C_Egypt.jpg",
+    "title": "File:The Courtyard of Al-Azhar Mosque, Cairo, Egypt.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Argenberg\" title=\"User:Argenberg\">Vyacheslav Argenberg</a>",
+    "width": 3072,
+    "height": 2048,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:18:34"
+  },
+  {
+    "filename": "63afaed38169eac9.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Al-Azhar_Mosque_%28R_Prazeres_2019%29_DSCF4364.jpg",
+    "title": "File:Al-Azhar Mosque (R Prazeres 2019) DSCF4364.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:R_Prazeres\" title=\"User:R Prazeres\">R Prazeres</a>",
+    "width": 4000,
+    "height": 3000,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:18:34"
+  },
+  {
+    "filename": "a30ccede4a7f8e7d.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Wooden_mihrab_al-Azhar_Mosque.jpg",
+    "title": "File:Wooden mihrab al-Azhar Mosque.jpg",
+    "license": "CC BY 2.0",
+    "artist": "Richard Mortel",
+    "width": 1914,
+    "height": 3566,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:18:34"
+  },
+  {
+    "filename": "01bfa626166a3e7c.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/5b/Rajmohan_and_Usha_Gandhi_at_Al-Azhar_Mosque%2C_2012.jpg",
+    "title": "File:Rajmohan and Usha Gandhi at Al-Azhar Mosque, 2012.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:EducationMENA\" title=\"User:EducationMENA\">EducationMENA</a>",
+    "width": 1046,
+    "height": 1121,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:18:34"
+  },
+  {
+    "filename": "424cacd5829ca574.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/af/Al-Azhar_Mosque_Cistern_01.jpg",
+    "title": "File:Al-Azhar Mosque Cistern 01.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:%D8%A3%D8%AD%D9%85%D8%AF_%D9%86%D8%A7%D8%AC%D9%8A\" title=\"User:أحمد ناجي\">أحمد ناجي</a>",
+    "width": 6000,
+    "height": 8000,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:18:34"
+  },
+  {
+    "filename": "d4b2a815a2c44717.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/74/Al-Azhar_Mosque_%288%29.jpg",
+    "title": "File:Al-Azhar Mosque (8).jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Myousry6666\" title=\"User:Myousry6666\">Myousry6666</a>",
+    "width": 2161,
+    "height": 3240,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:18:34"
+  },
+  {
+    "filename": "2948b659bdf30041.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Al-Azhar_Mosque_interior_DSCF4501.jpg",
+    "title": "File:Al-Azhar Mosque interior DSCF4501.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:R_Prazeres\" title=\"User:R Prazeres\">R Prazeres</a>",
+    "width": 3200,
+    "height": 2400,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:18:34"
+  },
+  {
+    "filename": "85f60def122a57f3.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/26/Al-Azhar_Mosque_02.jpg",
+    "title": "File:Al-Azhar Mosque 02.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Ahmedalbadawy&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Ahmedalbadawy (page does not exist)\">Ahmedalbadawy</a>",
+    "width": 1125,
+    "height": 1500,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:18:34"
+  },
+  {
+    "filename": "431b5905beb76356.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/a6/Al-Azhar_Mosque_%283%29.jpg",
+    "title": "File:Al-Azhar Mosque (3).jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Myousry6666\" title=\"User:Myousry6666\">Myousry6666</a>",
+    "width": 3543,
+    "height": 5315,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:18:34"
+  },
+  {
+    "filename": "de230ec4d33dc215.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Courtyard_of_Al-Azhar_Mosque_Cairo_Egypt_2019_%281%29.jpg",
+    "title": "File:Courtyard of Al-Azhar Mosque Cairo Egypt 2019 (1).jpg",
+    "license": "CC BY 3.0 pl",
+    "artist": "Radosław Botev",
+    "width": 4000,
+    "height": 3000,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:18:34"
+  },
+  {
+    "filename": "cf75611f899335e8.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Courtyard_of_Al-Azhar_Mosque_Cairo_Egypt_2019_%284%29.jpg",
+    "title": "File:Courtyard of Al-Azhar Mosque Cairo Egypt 2019 (4).jpg",
+    "license": "CC BY 3.0 pl",
+    "artist": "Radosław Botev",
+    "width": 3583,
+    "height": 2759,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:18:34"
+  },
+  {
+    "filename": "b0a5678e9933aaeb.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Al-Azhar_Mosque_mihrabDSCF4456.jpg",
+    "title": "File:Al-Azhar Mosque mihrabDSCF4456.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:R_Prazeres\" title=\"User:R Prazeres\">R Prazeres</a>",
+    "width": 4000,
+    "height": 2970,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:18:34"
+  },
+  {
+    "filename": "814551e0fca271db.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Al_Azhar_Mosque_cairo.jpg",
+    "title": "File:Al Azhar Mosque cairo.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Ahmed_Farouk_Hassan&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Ahmed Farouk Hassan (page does not exist)\">Ahmed Hassan</a>",
+    "width": 5779,
+    "height": 3829,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:18:34"
+  },
+  {
+    "filename": "df50db7a3d0431c5.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/84/Al-Azhar_Mosque_interior_%28original_section%29_DSCF4439.jpg",
+    "title": "File:Al-Azhar Mosque interior (original section) DSCF4439.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:R_Prazeres\" title=\"User:R Prazeres\">R Prazeres</a>",
+    "width": 3200,
+    "height": 2400,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:18:34"
+  },
+  {
+    "filename": "8f61797c18de5c8b.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Cairo_-_Islamic_district_-_Al-Azhar_Mosque_-_Qibla_alcove.JPG",
+    "title": "File:Cairo - Islamic district - Al-Azhar Mosque - Qibla alcove.JPG",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Maveric149\" class=\"mw-redirect\" title=\"User:Maveric149\">Daniel Mayer</a>",
+    "width": 1793,
+    "height": 1531,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:18:34"
+  },
+  {
+    "filename": "4f214ad640758d7b.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/de/Al-Azhar_Mosque%2C_Cairo%2C_Egypt8.jpg",
+    "title": "File:Al-Azhar Mosque, Cairo, Egypt8.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<bdi><a href=\"https://www.wikidata.org/wiki/Q28147777\" class=\"extiw\" title=\"d:Q28147777\"><span title=\"Spanish photographer\">Diego Delso</span></a></bdi>",
+    "width": 3888,
+    "height": 2592,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:18:34"
+  },
+  {
+    "filename": "0d9692d5aeee20fe.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Al-Azhar_Mosque%2C_Cairo%2C_Egypt6.jpg",
+    "title": "File:Al-Azhar Mosque, Cairo, Egypt6.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<bdi><a href=\"https://www.wikidata.org/wiki/Q28147777\" class=\"extiw\" title=\"d:Q28147777\"><span title=\"Spanish photographer\">Diego Delso</span></a></bdi>",
+    "width": 2592,
+    "height": 3888,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:18:34"
+  },
+  {
+    "filename": "a070956aea545240.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/4d/Al-Azhar_Mosque%2C_Cairo%2C_Egypt9.jpg",
+    "title": "File:Al-Azhar Mosque, Cairo, Egypt9.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<bdi><a href=\"https://www.wikidata.org/wiki/Q28147777\" class=\"extiw\" title=\"d:Q28147777\"><span title=\"Spanish photographer\">Diego Delso</span></a></bdi>",
+    "width": 3371,
+    "height": 2496,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:18:34"
+  },
+  {
+    "filename": "fc87f54d3ca80eb0.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/12/Al-Azhar_Mosque%2C_Cairo%2C_Egypt2.jpg",
+    "title": "File:Al-Azhar Mosque, Cairo, Egypt2.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<bdi><a href=\"https://www.wikidata.org/wiki/Q28147777\" class=\"extiw\" title=\"d:Q28147777\"><span title=\"Spanish photographer\">Diego Delso</span></a></bdi>",
+    "width": 3888,
+    "height": 2592,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:18:34"
+  },
+  {
+    "filename": "6ca23796def8e7cb.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Al-Azhar_Mosque%2C_Cairo%2C_Egypt4.jpg",
+    "title": "File:Al-Azhar Mosque, Cairo, Egypt4.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<bdi><a href=\"https://www.wikidata.org/wiki/Q28147777\" class=\"extiw\" title=\"d:Q28147777\"><span title=\"Spanish photographer\">Diego Delso</span></a></bdi>",
+    "width": 3888,
+    "height": 2584,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:18:34"
+  },
+  {
+    "filename": "1dac0e9b4937bd82.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/df/Al-Azhar_Mosque%2C_Cairo%2C_Egypt10.jpg",
+    "title": "File:Al-Azhar Mosque, Cairo, Egypt10.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<bdi><a href=\"https://www.wikidata.org/wiki/Q28147777\" class=\"extiw\" title=\"d:Q28147777\"><span title=\"Spanish photographer\">Diego Delso</span></a></bdi>",
+    "width": 3888,
+    "height": 2592,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:18:34"
+  },
+  {
+    "filename": "7b176aa142382fc0.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/94/Courtyard_of_Al-Azhar_Mosque_Cairo_Egypt_2019_%282%29.jpg",
+    "title": "File:Courtyard of Al-Azhar Mosque Cairo Egypt 2019 (2).jpg",
+    "license": "CC BY 3.0 pl",
+    "artist": "Radosław Botev",
+    "width": 4000,
+    "height": 3000,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:18:34"
+  },
+  {
+    "filename": "7b66b50cb493431f.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/bc/Courtyard_of_Al-Azhar_Mosque_Cairo_Egypt_2019_%283%29.jpg",
+    "title": "File:Courtyard of Al-Azhar Mosque Cairo Egypt 2019 (3).jpg",
+    "license": "CC BY 3.0 pl",
+    "artist": "Radosław Botev",
+    "width": 3177,
+    "height": 3000,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:18:34"
+  },
+  {
+    "filename": "361c0a64fbd8c017.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Courtyard_of_Al-Azhar_Mosque_Cairo_Egypt_2019_%286%29.jpg",
+    "title": "File:Courtyard of Al-Azhar Mosque Cairo Egypt 2019 (6).jpg",
+    "license": "CC BY 3.0 pl",
+    "artist": "Radosław Botev",
+    "width": 4000,
+    "height": 3000,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:18:34"
+  },
+  {
+    "filename": "b2c61c1b6bd7d58b.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Courtyard_of_Al-Azhar_Mosque_Cairo_Egypt_2019_%285%29.jpg",
+    "title": "File:Courtyard of Al-Azhar Mosque Cairo Egypt 2019 (5).jpg",
+    "license": "CC BY 3.0 pl",
+    "artist": "Radosław Botev",
+    "width": 2830,
+    "height": 4000,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:18:34"
+  },
+  {
+    "filename": "7c66ada53a769d70.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Cairo_-_Islamic_district_-_Al-Azhar_Mosque_courtyard.JPG",
+    "title": "File:Cairo - Islamic district - Al-Azhar Mosque courtyard.JPG",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Maveric149\" class=\"mw-redirect\" title=\"User:Maveric149\">Daniel Mayer</a>",
+    "width": 3068,
+    "height": 1008,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:18:34"
+  },
+  {
+    "filename": "e2da16821988a685.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Al-Azhar_Mosque%2C_Cairo%2C_Egypt5.jpg",
+    "title": "File:Al-Azhar Mosque, Cairo, Egypt5.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<bdi><a href=\"https://www.wikidata.org/wiki/Q28147777\" class=\"extiw\" title=\"d:Q28147777\"><span title=\"Spanish photographer\">Diego Delso</span></a></bdi>",
+    "width": 3888,
+    "height": 2592,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:18:34"
+  },
+  {
+    "filename": "95274a203bddfa0d.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Al-Azhar_Mosque%2C_Cairo%2C_Egypt3.jpg",
+    "title": "File:Al-Azhar Mosque, Cairo, Egypt3.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<bdi><a href=\"https://www.wikidata.org/wiki/Q28147777\" class=\"extiw\" title=\"d:Q28147777\"><span title=\"Spanish photographer\">Diego Delso</span></a></bdi>",
+    "width": 3888,
+    "height": 2592,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:18:34"
+  },
+  {
+    "filename": "c03cb470e9a0b242.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/60/Al-Azhar_Mosque%2C_Cairo%2C_Egypt7.jpg",
+    "title": "File:Al-Azhar Mosque, Cairo, Egypt7.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<bdi><a href=\"https://www.wikidata.org/wiki/Q28147777\" class=\"extiw\" title=\"d:Q28147777\"><span title=\"Spanish photographer\">Diego Delso</span></a></bdi>",
+    "width": 2592,
+    "height": 3888,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:18:34"
+  }
+]

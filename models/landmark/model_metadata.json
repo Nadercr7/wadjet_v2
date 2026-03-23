@@ -1,0 +1,25 @@
+{
+  "model": "efficientnet_b0",
+  "framework": "pytorch",
+  "input_size": 224,
+  "num_classes": 52,
+  "format": "NCHW",
+  "input_range": [
+    0.0,
+    1.0
+  ],
+  "normalization": "divide_by_255",
+  "test_top1_accuracy": 0.9379586390927285,
+  "test_top3_accuracy": 0.9739826551034023,
+  "quantized": true,
+  "opset_version": 18,
+  "fp32_size_mb": 16.3,
+  "uint8_size_mb": 4.4,
+  "training": {
+    "phase1_epochs": 8,
+    "phase2_epochs": 40,
+    "loss": "CrossEntropyLoss(smoothing=0.1)",
+    "augmentation": "h-flip+rotation_15deg+brightness+contrast+shadow+blur",
+    "precision": "float32 (no mixed precision)"
+  }
+}

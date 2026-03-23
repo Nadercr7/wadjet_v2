@@ -1,0 +1,321 @@
+[
+  {
+    "hash": "eefd9193f242ee1d",
+    "original_name": "0.jpg",
+    "original_class": "Gezira",
+    "size_bytes": 17350,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:26"
+  },
+  {
+    "hash": "e13ce20c266b3ce9",
+    "original_name": "1.jpg",
+    "original_class": "Gezira",
+    "size_bytes": 8949,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:26"
+  },
+  {
+    "hash": "4b5504fb66279abd",
+    "original_name": "10.jpg",
+    "original_class": "Gezira",
+    "size_bytes": 6388,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:26"
+  },
+  {
+    "hash": "d942c8e9d1645977",
+    "original_name": "11.jpg",
+    "original_class": "Gezira",
+    "size_bytes": 8018,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:26"
+  },
+  {
+    "hash": "f35a2333c0d8d062",
+    "original_name": "12.jpg",
+    "original_class": "Gezira",
+    "size_bytes": 9658,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:26"
+  },
+  {
+    "hash": "fdde6fa6d0526909",
+    "original_name": "13.jpg",
+    "original_class": "Gezira",
+    "size_bytes": 8731,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:26"
+  },
+  {
+    "hash": "e3d87cd971ab6716",
+    "original_name": "14.jpg",
+    "original_class": "Gezira",
+    "size_bytes": 9681,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:26"
+  },
+  {
+    "hash": "8308adcf54b15c1c",
+    "original_name": "2.jpg",
+    "original_class": "Gezira",
+    "size_bytes": 12069,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:26"
+  },
+  {
+    "hash": "a3a5d8240adccaae",
+    "original_name": "3.jpg",
+    "original_class": "Gezira",
+    "size_bytes": 4325,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:26"
+  },
+  {
+    "hash": "3f9e16b6ec027a3c",
+    "original_name": "4.jpg",
+    "original_class": "Gezira",
+    "size_bytes": 6676,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:26"
+  },
+  {
+    "hash": "82fe68d26d5823df",
+    "original_name": "5.jpg",
+    "original_class": "Gezira",
+    "size_bytes": 6820,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:26"
+  },
+  {
+    "hash": "66901bc37a0825dc",
+    "original_name": "6.jpg",
+    "original_class": "Gezira",
+    "size_bytes": 10281,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:26"
+  },
+  {
+    "hash": "e8caeb75835e643c",
+    "original_name": "7.jpg",
+    "original_class": "Gezira",
+    "size_bytes": 8418,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:26"
+  },
+  {
+    "hash": "97c7364c90cb7c1d",
+    "original_name": "8.jpg",
+    "original_class": "Gezira",
+    "size_bytes": 9850,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:26"
+  },
+  {
+    "hash": "b3ae2b67dd1e3f71",
+    "original_name": "9.jpg",
+    "original_class": "Gezira",
+    "size_bytes": 6296,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:26"
+  },
+  {
+    "hash": "2674ad4b5cebd04a",
+    "original_name": "download (1).jpeg",
+    "original_class": "Cairo Tower",
+    "size_bytes": 24439,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:11"
+  },
+  {
+    "hash": "480cf0c56361496d",
+    "original_name": "download (2).jpeg",
+    "original_class": "Cairo Tower",
+    "size_bytes": 20610,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:11"
+  },
+  {
+    "hash": "42811d9fda491eb3",
+    "original_name": "download (3).jpeg",
+    "original_class": "Cairo Tower",
+    "size_bytes": 22699,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:11"
+  },
+  {
+    "hash": "a53303fe3152a50a",
+    "original_name": "download (4).jpeg",
+    "original_class": "Cairo Tower",
+    "size_bytes": 15449,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:11"
+  },
+  {
+    "hash": "9f60f8249a13d36e",
+    "original_name": "download.jpeg",
+    "original_class": "Cairo Tower",
+    "size_bytes": 19664,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:11"
+  },
+  {
+    "hash": "d93a231c09976267",
+    "original_name": "OIP (1).jpeg",
+    "original_class": "Cairo Tower",
+    "size_bytes": 21239,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:11"
+  },
+  {
+    "hash": "bf8e017755a6ec6f",
+    "original_name": "OIP (10).jpeg",
+    "original_class": "Cairo Tower",
+    "size_bytes": 19255,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:11"
+  },
+  {
+    "hash": "69708d65b4714b49",
+    "original_name": "OIP (11).jpeg",
+    "original_class": "Cairo Tower",
+    "size_bytes": 19891,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:11"
+  },
+  {
+    "hash": "7b296c91dc58a099",
+    "original_name": "OIP (12).jpeg",
+    "original_class": "Cairo Tower",
+    "size_bytes": 17202,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:11"
+  },
+  {
+    "hash": "1a16c348d273190d",
+    "original_name": "OIP (13).jpeg",
+    "original_class": "Cairo Tower",
+    "size_bytes": 18548,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:11"
+  },
+  {
+    "hash": "11b81f298bc4a59f",
+    "original_name": "OIP (14).jpeg",
+    "original_class": "Cairo Tower",
+    "size_bytes": 11121,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:11"
+  },
+  {
+    "hash": "e2d387cf7609d57e",
+    "original_name": "OIP (15).jpeg",
+    "original_class": "Cairo Tower",
+    "size_bytes": 11635,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:11"
+  },
+  {
+    "hash": "27f74e6eecd3606b",
+    "original_name": "OIP (16).jpeg",
+    "original_class": "Cairo Tower",
+    "size_bytes": 10518,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:11"
+  },
+  {
+    "hash": "40a79db93d44cea5",
+    "original_name": "OIP (17).jpeg",
+    "original_class": "Cairo Tower",
+    "size_bytes": 20613,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:11"
+  },
+  {
+    "hash": "9bffc882e596e08b",
+    "original_name": "OIP (2).jpeg",
+    "original_class": "Cairo Tower",
+    "size_bytes": 32463,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:11"
+  },
+  {
+    "hash": "fe2ff0a76dfea837",
+    "original_name": "OIP (21).jpeg",
+    "original_class": "Cairo Tower",
+    "size_bytes": 18594,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:11"
+  },
+  {
+    "hash": "528e2c8853820455",
+    "original_name": "OIP (3).jpeg",
+    "original_class": "Cairo Tower",
+    "size_bytes": 18129,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:11"
+  },
+  {
+    "hash": "055a8a3e6b75b744",
+    "original_name": "OIP (4).jpeg",
+    "original_class": "Cairo Tower",
+    "size_bytes": 16481,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:11"
+  },
+  {
+    "hash": "347cdb98de99ce2a",
+    "original_name": "OIP (5).jpeg",
+    "original_class": "Cairo Tower",
+    "size_bytes": 15408,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:11"
+  },
+  {
+    "hash": "35cff0641dabf6bc",
+    "original_name": "OIP (6).jpeg",
+    "original_class": "Cairo Tower",
+    "size_bytes": 19903,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:11"
+  },
+  {
+    "hash": "badc9796c51a52d4",
+    "original_name": "OIP (7).jpeg",
+    "original_class": "Cairo Tower",
+    "size_bytes": 20673,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:11"
+  },
+  {
+    "hash": "a1e9517f34590e51",
+    "original_name": "OIP (8).jpeg",
+    "original_class": "Cairo Tower",
+    "size_bytes": 13613,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:11"
+  },
+  {
+    "hash": "d03870b1c503749b",
+    "original_name": "OIP (9).jpeg",
+    "original_class": "Cairo Tower",
+    "size_bytes": 5116,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:11"
+  },
+  {
+    "hash": "b48325fb2e6a0433",
+    "original_name": "OIP.jpeg",
+    "original_class": "Cairo Tower",
+    "size_bytes": 24611,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:11"
+  },
+  {
+    "filename": "f534010ff13d72f8.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/The_Cairo_Tower.jpg/250px-The_Cairo_Tower.jpg",
+    "wikipedia_title": "Cairo_Tower",
+    "source": "wikipedia",
+    "downloaded_at": "2026-03-02T02:11:34"
+  }
+]

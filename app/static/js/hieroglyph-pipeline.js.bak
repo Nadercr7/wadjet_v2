@@ -1,0 +1,641 @@
+/**
+ * ═══════════════════════════════════════════════════════════════
+ *  Wadjet AI — Hieroglyph Browser Pipeline
+ *  H6.3: Client-side detection (ONNX) + classification (TF.js)
+ *  H6.5: Browser-side transliteration (Gardiner mapping)
+ * ═══════════════════════════════════════════════════════════════
+ *
+ *  Stages (all client-side except translation):
+ *    1. Detection:        ONNX Runtime Web → bounding boxes
+ *    2. Classification:   TF.js → Gardiner codes
+ *    3. Transliteration:  JS → MdC notation
+ *    4. Translation:      Server API (POST /api/v1/hieroglyphs/translate)
+ *
+ *  Public API:
+ *    new HieroglyphPipeline(options)
+ *    .init()             → Promise<void>           — load all models
+ *    .processImage(src)  → Promise<PipelineResult>  — full pipeline
+ *    .detect(tensor)     → Promise<Detection[]>     — stage 1 only
+ *    .classify(crops)    → Promise<Classification[]> — stage 2 only
+ *    .transliterate(dets)→ TranslitResult            — stage 3 only
+ *    .translate(mdc)     → Promise<TranslateResult>  — stage 4 (server)
+ *    .dispose()          → void                     — free memory
+ *
+ *  Dependencies (loaded via CDN):
+ *    - @tensorflow/tfjs >= 4.22.0
+ *    - onnxruntime-web >= 1.18.0
+ *
+ *  Globals exposed:
+ *    window.HieroglyphPipeline
+ *    window.HieroglyphPipelineState
+ */
+
+'use strict';
+
+/* ── States ─────────────────────────────────────────── */
+
+var HieroglyphPipelineState = Object.freeze({
+    IDLE:     'idle',
+    LOADING:  'loading',
+    READY:    'ready',
+    PROCESSING: 'processing',
+    ERROR:    'error'
+});
+
+/* ── HieroglyphPipeline ─────────────────────────────── */
+
+/**
+ * @param {Object} opts
+ * @param {string} [opts.detectorUrl]     — glyph_detector_uint8.onnx URL
+ * @param {string} [opts.classifierUrl]   — TF.js model.json URL
+ * @param {string} [opts.labelMapUrl]     — label_mapping.json URL
+ * @param {string} [opts.translationApi]  — Server endpoint for translation
+ * @param {number} [opts.detConfThreshold]— Detection confidence (default: 0.25)
+ * @param {number} [opts.nmsIouThreshold] — NMS IoU threshold (default: 0.45)
+ * @param {number} [opts.classInputSize]  — Classification input size (default: 128)
+ * @param {Function} [opts.onStateChange] — State change callback
+ * @param {Function} [opts.onProgress]    — Loading progress callback (0–1)
+ */
+function HieroglyphPipeline(opts) {
+    opts = opts || {};
+
+    // URLs (v2 paths — models served at /models/ mount)
+    this._detectorUrl    = opts.detectorUrl    || '/models/hieroglyph/detector/glyph_detector_uint8.onnx';
+    this._classifierUrl  = opts.classifierUrl  || '/models/hieroglyph/classifier/model.json';
+    this._labelMapUrl    = opts.labelMapUrl    || '/models/hieroglyph/label_mapping.json';
+    this._translationApi = opts.translationApi || '/api/scan';
+
+    // Config
+    this._detConf    = opts.detConfThreshold || 0.25;
+    this._nmsIou     = opts.nmsIouThreshold  || 0.45;
+    this._classSize  = opts.classInputSize   || 128;
+    this._detSize    = 640;
+
+    // Callbacks
+    this._onStateChange = opts.onStateChange || function() {};
+    this._onProgress    = opts.onProgress    || function() {};
+
+    // Internal state
+    this._state       = HieroglyphPipelineState.IDLE;
+    this._onnxSession = null;
+    this._tfModel     = null;
+    this._labelMap    = null;      // { idx_to_gardiner: {0: 'A55', ...} }
+    this._gardinerMap = null;      // gardiner_code → transliteration info
+
+    // Build static Gardiner mapping for transliteration
+    this._buildGardinerMap();
+}
+
+/* ── State management ───────────────────────────────── */
+
+HieroglyphPipeline.prototype._setState = function(state) {
+    var prev = this._state;
+    this._state = state;
+    this._onStateChange(state, prev);
+};
+
+HieroglyphPipeline.prototype.getState = function() {
+    return this._state;
+};
+
+/* ── Initialization ─────────────────────────────────── */
+
+/**
+ * Load all models. Call once before processImage.
+ * @returns {Promise<void>}
+ */
+HieroglyphPipeline.prototype.init = async function() {
+    this._setState(HieroglyphPipelineState.LOADING);
+
+    try {
+        // 1. Load label mapping
+        this._onProgress(0);
+        var resp = await fetch(this._labelMapUrl);
+        if (!resp.ok) throw new Error('Failed to load label mapping: ' + resp.status);
+        this._labelMap = await resp.json();
+        this._onProgress(0.1);
+
+        // 2. Load ONNX detection model
+        if (typeof ort === 'undefined') {
+            throw new Error('ONNX Runtime Web not loaded. Add onnxruntime-web CDN.');
+        }
+        this._onnxSession = await ort.InferenceSession.create(this._detectorUrl, {
+            executionProviders: ['wasm'],
+            graphOptimizationLevel: 'all'
+        });
+        this._onProgress(0.5);
+
+        // 3. Load TF.js classification model
+        if (typeof tf === 'undefined') {
+            throw new Error('TensorFlow.js not loaded. Add @tensorflow/tfjs CDN.');
+        }
+        this._tfModel = await tf.loadGraphModel(this._classifierUrl);
+
+        // Auto-detect input size from model
+        var inputShape = this._tfModel.inputs[0].shape;
+        if (inputShape && inputShape[1]) {
+            this._classSize = inputShape[1];
+        }
+        this._onProgress(0.9);
+
+        // 4. Warm up
+        await this._warmup();
+        this._onProgress(1.0);
+
+        this._setState(HieroglyphPipelineState.READY);
+    } catch (err) {
+        this._setState(HieroglyphPipelineState.ERROR);
+        throw err;
+    }
+};
+
+HieroglyphPipeline.prototype._warmup = async function() {
+    // Warmup detection
+    var dummyDet = new ort.Tensor('float32', new Float32Array(1 * 3 * 640 * 640), [1, 3, 640, 640]);
+    var inputName = this._onnxSession.inputNames[0];
+    var feeds = {};
+    feeds[inputName] = dummyDet;
+    await this._onnxSession.run(feeds);
+
+    // Warmup classification
+    var dummyCls = tf.zeros([1, this._classSize, this._classSize, 3]);
+    var pred = this._tfModel.predict(dummyCls);
+    pred.dispose();
+    dummyCls.dispose();
+};
+
+/* ── Stage 1: Detection ─────────────────────────────── */
+
+/**
+ * Detect hieroglyph bounding boxes in an image.
+ * @param {HTMLImageElement|HTMLCanvasElement|HTMLVideoElement} source
+ * @returns {Promise<{boxes: Array, preprocessInfo: Object}>}
+ */
+HieroglyphPipeline.prototype.detect = async function(source) {
+    // Get image as canvas
+    var canvas = document.createElement('canvas');
+    var ctx = canvas.getContext('2d');
+    var srcW, srcH;
+
+    if (source instanceof HTMLVideoElement) {
+        srcW = source.videoWidth;
+        srcH = source.videoHeight;
+    } else {
+        srcW = source.naturalWidth || source.width;
+        srcH = source.naturalHeight || source.height;
+    }
+
+    // Letterbox resize to 640×640
+    var scale = Math.min(this._detSize / srcW, this._detSize / srcH);
+    var newW = Math.round(srcW * scale);
+    var newH = Math.round(srcH * scale);
+    var padX = (this._detSize - newW) / 2;
+    var padY = (this._detSize - newH) / 2;
+
+    canvas.width = this._detSize;
+    canvas.height = this._detSize;
+    ctx.fillStyle = '#808080';
+    ctx.fillRect(0, 0, this._detSize, this._detSize);
+    ctx.drawImage(source, padX, padY, newW, newH);
+
+    // Convert to CHW float32 tensor
+    var imgData = ctx.getImageData(0, 0, this._detSize, this._detSize).data;
+    var floats = new Float32Array(3 * this._detSize * this._detSize);
+    var pixelCount = this._detSize * this._detSize;
+    for (var i = 0; i < pixelCount; i++) {
+        floats[i]                  = imgData[i * 4]     / 255.0; // R → channel 0
+        floats[pixelCount + i]     = imgData[i * 4 + 1] / 255.0; // G → channel 1
+        floats[2 * pixelCount + i] = imgData[i * 4 + 2] / 255.0; // B → channel 2
+    }
+
+    var inputTensor = new ort.Tensor('float32', floats, [1, 3, this._detSize, this._detSize]);
+    var inputName = this._onnxSession.inputNames[0];
+    var feeds = {};
+    feeds[inputName] = inputTensor;
+
+    var output = await this._onnxSession.run(feeds);
+    var outputName = this._onnxSession.outputNames[0];
+    var rawOutput = output[outputName];
+
+    // Parse YOLO output: [1, 5, 8400] → after transpose: [8400, 5] (cx, cy, w, h, conf)
+    var data = rawOutput.data;
+    var numBoxes = rawOutput.dims[2]; // 8400
+    var numCols = rawOutput.dims[1];  // 5
+
+    var boxes = [];
+    for (var b = 0; b < numBoxes; b++) {
+        var conf = data[4 * numBoxes + b]; // Transposed: row 4 = confidence
+        if (conf < this._detConf) continue;
+
+        var cx = data[0 * numBoxes + b];
+        var cy = data[1 * numBoxes + b];
+        var bw = data[2 * numBoxes + b];
+        var bh = data[3 * numBoxes + b];
+
+        // Convert from letterbox coords to original image coords
+        var x1 = ((cx - bw / 2) - padX) / scale;
+        var y1 = ((cy - bh / 2) - padY) / scale;
+        var x2 = ((cx + bw / 2) - padX) / scale;
+        var y2 = ((cy + bh / 2) - padY) / scale;
+
+        // Clamp to image bounds
+        x1 = Math.max(0, Math.min(srcW, x1));
+        y1 = Math.max(0, Math.min(srcH, y1));
+        x2 = Math.max(0, Math.min(srcW, x2));
+        y2 = Math.max(0, Math.min(srcH, y2));
+
+        if (x2 - x1 < 5 || y2 - y1 < 5) continue;
+
+        boxes.push({ x1: x1, y1: y1, x2: x2, y2: y2, confidence: conf });
+    }
+
+    // NMS
+    boxes = this._nms(boxes, this._nmsIou);
+
+    return {
+        boxes: boxes,
+        preprocessInfo: { scale: scale, padX: padX, padY: padY, srcW: srcW, srcH: srcH }
+    };
+};
+
+/**
+ * Simple greedy NMS.
+ */
+HieroglyphPipeline.prototype._nms = function(boxes, iouThreshold) {
+    boxes.sort(function(a, b) { return b.confidence - a.confidence; });
+    var keep = [];
+    var suppressed = new Set();
+
+    for (var i = 0; i < boxes.length; i++) {
+        if (suppressed.has(i)) continue;
+        keep.push(boxes[i]);
+        for (var j = i + 1; j < boxes.length; j++) {
+            if (suppressed.has(j)) continue;
+            if (this._iou(boxes[i], boxes[j]) > iouThreshold) {
+                suppressed.add(j);
+            }
+        }
+    }
+    return keep;
+};
+
+HieroglyphPipeline.prototype._iou = function(a, b) {
+    var x1 = Math.max(a.x1, b.x1);
+    var y1 = Math.max(a.y1, b.y1);
+    var x2 = Math.min(a.x2, b.x2);
+    var y2 = Math.min(a.y2, b.y2);
+    var inter = Math.max(0, x2 - x1) * Math.max(0, y2 - y1);
+    var areaA = (a.x2 - a.x1) * (a.y2 - a.y1);
+    var areaB = (b.x2 - b.x1) * (b.y2 - b.y1);
+    return inter / (areaA + areaB - inter + 1e-6);
+};
+
+/* ── Stage 2: Classification ────────────────────────── */
+
+/**
+ * Classify detected glyph crops.
+ * @param {HTMLImageElement|HTMLCanvasElement|HTMLVideoElement} source — original image
+ * @param {Array} boxes — from detect()
+ * @returns {Promise<Array>} — [{...box, classId, gardinerCode, classConf}]
+ */
+HieroglyphPipeline.prototype.classify = async function(source, boxes) {
+    if (!boxes.length) return [];
+
+    var size = this._classSize;
+    var results = [];
+    var i2g = this._labelMap.idx_to_gardiner;
+
+    // Process in batch using TF.js
+    var tensors = tf.tidy(function() {
+        var crops = [];
+        for (var i = 0; i < boxes.length; i++) {
+            var box = boxes[i];
+            var cropCanvas = document.createElement('canvas');
+            cropCanvas.width = size;
+            cropCanvas.height = size;
+            var ctx = cropCanvas.getContext('2d');
+
+            // Draw cropped region
+            var srcW, srcH;
+            if (source instanceof HTMLVideoElement) {
+                srcW = source.videoWidth;
+                srcH = source.videoHeight;
+            } else {
+                srcW = source.naturalWidth || source.width;
+                srcH = source.naturalHeight || source.height;
+            }
+
+            ctx.drawImage(source,
+                box.x1, box.y1, box.x2 - box.x1, box.y2 - box.y1,
+                0, 0, size, size
+            );
+
+            var tensor = tf.browser.fromPixels(cropCanvas)
+                .toFloat()
+                .div(255.0);
+            crops.push(tensor);
+        }
+        return tf.stack(crops); // [N, H, W, 3]
+    });
+
+    var logits = this._tfModel.predict(tensors);
+    var probs  = tf.softmax(logits, -1);
+    var classIds = tf.argMax(probs, -1);
+    var maxProbs = tf.max(probs, -1);
+
+    var idsArr   = await classIds.data();
+    var probsArr = await maxProbs.data();
+
+    for (var i = 0; i < boxes.length; i++) {
+        var classId = idsArr[i];
+        var gardiner = i2g[String(classId)] || ('UNK_' + classId);
+        results.push({
+            x1: boxes[i].x1,
+            y1: boxes[i].y1,
+            x2: boxes[i].x2,
+            y2: boxes[i].y2,
+            confidence: boxes[i].confidence,
+            classId: classId,
+            gardinerCode: gardiner,
+            classConfidence: probsArr[i]
+        });
+    }
+
+    // Clean up
+    tensors.dispose();
+    logits.dispose();
+    probs.dispose();
+    classIds.dispose();
+    maxProbs.dispose();
+
+    return results;
+};
+
+/* ── Stage 3: Transliteration ───────────────────────── */
+
+/**
+ * Convert classified glyph sequence to MdC transliteration.
+ * Uses simplified reading order (left-to-right sorted by x-position).
+ * @param {Array} glyphs — from classify()
+ * @returns {Object} — {transliteration, gardinerSequence, direction}
+ */
+HieroglyphPipeline.prototype.transliterate = function(glyphs) {
+    if (!glyphs.length) {
+        return { transliteration: '', gardinerSequence: '', direction: 'RTL' };
+    }
+
+    // Sort by reading order: cluster into lines (by y), sort within line (by x, RTL default)
+    var lines = this._clusterIntoLines(glyphs);
+    var direction = 'RTL'; // Default for Egyptian
+
+    var mdc_parts = [];
+    var gardiner_parts = [];
+
+    for (var li = 0; li < lines.length; li++) {
+        var line = lines[li];
+        // Sort RTL (rightmost first)
+        line.sort(function(a, b) { return b.x1 - a.x1; });
+
+        var lineTranslit = [];
+        var lineGardiner = [];
+        for (var gi = 0; gi < line.length; gi++) {
+            var g = line[gi];
+            var code = g.gardinerCode;
+            var info = this._gardinerMap[code];
+            if (info) {
+                if (info.isDeterminative) {
+                    lineTranslit.push('<' + (info.detClass || code) + '>');
+                } else {
+                    lineTranslit.push(info.transliteration || code);
+                }
+            } else {
+                lineTranslit.push('[' + code + ']');
+            }
+            lineGardiner.push(code);
+        }
+        mdc_parts.push(lineTranslit.join('-'));
+        gardiner_parts.push(lineGardiner.join('-'));
+    }
+
+    return {
+        transliteration: mdc_parts.join(' '),
+        gardinerSequence: gardiner_parts.join(' '),
+        direction: direction,
+        numLines: lines.length,
+        numGlyphs: glyphs.length
+    };
+};
+
+/**
+ * Cluster glyphs into lines by vertical overlap.
+ */
+HieroglyphPipeline.prototype._clusterIntoLines = function(glyphs) {
+    if (!glyphs.length) return [];
+
+    // Sort by y-center
+    var sorted = glyphs.slice().sort(function(a, b) {
+        return ((a.y1 + a.y2) / 2) - ((b.y1 + b.y2) / 2);
+    });
+
+    var lines = [[sorted[0]]];
+    for (var i = 1; i < sorted.length; i++) {
+        var glyph = sorted[i];
+        var lastLine = lines[lines.length - 1];
+        var lastGlyph = lastLine[lastLine.length - 1];
+
+        // Check vertical overlap
+        var overlapY = Math.min(glyph.y2, lastGlyph.y2) - Math.max(glyph.y1, lastGlyph.y1);
+        var minH = Math.min(glyph.y2 - glyph.y1, lastGlyph.y2 - lastGlyph.y1);
+        if (overlapY > minH * 0.3) {
+            lastLine.push(glyph);
+        } else {
+            lines.push([glyph]);
+        }
+    }
+    return lines;
+};
+
+/* ── Stage 4: Translation (Server API) ──────────────── */
+
+/**
+ * Send transliteration to server for translation.
+ * @param {string} mdc — MdC transliteration
+ * @returns {Promise<{english: string, arabic: string, error: string}>}
+ */
+HieroglyphPipeline.prototype.translate = async function(mdc) {
+    if (!mdc) return { english: '', arabic: '', error: '' };
+
+    try {
+        var resp = await fetch(this._translationApi, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ transliteration: mdc })
+        });
+        if (!resp.ok) throw new Error('Translation API error: ' + resp.status);
+        return await resp.json();
+    } catch (err) {
+        return { english: '', arabic: '', error: err.message };
+    }
+};
+
+/* ── Full Pipeline ──────────────────────────────────── */
+
+/**
+ * Run the complete pipeline on an image source.
+ * @param {HTMLImageElement|HTMLCanvasElement|HTMLVideoElement} source
+ * @param {Object} [opts]
+ * @param {boolean} [opts.translate=false] — include server-side translation
+ * @returns {Promise<Object>} — full pipeline result
+ */
+HieroglyphPipeline.prototype.processImage = async function(source, opts) {
+    opts = opts || {};
+    var doTranslate = opts.translate || false;
+    this._setState(HieroglyphPipelineState.PROCESSING);
+
+    var result = {
+        numDetections: 0,
+        glyphs: [],
+        transliteration: '',
+        gardinerSequence: '',
+        readingDirection: 'RTL',
+        translationEn: '',
+        translationAr: '',
+        translationError: '',
+        timing: { detectionMs: 0, classificationMs: 0, transliterationMs: 0, translationMs: 0, totalMs: 0 }
+    };
+
+    var tTotal = performance.now();
+
+    // Stage 1: Detection
+    var t0 = performance.now();
+    var detResult = await this.detect(source);
+    result.timing.detectionMs = performance.now() - t0;
+    result.numDetections = detResult.boxes.length;
+
+    if (!detResult.boxes.length) {
+        result.timing.totalMs = performance.now() - tTotal;
+        this._setState(HieroglyphPipelineState.READY);
+        return result;
+    }
+
+    // Stage 2: Classification
+    t0 = performance.now();
+    result.glyphs = await this.classify(source, detResult.boxes);
+    result.timing.classificationMs = performance.now() - t0;
+
+    // Stage 3: Transliteration
+    t0 = performance.now();
+    var translit = this.transliterate(result.glyphs);
+    result.timing.transliterationMs = performance.now() - t0;
+    result.transliteration = translit.transliteration;
+    result.gardinerSequence = translit.gardinerSequence;
+    result.readingDirection = translit.direction;
+
+    // Stage 4: Translation (optional, server-side)
+    if (doTranslate && result.transliteration) {
+        t0 = performance.now();
+        var trans = await this.translate(result.transliteration);
+        result.timing.translationMs = performance.now() - t0;
+        result.translationEn = trans.english || '';
+        result.translationAr = trans.arabic || '';
+        result.translationError = trans.error || '';
+    }
+
+    result.timing.totalMs = performance.now() - tTotal;
+    this._setState(HieroglyphPipelineState.READY);
+    return result;
+};
+
+/* ── Cleanup ────────────────────────────────────────── */
+
+HieroglyphPipeline.prototype.dispose = function() {
+    if (this._tfModel) {
+        this._tfModel.dispose();
+        this._tfModel = null;
+    }
+    this._onnxSession = null;
+    this._setState(HieroglyphPipelineState.IDLE);
+};
+
+/* ── Gardiner Mapping (Transliteration Data) ────────── */
+
+/**
+ * Build static Gardiner → transliteration mapping.
+ * Covers uniliterals, common biliterals, and determinative categories.
+ */
+HieroglyphPipeline.prototype._buildGardinerMap = function() {
+    var m = {};
+
+    // Uniliterals (single consonant signs)
+    var uni = {
+        'G1':'A','M17':'i','M17A':'i','D36':'a','G43':'w',
+        'D58':'b','Q3':'p','I9':'f','G17':'m','N35':'n',
+        'D21':'r','O4':'h','V28':'H','Aa1':'x','Aa2':'X',
+        'S29':'s','N37':'S','D46':'d','I10':'D','X1':'t',
+        'V13':'T','N29':'q','V31':'k','W11':'g'
+    };
+    for (var code in uni) {
+        m[code] = { transliteration: uni[code], isDeterminative: false };
+    }
+
+    // Common biliterals
+    var bi = {
+        'Y5':'mn','R4':'Htp','U1':'mA','P8':'xn','F35':'nfr',
+        'S42':'wAH','U7':'mr','W14':'Hz','D28':'kA','V30':'nb',
+        'Aa15':'wDa','F34':'ib','T14':'aHA','F12':'wsr','O34':'zA',
+        'M3':'Ht','U15':'Hm','M8':'SA','R7':'sn','D4':'ir',
+        'U6':'mr','V29':'wAD','M41':'Hsa','D53':'mw','N25':'xAs',
+        'U23':'Ab','M12':'sp','M23':'sw','D2':'Hr','O1':'pr',
+        'N5':'ra','T19':'Dba','D19':'fnD','R8':'nTr','M16':'HA',
+        'M44':'Sma','D52':'mt','S34':'anx','V4':'ms','F32':'bA',
+        'U28':'Dd','Aa28':'qd','Aa26':'Hs','Aa27':'nd'
+    };
+    for (var code in bi) {
+        m[code] = { transliteration: bi[code], isDeterminative: false };
+    }
+
+    // Common triliterals
+    var tri = {
+        'R11':'Dd','G25':'Ax','F40':'Aw','S38':'mDH',
+        'F4':'nDm','R19':'wAb','G7':'bik'
+    };
+    for (var code in tri) {
+        m[code] = { transliteration: tri[code], isDeterminative: false };
+    }
+
+    // Common logograms
+    var logo = {
+        'N1':'tA','N14':'sbA','N26':'Dw','N36':'mr',
+        'N16':'tA','D1':'tp','D56':'rd','D60':'sxm',
+        'F44':'spd','G5':'Hr','N31':'wAt','O6':'Hwt',
+        'P1':'dpt','R22':'xnt'
+    };
+    for (var code in logo) {
+        m[code] = { transliteration: logo[code], isDeterminative: false };
+    }
+
+    // Determinatives
+    var det = {
+        'A1':'man','A2':'man','B1':'woman','D40':'action',
+        'G37':'bird','M1':'tree','N33':'grain','O49':'city',
+        'Y1':'abstract','Z1':'stroke','A14':'death','D54':'walking',
+        'A24':'striking','E1':'animal','F27':'skin','F51':'flesh',
+        'N23':'land','N35A':'water','P1A':'boat','T30':'weapon',
+        'W22':'vessel','Z2':'plural'
+    };
+    for (var code in det) {
+        m[code] = { transliteration: '', isDeterminative: true, detClass: det[code] };
+    }
+
+    this._gardinerMap = m;
+};
+
+/* ── Static helpers ─────────────────────────────────── */
+
+HieroglyphPipeline.isAvailable = function() {
+    return typeof tf !== 'undefined' && typeof ort !== 'undefined';
+};
+
+/* ── Expose globally ────────────────────────────────── */
+window.HieroglyphPipeline = HieroglyphPipeline;
+window.HieroglyphPipelineState = HieroglyphPipelineState;

@@ -1,0 +1,22 @@
+{
+  "wikipedia": {
+    "en": {
+      "title": "Great Sphinx of Giza",
+      "extract": "The Great Sphinx of Giza is a limestone statue of a reclining sphinx, a mythical creature with the head of a human and the body of a lion. The monument was sculpted from the limestone bedrock of the Eocene-aged Mokattam Formation and faces east on the Giza Plateau, on the west bank of the Nile in Giza, Egypt. The oldest known monumental sculpture in Egypt, the Sphinx is part of the Memphite Necropolis and is a UNESCO World Heritage Site.",
+      "description": "Limestone statue of a reclining sphinx",
+      "coordinates": {
+        "lat": 29.97526,
+        "lon": 31.13758
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Sphinx_with_the_third_pyramid.jpg/330px-Sphinx_with_the_third_pyramid.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/4/42/Sphinx_with_the_third_pyramid.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Great_Sphinx_of_Giza"
+    },
+    "ar": {
+      "title": "أبو الهول",
+      "extract": "أبو الهول العظيم، هو تمثال حجري ضخم منحوت من الحجر الجيري، يجسد مخلوقًا أسطوريًا برأس إنسان وجسد أسد في وضع الاستلقاء. يتجه التمثال مباشرة من الغرب إلى الشرق، يقع على هضبة الجيزة على الضفة الغربية لنهر النيل في الجيزة، مصر. يُعتقد أن ملامح وجه التمثال تعود إلى الفرعون خفرع. نحت الشكل الأصلي لأبو الهول من صخر الأديم، وتم ترميمه لاحقًا بطبقات الحجر الجيري. يبلغ طول التمثال 73 مترًا من المخلب إلى الذيل، وارتفاعه 20 مترًا من القاعدة إلى أعلى الرأس، وعرضه 19 مترًا عند أقدامه الخلفية.",
+      "description": "تمثال حجري ضخم منحوت من الحجر الجيري",
+      "wikipedia_url": "https://ar.wikipedia.org/wiki/%D8%A3%D8%A8%D9%88_%D8%A7%D9%84%D9%87%D9%88%D9%84"
+    }
+  }
+}

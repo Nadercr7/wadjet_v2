@@ -1,0 +1,22 @@
+{
+  "wikipedia": {
+    "en": {
+      "title": "Temple of Edfu",
+      "extract": "The Temple of Edfu is an Egyptian temple located on the west bank of the Nile in Edfu, Upper Egypt. The city was known in the Hellenistic period in Koine Greek as Ἀπόλλωνος πόλις and in Latin as Apollonopolis Magna, after the chief god Horus, who was identified as Apollo under the interpretatio graeca. It is one of the best preserved shrines in Egypt. The temple was built in the Ptolemaic Kingdom between 237 and 57 BC. The inscriptions on its walls provide important information on language, myth and religion during the Hellenistic period in Egypt. In particular, the Temple's inscribed building texts \"provide details [both] of its construction, and also preserve information about the mythical interpretation of this and all other temples as the Island of Creation.\" There are also \"important scenes and inscriptions of the Sacred Drama which related the age-old conflict between Horus and Seth.\" They are translated by the Edfu-Project.",
+      "description": "Ancient Egyptian temple, located on the west bank of the Nile in Edfu, Upper Egypt",
+      "coordinates": {
+        "lat": 24.97777778,
+        "lon": 32.87333333
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Temple_Edfou_Egypte.jpg/330px-Temple_Edfou_Egypte.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Temple_Edfou_Egypte.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Temple_of_Edfu"
+    },
+    "ar": {
+      "title": "معبد إدفو",
+      "extract": "معبد إدفو أو معبد حورس، هو ثاني معابد مصر القديمة حجماً، بعد معبد الكرنك، يقع بمدينة إدفو في صعيد مصر على الضفة الغربية لنهر النيل والتي عُرفّت خلال الفترة الهلينستية في اليونانية العامية باسم وفي اللاتينية ، يمثل المعبد إحدى آخر محاولات البطالمة لبناء معابد على نسق أسلافهم هيئة وفخامة. استغرق بناء معبد حورس نحو 180 سنة.",
+      "description": "معبد مصري",
+      "wikipedia_url": "https://ar.wikipedia.org/wiki/%D9%85%D8%B9%D8%A8%D8%AF_%D8%A5%D8%AF%D9%81%D9%88"
+    }
+  }
+}

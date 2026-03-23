@@ -1,0 +1,19 @@
+{
+  "wikipedia": {
+    "en": {
+      "title": "Akhenaten",
+      "extract": "Akhenaten, also spelled Akhenaton or Echnaton, was an ancient Egyptian pharaoh reigning c. 1353–1336 or 1351–1334 BC, the tenth ruler of the Eighteenth Dynasty. Originally named Amenhotep IV, in the fifth year of his reign he adopted the name \"Akhenaten\".",
+      "description": "18th Dynasty Egyptian pharaoh",
+      "coordinates": {},
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/GD-EG-Caire-Mus%C3%A9e061.JPG/330px-GD-EG-Caire-Mus%C3%A9e061.JPG",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/c/cc/GD-EG-Caire-Mus%C3%A9e061.JPG",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Akhenaten"
+    },
+    "ar": {
+      "title": "أخناتون",
+      "extract": "أخناتون عرف أيضًا قبل العام الخامس من ملكه بـ امنحوتب الرابع. كان فرعون من الأسرة الثامنة عشرة حكم مصر لمدة 17 عاماً وتوفي ربمَّا في 1336 ق.م أو 1334 ق.م. يُشتهر بتخليه عن تعدد الآلهة المصرية التقليدية وإدخال عبادة جديدة تركزت على آتون، التي توصف أحيانًا بأنها ديانة توحيدية أو هينوثية. تمثل نقوش مبكرة آتون بالشمس، بِالمُقارَنَةِ مَع النجوم، ولاحقًا جنبت اللغة الرسمية تسمية آتون بالإله، مُعطية إياه الإِلَوهِيَّة الشمسية مكانة أعلى من مجرد كونه إله.",
+      "description": "فرعون مصري من الأسرة الثامنة عشرة",
+      "wikipedia_url": "https://ar.wikipedia.org/wiki/%D8%A3%D8%AE%D9%86%D8%A7%D8%AA%D9%88%D9%86"
+    }
+  }
+}

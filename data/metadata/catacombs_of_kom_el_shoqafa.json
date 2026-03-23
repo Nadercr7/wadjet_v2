@@ -1,0 +1,460 @@
+[
+  {
+    "hash": "336614121a7579f9",
+    "original_name": "0.jpg",
+    "original_class": "Kom_el-Shoqafa",
+    "size_bytes": 12695,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "1bf36e11bb6aa9e0",
+    "original_name": "1.jpg",
+    "original_class": "Kom_el-Shoqafa",
+    "size_bytes": 9956,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "7825c6f5dc8be226",
+    "original_name": "10.jpg",
+    "original_class": "Kom_el-Shoqafa",
+    "size_bytes": 10787,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "c68a68cdcaad5532",
+    "original_name": "11.jpg",
+    "original_class": "Kom_el-Shoqafa",
+    "size_bytes": 11359,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "5d20e5ac62130350",
+    "original_name": "12.jpg",
+    "original_class": "Kom_el-Shoqafa",
+    "size_bytes": 10360,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "23296ddcec8310ea",
+    "original_name": "13.jpg",
+    "original_class": "Kom_el-Shoqafa",
+    "size_bytes": 9992,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "4cab6b17aa100f2e",
+    "original_name": "14.jpg",
+    "original_class": "Kom_el-Shoqafa",
+    "size_bytes": 9041,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "14c4dac684cdd270",
+    "original_name": "15.jpg",
+    "original_class": "Kom_el-Shoqafa",
+    "size_bytes": 7380,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "d78a9c6d3dd9d58f",
+    "original_name": "2.jpg",
+    "original_class": "Kom_el-Shoqafa",
+    "size_bytes": 13168,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "b6fa51f5f5c4ec0c",
+    "original_name": "3.jpg",
+    "original_class": "Kom_el-Shoqafa",
+    "size_bytes": 8329,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "16e6980e8c0910fe",
+    "original_name": "4.jpg",
+    "original_class": "Kom_el-Shoqafa",
+    "size_bytes": 8482,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "fc0759c448d56861",
+    "original_name": "5.jpg",
+    "original_class": "Kom_el-Shoqafa",
+    "size_bytes": 12665,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "87a09ee5b2180571",
+    "original_name": "6.jpg",
+    "original_class": "Kom_el-Shoqafa",
+    "size_bytes": 13145,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "ee1a8ec3ce7c6b79",
+    "original_name": "7.jpg",
+    "original_class": "Kom_el-Shoqafa",
+    "size_bytes": 15220,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "22def107ed8e6bc3",
+    "original_name": "8.jpg",
+    "original_class": "Kom_el-Shoqafa",
+    "size_bytes": 11124,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "8744d9a54f1559a6",
+    "original_name": "9.jpg",
+    "original_class": "Kom_el-Shoqafa",
+    "size_bytes": 11030,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "filename": "674cf3f34bcf3f6c.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/69/Catacombs_of_Kom_El_Shoqafa%2C_Alexandria%2C_Egypt_-_50852603641.jpg",
+    "title": "File:Catacombs of Kom El Shoqafa, Alexandria, Egypt - 50852603641.jpg",
+    "license": "CC BY-SA 2.0",
+    "artist": "Following Hadrian",
+    "width": 3648,
+    "height": 2736,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T02:05:34"
+  },
+  {
+    "filename": "50b199e3a12dde7b.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Catacombs_of_Kom_El_Shoqafa%2C_Alexandria%2C_Egypt.jpg",
+    "title": "File:Catacombs of Kom El Shoqafa, Alexandria, Egypt.jpg",
+    "license": "CC BY-SA 2.0",
+    "artist": "Following Hadrian",
+    "width": 3648,
+    "height": 2736,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T02:05:34"
+  },
+  {
+    "filename": "b45602b7db500273.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/75/Catacombs_of_Kom_El_Shoqafa%2C_Alexandria%2C_Egypt_-_50851883278.jpg",
+    "title": "File:Catacombs of Kom El Shoqafa, Alexandria, Egypt - 50851883278.jpg",
+    "license": "CC BY-SA 2.0",
+    "artist": "Following Hadrian",
+    "width": 2736,
+    "height": 3648,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T02:05:34"
+  },
+  {
+    "filename": "af1929dd267dbaad.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/43/Catacombs_of_Kom_El_Shoqafa%2C_Alexandria%2C_Egypt_-_50851883673.jpg",
+    "title": "File:Catacombs of Kom El Shoqafa, Alexandria, Egypt - 50851883673.jpg",
+    "license": "CC BY-SA 2.0",
+    "artist": "Following Hadrian",
+    "width": 2736,
+    "height": 3648,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T02:05:34"
+  },
+  {
+    "filename": "678b507c077602c4.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/07/Catacombs_of_Kom_El_Shoqafa%2C_Alexandria%2C_Egypt_-_50852603501.jpg",
+    "title": "File:Catacombs of Kom El Shoqafa, Alexandria, Egypt - 50852603501.jpg",
+    "license": "CC BY-SA 2.0",
+    "artist": "Following Hadrian",
+    "width": 3648,
+    "height": 2736,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T02:05:34"
+  },
+  {
+    "filename": "077abfe924024185.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Catacombs_of_Kom_El_Shoqafa%2C_Alexandria%2C_Egypt_-_50852698532.jpg",
+    "title": "File:Catacombs of Kom El Shoqafa, Alexandria, Egypt - 50852698532.jpg",
+    "license": "CC BY-SA 2.0",
+    "artist": "Following Hadrian",
+    "width": 3648,
+    "height": 2736,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T02:05:34"
+  },
+  {
+    "filename": "ff049be5361b949f.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Catacombs_of_Kom_El_Shoqafa%2C_Alexandria%2C_Egypt_-_50852698447.jpg",
+    "title": "File:Catacombs of Kom El Shoqafa, Alexandria, Egypt - 50852698447.jpg",
+    "license": "CC BY-SA 2.0",
+    "artist": "Following Hadrian",
+    "width": 2736,
+    "height": 3648,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T02:05:34"
+  },
+  {
+    "filename": "338db54682207693.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Catacombs_of_Kom_El_Shoqafa%2C_Alexandria%2C_Egypt_-_50852603281.jpg",
+    "title": "File:Catacombs of Kom El Shoqafa, Alexandria, Egypt - 50852603281.jpg",
+    "license": "CC BY-SA 2.0",
+    "artist": "Following Hadrian",
+    "width": 3648,
+    "height": 2736,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T02:05:34"
+  },
+  {
+    "filename": "9dc6fbadee6deb21.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Catacombs_of_Kom_El_Shoqafa%2C_Alexandria%2C_Egypt_-_50852603301.jpg",
+    "title": "File:Catacombs of Kom El Shoqafa, Alexandria, Egypt - 50852603301.jpg",
+    "license": "CC BY-SA 2.0",
+    "artist": "Following Hadrian",
+    "width": 2408,
+    "height": 3446,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T02:05:34"
+  },
+  {
+    "filename": "ffe313158c09daf0.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/11/Catacombs_of_Kom_El_Shoqafa%2C_Alexandria%2C_Egypt_-_50852603056.jpg",
+    "title": "File:Catacombs of Kom El Shoqafa, Alexandria, Egypt - 50852603056.jpg",
+    "license": "CC BY-SA 2.0",
+    "artist": "Following Hadrian",
+    "width": 3648,
+    "height": 2736,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T02:05:34"
+  },
+  {
+    "filename": "0250b7655e6552a7.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/ee/Catacombs_of_Kom_El_Shoqafa%2C_Alexandria%2C_Egypt_-_50852603161.jpg",
+    "title": "File:Catacombs of Kom El Shoqafa, Alexandria, Egypt - 50852603161.jpg",
+    "license": "CC BY-SA 2.0",
+    "artist": "Following Hadrian",
+    "width": 3648,
+    "height": 2736,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T02:05:34"
+  },
+  {
+    "filename": "51102c78cc7e0059.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Catacombs_of_Kom_El_Shoqafa%2C_Alexandria%2C_Egypt_-_50851883353.jpg",
+    "title": "File:Catacombs of Kom El Shoqafa, Alexandria, Egypt - 50851883353.jpg",
+    "license": "CC BY-SA 2.0",
+    "artist": "Following Hadrian",
+    "width": 2736,
+    "height": 3648,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T02:05:34"
+  },
+  {
+    "filename": "64c9e959734d3cc0.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/ed/The_Tomb_from_Tigrane_Pasha_Street%2C_Catacombs_of_Kom_El_Shoqafa%2C_Alexandria%2C_Egypt.jpg",
+    "title": "File:The Tomb from Tigrane Pasha Street, Catacombs of Kom El Shoqafa, Alexandria, Egypt.jpg",
+    "license": "CC BY-SA 2.0",
+    "artist": "Following Hadrian",
+    "width": 3648,
+    "height": 2736,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T02:05:34"
+  },
+  {
+    "filename": "59f7ea0c3ea87235.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/6e/The_Tomb_from_Tigrane_Pasha_Street%2C_Catacombs_of_Kom_El_Shoqafa%2C_Alexandria%2C_Egypt_-_50851903823.jpg",
+    "title": "File:The Tomb from Tigrane Pasha Street, Catacombs of Kom El Shoqafa, Alexandria, Egypt - 50851903823.jpg",
+    "license": "CC BY-SA 2.0",
+    "artist": "Following Hadrian",
+    "width": 3648,
+    "height": 2736,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T02:05:34"
+  },
+  {
+    "filename": "0148c0f3528f23d8.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/b9/The_Tomb_from_Tigrane_Pasha_Street%2C_Apis_Bull%2C_Catacombs_of_Kom_El_Shoqafa%2C_Alexandria%2C_Egypt.jpg",
+    "title": "File:The Tomb from Tigrane Pasha Street, Apis Bull, Catacombs of Kom El Shoqafa, Alexandria, Egypt.jpg",
+    "license": "CC BY-SA 2.0",
+    "artist": "Following Hadrian",
+    "width": 3648,
+    "height": 2736,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:37:28"
+  },
+  {
+    "filename": "27681b69b7cfb6a4.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/58/The_Tomb_from_Tigrane_Pasha_Street%2C_dome_painted_with_a_gorgoneion%2C_Catacombs_of_Kom_El_Shoqafa%2C_Alexandria%2C_Egypt.jpg",
+    "title": "File:The Tomb from Tigrane Pasha Street, dome painted with a gorgoneion, Catacombs of Kom El Shoqafa, Alexandria, Egypt.jpg",
+    "license": "CC BY-SA 2.0",
+    "artist": "Following Hadrian",
+    "width": 3648,
+    "height": 2736,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:37:28"
+  },
+  {
+    "filename": "5aa1b7530d78e1f6.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/86/The_Tomb_from_Tigrane_Pasha_Street%2C_Catacombs_of_Kom_El_Shoqafa%2C_Alexandria%2C_Egypt_-_50852623651.jpg",
+    "title": "File:The Tomb from Tigrane Pasha Street, Catacombs of Kom El Shoqafa, Alexandria, Egypt - 50852623651.jpg",
+    "license": "CC BY-SA 2.0",
+    "artist": "Following Hadrian",
+    "width": 3648,
+    "height": 2736,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:37:28"
+  },
+  {
+    "filename": "ee1798f1dd937b18.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/d7/The_Tomb_from_Tigrane_Pasha_Street%2C_Agathodaimon_from_left_wall_flanking_door%2C_Catacombs_of_Kom_El_Shoqafa%2C_Alexandria%2C_Egypt.jpg",
+    "title": "File:The Tomb from Tigrane Pasha Street, Agathodaimon from left wall flanking door, Catacombs of Kom El Shoqafa, Alexandria, Egypt.jpg",
+    "license": "CC BY-SA 2.0",
+    "artist": "Following Hadrian",
+    "width": 2594,
+    "height": 3615,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:37:28"
+  },
+  {
+    "filename": "3d9d4301c338a7d3.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Agathosdaimon_Catacombs_of_Kom_El_Shoqafa%2C_Alexandria%2C_Egypt.jpg",
+    "title": "File:Agathosdaimon Catacombs of Kom El Shoqafa, Alexandria, Egypt.jpg",
+    "license": "CC BY-SA 2.0",
+    "artist": "Carole Raddato",
+    "width": 1648,
+    "height": 2237,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:37:28"
+  },
+  {
+    "filename": "78a7133ea001b75d.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Catacombs_of_Kom_El_Shoqafa%2C_Alexandria%2C_Egypt_%2850851883113%29.jpg",
+    "title": "File:Catacombs of Kom El Shoqafa, Alexandria, Egypt (50851883113).jpg",
+    "license": "CC BY-SA 2.0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/41523983@N08\">Carole Raddato</a> from FRANKFURT, Germany",
+    "width": 3648,
+    "height": 2736,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:37:28"
+  },
+  {
+    "filename": "fbff0e8ace1bd166.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/85/113KOM_EL_SHOQAFA_CATACOMBS.jpg",
+    "title": "File:113KOM EL SHOQAFA CATACOMBS.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:KLOTZ\" title=\"User:KLOTZ\">Jerrye &amp; Roy Klotz, MD</a>",
+    "width": 3000,
+    "height": 1935,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:37:28"
+  },
+  {
+    "filename": "bb5a7110678142dc.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/40/CATACOMBS_IN_ALEXANDRIA_OF_KOM_EL_SHOQAFA.jpg",
+    "title": "File:CATACOMBS IN ALEXANDRIA OF KOM EL SHOQAFA.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:KLOTZ\" title=\"User:KLOTZ\">Jerrye &amp; Roy Klotz, MD</a>",
+    "width": 3000,
+    "height": 1691,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:37:28"
+  },
+  {
+    "filename": "f0742ecce50afd7e.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/27/Tomb_of_Tigran%2C_Catacombs_of_Kom_el-Shoqafa.jpg",
+    "title": "File:Tomb of Tigran, Catacombs of Kom el-Shoqafa.jpg",
+    "license": "Public domain",
+    "artist": "<span lang=\"en\">Anonymous</span><span style=\"display:none\">Unknown author</span>",
+    "width": 890,
+    "height": 594,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:37:28"
+  },
+  {
+    "filename": "e38d76415bb78bf9.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/cd/113KOM_EL_SHOQAFA_CATACOMBS_%28anthropomorphic_Anubis_in_Roman_military_dress%29.jpg",
+    "title": "File:113KOM EL SHOQAFA CATACOMBS (anthropomorphic Anubis in Roman military dress).jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:KLOTZ\" title=\"User:KLOTZ\">Jerrye &amp; Roy Klotz, MD</a>",
+    "width": 1296,
+    "height": 1935,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:37:28"
+  },
+  {
+    "filename": "5cdbe27c7378c35e.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/c4/The_Tomb_from_Tigrane_Pasha_Street%2C_male_grasping_two_palm_fronds_flanked_by_seated_jackals_and_winged_figures%2C_Catacombs_of_Kom_El_Shoqafa%2C_Alexandria%2C_Egypt.jpg",
+    "title": "File:The Tomb from Tigrane Pasha Street, male grasping two palm fronds flanked by seated jackals and winged figures, Catacombs of Kom El Shoqafa, Alexandria, Egypt.jpg",
+    "license": "CC BY-SA 2.0",
+    "artist": "Following Hadrian",
+    "width": 3648,
+    "height": 2736,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:37:28"
+  },
+  {
+    "filename": "778c7e21bf036ebd.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/cc/The_Tomb_from_Tigrane_Pasha_Street%2C_central_niche_with_a_mummy_lying_on_a_bed_between_the_two_deities_%28Isis_and_Nephthys%29%2C_Catacombs_of_Kom_El_Shoqafa%2C_Alexandria%2C_Egypt.jpg",
+    "title": "File:The Tomb from Tigrane Pasha Street, central niche with a mummy lying on a bed between the two deities (Isis and Nephthys), Catacombs of Kom El Shoqafa, Alexandria, Egypt.jpg",
+    "license": "CC BY-SA 2.0",
+    "artist": "Following Hadrian",
+    "width": 3648,
+    "height": 2736,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:37:28"
+  },
+  {
+    "filename": "930f8a3cbcbada3a.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/1d/The_Tomb_from_Tigrane_Pasha_Street%2C_Anubis%2C_Catacombs_of_Kom_El_Shoqafa%2C_Alexandria%2C_Egypt.jpg",
+    "title": "File:The Tomb from Tigrane Pasha Street, Anubis, Catacombs of Kom El Shoqafa, Alexandria, Egypt.jpg",
+    "license": "CC BY-SA 2.0",
+    "artist": "Following Hadrian",
+    "width": 2736,
+    "height": 3648,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:37:28"
+  },
+  {
+    "filename": "b0c8c36264364a30.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/e2/The_Tomb_from_Tigrane_Pasha_Street%2C_Apis_Bull_bull_from_right_wall_of_entrance%2C_Catacombs_of_Kom_El_Shoqafa%2C_Alexandria%2C_Egypt.jpg",
+    "title": "File:The Tomb from Tigrane Pasha Street, Apis Bull bull from right wall of entrance, Catacombs of Kom El Shoqafa, Alexandria, Egypt.jpg",
+    "license": "CC BY-SA 2.0",
+    "artist": "Following Hadrian",
+    "width": 3648,
+    "height": 2736,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:37:28"
+  },
+  {
+    "filename": "cf4743f75b0c0318.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/7e/..Tomb_of_Tigran%2C_Catacombs_of_Kom_el-Shoqafa.jpg",
+    "title": "File:..Tomb of Tigran, Catacombs of Kom el-Shoqafa.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Bilal_Detailz\" title=\"User:Bilal Detailz\">Bilal Detailz</a>",
+    "width": 2691,
+    "height": 2691,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:37:28"
+  },
+  {
+    "filename": "9d32e0519f76cefc.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/5b/%C3%84gypten_1999_%28724%29_Alexandria-_Katakomben_von_Kom_El_Shoqafa_%2832181144293%29.jpg",
+    "title": "File:Ägypten 1999 (724) Alexandria- Katakomben von Kom El Shoqafa (32181144293).jpg",
+    "license": "CC BY-SA 2.0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/69570948@N04\">Rüdiger Stehn</a> from Kiel, Deutschland",
+    "width": 6518,
+    "height": 4275,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:37:28"
+  }
+]

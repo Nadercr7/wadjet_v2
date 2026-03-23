@@ -1,0 +1,22 @@
+{
+  "wikipedia": {
+    "en": {
+      "title": "Temple of Kom Ombo",
+      "extract": "The Temple of Kom Ombo is an unusual double temple in the town of Kom Ombo in Aswan Governorate, Upper Egypt. It was constructed during the Ptolemaic dynasty, 180–47 BC. Some additions to it were later made during the Roman period.",
+      "description": "Building in Egypt",
+      "coordinates": {
+        "lat": 24.45194444,
+        "lon": 32.92805556
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Kom_Ombo_Portal_04.jpg/330px-Kom_Ombo_Portal_04.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/b/bc/Kom_Ombo_Portal_04.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Temple_of_Kom_Ombo"
+    },
+    "ar": {
+      "title": "معبد كوم أمبو",
+      "extract": "معبد كوم أمبو يقع بمدينة كوم أمبو بمحافظة أسوان جنوب مصر. أنشئ المعبد في عهد بطليموس السادس لعبادة الألهة سوبيك وحورس. وقد جرت مؤخرا عمليات ترميم وتجديد لمنطقة المعبد.",
+      "description": "معبد مصري",
+      "wikipedia_url": "https://ar.wikipedia.org/wiki/%D9%85%D8%B9%D8%A8%D8%AF_%D9%83%D9%88%D9%85_%D8%A3%D9%85%D8%A8%D9%88"
+    }
+  }
+}

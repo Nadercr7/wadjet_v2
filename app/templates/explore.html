@@ -1,0 +1,471 @@
+{% extends "base.html" %}
+{% block title %}Explore Egyptian Landmarks — Wadjet{% endblock %}
+{% block description %}Browse 52+ Egyptian landmarks — pyramids, temples, tombs, and museums. Filter by era, city, or type.{% endblock %}
+
+{% block head %}
+<!-- ONNX Runtime Web loaded lazily on first identification request -->
+{% endblock %}
+
+{% block content %}
+<section class="section" x-data="exploreApp()" x-cloak>
+    <div class="container-wide">
+
+        <!-- Breadcrumb -->
+        <div class="flex items-center gap-2 text-sm text-text-muted mb-8" data-animate>
+            <a href="/landmarks" class="hover:text-gold transition-colors">𓉐 Landmarks</a>
+            <span class="text-text-dim">/</span>
+            <span class="text-text">Explore</span>
+        </div>
+
+        <!-- Heading -->
+        <div class="text-center mb-10" data-animate>
+            <h1 class="mb-4">Explore <span class="text-gold-gradient">Egypt</span></h1>
+            <p class="text-text-muted text-lg max-w-2xl mx-auto">
+                Discover <span class="text-gold font-medium" x-text="totalCount"></span> legendary landmarks — pyramids, temples, tombs, and museums.
+            </p>
+        </div>
+
+        <!-- Mode Tabs -->
+        <div class="flex justify-center gap-2 mb-10" data-animate>
+            <button @click="mode = 'browse'"
+                    :class="mode === 'browse' ? 'btn-gold btn-sm' : 'btn-ghost btn-sm'">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                Browse All
+            </button>
+            <button @click="mode = 'identify'"
+                    :class="mode === 'identify' ? 'btn-gold btn-sm' : 'btn-ghost btn-sm'">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                Identify from Photo
+            </button>
+        </div>
+
+        <!-- ════════════════════════════════════════════════
+             BROWSE MODE
+             ════════════════════════════════════════════════ -->
+        <div x-show="mode === 'browse'" x-transition>
+
+        <!-- ════════════════════════════════════════════════
+             Search + Filters
+             ════════════════════════════════════════════════ -->
+        <div class="mb-8 flex flex-col sm:flex-row gap-3" data-animate>
+            <!-- Search -->
+            <div class="flex-1 relative">
+                <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-text-dim" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                <input type="text" x-model.debounce.300ms="searchQuery" @input="fetchLandmarks()"
+                       placeholder="Search landmarks..."
+                       class="input pl-10 w-full">
+            </div>
+
+            <!-- City filter -->
+            <select x-model="cityFilter" @change="fetchLandmarks()"
+                    class="input w-full sm:w-48 cursor-pointer">
+                <option value="">All Cities</option>
+                <template x-for="c in cities" :key="c.name">
+                    <option :value="c.name" x-text="c.name + ' (' + c.count + ')'"></option>
+                </template>
+            </select>
+        </div>
+
+        <!-- ════════════════════════════════════════════════
+             Type pills
+             ════════════════════════════════════════════════ -->
+        <div class="mb-8 flex flex-wrap gap-2" data-animate>
+            <button @click="selectType(null)" class="px-3 py-2 rounded-full text-sm font-medium transition-all"
+                    :class="!activeType ? 'bg-gold text-night' : 'bg-surface border border-border text-text-muted hover:border-gold/30 hover:text-text'">
+                All <span class="ml-1 opacity-60" x-text="totalCount"></span>
+            </button>
+            <template x-for="t in types" :key="t.name">
+                <button @click="selectType(t.name)"
+                        class="px-3 py-2 rounded-full text-sm font-medium transition-all"
+                        :class="activeType === t.name ? 'bg-gold text-night' : 'bg-surface border border-border text-text-muted hover:border-gold/30 hover:text-text'">
+                    <span x-text="t.name"></span>
+                    <span class="ml-1 opacity-60" x-text="t.count"></span>
+                </button>
+            </template>
+        </div>
+
+        <!-- ════════════════════════════════════════════════
+             Loading state
+             ════════════════════════════════════════════════ -->
+        <div x-show="loading" class="text-center py-12">
+            <svg class="w-8 h-8 animate-spin text-gold mx-auto" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path></svg>
+        </div>
+
+        <!-- Empty state -->
+        <div x-show="!loading && landmarks.length === 0" class="card text-center py-16" x-transition>
+            <span class="text-5xl mb-4 block opacity-30">𓉐</span>
+            <p class="text-text-muted">No landmarks match your search.</p>
+        </div>
+
+        <!-- ════════════════════════════════════════════════
+             Landmarks Grid
+             ════════════════════════════════════════════════ -->
+        <div x-show="!loading && landmarks.length > 0" x-transition
+             class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+            <template x-for="lm in landmarks" :key="lm.slug">
+                <button @click="openDetail(lm.slug)"
+                        class="card group text-left cursor-pointer hover:border-gold/40 transition-all">
+                    <!-- Thumbnail -->
+                    <div class="aspect-[4/3] rounded-lg overflow-hidden mb-4 bg-night relative">
+                        <template x-if="lm.thumbnail">
+                            <img :src="lm.thumbnail" :alt="lm.name"
+                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                 loading="lazy">
+                        </template>
+                        <template x-if="!lm.thumbnail">
+                            <div class="w-full h-full flex items-center justify-center text-4xl opacity-20">𓉐</div>
+                        </template>
+                        <!-- Source badge -->
+                        <span class="absolute top-2 right-2 text-[10px] px-1.5 py-0.5 rounded-full"
+                              :class="lm.source === 'curated' ? 'bg-gold/90 text-night' : 'bg-surface/80 text-text-muted border border-border'">
+                            <span x-text="lm.source === 'curated' ? '★ Featured' : '𓉐'"></span>
+                        </span>
+                    </div>
+
+                    <!-- Name -->
+                    <h3 class="font-semibold text-sm mb-1 group-hover:text-gold transition-colors line-clamp-1"
+                        x-text="lm.name"></h3>
+
+                    <!-- City + Type -->
+                    <div class="flex items-center gap-2 text-xs text-text-dim mb-2">
+                        <span x-text="lm.city"></span>
+                        <span>·</span>
+                        <span x-text="lm.type"></span>
+                    </div>
+
+                    <!-- Description (truncated) -->
+                    <p class="text-xs text-text-muted line-clamp-2" x-text="lm.description || ''"></p>
+                </button>
+            </template>
+        </div>
+
+        <!-- Result count -->
+        <div class="mt-6 text-center text-sm text-text-dim" x-show="!loading && landmarks.length > 0">
+            Showing <span class="text-text-muted" x-text="landmarks.length"></span>
+            of <span class="text-text-muted" x-text="totalCount"></span> landmarks
+        </div>
+
+        </div><!-- end BROWSE MODE -->
+
+        <!-- ════════════════════════════════════════════════
+             IDENTIFY MODE
+             ════════════════════════════════════════════════ -->
+        <div x-show="mode === 'identify'" x-transition>
+            <div class="max-w-2xl mx-auto">
+
+                <!-- Upload form (HTMX) -->
+                <form id="identify-form"
+                      hx-post="/api/explore/identify"
+                      hx-target="#identify-results"
+                      hx-swap="innerHTML"
+                      hx-encoding="multipart/form-data"
+                      hx-indicator="#identify-spinner"
+                      @htmx:after-request.window="if(event.detail.elt.id === 'identify-form') { $refs.identifyBtn.disabled = false; }"
+                      enctype="multipart/form-data">
+
+                    <!-- Upload area -->
+                    <div class="card border-dashed border-2 border-border hover:border-gold/30 transition-colors text-center py-16 cursor-pointer relative mb-6"
+                         @click="$refs.identifyInput.click()"
+                         @dragover.prevent="identifyDragOver = true"
+                         @dragleave.prevent="identifyDragOver = false"
+                         @drop.prevent="handleIdentifyDrop($event)"
+                         :class="{'border-gold/50 bg-gold/5': identifyDragOver}">
+
+                        <input type="file" name="file" x-ref="identifyInput" accept="image/jpeg,image/png,image/webp"
+                               @change="handleIdentifyFile($event)" class="hidden">
+
+                        <template x-if="!identifyPreview">
+                            <div>
+                                <div class="w-20 h-20 rounded-full bg-gold/10 border border-gold/20 flex items-center justify-center mx-auto mb-6">
+                                    <svg class="w-10 h-10 text-gold/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    </svg>
+                                </div>
+                                <p class="text-text-muted mb-2">
+                                    <span class="text-gold font-medium">Upload a photo</span> of any Egyptian landmark
+                                </p>
+                                <p class="text-text-dim text-sm">The AI will identify which site it is from 52 landmarks</p>
+                            </div>
+                        </template>
+
+                        <template x-if="identifyPreview">
+                            <div>
+                                <img :src="identifyPreview" class="max-h-64 rounded-lg mx-auto mb-4 object-contain" alt="Uploaded landmark">
+                                <p class="text-text-dim text-sm">Click to change image</p>
+                            </div>
+                        </template>
+                    </div>
+
+                    <!-- Identify button -->
+                    <div x-show="identifyPreview" class="text-center mb-8">
+                        <button type="submit" x-ref="identifyBtn" class="btn-gold"
+                                @click="$refs.identifyBtn.disabled = true">
+                            <span class="htmx-indicator-hide">Identify Landmark</span>
+                            <span id="identify-spinner" class="htmx-indicator flex items-center gap-2">
+                                <svg class="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path></svg>
+                                Analyzing…
+                            </span>
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Results (swapped by HTMX) -->
+                <div id="identify-results"></div>
+
+                <!-- Error state -->
+                <div x-show="identifyError" class="card border-red-500/30 text-center py-6">
+                    <p class="text-red-400 text-sm" x-text="identifyError"></p>
+                </div>
+
+            </div>
+        </div><!-- end IDENTIFY MODE -->
+
+        <!-- ════════════════════════════════════════════════
+             Detail Modal
+             ════════════════════════════════════════════════ -->
+        <div x-show="detailLandmark" x-transition:enter="transition ease-out duration-200"
+             x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+             x-transition:leave="transition ease-in duration-150"
+             x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
+             class="fixed inset-0 z-50 flex items-center justify-center p-4"
+             @click.self="detailLandmark = null" @keydown.escape.window="detailLandmark = null">
+
+            <!-- Backdrop -->
+            <div class="absolute inset-0 bg-night/80 backdrop-blur-sm"></div>
+
+            <!-- Modal content -->
+            <div x-show="detailLandmark"
+                 x-transition:enter="transition ease-out duration-200 delay-75"
+                 x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100"
+                 class="relative bg-surface border border-border rounded-xl max-w-2xl w-full max-h-[85vh] overflow-y-auto p-6 shadow-2xl">
+
+                <!-- Close button -->
+                <button @click="detailLandmark = null"
+                        class="absolute top-4 right-4 z-10 text-text-dim hover:text-text transition-colors bg-surface/80 rounded-full p-1">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+
+                <template x-if="detailLoading">
+                    <div class="text-center py-12">
+                        <svg class="w-8 h-8 animate-spin text-gold mx-auto" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path></svg>
+                    </div>
+                </template>
+
+                <template x-if="detailLandmark && !detailLoading">
+                    <div>
+                        <!-- Hero image -->
+                        <template x-if="detailLandmark.original_image || detailLandmark.thumbnail">
+                            <div class="aspect-video rounded-lg overflow-hidden mb-6 -mt-1 -mx-1">
+                                <img :src="detailLandmark.original_image || detailLandmark.thumbnail"
+                                     :alt="detailLandmark.name"
+                                     class="w-full h-full object-cover">
+                            </div>
+                        </template>
+
+                        <!-- Name + Badges -->
+                        <h2 class="text-2xl font-bold mb-2" x-text="detailLandmark.name"></h2>
+                        <div class="flex flex-wrap items-center gap-2 mb-4">
+                            <span class="badge-gold text-xs" x-text="detailLandmark.type"></span>
+                            <span class="badge-muted text-xs" x-text="detailLandmark.city"></span>
+                            <span class="badge-muted text-xs" x-show="detailLandmark.era" x-text="detailLandmark.era"></span>
+                            <span class="badge-muted text-xs" x-show="detailLandmark.period" x-text="detailLandmark.period"></span>
+                        </div>
+
+                        <!-- Description -->
+                        <p class="text-text-muted text-sm leading-relaxed mb-6"
+                           x-text="detailLandmark.description"></p>
+
+                        <!-- Highlights (curated only) -->
+                        <template x-if="detailLandmark.highlights">
+                            <div class="mb-6">
+                                <h3 class="text-sm font-semibold text-gold mb-2">Highlights</h3>
+                                <p class="text-text-muted text-sm leading-relaxed" x-text="detailLandmark.highlights"></p>
+                            </div>
+                        </template>
+
+                        <!-- Historical significance (curated only) -->
+                        <template x-if="detailLandmark.historical_significance">
+                            <div class="mb-6">
+                                <h3 class="text-sm font-semibold text-gold mb-2">Historical Significance</h3>
+                                <p class="text-text-muted text-sm leading-relaxed" x-text="detailLandmark.historical_significance"></p>
+                            </div>
+                        </template>
+
+                        <!-- Key features / artifacts grid -->
+                        <template x-if="detailLandmark.notable_features || detailLandmark.key_artifacts || detailLandmark.architectural_features">
+                            <div class="mb-6 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                <template x-if="detailLandmark.notable_features">
+                                    <div class="bg-night/50 rounded-lg p-3">
+                                        <h4 class="text-xs font-semibold text-gold mb-1.5">Notable Features</h4>
+                                        <p class="text-xs text-text-dim" x-text="detailLandmark.notable_features"></p>
+                                    </div>
+                                </template>
+                                <template x-if="detailLandmark.key_artifacts">
+                                    <div class="bg-night/50 rounded-lg p-3">
+                                        <h4 class="text-xs font-semibold text-gold mb-1.5">Key Artifacts</h4>
+                                        <p class="text-xs text-text-dim" x-text="detailLandmark.key_artifacts"></p>
+                                    </div>
+                                </template>
+                                <template x-if="detailLandmark.architectural_features">
+                                    <div class="bg-night/50 rounded-lg p-3">
+                                        <h4 class="text-xs font-semibold text-gold mb-1.5">Architecture</h4>
+                                        <p class="text-xs text-text-dim" x-text="detailLandmark.architectural_features"></p>
+                                    </div>
+                                </template>
+                            </div>
+                        </template>
+
+                        <!-- Visiting tips (curated only) -->
+                        <template x-if="detailLandmark.visiting_tips">
+                            <div class="mb-6">
+                                <h3 class="text-sm font-semibold text-gold mb-2">Visiting Tips</h3>
+                                <p class="text-text-muted text-sm leading-relaxed" x-text="detailLandmark.visiting_tips"></p>
+                            </div>
+                        </template>
+
+                        <!-- Wikipedia extract (extra context) -->
+                        <template x-if="detailLandmark.wikipedia_extract">
+                            <div class="mb-6">
+                                <h3 class="text-sm font-semibold text-gold mb-2">From Wikipedia</h3>
+                                <p class="text-text-muted text-xs leading-relaxed line-clamp-6" x-text="detailLandmark.wikipedia_extract"></p>
+                            </div>
+                        </template>
+
+                        <!-- Action links -->
+                        <div class="flex flex-wrap gap-3 pt-2 border-t border-border">
+                            <template x-if="detailLandmark.maps_url">
+                                <a :href="detailLandmark.maps_url" target="_blank" rel="noopener noreferrer"
+                                   class="btn-ghost btn-sm">
+                                    <svg class="w-4 h-4 mr-1 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                    Google Maps
+                                </a>
+                            </template>
+                            <template x-if="detailLandmark.wikipedia_url">
+                                <a :href="detailLandmark.wikipedia_url" target="_blank" rel="noopener noreferrer"
+                                   class="btn-ghost btn-sm">
+                                    Wikipedia →
+                                </a>
+                            </template>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+function exploreApp() {
+    return {
+        // Mode
+        mode: new URLSearchParams(window.location.search).get('identify') ? 'identify' : 'browse',
+
+        // Browse state
+        landmarks: [],
+        types: [],
+        cities: [],
+        totalCount: 0,
+        activeType: null,
+        cityFilter: '',
+        searchQuery: '',
+        loading: true,
+        detailLandmark: null,
+        detailLoading: false,
+
+        // Identify state
+        identifyPreview: null,
+        identifyDragOver: false,
+        identifyFile: null,
+        identifyError: '',
+
+        // Init
+        async init() {
+            await this.fetchCategories();
+            await this.fetchLandmarks();
+        },
+
+        async fetchCategories() {
+            try {
+                const resp = await fetch('/api/landmarks/categories');
+                const data = await resp.json();
+                this.types = data.types;
+                this.cities = data.cities;
+                this.totalCount = data.total;
+            } catch (err) {
+                console.error('Failed to load categories:', err);
+            }
+        },
+
+        async fetchLandmarks() {
+            this.loading = true;
+            try {
+                const params = new URLSearchParams();
+                if (this.activeType) params.set('category', this.activeType);
+                if (this.cityFilter) params.set('city', this.cityFilter);
+                if (this.searchQuery) params.set('search', this.searchQuery);
+
+                const url = '/api/landmarks' + (params.toString() ? '?' + params : '');
+                const resp = await fetch(url);
+                const data = await resp.json();
+                this.landmarks = data.landmarks;
+            } catch (err) {
+                console.error('Failed to load landmarks:', err);
+            } finally {
+                this.loading = false;
+            }
+        },
+
+        selectType(type) {
+            this.activeType = type;
+            this.fetchLandmarks();
+        },
+
+        async openDetail(slug) {
+            this.detailLandmark = {};
+            this.detailLoading = true;
+            try {
+                const resp = await fetch('/api/landmarks/' + encodeURIComponent(slug));
+                if (!resp.ok) throw new Error('Not found');
+                this.detailLandmark = await resp.json();
+            } catch (err) {
+                console.error('Failed to load landmark detail:', err);
+                this.detailLandmark = null;
+            } finally {
+                this.detailLoading = false;
+            }
+        },
+
+        // ── Identify: file handling ──
+
+        handleIdentifyFile(e) {
+            const file = e.target.files[0];
+            if (file) this._setIdentifyFile(file);
+        },
+
+        handleIdentifyDrop(e) {
+            this.identifyDragOver = false;
+            const file = e.dataTransfer.files[0];
+            if (file && file.type.startsWith('image/')) this._setIdentifyFile(file);
+        },
+
+        _setIdentifyFile(file) {
+            if (file.size > 10 * 1024 * 1024) {
+                this.identifyError = 'File too large. Maximum 10 MB.';
+                return;
+            }
+            this.identifyFile = file;
+            this.identifyResults = [];
+            this.identifyError = '';
+            // Use object URL — instant, no base64 encoding lag
+            if (this.identifyPreview) URL.revokeObjectURL(this.identifyPreview);
+            this.identifyPreview = URL.createObjectURL(file);
+        },
+
+    };
+}
+</script>
+{% endblock %}

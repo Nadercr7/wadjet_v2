@@ -1,0 +1,22 @@
+{
+  "wikipedia": {
+    "en": {
+      "title": "Egyptian Museum",
+      "extract": "The Museum of Egyptian Antiquities, commonly known as the Egyptian Museum and also called the Cairo Museum or the Egyptian Museum in Cairo (EMC), is a national history museum in Cairo, Egypt.",
+      "description": "History museum in Cairo, Egypt",
+      "coordinates": {
+        "lat": 30.047778,
+        "lon": 31.233333
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/Egyptian_Museum_logo.png/330px-Egyptian_Museum_logo.png",
+      "original_image": "https://upload.wikimedia.org/wikipedia/en/3/3b/Egyptian_Museum_logo.png",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Egyptian_Museum"
+    },
+    "ar": {
+      "title": "المتحف المصري",
+      "extract": "المتحف المصري هو أحد أكبر وأشهر المتاحف العالمية، يقع في قلب العاصمة المصرية «القاهرة» بالجهة الشمالية لميدان التحرير. يعود تاريخ إنشائه إلى عام 1835 وكان موقعه حينها بحديقة الأزبكية، حيث ضم وقتها عدداً كبيرًا من الآثار المتنوعة، ثم نُقل بمحتوياته إلى قاعة العرض الثانية بقلعة صلاح الدين، حتى فكر عالم المصريات الفرنسي أوجوست مارييت الذي كان يعمل بمتحف اللوفر في افتتاح متحف يعرض فيه مجموعة من الآثار على شاطئ النيل عند بولاق، وعندما تعرضت هذه الآثار لخطر الفيضان تم نقلها إلى ملحق خاص بقصر الخديوي إسماعيل بالجيزة، ثم جاء عالم المصريات جاستون ماسبيرو وافتتح عام 1902 في عهد الخديوي عباس حلمي الثاني مبنى المتحف الجديد في موقعه الحالي في قلب القاهرة.",
+      "description": "أحد متاحف القاهرة المشهور على مستوى العالم",
+      "wikipedia_url": "https://ar.wikipedia.org/wiki/%D8%A7%D9%84%D9%85%D8%AA%D8%AD%D9%81_%D8%A7%D9%84%D9%85%D8%B5%D8%B1%D9%8A"
+    }
+  }
+}

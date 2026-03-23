@@ -1,0 +1,826 @@
+[
+  {
+    "hash": "b73fc44e91436cc9",
+    "original_name": "0.jpg",
+    "original_class": "Dendera_Temple_complex",
+    "size_bytes": 6610,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:26"
+  },
+  {
+    "hash": "ade6253d0200eaeb",
+    "original_name": "1.jpg",
+    "original_class": "Dendera_Temple_complex",
+    "size_bytes": 10537,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:26"
+  },
+  {
+    "hash": "9b1121632420f66e",
+    "original_name": "10.jpg",
+    "original_class": "Dendera_Temple_complex",
+    "size_bytes": 7986,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:26"
+  },
+  {
+    "hash": "263f3c8b09a09ff7",
+    "original_name": "11.jpg",
+    "original_class": "Dendera_Temple_complex",
+    "size_bytes": 6485,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:26"
+  },
+  {
+    "hash": "bc01674e6ad0a4fc",
+    "original_name": "12.jpg",
+    "original_class": "Dendera_Temple_complex",
+    "size_bytes": 9790,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:26"
+  },
+  {
+    "hash": "0123adea117640e3",
+    "original_name": "13.jpg",
+    "original_class": "Dendera_Temple_complex",
+    "size_bytes": 9164,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:26"
+  },
+  {
+    "hash": "fc7775d41ce7dd8d",
+    "original_name": "14.jpg",
+    "original_class": "Dendera_Temple_complex",
+    "size_bytes": 12896,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:26"
+  },
+  {
+    "hash": "960e2a98859eae6a",
+    "original_name": "15.jpg",
+    "original_class": "Dendera_Temple_complex",
+    "size_bytes": 10028,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:26"
+  },
+  {
+    "hash": "fe24b1c7a6cd6627",
+    "original_name": "16.jpg",
+    "original_class": "Dendera_Temple_complex",
+    "size_bytes": 4688,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:26"
+  },
+  {
+    "hash": "90f453abe15f0591",
+    "original_name": "17.jpg",
+    "original_class": "Dendera_Temple_complex",
+    "size_bytes": 10321,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:26"
+  },
+  {
+    "hash": "c01e97ef7b5f14bb",
+    "original_name": "18.jpg",
+    "original_class": "Dendera_Temple_complex",
+    "size_bytes": 10907,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:26"
+  },
+  {
+    "hash": "498953e68ae701cf",
+    "original_name": "19.jpg",
+    "original_class": "Dendera_Temple_complex",
+    "size_bytes": 9711,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:26"
+  },
+  {
+    "hash": "cd7cf36e8e286123",
+    "original_name": "2.jpg",
+    "original_class": "Dendera_Temple_complex",
+    "size_bytes": 6040,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:26"
+  },
+  {
+    "hash": "3937fcedf0fe51e0",
+    "original_name": "20.jpg",
+    "original_class": "Dendera_Temple_complex",
+    "size_bytes": 7374,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:26"
+  },
+  {
+    "hash": "044a7720b8877205",
+    "original_name": "21.jpg",
+    "original_class": "Dendera_Temple_complex",
+    "size_bytes": 11770,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:26"
+  },
+  {
+    "hash": "8d787e002b587613",
+    "original_name": "3.jpg",
+    "original_class": "Dendera_Temple_complex",
+    "size_bytes": 6207,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:26"
+  },
+  {
+    "hash": "4a2aeaf064ec9016",
+    "original_name": "4.jpg",
+    "original_class": "Dendera_Temple_complex",
+    "size_bytes": 8766,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:26"
+  },
+  {
+    "hash": "d5e26c50cb81a2a8",
+    "original_name": "5.jpg",
+    "original_class": "Dendera_Temple_complex",
+    "size_bytes": 8376,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:26"
+  },
+  {
+    "hash": "e760d8e305af1590",
+    "original_name": "6.jpg",
+    "original_class": "Dendera_Temple_complex",
+    "size_bytes": 8835,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:26"
+  },
+  {
+    "hash": "4c0150e28e5d8361",
+    "original_name": "7.jpg",
+    "original_class": "Dendera_Temple_complex",
+    "size_bytes": 6542,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:26"
+  },
+  {
+    "hash": "5a9f84a1e87c7e8f",
+    "original_name": "8.jpg",
+    "original_class": "Dendera_Temple_complex",
+    "size_bytes": 11902,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:26"
+  },
+  {
+    "hash": "c5691b517d065472",
+    "original_name": "9.jpg",
+    "original_class": "Dendera_Temple_complex",
+    "size_bytes": 13804,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:26"
+  },
+  {
+    "filename": "cb7151415106ef26.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/52/Dendera_Temple.jpg",
+    "title": "File:Dendera Temple.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Bgag\" title=\"User:Bgag\">Bernard Gagnon</a>",
+    "width": 2323,
+    "height": 1571,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T02:03:27"
+  },
+  {
+    "filename": "3598cc86458711c8.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/68/Dendera_Temple_%D9%85%D8%B9%D8%A8%D8%AF_%D8%AF%D9%86%D8%AF%D8%B1%D8%A9_%285%29.jpg",
+    "title": "File:Dendera Temple معبد دندرة (5).jpg",
+    "license": "Public domain",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:%D9%88%D9%84%D8%A7%D8%A1\" title=\"User:ولاء\">ولاء</a>",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T02:03:27"
+  },
+  {
+    "filename": "2bbc919d3ea3556d.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Dendera_Temple_%D9%85%D8%B9%D8%A8%D8%AF_%D8%AF%D9%86%D8%AF%D8%B1%D8%A9_%2831%29.jpg",
+    "title": "File:Dendera Temple معبد دندرة (31).jpg",
+    "license": "Public domain",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:%D9%88%D9%84%D8%A7%D8%A1\" title=\"User:ولاء\">ولاء</a>",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T02:03:27"
+  },
+  {
+    "filename": "5d8de67769d6795c.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Dendera_Temple_%D9%85%D8%B9%D8%A8%D8%AF_%D8%AF%D9%86%D8%AF%D8%B1%D8%A9_%2834%29.jpg",
+    "title": "File:Dendera Temple معبد دندرة (34).jpg",
+    "license": "Public domain",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:%D9%88%D9%84%D8%A7%D8%A1\" title=\"User:ولاء\">ولاء</a>",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T02:03:27"
+  },
+  {
+    "filename": "f390b0faa58cf8e4.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Dendera_Temple_%D9%85%D8%B9%D8%A8%D8%AF_%D8%AF%D9%86%D8%AF%D8%B1%D8%A9_%2857%29.jpg",
+    "title": "File:Dendera Temple معبد دندرة (57).jpg",
+    "license": "Public domain",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:%D9%88%D9%84%D8%A7%D8%A1\" title=\"User:ولاء\">ولاء</a>",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T02:03:27"
+  },
+  {
+    "filename": "b8ef62c6ffae938e.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/26/Dendera_Temple_%D9%85%D8%B9%D8%A8%D8%AF_%D8%AF%D9%86%D8%AF%D8%B1%D8%A9_%2868%29.jpg",
+    "title": "File:Dendera Temple معبد دندرة (68).jpg",
+    "license": "Public domain",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:%D9%88%D9%84%D8%A7%D8%A1\" title=\"User:ولاء\">ولاء</a>",
+    "width": 4284,
+    "height": 5712,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T02:03:27"
+  },
+  {
+    "filename": "f08d809249a2d84a.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Dendera_Temple_%D9%85%D8%B9%D8%A8%D8%AF_%D8%AF%D9%86%D8%AF%D8%B1%D8%A9_%2889%29.jpg",
+    "title": "File:Dendera Temple معبد دندرة (89).jpg",
+    "license": "Public domain",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:%D9%88%D9%84%D8%A7%D8%A1\" title=\"User:ولاء\">ولاء</a>",
+    "width": 2316,
+    "height": 3088,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T02:03:27"
+  },
+  {
+    "filename": "d32be8ae01200e7d.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/51/Dendera_Temple_%D9%85%D8%B9%D8%A8%D8%AF_%D8%AF%D9%86%D8%AF%D8%B1%D8%A9_%28212%29.jpg",
+    "title": "File:Dendera Temple معبد دندرة (212).jpg",
+    "license": "Public domain",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:%D9%88%D9%84%D8%A7%D8%A1\" title=\"User:ولاء\">ولاء</a>",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T02:03:27"
+  },
+  {
+    "filename": "306a164a7d895153.png",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Dendera_7_977.PNG",
+    "wikipedia_title": "Dendera_Temple_complex",
+    "source": "wikipedia",
+    "downloaded_at": "2026-03-02T02:11:10"
+  },
+  {
+    "filename": "c0540dfcdf30bf26.png",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Dendera_7_977.PNG/1280px-Dendera_7_977.PNG",
+    "wikipedia_title": "Dendera_Temple_complex",
+    "source": "wikipedia",
+    "downloaded_at": "2026-03-02T02:11:10"
+  },
+  {
+    "filename": "8174dd42de37dca5.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Dendera_Temple.jpg/500px-Dendera_Temple.jpg",
+    "wikipedia_title": "Dendera_Temple_complex",
+    "source": "wikipedia",
+    "downloaded_at": "2026-03-02T02:11:10"
+  },
+  {
+    "filename": "cb7151415106ef26.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/52/Dendera_Temple.jpg",
+    "title": "File:Dendera Temple.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Bgag\" title=\"User:Bgag\">Bernard Gagnon</a>",
+    "width": 2323,
+    "height": 1571,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:11:41"
+  },
+  {
+    "filename": "4e5ecb5ef0e33455.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Dendera_Temple_%D9%85%D8%B9%D8%A8%D8%AF_%D8%AF%D9%86%D8%AF%D8%B1%D8%A9_%2820%29.jpg",
+    "title": "File:Dendera Temple معبد دندرة (20).jpg",
+    "license": "Public domain",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:%D9%88%D9%84%D8%A7%D8%A1\" title=\"User:ولاء\">ولاء</a>",
+    "width": 5712,
+    "height": 4284,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:11:41"
+  },
+  {
+    "filename": "a68bd06efa5b5b48.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Dendera_Temple_%D9%85%D8%B9%D8%A8%D8%AF_%D8%AF%D9%86%D8%AF%D8%B1%D8%A9_%2877%29.jpg",
+    "title": "File:Dendera Temple معبد دندرة (77).jpg",
+    "license": "Public domain",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:%D9%88%D9%84%D8%A7%D8%A1\" title=\"User:ولاء\">ولاء</a>",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:11:41"
+  },
+  {
+    "filename": "0da55906bf02a052.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/52/Dendera_Temple_%D9%85%D8%B9%D8%A8%D8%AF_%D8%AF%D9%86%D8%AF%D8%B1%D8%A9_%28228%29.jpg",
+    "title": "File:Dendera Temple معبد دندرة (228).jpg",
+    "license": "Public domain",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:%D9%88%D9%84%D8%A7%D8%A1\" title=\"User:ولاء\">ولاء</a>",
+    "width": 5712,
+    "height": 4284,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:11:41"
+  },
+  {
+    "filename": "fb6f4e2548eed2ea.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/36/Dendera_Temple_%D9%85%D8%B9%D8%A8%D8%AF_%D8%AF%D9%86%D8%AF%D8%B1%D8%A9_%28122%29.jpg",
+    "title": "File:Dendera Temple معبد دندرة (122).jpg",
+    "license": "Public domain",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:%D9%88%D9%84%D8%A7%D8%A1\" title=\"User:ولاء\">ولاء</a>",
+    "width": 4284,
+    "height": 5712,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:11:41"
+  },
+  {
+    "filename": "e0ea47fef7da9b62.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/58/Dendera_Temple_%D9%85%D8%B9%D8%A8%D8%AF_%D8%AF%D9%86%D8%AF%D8%B1%D8%A9_%28138%29.jpg",
+    "title": "File:Dendera Temple معبد دندرة (138).jpg",
+    "license": "Public domain",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:%D9%88%D9%84%D8%A7%D8%A1\" title=\"User:ولاء\">ولاء</a>",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:11:41"
+  },
+  {
+    "filename": "566c216e7792c965.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/58/Dendera_Temple_%D9%85%D8%B9%D8%A8%D8%AF_%D8%AF%D9%86%D8%AF%D8%B1%D8%A9_%28148%29.jpg",
+    "title": "File:Dendera Temple معبد دندرة (148).jpg",
+    "license": "Public domain",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:%D9%88%D9%84%D8%A7%D8%A1\" title=\"User:ولاء\">ولاء</a>",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:11:41"
+  },
+  {
+    "filename": "43bc06cad26c32b3.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Dendera_Temple_%D9%85%D8%B9%D8%A8%D8%AF_%D8%AF%D9%86%D8%AF%D8%B1%D8%A9_%28150%29.jpg",
+    "title": "File:Dendera Temple معبد دندرة (150).jpg",
+    "license": "Public domain",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:%D9%88%D9%84%D8%A7%D8%A1\" title=\"User:ولاء\">ولاء</a>",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:11:41"
+  },
+  {
+    "filename": "f2e8482bb18a45ad.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Dendera_Temple_%D9%85%D8%B9%D8%A8%D8%AF_%D8%AF%D9%86%D8%AF%D8%B1%D8%A9_%28177%29.jpg",
+    "title": "File:Dendera Temple معبد دندرة (177).jpg",
+    "license": "Public domain",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:%D9%88%D9%84%D8%A7%D8%A1\" title=\"User:ولاء\">ولاء</a>",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:11:41"
+  },
+  {
+    "filename": "a44eac9b14a06b87.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/86/Dendera_Temple_%D9%85%D8%B9%D8%A8%D8%AF_%D8%AF%D9%86%D8%AF%D8%B1%D8%A9_%28198%29.jpg",
+    "title": "File:Dendera Temple معبد دندرة (198).jpg",
+    "license": "Public domain",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:%D9%88%D9%84%D8%A7%D8%A1\" title=\"User:ولاء\">ولاء</a>",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:11:41"
+  },
+  {
+    "filename": "2acc194a84e59c6f.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/42/Dendera_Temple_%D9%85%D8%B9%D8%A8%D8%AF_%D8%AF%D9%86%D8%AF%D8%B1%D8%A9_%288%29.jpg",
+    "title": "File:Dendera Temple معبد دندرة (8).jpg",
+    "license": "Public domain",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:%D9%88%D9%84%D8%A7%D8%A1\" title=\"User:ولاء\">ولاء</a>",
+    "width": 5712,
+    "height": 4284,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:11:41"
+  },
+  {
+    "filename": "3d102ce75b572008.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Dendera_Temple_%D9%85%D8%B9%D8%A8%D8%AF_%D8%AF%D9%86%D8%AF%D8%B1%D8%A9_%2823%29.jpg",
+    "title": "File:Dendera Temple معبد دندرة (23).jpg",
+    "license": "Public domain",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:%D9%88%D9%84%D8%A7%D8%A1\" title=\"User:ولاء\">ولاء</a>",
+    "width": 5712,
+    "height": 4284,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:11:41"
+  },
+  {
+    "filename": "90be3ee4189a8fd4.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/a6/Dendera_Temple_%D9%85%D8%B9%D8%A8%D8%AF_%D8%AF%D9%86%D8%AF%D8%B1%D8%A9_%2837%29.jpg",
+    "title": "File:Dendera Temple معبد دندرة (37).jpg",
+    "license": "Public domain",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:%D9%88%D9%84%D8%A7%D8%A1\" title=\"User:ولاء\">ولاء</a>",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:11:41"
+  },
+  {
+    "filename": "949034f773f0cbd9.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Dendera_Temple_%D9%85%D8%B9%D8%A8%D8%AF_%D8%AF%D9%86%D8%AF%D8%B1%D8%A9_%2846%29.jpg",
+    "title": "File:Dendera Temple معبد دندرة (46).jpg",
+    "license": "Public domain",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:%D9%88%D9%84%D8%A7%D8%A1\" title=\"User:ولاء\">ولاء</a>",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:11:41"
+  },
+  {
+    "filename": "450cb2166e9f9374.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Dendera_Temple_%D9%85%D8%B9%D8%A8%D8%AF_%D8%AF%D9%86%D8%AF%D8%B1%D8%A9_%2849%29.jpg",
+    "title": "File:Dendera Temple معبد دندرة (49).jpg",
+    "license": "Public domain",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:%D9%88%D9%84%D8%A7%D8%A1\" title=\"User:ولاء\">ولاء</a>",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:11:41"
+  },
+  {
+    "filename": "c80ab8caa2adb2cd.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/10/Dendera_Temple_%D9%85%D8%B9%D8%A8%D8%AF_%D8%AF%D9%86%D8%AF%D8%B1%D8%A9_%2853%29.jpg",
+    "title": "File:Dendera Temple معبد دندرة (53).jpg",
+    "license": "Public domain",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:%D9%88%D9%84%D8%A7%D8%A1\" title=\"User:ولاء\">ولاء</a>",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:11:41"
+  },
+  {
+    "filename": "6c2794afd98a8846.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/32/Dendera_Temple_%D9%85%D8%B9%D8%A8%D8%AF_%D8%AF%D9%86%D8%AF%D8%B1%D8%A9_%281%29.jpg",
+    "title": "File:Dendera Temple معبد دندرة (1).jpg",
+    "license": "Public domain",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:%D9%88%D9%84%D8%A7%D8%A1\" title=\"User:ولاء\">ولاء</a>",
+    "width": 5712,
+    "height": 4284,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:11:41"
+  },
+  {
+    "filename": "2fd6dc4e39b1e79e.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/60/Dendera_Temple_%D9%85%D8%B9%D8%A8%D8%AF_%D8%AF%D9%86%D8%AF%D8%B1%D8%A9_%28211%29.jpg",
+    "title": "File:Dendera Temple معبد دندرة (211).jpg",
+    "license": "Public domain",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:%D9%88%D9%84%D8%A7%D8%A1\" title=\"User:ولاء\">ولاء</a>",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:11:41"
+  },
+  {
+    "filename": "db23ae4995f96353.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/82/Dendera_Temple_%D9%85%D8%B9%D8%A8%D8%AF_%D8%AF%D9%86%D8%AF%D8%B1%D8%A9_%28215%29.jpg",
+    "title": "File:Dendera Temple معبد دندرة (215).jpg",
+    "license": "Public domain",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:%D9%88%D9%84%D8%A7%D8%A1\" title=\"User:ولاء\">ولاء</a>",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:11:41"
+  },
+  {
+    "filename": "56741eb441ff3d39.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Dendera_Temple_%D9%85%D8%B9%D8%A8%D8%AF_%D8%AF%D9%86%D8%AF%D8%B1%D8%A9_%28105%29.jpg",
+    "title": "File:Dendera Temple معبد دندرة (105).jpg",
+    "license": "Public domain",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:%D9%88%D9%84%D8%A7%D8%A1\" title=\"User:ولاء\">ولاء</a>",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:11:41"
+  },
+  {
+    "filename": "bdb0e95fb989b795.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Dendera_Temple_%D9%85%D8%B9%D8%A8%D8%AF_%D8%AF%D9%86%D8%AF%D8%B1%D8%A9_%28106%29.jpg",
+    "title": "File:Dendera Temple معبد دندرة (106).jpg",
+    "license": "Public domain",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:%D9%88%D9%84%D8%A7%D8%A1\" title=\"User:ولاء\">ولاء</a>",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:11:41"
+  },
+  {
+    "filename": "b50f9c95be19d1b5.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/45/Dendera_Temple_%D9%85%D8%B9%D8%A8%D8%AF_%D8%AF%D9%86%D8%AF%D8%B1%D8%A9_%28113%29.jpg",
+    "title": "File:Dendera Temple معبد دندرة (113).jpg",
+    "license": "Public domain",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:%D9%88%D9%84%D8%A7%D8%A1\" title=\"User:ولاء\">ولاء</a>",
+    "width": 4284,
+    "height": 5712,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:11:41"
+  },
+  {
+    "filename": "add3ece018a3c65f.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/57/Dendera_Temple_%D9%85%D8%B9%D8%A8%D8%AF_%D8%AF%D9%86%D8%AF%D8%B1%D8%A9_%28134%29.jpg",
+    "title": "File:Dendera Temple معبد دندرة (134).jpg",
+    "license": "Public domain",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:%D9%88%D9%84%D8%A7%D8%A1\" title=\"User:ولاء\">ولاء</a>",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:11:41"
+  },
+  {
+    "filename": "82e079c23d37505c.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/26/Dendera_Temple_%D9%85%D8%B9%D8%A8%D8%AF_%D8%AF%D9%86%D8%AF%D8%B1%D8%A9_%28165%29.jpg",
+    "title": "File:Dendera Temple معبد دندرة (165).jpg",
+    "license": "Public domain",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:%D9%88%D9%84%D8%A7%D8%A1\" title=\"User:ولاء\">ولاء</a>",
+    "width": 5712,
+    "height": 4284,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:11:41"
+  },
+  {
+    "filename": "0adfb793a0651a28.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/00/Dendera_Temple_%D9%85%D8%B9%D8%A8%D8%AF_%D8%AF%D9%86%D8%AF%D8%B1%D8%A9_%28182%29.jpg",
+    "title": "File:Dendera Temple معبد دندرة (182).jpg",
+    "license": "Public domain",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:%D9%88%D9%84%D8%A7%D8%A1\" title=\"User:ولاء\">ولاء</a>",
+    "width": 4284,
+    "height": 5712,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:11:41"
+  },
+  {
+    "filename": "7a521c1c0a0faa2e.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Dendera_Temple_%D9%85%D8%B9%D8%A8%D8%AF_%D8%AF%D9%86%D8%AF%D8%B1%D8%A9_%28186%29.jpg",
+    "title": "File:Dendera Temple معبد دندرة (186).jpg",
+    "license": "Public domain",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:%D9%88%D9%84%D8%A7%D8%A1\" title=\"User:ولاء\">ولاء</a>",
+    "width": 5712,
+    "height": 4284,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:11:41"
+  },
+  {
+    "filename": "59a3b4347368b5d5.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/57/Dendera_Temple_%D9%85%D8%B9%D8%A8%D8%AF_%D8%AF%D9%86%D8%AF%D8%B1%D8%A9_%28192%29.jpg",
+    "title": "File:Dendera Temple معبد دندرة (192).jpg",
+    "license": "Public domain",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:%D9%88%D9%84%D8%A7%D8%A1\" title=\"User:ولاء\">ولاء</a>",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:11:41"
+  },
+  {
+    "filename": "825281995c4835a9.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Dendera_Temple_%D9%85%D8%B9%D8%A8%D8%AF_%D8%AF%D9%86%D8%AF%D8%B1%D8%A9_%28193%29.jpg",
+    "title": "File:Dendera Temple معبد دندرة (193).jpg",
+    "license": "Public domain",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:%D9%88%D9%84%D8%A7%D8%A1\" title=\"User:ولاء\">ولاء</a>",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:11:41"
+  },
+  {
+    "filename": "4fb6883d05ecc749.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/b7/Dendera_Temple_%D9%85%D8%B9%D8%A8%D8%AF_%D8%AF%D9%86%D8%AF%D8%B1%D8%A9_%28195%29.jpg",
+    "title": "File:Dendera Temple معبد دندرة (195).jpg",
+    "license": "Public domain",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:%D9%88%D9%84%D8%A7%D8%A1\" title=\"User:ولاء\">ولاء</a>",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:11:41"
+  },
+  {
+    "filename": "bd6e0b44f6825818.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Dendera_Temple_%D9%85%D8%B9%D8%A8%D8%AF_%D8%AF%D9%86%D8%AF%D8%B1%D8%A9_%2812%29.jpg",
+    "title": "File:Dendera Temple معبد دندرة (12).jpg",
+    "license": "Public domain",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:%D9%88%D9%84%D8%A7%D8%A1\" title=\"User:ولاء\">ولاء</a>",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:11:41"
+  },
+  {
+    "filename": "009e5ad0c62b0abf.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/58/Dendera_Temple_%D9%85%D8%B9%D8%A8%D8%AF_%D8%AF%D9%86%D8%AF%D8%B1%D8%A9_%2811%29.jpg",
+    "title": "File:Dendera Temple معبد دندرة (11).jpg",
+    "license": "Public domain",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:%D9%88%D9%84%D8%A7%D8%A1\" title=\"User:ولاء\">ولاء</a>",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:11:41"
+  },
+  {
+    "filename": "5699509822525241.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Dendera_Temple_%D9%85%D8%B9%D8%A8%D8%AF_%D8%AF%D9%86%D8%AF%D8%B1%D8%A9_%2841%29.jpg",
+    "title": "File:Dendera Temple معبد دندرة (41).jpg",
+    "license": "Public domain",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:%D9%88%D9%84%D8%A7%D8%A1\" title=\"User:ولاء\">ولاء</a>",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:11:41"
+  },
+  {
+    "filename": "0600303a74946fb2.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Dendera_Temple_%D9%85%D8%B9%D8%A8%D8%AF_%D8%AF%D9%86%D8%AF%D8%B1%D8%A9_%2864%29.jpg",
+    "title": "File:Dendera Temple معبد دندرة (64).jpg",
+    "license": "Public domain",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:%D9%88%D9%84%D8%A7%D8%A1\" title=\"User:ولاء\">ولاء</a>",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:11:41"
+  },
+  {
+    "filename": "d1ba618698d70fa2.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Dendera_Temple_%D9%85%D8%B9%D8%A8%D8%AF_%D8%AF%D9%86%D8%AF%D8%B1%D8%A9_%28201%29.jpg",
+    "title": "File:Dendera Temple معبد دندرة (201).jpg",
+    "license": "Public domain",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:%D9%88%D9%84%D8%A7%D8%A1\" title=\"User:ولاء\">ولاء</a>",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:11:41"
+  },
+  {
+    "filename": "7b62cec4bf9bc8f7.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Dendera_Temple_%D9%85%D8%B9%D8%A8%D8%AF_%D8%AF%D9%86%D8%AF%D8%B1%D8%A9_%28111%29.jpg",
+    "title": "File:Dendera Temple معبد دندرة (111).jpg",
+    "license": "Public domain",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:%D9%88%D9%84%D8%A7%D8%A1\" title=\"User:ولاء\">ولاء</a>",
+    "width": 5712,
+    "height": 4284,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:11:41"
+  },
+  {
+    "filename": "6152584858575d41.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Dendera_Temple_%D9%85%D8%B9%D8%A8%D8%AF_%D8%AF%D9%86%D8%AF%D8%B1%D8%A9_%28129%29.jpg",
+    "title": "File:Dendera Temple معبد دندرة (129).jpg",
+    "license": "Public domain",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:%D9%88%D9%84%D8%A7%D8%A1\" title=\"User:ولاء\">ولاء</a>",
+    "width": 4284,
+    "height": 5712,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:11:41"
+  },
+  {
+    "filename": "20bf98f90705a1e3.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Dendera_Temple_%D9%85%D8%B9%D8%A8%D8%AF_%D8%AF%D9%86%D8%AF%D8%B1%D8%A9_%28136%29.jpg",
+    "title": "File:Dendera Temple معبد دندرة (136).jpg",
+    "license": "Public domain",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:%D9%88%D9%84%D8%A7%D8%A1\" title=\"User:ولاء\">ولاء</a>",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:11:41"
+  },
+  {
+    "filename": "2f416a06529d5816.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Dendera_Temple_%D9%85%D8%B9%D8%A8%D8%AF_%D8%AF%D9%86%D8%AF%D8%B1%D8%A9_%28162%29.jpg",
+    "title": "File:Dendera Temple معبد دندرة (162).jpg",
+    "license": "Public domain",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:%D9%88%D9%84%D8%A7%D8%A1\" title=\"User:ولاء\">ولاء</a>",
+    "width": 5712,
+    "height": 4284,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:11:41"
+  },
+  {
+    "filename": "15890e5feda6571b.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Dendera_Temple_%D9%85%D8%B9%D8%A8%D8%AF_%D8%AF%D9%86%D8%AF%D8%B1%D8%A9_%28184%29.jpg",
+    "title": "File:Dendera Temple معبد دندرة (184).jpg",
+    "license": "Public domain",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:%D9%88%D9%84%D8%A7%D8%A1\" title=\"User:ولاء\">ولاء</a>",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:11:41"
+  },
+  {
+    "filename": "2880e48ac80380ff.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/ee/Dendera_Temple_complex%2C_Temple_of_Hathor_-_panoramio_%2812%29.jpg",
+    "title": "File:Dendera Temple complex, Temple of Hathor - panoramio (12).jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://web.archive.org/web/20161103142941/http://www.panoramio.com/user/47013?with_photo_id=130495037\">Merlin UK</a>",
+    "width": 3432,
+    "height": 2580,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:11:41"
+  },
+  {
+    "filename": "1052ffd639d30caa.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Dendera_Temple_complex%2C_Temple_of_Hathor_-_panoramio_%2819%29.jpg",
+    "title": "File:Dendera Temple complex, Temple of Hathor - panoramio (19).jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://web.archive.org/web/20161103125317/http://www.panoramio.com/user/47013?with_photo_id=130495125\">Merlin UK</a>",
+    "width": 3848,
+    "height": 2552,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:11:41"
+  },
+  {
+    "filename": "1768218ceb20a57b.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Dendera_Temple_of_Hathor.jpg",
+    "title": "File:Dendera Temple of Hathor.jpg",
+    "license": "Public domain",
+    "artist": "<a href=\"https://en.wikipedia.org/wiki/user:Chapultepec\" class=\"extiw\" title=\"en:user:Chapultepec\">en:user:Chapultepec</a>",
+    "width": 601,
+    "height": 405,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:11:41"
+  },
+  {
+    "filename": "e7345a7299f3d6ed.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Dendera_Temple_complex%2C_Temple_of_Hathor_-_panoramio_%2810%29.jpg",
+    "title": "File:Dendera Temple complex, Temple of Hathor - panoramio (10).jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://web.archive.org/web/20161103082100/http://www.panoramio.com/user/47013?with_photo_id=130494985\">Merlin UK</a>",
+    "width": 2576,
+    "height": 3432,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:11:41"
+  },
+  {
+    "filename": "09c3d895fa0ac2c0.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/98/Dendera_Temple_complex%2C_Temple_of_Hathor_-_panoramio_%2818%29.jpg",
+    "title": "File:Dendera Temple complex, Temple of Hathor - panoramio (18).jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://web.archive.org/web/20161103103548/http://www.panoramio.com/user/47013?with_photo_id=130495132\">Merlin UK</a>",
+    "width": 3848,
+    "height": 2552,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:11:41"
+  },
+  {
+    "filename": "d4fad0eaed51ee1a.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/18/Dendera_Temple_complex%2C_Temple_of_Hathor_-_panoramio_%2826%29.jpg",
+    "title": "File:Dendera Temple complex, Temple of Hathor - panoramio (26).jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://web.archive.org/web/20161103195802/http://www.panoramio.com/user/47013?with_photo_id=130495232\">Merlin UK</a>",
+    "width": 2562,
+    "height": 3843,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:11:41"
+  },
+  {
+    "filename": "7eb60fb4bf76b046.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/b6/Dendera_Temple_of_Hathor_01.jpg",
+    "title": "File:Dendera Temple of Hathor 01.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Bilal_Detailz\" title=\"User:Bilal Detailz\">Bilal Detailz</a>",
+    "width": 2448,
+    "height": 3264,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:11:41"
+  },
+  {
+    "filename": "9e3c412b9c858b5e.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Dendera_Temple_complex%2C_Temple_of_Hathor_-_panoramio_%288%29.jpg",
+    "title": "File:Dendera Temple complex, Temple of Hathor - panoramio (8).jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://web.archive.org/web/20161103103924/http://www.panoramio.com/user/47013?with_photo_id=130494878\">Merlin UK</a>",
+    "width": 3432,
+    "height": 2580,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:11:41"
+  },
+  {
+    "filename": "f61a6552504787e9.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/80/Dendera_Temple_complex%2C_Temple_of_Hathor_-_panoramio_%289%29.jpg",
+    "title": "File:Dendera Temple complex, Temple of Hathor - panoramio (9).jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://web.archive.org/web/20161103150020/http://www.panoramio.com/user/47013?with_photo_id=130494936\">Merlin UK</a>",
+    "width": 3432,
+    "height": 2580,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:11:41"
+  },
+  {
+    "filename": "3ef1b618861638a1.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Dendera_Temple_complex%2C_Temple_of_Hathor_-_panoramio_%2825%29.jpg",
+    "title": "File:Dendera Temple complex, Temple of Hathor - panoramio (25).jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://web.archive.org/web/20161103044234/http://www.panoramio.com/user/47013?with_photo_id=130495200\">Merlin UK</a>",
+    "width": 2562,
+    "height": 3843,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:11:41"
+  }
+]

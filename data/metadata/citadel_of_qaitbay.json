@@ -1,0 +1,753 @@
+[
+  {
+    "hash": "3a2deb543d028403",
+    "original_name": "0.jpg",
+    "original_class": "Citadel_of_Qaitbay",
+    "size_bytes": 8709,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:24"
+  },
+  {
+    "hash": "4eeb062533c37148",
+    "original_name": "1.jpg",
+    "original_class": "Citadel_of_Qaitbay",
+    "size_bytes": 8139,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:24"
+  },
+  {
+    "hash": "815c13bb8604c3e1",
+    "original_name": "10.jpg",
+    "original_class": "Citadel_of_Qaitbay",
+    "size_bytes": 9196,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:24"
+  },
+  {
+    "hash": "d93421ac71899d5a",
+    "original_name": "11.jpg",
+    "original_class": "Citadel_of_Qaitbay",
+    "size_bytes": 9788,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:24"
+  },
+  {
+    "hash": "b5e892c88d5ca992",
+    "original_name": "12.jpg",
+    "original_class": "Citadel_of_Qaitbay",
+    "size_bytes": 8149,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:24"
+  },
+  {
+    "hash": "4e9d80f14583beb1",
+    "original_name": "13.jpg",
+    "original_class": "Citadel_of_Qaitbay",
+    "size_bytes": 8450,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:24"
+  },
+  {
+    "hash": "9c0cbd276314764d",
+    "original_name": "14.jpg",
+    "original_class": "Citadel_of_Qaitbay",
+    "size_bytes": 9839,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:24"
+  },
+  {
+    "hash": "811e4ece85499735",
+    "original_name": "15.jpg",
+    "original_class": "Citadel_of_Qaitbay",
+    "size_bytes": 9588,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:24"
+  },
+  {
+    "hash": "8798d967996bf14f",
+    "original_name": "16.jpg",
+    "original_class": "Citadel_of_Qaitbay",
+    "size_bytes": 7070,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:24"
+  },
+  {
+    "hash": "2977343dd08b0e1b",
+    "original_name": "17.jpg",
+    "original_class": "Citadel_of_Qaitbay",
+    "size_bytes": 10947,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:24"
+  },
+  {
+    "hash": "25709ab97062e50c",
+    "original_name": "18.jpg",
+    "original_class": "Citadel_of_Qaitbay",
+    "size_bytes": 7830,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:24"
+  },
+  {
+    "hash": "391955d430f4e4fa",
+    "original_name": "19.jpg",
+    "original_class": "Citadel_of_Qaitbay",
+    "size_bytes": 11248,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:24"
+  },
+  {
+    "hash": "67ca75c1b456c954",
+    "original_name": "2.jpg",
+    "original_class": "Citadel_of_Qaitbay",
+    "size_bytes": 12031,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:24"
+  },
+  {
+    "hash": "a612afb91a95debe",
+    "original_name": "20.jpg",
+    "original_class": "Citadel_of_Qaitbay",
+    "size_bytes": 7498,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:24"
+  },
+  {
+    "hash": "f0a32bea42b82c06",
+    "original_name": "21.jpg",
+    "original_class": "Citadel_of_Qaitbay",
+    "size_bytes": 9502,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:24"
+  },
+  {
+    "hash": "262e890d16246559",
+    "original_name": "22.jpg",
+    "original_class": "Citadel_of_Qaitbay",
+    "size_bytes": 8161,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:24"
+  },
+  {
+    "hash": "56cbcfb6e1366ca3",
+    "original_name": "23.jpg",
+    "original_class": "Citadel_of_Qaitbay",
+    "size_bytes": 9413,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:24"
+  },
+  {
+    "hash": "1576d535d4ab6d07",
+    "original_name": "24.jpg",
+    "original_class": "Citadel_of_Qaitbay",
+    "size_bytes": 8096,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:24"
+  },
+  {
+    "hash": "d281a2dd6c97cbfe",
+    "original_name": "25.jpg",
+    "original_class": "Citadel_of_Qaitbay",
+    "size_bytes": 10564,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:24"
+  },
+  {
+    "hash": "681c346f436bbf79",
+    "original_name": "26.jpg",
+    "original_class": "Citadel_of_Qaitbay",
+    "size_bytes": 8889,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:24"
+  },
+  {
+    "hash": "65b72c6efcad7315",
+    "original_name": "27.jpg",
+    "original_class": "Citadel_of_Qaitbay",
+    "size_bytes": 8835,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:24"
+  },
+  {
+    "hash": "9216438bbfae9328",
+    "original_name": "28.jpg",
+    "original_class": "Citadel_of_Qaitbay",
+    "size_bytes": 8891,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:24"
+  },
+  {
+    "hash": "41f653d9931e342e",
+    "original_name": "29.jpg",
+    "original_class": "Citadel_of_Qaitbay",
+    "size_bytes": 10023,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:24"
+  },
+  {
+    "hash": "1aa654e7e4209cf8",
+    "original_name": "3.jpg",
+    "original_class": "Citadel_of_Qaitbay",
+    "size_bytes": 10211,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:24"
+  },
+  {
+    "hash": "222bebc6e91a420a",
+    "original_name": "30.jpg",
+    "original_class": "Citadel_of_Qaitbay",
+    "size_bytes": 8160,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:24"
+  },
+  {
+    "hash": "465009aed8ef48dc",
+    "original_name": "31.jpg",
+    "original_class": "Citadel_of_Qaitbay",
+    "size_bytes": 9504,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:24"
+  },
+  {
+    "hash": "29b1733ae65d2636",
+    "original_name": "4.jpg",
+    "original_class": "Citadel_of_Qaitbay",
+    "size_bytes": 9317,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:24"
+  },
+  {
+    "hash": "8de8c8a86216cab3",
+    "original_name": "5.jpg",
+    "original_class": "Citadel_of_Qaitbay",
+    "size_bytes": 7509,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:24"
+  },
+  {
+    "hash": "c161f2449c0ec85d",
+    "original_name": "6.jpg",
+    "original_class": "Citadel_of_Qaitbay",
+    "size_bytes": 8980,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:24"
+  },
+  {
+    "hash": "627073a23d3a886c",
+    "original_name": "7.jpg",
+    "original_class": "Citadel_of_Qaitbay",
+    "size_bytes": 8713,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:24"
+  },
+  {
+    "hash": "c2fffaab11051730",
+    "original_name": "8.jpg",
+    "original_class": "Citadel_of_Qaitbay",
+    "size_bytes": 9210,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:24"
+  },
+  {
+    "hash": "eccad2d7c6d2a3c1",
+    "original_name": "9.jpg",
+    "original_class": "Citadel_of_Qaitbay",
+    "size_bytes": 9243,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:24"
+  },
+  {
+    "filename": "23d90e1b72d71842.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Citadel_of_Qaitbay%2C_Alexandria%2C_Egypt.jpg",
+    "title": "File:Citadel of Qaitbay, Alexandria, Egypt.jpg",
+    "license": "CC BY 2.0",
+    "artist": "Argenberg",
+    "width": 2048,
+    "height": 1365,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T13:17:23"
+  },
+  {
+    "filename": "421683e187c63a0f.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Citadel_of_Qaitbay_014.JPG",
+    "title": "File:Citadel of Qaitbay 014.JPG",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:%D9%84%D8%A7_%D8%B1%D9%88%D8%B3%D8%A7&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:لا روسا (page does not exist)\">لا روسا</a>",
+    "width": 3842,
+    "height": 3362,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T13:17:23"
+  },
+  {
+    "filename": "d6643915acd9b34b.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Citadel_of_Qaitbay_048.JPG",
+    "title": "File:Citadel of Qaitbay 048.JPG",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:%D9%84%D8%A7_%D8%B1%D9%88%D8%B3%D8%A7&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:لا روسا (page does not exist)\">لا روسا</a>",
+    "width": 4288,
+    "height": 3216,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T13:17:23"
+  },
+  {
+    "filename": "ee83609f751f0392.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/91/School_trip_to_the_Citadel_of_Qaitbay_in_Alexandria.jpg",
+    "title": "File:School trip to the Citadel of Qaitbay in Alexandria.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Summering2018\" title=\"User:Summering2018\">Summering2018</a>",
+    "width": 5906,
+    "height": 4219,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T13:17:23"
+  },
+  {
+    "filename": "2a70a4bdbfd77422.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/c0/The_Citadel_of_Qaitbay%2Csideview.jpg",
+    "title": "File:The Citadel of Qaitbay,sideview.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Dalia_fathallah&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Dalia fathallah (page does not exist)\">Dalia fathallah</a>",
+    "width": 623,
+    "height": 938,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T13:17:23"
+  },
+  {
+    "filename": "7464c91339e20db7.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/88/Citadel_of_Qaitbay_200.jpg",
+    "title": "File:Citadel of Qaitbay 200.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Marsupium\" title=\"User:Marsupium\">Marsupium</a>",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T13:17:23"
+  },
+  {
+    "filename": "4d5d81220f4d48e5.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/49/Citadel_of_Qaitbay_217.jpg",
+    "title": "File:Citadel of Qaitbay 217.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Marsupium\" title=\"User:Marsupium\">Marsupium</a>",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T13:17:23"
+  },
+  {
+    "filename": "37b7dc2192a5a072.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Citadel_of_Qaitbay_234.jpg",
+    "title": "File:Citadel of Qaitbay 234.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Marsupium\" title=\"User:Marsupium\">Marsupium</a>",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T13:17:23"
+  },
+  {
+    "filename": "836d1232dd740bc0.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Citadel_of_Qaitbay_238.jpg",
+    "title": "File:Citadel of Qaitbay 238.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Marsupium\" title=\"User:Marsupium\">Marsupium</a>",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T13:17:23"
+  },
+  {
+    "filename": "1d620147e396bb54.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Citadel_of_Qaitbay_1.jpg",
+    "title": "File:Citadel of Qaitbay 1.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Abdelrhman_1990\" title=\"User:Abdelrhman 1990\">Abdelrhman 1990</a>",
+    "width": 2448,
+    "height": 3264,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T13:17:23"
+  },
+  {
+    "filename": "d0d82e68caaff081.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/51/Citadel_of_Qaitbay_2.jpg",
+    "title": "File:Citadel of Qaitbay 2.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Abdelrhman_1990\" title=\"User:Abdelrhman 1990\">Abdelrhman 1990</a>",
+    "width": 3264,
+    "height": 2448,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T13:17:23"
+  },
+  {
+    "filename": "6e66f91a7bc52e66.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/83/A_scale_model_of_Citadel_of_Qaitbay_03.jpg",
+    "title": "File:A scale model of Citadel of Qaitbay 03.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:%D8%A3%D8%AD%D9%85%D8%AF_%D9%86%D8%A7%D8%AC%D9%8A\" title=\"User:أحمد ناجي\">أحمد ناجي</a>",
+    "width": 3000,
+    "height": 4000,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T13:17:23"
+  },
+  {
+    "filename": "850ac9aadb558b28.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/6e/A_scale_model_of_Citadel_of_Qaitbay_01.jpg",
+    "title": "File:A scale model of Citadel of Qaitbay 01.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:%D8%A3%D8%AD%D9%85%D8%AF_%D9%86%D8%A7%D8%AC%D9%8A\" title=\"User:أحمد ناجي\">أحمد ناجي</a>",
+    "width": 3000,
+    "height": 4000,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T13:17:23"
+  },
+  {
+    "filename": "58921ee3f6d4b99f.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/9e/A_scale_model_of_Citadel_of_Qaitbay_02.jpg",
+    "title": "File:A scale model of Citadel of Qaitbay 02.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:%D8%A3%D8%AD%D9%85%D8%AF_%D9%86%D8%A7%D8%AC%D9%8A\" title=\"User:أحمد ناجي\">أحمد ناجي</a>",
+    "width": 3000,
+    "height": 4000,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T13:17:23"
+  },
+  {
+    "filename": "b0dc54f4b3eb6835.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/06/A_scale_model_of_Citadel_of_Qaitbay_05.jpg",
+    "title": "File:A scale model of Citadel of Qaitbay 05.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:%D8%A3%D8%AD%D9%85%D8%AF_%D9%86%D8%A7%D8%AC%D9%8A\" title=\"User:أحمد ناجي\">أحمد ناجي</a>",
+    "width": 4000,
+    "height": 3000,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T13:17:23"
+  },
+  {
+    "filename": "22ccf47ad7d0de92.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/45/A_scale_model_of_Citadel_of_Qaitbay_04.jpg",
+    "title": "File:A scale model of Citadel of Qaitbay 04.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:%D8%A3%D8%AD%D9%85%D8%AF_%D9%86%D8%A7%D8%AC%D9%8A\" title=\"User:أحمد ناجي\">أحمد ناجي</a>",
+    "width": 3000,
+    "height": 4000,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T13:17:23"
+  },
+  {
+    "filename": "d702b9078d0720e7.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Remote_view_of_Citadel_of_Qaitbay.jpg",
+    "title": "File:Remote view of Citadel of Qaitbay.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:%D8%A3%D8%AD%D9%85%D8%AF_%D9%86%D8%A7%D8%AC%D9%8A\" title=\"User:أحمد ناجي\">أحمد ناجي</a>",
+    "width": 3748,
+    "height": 2308,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T13:17:23"
+  },
+  {
+    "filename": "437d931f870f46de.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/5c/A_scale_model_of_Citadel_of_Qaitbay_%282008%29.jpg",
+    "title": "File:A scale model of Citadel of Qaitbay (2008).jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Vurshpelhappilo&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Vurshpelhappilo (page does not exist)\">Vurshpelhappilo</a>",
+    "width": 1171,
+    "height": 879,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T13:17:23"
+  },
+  {
+    "filename": "03c9a0d4ab330ba9.png",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/47/Citadel_of_Qaitbay_in_Alexandria%2C_Egypt.png",
+    "title": "File:Citadel of Qaitbay in Alexandria, Egypt.png",
+    "license": "CC0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Rebeccananonof\" title=\"User:Rebeccananonof\">Rebeccananonof</a>",
+    "width": 720,
+    "height": 540,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T13:17:23"
+  },
+  {
+    "filename": "86ce9bad47046e43.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/88/Citadel_of_Qaitbay_197.jpg",
+    "title": "File:Citadel of Qaitbay 197.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Marsupium\" title=\"User:Marsupium\">Marsupium</a>",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T13:17:23"
+  },
+  {
+    "filename": "eef0a08aba53078f.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Citadel_of_Qaitbay_214.jpg",
+    "title": "File:Citadel of Qaitbay 214.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Marsupium\" title=\"User:Marsupium\">Marsupium</a>",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T13:17:23"
+  },
+  {
+    "filename": "5cead02522f84586.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/56/Citadel_of_Qaitbay_216.jpg",
+    "title": "File:Citadel of Qaitbay 216.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Marsupium\" title=\"User:Marsupium\">Marsupium</a>",
+    "width": 8250,
+    "height": 3742,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T13:17:23"
+  },
+  {
+    "filename": "6837eb9cb94f4136.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Citadel_of_Qaitbay_215.jpg",
+    "title": "File:Citadel of Qaitbay 215.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Marsupium\" title=\"User:Marsupium\">Marsupium</a>",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T13:17:23"
+  },
+  {
+    "filename": "a08b993d786f9ee0.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Citadel_of_Qaitbay_218.jpg",
+    "title": "File:Citadel of Qaitbay 218.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Marsupium\" title=\"User:Marsupium\">Marsupium</a>",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T13:17:23"
+  },
+  {
+    "filename": "e29844ee8e3f0271.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Citadel_of_Qaitbay_219.jpg",
+    "title": "File:Citadel of Qaitbay 219.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Marsupium\" title=\"User:Marsupium\">Marsupium</a>",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T13:17:23"
+  },
+  {
+    "filename": "13d96e798ec47923.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Citadel_of_Qaitbay_224.jpg",
+    "title": "File:Citadel of Qaitbay 224.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Marsupium\" title=\"User:Marsupium\">Marsupium</a>",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T13:17:23"
+  },
+  {
+    "filename": "c53d48804a9f1fd2.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Citadel_of_Qaitbay_225.jpg",
+    "title": "File:Citadel of Qaitbay 225.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Marsupium\" title=\"User:Marsupium\">Marsupium</a>",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T13:17:23"
+  },
+  {
+    "filename": "d0ae6ee67f1adccb.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Citadel_of_Qaitbay_226.jpg",
+    "title": "File:Citadel of Qaitbay 226.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Marsupium\" title=\"User:Marsupium\">Marsupium</a>",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T13:17:23"
+  },
+  {
+    "filename": "c1c677abc17f6f5f.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/29/Citadel_of_Qaitbay_228.jpg",
+    "title": "File:Citadel of Qaitbay 228.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Marsupium\" title=\"User:Marsupium\">Marsupium</a>",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T13:17:23"
+  },
+  {
+    "filename": "7a5654840fc0b59d.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/34/Citadel_of_Qaitbay_229.jpg",
+    "title": "File:Citadel of Qaitbay 229.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Marsupium\" title=\"User:Marsupium\">Marsupium</a>",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T13:17:23"
+  },
+  {
+    "filename": "000967423767d523.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Citadel_of_Qaitbay_230.jpg",
+    "title": "File:Citadel of Qaitbay 230.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Marsupium\" title=\"User:Marsupium\">Marsupium</a>",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T13:17:23"
+  },
+  {
+    "filename": "fa0949e794f9d2d2.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Citadel_of_Qaitbay_233.jpg",
+    "title": "File:Citadel of Qaitbay 233.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Marsupium\" title=\"User:Marsupium\">Marsupium</a>",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T13:17:23"
+  },
+  {
+    "filename": "13a921edca10531a.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Citadel_of_Qaitbay_235.jpg",
+    "title": "File:Citadel of Qaitbay 235.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Marsupium\" title=\"User:Marsupium\">Marsupium</a>",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T13:17:23"
+  },
+  {
+    "filename": "1d12be1299634b72.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Citadel_of_Qaitbay_236.jpg",
+    "title": "File:Citadel of Qaitbay 236.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Marsupium\" title=\"User:Marsupium\">Marsupium</a>",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T13:17:23"
+  },
+  {
+    "filename": "09cc16821d89d7e8.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/97/Citadel_of_Qaitbay_237.jpg",
+    "title": "File:Citadel of Qaitbay 237.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Marsupium\" title=\"User:Marsupium\">Marsupium</a>",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T13:17:23"
+  },
+  {
+    "filename": "754c5f024096e0cc.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Citadel_of_Qaitbay_240.jpg",
+    "title": "File:Citadel of Qaitbay 240.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Marsupium\" title=\"User:Marsupium\">Marsupium</a>",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T13:17:23"
+  },
+  {
+    "filename": "bddccf85b9dfe67f.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Citadel_of_Qaitbay_241.jpg",
+    "title": "File:Citadel of Qaitbay 241.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Marsupium\" title=\"User:Marsupium\">Marsupium</a>",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T13:17:23"
+  },
+  {
+    "filename": "90626c16fc5e558b.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Citadel_of_Qaitbay_242.jpg",
+    "title": "File:Citadel of Qaitbay 242.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Marsupium\" title=\"User:Marsupium\">Marsupium</a>",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T13:17:23"
+  },
+  {
+    "filename": "a40422f994442424.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/92/A_front_view_of_Citadel_of_Qaitbay.jpg",
+    "title": "File:A front view of Citadel of Qaitbay.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Aymanrefaat09&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Aymanrefaat09 (page does not exist)\">Aymanrefaat09</a>",
+    "width": 3580,
+    "height": 2685,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T13:17:23"
+  },
+  {
+    "filename": "0259564ac2bdc34a.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/61/Citadel_of_Qaitbay_070.JPG",
+    "title": "File:Citadel of Qaitbay 070.JPG",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:%D9%84%D8%A7_%D8%B1%D9%88%D8%B3%D8%A7&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:لا روسا (page does not exist)\">لا روسا</a>",
+    "width": 4288,
+    "height": 3216,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T13:17:23"
+  },
+  {
+    "filename": "c61359348e853fad.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Citadel_of_Qaitbay_073.JPG",
+    "title": "File:Citadel of Qaitbay 073.JPG",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:%D9%84%D8%A7_%D8%B1%D9%88%D8%B3%D8%A7&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:لا روسا (page does not exist)\">لا روسا</a>",
+    "width": 4288,
+    "height": 3216,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T13:17:23"
+  },
+  {
+    "filename": "cd9e34ee440a8b7c.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Citadel_of_Qaitbay_architecture.jpg",
+    "title": "File:Citadel of Qaitbay architecture.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Mohamed_Khalil90&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Mohamed Khalil90 (page does not exist)\">Mohamed Khalil</a>",
+    "width": 4254,
+    "height": 2992,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T13:17:23"
+  },
+  {
+    "filename": "ac7680ed9f188118.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/db/Citadel_of_Qaitbay%2C_Alexandria.jpg",
+    "title": "File:Citadel of Qaitbay, Alexandria.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Amal_Nagi&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Amal Nagi (page does not exist)\">Amal Nagi</a>",
+    "width": 1536,
+    "height": 2048,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T13:17:23"
+  },
+  {
+    "filename": "41d443f04c11d3ca.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Citadel_of_Qaitbay_201.jpg",
+    "title": "File:Citadel of Qaitbay 201.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Marsupium\" title=\"User:Marsupium\">Marsupium</a>",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T13:17:23"
+  },
+  {
+    "filename": "04a5b6bde36e9237.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/61/Citadel_of_Qaitbay_203.jpg",
+    "title": "File:Citadel of Qaitbay 203.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Marsupium\" title=\"User:Marsupium\">Marsupium</a>",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T13:17:23"
+  }
+]

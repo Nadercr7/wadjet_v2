@@ -1,0 +1,53 @@
+<!-- Landmark identification result partial (returned by POST /api/explore/identify) -->
+<div>
+    <h3 class="text-lg font-semibold mb-4 text-center">Identification Results</h3>
+
+    <!-- Top result -->
+    <div class="card border-gold/30 mb-4">
+        <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-lg bg-gold/10 flex items-center justify-center shrink-0">
+                <span class="text-gold text-xl">🏛️</span>
+            </div>
+            <div class="flex-1 min-w-0">
+                <div class="flex items-center gap-2 mb-1">
+                    <h4 class="font-semibold text-gold truncate">{{ name }}</h4>
+                    <span class="badge-gold text-xs shrink-0">{{ "%.1f"|format(confidence * 100) }}%</span>
+                </div>
+                <div class="w-full bg-night rounded-full h-2 mb-2">
+                    <div class="bg-gold h-2 rounded-full transition-all duration-500"
+                         style="width: {{ (confidence * 100)|round(1) }}%"></div>
+                </div>
+                <div class="flex items-center gap-3 text-xs text-text-dim mb-2">
+                    <span>Source: {{ source }}</span>
+                </div>
+                {% if description %}
+                <p class="text-text-muted text-sm leading-relaxed mb-2">{{ description }}</p>
+                {% endif %}
+                <a href="javascript:void(0)"
+                   @click="openDetail('{{ slug }}')"
+                   class="text-xs text-gold hover:text-gold-light transition-colors">
+                    View landmark details →
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Other top matches -->
+    {% if top3|length > 1 %}
+    <p class="text-text-dim text-xs mb-2">Other possibilities:</p>
+    <div class="space-y-2">
+        {% for match in top3[1:] %}
+        <div class="flex items-center gap-3 bg-night/50 rounded-lg p-3">
+            <span class="text-text-dim text-xs w-4">#{{ loop.index + 1 }}</span>
+            <span class="text-sm text-text-muted flex-1 truncate">{{ match.name }}</span>
+            <span class="text-xs text-text-dim">{{ "%.1f"|format(match.confidence * 100) }}%</span>
+            <a href="javascript:void(0)"
+               @click="openDetail('{{ match.slug }}')"
+               class="text-xs text-gold hover:text-gold-light transition-colors shrink-0 px-2 py-1">
+                View →
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>

@@ -1,0 +1,22 @@
+{
+  "wikipedia": {
+    "en": {
+      "title": "Montaza Palace",
+      "extract": "Montaza Palace is a palace, museum and extensive gardens in the Montaza district of Alexandria, Egypt. It was built on a low plateau east of central Alexandria overlooking a beach on the Mediterranean Sea.",
+      "description": "Palace and museum in Alexandria, Egypt",
+      "coordinates": {
+        "lat": 31.2886,
+        "lon": 30.0159
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Egypt-14A-148_-_Al-Montazah_Palace_%282216757121%29.jpg/330px-Egypt-14A-148_-_Al-Montazah_Palace_%282216757121%29.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Egypt-14A-148_-_Al-Montazah_Palace_%282216757121%29.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Montaza_Palace"
+    },
+    "ar": {
+      "title": "قصر المنتزه",
+      "extract": "قصر المنتزه هو مجمع للقصور الملكية بمصر يقع على مساحة 370 فدان في حي ثان المنتزة شرق مدينة الإسكندرية في مصر، يضم قصرين هما قصر السلاملك الذي بناه الخديوي عباس حلمي الثاني سنة 1892 ليكون استراحة له، وقصر الحرملك والذي بناه الملك فؤاد الأول سنة 1925 ليكون مقر الإقامة الصيفية للأسرة الملكية، كما يضم عدة منشأت وفنادق سياحية أخرى.",
+      "description": "أحد القصور الملكية بمدينة الإسكندرية في مصر",
+      "wikipedia_url": "https://ar.wikipedia.org/wiki/%D9%82%D8%B5%D8%B1_%D8%A7%D9%84%D9%85%D9%86%D8%AA%D8%B2%D9%87"
+    }
+  }
+}

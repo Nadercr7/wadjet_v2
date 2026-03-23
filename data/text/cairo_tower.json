@@ -1,0 +1,22 @@
+{
+  "wikipedia": {
+    "en": {
+      "title": "Cairo Tower",
+      "extract": "The Cairo Tower is a free-standing concrete tower in Cairo, Egypt. At 187 m (614 ft), it was the tallest structure in Egypt for 37 years until 1998, when it was surpassed by the Suez Canal overhead powerline crossing. It was the tallest structure in North Africa for 21 years until 1982, when it was surpassed by the Nador transmitter in Morocco. It was the tallest structure in Africa for one year until 1962, when it was surpassed by Sentech Tower in South Africa.",
+      "description": "Concrete tower in Cairo, Egypt",
+      "coordinates": {
+        "lat": 30.04583333,
+        "lon": 31.22444444
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/The_magnificent_tower_in_Egypt.jpg/330px-The_magnificent_tower_in_Egypt.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/3/36/The_magnificent_tower_in_Egypt.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Cairo_Tower"
+    },
+    "ar": {
+      "title": "برج القاهرة",
+      "extract": "برج القاهرة هو برج يقع في العاصمة المصرية القاهرة، بُني بين عامي 1956 و1961 من الخرسانة المسلحة على تصميم زهرة اللوتس المصرية، من تصميم المهندس نعوم شبيب، ويقع في قلب القاهرة على جزيرة الزمالك بنهر النيل.",
+      "description": "برج القاهرة في حي الزمالك بمصر",
+      "wikipedia_url": "https://ar.wikipedia.org/wiki/%D8%A8%D8%B1%D8%AC_%D8%A7%D9%84%D9%82%D8%A7%D9%87%D8%B1%D8%A9"
+    }
+  }
+}

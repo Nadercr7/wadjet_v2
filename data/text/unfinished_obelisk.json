@@ -1,0 +1,22 @@
+{
+  "wikipedia": {
+    "en": {
+      "title": "Unfinished obelisk",
+      "extract": "The unfinished obelisk is the largest known ancient obelisk and is located in the northern region of the stone quarries of ancient Egypt in Aswan, Egypt. It was studied in detail by Reginald Engelbach in 1922.",
+      "description": "Ancient Egyptian obelisk",
+      "coordinates": {
+        "lat": 24.076889,
+        "lon": 32.89545
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Obelisco_inacabado%2C_Asu%C3%A1n%2C_Egipto%2C_2022-04-01%2C_DD_153.jpg/330px-Obelisco_inacabado%2C_Asu%C3%A1n%2C_Egipto%2C_2022-04-01%2C_DD_153.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/3/39/Obelisco_inacabado%2C_Asu%C3%A1n%2C_Egipto%2C_2022-04-01%2C_DD_153.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Unfinished_obelisk"
+    },
+    "ar": {
+      "title": "المسلة الناقصة",
+      "extract": "المسلة الناقصة هي مسلة من الجرانيت الوردي في أسوان بمصر. وهي توجد في الجزء الشمالي لمحجر هناك، يقع بالقرب من أسوان على الشاطيء الشرقي للنيل ويبعد نحو 1 كيلومتر شرق نهر النيل. كانت ارتفاع المسلة سيصل إلى نحو 7و41 متر، ويبلغ ضلع مقطعها عند قاعدتها 2و4 متر في 2و4 متر، ويصل وزنها عند اكتمالها نحو 1168 طن.\n.",
+      "description": "",
+      "wikipedia_url": "https://ar.wikipedia.org/wiki/%D8%A7%D9%84%D9%85%D8%B3%D9%84%D8%A9_%D8%A7%D9%84%D9%86%D8%A7%D9%82%D8%B5%D8%A9"
+    }
+  }
+}

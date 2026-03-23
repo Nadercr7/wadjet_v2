@@ -1,0 +1,22 @@
+{
+  "wikipedia": {
+    "en": {
+      "title": "Muhammad Ali Mosque",
+      "extract": "The Muhammad Ali Mosque, also known as the Mosque of Muhammad Ali, is a mosque located in the Citadel of Cairo, Egypt. It was commissioned by Muhammad Ali Pasha and built between 1832 and 1857. Overlooking the city, it is one of the most visible mosques and landmarks in the skyline of Cairo. Unlike the traditional Cairene architecture that preceded it, the mosque was built in an entirely Ottoman and European-influenced style, further setting it apart from other monuments. It is sometimes called the Alabaster Mosque due to the prominent use of alabaster as a covering for its walls.",
+      "description": "Mosque in Cairo, Egypt",
+      "coordinates": {
+        "lat": 30.028611,
+        "lon": 31.259722
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/%D8%AC%D8%A7%D9%85%D8%B9_%D9%85%D8%AD%D9%85%D8%AF_%D8%B9%D9%84%D9%8A.JPG/330px-%D8%AC%D8%A7%D9%85%D8%B9_%D9%85%D8%AD%D9%85%D8%AF_%D8%B9%D9%84%D9%8A.JPG",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/4/49/%D8%AC%D8%A7%D9%85%D8%B9_%D9%85%D8%AD%D9%85%D8%AF_%D8%B9%D9%84%D9%8A.JPG",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Muhammad_Ali_Mosque"
+    },
+    "ar": {
+      "title": "مسجد محمد علي",
+      "extract": "مسجد محمد علي أو مسجد الألبستر أو مسجد المرمر هو أحد المساجد الأثريّة الشهيرة بالقاهرة. أنشأه محمد علي باشا ما بين الفترة من 1830م إلى 1848م على الطراز العثماني، على غرار جامع السلطان أحمد بإسطنبول. ويدعى أحياناً بمسجد المرمر أو الألبستر لكثرة استخدام هذا النوع من الرخام في تكسية جدرانه. اهتم خلفاء محمد علي باشا بالمسجد فأتموا البناء وأضافوا إليه بعض الإضافات البسيطة، كما جعلوه مقراً للاحتفال بالمناسبات الدينية السنوية، وكانوا على الترتيب عباس حلمي باشا الأول، محمد سعيد باشا، إسماعيل باشا، توفيق باشا. إلا أن أضخم عملية ترميم كانت في عهد فؤاد الأول الذي أمر بإعادة المسجد إلى رونقه القديم بعد أن أصابت جدرانه التشققات بفعل خلل هندسي، كما اهتم ابنه فاروق الأول من بعده بالمسجد أيضاً وافتتحه للصلاة من جديد بعد إتمام عملية ترميمه.",
+      "description": "مسجد يقع في القاهرة، مصر",
+      "wikipedia_url": "https://ar.wikipedia.org/wiki/%D9%85%D8%B3%D8%AC%D8%AF_%D9%85%D8%AD%D9%85%D8%AF_%D8%B9%D9%84%D9%8A"
+    }
+  }
+}

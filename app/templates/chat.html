@@ -1,0 +1,294 @@
+{% extends "base.html" %}
+{% block title %}Ask Thoth{% endblock %}
+{% block description %}Chat with Thoth, AI god of wisdom. Ask about hieroglyphs, pharaohs, temples, and Egyptian history.{% endblock %}
+
+{% block content %}
+<section class="section !pb-4" x-data="chatApp()" x-cloak>
+    <div class="container-narrow flex flex-col" style="height: calc(100dvh - 180px);">
+
+        <!-- Header -->
+        <div class="text-center mb-6 shrink-0" data-animate>
+            <h1 class="mb-2 text-2xl md:text-3xl">Ask <span class="text-gold-gradient">Thoth</span></h1>
+            <p class="text-text-muted text-sm">God of wisdom, writing &amp; knowledge — your AI Egyptology guide</p>
+        </div>
+
+        <!-- Chat Messages Area -->
+        <div class="card flex-1 overflow-y-auto mb-4 p-4 md:p-6 space-y-4 scroll-smooth"
+             x-ref="chatArea"
+             id="chat-messages">
+
+            <!-- Welcome state -->
+            <template x-if="messages.length === 0 && !isLoading">
+                <div class="flex flex-col items-center justify-center h-full text-center py-8">
+                    <span class="text-5xl mb-4 block">𓁟</span>
+                    <h2 class="text-lg font-serif text-gold mb-2">Greetings, seeker of knowledge</h2>
+                    <p class="text-text-muted text-sm mb-8 max-w-md">
+                        I am Thoth, keeper of ancient wisdom. Ask me about hieroglyphs,
+                        pharaohs, temples, mythology, or the daily life of ancient Egypt.
+                    </p>
+
+                    <!-- Conversation starters -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 w-full max-w-lg">
+                        <template x-for="starter in starters" :key="starter">
+                            <button @click="sendMessage(starter)"
+                                    class="btn-ghost btn-sm text-left text-xs !py-2.5 !px-3 hover:border-gold/40 hover:text-gold transition-all">
+                                <span x-text="starter"></span>
+                            </button>
+                        </template>
+                    </div>
+                </div>
+            </template>
+
+            <!-- Message bubbles -->
+            <template x-for="(msg, idx) in messages" :key="idx">
+                <div :class="msg.role === 'user' ? 'flex justify-end' : 'flex justify-start'">
+                    <div :class="msg.role === 'user'
+                        ? 'bg-gold/15 border border-gold/20 text-text rounded-2xl rounded-br-sm max-w-[80%] px-4 py-3'
+                        : 'bg-surface border border-border text-text rounded-2xl rounded-bl-sm max-w-[85%] px-4 py-3'">
+                        <!-- Thoth avatar -->
+                        <div x-show="msg.role === 'assistant'" class="flex items-center gap-2 mb-2">
+                            <span class="text-lg">𓁟</span>
+                            <span class="text-xs font-medium text-gold">Thoth</span>
+                        </div>
+                        <div class="text-sm leading-relaxed whitespace-pre-wrap chat-content"
+                             x-html="renderMarkdown(msg.content)"></div>
+                    </div>
+                </div>
+            </template>
+
+            <!-- Streaming indicator -->
+            <template x-if="isLoading">
+                <div class="flex justify-start">
+                    <div class="bg-surface border border-border rounded-2xl rounded-bl-sm max-w-[85%] px-4 py-3">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="text-lg">𓁟</span>
+                            <span class="text-xs font-medium text-gold">Thoth</span>
+                        </div>
+                        <div x-show="streamingText" class="text-sm leading-relaxed whitespace-pre-wrap chat-content"
+                             x-html="renderMarkdown(streamingText)"></div>
+                        <div x-show="!streamingText" class="flex items-center gap-1.5 py-1">
+                            <span class="w-1.5 h-1.5 rounded-full bg-gold/60 animate-pulse" style="animation-delay: 0ms"></span>
+                            <span class="w-1.5 h-1.5 rounded-full bg-gold/60 animate-pulse" style="animation-delay: 150ms"></span>
+                            <span class="w-1.5 h-1.5 rounded-full bg-gold/60 animate-pulse" style="animation-delay: 300ms"></span>
+                        </div>
+                    </div>
+                </div>
+            </template>
+
+            <!-- Error message -->
+            <template x-if="error">
+                <div class="flex justify-center">
+                    <div class="bg-red-900/20 border border-red-800/30 text-red-300 rounded-xl px-4 py-3 text-sm max-w-md text-center">
+                        <span x-text="error"></span>
+                        <button @click="error = null" class="ml-2 text-red-400 hover:text-red-200">&times;</button>
+                    </div>
+                </div>
+            </template>
+        </div>
+
+        <!-- Input Area -->
+        <div class="shrink-0">
+            <form @submit.prevent="sendMessage()" class="flex gap-2">
+                <input type="text"
+                       x-model="input"
+                       :disabled="isLoading"
+                       @keydown.enter.prevent="sendMessage()"
+                       placeholder="Ask about ancient Egypt..."
+                       class="input flex-1 !py-3 text-sm"
+                       maxlength="2000"
+                       autocomplete="off">
+                <button type="submit"
+                        :disabled="isLoading || !input.trim()"
+                        class="btn-gold !px-4 !py-3 shrink-0 disabled:opacity-40 disabled:cursor-not-allowed">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                    </svg>
+                </button>
+            </form>
+            <!-- Controls -->
+            <div class="flex items-center justify-between mt-2 text-xs text-text-dim">
+                <div class="flex items-center gap-3">
+                    <span x-show="messages.length > 0">
+                        <button @click="saveAndClearChat()" class="hover:text-gold transition-colors">Clear conversation</button>
+                    </span>
+                    <span x-show="messages.length === 0">
+                        <button @click="chatHistoryOpen = !chatHistoryOpen" class="hover:text-gold transition-colors">
+                            <span x-text="chatHistoryOpen ? 'Hide history' : 'Past conversations (' + chatHistory.length + ')'"></span>
+                        </button>
+                    </span>
+                </div>
+                <span x-text="input.length + '/2000'"></span>
+            </div>
+
+            <!-- Past conversations panel -->
+            <div x-show="chatHistoryOpen && messages.length === 0 && chatHistory.length > 0"
+                 x-transition class="mt-3 card !p-3 max-h-48 overflow-y-auto space-y-2">
+                <div class="flex items-center justify-between mb-1">
+                    <span class="text-xs font-medium text-text-muted">Past Conversations</span>
+                    <button @click="chatHistory = []; WadjetHistory.clearChatHistory()" class="text-[10px] text-text-dim hover:text-gold">Clear all</button>
+                </div>
+                <template x-for="item in chatHistory" :key="item.timestamp">
+                    <div class="flex items-center gap-3 p-2 rounded-lg bg-night border border-border hover:border-gold/20 cursor-pointer group transition-all"
+                         @click="loadConversation(item)">
+                        <span class="text-lg">𓁟</span>
+                        <div class="flex-1 min-w-0">
+                            <p class="text-xs text-text truncate" x-text="item.preview"></p>
+                            <p class="text-[10px] text-text-dim" x-text="item.messageCount + ' messages · ' + new Date(item.timestamp).toLocaleDateString()"></p>
+                        </div>
+                        <button @click.stop="WadjetHistory.removeChatItem(item.timestamp); chatHistory = WadjetHistory.getChatHistory()"
+                                class="w-5 h-5 rounded-full bg-surface-alt flex items-center justify-center text-text-dim hover:text-error opacity-0 group-hover:opacity-100 transition-opacity text-xs shrink-0">&times;</button>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+function chatApp() {
+    return {
+        messages: [],
+        input: '',
+        isLoading: false,
+        streamingText: '',
+        error: null,
+        sessionId: crypto.randomUUID(),
+        chatHistory: WadjetHistory.getChatHistory(),
+        chatHistoryOpen: false,
+        starters: [
+            'Tell me about the Great Pyramids of Giza',
+            'Who was Cleopatra?',
+            'What do hieroglyphs mean?',
+            'What was daily life like in ancient Egypt?',
+            'Tell me about the Valley of the Kings',
+            'Who built the Sphinx?',
+        ],
+
+        async sendMessage(text) {
+            const msg = (text || this.input).trim();
+            if (!msg || this.isLoading) return;
+            this.input = '';
+            this.error = null;
+
+            // Add user message
+            this.messages.push({ role: 'user', content: msg });
+            this.isLoading = true;
+            this.streamingText = '';
+            this.$nextTick(() => this.scrollToBottom());
+
+            try {
+                const params = new URLSearchParams({
+                    message: msg,
+                    session_id: this.sessionId,
+                });
+                const response = await fetch('/api/chat/stream?' + params.toString());
+
+                if (!response.ok) {
+                    throw new Error('Server error: ' + response.status);
+                }
+
+                const reader = response.body.getReader();
+                const decoder = new TextDecoder();
+                let buffer = '';
+
+                while (true) {
+                    const { value, done } = await reader.read();
+                    if (done) break;
+
+                    buffer += decoder.decode(value, { stream: true });
+                    const lines = buffer.split('\n');
+                    buffer = lines.pop(); // keep incomplete line
+
+                    for (const line of lines) {
+                        if (!line.startsWith('data: ')) continue;
+                        const data = line.slice(6).trim();
+                        if (data === '[DONE]') continue;
+                        if (!data) continue;
+
+                        try {
+                            const parsed = JSON.parse(data);
+                            if (parsed.error) {
+                                this.error = parsed.error;
+                                break;
+                            }
+                            if (parsed.text) {
+                                this.streamingText += parsed.text;
+                                this.scrollToBottom();
+                            }
+                        } catch (e) {
+                            // skip malformed JSON
+                        }
+                    }
+                }
+
+                // Finalize: move streaming text to messages
+                if (this.streamingText) {
+                    this.messages.push({
+                        role: 'assistant',
+                        content: this.streamingText,
+                    });
+                }
+            } catch (err) {
+                this.error = 'Failed to get response. Please try again.';
+                console.error('Chat error:', err);
+            } finally {
+                this.isLoading = false;
+                this.streamingText = '';
+                this.$nextTick(() => this.scrollToBottom());
+            }
+        },
+
+        async clearChat() {
+            try {
+                await fetch('/api/chat/clear', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ session_id: this.sessionId }),
+                });
+            } catch (e) { /* ignore */ }
+            this.messages = [];
+            this.streamingText = '';
+            this.error = null;
+            this.sessionId = crypto.randomUUID();
+        },
+
+        async saveAndClearChat() {
+            if (this.messages.length >= 2) {
+                WadjetHistory.addChat(this.messages);
+                this.chatHistory = WadjetHistory.getChatHistory();
+            }
+            await this.clearChat();
+        },
+
+        loadConversation(item) {
+            this.messages = item.messages || [];
+            this.chatHistoryOpen = false;
+            this.$nextTick(() => this.scrollToBottom());
+        },
+
+        scrollToBottom() {
+            this.$nextTick(() => {
+                const el = this.$refs.chatArea;
+                if (el) el.scrollTop = el.scrollHeight;
+            });
+        },
+
+        renderMarkdown(text) {
+            if (!text) return '';
+            // Basic markdown: bold, italic, code, line breaks
+            return text
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+                .replace(/\*(.+?)\*/g, '<em>$1</em>')
+                .replace(/`(.+?)`/g, '<code class="bg-white/10 px-1 py-0.5 rounded text-xs">$1</code>')
+                .replace(/\n/g, '<br>');
+        }
+    };
+}
+</script>
+{% endblock %}

@@ -1,0 +1,22 @@
+{
+  "wikipedia": {
+    "en": {
+      "title": "Bab Zuwayla",
+      "extract": "Bab Zuwayla or Bab Zuweila is one of three remaining gates in the city walls of historic Cairo in Egypt. It was also known as Bawabat al-Mitwali or Bab al-Mitwali. The gate was built in 1092 by the Fatimid vizier Badr al-Jamali. The two minaret towers on top of it were added between 1415 and 1422 as part of the construction of the adjacent Mosque of Sultan al-Muayyad. Today it remains one of the major landmarks of Cairo.",
+      "description": "Gate in the wall of the Old City of Cairo, Egypt",
+      "coordinates": {
+        "lat": 30.042825,
+        "lon": 31.25779722
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Bab_Zuwayla_Cairo_12_0864.jpg/330px-Bab_Zuwayla_Cairo_12_0864.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Bab_Zuwayla_Cairo_12_0864.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Bab_Zuwayla"
+    },
+    "ar": {
+      "title": "باب زويلة (توضيح)",
+      "extract": "",
+      "description": "صفحة توضيح لويكيميديا",
+      "wikipedia_url": "https://ar.wikipedia.org/wiki/%D8%A8%D8%A7%D8%A8_%D8%B2%D9%88%D9%8A%D9%84%D8%A9_(%D8%AA%D9%88%D8%B6%D9%8A%D8%AD)"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "phase": "H5.3",
+  "model": "all-MiniLM-L6-v2",
+  "dimension": 384,
+  "n_vectors": 14433,
+  "index_type": "IVFFlat(nlist=100, nprobe=10)",
+  "encode_time_sec": 73.3,
+  "texts_per_sec": 196.8,
+  "sources": {
+    "train": 13263,
+    "val": 1170
+  }
+}
