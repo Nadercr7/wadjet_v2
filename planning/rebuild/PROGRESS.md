@@ -1,7 +1,7 @@
 # Wadjet v2 — Phase Tracker
 
 > **Total: 86 tasks across 8 phases**
-> **Progress: 85 / 86 = 99%** — Phases P0–P6 + P8 COMPLETE. P7 Deploy: E.1–E.4 done, E.5–E.6 (push + smoke test) remain.
+> **Progress: 86 / 86 = 100%** — ALL PHASES COMPLETE. Deployed to HF Spaces: https://nadercr7-wadjet-v2.hf.space/
 
 ---
 
@@ -196,7 +196,7 @@
 
 ---
 
-## Phase P7: Deploy (3/5)
+## Phase P7: Deploy (5/5) ✅
 
 > ⚠️ **Only start P7 after P8 is fully complete** — models must work before deploy.
 
@@ -205,10 +205,10 @@
 | P7.1 | Dockerfile + docker-compose | ✅ | Multi-stage TW v4 CSS builder + python:3.13-slim. COPY models/ + data/. Image: 1.78GB. All 9 pages 200 in container |
 | P7.2 | Environment configuration | ✅ | .gitignore whitelist (8 essential models), .dockerignore excludes training data. Starlette 1.0 API. faiss optional. render.yaml env vars |
 | P7.3 | Production TailwindCSS build | ✅ | CSS built in Docker stage via @tailwindcss/cli v4.2.2 |
-| P7.4 | Deploy to Render | ⬜ | Needs: create GitHub repo → git push → connect Render |
-| P7.5 | Smoke test + verify | ⬜ | Pending deploy |
+| P7.4 | Deploy to HF Spaces | ✅ | Pivoted from Render → HF Spaces (free Docker). Git LFS for binaries. URL: https://nadercr7-wadjet-v2.hf.space/ |
+| P7.5 | Smoke test + verify | ✅ | All 9 pages confirmed live. Health 200. 172 dictionary signs. 56 landmarks. Gemini secrets configured |
 
-**Gate:** App live on Render. All features working. No console errors.
+**Gate:** ✅ App live on HF Spaces. All 9 pages load. Health check OK. Models verified. Gemini secrets set.
 - ⬜ Not started
 - 🔄 In progress
 - ✅ Completed

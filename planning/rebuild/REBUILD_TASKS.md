@@ -1,7 +1,7 @@
 # Wadjet v2 — PyTorch Rebuild Task Tracker
 
 > **Master Plan**: `planning/rebuild/MASTER_PLAN.md`
-> **Status**: Phases A, B, B2, C, D COMPLETE — Phase E (Deploy) next
+> **Status**: ALL PHASES COMPLETE (A, B, B2, C, D, E) — Deployed to HF Spaces
 
 ---
 
@@ -119,8 +119,8 @@
 | E.2 | Fix Dockerfile for new models | ✅ | Removed tailwind.config.js ref (TW v4), COPY models/ + data/ (filtered by .dockerignore). Fixed .gitignore with model whitelist (8 files). Fixed .env.example paths. Added PYTHON_VERSION + NODE_VERSION to render.yaml. Made faiss+sentence-transformers optional. Fixed Starlette 1.0 TemplateResponse API. Fixed Alpine v3 @click in identify_result.html |
 | E.3 | Test Docker build locally | ✅ | Image builds (1.78GB). All 9 pages 200. Both ONNX models run: hieroglyph [1,3,128,128]→[1,171], landmark [1,3,224,224]→[1,52] |
 | E.4 | Configure Render env vars | ✅ | render.yaml: PYTHON_VERSION=3.13.0, NODE_VERSION=22, ENVIRONMENT=production, GEMINI_API_KEYS (sync:false) |
-| E.5 | Deploy to Render | ⬜ | Needs: create GitHub repo → git push → connect Render |
-| E.6 | Smoke test on production URL | ⬜ | Pending deploy |
+| E.5 | Deploy to HF Spaces | ✅ | Pivoted from Render (needs credit card) to HF Spaces (free Docker). Git LFS for binaries. Pushed to https://huggingface.co/spaces/nadercr7/wadjet-v2. Secrets configured (17 Gemini keys + model names + environment) |
+| E.6 | Smoke test on production URL | ✅ | All 9 pages load at https://nadercr7-wadjet-v2.hf.space/. Health 200. Dictionary 172 signs. Explore 56 landmarks. Chat/Quiz/Write/Scan all render |
 
 **Gate**: Production URL responds, all features work, no 500 errors.
 
