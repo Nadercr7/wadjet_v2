@@ -1,0 +1,19 @@
+{
+  "slug": "baybars_mosque",
+  "category": "Islamic",
+  "region": "Cairo",
+  "wikipedia": {
+    "en": {
+      "title": "Mosque of al-Zahir Baybars",
+      "extract": "The Mosque of al-Zahir Baybars is a mosque located in Islamic Cairo, Egypt. Completed in 1268 CE, during by the Mamluk Sultan al-Zahir Baybars al-Bunduqdari through his vizier Bahaa el-Din bin Hanna and Sanjar al-Shuja‘i.",
+      "description": "Mosque in Cairo, Egypt",
+      "coordinates": {
+        "lat": 30.0623,
+        "lon": 31.2634
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Mosque_of_sultan_al_zahir_baybars.jpg/330px-Mosque_of_sultan_al_zahir_baybars.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/9/93/Mosque_of_sultan_al_zahir_baybars.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Mosque_of_al-Zahir_Baybars"
+    }
+  }
+}

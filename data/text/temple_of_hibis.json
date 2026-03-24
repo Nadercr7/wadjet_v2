@@ -1,0 +1,19 @@
+{
+  "slug": "temple_of_hibis",
+  "category": "Pharaonic",
+  "region": "Kharga Oasis",
+  "wikipedia": {
+    "en": {
+      "title": "Temple of Hibis",
+      "extract": "The Temple of Hibis is the largest and best preserved ancient Egyptian temple in the Kharga Oasis, as well as the only structure in Egypt dating to the Saite-Persian period which has come down to modern times in relatively good condition. Located about 2 km north of Kharga, it was devoted to a syncretism of two local forms of the deity Amun: \"Amun of Hibis\" and \"Amun-Ra of Karnak who dwells in Hibis\".",
+      "description": "Ancient Egyptian temple in Kharga Oasis, New Valley Governorate, Egypt",
+      "coordinates": {
+        "lat": 25.47694444,
+        "lon": 30.55611111
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/HibisComplete.jpg/330px-HibisComplete.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/7/77/HibisComplete.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Temple_of_Hibis"
+    }
+  }
+}

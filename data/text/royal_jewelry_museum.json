@@ -1,0 +1,19 @@
+{
+  "slug": "royal_jewelry_museum",
+  "category": "Museum",
+  "region": "Alexandria",
+  "wikipedia": {
+    "en": {
+      "title": "Royal Jewelry Museum",
+      "extract": "The Royal Jewelry Museum is an art and history museum in Alexandria, Egypt. It is located in the former palace of Princess Fatma Al-Zahra' in Zizenia neighborhood. The building's halls contain an inestimable collection of jewels and jewelry of the Muhammad Ali Dynasty. 19th-century paintings, statues, and decorative arts are also exhibited in the rooms and lobbies. The museum was first inaugurated on 24 October 1986. After several years of renovations and expansion it was reopened in April 2010.",
+      "description": "Cultural museum in Alexandria, Egypt",
+      "coordinates": {
+        "lat": 31.2407,
+        "lon": 29.963
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/AlexRoyalJewelleryMusLeft.jpg/330px-AlexRoyalJewelleryMusLeft.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/f/f6/AlexRoyalJewelleryMusLeft.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Royal_Jewelry_Museum"
+    }
+  }
+}

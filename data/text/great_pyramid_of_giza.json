@@ -1,0 +1,19 @@
+{
+  "slug": "great_pyramid_of_giza",
+  "category": "Pharaonic",
+  "region": "Giza",
+  "wikipedia": {
+    "en": {
+      "title": "Great Pyramid of Giza",
+      "extract": "The Great Pyramid of Giza is the largest Egyptian pyramid. It served as the tomb of pharaoh Khufu (\"Cheops\"), who ruled during the Fourth Dynasty of the Old Kingdom. Built c. 2600 BC over a period of about 26 years, the pyramid is the oldest of the Seven Wonders of the Ancient World, and the only wonder that has remained largely intact. It is the most famous monument of the Giza pyramid complex, which is part of the UNESCO World Heritage Site \"Memphis and its Necropolis\". It is situated at the northeastern end of the line of the three main pyramids at Giza.",
+      "description": "Largest pyramid in the Giza Necropolis, Egypt",
+      "coordinates": {
+        "lat": 29.97916667,
+        "lon": 31.13416667
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Great_Pyramid_of_Giza_-_Pyramid_of_Khufu.jpg/330px-Great_Pyramid_of_Giza_-_Pyramid_of_Khufu.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Great_Pyramid_of_Giza_-_Pyramid_of_Khufu.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Great_Pyramid_of_Giza"
+    }
+  }
+}

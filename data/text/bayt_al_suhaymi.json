@@ -1,0 +1,19 @@
+{
+  "slug": "bayt_al_suhaymi",
+  "category": "Islamic",
+  "region": "Cairo",
+  "wikipedia": {
+    "en": {
+      "title": "Bayt al-Suhaymi",
+      "extract": "Bayt al-Suhaymi is a traditional Egyptian Islamic themed house and museum in Cairo, Egypt.",
+      "description": "Building in Cairo, Egypt",
+      "coordinates": {
+        "lat": 30.05222222,
+        "lon": 31.2625
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Flickr_-_Gaspa_-_Cairo%2C_Bayt_es-Suhaimi.jpg/330px-Flickr_-_Gaspa_-_Cairo%2C_Bayt_es-Suhaimi.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/6/69/Flickr_-_Gaspa_-_Cairo%2C_Bayt_es-Suhaimi.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Bayt_al-Suhaymi"
+    }
+  }
+}

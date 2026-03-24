@@ -1,0 +1,19 @@
+{
+  "slug": "lahun_pyramid",
+  "category": "Pharaonic",
+  "region": "Fayoum",
+  "wikipedia": {
+    "en": {
+      "title": "El Lahun",
+      "extract": "El Lahun (Arabic: اللاهون El Lāhūn, Coptic: ⲗⲉϩⲱⲛⲉ alt. Illahun, Lahun, or Kahun, is a town and pyramid complex in Faiyum, Egypt founded by Senusret II. The Pyramid of Senusret II is located near the modern town, and is often called the Pyramid of Lahun. The site was occupied during the Middle Kingdom into the late Thirteenth Dynasty, and then again in the New Kingdom. The ancient name of the site was rꜣ-ḥn.t, literally, \"Mouth of the Canal\". It was known as Ptolemais Hormos in Ptolemaic Egypt. There are multiple areas at El Lahun including the Pyramid of Senwosret II, cemeteries, the Valley temple, and the town of Kahun. It contains many artifacts of daily life like pottery from the Middle Kingdom and evidence of administrative procedures seen on papyri and seals.",
+      "description": "Village in Faiyum, Egypt",
+      "coordinates": {
+        "lat": 29.23333333,
+        "lon": 30.96666667
+      },
+      "thumbnail": "",
+      "original_image": "",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/El_Lahun"
+    }
+  }
+}

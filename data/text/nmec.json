@@ -1,0 +1,16 @@
+{
+  "slug": "nmec",
+  "category": "Museum",
+  "region": "Cairo",
+  "wikipedia": {
+    "en": {
+      "title": "National Museum of Egyptian Civilization",
+      "extract": "The National Museum of Egyptian Civilization (NMEC) is a national museum in Cairo, Egypt. The museum displays a collection of 50,000 artifacts, presenting the Egyptian civilization from prehistoric times to the modern era.",
+      "description": "History museum in Cairo, Egypt",
+      "coordinates": null,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Logo_NMEC.png/330px-Logo_NMEC.png",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Logo_NMEC.png",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/National_Museum_of_Egyptian_Civilization"
+    }
+  }
+}

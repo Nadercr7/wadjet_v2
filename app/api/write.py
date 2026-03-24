@@ -6,7 +6,10 @@ GET  /api/write/palette  — Get clickable palette signs grouped by type
 
 from __future__ import annotations
 
-from fastapi import APIRouter, HTTPException
+import json
+import logging
+
+from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel, Field
 
@@ -15,6 +18,8 @@ from app.core.gardiner import (
     GardinerSign,
     SignType,
 )
+
+logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/api/write", tags=["write"])
 
@@ -82,16 +87,58 @@ def _build_alpha_map():
 
 class WriteRequest(BaseModel):
     text: str = Field(..., min_length=1, max_length=500, description="Text to convert")
-    mode: str = Field("alpha", pattern="^(alpha|mdc)$", description="'alpha' for English letters, 'mdc' for transliteration")
+    mode: str = Field("alpha", pattern="^(alpha|mdc|smart)$", description="'alpha' for English letters, 'mdc' for transliteration, 'smart' for AI translation")
+
+
+async def _ai_translate_to_hieroglyphs(request: Request, text: str) -> list[dict] | None:
+    """Use Gemini to intelligently translate text into hieroglyphs."""
+    gemini = getattr(request.app.state, "gemini", None)
+    if not gemini or not gemini.available:
+        return None
+
+    system = (
+        "You are an expert Egyptologist. Translate the given text into Egyptian hieroglyphs "
+        "using the Gardiner Sign List. Return only the hieroglyphic signs needed.\n"
+        "Always prefer common, well-known signs. Use proper Egyptian grammar where possible.\n"
+        "Respond ONLY with valid JSON."
+    )
+
+    prompt = (
+        f'Translate this text into Egyptian hieroglyphs: "{text}"\n\n'
+        f"For each hieroglyph in the translation, provide:\n"
+        f"- code: Gardiner code (e.g. G1, D21, N35)\n"
+        f"- transliteration: the transliteration value\n"
+        f"- description: brief sign description\n\n"
+        f"Return JSON:\n"
+        f'{{\n'
+        f'  "glyphs": [\n'
+        f'    {{"code": "G1", "transliteration": "A", "description": "Egyptian vulture"}},\n'
+        f'    ...\n'
+        f'  ],\n'
+        f'  "explanation": "brief note on the translation approach"\n'
+        f'}}'
+    )
+
+    try:
+        result_text = await gemini.generate_json(
+            prompt, system_instruction=system,
+            temperature=0.2, max_output_tokens=1024,
+        )
+        data = json.loads(result_text)
+        return data.get("glyphs", [])
+    except Exception:
+        logger.warning("AI hieroglyph translation failed", exc_info=True)
+        return None
 
 
 @router.post("")
-async def convert_text(req: WriteRequest):
+async def convert_text(req: WriteRequest, request: Request):
     """Convert text to hieroglyphic sequence.
 
     Modes:
     - alpha: Map each English letter to its closest uniliteral sign
     - mdc: Parse Manuel de Codage transliteration and find matching signs
+    - smart: AI-powered translation via Gemini (handles full phrases)
     """
     _build_reverse_map()
     _build_alpha_map()
@@ -148,6 +195,38 @@ async def convert_text(req: WriteRequest):
         # Remove trailing separator
         if result_glyphs and result_glyphs[-1].get("type") == "separator":
             result_glyphs.pop()
+
+    elif req.mode == "smart":
+        ai_glyphs = await _ai_translate_to_hieroglyphs(request, text)
+        if ai_glyphs:
+            for g in ai_glyphs:
+                code = g.get("code", "")
+                sign = GARDINER_TRANSLITERATION.get(code)
+                result_glyphs.append({
+                    "type": "glyph",
+                    "code": code,
+                    "transliteration": g.get("transliteration", sign.transliteration if sign else ""),
+                    "unicode_char": sign.unicode_char if sign else "",
+                    "description": g.get("description", sign.description if sign else ""),
+                })
+        else:
+            # Fallback to alpha mode if AI unavailable
+            _build_alpha_map()
+            for char in text.lower():
+                if char == ' ':
+                    result_glyphs.append({"type": "separator", "display": " "})
+                    continue
+                sign = _ALPHA_TO_SIGN.get(char)
+                if sign:
+                    result_glyphs.append({
+                        "type": "glyph",
+                        "code": sign.code,
+                        "transliteration": sign.transliteration,
+                        "unicode_char": sign.unicode_char,
+                        "description": sign.description,
+                    })
+                else:
+                    result_glyphs.append({"type": "unknown", "display": char})
 
     # Build the display string
     hieroglyphs_str = ""

@@ -60,6 +60,9 @@ def _load_wiki_data() -> dict[str, dict]:
                 "thumbnail": en.get("thumbnail", ""),
                 "original_image": en.get("original_image", ""),
                 "wikipedia_url": en.get("wikipedia_url", ""),
+                # Expanded data fields (from generate_heritage_data.py)
+                "category": data.get("category", ""),
+                "region": data.get("region", ""),
             }
         except Exception:
             logger.warning("Failed to load wiki data for %s", f.stem)
@@ -157,11 +160,15 @@ def _wiki_to_dict(slug: str, wiki: dict) -> dict:
     img_counts = _load_image_counts()
     coords = wiki.get("coordinates")
 
+    # Use category/region from expanded data if available, else guess
+    city = wiki.get("region") or _guess_city(slug)
+    site_type = wiki.get("category") or _guess_type(slug)
+
     return {
         "slug": slug.replace("_", "-"),
         "name": wiki.get("title", slug.replace("_", " ").title()),
-        "city": _guess_city(slug),
-        "type": _guess_type(slug),
+        "city": city,
+        "type": site_type,
         "era": "",
         "popularity": 5,
         "description": wiki.get("description", ""),
@@ -586,12 +593,40 @@ async def identify_landmark(request: Request, file: UploadFile = File(...)):
     )
 
     if not merged.slug:
+        # No model could identify anything — check if it's even Egyptian
+        if gemini_candidate and not gemini_candidate.slug:
+            # Gemini explicitly said "not Egyptian"
+            not_egyptian = {
+                "name": "",
+                "confidence": 0.0,
+                "slug": "",
+                "source": "none",
+                "agreement": "none",
+                "description": "This does not appear to be an Egyptian landmark.",
+                "is_known_landmark": False,
+                "is_egyptian": False,
+                "top3": [],
+            }
+            if request.headers.get("HX-Request"):
+                templates = request.app.state.templates
+                return templates.TemplateResponse(
+                    request, "partials/identify_result.html", context=not_egyptian,
+                )
+            return JSONResponse(content=not_egyptian)
+
         raise HTTPException(
             status_code=503,
             detail="Landmark identification temporarily unavailable",
         )
 
-    # ── Step 4: Get description if missing ──
+    # ── Step 4: Check if result is a known landmark ──
+    model_classes = set(_load_model_classes())
+    wiki_data = _load_wiki_data()
+    known_slugs = model_classes | set(wiki_data.keys())
+    normalized_slug = _normalize_slug(merged.slug)
+    is_known = normalized_slug in known_slugs
+
+    # ── Step 5: Get description if missing ──
     description = merged.description
     if not description and gemini and gemini.available:
         try:
@@ -606,6 +641,8 @@ async def identify_landmark(request: Request, file: UploadFile = File(...)):
         "source": merged.source,
         "agreement": merged.agreement,
         "description": description,
+        "is_known_landmark": is_known,
+        "is_egyptian": True,
         "top3": onnx_top3 or (
             [{"slug": merged.slug, "name": merged.name, "confidence": merged.confidence}]
         ),

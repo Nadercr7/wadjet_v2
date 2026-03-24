@@ -1,0 +1,16 @@
+{
+  "slug": "black_desert",
+  "category": "Nature",
+  "region": "Bahariya Oasis",
+  "wikipedia": {
+    "en": {
+      "title": "Black Desert (Egypt)",
+      "extract": "The Black Desert is a region of volcano-shaped and widely spaced mounds, distributed along about 30 km (19 mi) in western Egypt between the White Desert in the south and the Bahariya Oasis in the north. Most of its mounds are capped by basalt sills, giving them the characteristic black color.",
+      "description": "Desert in Egypt",
+      "coordinates": null,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Desert.jpg/330px-Black_Desert.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/1/19/Black_Desert.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Black_Desert_(Egypt)"
+    }
+  }
+}

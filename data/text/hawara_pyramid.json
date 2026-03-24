@@ -1,0 +1,19 @@
+{
+  "slug": "hawara_pyramid",
+  "category": "Pharaonic",
+  "region": "Fayoum",
+  "wikipedia": {
+    "en": {
+      "title": "Hawara",
+      "extract": "Hawara is an archaeological site of Ancient Egypt, south of the site of Crocodilopolis at the entrance to the depression of the Fayyum oasis. It is the site of a pyramid built by King Amenemhat III of the 12th dynasty, between the 19th and 18th centuries BC.",
+      "description": "Village in Faiyum Governorate, Egypt",
+      "coordinates": {
+        "lat": 29.27416667,
+        "lon": 30.89888889
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Limestone_pyramid._Mr._F._Petrie_thought_that_this_represented_a_model_for_Hawara_pyramid._12th_Dynasty._From_Hawara%2C_Egypt._The_Petrie_Museum_of_Egyptian_Archaeology%2C_London.jpg/330px-thumbnail.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/2/20/Limestone_pyramid._Mr._F._Petrie_thought_that_this_represented_a_model_for_Hawara_pyramid._12th_Dynasty._From_Hawara%2C_Egypt._The_Petrie_Museum_of_Egyptian_Archaeology%2C_London.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Hawara"
+    }
+  }
+}

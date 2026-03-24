@@ -1,0 +1,19 @@
+{
+  "slug": "saint_catherine_area",
+  "category": "Nature",
+  "region": "Sinai",
+  "wikipedia": {
+    "en": {
+      "title": "Saint Catherine's Monastery",
+      "extract": "Saint Catherine's Monastery, officially the Sacred Autonomous Royal Monastery of Saint Catherine of the Holy and God-Trodden Mount Sinai, is a Christian monastery located in the Sinai Peninsula of Egypt. Located at the foot of Mount Sinai, it was built between 548 and 565, and is the world's oldest continuously inhabited Christian monastery.",
+      "description": "Greek Orthodox monastery in Sinai",
+      "coordinates": {
+        "lat": 28.55555556,
+        "lon": 33.97611111
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Katharinenkloster_Sinai_BW_2.jpg/330px-Katharinenkloster_Sinai_BW_2.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Katharinenkloster_Sinai_BW_2.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Saint_Catherine's_Monastery"
+    }
+  }
+}

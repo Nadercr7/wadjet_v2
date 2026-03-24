@@ -1,0 +1,19 @@
+{
+  "slug": "colored_canyon",
+  "category": "Nature",
+  "region": "Sinai",
+  "wikipedia": {
+    "en": {
+      "title": "Coloured Canyon",
+      "extract": "The Coloured Canyon is a rock formation on Sinai Peninsula and is a popular hiking destination. It is a labyrinth of rocks, some up to 40 meters tall. The canyon is almost 800 meters long. The nearest town to the canyon is Nuweiba. It is about 90 km north of Dahab.",
+      "description": "Canyon in Egypt",
+      "coordinates": {
+        "lat": 29.14611111,
+        "lon": 34.59486111
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Coloured_canyon_sinai.JPG/330px-Coloured_canyon_sinai.JPG",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Coloured_canyon_sinai.JPG",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Coloured_Canyon"
+    }
+  }
+}

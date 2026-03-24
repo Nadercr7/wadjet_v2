@@ -1,0 +1,19 @@
+{
+  "slug": "temple_of_amada",
+  "category": "Pharaonic",
+  "region": "Aswan",
+  "wikipedia": {
+    "en": {
+      "title": "Temple of Amada",
+      "extract": "The Temple of Amada, is one of the oldest Egyptian Temples in Nubia. It was constructed during the 18th Dynasty by Pharaoh Thutmose III. It is one of the oldest Egyptian buildings still present along Lake Nasser. In total, three generations contributed to building the temple. Minor modifications continued into the 19th Dynasty. The temple was dedicated to Amun-Ra and Horakhty-Ra.",
+      "description": "UNESCO World Heritage Site in New Amada, Egypt",
+      "coordinates": {
+        "lat": 22.73115,
+        "lon": 32.26261
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Amada_Front.JPG/330px-Amada_Front.JPG",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/6/67/Amada_Front.JPG",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Temple_of_Amada"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "slug": "farafra_oasis",
+  "category": "Nature",
+  "region": "Farafra Oasis",
+  "wikipedia": {
+    "en": {
+      "title": "Farafra, Egypt",
+      "extract": "The Farafra depression is a 980 km2 (380 sq mi) geological depression, the second biggest by size in Western Egypt and the smallest by population, near latitude 27.06° north and longitude 27.97° east. It is in the large Western Desert of Egypt, approximately midway between Dakhla and Bahariya oases.",
+      "description": "Depression in New Valley Governorate, Egypt",
+      "coordinates": {
+        "lat": 27.05833333,
+        "lon": 27.97
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Farafra_%2CEgypt.jpg/330px-Farafra_%2CEgypt.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Farafra_%2CEgypt.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Farafra%2C_Egypt"
+    }
+  }
+}

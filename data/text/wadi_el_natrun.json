@@ -1,0 +1,19 @@
+{
+  "slug": "wadi_el_natrun",
+  "category": "Coptic",
+  "region": "Beheira",
+  "wikipedia": {
+    "en": {
+      "title": "Wadi El Natrun",
+      "extract": "Wadi El Natrun is a depression in northern Egypt that is located 23 m (75 ft) below sea level and 38 m (125 ft) below the Nile River level. The valley contains several alkaline lakes, natron-rich salt deposits, salt marshes and freshwater marshes.",
+      "description": "Geographic depression in Beheira, Egypt",
+      "coordinates": {
+        "lat": 30.58333333,
+        "lon": 30.33333333
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Deir_as_Suriani.jpg/330px-Deir_as_Suriani.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/0/09/Deir_as_Suriani.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Wadi_El_Natrun"
+    }
+  }
+}

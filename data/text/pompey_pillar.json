@@ -1,0 +1,19 @@
+{
+  "slug": "pompey_pillar",
+  "category": "Greco-Roman",
+  "region": "Alexandria",
+  "wikipedia": {
+    "en": {
+      "title": "Pompey's Pillar",
+      "extract": "Pompey's Pillar is a Roman triumphal column in Alexandria, Egypt. Despite its modern name, it was actually set up in honour of the Roman emperor Diocletian between 298–302 AD. The giant Corinthian column originally supported a colossal porphyry statue of the emperor in armour. It stands at the eastern side of the temenos of the Serapeum of Alexandria, which is now in ruins.",
+      "description": "Ancient Roman triumphal column",
+      "coordinates": {
+        "lat": 31.1825,
+        "lon": 29.89641667
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/AlexSarapeionPompeysPillar.jpg/330px-AlexSarapeionPompeysPillar.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/b/be/AlexSarapeionPompeysPillar.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Pompey's_Pillar"
+    }
+  }
+}

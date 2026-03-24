@@ -1,0 +1,19 @@
+{
+  "slug": "dahab",
+  "category": "Nature",
+  "region": "Sinai",
+  "wikipedia": {
+    "en": {
+      "title": "Dahab",
+      "extract": "Dahab is a small town on the southeast coast of the Sinai Peninsula in Egypt, approximately 80 km (50 mi) northeast of Sharm el-Sheikh.",
+      "description": "Coastal town in South Sinai, Egypt",
+      "coordinates": {
+        "lat": 28.49305556,
+        "lon": 34.50472222
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Dahab_-_Egypte_07-2012_%287614814042%29.jpg/330px-Dahab_-_Egypte_07-2012_%287614814042%29.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/0/03/Dahab_-_Egypte_07-2012_%287614814042%29.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Dahab"
+    }
+  }
+}

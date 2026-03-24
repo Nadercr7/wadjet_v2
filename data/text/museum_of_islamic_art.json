@@ -1,0 +1,19 @@
+{
+  "slug": "museum_of_islamic_art",
+  "category": "Museum",
+  "region": "Cairo",
+  "wikipedia": {
+    "en": {
+      "title": "Museum of Islamic Art, Cairo",
+      "extract": "The Museum of Islamic Art is a museum in Cairo, Egypt. It is considered one of the greatest museums in the world, with its exceptional collection of rare woodwork and plaster artefacts, as well as metal, ceramic, glass, crystal, and textile objects of all periods, from all over the Islamic world.",
+      "description": "Museum in Cairo, Egypt",
+      "coordinates": {
+        "lat": 30.04472222,
+        "lon": 31.25277778
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/GD-EG-Caire-Mus%C3%A9eIslam001.JPG/330px-GD-EG-Caire-Mus%C3%A9eIslam001.JPG",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/d/da/GD-EG-Caire-Mus%C3%A9eIslam001.JPG",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Museum_of_Islamic_Art%2C_Cairo"
+    }
+  }
+}

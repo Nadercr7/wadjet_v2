@@ -1,0 +1,19 @@
+{
+  "slug": "qaitbay_citadel",
+  "category": "Greco-Roman",
+  "region": "Alexandria",
+  "wikipedia": {
+    "en": {
+      "title": "Citadel of Qaitbay",
+      "extract": "The Citadel of Qaitbay is a 15th-century defensive fortress located on the Mediterranean sea coast, in Alexandria, Egypt. It was built from 1477 to 1479 AD by Sultan Al-Ashraf Sayf al-Din Qaitbay. The Citadel is situated on the eastern side of the northern tip of Pharos Island at the mouth of the Eastern Harbour.",
+      "description": "Building in Alexandria, Egypt",
+      "coordinates": {
+        "lat": 31.213,
+        "lon": 29.8852
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/QaitbeyCitadel.jpg/330px-QaitbeyCitadel.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/4/4a/QaitbeyCitadel.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Citadel_of_Qaitbay"
+    }
+  }
+}

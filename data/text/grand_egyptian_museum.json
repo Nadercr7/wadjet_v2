@@ -1,0 +1,19 @@
+{
+  "slug": "grand_egyptian_museum",
+  "category": "Museum",
+  "region": "Giza",
+  "wikipedia": {
+    "en": {
+      "title": "Grand Egyptian Museum",
+      "extract": "The Grand Egyptian Museum is a national archaeological museum in Giza, Egypt. Dedicated to Ancient Egypt and its culture, society, and artifacts, the GEM is the largest museum in the world for a single civilization.",
+      "description": "Archaeological museum in Giza, Egypt",
+      "coordinates": {
+        "lat": 29.995,
+        "lon": 31.1193
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Logo_of_the_Grand_Egyptian_Museum.svg/330px-Logo_of_the_Grand_Egyptian_Museum.svg.png",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Logo_of_the_Grand_Egyptian_Museum.svg/960px-Logo_of_the_Grand_Egyptian_Museum.svg.png",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Grand_Egyptian_Museum"
+    }
+  }
+}

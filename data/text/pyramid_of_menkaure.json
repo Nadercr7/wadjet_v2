@@ -1,0 +1,19 @@
+{
+  "slug": "pyramid_of_menkaure",
+  "category": "Pharaonic",
+  "region": "Giza",
+  "wikipedia": {
+    "en": {
+      "title": "Pyramid of Menkaure",
+      "extract": "The pyramid of Menkaure is the smallest of the three main pyramids of the Giza pyramid complex, located on the Giza Plateau in the southwestern outskirts of Cairo, Egypt. It is thought to have been built to serve as the tomb of the Fourth Dynasty King Menkaure.",
+      "description": "Smallest main pyramid of Giza in Egypt",
+      "coordinates": {
+        "lat": 29.9725,
+        "lon": 31.12833333
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Cairo%2C_Gizeh%2C_Pyramid_of_Menkaure%2C_Egypt%2C_Oct_2005.jpg/330px-Cairo%2C_Gizeh%2C_Pyramid_of_Menkaure%2C_Egypt%2C_Oct_2005.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/3/38/Cairo%2C_Gizeh%2C_Pyramid_of_Menkaure%2C_Egypt%2C_Oct_2005.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Pyramid_of_Menkaure"
+    }
+  }
+}

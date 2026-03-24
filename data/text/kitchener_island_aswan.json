@@ -1,0 +1,19 @@
+{
+  "slug": "kitchener_island_aswan",
+  "category": "Nature",
+  "region": "Aswan",
+  "wikipedia": {
+    "en": {
+      "title": "El Nabatat Island",
+      "extract": "El Nabatat Island or Kitchener's Island is a small, oval-shaped island in the Nile at Aswan, Egypt. It is less than a kilometer long and its width is less than ½ a kilometer. The Aswan Botanical Garden is located on the island.",
+      "description": "Island in the Nile River at Aswan, Egypt",
+      "coordinates": {
+        "lat": 24.09361111,
+        "lon": 32.88694444
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Aswan_Botanical_Garden_09.jpg/330px-Aswan_Botanical_Garden_09.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/0/02/Aswan_Botanical_Garden_09.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/El_Nabatat_Island"
+    }
+  }
+}

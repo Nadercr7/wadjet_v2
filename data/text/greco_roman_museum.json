@@ -1,0 +1,19 @@
+{
+  "slug": "greco_roman_museum",
+  "category": "Greco-Roman",
+  "region": "Alexandria",
+  "wikipedia": {
+    "en": {
+      "title": "Graeco-Roman Museum",
+      "extract": "The Graeco-Roman Museum is an archaeological museum located in Alexandria, Egypt. Its collection of over 40,000 objects includes sculptures, mosaics, woodwork, and coins.",
+      "description": "Archaeological museum located in Alexandria, Egypt",
+      "coordinates": {
+        "lat": 31.199259,
+        "lon": 29.906872
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Fassade_des_griechisch-r%C3%B6mischen_Museums_in_Alexandria%2C_%C3%84gypten.jpg/330px-Fassade_des_griechisch-r%C3%B6mischen_Museums_in_Alexandria%2C_%C3%84gypten.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Fassade_des_griechisch-r%C3%B6mischen_Museums_in_Alexandria%2C_%C3%84gypten.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Graeco-Roman_Museum"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "slug": "abu_rawash",
+  "category": "Pharaonic",
+  "region": "Giza",
+  "wikipedia": {
+    "en": {
+      "title": "Abu Rawash",
+      "extract": "Abu Rawash, 8 kilometres (5.0 mi) north of Giza, is the site of Egypt's most northerly pyramid, also known as the lost pyramid – the mostly ruined Pyramid of Djedefre, the son and successor of Khufu. Originally, it was thought that this pyramid had never been completed, but the current archaeological consensus is that not only was it completed, but that it was built about the same size as the Pyramid of Menkaure – the third largest of the Giza pyramids. It's believed that the destruction of the pyramid started at the end of the New Kingdom at the latest, and was particularly intense during the Roman and early Christian eras when a Coptic monastery was built in nearby Wadi Karin. It has been proven, moreover, that at the end of the nineteenth century, stone was still being hauled away at the rate of three hundred camel loads a day.",
+      "description": "Village in Giza Governorate, Egypt",
+      "coordinates": {
+        "lat": 30.03194444,
+        "lon": 31.075
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Pyramid_of_Djedefre_01.jpg/330px-Pyramid_of_Djedefre_01.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/4/44/Pyramid_of_Djedefre_01.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Abu_Rawash"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "slug": "medinet_habu",
+  "category": "Pharaonic",
+  "region": "Luxor",
+  "wikipedia": {
+    "en": {
+      "title": "Medinet Habu",
+      "extract": "Medinet Habu is an archaeological locality situated near the foot of the Theban Hills on the West Bank of the River Nile opposite the modern city of Luxor, Egypt. Although other structures are located within the area and important discoveries have also been made at these sites, the location is today associated almost synonymously with the largest and best preserved site, the Mortuary Temple of Ramesses III. It was an important New Kingdom period temple structure in the West Bank of Luxor in Egypt. Aside from its size and architectural and artistic importance, the mortuary temple is probably best known as the source of inscribed reliefs depicting the advent and defeat of the \"sea peoples\" during the reign of Ramesses III, including the Battle of the Delta. Some of the building\nmaterials were re-used from earlier monuments including the destroyed mortuary temple of Tausret the last known ruler and the final pharaoh of the Nineteenth Dynasty of Egypt. The Greco-Roman period temple to Isis, Deir el-Shelwit, lies\n4 kilometers to the south and re-used inscribed blocks from Medinet Habu were found there.",
+      "description": "Mortuary Temple of Ramesses III",
+      "coordinates": {
+        "lat": 25.71972222,
+        "lon": 32.60083333
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Templo_funerario_de_Rams%C3%A9s_III%2C_Luxor%2C_Egipto%2C_2022-04-03%2C_DD_22.jpg/330px-Templo_funerario_de_Rams%C3%A9s_III%2C_Luxor%2C_Egipto%2C_2022-04-03%2C_DD_22.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/4/47/Templo_funerario_de_Rams%C3%A9s_III%2C_Luxor%2C_Egipto%2C_2022-04-03%2C_DD_22.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Medinet_Habu"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "slug": "tanis",
+  "category": "Pharaonic",
+  "region": "Sharqia",
+  "wikipedia": {
+    "en": {
+      "title": "Tanis",
+      "extract": "Tanis or San al-Hagar is the Greek name for ancient Egyptian ḏꜥn.t, an important archaeological site in the northeastern Nile Delta of Egypt, and the location of a city of the same name. Tanis was the capital of the Egyptian Kingdom in its 21st and 22nd Dynasties. It is located on the Tanitic branch of the Nile, which has long since silted up.",
+      "description": "City in Sharqia, Egypt",
+      "coordinates": {
+        "lat": 30.97694444,
+        "lon": 31.88
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Ruins_of_Tanis.jpg/330px-Ruins_of_Tanis.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Ruins_of_Tanis.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Tanis"
+    }
+  }
+}

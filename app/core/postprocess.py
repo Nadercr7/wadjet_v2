@@ -11,10 +11,10 @@ from pathlib import Path
 from dataclasses import dataclass, field
 
 # ── Default tuning parameters ────────────────────────────────
-CONF_THRESHOLD = 0.15       # Minimum detection confidence
+CONF_THRESHOLD = 0.10       # Minimum detection confidence (lowered for stone inscriptions)
 NMS_IOU_THRESHOLD = 0.45    # NMS IoU overlap threshold
 MIN_BOX_AREA_RATIO = 0.0005 # Minimum box area as fraction of image area
-MAX_BOX_AREA_RATIO = 0.25   # Maximum box area as fraction of image area
+MAX_BOX_AREA_RATIO = 0.40   # Maximum box area as fraction of image area (raised for cartouches)
 MIN_BOX_DIM = 10            # Minimum box dimension in pixels (at original scale)
 MAX_ASPECT_RATIO = 5.0      # Maximum width/height or height/width ratio
 MERGE_IOU_THRESHOLD = 0.65  # IoU threshold for merging overlapping detections
