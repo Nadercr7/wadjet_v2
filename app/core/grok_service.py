@@ -272,7 +272,7 @@ class GrokService:
         temperature: float = 0.7,
         max_tokens: int = 1024,
     ) -> AsyncIterator[str]:
-        """Streaming text generation for Thoth chat fallback."""
+        """Streaming text generation with retry + key rotation."""
         messages: list[dict[str, Any]] = []
         if system_instruction:
             messages.append({"role": "system", "content": system_instruction})
@@ -286,30 +286,49 @@ class GrokService:
             "stream": True,
         }
 
-        try:
-            async with self._client.stream(
-                "POST",
-                "/chat/completions",
-                headers=self._headers(),
-                json=payload,
-            ) as resp:
-                resp.raise_for_status()
-                async for line in resp.aiter_lines():
-                    if not line.startswith("data: "):
+        last_error: Exception | None = None
+        for attempt in range(_MAX_RETRIES):
+            try:
+                async with self._client.stream(
+                    "POST",
+                    "/chat/completions",
+                    headers=self._headers(),
+                    json=payload,
+                ) as resp:
+                    if resp.status_code == 429:
+                        self._rotate_key()
+                        await asyncio.sleep(_BASE_BACKOFF_S * (2 ** attempt))
                         continue
-                    data = line[6:]
-                    if data == "[DONE]":
-                        break
-                    try:
-                        chunk = json.loads(data)
-                        delta = chunk["choices"][0].get("delta", {})
-                        text = delta.get("content", "")
-                        if text:
-                            yield text
-                    except (json.JSONDecodeError, KeyError, IndexError):
-                        continue
-        except Exception:
-            logger.exception("Grok streaming failed")
+                    resp.raise_for_status()
+                    async for line in resp.aiter_lines():
+                        if not line.startswith("data: "):
+                            continue
+                        data = line[6:]
+                        if data == "[DONE]":
+                            break
+                        try:
+                            chunk = json.loads(data)
+                            delta = chunk["choices"][0].get("delta", {})
+                            text = delta.get("content", "")
+                            if text:
+                                yield text
+                        except (json.JSONDecodeError, KeyError, IndexError):
+                            continue
+                    return  # stream completed successfully
+            except httpx.HTTPStatusError as exc:
+                if exc.response.status_code == 429:
+                    self._rotate_key()
+                    last_error = exc
+                    await asyncio.sleep(_BASE_BACKOFF_S * (2 ** attempt))
+                    continue
+                raise
+            except httpx.TimeoutException as exc:
+                last_error = exc
+                await asyncio.sleep(_BASE_BACKOFF_S * (2 ** attempt))
+                continue
+        logger.error("Grok streaming failed after %d retries", _MAX_RETRIES)
+        if last_error:
+            raise last_error
 
     async def close(self) -> None:
         """Close the underlying HTTP client."""

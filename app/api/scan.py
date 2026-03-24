@@ -17,6 +17,7 @@ from functools import partial
 
 import cv2
 import numpy as np
+from collections import Counter
 from fastapi import APIRouter, File, HTTPException, Request, UploadFile
 from fastapi.responses import JSONResponse
 
@@ -232,7 +233,6 @@ async def scan_image(request: Request, file: UploadFile = File(...), translate: 
                 codes.append(grok_code.upper())
 
             # Majority wins
-            from collections import Counter
             counts = Counter(codes)
             winner, _ = counts.most_common(1)[0]
 
