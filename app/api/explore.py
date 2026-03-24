@@ -422,14 +422,13 @@ async def list_landmarks(
 
 
 # ══════════════════════════════════════════════════════════════
-# Hybrid landmark identification: ONNX model + Gemini Vision
+# Parallel Ensemble: ONNX + Gemini + Grok (tiebreaker)
 # ══════════════════════════════════════════════════════════════
 
 identify_router = APIRouter(prefix="/api/explore", tags=["explore"])
 
 MAX_FILE_SIZE = 10 * 1024 * 1024
 ALLOWED_IMAGE_TYPES = {"image/jpeg", "image/png", "image/webp"}
-HIGH_CONFIDENCE = 0.5
 
 _landmark_pipeline = None
 
@@ -445,20 +444,65 @@ def _get_landmark_pipeline():
 
 def _get_gemini(request: Request):
     """Retrieve GeminiService from app state."""
-    gemini = getattr(request.app.state, "gemini", None)
-    return gemini
+    return getattr(request.app.state, "gemini", None)
+
+
+def _get_grok(request: Request):
+    """Retrieve GrokService from app state."""
+    return getattr(request.app.state, "grok", None)
+
+
+async def _run_onnx(image) -> dict | None:
+    """Run ONNX landmark model in thread pool."""
+    try:
+        pipeline = _get_landmark_pipeline()
+        if not pipeline.available:
+            return None
+        import asyncio
+        from functools import partial
+        loop = asyncio.get_event_loop()
+        return await loop.run_in_executor(
+            None, partial(pipeline.predict, image, top_k=3)
+        )
+    except Exception:
+        logger.exception("ONNX landmark inference failed")
+        return None
+
+
+async def _run_gemini_vision(gemini, data: bytes, mime: str) -> dict:
+    """Run Gemini Vision landmark identification."""
+    try:
+        if gemini and gemini.available:
+            return await gemini.identify_landmark(data, mime)
+    except Exception:
+        logger.warning("Gemini identify_landmark failed")
+    return {}
+
+
+async def _run_grok_vision(grok, data: bytes, mime: str) -> dict:
+    """Run Grok Vision landmark identification (tiebreaker)."""
+    try:
+        if grok and grok.available:
+            return await grok.identify_landmark(data, mime)
+    except Exception:
+        logger.warning("Grok identify_landmark failed")
+    return {}
 
 
 @identify_router.post("/identify")
 async def identify_landmark(request: Request, file: UploadFile = File(...)):
-    """Hybrid landmark identification.
+    """Parallel ensemble landmark identification.
 
-    1. Run ONNX model → class + confidence + top3
-    2. If confidence >= 0.5 → Gemini describes (text only, no image sent)
-    3. If confidence < 0.5 → Gemini also identifies (image sent)
-    4. If ONNX fails → Gemini-only fallback
-    5. If both fail → 503
+    1. Run ONNX + Gemini Vision in parallel
+    2. Merge results with ensemble logic:
+       - Both agree → boosted confidence
+       - Gemini matches ONNX top2/3 → use Gemini's pick
+       - Disagreement → Grok Vision tiebreaker
+    3. Normalize slug + generate description
     """
+    import asyncio
+    from app.core.ensemble import Candidate, merge_landmark
+
     # Validate file
     if file.content_type and file.content_type not in ALLOWED_IMAGE_TYPES:
         raise HTTPException(status_code=422, detail="File is not a valid image")
@@ -469,105 +513,104 @@ async def identify_landmark(request: Request, file: UploadFile = File(...)):
     if not data:
         raise HTTPException(status_code=422, detail="Empty file")
 
-    # Decode image
     arr = np.frombuffer(data, np.uint8)
     image = cv2.imdecode(arr, cv2.IMREAD_COLOR)
     if image is None:
         raise HTTPException(status_code=422, detail="Could not decode image")
 
     gemini = _get_gemini(request)
-    onnx_result = None
-    source = "unknown"
-    description = ""
+    grok = _get_grok(request)
+    mime = file.content_type or "image/jpeg"
 
-    # Step 1: Try ONNX model
-    try:
-        pipeline = _get_landmark_pipeline()
-        if pipeline.available:
-            import asyncio
-            from functools import partial
-            loop = asyncio.get_event_loop()
-            onnx_result = await loop.run_in_executor(
-                None, partial(pipeline.predict, image, top_k=3)
+    # ── Step 1: ONNX + Gemini in parallel ──
+    onnx_task = asyncio.create_task(_run_onnx(image))
+    gemini_task = asyncio.create_task(_run_gemini_vision(gemini, data, mime))
+    onnx_result, gemini_result = await asyncio.gather(onnx_task, gemini_task)
+
+    # Build candidates
+    onnx_candidate = None
+    onnx_top3 = []
+    if onnx_result and onnx_result.get("slug"):
+        onnx_candidate = Candidate(
+            slug=_normalize_slug(onnx_result["slug"]),
+            name=onnx_result.get("name", ""),
+            confidence=onnx_result.get("confidence", 0),
+            source="onnx",
+        )
+        onnx_top3 = [
+            {**m, "slug": _normalize_slug(m.get("slug", ""))}
+            for m in onnx_result.get("top3", [])
+        ]
+
+    gemini_candidate = None
+    if gemini_result and gemini_result.get("slug"):
+        gemini_candidate = Candidate(
+            slug=_normalize_slug(gemini_result["slug"]),
+            name=gemini_result.get("name", ""),
+            confidence=gemini_result.get("confidence", 0),
+            source="gemini",
+            description=gemini_result.get("description", ""),
+        )
+
+    # ── Step 2: Check if tiebreaker needed ──
+    grok_candidate = None
+    need_tiebreak = (
+        onnx_candidate and gemini_candidate
+        and onnx_candidate.slug != gemini_candidate.slug
+        and (not onnx_top3 or gemini_candidate.slug not in [
+            m.get("slug", "") for m in onnx_top3
+        ])
+    )
+
+    if need_tiebreak and grok and grok.available:
+        logger.info(
+            "Tiebreak: ONNX=%s vs Gemini=%s — calling Grok",
+            onnx_candidate.slug, gemini_candidate.slug,
+        )
+        grok_result = await _run_grok_vision(grok, data, mime)
+        if grok_result and grok_result.get("slug"):
+            grok_candidate = Candidate(
+                slug=_normalize_slug(grok_result["slug"]),
+                name=grok_result.get("name", ""),
+                confidence=grok_result.get("confidence", 0),
+                source="grok",
+                description=grok_result.get("description", ""),
             )
-    except Exception:
-        logger.exception("ONNX landmark inference failed")
 
-    # Step 2: Decide enrichment vs fallback
-    if onnx_result and onnx_result["confidence"] >= HIGH_CONFIDENCE:
-        # High confidence: use ONNX result, Gemini describes only
-        source = "local_model"
-        if gemini and gemini.available:
-            try:
-                description = await gemini.describe_landmark(
-                    onnx_result["slug"], onnx_result["name"]
-                )
-            except Exception:
-                logger.warning("Gemini describe_landmark failed, using ONNX only")
+    # ── Step 3: Merge ──
+    merged = merge_landmark(
+        onnx=onnx_candidate,
+        gemini=gemini_candidate,
+        grok=grok_candidate,
+        onnx_top3=onnx_top3,
+    )
 
-    elif onnx_result and onnx_result["confidence"] > 0:
-        # Low confidence: ONNX + Gemini Vision double-check
-        source = "hybrid"
-        if gemini and gemini.available:
-            try:
-                mime = file.content_type or "image/jpeg"
-                gemini_result = await gemini.identify_landmark(data, mime)
-                if gemini_result.get("confidence", 0) > onnx_result["confidence"]:
-                    # Gemini is more confident — use its identification
-                    gemini_slug = _normalize_slug(gemini_result.get("slug", "")) or onnx_result["slug"]
-                    onnx_result = {
-                        "slug": gemini_slug,
-                        "name": gemini_result.get("name", onnx_result["name"]),
-                        "confidence": gemini_result.get("confidence", onnx_result["confidence"]),
-                        "top3": onnx_result["top3"],
-                    }
-                description = gemini_result.get("description", "")
-            except Exception:
-                logger.warning("Gemini identify_landmark failed, using ONNX only")
-    else:
-        # ONNX failed entirely — Gemini-only fallback
-        if gemini and gemini.available:
-            try:
-                mime = file.content_type or "image/jpeg"
-                gemini_result = await gemini.identify_landmark(data, mime)
-                if gemini_result.get("slug"):
-                    gemini_slug = _normalize_slug(gemini_result["slug"])
-                    onnx_result = {
-                        "slug": gemini_slug,
-                        "name": gemini_result.get("name", ""),
-                        "confidence": gemini_result.get("confidence", 0),
-                        "top3": [{
-                            "slug": gemini_slug,
-                            "name": gemini_result.get("name", ""),
-                            "confidence": gemini_result.get("confidence", 0),
-                        }],
-                    }
-                    description = gemini_result.get("description", "")
-                    source = "gemini"
-            except Exception:
-                logger.exception("Gemini fallback failed")
-
-    if not onnx_result or not onnx_result.get("slug"):
+    if not merged.slug:
         raise HTTPException(
             status_code=503,
             detail="Landmark identification temporarily unavailable",
         )
 
-    # Normalize the final slug to ensure it maps to a known landmark
-    final_slug = _normalize_slug(onnx_result["slug"])
+    # ── Step 4: Get description if missing ──
+    description = merged.description
+    if not description and gemini and gemini.available:
+        try:
+            description = await gemini.describe_landmark(merged.slug, merged.name)
+        except Exception:
+            pass
+
     result = {
-        "name": onnx_result["name"],
-        "confidence": onnx_result["confidence"],
-        "slug": final_slug,
-        "source": source,
+        "name": merged.name or _load_display_names().get(merged.slug, merged.slug.replace("_", " ").title()),
+        "confidence": merged.confidence,
+        "slug": merged.slug,
+        "source": merged.source,
+        "agreement": merged.agreement,
         "description": description,
-        "top3": [
-            {**m, "slug": _normalize_slug(m["slug"])} if "slug" in m else m
-            for m in onnx_result.get("top3", [])
-        ],
+        "top3": onnx_top3 or (
+            [{"slug": merged.slug, "name": merged.name, "confidence": merged.confidence}]
+        ),
     }
 
-    # Return HTML partial for HTMX requests, JSON otherwise
     if request.headers.get("HX-Request"):
         templates = request.app.state.templates
         return templates.TemplateResponse(
