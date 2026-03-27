@@ -218,6 +218,91 @@ class GroqService:
             logger.warning("Groq text_json failed", exc_info=True)
             return None
 
+    async def generate_text(
+        self,
+        prompt: str,
+        *,
+        system_instruction: str | None = None,
+        temperature: float = 0.7,
+        max_tokens: int = 2048,
+    ) -> str:
+        """Free-text generation (no JSON forcing)."""
+        messages: list[dict[str, Any]] = []
+        if system_instruction:
+            messages.append({"role": "system", "content": system_instruction})
+        messages.append({"role": "user", "content": prompt})
+        resp = await self._chat_completion(
+            messages,
+            model=self.text_model,
+            temperature=temperature,
+            max_tokens=max_tokens,
+        )
+        return self._extract_text(resp)
+
+    async def generate_text_stream(
+        self,
+        prompt: str,
+        *,
+        system_instruction: str | None = None,
+        temperature: float = 0.7,
+        max_tokens: int = 2048,
+    ):
+        """Streaming free-text generation via SSE."""
+        messages: list[dict[str, Any]] = []
+        if system_instruction:
+            messages.append({"role": "system", "content": system_instruction})
+        messages.append({"role": "user", "content": prompt})
+
+        payload: dict[str, Any] = {
+            "model": self.text_model,
+            "messages": messages,
+            "temperature": temperature,
+            "max_tokens": max_tokens,
+            "stream": True,
+        }
+        last_error: Exception | None = None
+        for attempt in range(_MAX_RETRIES):
+            try:
+                async with self._client.stream(
+                    "POST",
+                    "/chat/completions",
+                    headers=self._headers(),
+                    json=payload,
+                ) as resp:
+                    if resp.status_code == 429:
+                        self._rotate_key()
+                        last_error = RuntimeError("Rate limited")
+                        await asyncio.sleep(_BASE_BACKOFF_S * (2**attempt))
+                        continue
+                    resp.raise_for_status()
+                    async for line in resp.aiter_lines():
+                        if not line.startswith("data: "):
+                            continue
+                        data = line[6:].strip()
+                        if data == "[DONE]":
+                            return
+                        try:
+                            chunk = json.loads(data)
+                            delta = chunk.get("choices", [{}])[0].get("delta", {})
+                            text = delta.get("content", "")
+                            if text:
+                                yield text
+                        except json.JSONDecodeError:
+                            continue
+                    return  # stream finished normally
+            except httpx.HTTPStatusError as exc:
+                if exc.response.status_code == 429:
+                    self._rotate_key()
+                    last_error = exc
+                    await asyncio.sleep(_BASE_BACKOFF_S * (2**attempt))
+                    continue
+                raise
+            except httpx.TimeoutException as exc:
+                last_error = exc
+                await asyncio.sleep(_BASE_BACKOFF_S * (2**attempt))
+                continue
+        raise RuntimeError("Groq stream unavailable after retries") from last_error
+
     async def close(self) -> None:
         await self._client.aclose()
 

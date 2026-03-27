@@ -42,6 +42,11 @@ def _get_grok(request: Request):
     return getattr(request.app.state, "grok", None)
 
 
+def _get_groq(request: Request):
+    """Retrieve GroqService from app state (optional)."""
+    return getattr(request.app.state, "groq", None)
+
+
 @router.post("")
 async def chat_message(body: ChatRequest, request: Request):
     """Non-streaming chat — returns full reply as JSON."""
@@ -49,6 +54,7 @@ async def chat_message(body: ChatRequest, request: Request):
 
     gemini = _get_gemini(request)
     grok = _get_grok(request)
+    groq = _get_groq(request)
     try:
         result = await chat(
             gemini,
@@ -56,6 +62,7 @@ async def chat_message(body: ChatRequest, request: Request):
             session_id=body.session_id,
             landmark=body.landmark,
             grok=grok,
+            groq=groq,
         )
         return JSONResponse(content={
             "reply": result.reply,
@@ -85,6 +92,7 @@ async def chat_stream(
 
     gemini = _get_gemini(request)
     grok = _get_grok(request)
+    groq = _get_groq(request)
 
     async def event_generator():
         try:
@@ -94,6 +102,7 @@ async def chat_stream(
                 session_id=session_id,
                 landmark=landmark,
                 grok=grok,
+                groq=groq,
             ):
                 data = json.dumps({"text": chunk})
                 yield f"data: {data}\n\n"

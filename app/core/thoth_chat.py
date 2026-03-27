@@ -1,4 +1,4 @@
-﻿"""Thoth Chat — conversational AI about Egyptian heritage.
+"""Thoth Chat — conversational AI about Egyptian heritage.
 
 Thoth is the ancient Egyptian god of wisdom, writing, and knowledge.
 Multi-turn conversation with session history and streaming support.
@@ -18,6 +18,7 @@ if TYPE_CHECKING:
     from collections.abc import AsyncIterator
     from app.core.gemini_service import GeminiService
     from app.core.grok_service import GrokService
+    from app.core.ai_service import GroqService
 
 logger = logging.getLogger(__name__)
 
@@ -151,8 +152,10 @@ async def _generate_with_fallback(
     gemini: GeminiService,
     grok: GrokService | None,
     prompt: str,
+    *,
+    groq: GroqService | None = None,
 ) -> str:
-    """Try Gemini first; fall back to Grok on failure."""
+    """Try Gemini first; fall back to Groq then Grok on failure."""
     try:
         reply = await gemini.generate_text(
             prompt,
@@ -164,30 +167,48 @@ async def _generate_with_fallback(
             return reply
         raise RuntimeError("Gemini returned empty response")
     except Exception:
-        logger.warning("Gemini failed for chat, trying Grok fallback")
-        if grok is None:
-            raise
-        reply = await grok.generate_text(
-            prompt,
-            system_instruction=SYSTEM_PROMPT,
-            temperature=_TEMPERATURE,
-            max_tokens=_MAX_TOKENS,
-        )
-        if not reply:
-            raise RuntimeError("Both Gemini and Grok failed to generate a reply")
-        return reply
+        logger.warning("Gemini failed for chat, trying Groq fallback")
+
+    # Groq fallback
+    if groq is not None:
+        try:
+            reply = await groq.generate_text(
+                prompt,
+                system_instruction=SYSTEM_PROMPT,
+                temperature=_TEMPERATURE,
+                max_tokens=_MAX_TOKENS,
+            )
+            if reply:
+                return reply
+        except Exception:
+            logger.warning("Groq failed for chat, trying Grok fallback")
+
+    # Grok fallback
+    if grok is None:
+        raise RuntimeError("All chat providers failed")
+    reply = await grok.generate_text(
+        prompt,
+        system_instruction=SYSTEM_PROMPT,
+        temperature=_TEMPERATURE,
+        max_tokens=_MAX_TOKENS,
+    )
+    if not reply:
+        raise RuntimeError("All chat providers failed to generate a reply")
+    return reply
 
 
 async def _stream_with_fallback(
     gemini: GeminiService,
     grok: GrokService | None,
     prompt: str,
+    *,
+    groq: GroqService | None = None,
 ) -> AsyncIterator[str]:
-    """Try Gemini streaming; fall back to Grok streaming on failure.
+    """Try Gemini streaming; fall back to Groq then Grok streaming on failure.
 
     Buffers Gemini's first chunk: if the first chunk arrives, commit to
     Gemini and stream directly.  If it fails before any data, switch
-    entirely to Grok so the user never sees garbled partial output.
+    to Groq, then Grok so the user never sees garbled partial output.
     """
     try:
         gemini_stream = gemini.generate_text_stream(
@@ -203,13 +224,32 @@ async def _stream_with_fallback(
             yield chunk
         return
     except StopAsyncIteration:
-        # Gemini returned nothing — fall through to Grok
         pass
     except Exception:
-        logger.warning("Gemini stream failed before data, trying Grok fallback")
+        logger.warning("Gemini stream failed before data, trying Groq fallback")
 
+    # Groq streaming fallback
+    if groq is not None:
+        try:
+            groq_stream = groq.generate_text_stream(
+                prompt,
+                system_instruction=SYSTEM_PROMPT,
+                temperature=_TEMPERATURE,
+                max_tokens=_MAX_TOKENS,
+            )
+            first_chunk = await groq_stream.__anext__()
+            yield first_chunk
+            async for chunk in groq_stream:
+                yield chunk
+            return
+        except StopAsyncIteration:
+            pass
+        except Exception:
+            logger.warning("Groq stream failed before data, trying Grok fallback")
+
+    # Grok streaming fallback
     if grok is None:
-        raise RuntimeError("Gemini streaming failed and Grok is unavailable")
+        raise RuntimeError("All streaming providers failed")
     async for chunk in grok.generate_text_stream(
         prompt,
         system_instruction=SYSTEM_PROMPT,
@@ -228,6 +268,7 @@ async def chat(
     session_id: str,
     landmark: str | None = None,
     grok: GrokService | None = None,
+    groq: GroqService | None = None,
 ) -> ChatResult:
     prompt = _build_prompt(message, session_id, landmark)
     sources = []
@@ -236,7 +277,7 @@ async def chat(
         if a:
             sources.append(a.name)
 
-    reply = await _generate_with_fallback(gemini, grok, prompt)
+    reply = await _generate_with_fallback(gemini, grok, prompt, groq=groq)
     reply = reply.strip()
     if reply.lower().startswith("thoth:"):
         reply = reply[6:].strip()
@@ -254,12 +295,13 @@ async def chat_stream(
     session_id: str,
     landmark: str | None = None,
     grok: GrokService | None = None,
+    groq: GroqService | None = None,
 ) -> AsyncIterator[str]:
     prompt = _build_prompt(message, session_id, landmark)
     collected: list[str] = []
     first = True
 
-    stream = _stream_with_fallback(gemini, grok, prompt)
+    stream = _stream_with_fallback(gemini, grok, prompt, groq=groq)
     async for chunk in stream:
         if first:
             stripped = chunk.lstrip()
