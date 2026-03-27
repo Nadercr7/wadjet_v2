@@ -15,7 +15,8 @@
         <!-- Chat Messages Area -->
         <div class="card flex-1 overflow-y-auto mb-4 p-4 md:p-6 space-y-4 scroll-smooth"
              x-ref="chatArea"
-             id="chat-messages">
+             id="chat-messages"
+             data-lenis-prevent>
 
             <!-- Welcome state -->
             <template x-if="messages.length === 0 && !isLoading">
@@ -278,15 +279,104 @@ function chatApp() {
 
         renderMarkdown(text) {
             if (!text) return '';
-            // Basic markdown: bold, italic, code, line breaks
-            return text
+            // Escape HTML
+            let html = text
                 .replace(/&/g, '&amp;')
                 .replace(/</g, '&lt;')
-                .replace(/>/g, '&gt;')
-                .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-                .replace(/\*(.+?)\*/g, '<em>$1</em>')
-                .replace(/`(.+?)`/g, '<code class="bg-white/10 px-1 py-0.5 rounded text-xs">$1</code>')
-                .replace(/\n/g, '<br>');
+                .replace(/>/g, '&gt;');
+
+            // Code blocks (```...```)
+            html = html.replace(/```([\s\S]*?)```/g, '<pre class="chat-codeblock">$1</pre>');
+            // Inline code
+            html = html.replace(/`(.+?)`/g, '<code class="chat-inline-code">$1</code>');
+
+            // Split into lines for block-level processing
+            const lines = html.split('\n');
+            let result = [];
+            let inList = false;
+            let listType = null; // 'ul' or 'ol'
+
+            for (let i = 0; i < lines.length; i++) {
+                let line = lines[i];
+
+                // Headers
+                if (line.match(/^### (.+)/)) {
+                    if (inList) { result.push(listType === 'ol' ? '</ol>' : '</ul>'); inList = false; }
+                    result.push('<h4 class="chat-h3">' + line.replace(/^### /, '') + '</h4>');
+                    continue;
+                }
+                if (line.match(/^## (.+)/)) {
+                    if (inList) { result.push(listType === 'ol' ? '</ol>' : '</ul>'); inList = false; }
+                    result.push('<h3 class="chat-h2">' + line.replace(/^## /, '') + '</h3>');
+                    continue;
+                }
+                if (line.match(/^# (.+)/)) {
+                    if (inList) { result.push(listType === 'ol' ? '</ol>' : '</ul>'); inList = false; }
+                    result.push('<h2 class="chat-h1">' + line.replace(/^# /, '') + '</h2>');
+                    continue;
+                }
+
+                // Horizontal rule
+                if (line.match(/^---+$/)) {
+                    if (inList) { result.push(listType === 'ol' ? '</ol>' : '</ul>'); inList = false; }
+                    result.push('<hr class="chat-hr">');
+                    continue;
+                }
+
+                // Blockquote
+                if (line.match(/^&gt; (.+)/)) {
+                    if (inList) { result.push(listType === 'ol' ? '</ol>' : '</ul>'); inList = false; }
+                    result.push('<blockquote class="chat-blockquote">' + line.replace(/^&gt; /, '') + '</blockquote>');
+                    continue;
+                }
+
+                // Unordered list
+                let ulMatch = line.match(/^[\-\*] (.+)/);
+                if (ulMatch) {
+                    if (!inList || listType !== 'ul') {
+                        if (inList) result.push(listType === 'ol' ? '</ol>' : '</ul>');
+                        result.push('<ul class="chat-ul">');
+                        inList = true; listType = 'ul';
+                    }
+                    result.push('<li>' + ulMatch[1] + '</li>');
+                    continue;
+                }
+
+                // Ordered list
+                let olMatch = line.match(/^\d+[\.\)] (.+)/);
+                if (olMatch) {
+                    if (!inList || listType !== 'ol') {
+                        if (inList) result.push(listType === 'ol' ? '</ol>' : '</ul>');
+                        result.push('<ol class="chat-ol">');
+                        inList = true; listType = 'ol';
+                    }
+                    result.push('<li>' + olMatch[1] + '</li>');
+                    continue;
+                }
+
+                // Close list if non-list line
+                if (inList) {
+                    result.push(listType === 'ol' ? '</ol>' : '</ul>');
+                    inList = false;
+                }
+
+                // Empty line = paragraph break
+                if (line.trim() === '') {
+                    result.push('<div class="h-2"></div>');
+                    continue;
+                }
+
+                result.push(line + '<br>');
+            }
+
+            if (inList) result.push(listType === 'ol' ? '</ol>' : '</ul>');
+            html = result.join('\n');
+
+            // Inline styles: bold (gold), italic
+            html = html.replace(/\*\*(.+?)\*\*/g, '<strong class="chat-bold">$1</strong>');
+            html = html.replace(/\*(.+?)\*/g, '<em class="chat-italic">$1</em>');
+
+            return html;
         }
     };
 }
