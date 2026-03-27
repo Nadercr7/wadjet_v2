@@ -568,20 +568,38 @@ async def scan_image(request: Request, file: UploadFile = File(...), translate: 
             # Gemini provides bounding boxes but often misidentifies the
             # Gardiner code. The ONNX classifier (98% accuracy) is more
             # reliable for classification, so we use AI boxes + ONNX labels.
+            # However, if ONNX confidence is very low (e.g. line drawings
+            # on white backgrounds), keep Gemini's per-glyph classification.
+            ONNX_RECLASSIFY_THRESHOLD = 0.30
             if result.glyphs:
+                ai_glyphs_backup = [
+                    (g.gardiner_code, g.class_confidence) for g in result.glyphs
+                ]
                 try:
                     onnx_glyphs = await loop.run_in_executor(
                         None, partial(pipeline._classify_crops, image, result.glyphs)
                     )
                     if onnx_glyphs:
-                        for og in onnx_glyphs:
+                        any_used_onnx = False
+                        for i, og in enumerate(onnx_glyphs):
                             og.confidence = 0.8  # AI-detected box confidence
+                            if og.class_confidence < ONNX_RECLASSIFY_THRESHOLD and i < len(ai_glyphs_backup):
+                                # ONNX not confident → keep Gemini's code
+                                ai_code, ai_conf = ai_glyphs_backup[i]
+                                logger.info(
+                                    "Glyph #%d: ONNX=%s (%.0f%%) too low, keeping AI=%s",
+                                    i, og.gardiner_code, og.class_confidence * 100, ai_code,
+                                )
+                                og.gardiner_code = ai_code
+                                og.class_confidence = ai_conf
+                                og.low_confidence = True
+                            else:
+                                any_used_onnx = True
                         result.glyphs = onnx_glyphs
                         result.num_detections = len(onnx_glyphs)
                         logger.info(
-                            "AI fallback: ONNX re-classified %d glyphs: %s",
-                            len(onnx_glyphs),
-                            [g.gardiner_code for g in onnx_glyphs],
+                            "AI fallback: final classification %s",
+                            [(g.gardiner_code, f"{g.class_confidence:.0%}") for g in onnx_glyphs],
                         )
                 except Exception:
                     logger.warning("ONNX re-classification after AI fallback failed")
