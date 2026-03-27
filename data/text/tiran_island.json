@@ -1,0 +1,19 @@
+{
+  "slug": "tiran_island",
+  "category": "Nature",
+  "region": "Sinai",
+  "wikipedia": {
+    "en": {
+      "title": "Tiran Island",
+      "extract": "Tiran Island, is a Saudi island in the Red Sea located in the Strait of Tiran. The island's administration was transferred by King Abdulaziz Al Saud to Egypt in 1950 due to concerns of Israeli expansion while Saudi Arabia lacked a navy to protect the island. The island was captured by Israel during the 1967 Arab–Israeli war and was returned to Egypt during the 1979 Egypt–Israel peace treaty. The island's administration was transferred back to Saudi Arabia by Egypt in April 2016.",
+      "description": "Island in Saudi Arabia",
+      "coordinates": {
+        "lat": 27.95,
+        "lon": 34.55
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Sharm_El-Sheikh%2C_Egypt.jpg/330px-Sharm_El-Sheikh%2C_Egypt.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Sharm_El-Sheikh%2C_Egypt.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Tiran_Island"
+    }
+  }
+}

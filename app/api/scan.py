@@ -155,88 +155,213 @@ def _crop_glyph(image: np.ndarray, g, pad: int = _CROP_PAD) -> bytes:
     return bytes(buf)
 
 
-# ── AI verification ──
+# ── AI detection fallback ──
 
-async def _verify_glyphs_gemini(
+AI_FALLBACK_MAX_DETECTIONS = 2    # Trigger AI if ONNX finds this many or fewer
+AI_FALLBACK_MIN_AVG_CONF = 0.30   # Trigger AI if avg ONNX confidence below this
+
+
+def _needs_ai_fallback(result) -> bool:
+    """Check if ONNX detection was poor enough to warrant AI fallback."""
+    if result.num_detections == 0:
+        return True
+    if result.num_detections <= AI_FALLBACK_MAX_DETECTIONS:
+        if not result.glyphs:
+            return True
+        avg_conf = sum(g.confidence for g in result.glyphs) / len(result.glyphs)
+        return avg_conf < AI_FALLBACK_MIN_AVG_CONF
+    return False
+
+
+async def _ai_full_reading(
     gemini,
-    original_image: np.ndarray,
-    glyphs: list,
-    onnx_glyph_dicts: list[dict],
-) -> dict[int, str]:
-    """Ask Gemini to verify low-confidence ONNX classifications.
+    image_bytes: bytes,
+    mime: str,
+    image: np.ndarray,
+) -> dict | None:
+    """Have Gemini read the full inscription when ONNX detection fails.
 
-    Sends an annotated image with numbered bboxes + individual crops for
-    each low-confidence glyph so Gemini can visually identify them.
-    Returns: {glyph_index: corrected_gardiner_code} for disagreements only.
+    Returns dict with: glyphs, gardiner_sequence, transliteration, direction
+    or None on failure.
     """
-    if not gemini or not gemini.available or not glyphs:
-        return {}
+    if not gemini or not gemini.available:
+        return None
 
-    low_conf = [
-        (i, g, d) for i, (g, d) in enumerate(zip(glyphs, onnx_glyph_dicts))
-        if d.get("class_confidence", 1.0) < LOW_CONF_THRESHOLD
-    ]
-    if not low_conf:
-        return {}
-
-    low_indices = {i for i, _, _ in low_conf}
-
-    # Build annotated full image with numbered boxes
-    annotated_bytes = _annotate_image(original_image, glyphs, low_indices)
-
-    # Build individual crops for each low-confidence glyph
-    crop_parts = []
-    glyph_descriptions = []
-    for i, g, d in low_conf:
-        crop_bytes = _crop_glyph(original_image, g)
-        crop_parts.append((i, crop_bytes))
-        glyph_descriptions.append(
-            f"  Glyph #{i}: ONNX classified as '{d['gardiner_code']}' "
-            f"(confidence={d['class_confidence']:.0%})"
-        )
-
+    h, w = image.shape[:2]
     system = (
-        "You are an expert Egyptologist specializing in hieroglyphic classification. "
-        "You know the Gardiner Sign List exhaustively.\n\n"
-        "You will receive:\n"
-        "1. An annotated image showing ALL detected hieroglyphs with numbered boxes\n"
-        "   - Red boxes = low-confidence glyphs that need your verification\n"
-        "   - Gold boxes = high-confidence glyphs (for spatial context only)\n"
-        "   - Each box has a number label matching the glyph index\n"
-        "2. Individual cropped close-ups of each low-confidence glyph\n\n"
-        "Respond ONLY with valid JSON."
+        "You are an expert Egyptologist. You can identify and read ancient Egyptian "
+        "hieroglyphic inscriptions with high accuracy. You know the Gardiner Sign List "
+        "exhaustively. Respond ONLY with valid JSON."
     )
 
-    glyph_list = "\n".join(glyph_descriptions)
     prompt = (
-        f"The ONNX classifier detected hieroglyphs but is uncertain about these:\n"
-        f"{glyph_list}\n\n"
-        f"First image: full inscription with numbered bounding boxes.\n"
-        f"Following images: individual close-ups of each uncertain glyph "
-        f"(in the same order as listed above).\n\n"
-        f"For each glyph, examine both the close-up AND its position in the "
-        f"full inscription for context. Consider the surrounding glyphs.\n\n"
-        f"Return JSON: {{\"corrections\": {{\"<glyph_index>\": \"correct_gardiner_code\"}}}}\n"
-        f"Only include glyphs you want to CHANGE. If ONNX is correct, omit it."
+        f"This image ({w}×{h}px) contains Egyptian hieroglyphs. "
+        f"The automatic detector could not find them, so I need you to read the inscription.\n\n"
+        f"Please:\n"
+        f"1. Identify EVERY hieroglyph you can see in the image\n"
+        f"2. For each hieroglyph, provide its Gardiner code and approximate bounding box "
+        f"as percentages of image dimensions [x1%, y1%, x2%, y2%]\n"
+        f"3. Read the inscription in the correct order\n"
+        f"4. Provide the MdC (Manuel de Codage) transliteration\n\n"
+        f"Return JSON:\n"
+        f'{{\n'
+        f'  "glyphs": [\n'
+        f'    {{"gardiner_code": "G1", "bbox_pct": [10.0, 20.0, 25.0, 45.0], "confidence": 0.9}},\n'
+        f'    ...\n'
+        f'  ],\n'
+        f'  "gardiner_sequence": "G1-D21-M17-N35",\n'
+        f'  "transliteration": "MdC transliteration string",\n'
+        f'  "direction": "right-to-left or left-to-right",\n'
+        f'  "notes": "brief inscription description"\n'
+        f'}}'
     )
 
     try:
         from google.genai import types as genai_types
 
-        # Build multi-part content: [prompt, annotated_image, crop_0, crop_1, ...]
+        image_part = genai_types.Part.from_bytes(data=image_bytes, mime_type=mime)
+        config = genai_types.GenerateContentConfig(
+            system_instruction=system,
+            temperature=0.1,
+            max_output_tokens=2048,
+            response_mime_type="application/json",
+        )
+        response = await gemini._generate_with_retry(
+            model=gemini.default_model,
+            contents=[prompt, image_part],
+            config=config,
+        )
+        data = json.loads(response.text or "{}")
+        if data.get("glyphs"):
+            logger.info("AI full reading: found %d glyphs", len(data["glyphs"]))
+            return data
+        return None
+    except Exception:
+        logger.warning("AI full reading failed", exc_info=True)
+        return None
+
+
+def _apply_ai_results(result, ai_data: dict, image: np.ndarray) -> None:
+    """Overwrite PipelineResult with AI-detected glyphs and reading."""
+    from app.core.hieroglyph_pipeline import GlyphResult
+
+    h, w = image.shape[:2]
+    glyphs = []
+
+    for g in ai_data.get("glyphs", []):
+        code = g.get("gardiner_code", "")
+        if not code:
+            continue
+
+        # Convert percentage bboxes to pixel coordinates
+        bbox_pct = g.get("bbox_pct", [0, 0, 100, 100])
+        if len(bbox_pct) == 4:
+            x1 = max(0.0, bbox_pct[0] * w / 100.0)
+            y1 = max(0.0, bbox_pct[1] * h / 100.0)
+            x2 = min(float(w), bbox_pct[2] * w / 100.0)
+            y2 = min(float(h), bbox_pct[3] * h / 100.0)
+        else:
+            x1, y1, x2, y2 = 0.0, 0.0, float(w), float(h)
+
+        conf = float(g.get("confidence", 0.8))
+        glyphs.append(GlyphResult(
+            x1=x1, y1=y1, x2=x2, y2=y2,
+            confidence=conf,
+            class_id=0,
+            gardiner_code=code.upper(),
+            class_confidence=conf,
+            low_confidence=False,
+        ))
+
+    if not glyphs:
+        return
+
+    result.glyphs = glyphs
+    result.num_detections = len(glyphs)
+
+    # Use AI-provided reading data
+    result.gardiner_sequence = ai_data.get("gardiner_sequence", "")
+    result.transliteration = ai_data.get("transliteration", "")
+    result.reading_direction = ai_data.get("direction", "")
+    result.layout_mode = "AI_DETECTED"
+
+
+# ── Full-sequence AI verification ──
+
+async def _full_sequence_verify(
+    gemini,
+    grok,
+    original_image: np.ndarray,
+    glyphs: list,
+) -> tuple[list, bool]:
+    """Full-sequence verification: AI reads the entire inscription independently.
+
+    Instead of only verifying low-confidence glyphs, Gemini reads the whole
+    inscription and we diff its reading against ONNX's classification.
+    Grok tiebreaks disagreements.
+
+    Returns: (corrected_glyphs, corrections_applied)
+    """
+    if not gemini or not gemini.available or not glyphs:
+        return glyphs, False
+
+    # Build ONNX reading description
+    glyph_descriptions = []
+    for i, g in enumerate(glyphs):
+        glyph_descriptions.append(
+            f"  #{i}: {g.gardiner_code} (conf={g.class_confidence:.0%})"
+        )
+
+    # Annotated image with numbered boxes + crops of uncertain glyphs
+    low_indices = {i for i, g in enumerate(glyphs) if g.class_confidence < LOW_CONF_THRESHOLD}
+    annotated_bytes = _annotate_image(original_image, glyphs, low_indices or None)
+
+    system = (
+        "You are an expert Egyptologist specializing in hieroglyphic classification. "
+        "You know the Gardiner Sign List exhaustively.\n\n"
+        "Verify a machine-learning model's reading of an inscription.\n"
+        "You will receive an annotated image with numbered bounding boxes.\n"
+        "Red boxes = low-confidence. Gold boxes = high-confidence.\n"
+        "Respond ONLY with valid JSON."
+    )
+
+    glyph_list = "\n".join(glyph_descriptions)
+    prompt = (
+        f"An ONNX model classified these hieroglyphs:\n{glyph_list}\n\n"
+        f"The annotated image shows numbered bounding boxes around each detection.\n\n"
+        f"Please:\n"
+        f"1. Verify EVERY classification (including high-confidence ones)\n"
+        f"2. If any classification is wrong, provide the correct Gardiner code\n"
+        f"3. Note if any hieroglyphs were MISSED by the detector\n\n"
+        f"Return JSON:\n"
+        f'{{\n'
+        f'  "corrections": {{"<glyph_index>": "correct_gardiner_code"}},\n'
+        f'  "your_full_sequence": ["G1", "D21", ...],\n'
+        f'  "accuracy_assessment": "good|fair|poor"\n'
+        f'}}\n'
+        f"Only include corrections for glyphs you want to CHANGE."
+    )
+
+    try:
+        from google.genai import types as genai_types
+
         contents: list = [prompt]
         contents.append(genai_types.Part.from_bytes(
             data=annotated_bytes, mime_type="image/jpeg",
         ))
-        for idx, crop_bytes in crop_parts:
-            contents.append(genai_types.Part.from_bytes(
-                data=crop_bytes, mime_type="image/jpeg",
-            ))
+
+        # Add individual crops for low-confidence glyphs
+        for i in sorted(low_indices):
+            if i < len(glyphs):
+                crop_bytes = _crop_glyph(original_image, glyphs[i])
+                contents.append(genai_types.Part.from_bytes(
+                    data=crop_bytes, mime_type="image/jpeg",
+                ))
 
         config = genai_types.GenerateContentConfig(
             system_instruction=system,
             temperature=0.1,
-            max_output_tokens=512,
+            max_output_tokens=1024,
             response_mime_type="application/json",
         )
         response = await gemini._generate_with_retry(
@@ -245,15 +370,54 @@ async def _verify_glyphs_gemini(
             config=config,
         )
         data = json.loads(response.text or "{}")
-        corrections = data.get("corrections", {})
-        # Only accept corrections for indices we actually asked about
-        return {
-            int(k): v for k, v in corrections.items()
-            if v and int(k) in low_indices
+        gemini_corrections = {
+            int(k): v for k, v in data.get("corrections", {}).items()
+            if v and int(k) < len(glyphs)
         }
+
+        if not gemini_corrections:
+            return glyphs, False
+
+        # Tiebreak with Grok where Gemini disagrees with ONNX
+        grok_votes: dict[int, str] = {}
+        if grok and grok.available:
+            disputed = [
+                (i, glyphs[i].gardiner_code, gemini_code)
+                for i, gemini_code in gemini_corrections.items()
+                if gemini_code.upper() != glyphs[i].gardiner_code.upper()
+            ]
+            if disputed:
+                grok_votes = await _verify_glyphs_grok(
+                    grok, original_image, glyphs, disputed,
+                )
+
+        # Apply corrections via majority vote
+        was_corrected = False
+        for i, gemini_code in gemini_corrections.items():
+            onnx_code = glyphs[i].gardiner_code
+            grok_code = grok_votes.get(i, "")
+
+            codes = [onnx_code.upper(), gemini_code.upper()]
+            if grok_code:
+                codes.append(grok_code.upper())
+
+            counts = Counter(codes)
+            winner, _ = counts.most_common(1)[0]
+
+            if winner != onnx_code.upper():
+                logger.info(
+                    "Glyph #%d corrected: %s → %s (Gemini=%s, Grok=%s)",
+                    i, onnx_code, winner, gemini_code, grok_code or "N/A",
+                )
+                glyphs[i].gardiner_code = winner
+                glyphs[i].class_confidence = 0.7
+                was_corrected = True
+
+        return glyphs, was_corrected
+
     except Exception:
-        logger.warning("Gemini glyph verification failed", exc_info=True)
-        return {}
+        logger.warning("Full sequence verification failed", exc_info=True)
+        return glyphs, False
 
 
 async def _verify_glyphs_grok(
@@ -341,11 +505,14 @@ async def _verify_glyphs_grok(
 
 @router.post("/scan")
 async def scan_image(request: Request, file: UploadFile = File(...), translate: bool = True):
-    """Full scan pipeline with ensemble verification.
+    """Full scan pipeline with AI detection fallback and ensemble verification.
 
+    Flow:
     1. ONNX pipeline: detect → classify → transliterate → translate
-    2. Gemini verifies low-confidence glyphs (parallel-safe)
-    3. Grok tiebreaks if ONNX and Gemini disagree
+    2. If ONNX detection poor (≤2 glyphs or low confidence):
+       → AI full reading via Gemini Vision (detects + classifies in one shot)
+    3. If ONNX succeeded:
+       → Full-sequence verification (Gemini reads whole inscription, Grok tiebreaks)
     4. Re-transliterate/translate if corrections were made
     """
     raw_bytes, image = await _read_image_bytes(file)
@@ -362,65 +529,40 @@ async def scan_image(request: Request, file: UploadFile = File(...), translate: 
         logger.exception("Scan pipeline failed")
         raise HTTPException(status_code=500, detail=f"Pipeline error: {e}") from e
 
-    # Step 2: Ensemble verification for low-confidence glyphs
-    if result.glyphs:
-        gemini = getattr(request.app.state, "gemini", None)
-        grok = getattr(request.app.state, "grok", None)
+    gemini = getattr(request.app.state, "gemini", None)
+    grok = getattr(request.app.state, "grok", None)
 
-        onnx_glyph_dicts = [
-            {
-                "gardiner_code": g.gardiner_code,
-                "class_confidence": g.class_confidence,
-            }
-            for g in result.glyphs
-        ]
-
-        # Ask Gemini to verify low-confidence ones
-        gemini_corrections = await _verify_glyphs_gemini(
-            gemini, image, result.glyphs, onnx_glyph_dicts,
+    # Step 2: AI fallback if ONNX detection was poor
+    ai_fallback_used = False
+    if _needs_ai_fallback(result):
+        logger.info(
+            "AI fallback triggered: ONNX found %d detections (avg_conf=%.2f)",
+            result.num_detections,
+            sum(g.confidence for g in result.glyphs) / max(1, len(result.glyphs))
+            if result.glyphs else 0.0,
         )
+        ai_data = await _ai_full_reading(gemini, raw_bytes, mime, image)
+        if ai_data and ai_data.get("glyphs"):
+            _apply_ai_results(result, ai_data, image)
+            ai_fallback_used = True
 
-        # If Gemini disagrees with ONNX on any, ask Grok to tiebreak
-        grok_votes: dict[int, str] = {}
-        if gemini_corrections and grok and grok.available:
-            disputed = [
-                (i, result.glyphs[i].gardiner_code, gemini_corrections[i])
-                for i in gemini_corrections
-                if i < len(result.glyphs)
-                and gemini_corrections[i].upper() != result.glyphs[i].gardiner_code.upper()
-            ]
-            if disputed:
-                grok_votes = await _verify_glyphs_grok(
-                    grok, image, result.glyphs, disputed,
-                )
+            # Run translation on AI-provided sequence
+            if translate and result.transliteration and not result.translation_en:
+                try:
+                    translation = pipeline._translate(result.transliteration)
+                    result.translation_en = translation["en"]
+                    result.translation_ar = translation["ar"]
+                    result.translation_error = translation["error"]
+                except Exception:
+                    logger.warning("Translation after AI fallback failed")
 
-        # Apply corrections (majority vote: ONNX vs Gemini vs Grok)
-        corrections_applied = False
-        for i, gemini_code in gemini_corrections.items():
-            if i >= len(result.glyphs):
-                continue
-            onnx_code = result.glyphs[i].gardiner_code
-            grok_code = grok_votes.get(i, "")
+    # Step 3: Full-sequence verification (when ONNX succeeded)
+    if not ai_fallback_used and result.glyphs:
+        corrected_glyphs, corrections_applied = await _full_sequence_verify(
+            gemini, grok, image, result.glyphs,
+        )
+        result.glyphs = corrected_glyphs
 
-            # Votes
-            codes = [onnx_code.upper(), gemini_code.upper()]
-            if grok_code:
-                codes.append(grok_code.upper())
-
-            # Majority wins
-            counts = Counter(codes)
-            winner, _ = counts.most_common(1)[0]
-
-            if winner != onnx_code.upper():
-                logger.info(
-                    "Glyph #%d corrected: %s → %s (votes: ONNX=%s, Gemini=%s, Grok=%s)",
-                    i, onnx_code, winner, onnx_code, gemini_code, grok_code or "N/A",
-                )
-                result.glyphs[i].gardiner_code = winner
-                result.glyphs[i].class_confidence = 0.7  # synthetic confidence for corrected
-                corrections_applied = True
-
-        # Re-run transliteration + translation if glyphs were corrected
         if corrections_applied:
             try:
                 trans = pipeline._transliterate(result.glyphs)
@@ -437,7 +579,10 @@ async def scan_image(request: Request, file: UploadFile = File(...), translate: 
             except Exception:
                 logger.warning("Re-transliteration after corrections failed")
 
-    return JSONResponse(content=result.to_dict())
+    # Build response
+    response_data = result.to_dict()
+    response_data["detection_source"] = "ai_vision" if ai_fallback_used else "onnx"
+    return JSONResponse(content=response_data)
 
 
 @router.post("/detect")

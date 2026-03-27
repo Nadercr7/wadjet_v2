@@ -1,0 +1,19 @@
+{
+  "slug": "coptic_museum",
+  "category": "Coptic",
+  "region": "Cairo",
+  "wikipedia": {
+    "en": {
+      "title": "Coptic Museum",
+      "extract": "The Coptic Museum is a museum in Coptic Cairo, Egypt with the largest collection of Coptic Christian artifacts in the world. It was founded by Marcus Simaika in 1908 to house Coptic antiquities. The museum traces the history of Egypt from its beginnings to the present day. It was erected on 8,000 square meter land offered by the Coptic Orthodox Church, under the guardianship of Pope Cyril V.",
+      "description": "Museum in Coptic Cairo, Egypt",
+      "coordinates": {
+        "lat": 30.00563,
+        "lon": 31.23055
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Kairo_-_Altkairo_05.jpg/330px-Kairo_-_Altkairo_05.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Kairo_-_Altkairo_05.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Coptic_Museum"
+    }
+  }
+}

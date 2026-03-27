@@ -1,0 +1,19 @@
+{
+  "slug": "sharm_el_sheikh",
+  "category": "Modern",
+  "region": "Sinai",
+  "wikipedia": {
+    "en": {
+      "title": "Sharm El Sheikh",
+      "extract": "Sharm El Sheikh, alternatively rendered Sharm el-Sheikh or Charm el Sheikh, is an Egyptian city located on the southern tip of the Sinai Peninsula, in South Sinai Governorate, on the coastal strip along the Red Sea in Asia. Its population is approximately 77,000 as of 2017. Sharm El Sheikh is the administrative hub of Egypt's South Sinai Governorate, which includes the smaller coastal towns of Dahab and Nuweiba as well as the mountainous interior, St. Catherine and Mount Sinai.",
+      "description": "City in Egypt",
+      "coordinates": {
+        "lat": 27.915,
+        "lon": 34.3275
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Sharm_El_Sheikh_Panoramic.jpg/330px-Sharm_El_Sheikh_Panoramic.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Sharm_El_Sheikh_Panoramic.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Sharm_El_Sheikh"
+    }
+  }
+}

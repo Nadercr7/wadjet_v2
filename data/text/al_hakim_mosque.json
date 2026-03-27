@@ -1,0 +1,19 @@
+{
+  "slug": "al_hakim_mosque",
+  "category": "Islamic",
+  "region": "Cairo",
+  "wikipedia": {
+    "en": {
+      "title": "Al-Hakim Mosque",
+      "extract": "The al-Hakim Mosque, also known as al-Anwar, is a mosque in Cairo, Egypt. It is named after al-Ḥākim bi-Amr Allāh (985–1021), the 6th Fatimid caliph and 16th Ismāʿīlī Imam. Construction of the mosque was originally started by Caliph al-ʿAziz, the son of al-Muʿizz and the father of al-Ḥākim, in 990 CE. It was completed in 1013 by al-Ḥākim, which is why it is named after him.",
+      "description": "Mosque in Cairo, Egypt",
+      "coordinates": {
+        "lat": 30.05444444,
+        "lon": 31.26388889
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Mosque_MG_0823.jpg/330px-Mosque_MG_0823.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Mosque_MG_0823.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Al-Hakim_Mosque"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "slug": "red_monastery",
+  "category": "Coptic",
+  "region": "Sohag",
+  "wikipedia": {
+    "en": {
+      "title": "Red Monastery",
+      "extract": "The Red Monastery or The Monastery of Apa Psoi is a Coptic Orthodox monastery named after an Egyptian saint named Psoi or Pishoy, not to be confused with Pishoy, Bishop of Sketis. It is located near the Upper Egyptian city of Souhag, and about two and a half miles (4.0 km) north-west of the White Monastery. The monastery's name is derived from the colour of the construction material of its outside walls, consisting of red (burnt) brick. These walls are considerably thicker at the base than at the top, and, just like the walls of Egyptian temples, they are surmounted by cavetto moldings. The Red Monastery is architecturally similar to the White Monastery.",
+      "description": "Coptic Orthodox monastery",
+      "coordinates": {
+        "lat": 26.554931,
+        "lon": 31.619686
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/RedMonasteryCourt.jpg/330px-RedMonasteryCourt.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/8/82/RedMonasteryCourt.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Red_Monastery"
+    }
+  }
+}

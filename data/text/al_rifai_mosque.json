@@ -1,0 +1,19 @@
+{
+  "slug": "al_rifai_mosque",
+  "category": "Islamic",
+  "region": "Cairo",
+  "wikipedia": {
+    "en": {
+      "title": "Al-Rifa'i Mosque",
+      "extract": "The Al-Rifa'i Mosque is a mosque located in Citadel Square, adjacent to the Citadel, in Islamic Cairo, Egypt. Its name is derived from the Ali Abu Shubbak who is buried in the mosque. It also serves as the royal mausoleum of Muhammad Ali's family. The building is located opposite the Mosque-Madrasa of Sultan Hassan, which dates from around 1361, and was architecturally conceived as a complement to the older structure as part of a vast campaign by the 19th century rulers of Egypt to both associate themselves with the perceived glory of earlier periods in Egypt's Islamic history and modernize the city.",
+      "description": "Mosque in Cairo, Egypt",
+      "coordinates": {
+        "lat": 30.15472222,
+        "lon": 31.31027778
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/%D9%85%D8%B3%D8%AC%D8%AF_%D8%A7%D9%84%D8%B1%D9%81%D8%A7%D8%B9%D9%8A.jpg/330px-%D9%85%D8%B3%D8%AC%D8%AF_%D8%A7%D9%84%D8%B1%D9%81%D8%A7%D8%B9%D9%8A.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/c/c4/%D9%85%D8%B3%D8%AC%D8%AF_%D8%A7%D9%84%D8%B1%D9%81%D8%A7%D8%B9%D9%8A.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Al-Rifa'i_Mosque"
+    }
+  }
+}

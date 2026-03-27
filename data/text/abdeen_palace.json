@@ -1,0 +1,19 @@
+{
+  "slug": "abdeen_palace",
+  "category": "Museum",
+  "region": "Cairo",
+  "wikipedia": {
+    "en": {
+      "title": "Abdeen Palace",
+      "extract": "Abdeen District is the home of Abdeen Palace, a 19th-century Cairo palace built by Khedive Ismail and served as the Egyptian royal household's primary official residence from 1874 until the 1952 Egyptian revolution. Since then it has been one of the presidential palaces. The palace is centered in its eponymous district, administratively part of the Western Area of Cairo, and part of the Khedival Cairo Area of Value to the west of Historic Cairo.",
+      "description": "Historic palace in Cairo, Egypt",
+      "coordinates": {
+        "lat": 30.04166667,
+        "lon": 31.24833333
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Abdeen_Palace.jpg/330px-Abdeen_Palace.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/1/17/Abdeen_Palace.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Abdeen_Palace"
+    }
+  }
+}

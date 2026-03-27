@@ -1,0 +1,19 @@
+{
+  "slug": "qasr_ibrim",
+  "category": "Historic",
+  "region": "Aswan",
+  "wikipedia": {
+    "en": {
+      "title": "Qasr Ibrim",
+      "extract": "Qasr Ibrim is an archaeological site in Lower Nubia, located in the modern country of Egypt. The site has a long history of occupation, ranging from as early as the eighth century BC to AD 1813, and was an economic, political, and religious center. Originally it was a major city perched on a cliff above the Nile, but the flooding of Lake Nasser after the construction of the Aswan High Dam – with the related International Campaign to Save the Monuments of Nubia – transformed it into an island and flooded its outskirts. Qasr Ibrim is the only major archaeological site in Lower Nubia to have survived the Aswan Dam floods. Both prior to and after the floods, it has remained a major site for archaeological investigations.",
+      "description": "Archaeological site in Egypt",
+      "coordinates": {
+        "lat": 22.64972222,
+        "lon": 31.99277778
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Vue_de_la_Fortresse_d%27Ibrym.jpg/330px-Vue_de_la_Fortresse_d%27Ibrym.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/8/88/Vue_de_la_Fortresse_d%27Ibrym.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Qasr_Ibrim"
+    }
+  }
+}

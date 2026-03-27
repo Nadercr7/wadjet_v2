@@ -1,0 +1,19 @@
+{
+  "slug": "ancient_thebes",
+  "category": "Pharaonic",
+  "region": "Luxor",
+  "wikipedia": {
+    "en": {
+      "title": "Thebes, Egypt",
+      "extract": "Thebes, known to the ancient Egyptians as Waset, was an ancient Egyptian city located along the Nile about 800 kilometers (500 mi) south of the Mediterranean. Its ruins lie within the modern Egyptian city of Luxor. Thebes was the main city of the fourth Upper Egyptian nome and was the capital of Egypt for long periods during the Middle Kingdom and New Kingdom eras.",
+      "description": "Ancient Egyptian city",
+      "coordinates": {
+        "lat": 25.72055556,
+        "lon": 32.61027778
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Decorated_pillars_of_the_temple_at_Karnac%2C_Thebes%2C_Egypt._Co_Wellcome_V0049316.jpg/330px-Decorated_pillars_of_the_temple_at_Karnac%2C_Thebes%2C_Egypt._Co_Wellcome_V0049316.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/a/a6/Decorated_pillars_of_the_temple_at_Karnac%2C_Thebes%2C_Egypt._Co_Wellcome_V0049316.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Thebes%2C_Egypt"
+    }
+  }
+}

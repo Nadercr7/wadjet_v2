@@ -1,0 +1,1415 @@
+[
+  {
+    "slug": "abdeen_palace",
+    "name": "Abdeen Palace",
+    "category": "Museum",
+    "region": "Cairo",
+    "description": "Historic palace in Cairo, Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "abu_rawash",
+    "name": "Abu Rawash",
+    "category": "Pharaonic",
+    "region": "Giza",
+    "description": "Village in Giza Governorate, Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "abu_simbel",
+    "name": "Abu Simbel",
+    "category": "",
+    "region": "",
+    "description": "UNESCO World Heritage Site in southern Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "abydos_temple",
+    "name": "Abydos, Egypt",
+    "category": "",
+    "region": "",
+    "description": "City in ancient Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "ain_sokhna",
+    "name": "Ain Sokhna",
+    "category": "Modern",
+    "region": "Suez",
+    "description": "Town in Suez, Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "akhenaten",
+    "name": "Akhenaten",
+    "category": "",
+    "region": "",
+    "description": "18th Dynasty Egyptian pharaoh",
+    "has_image": true,
+    "has_coordinates": false
+  },
+  {
+    "slug": "al_azhar_mosque",
+    "name": "Al-Azhar Mosque",
+    "category": "",
+    "region": "",
+    "description": "Mosque in Cairo, Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "al_azhar_park",
+    "name": "Al-Azhar Park",
+    "category": "",
+    "region": "",
+    "description": "Public park in Cairo, Egypt",
+    "has_image": true,
+    "has_coordinates": false
+  },
+  {
+    "slug": "al_hakim_mosque",
+    "name": "Al-Hakim Mosque",
+    "category": "Islamic",
+    "region": "Cairo",
+    "description": "Mosque in Cairo, Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "al_hussein_mosque",
+    "name": "Al-Hussein Mosque",
+    "category": "Islamic",
+    "region": "Cairo",
+    "description": "Mosque in Cairo, Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "al_muizz_street",
+    "name": "Al Muizz Street",
+    "category": "",
+    "region": "",
+    "description": "",
+    "has_image": false,
+    "has_coordinates": false
+  },
+  {
+    "slug": "al_rifai_mosque",
+    "name": "Al-Rifa'i Mosque",
+    "category": "Islamic",
+    "region": "Cairo",
+    "description": "Mosque in Cairo, Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "amenhotep_iii",
+    "name": "Amenhotep III",
+    "category": "",
+    "region": "",
+    "description": "Ninth Pharaoh of the Eighteenth dynasty of Egypt",
+    "has_image": true,
+    "has_coordinates": false
+  },
+  {
+    "slug": "amr_ibn_al_as_mosque",
+    "name": "Amr ibn al-As Mosque",
+    "category": "Islamic",
+    "region": "Cairo",
+    "description": "Mosque in Cairo, Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "ancient_thebes",
+    "name": "Thebes, Egypt",
+    "category": "Pharaonic",
+    "region": "Luxor",
+    "description": "Ancient Egyptian city",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "aswan_dam",
+    "name": "Aswan High Dam",
+    "category": "Modern",
+    "region": "Aswan",
+    "description": "Dam in Aswan, Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "aswan_high_dam",
+    "name": "Aswan Dam",
+    "category": "",
+    "region": "",
+    "description": "Dam in Aswan, Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "avenue_of_sphinxes",
+    "name": "Luxor Temple",
+    "category": "Pharaonic",
+    "region": "Luxor",
+    "description": "Ancient Egyptian temple",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "bab_zuweila",
+    "name": "Bab Zuwayla",
+    "category": "",
+    "region": "",
+    "description": "Gate in the wall of the Old City of Cairo, Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "babylon_fortress",
+    "name": "Fort of Babylon (Egypt)",
+    "category": "Greco-Roman",
+    "region": "Cairo",
+    "description": "",
+    "has_image": false,
+    "has_coordinates": false
+  },
+  {
+    "slug": "bahariya_oasis",
+    "name": "Bahariya Oasis",
+    "category": "Nature",
+    "region": "Bahariya Oasis",
+    "description": "Place in Giza Governorate, Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "baron_empain_palace",
+    "name": "Baron Empain Palace",
+    "category": "",
+    "region": "",
+    "description": "Architectural structure in Heliopolis, a suburb near Cairo, Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "barquq_mosque",
+    "name": "Barquq Mosque",
+    "category": "Islamic",
+    "region": "Cairo",
+    "description": "",
+    "has_image": false,
+    "has_coordinates": false
+  },
+  {
+    "slug": "baybars_mosque",
+    "name": "Mosque of al-Zahir Baybars",
+    "category": "Islamic",
+    "region": "Cairo",
+    "description": "Mosque in Cairo, Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "bayt_al_suhaymi",
+    "name": "Bayt al-Suhaymi",
+    "category": "Islamic",
+    "region": "Cairo",
+    "description": "Building in Cairo, Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "ben_ezra_synagogue",
+    "name": "Ben Ezra Synagogue",
+    "category": "",
+    "region": "",
+    "description": "Former synagogue in Cairo, Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "beni_hasan",
+    "name": "Beni Hasan",
+    "category": "Pharaonic",
+    "region": "Minya",
+    "description": "Village and archaeological site in Middle Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "bent_pyramid",
+    "name": "Bent Pyramid",
+    "category": "",
+    "region": "",
+    "description": "Egyptian pyramid built by Sneferu",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "bibliotheca_alexandrina",
+    "name": "Bibliotheca Alexandrina",
+    "category": "",
+    "region": "",
+    "description": "Major library and cultural center in Alexandria, Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "black_desert",
+    "name": "Black Desert (Egypt)",
+    "category": "Nature",
+    "region": "Bahariya Oasis",
+    "description": "Desert in Egypt",
+    "has_image": true,
+    "has_coordinates": false
+  },
+  {
+    "slug": "bubastis",
+    "name": "Bubastis",
+    "category": "Pharaonic",
+    "region": "Sharqia",
+    "description": "Archaeological site in Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "cairo_citadel",
+    "name": "Cairo Citadel",
+    "category": "",
+    "region": "",
+    "description": "Medieval Islamic-era fortification in Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "cairo_tower",
+    "name": "Cairo Tower",
+    "category": "",
+    "region": "",
+    "description": "Concrete tower in Cairo, Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "catacombs_kom_el_shoqafa",
+    "name": "Catacombs of Kom El Shoqafa",
+    "category": "Greco-Roman",
+    "region": "Alexandria",
+    "description": "Archaeological site in Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "catacombs_of_kom_el_shoqafa",
+    "name": "Catacombs of Kom El Shoqafa",
+    "category": "",
+    "region": "",
+    "description": "Archaeological site in Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "citadel_of_qaitbay",
+    "name": "Citadel of Qaitbay",
+    "category": "",
+    "region": "",
+    "description": "Building in Alexandria, Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "city_of_the_dead",
+    "name": "City of the Dead (Cairo)",
+    "category": "Historic",
+    "region": "Cairo",
+    "description": "Cemetery in Cairo, Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "colored_canyon",
+    "name": "Coloured Canyon",
+    "category": "Nature",
+    "region": "Sinai",
+    "description": "Canyon in Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "colossi_of_memnon",
+    "name": "Colossi of Memnon",
+    "category": "",
+    "region": "",
+    "description": "Two Ancient Egyptian statues near Luxor",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "coptic_museum",
+    "name": "Coptic Museum",
+    "category": "Coptic",
+    "region": "Cairo",
+    "description": "Museum in Coptic Cairo, Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "crocodilopolis",
+    "name": "Faiyum",
+    "category": "Pharaonic",
+    "region": "Fayoum",
+    "description": "City in Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "dahab",
+    "name": "Dahab",
+    "category": "Nature",
+    "region": "Sinai",
+    "description": "Coastal town in South Sinai, Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "dahshur_necropolis",
+    "name": "Dahshur",
+    "category": "Pharaonic",
+    "region": "Giza",
+    "description": "Village in Giza Governorate, Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "dakhla_oasis",
+    "name": "Dakhla Oasis",
+    "category": "Nature",
+    "region": "Dakhla Oasis",
+    "description": "Oasis in New Valley Governorate, Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "deir_el_medina",
+    "name": "Deir el-Medina",
+    "category": "",
+    "region": "",
+    "description": "Ancient Egyptian village in the Valley of the Kings",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "dendera_temple",
+    "name": "Dendera Temple complex",
+    "category": "",
+    "region": "",
+    "description": "Ancient Egyptian temple complex",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "edfu_temple",
+    "name": "Temple of Edfu",
+    "category": "",
+    "region": "",
+    "description": "Ancient Egyptian temple, located on the west bank of the Nile in Edfu, Upper Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "egyptian_museum",
+    "name": "Egyptian Museum",
+    "category": "Museum",
+    "region": "Cairo",
+    "description": "History museum in Cairo, Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "egyptian_museum_cairo",
+    "name": "Egyptian Museum",
+    "category": "",
+    "region": "",
+    "description": "History museum in Cairo, Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "el_alamein_war_cemetery",
+    "name": "El Alamein War Cemetery",
+    "category": "Modern",
+    "region": "Marsa Matruh",
+    "description": "",
+    "has_image": false,
+    "has_coordinates": false
+  },
+  {
+    "slug": "elephantine_island",
+    "name": "Elephantine",
+    "category": "Pharaonic",
+    "region": "Aswan",
+    "description": "Island in the Nile",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "esna_temple",
+    "name": "Temple of Esna",
+    "category": "Pharaonic",
+    "region": "Esna",
+    "description": "",
+    "has_image": false,
+    "has_coordinates": false
+  },
+  {
+    "slug": "farafra_oasis",
+    "name": "Farafra, Egypt",
+    "category": "Nature",
+    "region": "Farafra Oasis",
+    "description": "Depression in New Valley Governorate, Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "fayoum_oasis",
+    "name": "Fayoum Oasis",
+    "category": "Nature",
+    "region": "Fayoum",
+    "description": "",
+    "has_image": false,
+    "has_coordinates": false
+  },
+  {
+    "slug": "gezira_island",
+    "name": "Gezira (Cairo)",
+    "category": "Modern",
+    "region": "Cairo",
+    "description": "Island in the Nile River, in Cairo, Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "grand_egyptian_museum",
+    "name": "Grand Egyptian Museum",
+    "category": "Museum",
+    "region": "Giza",
+    "description": "Archaeological museum in Giza, Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "great_pyramid_of_giza",
+    "name": "Great Pyramid of Giza",
+    "category": "Pharaonic",
+    "region": "Giza",
+    "description": "Largest pyramid in the Giza Necropolis, Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "great_pyramids_of_giza",
+    "name": "Great Pyramid of Giza",
+    "category": "",
+    "region": "",
+    "description": "Largest pyramid in the Giza Necropolis, Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "great_sphinx_of_giza",
+    "name": "Great Sphinx of Giza",
+    "category": "",
+    "region": "",
+    "description": "Limestone statue of a reclining sphinx",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "greco_roman_museum",
+    "name": "Graeco-Roman Museum",
+    "category": "Greco-Roman",
+    "region": "Alexandria",
+    "description": "Archaeological museum located in Alexandria, Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "hanging_church",
+    "name": "Hanging Church",
+    "category": "",
+    "region": "",
+    "description": "Church in Babylon, Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "hawara_pyramid",
+    "name": "Hawara",
+    "category": "Pharaonic",
+    "region": "Fayoum",
+    "description": "Village in Faiyum Governorate, Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "historic_cairo",
+    "name": "Islamic Cairo",
+    "category": "Historic",
+    "region": "Cairo",
+    "description": "Part of central Cairo around the old walled city",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "hurghada",
+    "name": "Hurghada",
+    "category": "Modern",
+    "region": "Red Sea",
+    "description": "Capital of the Red Sea Egyptian Governorate",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "ibn_tulun_mosque",
+    "name": "Mosque of Ibn Tulun",
+    "category": "",
+    "region": "",
+    "description": "Mosque in Cairo, Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "islamic_cairo",
+    "name": "Islamic Cairo",
+    "category": "Historic",
+    "region": "Cairo",
+    "description": "Part of central Cairo around the old walled city",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "kalabsha_temple",
+    "name": "Temple of Kalabsha",
+    "category": "Pharaonic",
+    "region": "Aswan",
+    "description": "Building in Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "karnak_temple",
+    "name": "Karnak",
+    "category": "",
+    "region": "",
+    "description": "Ancient Egyptian temple complex",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "khan_el_khalili",
+    "name": "Khan el-Khalili",
+    "category": "",
+    "region": "",
+    "description": "Major souk in Cairo",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "kharga_oasis",
+    "name": "Kharga Oasis",
+    "category": "Nature",
+    "region": "Kharga Oasis",
+    "description": "Oasis in Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "king_thutmose_iii",
+    "name": "Thutmose III",
+    "category": "",
+    "region": "",
+    "description": "Fifth Egyptian Pharaoh of the 18th Dynasty (c. 1479–1425 BC)",
+    "has_image": true,
+    "has_coordinates": false
+  },
+  {
+    "slug": "kitchener_island_aswan",
+    "name": "El Nabatat Island",
+    "category": "Nature",
+    "region": "Aswan",
+    "description": "Island in the Nile River at Aswan, Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "kom_ombo_temple",
+    "name": "Temple of Kom Ombo",
+    "category": "",
+    "region": "",
+    "description": "Building in Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "lahun_pyramid",
+    "name": "El Lahun",
+    "category": "Pharaonic",
+    "region": "Fayoum",
+    "description": "Village in Faiyum, Egypt",
+    "has_image": false,
+    "has_coordinates": true
+  },
+  {
+    "slug": "lake_nasser",
+    "name": "Lake Nasser",
+    "category": "Nature",
+    "region": "Aswan",
+    "description": "Reservoir in southern Egypt and northern Sudan",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "lake_qarun",
+    "name": "Lake Moeris",
+    "category": "Nature",
+    "region": "Fayoum",
+    "description": "Ancient endorheic lake in Egypt",
+    "has_image": true,
+    "has_coordinates": false
+  },
+  {
+    "slug": "luxor_museum",
+    "name": "Luxor Museum",
+    "category": "Museum",
+    "region": "Luxor",
+    "description": "Archaeological museum in Luxor, Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "luxor_temple",
+    "name": "Luxor Temple",
+    "category": "",
+    "region": "",
+    "description": "Ancient Egyptian temple",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "madrasa_al_salih_ayyub",
+    "name": "Salihiyya Madrasa",
+    "category": "Islamic",
+    "region": "Cairo",
+    "description": "Medieval center of Islamic learning in Cairo, Egypt",
+    "has_image": true,
+    "has_coordinates": false
+  },
+  {
+    "slug": "manial_palace",
+    "name": "Manial Palace",
+    "category": "Museum",
+    "region": "Cairo",
+    "description": "",
+    "has_image": false,
+    "has_coordinates": false
+  },
+  {
+    "slug": "mask_of_tutankhamun",
+    "name": "Mask of Tutankhamun",
+    "category": "",
+    "region": "",
+    "description": "Gold mask of Egyptian pharaoh",
+    "has_image": true,
+    "has_coordinates": false
+  },
+  {
+    "slug": "mastaba_of_ti",
+    "name": "Mastaba of Ti",
+    "category": "Pharaonic",
+    "region": "Saqqara",
+    "description": "Archaeological site in Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "medinet_habu",
+    "name": "Medinet Habu",
+    "category": "Pharaonic",
+    "region": "Luxor",
+    "description": "Mortuary Temple of Ramesses III",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "meidum_pyramid",
+    "name": "Meidum",
+    "category": "Pharaonic",
+    "region": "Beni Suef",
+    "description": "Village in Beni Suef Governorate, Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "memphis_ruins",
+    "name": "Memphis, Egypt",
+    "category": "Pharaonic",
+    "region": "Giza",
+    "description": "Ancient capital of Inebu-hedj, Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "monastery_of_saint_anthony",
+    "name": "Monastery of Saint Anthony",
+    "category": "Coptic",
+    "region": "Red Sea",
+    "description": "Monastery in Egypt",
+    "has_image": true,
+    "has_coordinates": false
+  },
+  {
+    "slug": "monastery_of_saint_paul",
+    "name": "Monastery of Saint Paul the Anchorite",
+    "category": "Coptic",
+    "region": "Red Sea",
+    "description": "Coptic monastery in Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "montaza_palace",
+    "name": "Montaza Palace",
+    "category": "",
+    "region": "",
+    "description": "Palace and museum in Alexandria, Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "mount_sinai",
+    "name": "Mount Sinai",
+    "category": "Historic",
+    "region": "Sinai",
+    "description": "Mountain in the Sinai Peninsula",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "muhammad_ali_mosque",
+    "name": "Muhammad Ali Mosque",
+    "category": "",
+    "region": "",
+    "description": "Mosque in Cairo, Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "museum_of_islamic_art",
+    "name": "Museum of Islamic Art, Cairo",
+    "category": "Museum",
+    "region": "Cairo",
+    "description": "Museum in Cairo, Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "nefertiti_bust",
+    "name": "Nefertiti Bust",
+    "category": "",
+    "region": "",
+    "description": "Ancient sculpture from Egypt",
+    "has_image": true,
+    "has_coordinates": false
+  },
+  {
+    "slug": "nile_corniche",
+    "name": "Nile Corniche Cairo",
+    "category": "Modern",
+    "region": "Cairo",
+    "description": "",
+    "has_image": false,
+    "has_coordinates": false
+  },
+  {
+    "slug": "nmec",
+    "name": "National Museum of Egyptian Civilization",
+    "category": "Museum",
+    "region": "Cairo",
+    "description": "History museum in Cairo, Egypt",
+    "has_image": true,
+    "has_coordinates": false
+  },
+  {
+    "slug": "nubia_museum",
+    "name": "Nubia Museum",
+    "category": "Museum",
+    "region": "Aswan",
+    "description": "",
+    "has_image": false,
+    "has_coordinates": false
+  },
+  {
+    "slug": "nubian_monuments",
+    "name": "International Campaign to Save the Monuments of Nubia",
+    "category": "Pharaonic",
+    "region": "Aswan",
+    "description": "1960–80 relocation project in Egypt and Sudan",
+    "has_image": true,
+    "has_coordinates": false
+  },
+  {
+    "slug": "nuweiba",
+    "name": "Nuweiba",
+    "category": "Nature",
+    "region": "Sinai",
+    "description": "Coastal town in South Sinai, Egypt",
+    "has_image": true,
+    "has_coordinates": false
+  },
+  {
+    "slug": "per_ramesses",
+    "name": "Pi-Ramesses",
+    "category": "Pharaonic",
+    "region": "Sharqia",
+    "description": "Capital of the ancient Egyptian 19th dynasty",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "philae_temple",
+    "name": "Philae temple complex",
+    "category": "",
+    "region": "",
+    "description": "Island in the Nile, Egypt",
+    "has_image": false,
+    "has_coordinates": true
+  },
+  {
+    "slug": "pompey_pillar",
+    "name": "Pompey's Pillar",
+    "category": "Greco-Roman",
+    "region": "Alexandria",
+    "description": "Ancient Roman triumphal column",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "pompeys_pillar",
+    "name": "Pompey's Pillar",
+    "category": "",
+    "region": "",
+    "description": "Ancient Roman triumphal column",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "pyramid_of_djoser",
+    "name": "Pyramid of Djoser",
+    "category": "",
+    "region": "",
+    "description": "Archeological site in Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "pyramid_of_khafre",
+    "name": "Pyramid of Khafre",
+    "category": "Pharaonic",
+    "region": "Giza",
+    "description": "Smooth-sided pyramid in Giza, Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "pyramid_of_menkaure",
+    "name": "Pyramid of Menkaure",
+    "category": "Pharaonic",
+    "region": "Giza",
+    "description": "Smallest main pyramid of Giza in Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "pyramid_of_unas",
+    "name": "Pyramid of Unas",
+    "category": "Pharaonic",
+    "region": "Saqqara",
+    "description": "Fifth Dynasty Egyptian pyramid complex",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "qaitbay_citadel",
+    "name": "Citadel of Qaitbay",
+    "category": "Greco-Roman",
+    "region": "Alexandria",
+    "description": "Building in Alexandria, Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "qalawun_complex",
+    "name": "Mosque of Qalawun",
+    "category": "Islamic",
+    "region": "Cairo",
+    "description": "",
+    "has_image": false,
+    "has_coordinates": false
+  },
+  {
+    "slug": "qasr_ibrim",
+    "name": "Qasr Ibrim",
+    "category": "Historic",
+    "region": "Aswan",
+    "description": "Archaeological site in Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "ramesses_ii",
+    "name": "Ramesses II",
+    "category": "",
+    "region": "",
+    "description": "Pharaoh of Egypt from 1279 to 1213 BC",
+    "has_image": true,
+    "has_coordinates": false
+  },
+  {
+    "slug": "ramesseum",
+    "name": "Ramesseum",
+    "category": "",
+    "region": "",
+    "description": "Memorial temple of Ramesses II in Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "ras_muhammad",
+    "name": "Ras Muhammad National Park",
+    "category": "Nature",
+    "region": "Sinai",
+    "description": "Egyptian national park in South Sinai",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "red_monastery",
+    "name": "Red Monastery",
+    "category": "Coptic",
+    "region": "Sohag",
+    "description": "Coptic Orthodox monastery",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "red_pyramid",
+    "name": "Red Pyramid",
+    "category": "",
+    "region": "",
+    "description": "c. 2600 BC pyramid near Cairo, Egypt, built by pharaoh Sneferu",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "roman_amphitheatre_alexandria",
+    "name": "Roman amphitheatre of Alexandria",
+    "category": "Greco-Roman",
+    "region": "Alexandria",
+    "description": "",
+    "has_image": false,
+    "has_coordinates": false
+  },
+  {
+    "slug": "rosetta_city",
+    "name": "Rosetta (city)",
+    "category": "Historic",
+    "region": "Beheira",
+    "description": "",
+    "has_image": false,
+    "has_coordinates": false
+  },
+  {
+    "slug": "royal_jewelry_museum",
+    "name": "Royal Jewelry Museum",
+    "category": "Museum",
+    "region": "Alexandria",
+    "description": "Cultural museum in Alexandria, Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "saint_catherine_area",
+    "name": "Saint Catherine's Monastery",
+    "category": "Nature",
+    "region": "Sinai",
+    "description": "Greek Orthodox monastery in Sinai",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "saint_catherine_monastery",
+    "name": "Saint Catherine's Monastery",
+    "category": "Coptic",
+    "region": "Sinai",
+    "description": "Greek Orthodox monastery in Sinai",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "saints_sergius_and_bacchus_church",
+    "name": "Church of St. Sergius and Bacchus (Cairo)",
+    "category": "Coptic",
+    "region": "Cairo",
+    "description": "",
+    "has_image": false,
+    "has_coordinates": false
+  },
+  {
+    "slug": "saladin_citadel",
+    "name": "Saladin Citadel of Cairo",
+    "category": "Historic",
+    "region": "Cairo",
+    "description": "",
+    "has_image": false,
+    "has_coordinates": false
+  },
+  {
+    "slug": "saqqara_necropolis",
+    "name": "Saqqara",
+    "category": "Pharaonic",
+    "region": "Giza",
+    "description": "Burial ground in Giza Governorate, Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "serapeum_of_saqqara",
+    "name": "Serapeum of Saqqara",
+    "category": "Pharaonic",
+    "region": "Saqqara",
+    "description": "Ancient Egyptian catacombs for Apis bulls",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "sharm_el_sheikh",
+    "name": "Sharm El Sheikh",
+    "category": "Modern",
+    "region": "Sinai",
+    "description": "City in Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "siwa_oasis",
+    "name": "Siwa Oasis",
+    "category": "",
+    "region": "",
+    "description": "Oasis in Matrouh, Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "stanley_bridge",
+    "name": "Stanley Bridge, Alexandria",
+    "category": "Modern",
+    "region": "Alexandria",
+    "description": "",
+    "has_image": false,
+    "has_coordinates": false
+  },
+  {
+    "slug": "statue_of_tutankhamun",
+    "name": "Tutankhamun",
+    "category": "",
+    "region": "",
+    "description": "Pharaoh of Egypt from 1332 to 1323 BC",
+    "has_image": true,
+    "has_coordinates": false
+  },
+  {
+    "slug": "step_pyramid_of_djoser",
+    "name": "Pyramid of Djoser",
+    "category": "Pharaonic",
+    "region": "Saqqara",
+    "description": "Archeological site in Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "suez_canal",
+    "name": "Suez Canal",
+    "category": "Modern",
+    "region": "Suez",
+    "description": "Artificial sea-level waterway in Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "sultan_al_ghuri_complex",
+    "name": "Sultan al-Ghuri Complex",
+    "category": "Islamic",
+    "region": "Cairo",
+    "description": "Mosque, Madrassa, Tomb and Sabil in Cairo, Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "sultan_hassan_mosque",
+    "name": "Mosque-Madrasa of Sultan Hasan",
+    "category": "",
+    "region": "",
+    "description": "Mosque in Cairo, Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "taba",
+    "name": "Taba, Egypt",
+    "category": "Nature",
+    "region": "Sinai",
+    "description": "Town in South Sinai, Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "tanis",
+    "name": "Tanis",
+    "category": "Pharaonic",
+    "region": "Sharqia",
+    "description": "City in Sharqia, Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "tell_el_amarna",
+    "name": "Amarna",
+    "category": "Pharaonic",
+    "region": "Minya",
+    "description": "Akhenaten's capital of Egypt, 1346–1332 BC",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "temple_of_amada",
+    "name": "Temple of Amada",
+    "category": "Pharaonic",
+    "region": "Aswan",
+    "description": "UNESCO World Heritage Site in New Amada, Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "temple_of_derr",
+    "name": "Temple of Derr",
+    "category": "Pharaonic",
+    "region": "Aswan",
+    "description": "",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "temple_of_hatshepsut",
+    "name": "Mortuary temple of Hatshepsut",
+    "category": "",
+    "region": "",
+    "description": "Ancient Egyptian temple",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "temple_of_hibis",
+    "name": "Temple of Hibis",
+    "category": "Pharaonic",
+    "region": "Kharga Oasis",
+    "description": "Ancient Egyptian temple in Kharga Oasis, New Valley Governorate, Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "temple_of_isis_philae",
+    "name": "Temple of Isis (Philae)",
+    "category": "Pharaonic",
+    "region": "Aswan",
+    "description": "",
+    "has_image": false,
+    "has_coordinates": false
+  },
+  {
+    "slug": "temple_of_mandulis",
+    "name": "Temple of Mandulis",
+    "category": "Pharaonic",
+    "region": "Aswan",
+    "description": "",
+    "has_image": false,
+    "has_coordinates": false
+  },
+  {
+    "slug": "temple_of_seti_i_abydos",
+    "name": "Temple of Seti I (Abydos)",
+    "category": "Pharaonic",
+    "region": "Sohag",
+    "description": "Archaeological site in Egypt",
+    "has_image": true,
+    "has_coordinates": false
+  },
+  {
+    "slug": "tiran_island",
+    "name": "Tiran Island",
+    "category": "Nature",
+    "region": "Sinai",
+    "description": "Island in Saudi Arabia",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "tomb_of_nefertari",
+    "name": "Tomb of Nefertari",
+    "category": "",
+    "region": "",
+    "description": "Ancient Egyptian tomb",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "tomb_of_seti_i",
+    "name": "Tomb of Seti I",
+    "category": "Pharaonic",
+    "region": "Luxor",
+    "description": "Tomb of Pharaoh Seti I in the Valley of the Kings, Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "tomb_of_tutankhamun",
+    "name": "Tomb of Tutankhamun",
+    "category": "Pharaonic",
+    "region": "Luxor",
+    "description": "Ancient Egyptian tomb",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "tombs_of_the_nobles_luxor",
+    "name": "Tombs of the Nobles",
+    "category": "Pharaonic",
+    "region": "Luxor",
+    "description": "Topics referred to by the same term",
+    "has_image": false,
+    "has_coordinates": false
+  },
+  {
+    "slug": "unfinished_obelisk",
+    "name": "Unfinished obelisk",
+    "category": "",
+    "region": "",
+    "description": "Ancient Egyptian obelisk",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "valley_of_the_kings",
+    "name": "Valley of the Kings",
+    "category": "",
+    "region": "",
+    "description": "Necropolis in ancient Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "valley_of_the_queens",
+    "name": "Valley of the Queens",
+    "category": "",
+    "region": "",
+    "description": "Historic site in Luxor, Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "wadi_el_hitan",
+    "name": "Wadi al Hitan",
+    "category": "Nature",
+    "region": "Fayoum",
+    "description": "Paleontological site in the Faiyum Governorate of Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "wadi_el_natrun",
+    "name": "Wadi El Natrun",
+    "category": "Coptic",
+    "region": "Beheira",
+    "description": "Geographic depression in Beheira, Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "wadi_el_rayan",
+    "name": "Wadi El Rayan",
+    "category": "",
+    "region": "",
+    "description": "Nature reserve in Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "wadi_el_sebua",
+    "name": "Wadi el-Sebua",
+    "category": "Pharaonic",
+    "region": "Aswan",
+    "description": "",
+    "has_image": false,
+    "has_coordinates": false
+  },
+  {
+    "slug": "wadi_rayan",
+    "name": "Wadi Rayan",
+    "category": "Nature",
+    "region": "Fayoum",
+    "description": "",
+    "has_image": false,
+    "has_coordinates": false
+  },
+  {
+    "slug": "white_desert",
+    "name": "White Desert National Park",
+    "category": "Nature",
+    "region": "Farafra Oasis",
+    "description": "National park in Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "white_monastery",
+    "name": "White Monastery",
+    "category": "Coptic",
+    "region": "Sohag",
+    "description": "Coptic Orthodox monastery",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "wikala_al_ghuri",
+    "name": "Wikala of al-Ghuri",
+    "category": "Islamic",
+    "region": "Cairo",
+    "description": "Caravanserai, apartment complex in Cairo, Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  },
+  {
+    "slug": "zamalek",
+    "name": "Zamalek",
+    "category": "Modern",
+    "region": "Cairo",
+    "description": "Urban district in Cairo, Egypt",
+    "has_image": true,
+    "has_coordinates": true
+  }
+]

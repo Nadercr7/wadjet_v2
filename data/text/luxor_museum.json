@@ -1,0 +1,19 @@
+{
+  "slug": "luxor_museum",
+  "category": "Museum",
+  "region": "Luxor",
+  "wikipedia": {
+    "en": {
+      "title": "Luxor Museum",
+      "extract": "Luxor Museum is an archaeological museum in Luxor, Egypt. It stands on the corniche, overlooking the east bank of the River Nile.",
+      "description": "Archaeological museum in Luxor, Egypt",
+      "coordinates": {
+        "lat": 25.7075,
+        "lon": 32.64472222
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Luxor_Museum_1.JPG/330px-Luxor_Museum_1.JPG",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/7/76/Luxor_Museum_1.JPG",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Luxor_Museum"
+    }
+  }
+}

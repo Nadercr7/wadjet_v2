@@ -1,0 +1,19 @@
+{
+  "slug": "dahshur_necropolis",
+  "category": "Pharaonic",
+  "region": "Giza",
+  "wikipedia": {
+    "en": {
+      "title": "Dahshur",
+      "extract": "Dahshur is an ancient Egyptian pyramid complex and necropolis and shares the name of the nearby village of Manshiyyat Dahshur in markaz Badrashin, Giza.",
+      "description": "Village in Giza Governorate, Egypt",
+      "coordinates": {
+        "lat": 29.80638889,
+        "lon": 31.20805556
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Dahshur_-_Red_Pyramid_-_Tourist_policemen_on_camel.JPG/330px-Dahshur_-_Red_Pyramid_-_Tourist_policemen_on_camel.JPG",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/2/21/Dahshur_-_Red_Pyramid_-_Tourist_policemen_on_camel.JPG",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Dahshur"
+    }
+  }
+}

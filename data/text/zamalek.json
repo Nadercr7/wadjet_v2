@@ -1,0 +1,19 @@
+{
+  "slug": "zamalek",
+  "category": "Modern",
+  "region": "Cairo",
+  "wikipedia": {
+    "en": {
+      "title": "Zamalek",
+      "extract": "Zamalek is a qism (ward) within the West District in the Western Area of Cairo, Egypt. It is an affluent district on a man-made island which is geologically a part of the west bank of the Nile River, with the bahr al-a'ma cut during the second half of the 19th Century to separate it from the west bank proper. The northern third has been developed into a residential area. The southern two thirds are mostly sports grounds and public gardens, a stark green reserve in the middle of Cairo. The island is connected with the river banks by four bridges: The Qasr El Nil Bridge, Galaa Bridge, 15 May Bridge and 6th October Bridge.",
+      "description": "Urban district in Cairo, Egypt",
+      "coordinates": {
+        "lat": 30.06666667,
+        "lon": 31.21666667
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Zamalek_Arial.jpg/330px-Zamalek_Arial.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/7/75/Zamalek_Arial.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Zamalek"
+    }
+  }
+}

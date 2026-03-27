@@ -1,0 +1,19 @@
+{
+  "slug": "lake_nasser",
+  "category": "Nature",
+  "region": "Aswan",
+  "wikipedia": {
+    "en": {
+      "title": "Lake Nasser",
+      "extract": "Lake Nasser is a large reservoir in southern Egypt and northern Sudan. It was created by the construction of the Aswan High Dam and is one of the largest man-made lakes in the world. Before its creation, the project faced opposition from Sudan as it would encroach on land in the northern part of the country, where many Nubian people lived who would have to be resettled. In the end Sudan's land near the area of Lake Nasser was mostly flooded by the lake. The lake has become an important economic resource in Egypt, improving agriculture and touting robust fishing and tourism industries.",
+      "description": "Reservoir in southern Egypt and northern Sudan",
+      "coordinates": {
+        "lat": 22.5,
+        "lon": 31.86
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Lake_Nasser_Vista.jpg/330px-Lake_Nasser_Vista.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/4/44/Lake_Nasser_Vista.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Lake_Nasser"
+    }
+  }
+}

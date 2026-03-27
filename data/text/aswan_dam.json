@@ -1,0 +1,19 @@
+{
+  "slug": "aswan_dam",
+  "category": "Modern",
+  "region": "Aswan",
+  "wikipedia": {
+    "en": {
+      "title": "Aswan High Dam",
+      "extract": "The Aswan High Dam, often called simply Aswan Dam, is one of the world's largest embankment dams, which was built between 1960 and 1970 across the Nile in Aswan, Egypt. The project was developed by the military regime that took power following the 1952 Egyptian revolution, to better control flooding, provide increased water storage for irrigation and generate hydroelectricity, the dam was seen as pivotal to the country's industrialization plans. Like the earlier implementation, the High Dam has had a significant effect on the economy and culture of Egypt.",
+      "description": "Dam in Aswan, Egypt",
+      "coordinates": {
+        "lat": 23.97055556,
+        "lon": 32.87777778
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/BarragemAssu%C3%A3o.jpg/330px-BarragemAssu%C3%A3o.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/2/2e/BarragemAssu%C3%A3o.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Aswan_High_Dam"
+    }
+  }
+}

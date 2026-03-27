@@ -1,0 +1,19 @@
+{
+  "slug": "tell_el_amarna",
+  "category": "Pharaonic",
+  "region": "Minya",
+  "wikipedia": {
+    "en": {
+      "title": "Amarna",
+      "extract": "Amarna is an extensive ancient Egyptian archaeological site containing the ruins of Akhetaten, the capital city during the late Eighteenth Dynasty. The city was established in 1346 BC, built at the direction of the Pharaoh Akhenaten, and abandoned shortly after his death in 1332 BC.",
+      "description": "Akhenaten's capital of Egypt, 1346–1332 BC",
+      "coordinates": {
+        "lat": 27.64527778,
+        "lon": 30.89638889
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Small_aten_temple.jpg/330px-Small_aten_temple.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/6/64/Small_aten_temple.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Amarna"
+    }
+  }
+}

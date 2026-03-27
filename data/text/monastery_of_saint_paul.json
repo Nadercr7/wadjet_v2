@@ -1,0 +1,19 @@
+{
+  "slug": "monastery_of_saint_paul",
+  "category": "Coptic",
+  "region": "Red Sea",
+  "wikipedia": {
+    "en": {
+      "title": "Monastery of Saint Paul the Anchorite",
+      "extract": "The Monastery of Saint Paul the Anchorite in Egypt is a Coptic Orthodox monastery located in the Eastern Desert, near the Red Sea Mountains. It is about 405 km (252 mi) south east of Cairo. The monastery is also known as the Monastery of the Tigers.",
+      "description": "Coptic monastery in Egypt",
+      "coordinates": {
+        "lat": 28.84666667,
+        "lon": 32.55166667
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/MonasteroPaolo4.jpg/330px-MonasteroPaolo4.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/d/db/MonasteroPaolo4.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Monastery_of_Saint_Paul_the_Anchorite"
+    }
+  }
+}

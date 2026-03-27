@@ -1,0 +1,19 @@
+{
+  "slug": "white_desert",
+  "category": "Nature",
+  "region": "Farafra Oasis",
+  "wikipedia": {
+    "en": {
+      "title": "White Desert National Park",
+      "extract": "Sahara el Beyda, the White Desert Protected Area, is a national park in Egypt, first established as a protected area in 2002. It is located in the Farafra depression, 45 km (28 mi) north of the town of Qasr Al Farafra. Part of the park is in the Farafra Oasis.",
+      "description": "National park in Egypt",
+      "coordinates": {
+        "lat": 27.27733611,
+        "lon": 28.20044167
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Al_Farafrah%2C_New_Valley_Governorate%2C_Egypt_-_panoramio_%2821%29.jpg/330px-Al_Farafrah%2C_New_Valley_Governorate%2C_Egypt_-_panoramio_%2821%29.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Al_Farafrah%2C_New_Valley_Governorate%2C_Egypt_-_panoramio_%2821%29.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/White_Desert_National_Park"
+    }
+  }
+}

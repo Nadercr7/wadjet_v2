@@ -1,0 +1,19 @@
+{
+  "slug": "tomb_of_seti_i",
+  "category": "Pharaonic",
+  "region": "Luxor",
+  "wikipedia": {
+    "en": {
+      "title": "Tomb of Seti I",
+      "extract": "The tomb of Seti I, also known by its tomb number, KV17, is the tomb of Pharaoh Seti I of the Nineteenth Dynasty. Located in Egypt's Valley of the Kings, It is also known by the names \"Belzoni's tomb\", \"the Tomb of Apis\", and \"the Tomb of Psammis, son of Nechois\". It is one of the most decorated tombs in the valley, and is one of the largest and deepest tombs in the Valley of the Kings. It was uncovered by Italian archaeologist and explorer Giovanni Belzoni on 16 October 1817.",
+      "description": "Tomb of Pharaoh Seti I in the Valley of the Kings, Egypt",
+      "coordinates": {
+        "lat": 25.73980556,
+        "lon": 32.60188889
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/KV17%2C_the_tomb_of_Pharaoh_Seti_I_of_the_Nineteenth_Dynasty%2C_Valley_of_the_Kings%2C_Egypt_%2849846343021%29.jpg/330px-KV17%2C_the_tomb_of_Pharaoh_Seti_I_of_the_Nineteenth_Dynasty%2C_Valley_of_the_Kings%2C_Egypt_%2849846343021%29.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/7/76/KV17%2C_the_tomb_of_Pharaoh_Seti_I_of_the_Nineteenth_Dynasty%2C_Valley_of_the_Kings%2C_Egypt_%2849846343021%29.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Tomb_of_Seti_I"
+    }
+  }
+}

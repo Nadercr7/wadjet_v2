@@ -1,0 +1,19 @@
+{
+  "slug": "historic_cairo",
+  "category": "Historic",
+  "region": "Cairo",
+  "wikipedia": {
+    "en": {
+      "title": "Islamic Cairo",
+      "extract": "Islamic Cairo, or Medieval Cairo, officially Historic Cairo, refers mostly to the areas of Cairo, Egypt, that were built from the Muslim conquest in 641 CE until the city's modern expansion in the 19th century during Khedive Ismail's rule, namely: the central parts within the old walled city, the historic cemeteries, the area around the Citadel of Cairo, parts of Bulaq, and Old Cairo which dates back to Roman times and includes major Coptic Christian monuments.",
+      "description": "Part of central Cairo around the old walled city",
+      "coordinates": {
+        "lat": 30.04600278,
+        "lon": 31.26271667
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Flickr_-_archer10_%28Dennis%29_-_Egypt-13A-061.jpg/330px-Flickr_-_archer10_%28Dennis%29_-_Egypt-13A-061.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/4/42/Flickr_-_archer10_%28Dennis%29_-_Egypt-13A-061.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Islamic_Cairo"
+    }
+  }
+}

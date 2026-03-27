@@ -1,0 +1,19 @@
+{
+  "slug": "gezira_island",
+  "category": "Modern",
+  "region": "Cairo",
+  "wikipedia": {
+    "en": {
+      "title": "Gezira (Cairo)",
+      "extract": "Gezira is an island in the Nile, in central Cairo, Egypt. The southern portion of the island contains the Gezira district, and the northern third contains the Zamalek district. Gezira is the Egyptian Arabic word for island. Gezira is west of downtown Cairo and Tahrir Square, connected across the Nile by four bridges each on the east and west sides, the Qasr El Nil Bridge, 15 May Bridge, Al-Gala'a Bridge and 6th October Bridge.",
+      "description": "Island in the Nile River, in Cairo, Egypt",
+      "coordinates": {
+        "lat": 30.05,
+        "lon": 31.21666667
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Zamalek_Arial.jpg/330px-Zamalek_Arial.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/7/75/Zamalek_Arial.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Gezira_(Cairo)"
+    }
+  }
+}

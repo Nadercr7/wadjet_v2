@@ -1,0 +1,19 @@
+{
+  "slug": "beni_hasan",
+  "category": "Pharaonic",
+  "region": "Minya",
+  "wikipedia": {
+    "en": {
+      "title": "Beni Hasan",
+      "extract": "Beni Hasan is an ancient Egyptian cemetery. It is located approximately 20 kilometers (12 mi) to the south of modern-day Minya in the region known as Middle Egypt, the area between Asyut and Memphis.",
+      "description": "Village and archaeological site in Middle Egypt",
+      "coordinates": {
+        "lat": 27.93333333,
+        "lon": 30.88333333
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Exterior_view_of_tombs_of_Khety_and_Barquet_III.JPG/330px-Exterior_view_of_tombs_of_Khety_and_Barquet_III.JPG",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/3/37/Exterior_view_of_tombs_of_Khety_and_Barquet_III.JPG",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Beni_Hasan"
+    }
+  }
+}

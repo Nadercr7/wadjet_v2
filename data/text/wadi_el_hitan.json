@@ -1,0 +1,19 @@
+{
+  "slug": "wadi_el_hitan",
+  "category": "Nature",
+  "region": "Fayoum",
+  "wikipedia": {
+    "en": {
+      "title": "Wadi al Hitan",
+      "extract": "Wādī al-Ḥītān is a paleontological site in the Faiyum Governorate of Egypt, some 150 kilometres (93 mi) south-west of Cairo. It was designated a UNESCO World Heritage Site in July 2005 for its hundreds of fossils of some of the earliest forms of whale, the archaeoceti. The site reveals evidence for the explanation of one of the greatest mysteries of the evolution of whales: the emergence of the whale as an ocean-going mammal from a previous life as a land-based animal.",
+      "description": "Paleontological site in the Faiyum Governorate of Egypt",
+      "coordinates": {
+        "lat": 29.33333333,
+        "lon": 30.18333333
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/The_whales_fossils_at_Wadi_El-Hitan%2C_Egypt_2017.jpg/330px-The_whales_fossils_at_Wadi_El-Hitan%2C_Egypt_2017.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/3/37/The_whales_fossils_at_Wadi_El-Hitan%2C_Egypt_2017.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Wadi_al_Hitan"
+    }
+  }
+}

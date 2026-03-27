@@ -1,0 +1,19 @@
+{
+  "slug": "mount_sinai",
+  "category": "Historic",
+  "region": "Sinai",
+  "wikipedia": {
+    "en": {
+      "title": "Mount Sinai",
+      "extract": "Mount Sinai, also known as Jabal Musa, is a mountain on the Sinai Peninsula of Egypt. It is one of several locations claimed to be the biblical Mount Sinai, the place where, according to the sacred scriptures of the three major Abrahamic religions, the Hebrew prophet Moses received the Ten Commandments from God.",
+      "description": "Mountain in the Sinai Peninsula",
+      "coordinates": {
+        "lat": 28.53941667,
+        "lon": 33.97541667
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Mount_Sinai_from_the_southwest.jpg/330px-Mount_Sinai_from_the_southwest.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/3/36/Mount_Sinai_from_the_southwest.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Mount_Sinai"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "slug": "hurghada",
+  "category": "Modern",
+  "region": "Red Sea",
+  "wikipedia": {
+    "en": {
+      "title": "Hurghada",
+      "extract": "Hurghada is a coastal city that serves as the largest city and capital of the Red Sea Governorate of Egypt. Hurghada has grown from a small fishing village to one of the largest resort destinations along the Red Sea coast, stretching close to 40 km.",
+      "description": "Capital of the Red Sea Egyptian Governorate",
+      "coordinates": {
+        "lat": 27.25777778,
+        "lon": 33.81166667
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Hurghada_Hotels_R03.jpg/330px-Hurghada_Hotels_R03.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Hurghada_Hotels_R03.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Hurghada"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "slug": "crocodilopolis",
+  "category": "Pharaonic",
+  "region": "Fayoum",
+  "wikipedia": {
+    "en": {
+      "title": "Faiyum",
+      "extract": "Faiyum is a city in Middle Egypt. Located 100 kilometres southwest of Cairo, in the Faiyum Oasis, it is the capital of the modern Faiyum Governorate. It is one of Egypt's oldest cities due to its strategic location.",
+      "description": "City in Egypt",
+      "coordinates": {
+        "lat": 29.308374,
+        "lon": 30.844105
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/MadinatFayyumWaterWheel.jpg/330px-MadinatFayyumWaterWheel.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/c/c7/MadinatFayyumWaterWheel.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Faiyum"
+    }
+  }
+}

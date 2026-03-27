@@ -1,0 +1,19 @@
+{
+  "slug": "mastaba_of_ti",
+  "category": "Pharaonic",
+  "region": "Saqqara",
+  "wikipedia": {
+    "en": {
+      "title": "Mastaba of Ti",
+      "extract": "The Mastaba of Ti is one of the most important archaeological sites of Saqqara. The mastaba was discovered by Auguste Mariette in 1865.",
+      "description": "Archaeological site in Egypt",
+      "coordinates": {
+        "lat": 29.87722222,
+        "lon": 31.21166667
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Mastaba_Ti_07.jpg/330px-Mastaba_Ti_07.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Mastaba_Ti_07.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Mastaba_of_Ti"
+    }
+  }
+}

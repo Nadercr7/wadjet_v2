@@ -1,0 +1,19 @@
+{
+  "slug": "memphis_ruins",
+  "category": "Pharaonic",
+  "region": "Giza",
+  "wikipedia": {
+    "en": {
+      "title": "Memphis, Egypt",
+      "extract": "Memphis, or Men-nefer, was the ancient capital of Inebu-hedj, the first nome of Lower Egypt that was known as mḥw (\"North\"). Its ruins are located in the vicinity of the present-day village of Mit Rahina, in Badrashin markaz (county), Giza Governorate, Egypt.",
+      "description": "Ancient capital of Inebu-hedj, Egypt",
+      "coordinates": {
+        "lat": 29.84944444,
+        "lon": 31.255
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Memphis200401.JPG/330px-Memphis200401.JPG",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Memphis200401.JPG",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Memphis%2C_Egypt"
+    }
+  }
+}

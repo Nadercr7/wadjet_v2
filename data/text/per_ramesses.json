@@ -1,0 +1,19 @@
+{
+  "slug": "per_ramesses",
+  "category": "Pharaonic",
+  "region": "Sharqia",
+  "wikipedia": {
+    "en": {
+      "title": "Pi-Ramesses",
+      "extract": "Pi-Ramesses was the new capital built by the Nineteenth Dynasty Pharaoh Ramesses II at Qantir, near the old site of Avaris. The city had served as a summer palace under Seti I, and may have been founded by Ramesses I while he served under Horemheb.",
+      "description": "Capital of the ancient Egyptian 19th dynasty",
+      "coordinates": {
+        "lat": 30.79888889,
+        "lon": 31.83583333
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Kolossalstatue_Qantir.JPG/330px-Kolossalstatue_Qantir.JPG",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/c/cb/Kolossalstatue_Qantir.JPG",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Pi-Ramesses"
+    }
+  }
+}

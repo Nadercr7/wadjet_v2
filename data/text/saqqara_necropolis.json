@@ -1,0 +1,19 @@
+{
+  "slug": "saqqara_necropolis",
+  "category": "Pharaonic",
+  "region": "Giza",
+  "wikipedia": {
+    "en": {
+      "title": "Saqqara",
+      "extract": "Saqqara, also spelled Sakkara or Saccara in English, is an Egyptian village in the markaz (county) of Badrashin in the Giza Governorate, that contains ancient mausoleum crypts of Egyptian royalty, serving as the necropolis for the ancient Egyptian capital, Memphis. Saqqara contains numerous pyramids, including the Pyramid of Djoser, sometimes referred to as the Step Pyramid, and a number of mastaba tombs. Located some 30 km (19 mi) south of modern-day Cairo, Saqqara covers an area of around 7 by 1.5 km.",
+      "description": "Burial ground in Giza Governorate, Egypt",
+      "coordinates": {
+        "lat": 29.87111111,
+        "lon": 31.21638889
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Saqqara_pyramid_ver_2.jpg/330px-Saqqara_pyramid_ver_2.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Saqqara_pyramid_ver_2.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Saqqara"
+    }
+  }
+}
