@@ -160,7 +160,8 @@
                       hx-swap="innerHTML"
                       hx-encoding="multipart/form-data"
                       hx-indicator="#identify-spinner"
-                      @htmx:after-request.window="if(event.detail.elt.id === 'identify-form') { $refs.identifyBtn.disabled = false; }"
+                      @htmx:before-request.window="if(event.detail.elt.id === 'identify-form') { $refs.identifyBtn.disabled = true; identifyError = ''; }"
+                      @htmx:after-request.window="if(event.detail.elt.id === 'identify-form') { $refs.identifyBtn.disabled = false; if(!event.detail.successful) { identifyError = event.detail.xhr?.status === 503 ? 'Identification temporarily unavailable. Please try again.' : 'Something went wrong (' + (event.detail.xhr?.status || 'network error') + '). Please try again.'; } }"
                       enctype="multipart/form-data">
 
                     <!-- Upload area -->
@@ -199,8 +200,7 @@
 
                     <!-- Identify button -->
                     <div x-show="identifyPreview" class="text-center mb-8">
-                        <button type="submit" x-ref="identifyBtn" class="btn-gold"
-                                @click="$refs.identifyBtn.disabled = true">
+                        <button type="submit" x-ref="identifyBtn" class="btn-gold">
                             <span class="htmx-indicator-hide">Identify Landmark</span>
                             <span id="identify-spinner" class="htmx-indicator flex items-center gap-2">
                                 <svg class="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path></svg>
