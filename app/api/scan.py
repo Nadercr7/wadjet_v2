@@ -396,6 +396,24 @@ async def _full_sequence_verify(
         for i, gemini_code in gemini_corrections.items():
             onnx_code = glyphs[i].gardiner_code
             grok_code = grok_votes.get(i, "")
+            onnx_conf = glyphs[i].class_confidence
+
+            # Don't override high-confidence ONNX predictions unless
+            # at least one AI model agrees with ONNX
+            if onnx_conf >= 0.85:
+                ai_codes = [gemini_code.upper()]
+                if grok_code:
+                    ai_codes.append(grok_code.upper())
+                if onnx_code.upper() not in ai_codes and all(
+                    c != onnx_code.upper() for c in ai_codes
+                ):
+                    logger.info(
+                        "Glyph #%d: keeping ONNX %s (%.0f%%) — AI disagreed (%s/%s) "
+                        "but ONNX confidence too high to override",
+                        i, onnx_code, onnx_conf * 100,
+                        gemini_code, grok_code or "N/A",
+                    )
+                    continue
 
             codes = [onnx_code.upper(), gemini_code.upper()]
             if grok_code:

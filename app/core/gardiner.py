@@ -170,6 +170,8 @@ BILITERALS: dict[str, GardinerSign] = {
     "G14": GardinerSign("G14", "mwt", SignType.TRILITERAL, "vulture", "G", "mwt",
                          logographic_value="mother"),
     "G21": GardinerSign("G21", "nH", SignType.BILITERAL, "guinea fowl", "G", "nH"),
+    "G24": GardinerSign("G24", "rxyt", SignType.LOGOGRAM, "lapwing", "G", "rxyt",
+                         logographic_value="common people, subjects"),
     "G25": GardinerSign("G25", "Ax", SignType.BILITERAL, "crested ibis", "G", "Ax",
                          logographic_value="glory, spirit"),
     "G26": GardinerSign("G26", "bA", SignType.BILITERAL, "sacred ibis", "G", "bA",
