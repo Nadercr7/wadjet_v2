@@ -35,15 +35,29 @@ def _build_reverse_map():
         return
 
     seen: set[str] = set()
+    # Pass 1: exact-case entries (these always win)
     for sign in GARDINER_TRANSLITERATION.values():
-        pv = sign.phonetic_value.lower()
-        if pv and pv not in seen and sign.sign_type != SignType.DETERMINATIVE:
+        if sign.sign_type == SignType.DETERMINATIVE:
+            continue
+        pv = sign.phonetic_value
+        if pv and pv not in seen:
             _TRANSLIT_TO_SIGN.append((pv, sign))
             seen.add(pv)
-        tl = sign.transliteration.lower()
-        if tl and tl not in seen and sign.sign_type != SignType.DETERMINATIVE:
+        tl = sign.transliteration
+        if tl and tl not in seen:
             _TRANSLIT_TO_SIGN.append((tl, sign))
             seen.add(tl)
+    # Pass 2: lowercase fallbacks only for unclaimed keys
+    for sign in GARDINER_TRANSLITERATION.values():
+        if sign.sign_type == SignType.DETERMINATIVE:
+            continue
+        for val in (sign.phonetic_value, sign.transliteration):
+            if not val:
+                continue
+            lc = val.lower()
+            if lc != val and lc not in seen:
+                _TRANSLIT_TO_SIGN.append((lc, sign))
+                seen.add(lc)
 
     # Sort longest first for greedy matching
     _TRANSLIT_TO_SIGN.sort(key=lambda x: -len(x[0]))
@@ -170,7 +184,7 @@ async def convert_text(req: WriteRequest, request: Request):
             tokens.append(part)
 
         for token in tokens:
-            remaining = token.lower()
+            remaining = token
             token_glyphs = []
             while remaining:
                 matched = False
@@ -186,6 +200,20 @@ async def convert_text(req: WriteRequest, request: Request):
                         remaining = remaining[len(translit):]
                         matched = True
                         break
+                # Fallback: try lowercase match
+                if not matched:
+                    for translit, sign in _TRANSLIT_TO_SIGN:
+                        if remaining.lower().startswith(translit):
+                            token_glyphs.append({
+                                "type": "glyph",
+                                "code": sign.code,
+                                "transliteration": sign.transliteration,
+                                "unicode_char": sign.unicode_char,
+                                "description": sign.description,
+                            })
+                            remaining = remaining[len(translit):]
+                            matched = True
+                            break
                 if not matched:
                     token_glyphs.append({"type": "unknown", "display": remaining[0]})
                     remaining = remaining[1:]

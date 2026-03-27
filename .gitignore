@@ -23,6 +23,7 @@ models/**
 # Data — training datasets are too large for git
 data/hieroglyph_classification/
 data/landmark_classification/
+data/detection/
 data/reference/
 
 # TailwindCSS build output
@@ -51,3 +52,5 @@ tmp_pull_test/
 tmp_kaggle_hiero/
 tmp_kaggle_output/
 scripts/test_*.py
+scripts/dataprep-env/
+scripts/_test_*.wav

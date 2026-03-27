@@ -214,3 +214,41 @@ class GeminiService:
         except Exception:
             logger.exception("Gemini describe_landmark failed")
             return ""
+
+    # ── Text-to-Speech (Gemini TTS) ────────────────────────────────
+
+    _TTS_MODEL = "gemini-2.5-flash-preview-tts"
+
+    async def generate_tts(self, text: str) -> bytes | None:
+        """Generate natural speech audio for a pronunciation string.
+
+        Returns raw PCM audio bytes (L16, 24kHz, mono) or None on failure.
+        """
+        try:
+            config = genai_types.GenerateContentConfig(
+                response_modalities=["AUDIO"],
+                speech_config=genai_types.SpeechConfig(
+                    voice_config=genai_types.VoiceConfig(
+                        prebuilt_voice_config=genai_types.PrebuiltVoiceConfig(
+                            voice_name="Kore",
+                        ),
+                    ),
+                ),
+            )
+            prompt = (
+                f"Pronounce this ancient Egyptian sound slowly and clearly: {text}"
+            )
+            response = await self._generate_with_retry(
+                model=self._TTS_MODEL,
+                contents=prompt,
+                config=config,
+            )
+            if (
+                response.candidates
+                and response.candidates[0].content.parts
+            ):
+                return response.candidates[0].content.parts[0].inline_data.data
+            return None
+        except Exception:
+            logger.exception("Gemini TTS failed for text=%r", text)
+            return None

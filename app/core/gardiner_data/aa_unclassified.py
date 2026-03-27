@@ -1,0 +1,41 @@
+"""Category Aa — Unclassified (34 signs)."""
+
+# fmt: off
+# Each entry: (code, hex, description, phonetic, type, logographic, det_class)
+SIGNS: list[tuple[str, int, str, str, str, str, str]] = [
+    ("Aa1", 0x1340D, "placenta or sieve", "x", "UNILITERAL", "", ""),
+    ("Aa2", 0x1340E, "pustule or gland", "", "DETERMINATIVE", "", ""),
+    ("Aa3", 0x1340F, "unknown sign", "", "DETERMINATIVE", "", ""),
+    ("Aa4", 0x13410, "unknown sign with tongue", "", "DETERMINATIVE", "", ""),
+    ("Aa5", 0x13411, "part of steering gear", "", "DETERMINATIVE", "", ""),
+    ("Aa6", 0x13412, "sign with hook", "", "DETERMINATIVE", "", ""),
+    ("Aa7", 0x13413, "coiled sign", "", "DETERMINATIVE", "", ""),
+    ("Aa7A", 0x13414, "coiled sign (variant)", "", "DETERMINATIVE", "", ""),
+    ("Aa7B", 0x13415, "coiled sign (variant)", "", "DETERMINATIVE", "", ""),
+    ("Aa8", 0x13416, "irrigation channel curve", "", "DETERMINATIVE", "", ""),
+    ("Aa9", 0x13417, "unknown oval sign", "", "DETERMINATIVE", "", ""),
+    ("Aa10", 0x13418, "unknown sign with notch", "", "DETERMINATIVE", "", ""),
+    ("Aa11", 0x13419, "platform", "", "DETERMINATIVE", "", ""),
+    ("Aa12", 0x1341A, "platform variant", "", "DETERMINATIVE", "", ""),
+    ("Aa13", 0x1341B, "stand", "", "DETERMINATIVE", "", ""),
+    ("Aa14", 0x1341C, "unknown sign with base", "", "DETERMINATIVE", "", ""),
+    ("Aa15", 0x1341D, "unknown sign (wDa)", "wDa", "TRILITERAL", "", ""),
+    ("Aa16", 0x1341E, "unknown sign variant", "", "DETERMINATIVE", "", ""),
+    ("Aa17", 0x1341F, "open land", "", "DETERMINATIVE", "", ""),
+    ("Aa18", 0x13420, "unknown sign with angle", "", "DETERMINATIVE", "", ""),
+    ("Aa19", 0x13421, "unknown sign with curve", "", "DETERMINATIVE", "", ""),
+    ("Aa20", 0x13422, "unknown pointed sign", "", "DETERMINATIVE", "", ""),
+    ("Aa21", 0x13423, "unknown sign", "", "DETERMINATIVE", "", ""),
+    ("Aa22", 0x13424, "unknown sign variant", "", "DETERMINATIVE", "", ""),
+    ("Aa23", 0x13425, "unknown sign with cross", "", "DETERMINATIVE", "", ""),
+    ("Aa24", 0x13426, "unknown curved sign", "", "DETERMINATIVE", "", ""),
+    ("Aa25", 0x13427, "unknown sign with notch", "", "DETERMINATIVE", "", ""),
+    ("Aa26", 0x13428, "unknown sign", "", "DETERMINATIVE", "", ""),
+    ("Aa27", 0x13429, "unknown sign (nD)", "nD", "BILITERAL", "", ""),
+    ("Aa28", 0x1342A, "unknown sign (qd)", "qd", "BILITERAL", "", ""),
+    ("Aa29", 0x1342B, "unknown sign with angles", "", "DETERMINATIVE", "", ""),
+    ("Aa30", 0x1342C, "unknown sign with base variant", "", "DETERMINATIVE", "", ""),
+    ("Aa31", 0x1342D, "unknown sign with knobbed end", "", "DETERMINATIVE", "", ""),
+    ("Aa32", 0x1342E, "unknown sign with projection", "", "DETERMINATIVE", "", ""),
+]
+# fmt: on

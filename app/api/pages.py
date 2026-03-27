@@ -56,3 +56,9 @@ async def chat(request: Request):
 async def quiz(request: Request):
     templates = request.app.state.templates
     return templates.TemplateResponse(request, "quiz.html")
+
+
+@router.get("/dictionary/lesson/{level}", response_class=HTMLResponse)
+async def dictionary_lesson_page(request: Request, level: int):
+    templates = request.app.state.templates
+    return templates.TemplateResponse(request, "lesson_page.html", {"level": level})

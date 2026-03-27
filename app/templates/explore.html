@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block title %}Explore Egyptian Landmarks — Wadjet{% endblock %}
-{% block description %}Browse 52+ Egyptian landmarks — pyramids, temples, tombs, and museums. Filter by era, city, or type.{% endblock %}
+{% block description %}Browse 190+ Egyptian heritage sites — pyramids, temples, mosques, churches, museums, and natural wonders. Filter by category, region, or subcategory.{% endblock %}
 
 {% block head %}
 <!-- ONNX Runtime Web loaded lazily on first identification request -->
@@ -21,7 +21,7 @@
         <div class="text-center mb-10" data-animate>
             <h1 class="mb-4">Explore <span class="text-gold-gradient">Egypt</span></h1>
             <p class="text-text-muted text-lg max-w-2xl mx-auto">
-                Discover <span class="text-gold font-medium" x-text="totalCount"></span> legendary landmarks — pyramids, temples, tombs, and museums.
+                Discover <span class="text-gold font-medium" x-text="totalCount"></span> heritage sites — pyramids, temples, mosques, churches, museums, and natural wonders.
             </p>
         </div>
 
@@ -84,6 +84,18 @@
             </template>
         </div>
 
+        <!-- Subcategory pills (shown when a type is selected) -->
+        <div class="mb-8 flex flex-wrap gap-2" x-show="activeType && activeSubcategories.length > 0" x-transition data-animate>
+            <template x-for="sc in activeSubcategories" :key="sc.name">
+                <button @click="selectSubcategory(sc.name)"
+                        class="px-2.5 py-1.5 rounded-full text-xs font-medium transition-all"
+                        :class="activeSubcategory === sc.name ? 'bg-gold/80 text-night' : 'bg-night border border-gold/20 text-sand hover:border-gold/40 hover:text-gold-light'">
+                    <span x-text="sc.name"></span>
+                    <span class="ml-1 opacity-50" x-text="sc.count"></span>
+                </button>
+            </template>
+        </div>
+
         <!-- ════════════════════════════════════════════════
              Loading state
              ════════════════════════════════════════════════ -->
@@ -103,7 +115,7 @@
         <div x-show="!loading && landmarks.length > 0" x-transition
              class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
             <template x-for="lm in landmarks" :key="lm.slug">
-                <button @click="openDetail(lm.slug)"
+                <button @click="lm.children_slugs && lm.children_slugs.length > 0 ? openDetail(lm.slug) : openDetail(lm.slug)"
                         class="card group text-left cursor-pointer hover:border-gold/40 transition-all">
                     <!-- Thumbnail -->
                     <div class="aspect-[4/3] rounded-lg overflow-hidden mb-4 bg-night relative">
@@ -120,22 +132,36 @@
                                 </div>
                             </div>
                         </template>
-                        <!-- Source badge -->
-                        <span class="absolute top-2 right-2 text-[10px] px-1.5 py-0.5 rounded-full"
-                              :class="lm.source === 'curated' ? 'bg-gold/90 text-night' : 'bg-surface/80 text-text-muted border border-border'">
-                            <span x-text="lm.source === 'curated' ? '★ Featured' : '𓉐'"></span>
-                        </span>
+                        <!-- Badges top row -->
+                        <div class="absolute top-2 right-2 flex gap-1">
+                            <template x-if="lm.featured">
+                                <span class="text-[10px] px-1.5 py-0.5 rounded-full bg-gold/90 text-night font-semibold">★ Featured</span>
+                            </template>
+                            <template x-if="lm.source === 'curated' && !lm.featured">
+                                <span class="text-[10px] px-1.5 py-0.5 rounded-full bg-gold/90 text-night">★ Curated</span>
+                            </template>
+                        </div>
+                        <!-- Children count bottom row -->
+                        <template x-if="lm.children_slugs && lm.children_slugs.length > 0">
+                            <span class="absolute bottom-2 left-2 text-[10px] px-2 py-1 rounded-full bg-night/80 backdrop-blur-sm text-gold-light border border-gold/30 font-medium">
+                                <span x-text="lm.children_slugs.length"></span> sub-sites ▸
+                            </span>
+                        </template>
                     </div>
 
                     <!-- Name -->
-                    <h3 class="font-semibold text-sm mb-1 group-hover:text-gold transition-colors line-clamp-1"
+                    <h3 class="font-semibold text-sm mb-0.5 group-hover:text-gold transition-colors line-clamp-1"
                         x-text="lm.name"></h3>
+                    <p class="text-xs text-sand/60 font-arabic mb-1 line-clamp-1" x-show="lm.name_ar" x-text="lm.name_ar"></p>
 
-                    <!-- City + Type -->
-                    <div class="flex items-center gap-2 text-xs text-text-dim mb-2">
+                    <!-- City + Type + Subcategory -->
+                    <div class="flex items-center gap-2 text-xs text-text-dim mb-2 flex-wrap">
                         <span x-text="lm.city"></span>
                         <span>·</span>
                         <span x-text="lm.type"></span>
+                        <template x-if="lm.subcategory">
+                            <span class="text-sand/50" x-text="'· ' + lm.subcategory"></span>
+                        </template>
                     </div>
 
                     <!-- Description (truncated) -->
@@ -205,7 +231,7 @@
                                 <p class="text-text-muted mb-2">
                                     <span class="text-gold font-medium">Upload a photo</span> of any Egyptian landmark
                                 </p>
-                                <p class="text-text-dim text-sm">The AI will identify which site it is from 52 landmarks</p>
+                                <p class="text-text-dim text-sm">The AI will identify which site it is from 139+ heritage sites</p>
                             </div>
                         </template>
 
@@ -332,10 +358,26 @@
                             </div>
                         </template>
 
-                        <!-- Name + Badges -->
-                        <h2 class="text-2xl font-bold mb-2" x-text="detailLandmark.name"></h2>
+                        <!-- Parent breadcrumb (for child sites) -->
+                        <template x-if="detailLandmark.parent">
+                            <div class="flex items-center gap-2 text-xs text-text-dim mb-3">
+                                <button @click="openDetail(detailLandmark.parent.slug)"
+                                        class="text-gold hover:text-gold-light transition-colors cursor-pointer">
+                                    ◂ <span x-text="detailLandmark.parent.name"></span>
+                                </button>
+                                <span>›</span>
+                                <span class="text-text-muted" x-text="detailLandmark.name"></span>
+                            </div>
+                        </template>
+
+                        <!-- Name + Arabic name + Badges -->
+                        <h2 class="text-2xl font-bold mb-1" x-text="detailLandmark.name"></h2>
+                        <p class="text-base text-sand/70 font-arabic mb-3" x-show="detailLandmark.name_ar" x-text="detailLandmark.name_ar"></p>
                         <div class="flex flex-wrap items-center gap-2 mb-4">
                             <span class="badge-gold text-xs" x-text="detailLandmark.type"></span>
+                            <template x-if="detailLandmark.subcategory">
+                                <span class="text-xs px-2 py-0.5 rounded-full bg-gold/10 border border-gold/20 text-gold-light" x-text="detailLandmark.subcategory"></span>
+                            </template>
                             <span class="badge-muted text-xs" x-text="detailLandmark.city"></span>
                             <span class="badge-muted text-xs" x-show="detailLandmark.era" x-text="detailLandmark.era"></span>
                             <span class="badge-muted text-xs" x-show="detailLandmark.period" x-text="detailLandmark.period"></span>
@@ -401,6 +443,93 @@
                             </div>
                         </template>
 
+                        <!-- Sections (rich content) -->
+                        <template x-if="detailLandmark.sections && detailLandmark.sections.length > 0">
+                            <div class="mb-6">
+                                <h3 class="text-sm font-semibold text-gold mb-3">Sections</h3>
+                                <div class="space-y-3">
+                                    <template x-for="(sec, i) in detailLandmark.sections" :key="i">
+                                        <div class="bg-night/50 rounded-lg p-4 border border-border/50">
+                                            <h4 class="text-sm font-semibold text-sand mb-1.5" x-text="sec.title"></h4>
+                                            <p class="text-xs text-text-dim leading-relaxed" x-text="sec.content"></p>
+                                        </div>
+                                    </template>
+                                </div>
+                            </div>
+                        </template>
+
+                        <!-- Children sub-sites -->
+                        <template x-if="detailLandmark.children && detailLandmark.children.length > 0">
+                            <div class="mb-6">
+                                <h3 class="text-sm font-semibold text-gold mb-3">Explore Inside</h3>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                    <template x-for="child in detailLandmark.children" :key="child.slug">
+                                        <button @click="openDetail(child.slug)"
+                                                class="bg-night/50 rounded-lg p-3 border border-border/50 hover:border-gold/30 transition-all text-left cursor-pointer group">
+                                            <div class="flex items-start gap-3">
+                                                <template x-if="child.thumbnail">
+                                                    <img :src="child.thumbnail" :alt="child.name"
+                                                         class="w-14 h-14 rounded-md object-cover flex-shrink-0" loading="lazy">
+                                                </template>
+                                                <template x-if="!child.thumbnail">
+                                                    <div class="w-14 h-14 rounded-md bg-surface flex items-center justify-center flex-shrink-0">
+                                                        <span class="text-lg opacity-30">𓉐</span>
+                                                    </div>
+                                                </template>
+                                                <div class="min-w-0">
+                                                    <h4 class="text-sm font-medium text-text group-hover:text-gold transition-colors line-clamp-1" x-text="child.name"></h4>
+                                                    <p class="text-[10px] text-sand/50 font-arabic line-clamp-1" x-show="child.name_ar" x-text="child.name_ar"></p>
+                                                    <p class="text-[11px] text-text-dim line-clamp-2 mt-1" x-text="child.description"></p>
+                                                    <template x-if="child.featured">
+                                                        <span class="inline-block text-[9px] mt-1 px-1.5 py-0.5 rounded-full bg-gold/20 text-gold-light">★ Featured</span>
+                                                    </template>
+                                                </div>
+                                            </div>
+                                        </button>
+                                    </template>
+                                </div>
+                            </div>
+                        </template>
+
+                        <!-- Tags -->
+                        <template x-if="detailLandmark.tags && detailLandmark.tags.length > 0">
+                            <div class="mb-6 flex flex-wrap gap-1.5">
+                                <template x-for="tag in detailLandmark.tags" :key="tag">
+                                    <span class="text-[10px] px-2 py-0.5 rounded-full bg-night border border-border text-text-dim" x-text="tag"></span>
+                                </template>
+                            </div>
+                        </template>
+
+                        <!-- Related Sites -->
+                        <template x-if="detailLandmark.related_sites && detailLandmark.related_sites.length > 0">
+                            <div class="mb-6">
+                                <h3 class="text-sm font-semibold text-gold mb-2">Related Sites</h3>
+                                <div class="flex flex-wrap gap-2">
+                                    <template x-for="rel in detailLandmark.related_sites" :key="rel">
+                                        <button @click="openDetail(rel)"
+                                                class="text-xs px-3 py-1.5 rounded-lg bg-night border border-gold/20 text-sand hover:border-gold/40 hover:text-gold-light transition-colors cursor-pointer"
+                                                x-text="rel.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase())">
+                                        </button>
+                                    </template>
+                                </div>
+                            </div>
+                        </template>
+
+                        <!-- Recommendations (curated only) -->
+                        <template x-if="detailLandmark.recommendations && detailLandmark.recommendations.length > 0">
+                            <div class="mb-6">
+                                <h3 class="text-sm font-semibold text-gold mb-2">You Might Also Like</h3>
+                                <div class="flex flex-wrap gap-2">
+                                    <template x-for="rec in detailLandmark.recommendations" :key="rec.slug">
+                                        <button @click="openDetail(rec.slug)"
+                                                class="text-xs px-3 py-1.5 rounded-lg bg-night border border-gold/20 text-sand hover:border-gold/40 hover:text-gold-light transition-colors cursor-pointer"
+                                                x-text="rec.name">
+                                        </button>
+                                    </template>
+                                </div>
+                            </div>
+                        </template>
+
                         <!-- Action links -->
                         <div class="flex flex-wrap gap-3 pt-2 border-t border-border">
                             <template x-if="detailLandmark.maps_url">
@@ -437,8 +566,10 @@ function exploreApp() {
         landmarks: [],
         types: [],
         cities: [],
+        categoryTree: [],
         totalCount: 0,
         activeType: null,
+        activeSubcategory: null,
         cityFilter: '',
         searchQuery: '',
         loading: true,
@@ -466,6 +597,7 @@ function exploreApp() {
                 const data = await resp.json();
                 this.types = data.types;
                 this.cities = data.cities;
+                this.categoryTree = data.category_tree || [];
                 this.totalCount = data.total;
             } catch (err) {
                 console.error('Failed to load categories:', err);
@@ -477,6 +609,7 @@ function exploreApp() {
             try {
                 const params = new URLSearchParams();
                 if (this.activeType) params.set('category', this.activeType);
+                if (this.activeSubcategory) params.set('subcategory', this.activeSubcategory);
                 if (this.cityFilter) params.set('city', this.cityFilter);
                 if (this.searchQuery) params.set('search', this.searchQuery);
 
@@ -493,7 +626,19 @@ function exploreApp() {
 
         selectType(type) {
             this.activeType = type;
+            this.activeSubcategory = null;
             this.fetchLandmarks();
+        },
+
+        selectSubcategory(sc) {
+            this.activeSubcategory = this.activeSubcategory === sc ? null : sc;
+            this.fetchLandmarks();
+        },
+
+        get activeSubcategories() {
+            if (!this.activeType) return [];
+            const cat = this.categoryTree.find(c => c.name === this.activeType);
+            return cat ? cat.subcategories : [];
         },
 
         async openDetail(slug) {

@@ -193,3 +193,61 @@ document.addEventListener('alpine:init', () => {
         }
     });
 });
+
+// ── TTS for hieroglyphic pronunciation ──
+// Tries Gemini server TTS first (natural voice), falls back to browser SpeechSynthesis.
+const _ttsAudioCache = {};
+let _ttsCurrentAudio = null;
+
+function speakSign(text) {
+    if (!text) return;
+    // Stop any playing audio
+    if (_ttsCurrentAudio) {
+        _ttsCurrentAudio.pause();
+        _ttsCurrentAudio = null;
+    }
+    if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+
+    // Try server TTS (Gemini natural voice)
+    const cacheKey = text.trim().toLowerCase();
+    if (_ttsAudioCache[cacheKey]) {
+        _playAudio(_ttsAudioCache[cacheKey]);
+        return;
+    }
+
+    const url = '/api/dictionary/speak?text=' + encodeURIComponent(text);
+    fetch(url).then(r => {
+        if (!r.ok) throw new Error('TTS unavailable');
+        return r.blob();
+    }).then(blob => {
+        const audioUrl = URL.createObjectURL(blob);
+        _ttsAudioCache[cacheKey] = audioUrl;
+        _playAudio(audioUrl);
+    }).catch(() => {
+        // Fallback: browser SpeechSynthesis
+        _speakBrowser(text);
+    });
+}
+
+function _playAudio(url) {
+    const audio = new Audio(url);
+    audio.volume = 1.0;
+    _ttsCurrentAudio = audio;
+    audio.play().catch(() => _speakBrowser(url));
+}
+
+function _speakBrowser(text) {
+    if (!('speechSynthesis' in window)) return;
+    const utter = new SpeechSynthesisUtterance(text);
+    utter.lang = 'en-US';
+    utter.rate = 0.75;
+    utter.pitch = 0.9;
+    utter.volume = 1.0;
+    // Prefer high-quality voices: Google, Microsoft Neural, then any English
+    const voices = window.speechSynthesis.getVoices();
+    const preferred = voices.find(v => v.lang.startsWith('en') && /google|neural|natural|premium/i.test(v.name))
+        || voices.find(v => v.lang === 'en-US')
+        || voices.find(v => v.lang.startsWith('en'));
+    if (preferred) utter.voice = preferred;
+    window.speechSynthesis.speak(utter);
+}

@@ -1,0 +1,41 @@
+"""Category R — Temple Furniture and Sacred Emblems (34 signs)."""
+
+# fmt: off
+# Each entry: (code, hex, description, phonetic, type, logographic, det_class)
+SIGNS: list[tuple[str, int, str, str, str, str, str]] = [
+    ("R1", 0x132AF, "high table with offerings", "", "DETERMINATIVE", "", ""),
+    ("R2", 0x132B0, "table with slices of bread", "", "DETERMINATIVE", "", ""),
+    ("R2A", 0x132B1, "table with slices of bread (variant)", "", "DETERMINATIVE", "", ""),
+    ("R3", 0x132B2, "low table with offerings", "", "DETERMINATIVE", "", ""),
+    ("R3A", 0x132B3, "low table with offerings (variant)", "", "DETERMINATIVE", "", ""),
+    ("R3B", 0x132B4, "low table with offerings (variant)", "", "DETERMINATIVE", "", ""),
+    ("R4", 0x132B5, "offering loaf on mat", "Htp", "TRILITERAL", "offering; peace", ""),
+    ("R5", 0x132B6, "censer with flame", "", "DETERMINATIVE", "", ""),
+    ("R6", 0x132B7, "table with bread and vase", "", "DETERMINATIVE", "", ""),
+    ("R7", 0x132B8, "bowl with smoke", "", "DETERMINATIVE", "", ""),
+    ("R8", 0x132B9, "cloth wound on pole (nTr flag)", "nTr", "TRILITERAL", "god", ""),
+    ("R9", 0x132BA, "combination of cloth on pole and bag", "", "DETERMINATIVE", "", ""),
+    ("R10", 0x132BB, "combination of cloth on pole and mat", "", "DETERMINATIVE", "", ""),
+    ("R10A", 0x132BC, "combination of cloth on pole and mat (variant)", "", "DETERMINATIVE", "", ""),
+    ("R11", 0x132BD, "djed pillar", "Dd", "BILITERAL", "", ""),
+    ("R12", 0x132BE, "standard with feather and streamer", "", "DETERMINATIVE", "", ""),
+    ("R13", 0x132BF, "falcon on standard with feather", "", "DETERMINATIVE", "", ""),
+    ("R14", 0x132C0, "feather on standard with streamer", "", "DETERMINATIVE", "", ""),
+    ("R15", 0x132C1, "standard with feather and streamer variant", "", "DETERMINATIVE", "", ""),
+    ("R16", 0x132C2, "sceptre with feathers on standard", "", "DETERMINATIVE", "", ""),
+    ("R16A", 0x132C3, "sceptre with feathers on standard (variant)", "", "DETERMINATIVE", "", ""),
+    ("R17", 0x132C4, "wig on pole", "", "DETERMINATIVE", "", ""),
+    ("R18", 0x132C5, "combination of wig on pole and cloth", "", "DETERMINATIVE", "", ""),
+    ("R19", 0x132C6, "sceptre with Was head on standard", "", "DETERMINATIVE", "", ""),
+    ("R20", 0x132C7, "flower on stand", "", "DETERMINATIVE", "", ""),
+    ("R21", 0x132C8, "flower with buds on stand", "", "DETERMINATIVE", "", ""),
+    ("R22", 0x132C9, "two serpents on standard", "", "DETERMINATIVE", "", ""),
+    ("R23", 0x132CA, "serpent and disk on two standards", "", "DETERMINATIVE", "", ""),
+    ("R24", 0x132CB, "two bows tied together", "", "DETERMINATIVE", "", ""),
+    ("R25", 0x132CC, "two feathers on pylon", "", "DETERMINATIVE", "", ""),
+    ("R26", 0x132CD, "Temple Furniture and Sacred Emblems sign", "", "DETERMINATIVE", "", ""),
+    ("R27", 0x132CE, "Temple Furniture and Sacred Emblems sign", "", "DETERMINATIVE", "", ""),
+    ("R28", 0x132CF, "Temple Furniture and Sacred Emblems sign", "", "DETERMINATIVE", "", ""),
+    ("R29", 0x132D0, "Temple Furniture and Sacred Emblems sign", "", "DETERMINATIVE", "", ""),
+]
+# fmt: on

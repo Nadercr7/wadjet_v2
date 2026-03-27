@@ -2,7 +2,8 @@
 
 GET /api/landmarks             — List all landmarks (with optional ?category=, ?city=, ?search= filters)
 GET /api/landmarks/categories  — Category + city lists with counts
-GET /api/landmarks/{slug}      — Single landmark detail
+GET /api/landmarks/{slug}      — Single landmark detail (includes children + sections)
+GET /api/landmarks/{slug}/children — List child sub-sites for a parent site
 POST /api/explore/identify     — Hybrid ONNX + Gemini landmark identification
 """
 
@@ -32,14 +33,61 @@ logger = logging.getLogger(__name__)
 router = APIRouter(prefix="/api/landmarks", tags=["landmarks"])
 
 DATA_DIR = Path(__file__).parent.parent.parent / "data"
+EXPANDED_SITES_FILE = DATA_DIR / "expanded_sites.json"
 TEXT_DIR = DATA_DIR / "text"
 METADATA_DIR = DATA_DIR / "metadata"
 MODEL_DIR = Path(__file__).parent.parent.parent / "models" / "landmark"
 MODEL_META = MODEL_DIR / "model_metadata.json"
 LABEL_MAPPING = MODEL_DIR / "landmark_label_mapping.json"
 
+# Slug aliases: old duplicate/alternate slugs → canonical
+_SLUG_ALIASES: dict[str, str] = {
+    "aswan_dam": "aswan_high_dam",
+    "pompey_pillar": "pompeys_pillar",
+    "catacombs_of_kom_el_shoqafa": "catacombs_of_kom_el_shoqafa",
+    "catacombs_kom_el_shoqafa": "catacombs_of_kom_el_shoqafa",
+    "egyptian_museum_cairo": "egyptian_museum",
+    "great_pyramid_of_giza": "great_pyramids_of_giza",
+    "step_pyramid_of_djoser": "pyramid_of_djoser",
+    "saladin_citadel": "cairo_citadel",
+    "qaitbay_citadel": "citadel_of_qaitbay",
+    "temple_of_isis_philae": "philae_temple",
+    "temple_of_seti_i_abydos": "abydos_temple",
+    "temple_of_mandulis": "kalabsha_temple",
+    "temple_of_derr": "temple_of_amada",
+    "wadi_rayan": "wadi_el_rayan",
+    # Curated slug mismatches
+    "the_unfinished_obelisk": "unfinished_obelisk",
+    "montazah_palace_gardens": "montaza_palace",
+}
 
-# ── Wikipedia data loader ──
+# Reverse map: expanded underscore slug → curated hyphen slug (for curated lookup)
+_CURATED_SLUG_MAP: dict[str, str] = {
+    "unfinished_obelisk": "the-unfinished-obelisk",
+    "montaza_palace": "montazah-palace-gardens",
+}
+
+
+# ── Data loaders ──
+
+@lru_cache(maxsize=1)
+def _load_expanded_sites() -> dict[str, dict]:
+    """Load expanded_sites.json as primary site database."""
+    if not EXPANDED_SITES_FILE.exists():
+        return {}
+    try:
+        sites = json.loads(EXPANDED_SITES_FILE.read_text(encoding="utf-8"))
+        return {s["slug"]: s for s in sites}
+    except Exception:
+        logger.warning("Failed to load expanded_sites.json")
+        return {}
+
+
+def _resolve_slug(raw: str) -> str:
+    """Resolve slug aliases to canonical slug."""
+    normalized = raw.lower().strip().replace("-", "_")
+    return _SLUG_ALIASES.get(normalized, normalized)
+
 
 @lru_cache(maxsize=1)
 def _load_wiki_data() -> dict[str, dict]:
@@ -50,7 +98,7 @@ def _load_wiki_data() -> dict[str, dict]:
     for f in TEXT_DIR.glob("*.json"):
         try:
             data = json.loads(f.read_text(encoding="utf-8"))
-            slug = f.stem  # e.g. "abu_simbel"
+            slug = f.stem
             en = data.get("wikipedia", {}).get("en", {})
             wiki[slug] = {
                 "title": en.get("title", slug.replace("_", " ").title()),
@@ -60,9 +108,6 @@ def _load_wiki_data() -> dict[str, dict]:
                 "thumbnail": en.get("thumbnail", ""),
                 "original_image": en.get("original_image", ""),
                 "wikipedia_url": en.get("wikipedia_url", ""),
-                # Expanded data fields (from generate_heritage_data.py)
-                "category": data.get("category", ""),
-                "region": data.get("region", ""),
             }
         except Exception:
             logger.warning("Failed to load wiki data for %s", f.stem)
@@ -224,20 +269,64 @@ def _guess_type(slug: str) -> str:
 
 @lru_cache(maxsize=1)
 def _get_all_landmarks() -> list[dict]:
-    """Build unified list: 20 curated + remaining from Wikipedia data."""
+    """Build unified list from expanded_sites.json + curated ATTRACTIONS + wiki text."""
     landmarks = []
-
-    # 1. Curated attractions (rich data)
-    curated_slugs = set()
-    for a in ATTRACTIONS:
-        landmarks.append(_attraction_to_dict(a))
-        curated_slugs.add(get_slug(a).replace("-", "_"))
-
-    # 2. Wikipedia-only landmarks (not in curated set)
+    seen_slugs: set[str] = set()
+    expanded = _load_expanded_sites()
     wiki_data = _load_wiki_data()
-    for slug, wiki in sorted(wiki_data.items()):
-        if slug not in curated_slugs:
-            landmarks.append(_wiki_to_dict(slug, wiki))
+    img_counts = _load_image_counts()
+
+    # 1. All expanded sites (primary source)
+    for slug, site in expanded.items():
+        wiki = wiki_data.get(slug, {})
+        # Check if also curated — try direct match + mapped aliases
+        hyphen_slug = slug.replace("_", "-")
+        curated = get_by_slug(hyphen_slug) or get_by_slug(_CURATED_SLUG_MAP.get(slug, ""))
+        coords = site.get("coordinates")
+        lm = {
+            "slug": slug.replace("_", "-"),
+            "name": site.get("name", slug.replace("_", " ").title()),
+            "name_ar": site.get("name_ar", ""),
+            "city": site.get("region", ""),
+            "type": site.get("category", ""),
+            "subcategory": site.get("subcategory", ""),
+            "era": curated.era if curated else site.get("period", ""),
+            "period": site.get("period", ""),
+            "popularity": curated.popularity if curated else 5,
+            "description": curated.description if curated else site.get("description", ""),
+            "coordinates": [coords["lat"], coords["lng"]] if coords else None,
+            "maps_url": curated.maps_url if curated else f"https://www.google.com/maps/search/?api=1&query={site.get('name', '').replace(' ', '+')}",
+            "thumbnail": wiki.get("thumbnail", "") or wiki.get("original_image", ""),
+            "image_count": img_counts.get(slug, 0),
+            "tags": site.get("tags", []),
+            "related_sites": site.get("related_sites", []),
+            "parent_slug": (site.get("parent_slug") or "").replace("_", "-") or None,
+            "children_slugs": [c.replace("_", "-") for c in site.get("children_slugs", [])],
+            "featured": site.get("featured", False),
+            "images": site.get("images", []),
+            "sections": site.get("sections", []),
+            "source": "curated" if curated else "expanded",
+        }
+        landmarks.append(lm)
+        seen_slugs.add(slug)
+
+    # 2. Any curated ATTRACTIONS not in expanded (safety net)
+    for a in ATTRACTIONS:
+        a_slug = _resolve_slug(get_slug(a).replace("-", "_"))
+        if a_slug not in seen_slugs:
+            d = _attraction_to_dict(a)
+            d.setdefault("name_ar", "")
+            d.setdefault("subcategory", "")
+            d.setdefault("tags", [])
+            d.setdefault("related_sites", [])
+            d.setdefault("period", a.period)
+            d.setdefault("parent_slug", None)
+            d.setdefault("children_slugs", [])
+            d.setdefault("featured", False)
+            d.setdefault("images", [])
+            d.setdefault("sections", [])
+            landmarks.append(d)
+            seen_slugs.add(a_slug)
 
     return landmarks
 
@@ -246,22 +335,63 @@ def _get_all_landmarks() -> list[dict]:
 
 @router.get("/categories")
 async def list_categories():
-    """List available types and cities with counts."""
+    """List available types, cities, and subcategories with counts."""
     all_lm = _get_all_landmarks()
+    # Only count top-level sites for category/city counts
+    top_level = [lm for lm in all_lm if not lm.get("parent_slug")]
 
     types: dict[str, int] = {}
     cities: dict[str, int] = {}
-    for lm in all_lm:
+    subcats: dict[str, dict[str, int]] = {}  # type -> {subcat: count}
+    for lm in top_level:
         t = lm["type"]
         c = lm["city"]
+        sc = lm.get("subcategory", "")
         types[t] = types.get(t, 0) + 1
         cities[c] = cities.get(c, 0) + 1
+        if t and sc:
+            subcats.setdefault(t, {})
+            subcats[t][sc] = subcats[t].get(sc, 0) + 1
+
+    # Build category tree with subcategories
+    category_tree = []
+    for cat_name in sorted(types.keys()):
+        cat_subcats = subcats.get(cat_name, {})
+        category_tree.append({
+            "name": cat_name,
+            "count": types[cat_name],
+            "subcategories": [
+                {"name": sc, "count": cnt}
+                for sc, cnt in sorted(cat_subcats.items())
+            ],
+        })
 
     return JSONResponse(content={
         "types": [{"name": k, "count": v} for k, v in sorted(types.items())],
         "cities": [{"name": k, "count": v} for k, v in sorted(cities.items())],
-        "total": len(all_lm),
+        "category_tree": category_tree,
+        "total": len(top_level),
     })
+
+
+@router.get("/{slug}/children")
+async def get_landmark_children(slug: str):
+    """Get child sub-sites for a parent landmark."""
+    normalized = _normalize_slug(slug.lower().strip())
+    resolved = _resolve_slug(normalized)
+    hyphen_slug = resolved.replace("_", "-")
+
+    all_lm = _get_all_landmarks()
+    children = [
+        lm for lm in all_lm
+        if (lm.get("parent_slug") or "").replace("_", "-") == hyphen_slug
+    ]
+
+    if not children:
+        raise HTTPException(status_code=404, detail=f"No children found for '{slug}'")
+
+    children.sort(key=lambda c: (not c.get("featured", False), c["name"]))
+    return JSONResponse(content={"parent_slug": hyphen_slug, "children": children, "count": len(children)})
 
 
 @router.get("/{slug}")
@@ -269,13 +399,25 @@ async def get_landmark(slug: str):
     """Get full detail for a single landmark by slug."""
     # Normalize slug — try both hyphen and underscore variants
     normalized = _normalize_slug(slug.lower().strip())
-    hyphen_slug = normalized.replace("_", "-")
-    underscore_slug = normalized.replace("-", "_")
+    resolved = _resolve_slug(normalized)
+    hyphen_slug = resolved.replace("_", "-")
+    underscore_slug = resolved.replace("-", "_")
+
+    # Load expanded site data (primary source)
+    expanded = _load_expanded_sites()
+    site = expanded.get(underscore_slug, {})
 
     # Try curated first (rich data) — curated uses hyphens
-    attraction = get_by_slug(hyphen_slug) or get_by_slug(underscore_slug) or get_by_slug(normalized)
+    attraction = (
+        get_by_slug(hyphen_slug)
+        or get_by_slug(underscore_slug)
+        or get_by_slug(resolved)
+        or get_by_slug(_CURATED_SLUG_MAP.get(underscore_slug, ""))
+    )
+    wiki = _load_wiki_data().get(underscore_slug, {})
+
+    # Build base response from expanded sites + wiki + curated enrichment
     if attraction:
-        wiki = _load_wiki_data().get(underscore_slug, {})
         img_counts = _load_image_counts()
 
         # Recommendations
@@ -287,12 +429,12 @@ async def get_landmark(slug: str):
             for r in recs
         ]
 
-        return JSONResponse(content={
+        result = {
             **_attraction_to_dict(attraction),
             "highlights": attraction.highlights,
             "visiting_tips": attraction.visiting_tips,
             "historical_significance": attraction.historical_significance,
-            "period": attraction.period,
+            "period": site.get("period") or attraction.period,
             "dynasty": attraction.dynasty,
             "notable_pharaohs": attraction.notable_pharaohs,
             "notable_tombs": attraction.notable_tombs,
@@ -303,18 +445,29 @@ async def get_landmark(slug: str):
             "wikipedia_url": wiki.get("wikipedia_url", ""),
             "original_image": wiki.get("original_image", ""),
             "recommendations": rec_list,
-        })
-
-    # Try Wikipedia data
-    wiki_data = _load_wiki_data()
-    if underscore_slug in wiki_data:
-        wiki = wiki_data[underscore_slug]
-        return JSONResponse(content={
-            **_wiki_to_dict(underscore_slug, wiki),
+        }
+    elif underscore_slug in wiki or site:
+        site_coords = site.get("coordinates") if site else None
+        coords_list = [site_coords["lat"], site_coords["lng"]] if site_coords else None
+        result = {
+            **(_wiki_to_dict(underscore_slug, wiki) if wiki else {
+                "slug": underscore_slug,
+                "name": site.get("name", underscore_slug.replace("_", " ").title()),
+                "city": site.get("region", ""),
+                "type": site.get("category", ""),
+                "era": site.get("period", ""),
+                "popularity": 5,
+                "description": site.get("description", ""),
+                "coordinates": coords_list,
+                "maps_url": f"https://www.google.com/maps/search/?api=1&query={site.get('name', '').replace(' ', '+')}",
+                "thumbnail": wiki.get("thumbnail", "") if wiki else "",
+                "image_count": 0,
+                "source": "expanded",
+            }),
             "highlights": "",
             "visiting_tips": "",
             "historical_significance": "",
-            "period": None,
+            "period": site.get("period"),
             "dynasty": None,
             "notable_pharaohs": None,
             "notable_tombs": None,
@@ -324,41 +477,109 @@ async def get_landmark(slug: str):
             "wikipedia_extract": wiki.get("extract", ""),
             "wikipedia_url": wiki.get("wikipedia_url", ""),
             "original_image": wiki.get("original_image", ""),
-        })
+        }
+    else:
+        # Fallback: model-only landmark
+        display_names = _load_display_names()
+        if underscore_slug in display_names:
+            name = display_names[underscore_slug]
+            result = {
+                "slug": resolved,
+                "name": name,
+                "city": _guess_city(underscore_slug),
+                "type": _guess_type(underscore_slug),
+                "era": "",
+                "popularity": 5,
+                "description": f"{name} is an Egyptian heritage landmark recognized by the Wadjet AI model.",
+                "coordinates": None,
+                "maps_url": f"https://www.google.com/maps/search/?api=1&query={name.replace(' ', '+')}",
+                "thumbnail": "",
+                "image_count": 0,
+                "source": "model",
+                "highlights": "",
+                "visiting_tips": "",
+                "historical_significance": "",
+                "period": None,
+                "dynasty": None,
+                "notable_pharaohs": None,
+                "notable_tombs": None,
+                "notable_features": None,
+                "key_artifacts": None,
+                "architectural_features": None,
+                "wikipedia_extract": "",
+                "wikipedia_url": "",
+                "original_image": "",
+            }
+        else:
+            raise HTTPException(status_code=404, detail=f"Landmark '{slug}' not found")
 
-    # Fallback: model-only landmark (no text data)
-    display_names = _load_display_names()
-    if underscore_slug in display_names:
-        name = display_names[underscore_slug]
-        return JSONResponse(content={
-            "slug": normalized,
-            "name": name,
-            "city": _guess_city(underscore_slug),
-            "type": _guess_type(underscore_slug),
-            "era": "",
-            "popularity": 5,
-            "description": f"{name} is an Egyptian heritage landmark recognized by the Wadjet AI model.",
-            "coordinates": None,
-            "maps_url": f"https://www.google.com/maps/search/?api=1&query={name.replace(' ', '+')}",
-            "thumbnail": "",
-            "image_count": 0,
-            "source": "model",
-            "highlights": "",
-            "visiting_tips": "",
-            "historical_significance": "",
-            "period": None,
-            "dynasty": None,
-            "notable_pharaohs": None,
-            "notable_tombs": None,
-            "notable_features": None,
-            "key_artifacts": None,
-            "architectural_features": None,
-            "wikipedia_extract": "",
-            "wikipedia_url": "",
-            "original_image": "",
-        })
+    # Enrich with expanded_sites.json fields
+    if site:
+        result["name_ar"] = site.get("name_ar", "")
+        result["subcategory"] = site.get("subcategory", "")
+        result["tags"] = site.get("tags", [])
+        result["related_sites"] = site.get("related_sites", [])
+        result["sections"] = site.get("sections", [])
+        result["images"] = site.get("images", [])
+        result["featured"] = site.get("featured", False)
+        result["parent_slug"] = (site.get("parent_slug") or "").replace("_", "-") or None
+        result["children_slugs"] = [c.replace("_", "-") for c in site.get("children_slugs", [])]
+        if not result.get("period"):
+            result["period"] = site.get("period")
+        if not result.get("coordinates") and site.get("coordinates"):
+            sc = site["coordinates"]
+            result["coordinates"] = [sc["lat"], sc["lng"]]
+        if not result.get("type") and site.get("category"):
+            result["type"] = site["category"]
+        if not result.get("city") and site.get("region"):
+            result["city"] = site["region"]
+    else:
+        result.setdefault("name_ar", "")
+        result.setdefault("subcategory", "")
+        result.setdefault("tags", [])
+        result.setdefault("related_sites", [])
+        result.setdefault("sections", [])
+        result.setdefault("images", [])
+        result.setdefault("featured", False)
+        result.setdefault("parent_slug", None)
+        result.setdefault("children_slugs", [])
 
-    raise HTTPException(status_code=404, detail=f"Landmark '{slug}' not found")
+    # Attach child summaries if this site has children
+    children_slugs = result.get("children_slugs", [])
+    if children_slugs:
+        all_lm = _get_all_landmarks()
+        lm_map = {lm["slug"]: lm for lm in all_lm}
+        children_data = []
+        for cs in children_slugs:
+            child = lm_map.get(cs)
+            if child:
+                children_data.append({
+                    "slug": child["slug"],
+                    "name": child["name"],
+                    "name_ar": child.get("name_ar", ""),
+                    "description": child.get("description", ""),
+                    "thumbnail": child.get("thumbnail", ""),
+                    "featured": child.get("featured", False),
+                    "tags": child.get("tags", []),
+                    "subcategory": child.get("subcategory", ""),
+                })
+        # Sort children: featured first
+        children_data.sort(key=lambda c: (not c.get("featured", False), c["name"]))
+        result["children"] = children_data
+
+    # Attach parent info if this is a child site
+    if result.get("parent_slug"):
+        all_lm = _get_all_landmarks()
+        lm_map = {lm["slug"]: lm for lm in all_lm}
+        parent = lm_map.get(result["parent_slug"])
+        if parent:
+            result["parent"] = {
+                "slug": parent["slug"],
+                "name": parent["name"],
+                "name_ar": parent.get("name_ar", ""),
+            }
+
+    return JSONResponse(content=result)
 
 
 def _normalize_slug(raw_slug: str) -> str:
@@ -404,15 +625,29 @@ def _normalize_slug(raw_slug: str) -> str:
 @router.get("")
 async def list_landmarks(
     category: str | None = Query(None, description="Filter by type (Pharaonic, Islamic, etc.)"),
-    city: str | None = Query(None, description="Filter by city"),
+    subcategory: str | None = Query(None, description="Filter by subcategory"),
+    city: str | None = Query(None, description="Filter by region/city"),
     search: str | None = Query(None, description="Search in name/description"),
+    parent: str | None = Query(None, description="Show children of this parent slug"),
+    include_children: bool = Query(False, description="Include child sub-sites in the list"),
 ):
-    """List all landmarks with optional filters."""
+    """List landmarks with optional filters. By default hides child sub-sites."""
     landmarks = list(_get_all_landmarks())
+
+    # Filter children unless explicitly requested or browsing inside a parent
+    if parent:
+        parent_norm = parent.lower().strip().replace("-", "_").replace("_", "-")
+        landmarks = [lm for lm in landmarks if (lm.get("parent_slug") or "").replace("_", "-") == parent_norm]
+    elif not include_children:
+        landmarks = [lm for lm in landmarks if not lm.get("parent_slug")]
 
     if category:
         cat_lower = category.lower()
         landmarks = [lm for lm in landmarks if lm["type"].lower() == cat_lower]
+
+    if subcategory:
+        sc_lower = subcategory.lower()
+        landmarks = [lm for lm in landmarks if lm.get("subcategory", "").lower() == sc_lower]
 
     if city:
         city_lower = city.lower()
@@ -423,7 +658,11 @@ async def list_landmarks(
         landmarks = [
             lm for lm in landmarks
             if q in lm["name"].lower() or q in lm.get("description", "").lower()
+               or q in lm.get("name_ar", "")
         ]
+
+    # Sort: featured first, then by popularity desc, then name
+    landmarks.sort(key=lambda lm: (not lm.get("featured", False), -lm.get("popularity", 5), lm["name"]))
 
     return JSONResponse(content={"landmarks": landmarks, "count": len(landmarks)})
 

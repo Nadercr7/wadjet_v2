@@ -1,0 +1,395 @@
+{% extends "base.html" %}
+{% block title %}Lesson {{ level }} — Gardiner Dictionary — Wadjet{% endblock %}
+{% block description %}Learn hieroglyphic signs step by step — interactive lessons with audio pronunciation, example words, and practice exercises.{% endblock %}
+
+{% block content %}
+<section class="section" x-data="lessonPageApp({{ level }})" x-cloak>
+    <div class="max-w-4xl mx-auto px-4">
+
+        <!-- Loading -->
+        <div x-show="loading" class="text-center py-20">
+            <svg class="w-8 h-8 animate-spin text-gold mx-auto" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path></svg>
+        </div>
+
+        <template x-if="lesson && !loading">
+            <div>
+                <!-- ═══════════════════════════════════════
+                     HERO
+                     ═══════════════════════════════════════ -->
+                <div class="relative text-center mb-10 pt-4" data-animate>
+                    <!-- Back link -->
+                    <div class="text-left mb-6">
+                        <a href="/dictionary" class="text-sm text-text-muted hover:text-gold transition-colors inline-flex items-center gap-1">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                            Back to Dictionary
+                        </a>
+                    </div>
+
+                    <!-- Lesson badge -->
+                    <div class="inline-flex items-center gap-2 bg-gold/10 border border-gold/20 rounded-full px-4 py-1.5 mb-5">
+                        <span class="w-6 h-6 rounded-full bg-gold text-night flex items-center justify-center text-xs font-bold" x-text="lesson.level"></span>
+                        <span class="text-sm text-gold font-medium" x-text="'Step ' + lesson.level + ' of ' + lesson.total_lessons"></span>
+                    </div>
+
+                    <!-- Title -->
+                    <h1 class="text-3xl sm:text-4xl font-bold mb-2" style="font-family: 'Playfair Display', serif" x-text="lesson.title"></h1>
+                    <p class="text-text-muted text-lg" x-text="lesson.subtitle"></p>
+                </div>
+
+                <!-- ═══════════════════════════════════════
+                     PROGRESS BAR
+                     ═══════════════════════════════════════ -->
+                <div class="flex items-center justify-center gap-2 mb-12" data-animate>
+                    <template x-for="i in lesson.total_lessons" :key="'prog-'+i">
+                        <a :href="'/dictionary/lesson/' + i" class="flex items-center gap-1.5 group" :class="i < lesson.total_lessons ? 'mr-2' : ''">
+                            <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold transition-all"
+                                 :class="i === lesson.level ? 'bg-gold text-night scale-110 ring-2 ring-gold/30' : (i < lesson.level ? 'bg-gold/20 text-gold' : 'bg-surface border border-border text-text-dim group-hover:border-gold/30')"
+                                 x-text="i"></div>
+                            <div x-show="i < lesson.total_lessons" class="w-6 h-0.5 rounded-full" :class="i < lesson.level ? 'bg-gold/40' : 'bg-border'"></div>
+                        </a>
+                    </template>
+                </div>
+
+                <!-- ═══════════════════════════════════════
+                     INTRODUCTION
+                     ═══════════════════════════════════════ -->
+                <div class="max-w-[65ch] mx-auto mb-10 space-y-4" data-animate>
+                    <template x-for="(para, pi) in lesson.intro_paragraphs" :key="'intro-'+pi">
+                        <p class="text-text leading-[1.75] text-base" x-text="para"></p>
+                    </template>
+                </div>
+
+                <!-- Tip callout -->
+                <div class="max-w-[65ch] mx-auto border border-gold/30 bg-gold/5 rounded-xl p-5 mb-12 flex gap-3" data-animate>
+                    <svg class="w-5 h-5 text-gold shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                    <p class="text-text text-sm leading-relaxed" x-text="lesson.tip"></p>
+                </div>
+
+                <!-- Divider -->
+                <div class="divider mb-10"></div>
+
+                <!-- ═══════════════════════════════════════
+                     SIGNS GALLERY
+                     ═══════════════════════════════════════ -->
+                <div class="mb-12">
+                    <div class="flex items-center gap-3 mb-6" data-animate>
+                        <h2 class="text-xl font-semibold"><span class="text-gold" x-text="lesson.count"></span> Signs to Learn</h2>
+                    </div>
+
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                        <template x-for="(sign, idx) in lesson.signs" :key="sign.code">
+                            <button @click="openDetail(sign)"
+                                    class="bg-surface border border-gold/15 rounded-xl p-5 text-center hover:border-gold/40 hover:shadow-[0_0_20px_rgba(212,175,55,0.08)] transition-all group cursor-pointer relative"
+                                    :style="'animation: fade-up 0.5s ease both; animation-delay: ' + (idx * 30) + 'ms'">
+                                <!-- Number -->
+                                <div class="absolute top-2 left-3 w-5 h-5 rounded-full bg-gold/10 text-gold text-[10px] flex items-center justify-center font-medium" x-text="idx+1"></div>
+                                <!-- Glyph -->
+                                <div class="font-hieroglyph text-5xl text-gold mb-3 group-hover:scale-110 transition-transform"
+                                     x-text="sign.unicode_char || sign.code"></div>
+                                <!-- Code -->
+                                <div class="text-xs font-mono text-text-muted mb-1" x-text="sign.code"></div>
+                                <!-- Reading -->
+                                <div class="text-base font-semibold" :class="cardLabelClass(sign)" x-text="cardLabel(sign)"></div>
+                                <!-- Pronunciation / description -->
+                                <div class="text-xs text-text-dim mt-1 line-clamp-2"
+                                     x-text="sign.pronunciation ? sign.pronunciation.example : sign.description"></div>
+                                <!-- Audio indicator -->
+                                <div class="mt-2">
+                                    <button x-show="sign.speech_text" @click.stop="speakSign(sign.speech_text)"
+                                            class="inline-flex items-center gap-1 text-[10px] text-gold/60 hover:text-gold transition-colors" aria-label="Listen">
+                                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                                        listen
+                                    </button>
+                                    <span x-show="!sign.speech_text && sign.type === 'determinative'" class="inline-flex items-center gap-1 text-[10px] text-text-dim/50">
+                                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"></path></svg>
+                                        silent — adds meaning
+                                    </span>
+                                </div>
+                            </button>
+                        </template>
+                    </div>
+                </div>
+
+                <!-- Divider -->
+                <div class="divider mb-10"></div>
+
+                <!-- ═══════════════════════════════════════
+                     EXAMPLE WORDS — "See it in action"
+                     ═══════════════════════════════════════ -->
+                <div class="mb-12" x-show="lesson.example_words && lesson.example_words.length > 0">
+                    <div class="flex items-center gap-3 mb-6" data-animate>
+                        <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        <h2 class="text-xl font-semibold">See It in Action</h2>
+                    </div>
+                    <p class="text-text-muted text-sm mb-6 max-w-[65ch]">Real Egyptian words that use signs from this lesson. Signs you just learned are highlighted in gold.</p>
+
+                    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                        <template x-for="(word, wi) in lesson.example_words" :key="'ew-'+wi">
+                            <div class="bg-surface border border-border rounded-xl p-5 hover:border-gold/30 transition-colors">
+                                <!-- Hieroglyphic sequence -->
+                                <div class="font-hieroglyph text-3xl text-gold mb-3 tracking-wider" x-text="word.hieroglyphs"></div>
+                                <!-- Transliteration -->
+                                <div class="text-sm font-mono text-gold/70 mb-1" x-text="word.transliteration"></div>
+                                <!-- Translation -->
+                                <div class="text-text text-sm font-medium" x-text="word.translation"></div>
+                                <!-- Highlighted codes -->
+                                <div class="mt-3 flex flex-wrap gap-1">
+                                    <template x-for="(code, ci) in word.codes" :key="'ec-'+ci+'-'+wi">
+                                        <span class="text-[10px] px-1.5 py-0.5 rounded"
+                                              :class="word.highlight_codes.includes(code) ? 'bg-gold/15 text-gold font-medium' : 'bg-surface border border-border text-text-dim'"
+                                              x-text="code"></span>
+                                    </template>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+
+                <!-- ═══════════════════════════════════════
+                     PRACTICE — "Can you read this?"
+                     ═══════════════════════════════════════ -->
+                <div class="mb-12" x-show="lesson.practice_words && lesson.practice_words.length > 0">
+                    <div class="flex items-center gap-3 mb-6" data-animate>
+                        <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                        <h2 class="text-xl font-semibold">Can You Read This?</h2>
+                    </div>
+                    <p class="text-text-muted text-sm mb-6 max-w-[65ch]">Try to read these words using the signs you just learned. Click to reveal the answer.</p>
+
+                    <div class="grid gap-4 sm:grid-cols-2">
+                        <template x-for="(pw, pi) in lesson.practice_words" :key="'pw-'+pi">
+                            <div class="bg-surface border border-border rounded-xl p-6 text-center" x-data="{ revealed: false }">
+                                <!-- Hieroglyphic word -->
+                                <div class="font-hieroglyph text-4xl text-gold mb-4 tracking-wider" x-text="pw.hieroglyphs"></div>
+                                <!-- Hint -->
+                                <p class="text-xs text-text-dim mb-4" x-text="pw.hint"></p>
+                                <!-- Reveal button / answer -->
+                                <div x-show="!revealed">
+                                    <button @click="revealed = true" class="btn-gold btn-sm">
+                                        <svg class="w-4 h-4 inline -mt-0.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                                        Reveal Answer
+                                    </button>
+                                </div>
+                                <div x-show="revealed" x-transition class="space-y-1">
+                                    <div class="text-sm font-mono text-gold" x-text="pw.transliteration"></div>
+                                    <div class="text-text font-medium" x-text="pw.translation"></div>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+
+                <!-- Divider -->
+                <div class="divider mb-10"></div>
+
+                <!-- ═══════════════════════════════════════
+                     LESSON NAVIGATION
+                     ═══════════════════════════════════════ -->
+                <div class="grid sm:grid-cols-2 gap-4 mb-8" data-animate>
+                    <!-- Previous -->
+                    <div>
+                        <template x-if="lesson.prev_lesson">
+                            <a :href="'/dictionary/lesson/' + lesson.prev_lesson.level"
+                               class="block bg-surface border border-border rounded-xl p-5 hover:border-gold/30 transition-all group">
+                                <div class="flex items-center gap-2 text-sm text-text-dim mb-2">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                                    Previous Lesson
+                                </div>
+                                <div class="font-semibold text-text group-hover:text-gold transition-colors" x-text="lesson.prev_lesson.title"></div>
+                            </a>
+                        </template>
+                    </div>
+                    <!-- Next -->
+                    <div>
+                        <template x-if="lesson.next_lesson">
+                            <a :href="'/dictionary/lesson/' + lesson.next_lesson.level"
+                               class="block bg-surface border border-gold/20 rounded-xl p-5 hover:border-gold/40 hover:shadow-[0_0_20px_rgba(212,175,55,0.08)] transition-all group text-right">
+                                <div class="flex items-center justify-end gap-2 text-sm text-gold/70 mb-2">
+                                    Next Lesson
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                                </div>
+                                <div class="font-semibold text-gold group-hover:text-gold-light transition-colors" x-text="lesson.next_lesson.title"></div>
+                            </a>
+                        </template>
+                    </div>
+                </div>
+
+                <!-- Back to dictionary -->
+                <div class="text-center">
+                    <a href="/dictionary" class="btn-ghost btn-sm">
+                        <svg class="w-4 h-4 inline -mt-0.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path></svg>
+                        Browse Full Dictionary
+                    </a>
+                </div>
+
+            </div>
+        </template>
+
+        <!-- ════════════════════════════════════════════════
+             Detail Modal (reused from dictionary)
+             ════════════════════════════════════════════════ -->
+        <div x-show="detailSign" x-transition:enter="transition ease-out duration-200"
+             x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+             x-transition:leave="transition ease-in duration-150"
+             x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
+             class="fixed inset-0 z-50 flex items-center justify-center p-4"
+             @click.self="detailSign = null" @keydown.escape.window="detailSign = null">
+
+            <div class="absolute inset-0 bg-night/80 backdrop-blur-sm"></div>
+
+            <div x-show="detailSign"
+                 x-transition:enter="transition ease-out duration-200 delay-75"
+                 x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100"
+                 class="relative bg-surface border border-border rounded-2xl max-w-lg w-full shadow-2xl max-h-[90vh] overflow-y-auto">
+
+                <button @click="detailSign = null"
+                        class="absolute top-4 right-4 text-text-dim hover:text-text transition-colors z-10">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+
+                <template x-if="detailSign">
+                    <div>
+                        <!-- Hero -->
+                        <div class="relative text-center pt-8 pb-6 px-6 border-b border-border">
+                            <div class="absolute inset-0 bg-gradient-to-b from-gold/5 to-transparent rounded-t-2xl"></div>
+                            <div class="relative">
+                                <div class="font-hieroglyph text-8xl text-gold mb-3 drop-shadow-[0_0_20px_rgba(212,175,55,0.3)]"
+                                     x-text="detailSign.unicode_char || detailSign.code"></div>
+                                <div class="text-sm font-mono text-text-muted tracking-wider" x-text="detailSign.code"></div>
+                            </div>
+                        </div>
+
+                        <div class="p-6 space-y-5">
+                            <!-- Phonetic primary -->
+                            <div x-show="detailSign.is_phonetic && detailSign.transliteration" class="text-center">
+                                <div class="flex items-center justify-center gap-3 mb-1">
+                                    <span class="text-gold text-3xl font-bold tracking-wide" x-text="detailSign.transliteration"></span>
+                                    <button x-show="detailSign.speech_text" @click="speakSign(detailSign.speech_text)"
+                                            class="p-1.5 rounded-full bg-gold/10 hover:bg-gold/20 text-gold transition-colors" aria-label="Listen to pronunciation">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                                    </button>
+                                </div>
+                                <div x-show="detailSign.pronunciation" class="text-text-muted text-sm">
+                                    <span x-text="detailSign.pronunciation ? formatPronunciation(detailSign.pronunciation) : ''"></span>
+                                </div>
+                            </div>
+
+                            <!-- Logogram primary -->
+                            <div x-show="detailSign.type === 'logogram' && detailSign.logographic_value" class="text-center">
+                                <p class="text-xs text-text-dim uppercase tracking-wider mb-1">Means</p>
+                                <p class="text-green-400 text-2xl font-semibold" x-text="detailSign.logographic_value"></p>
+                            </div>
+
+                            <!-- Determinative primary -->
+                            <div x-show="detailSign.type === 'determinative'"
+                                 class="bg-orange-500/10 border border-orange-500/20 rounded-xl p-4 text-center">
+                                <div class="flex items-center justify-center gap-1.5 mb-2">
+                                    <svg class="w-4 h-4 text-orange-400/70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"></path></svg>
+                                    <p class="text-xs text-orange-400/70 uppercase tracking-wider font-medium">Silent Sign</p>
+                                </div>
+                                <p class="text-sm text-text-muted leading-relaxed mb-2">This sign isn't pronounced — it's placed after a word to show its <span class="text-orange-400">meaning category</span>.</p>
+                                <p x-show="detailSign.determinative_class" class="text-orange-400 text-lg font-semibold" x-text="detailSign.determinative_class"></p>
+                            </div>
+
+                            <!-- Info cards -->
+                            <div class="grid grid-cols-2 gap-3">
+                                <div class="bg-night/50 border border-border rounded-lg p-3">
+                                    <p class="text-[11px] text-text-dim uppercase tracking-wider mb-1">Type</p>
+                                    <span class="inline-block px-2 py-0.5 text-xs rounded-full font-medium" :class="typeClass(detailSign.type)" x-text="detailSign.type"></span>
+                                </div>
+                                <div class="bg-night/50 border border-border rounded-lg p-3">
+                                    <p class="text-[11px] text-text-dim uppercase tracking-wider mb-1">Category</p>
+                                    <p class="text-sm"><span class="text-gold font-medium" x-text="detailSign.category"></span> <span class="text-text-muted" x-text="'\u00B7 ' + detailSign.category_name"></span></p>
+                                </div>
+                                <div class="bg-night/50 border border-border rounded-lg p-3 col-span-2">
+                                    <p class="text-[11px] text-text-dim uppercase tracking-wider mb-1">Depicts</p>
+                                    <p class="text-sm text-text leading-relaxed" x-text="detailSign.description"></p>
+                                </div>
+                            </div>
+
+                            <!-- Fun fact -->
+                            <div x-show="detailSign.fun_fact" class="bg-gold/5 border border-gold/20 rounded-xl p-4">
+                                <div class="flex gap-3">
+                                    <svg class="w-4 h-4 text-gold shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456z"></path></svg>
+                                    <p class="text-sm text-text leading-relaxed" x-text="detailSign.fun_fact"></p>
+                                </div>
+                            </div>
+
+                            <!-- Actions -->
+                            <div class="flex items-center justify-center gap-3 pt-1">
+                                <a x-show="detailSign.is_phonetic" :href="'/write?glyph=' + detailSign.code" class="btn-ghost btn-sm flex items-center gap-1.5">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
+                                    Use in Write
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+function lessonPageApp(level) {
+    return {
+        lesson: null,
+        loading: true,
+        detailSign: null,
+
+        async init() {
+            try {
+                const resp = await fetch('/api/dictionary/lesson/' + level);
+                this.lesson = await resp.json();
+            } catch (err) {
+                console.error('Failed to load lesson:', err);
+            } finally {
+                this.loading = false;
+            }
+        },
+
+        openDetail(sign) {
+            this.detailSign = sign;
+        },
+
+        formatPronunciation(pron) {
+            if (!pron) return '';
+            return 'Like \u201C' + pron.sound + '\u201D \u2014 ' + pron.example;
+        },
+
+        cardLabel(sign) {
+            if (sign.is_phonetic && sign.transliteration) return sign.transliteration;
+            if (sign.type === 'logogram' && sign.logographic_value) return '= ' + sign.logographic_value.split(';')[0].trim();
+            if (sign.type === 'determinative') {
+                if (sign.determinative_class) return sign.determinative_class.split(',')[0].trim();
+                return 'classifier';
+            }
+            if (sign.transliteration) return sign.transliteration;
+            return sign.description.split(' ').slice(0, 3).join(' ');
+        },
+
+        cardLabelClass(sign) {
+            if (sign.is_phonetic && sign.transliteration) return 'text-gold/80';
+            if (sign.type === 'logogram') return 'text-green-400/80';
+            if (sign.type === 'determinative') return 'text-orange-400/70';
+            return 'text-text-dim';
+        },
+
+        typeClass(type) {
+            const map = {
+                'uniliteral': 'bg-gold/15 text-gold',
+                'biliteral': 'bg-blue-500/15 text-blue-400',
+                'triliteral': 'bg-purple-500/15 text-purple-400',
+                'logogram': 'bg-green-500/15 text-green-400',
+                'determinative': 'bg-orange-500/15 text-orange-400',
+                'number': 'bg-cyan-500/15 text-cyan-400',
+                'abbreviation': 'bg-pink-500/15 text-pink-400',
+            };
+            return map[type] || 'bg-surface text-text-dim';
+        },
+    };
+}
+</script>
+{% endblock %}

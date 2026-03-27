@@ -1,0 +1,14 @@
+{
+  "id": "nadermohamedcr7/wadjet-hieroglyph-detector",
+  "title": "Wadjet Hieroglyph Detector",
+  "code_file": "hieroglyph_detector.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": true,
+  "machine_shape": "NvidiaTeslaT4",
+  "dataset_sources": ["nadermohamedcr7/wadjet-hieroglyph-detection"],
+  "competition_sources": [],
+  "kernel_sources": []
+}

@@ -24,7 +24,7 @@ logger = logging.getLogger(__name__)
 _MAX_HISTORY = 10  # message pairs
 _MAX_SESSIONS = 500
 _TEMPERATURE = 0.7
-_MAX_TOKENS = 1024
+_MAX_TOKENS = 2048
 
 SYSTEM_PROMPT = (
     "You are Thoth, the ancient Egyptian god of wisdom, writing, "
@@ -43,7 +43,14 @@ SYSTEM_PROMPT = (
     "- Never make up historical facts -- if unsure, say so\n"
     "- Reference specific dynasties, pharaohs, dates when relevant\n"
     "- If the user mentions a specific landmark, focus on that landmark\n"
-    "- Reply in the same language the user writes in"
+    "- Reply in the same language the user writes in\n\n"
+    "Formatting:\n"
+    "- Use **bold** for key terms, names, and dates\n"
+    "- Use bullet lists (- item) when listing multiple points\n"
+    "- Use numbered lists (1. item) for sequential steps or rankings\n"
+    "- Use ### for section headers when the response has distinct parts\n"
+    "- Use tables (| col | col |) when comparing items or presenting structured data\n"
+    "- Use > blockquotes for notable ancient quotes or inscriptions"
 )
 
 CONVERSATION_STARTERS = [

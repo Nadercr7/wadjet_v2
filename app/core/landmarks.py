@@ -26,7 +26,11 @@ class AttractionType(StrEnum):
     PHARAONIC = "Pharaonic"
     ISLAMIC = "Islamic"
     GRECO_ROMAN = "Greco-Roman"
+    COPTIC = "Coptic"
+    MUSEUM = "Museum"
+    NATURAL = "Natural"
     MODERN = "Modern"
+    RESORT = "Resort"
 
 
 class City(StrEnum):

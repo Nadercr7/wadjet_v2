@@ -33,6 +33,19 @@
                     :class="mode === 'mdc' ? 'btn-gold btn-sm' : 'btn-ghost btn-sm'">
                 MdC Transliteration
             </button>
+            <button @click="mode = 'smart'; convert()"
+                    :class="mode === 'smart' ? 'btn-gold btn-sm' : 'btn-ghost btn-sm'"
+                    class="flex items-center gap-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                Smart Write (AI)
+            </button>
+        </div>
+
+        <!-- Mode description -->
+        <div class="text-center mb-6">
+            <p class="text-xs text-dust" x-show="mode === 'alpha'">Type English letters → uniliteral hieroglyphs (letter-by-letter)</p>
+            <p class="text-xs text-dust" x-show="mode === 'mdc'">Type MdC notation (e.g., nfr-xpr) → hieroglyphs from transliteration</p>
+            <p class="text-xs text-dust" x-show="mode === 'smart'">Type any text — AI translates to proper Egyptian hieroglyphs</p>
         </div>
 
         <!-- ════════════════════════════════════════
@@ -42,10 +55,11 @@
             <label class="block text-sm font-medium text-text-muted mb-2">
                 <span x-show="mode === 'alpha'">Type English text</span>
                 <span x-show="mode === 'mdc'">Type MdC transliteration (use - to separate signs)</span>
+                <span x-show="mode === 'smart'">Type any text (English or Arabic)</span>
             </label>
             <div class="relative">
                 <textarea x-model="inputText" @input.debounce.300ms="convert()"
-                          :placeholder="mode === 'alpha' ? 'Try: Hello Egypt' : 'Try: Htp-nTr or anx-wAs-Dd'"
+                          :placeholder="mode === 'alpha' ? 'Try: Hello Egypt' : mode === 'mdc' ? 'Try: Htp-nTr or anx-wAs-Dd' : 'Try: Life is beautiful'"
                           class="input w-full h-24 resize-none text-lg" maxlength="500"></textarea>
                 <span class="absolute bottom-2 right-3 text-xs text-text-dim" x-text="inputText.length + '/500'"></span>
             </div>
@@ -166,6 +180,10 @@
 
     </div>
 </section>
+{% endblock %}
+{% block scripts %}
+<script>
+function writeApp() {
     return {
         // State
         mode: 'alpha',
@@ -192,6 +210,7 @@
         examples: {
             alpha: ['Hello', 'Egypt', 'Pharaoh', 'Sun God'],
             mdc: ['Htp-nTr', 'anx-wAs-Dd', 'ra-mn-xpr', 'pr-aA'],
+            smart: ['Life is beautiful', 'The king of Egypt', 'Peace and prosperity', 'Son of Ra'],
         },
 
         // Init — check for ?glyph= query param and load palette
