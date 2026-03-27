@@ -136,7 +136,7 @@ def _attraction_to_dict(a: Attraction) -> dict:
         "description": a.description,
         "coordinates": list(a.coordinates) if a.coordinates else None,
         "maps_url": a.maps_url,
-        "thumbnail": wiki.get("thumbnail", ""),
+        "thumbnail": wiki.get("thumbnail", "") or wiki.get("original_image", ""),
         "image_count": img_counts.get(slug.replace("-", "_"), 0),
         "source": "curated",
     }
@@ -157,7 +157,7 @@ def _wiki_to_dict(slug: str, wiki: dict) -> dict:
         "description": wiki.get("description", ""),
         "coordinates": [coords["lat"], coords["lon"]] if coords else None,
         "maps_url": f"https://www.google.com/maps/search/?api=1&query={wiki.get('title', slug.replace('_', '+'))}",
-        "thumbnail": wiki.get("thumbnail", ""),
+        "thumbnail": wiki.get("thumbnail", "") or wiki.get("original_image", ""),
         "image_count": img_counts.get(slug, 0),
         "source": "wikipedia",
     }
