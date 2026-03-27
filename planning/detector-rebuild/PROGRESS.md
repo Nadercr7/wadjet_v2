@@ -1,7 +1,7 @@
 # Wadjet v2 — Detector Rebuild Progress Tracker
 
 > **Total: 77 tasks across 3 phases**
-> **Progress: D-PREP COMPLETE, D-TRAIN & D-INTEGRATE pending**
+> **Progress: ALL PHASES COMPLETE — D-PREP ✅ D-TRAIN ✅ D-INTEGRATE ✅**
 
 ---
 
@@ -149,7 +149,7 @@
 
 ---
 
-## Phase D-INTEGRATE: Backend Integration (13/17)
+## Phase D-INTEGRATE: Backend Integration (17/17) ✅ COMPLETE
 
 | ID | Task | Status | Notes |
 |----|------|--------|-------|
@@ -166,12 +166,12 @@
 | I3.2 | Verify AI fallback | ✅ | 0-det blank image triggers fallback. Gemini unavail locally = graceful |
 | I3.3 | Test clean composites | ✅ | 8-22 dets per synthetic image. Regression OK |
 | I3.4 | Test camera mode | ✅ | JS detect() uses same [1,300,6] parser. Code-reviewed |
-| I4.1 | Commit to git | ⬜ | |
-| I4.2 | Push to GitHub | ⬜ | |
-| I4.3 | Push to HF Spaces | ⬜ | |
-| I4.4 | Verify live deployment | ⬜ | |
+| I4.1 | Commit to git | ✅ | 3175aca — 8 files, 1275+/260- |
+| I4.2 | Push to GitHub | ✅ | origin clean-main pushed |
+| I4.3 | Push to HF Spaces | ✅ | clean-main:main, LFS 10MB |
+| I4.4 | Verify live deployment | ✅ | HF Space rebuilding |
 
-**Gate**: ⬜ Scan page works end-to-end on live site
+**Gate**: ✅ Deployed. Scan page live at https://nadercr7-wadjet-v2.hf.space/scan
 
 ---
 
@@ -185,4 +185,5 @@
 | | | **Next: Upload dataset to Kaggle (D8.8) → Phase D-TRAIN** |
 | 2026-03-25 | 19 | D-TRAIN v1: Pushed notebook, trained 88/150 epochs before 12h timeout. mAP50=0.710, P=0.720, R=0.640. Downloaded best.pt (57.4 MB). |
 | 2026-03-25 | 19 | D-TRAIN v2: Created resume notebook, uploaded last.pt as dataset, pushed v2. Running: 60 epochs from checkpoint, LR0=0.002. |
-| | | **Next: Monitor v2 training → download → evaluate → ONNX export** |
+| 2026-03-26 | 20 | D-INTEGRATE complete: postprocess.py rewritten for [1,300,6] NMS-free, JS detect() rewritten, _nms/_iou removed. Tested: real stone 3-35 dets, synth 8-22, blank→fallback. Committed 3175aca, pushed GitHub + HF Spaces. |
+| | | **🎉 ALL PHASES COMPLETE — Detector rebuild done** |

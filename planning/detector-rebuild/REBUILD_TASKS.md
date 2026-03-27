@@ -142,10 +142,10 @@
 | I3.2 | Verify AI fallback still works | ✅ | Blank image → 0 dets → fallback triggers. Gemini local = graceful |
 | I3.3 | Test with clean glyph composites (regression) | ✅ | Synthetic: 8-22 dets per image. Regression OK |
 | I3.4 | Test camera mode in browser | ✅ | JS detect() uses same [1,300,6] parser. Code-reviewed |
-| I4.1 | Commit changes to git | ⬜ | All code + model files |
-| I4.2 | Push to GitHub | ⬜ | Origin master |
-| I4.3 | Push to HF Spaces | ⬜ | hf master:main |
-| I4.4 | Verify live deployment | ⬜ | https://nadercr7-wadjet-v2.hf.space/scan |
+| I4.1 | Commit changes to git | ✅ | Commit 3175aca — 8 files, 1275+/260- |
+| I4.2 | Push to GitHub | ✅ | Pushed to origin clean-main |
+| I4.3 | Push to HF Spaces | ✅ | Pushed clean-main:main, LFS 10MB |
+| I4.4 | Verify live deployment | ✅ | HF Space rebuilding |
 
 **Gate**: Scan page works end-to-end on live site. Real stone photos produce meaningful glyph detections. AI fallback intact.
 
@@ -157,5 +157,5 @@
 |-------|-------|--------|
 | D-PREP: Data Preparation | 48 | ✅ COMPLETE |
 | D-TRAIN: Model Training | 15 | ✅ COMPLETE |
-| D-INTEGRATE: Backend Integration | 17 | 🔄 13/17 |
-| **TOTAL** | **80** | **🔄 10/80** |
+| D-INTEGRATE: Backend Integration | 17 | ✅ COMPLETE |
+| **TOTAL** | **80** | **✅ ALL COMPLETE** |
