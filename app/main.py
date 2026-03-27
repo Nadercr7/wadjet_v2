@@ -29,9 +29,22 @@ async def lifespan(app: FastAPI):
         app.state.gemini = None
         logger.warning("No Gemini API keys — AI features disabled")
 
+    # Initialize Grok
+    grok_keys = settings.grok_keys_list
+    if grok_keys:
+        from app.core.grok_service import GrokService
+        app.state.grok = GrokService(grok_keys, default_model=settings.grok_model)
+        logger.info("GrokService ready with %d keys", len(grok_keys))
+    else:
+        app.state.grok = None
+        logger.info("No Grok API keys — tiebreaker disabled")
+
     yield  # app runs here
 
     # Cleanup
+    if app.state.grok:
+        await app.state.grok.close()
+    app.state.grok = None
     app.state.gemini = None
 
 

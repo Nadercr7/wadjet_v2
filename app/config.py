@@ -16,6 +16,10 @@ class Settings(BaseSettings):
     gemini_lite_model: str = "gemini-2.5-flash-lite"
     gemini_embedding_model: str = "gemini-embedding-001"
 
+    # Grok (xAI)
+    grok_api_keys: str = ""
+    grok_model: str = "grok-4-latest"
+
     # Model paths
     hieroglyph_detector_path: str = "models/hieroglyph/detector/glyph_detector_uint8.onnx"
     hieroglyph_classifier_path: str = (
@@ -43,6 +47,10 @@ class Settings(BaseSettings):
     @property
     def gemini_keys_list(self) -> list[str]:
         return [k.strip() for k in self.gemini_api_keys.split(",") if k.strip()]
+
+    @property
+    def grok_keys_list(self) -> list[str]:
+        return [k.strip() for k in self.grok_api_keys.split(",") if k.strip()]
 
 
 settings = Settings()

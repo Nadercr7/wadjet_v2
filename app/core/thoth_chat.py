@@ -17,6 +17,7 @@ from app.core.landmarks import get_by_name, get_by_slug
 if TYPE_CHECKING:
     from collections.abc import AsyncIterator
     from app.core.gemini_service import GeminiService
+    from app.core.grok_service import GrokService
 
 logger = logging.getLogger(__name__)
 
@@ -137,6 +138,60 @@ class ChatResult:
     sources: list[str] = field(default_factory=list)
 
 
+# ── Fallback helpers ──
+
+async def _generate_with_fallback(
+    gemini: GeminiService,
+    grok: GrokService | None,
+    prompt: str,
+) -> str:
+    """Try Gemini first; fall back to Grok on failure."""
+    try:
+        return await gemini.generate_text(
+            prompt,
+            system_instruction=SYSTEM_PROMPT,
+            temperature=_TEMPERATURE,
+            max_output_tokens=_MAX_TOKENS,
+        )
+    except Exception:
+        logger.warning("Gemini failed for chat, trying Grok fallback")
+        if grok is None:
+            raise
+        return await grok.generate_text(
+            prompt,
+            system_instruction=SYSTEM_PROMPT,
+            temperature=_TEMPERATURE,
+            max_tokens=_MAX_TOKENS,
+        )
+
+
+async def _stream_with_fallback(
+    gemini: GeminiService,
+    grok: GrokService | None,
+    prompt: str,
+) -> AsyncIterator[str]:
+    """Try Gemini streaming; fall back to Grok streaming on failure."""
+    try:
+        async for chunk in gemini.generate_text_stream(
+            prompt,
+            system_instruction=SYSTEM_PROMPT,
+            temperature=_TEMPERATURE,
+            max_output_tokens=_MAX_TOKENS,
+        ):
+            yield chunk
+    except Exception:
+        logger.warning("Gemini stream failed, trying Grok fallback")
+        if grok is None:
+            raise
+        async for chunk in grok.generate_text_stream(
+            prompt,
+            system_instruction=SYSTEM_PROMPT,
+            temperature=_TEMPERATURE,
+            max_tokens=_MAX_TOKENS,
+        ):
+            yield chunk
+
+
 # ── Main chat ──
 
 async def chat(
@@ -145,6 +200,7 @@ async def chat(
     *,
     session_id: str,
     landmark: str | None = None,
+    grok: GrokService | None = None,
 ) -> ChatResult:
     prompt = _build_prompt(message, session_id, landmark)
     sources = []
@@ -153,12 +209,7 @@ async def chat(
         if a:
             sources.append(a.name)
 
-    reply = await gemini.generate_text(
-        prompt,
-        system_instruction=SYSTEM_PROMPT,
-        temperature=_TEMPERATURE,
-        max_output_tokens=_MAX_TOKENS,
-    )
+    reply = await _generate_with_fallback(gemini, grok, prompt)
     reply = reply.strip()
     if reply.lower().startswith("thoth:"):
         reply = reply[6:].strip()
@@ -175,17 +226,14 @@ async def chat_stream(
     *,
     session_id: str,
     landmark: str | None = None,
+    grok: GrokService | None = None,
 ) -> AsyncIterator[str]:
     prompt = _build_prompt(message, session_id, landmark)
     collected: list[str] = []
     first = True
 
-    async for chunk in gemini.generate_text_stream(
-        prompt,
-        system_instruction=SYSTEM_PROMPT,
-        temperature=_TEMPERATURE,
-        max_output_tokens=_MAX_TOKENS,
-    ):
+    stream = _stream_with_fallback(gemini, grok, prompt)
+    async for chunk in stream:
         if first:
             stripped = chunk.lstrip()
             if stripped.lower().startswith("thoth:"):

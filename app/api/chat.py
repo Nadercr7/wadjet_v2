@@ -37,18 +37,25 @@ def _get_gemini(request: Request):
     return gemini
 
 
+def _get_grok(request: Request):
+    """Retrieve GrokService from app state (optional)."""
+    return getattr(request.app.state, "grok", None)
+
+
 @router.post("")
 async def chat_message(body: ChatRequest, request: Request):
     """Non-streaming chat — returns full reply as JSON."""
     from app.core.thoth_chat import chat
 
     gemini = _get_gemini(request)
+    grok = _get_grok(request)
     try:
         result = await chat(
             gemini,
             body.message,
             session_id=body.session_id,
             landmark=body.landmark,
+            grok=grok,
         )
         return JSONResponse(content={
             "reply": result.reply,
@@ -77,6 +84,7 @@ async def chat_stream(
         raise HTTPException(status_code=400, detail="Invalid landmark")
 
     gemini = _get_gemini(request)
+    grok = _get_grok(request)
 
     async def event_generator():
         try:
@@ -85,6 +93,7 @@ async def chat_stream(
                 message,
                 session_id=session_id,
                 landmark=landmark,
+                grok=grok,
             ):
                 data = json.dumps({"text": chunk})
                 yield f"data: {data}\n\n"
