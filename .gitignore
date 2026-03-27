@@ -10,6 +10,7 @@ models/**
 !models/hieroglyph/
 !models/hieroglyph/classifier/
 !models/hieroglyph/classifier/hieroglyph_classifier_uint8.onnx
+!models/hieroglyph/classifier/hieroglyph_classifier.onnx
 !models/hieroglyph/classifier/label_mapping.json
 !models/hieroglyph/classifier/model_metadata.json
 !models/hieroglyph/detector/

@@ -11,6 +11,5 @@
     "nadermohamedcr7/wadjet-hieroglyph-detection-v3"
   ],
   "competition_sources": [],
-  "kernel_sources": [],
-  "accelerator": "nvidiaTeslaT4"
+  "kernel_sources": []
 }
