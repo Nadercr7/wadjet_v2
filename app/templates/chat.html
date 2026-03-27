@@ -46,10 +46,18 @@
                     <div :class="msg.role === 'user'
                         ? 'bg-gold/15 border border-gold/20 text-text rounded-2xl rounded-br-sm max-w-[80%] px-4 py-3'
                         : 'bg-surface border border-border text-text rounded-2xl rounded-bl-sm max-w-[85%] px-4 py-3'">
-                        <!-- Thoth avatar -->
+                        <!-- Thoth avatar + listen -->
                         <div x-show="msg.role === 'assistant'" class="flex items-center gap-2 mb-2">
                             <span class="text-lg">𓁟</span>
                             <span class="text-xs font-medium text-gold">Thoth</span>
+                            <button @click="ttsActiveId = 'msg-'+idx; ttsState = WadjetTTS.speakToggle(msg.content.replace(/[#*`>|\-]/g,''), {lang: 'en', rate: 0.95, id: 'msg-'+idx})"
+                                    x-show="typeof WadjetTTS !== 'undefined' && WadjetTTS.isSupported()"
+                                    class="ml-auto p-1 rounded-md text-text-dim hover:text-gold hover:bg-gold/10 transition-all"
+                                    :class="{'!text-gold': ttsState !== 'idle' && ttsActiveId === 'msg-'+idx}"
+                                    :aria-label="ttsActiveId === 'msg-'+idx && ttsState === 'playing' ? 'Pause' : 'Listen'">
+                                <svg x-show="!(ttsActiveId === 'msg-'+idx && ttsState === 'playing')" class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                                <svg x-show="ttsActiveId === 'msg-'+idx && ttsState === 'playing'" class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            </button>
                         </div>
                         <div class="text-sm leading-relaxed whitespace-pre-wrap chat-content"
                              x-html="renderMarkdown(msg.content)"></div>
@@ -89,15 +97,43 @@
 
         <!-- Input Area -->
         <div class="shrink-0">
+            <!-- Voice transcript display -->
+            <div x-show="voiceText" x-transition class="mb-2">
+                <div class="card !p-2.5 inline-block max-w-md">
+                    <div class="flex items-center gap-2 text-sm">
+                        <svg class="w-3.5 h-3.5 text-gold shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-14 0m7 7v4m-4 0h8"></path></svg>
+                        <span class="text-text-muted text-xs" x-text="voiceText"></span>
+                        <button @click="voiceText = ''" class="text-text-dim hover:text-text ml-1 text-xs">&times;</button>
+                    </div>
+                </div>
+            </div>
             <form @submit.prevent="sendMessage()" class="flex gap-2">
                 <input type="text"
                        x-model="input"
-                       :disabled="isLoading"
+                       :disabled="isLoading || recording || transcribing"
                        @keydown.enter.prevent="sendMessage()"
                        placeholder="Ask about ancient Egypt..."
                        class="input flex-1 !py-3 text-sm"
                        maxlength="2000"
                        autocomplete="off">
+                <!-- Mic button -->
+                <button type="button"
+                        @click="toggleRecording()"
+                        class="btn-ghost !px-3 !py-3 shrink-0 transition-all"
+                        :class="{'!border-red-500 !text-red-400': recording}"
+                        :disabled="isLoading || transcribing"
+                        :title="recording ? 'Stop recording' : 'Voice input'"
+                        aria-label="Voice input">
+                    <!-- Mic icon -->
+                    <svg x-show="!recording && !transcribing" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-14 0m7 7v4m-4 0h8M12 1a3 3 0 00-3 3v7a3 3 0 006 0V4a3 3 0 00-3-3z"></path></svg>
+                    <!-- Recording pulse -->
+                    <span x-show="recording" class="flex items-center gap-1">
+                        <span class="w-2.5 h-2.5 bg-red-500 rounded-full animate-pulse"></span>
+                    </span>
+                    <!-- Transcribing spinner -->
+                    <svg x-show="transcribing" class="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path></svg>
+                </button>
+                <!-- Send button -->
                 <button type="submit"
                         :disabled="isLoading || !input.trim()"
                         class="btn-gold !px-4 !py-3 shrink-0 disabled:opacity-40 disabled:cursor-not-allowed">
@@ -159,6 +195,17 @@ function chatApp() {
         sessionId: crypto.randomUUID(),
         chatHistory: WadjetHistory.getChatHistory(),
         chatHistoryOpen: false,
+        // TTS state
+        ttsState: 'idle',
+        ttsActiveId: null,
+        // STT state
+        recording: false,
+        transcribing: false,
+        voiceText: '',
+        _mediaRecorder: null,
+        _audioChunks: [],
+        _ttsPoller: null,
+        _recordTimer: null,
         starters: [
             'Tell me about the Great Pyramids of Giza',
             'Who was Cleopatra?',
@@ -167,6 +214,71 @@ function chatApp() {
             'Tell me about the Valley of the Kings',
             'Who built the Sphinx?',
         ],
+
+        init() {
+            // TTS state poller — sync Alpine with Web Speech API
+            this._ttsPoller = setInterval(() => {
+                if (typeof WadjetTTS !== 'undefined') {
+                    const s = WadjetTTS.getState();
+                    if (s !== this.ttsState) this.ttsState = s;
+                    if (s === 'idle') this.ttsActiveId = null;
+                }
+            }, 250);
+        },
+
+        destroy() {
+            if (this._ttsPoller) clearInterval(this._ttsPoller);
+            if (this._recordTimer) clearTimeout(this._recordTimer);
+            if (typeof WadjetTTS !== 'undefined') WadjetTTS.stop();
+        },
+
+        async toggleRecording() {
+            if (this.recording) {
+                // Stop
+                if (this._mediaRecorder && this._mediaRecorder.state !== 'inactive') {
+                    this._mediaRecorder.stop();
+                }
+                if (this._recordTimer) { clearTimeout(this._recordTimer); this._recordTimer = null; }
+                this.recording = false;
+                return;
+            }
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                const mimeType = MediaRecorder.isTypeSupported('audio/webm') ? 'audio/webm' : 'audio/mp4';
+                this._mediaRecorder = new MediaRecorder(stream, { mimeType });
+                this._audioChunks = [];
+                this._mediaRecorder.ondataavailable = (e) => { if (e.data.size > 0) this._audioChunks.push(e.data); };
+                this._mediaRecorder.onstop = async () => {
+                    stream.getTracks().forEach(t => t.stop());
+                    if (this._audioChunks.length === 0) return;
+                    this.transcribing = true;
+                    try {
+                        const blob = new Blob(this._audioChunks, { type: mimeType });
+                        const ext = mimeType.includes('webm') ? 'webm' : 'm4a';
+                        const fd = new FormData();
+                        fd.append('file', blob, 'voice.' + ext);
+                        fd.append('lang', 'en');
+                        const resp = await fetch('/api/stt', { method: 'POST', body: fd });
+                        if (resp.ok) {
+                            const data = await resp.json();
+                            if (data.text) {
+                                this.voiceText = data.text;
+                                this.input = data.text;
+                            }
+                        }
+                    } catch (e) { console.error('STT error:', e); }
+                    finally { this.transcribing = false; }
+                };
+                this._mediaRecorder.start();
+                this.recording = true;
+                // Auto-stop after 30s
+                this._recordTimer = setTimeout(() => {
+                    if (this.recording) this.toggleRecording();
+                }, 30000);
+            } catch (e) {
+                console.error('Mic access denied:', e);
+            }
+        },
 
         async sendMessage(text) {
             const msg = (text || this.input).trim();
@@ -243,6 +355,8 @@ function chatApp() {
         },
 
         async clearChat() {
+            if (typeof WadjetTTS !== 'undefined') WadjetTTS.stop();
+            this.ttsState = 'idle'; this.ttsActiveId = null;
             try {
                 await fetch('/api/chat/clear', {
                     method: 'POST',
@@ -253,6 +367,7 @@ function chatApp() {
             this.messages = [];
             this.streamingText = '';
             this.error = null;
+            this.voiceText = '';
             this.sessionId = crypto.randomUUID();
         },
 
