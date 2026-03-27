@@ -1,13 +1,10 @@
 {
-  "phase": "H5.3",
-  "model": "all-MiniLM-L6-v2",
-  "dimension": 384,
-  "n_vectors": 14433,
-  "index_type": "IVFFlat(nlist=100, nprobe=10)",
-  "encode_time_sec": 73.3,
-  "texts_per_sec": 196.8,
-  "sources": {
-    "train": 13263,
-    "val": 1170
-  }
+  "model": "gemini-embedding-001",
+  "dimension": 768,
+  "num_vectors": 15604,
+  "num_corpus_entries": 15604,
+  "index_type": "IndexFlatIP",
+  "normalized": true,
+  "failed_batches": 0,
+  "build_time_seconds": 882.2
 }
