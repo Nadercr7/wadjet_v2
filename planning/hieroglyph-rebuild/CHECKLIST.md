@@ -105,18 +105,18 @@
 
 ### Gate: "Write Feature Produces Correct Output"
 
-- [ ] **WRT-G1**: Smart mode: "life" → output contains `anx` (Gardiner A1 or equivalent ankh sign)
-- [ ] **WRT-G2**: Smart mode: "son of ra" → output contains `sA` + `ra` signs
-- [ ] **WRT-G3**: Smart mode: "an offering which the king gives" → output contains `Htp di nsw` signs
-- [ ] **WRT-G4**: Smart mode: "words to be spoken" → output contains `Dd mdw` signs
-- [ ] **WRT-G5**: Smart mode: "given life forever" → output contains `Dj anx Dt` signs
-- [ ] **WRT-G6**: Smart mode returns NO non-existent Gardiner codes on 10 test phrases
-- [ ] **WRT-G7**: MdC mode: `Htp-di-nsw` produces correct signs (R4, X8, S40, M23, X1, or close)
-- [ ] **WRT-G8**: MdC mode: all 26 uniliteral signs parse correctly
+- [x] **WRT-G1**: Smart mode: "life" → output contains `anx` (Gardiner A1 or equivalent ankh sign)
+- [x] **WRT-G2**: Smart mode: "son of ra" → output contains `sA` + `ra` signs
+- [x] **WRT-G3**: Smart mode: "an offering which the king gives" → output contains `Htp di nsw` signs
+- [x] **WRT-G4**: Smart mode: "words to be spoken" → output contains `Dd mdw` signs
+- [x] **WRT-G5**: Smart mode: "given life forever" → output contains `Dj anx Dt` signs
+- [x] **WRT-G6**: Smart mode returns NO non-existent Gardiner codes on 10 test phrases
+- [x] **WRT-G7**: MdC mode: `Htp-di-nsw` produces correct signs (R4, X8, S40, M23, X1, or close)
+- [x] **WRT-G8**: MdC mode: all 26 uniliteral signs parse correctly
 - [ ] **WRT-G9**: Smart mode fallback: block Gemini → Groq handles request → output still reasonable
-- [ ] **WRT-G10**: Alpha mode: all 26 English letters produce a glyph (no unknown)
-- [ ] **WRT-G11**: Known phrase shortcuts return correct output in < 50ms (no AI call)
-- [ ] **WRT-G12**: `scripts/test_write.py` passes with ≥ 70% accuracy on smart mode
+- [x] **WRT-G10**: Alpha mode: all 26 English letters produce a glyph (no unknown)
+- [x] **WRT-G11**: Known phrase shortcuts return correct output in < 50ms (no AI call)
+- [x] **WRT-G12**: `scripts/test_write.py` passes with ≥ 70% accuracy on smart mode
 
 ---
 
@@ -124,12 +124,12 @@
 
 ### Gate: "Landmarks Feature Is Comprehensive and Reliable"
 
-- [ ] **LM-G1**: Zero landmarks with empty description in `/api/landmarks` response
-- [ ] **LM-G2**: Non-curated detail pages show highlights + visiting_tips (AI-generated)
-- [ ] **LM-G3**: Identify works when Gemini blocked → Groq provides result
+- [x] **LM-G1**: Zero landmarks with empty description in `/api/landmarks` response
+- [x] **LM-G2**: Non-curated detail pages show highlights + visiting_tips (AI-generated)
+- [x] **LM-G3**: Identify works when Gemini blocked → Groq provides result
 - [ ] **LM-G4**: Identify works when Gemini + Groq blocked → Grok provides result
 - [ ] **LM-G5**: Not-Egyptian detection still works with new fallback chain
-- [ ] **LM-G6**: AI-generated descriptions are cached (second request is instant)
+- [x] **LM-G6**: AI-generated descriptions are cached (second request is instant)
 - [ ] **LM-G7**: `scripts/test_identify.py` passes all landmark identification tests
 
 ---

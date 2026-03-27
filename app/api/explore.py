@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import json
 import logging
+from collections import OrderedDict
 from functools import lru_cache
 from pathlib import Path
 
@@ -39,6 +40,118 @@ METADATA_DIR = DATA_DIR / "metadata"
 MODEL_DIR = Path(__file__).parent.parent.parent / "models" / "landmark"
 MODEL_META = MODEL_DIR / "model_metadata.json"
 LABEL_MAPPING = MODEL_DIR / "landmark_label_mapping.json"
+
+# ── AI-generated detail enrichment cache (LRU) ──
+_ENRICHMENT_CACHE_FILE = DATA_DIR / "landmark_enrichment_cache.json"
+_MAX_ENRICHMENT_CACHE = 300
+
+
+class _EnrichmentCache:
+    """LRU cache for AI-generated landmark detail fields.
+
+    Persists to disk so regeneration only happens once per site.
+    """
+
+    def __init__(self) -> None:
+        self._cache: OrderedDict[str, dict] = OrderedDict()
+        self._loaded = False
+
+    def _load(self) -> None:
+        if self._loaded:
+            return
+        self._loaded = True
+        if _ENRICHMENT_CACHE_FILE.exists():
+            try:
+                data = json.loads(_ENRICHMENT_CACHE_FILE.read_text(encoding="utf-8"))
+                for slug, fields in data.items():
+                    self._cache[slug] = fields
+            except Exception:
+                logger.warning("Failed to load enrichment cache")
+
+    def get(self, slug: str) -> dict | None:
+        self._load()
+        if slug in self._cache:
+            self._cache.move_to_end(slug)
+            return self._cache[slug]
+        return None
+
+    def put(self, slug: str, fields: dict) -> None:
+        self._load()
+        self._cache[slug] = fields
+        self._cache.move_to_end(slug)
+        if len(self._cache) > _MAX_ENRICHMENT_CACHE:
+            self._cache.popitem(last=False)
+        self._save()
+
+    def _save(self) -> None:
+        try:
+            _ENRICHMENT_CACHE_FILE.write_text(
+                json.dumps(dict(self._cache), ensure_ascii=False, indent=2),
+                encoding="utf-8",
+            )
+        except Exception:
+            logger.warning("Failed to save enrichment cache")
+
+
+_enrichment_cache = _EnrichmentCache()
+
+
+async def _enrich_landmark_detail(request, result: dict) -> None:
+    """Fill empty highlights/visiting_tips/historical_significance via AI.
+
+    Only runs for non-curated sites. Results are cached to disk.
+    """
+    # Skip if already has content (curated sites)
+    if result.get("highlights") or result.get("visiting_tips"):
+        return
+
+    slug = result.get("slug", "").replace("-", "_")
+    cached = _enrichment_cache.get(slug)
+    if cached:
+        result["highlights"] = cached.get("highlights", "")
+        result["visiting_tips"] = cached.get("visiting_tips", "")
+        result["historical_significance"] = cached.get("historical_significance", "")
+        return
+
+    # Try AI generation
+    ai_service = getattr(request.app.state, "ai_service", None)
+    if not ai_service or not ai_service.available:
+        return
+
+    name = result.get("name", slug.replace("_", " ").title())
+    city = result.get("city", "Egypt")
+    category = result.get("type", "")
+    period = result.get("period", "")
+    description = result.get("description", "")
+
+    system = "You are an expert Egyptian history and travel guide."
+    prompt = (
+        f'For the Egyptian landmark "{name}" in {city}'
+        f'{f" ({category}, {period})" if category else ""}:\n'
+        f'Description: {description[:300]}\n\n'
+        f'Generate JSON with these fields:\n'
+        f'{{\n'
+        f'  "highlights": "3-5 key features as bullet points separated by |",\n'
+        f'  "visiting_tips": "2-3 practical tips separated by |",\n'
+        f'  "historical_significance": "1-2 sentences on why this site matters"\n'
+        f'}}\n'
+        f'Be concise, accurate, and informative. Use known historical facts.'
+    )
+
+    try:
+        data, _ = await ai_service.text_json(system=system, prompt=prompt, max_tokens=512)
+        if data:
+            fields = {
+                "highlights": data.get("highlights", ""),
+                "visiting_tips": data.get("visiting_tips", ""),
+                "historical_significance": data.get("historical_significance", ""),
+            }
+            _enrichment_cache.put(slug, fields)
+            result["highlights"] = fields["highlights"]
+            result["visiting_tips"] = fields["visiting_tips"]
+            result["historical_significance"] = fields["historical_significance"]
+    except Exception:
+        logger.warning("AI enrichment failed for %s", slug)
 
 # Slug aliases: old duplicate/alternate slugs → canonical
 _SLUG_ALIASES: dict[str, str] = {
@@ -395,7 +508,7 @@ async def get_landmark_children(slug: str):
 
 
 @router.get("/{slug}")
-async def get_landmark(slug: str):
+async def get_landmark(slug: str, request: Request):
     """Get full detail for a single landmark by slug."""
     # Normalize slug — try both hyphen and underscore variants
     normalized = _normalize_slug(slug.lower().strip())
@@ -579,6 +692,9 @@ async def get_landmark(slug: str):
                 "name_ar": parent.get("name_ar", ""),
             }
 
+    # AI-enrich empty detail fields for non-curated sites
+    await _enrich_landmark_detail(request, result)
+
     return JSONResponse(content=result)
 
 
@@ -698,6 +814,11 @@ def _get_grok(request: Request):
     return getattr(request.app.state, "grok", None)
 
 
+def _get_groq(request: Request):
+    """Retrieve GroqService from app state."""
+    return getattr(request.app.state, "groq", None)
+
+
 async def _run_onnx(image) -> dict | None:
     """Run ONNX landmark model in thread pool."""
     try:
@@ -735,6 +856,37 @@ async def _run_grok_vision(grok, data: bytes, mime: str) -> dict:
     return {}
 
 
+_IDENTIFY_SYSTEM = (
+    "You are an expert on Egyptian landmarks and archaeological sites.\n"
+    "Identify the Egyptian landmark in the photo. Respond ONLY with valid JSON."
+)
+_IDENTIFY_PROMPT = (
+    'Identify the Egyptian landmark in this image.\n'
+    'Return JSON with these exact keys:\n'
+    '{"name": "display name", "slug": "snake_case_id",\n'
+    ' "confidence": 0.0-1.0, "description": "1-2 sentence description"}\n'
+    'If this is not an Egyptian landmark, return\n'
+    '{"name": "", "slug": "", "confidence": 0.0,\n'
+    ' "description": "Not an Egyptian landmark"}'
+)
+
+
+async def _run_groq_vision(groq, data: bytes, mime: str) -> dict:
+    """Run Groq Vision (Llama 4 Scout) landmark identification."""
+    try:
+        if groq and groq.available:
+            result = await groq.vision_json(
+                data, mime,
+                system=_IDENTIFY_SYSTEM,
+                prompt=_IDENTIFY_PROMPT,
+                max_tokens=512,
+            )
+            return result or {}
+    except Exception:
+        logger.warning("Groq identify_landmark failed")
+    return {}
+
+
 @identify_router.post("/identify")
 async def identify_landmark(request: Request, file: UploadFile = File(...)):
     """Parallel ensemble landmark identification.
@@ -766,6 +918,7 @@ async def identify_landmark(request: Request, file: UploadFile = File(...)):
 
     gemini = _get_gemini(request)
     grok = _get_grok(request)
+    groq = _get_groq(request)
     mime = file.content_type or "image/jpeg"
 
     # ── Step 1: ONNX + Gemini in parallel ──
@@ -797,6 +950,22 @@ async def identify_landmark(request: Request, file: UploadFile = File(...)):
             source="gemini",
             description=gemini_result.get("description", ""),
         )
+
+    # ── Step 1b: If Gemini failed, try Groq as vision fallback ──
+    groq_fallback = None
+    if not gemini_candidate and groq and groq.available:
+        logger.info("Gemini failed — trying Groq vision fallback")
+        groq_result = await _run_groq_vision(groq, data, mime)
+        if groq_result and groq_result.get("slug"):
+            groq_fallback = Candidate(
+                slug=_normalize_slug(groq_result["slug"]),
+                name=groq_result.get("name", ""),
+                confidence=groq_result.get("confidence", 0),
+                source="groq",
+                description=groq_result.get("description", ""),
+            )
+            # Treat Groq as if it were Gemini for the merge logic
+            gemini_candidate = groq_fallback
 
     # ── Step 2: Check if tiebreaker needed ──
     grok_candidate = None
@@ -832,9 +1001,12 @@ async def identify_landmark(request: Request, file: UploadFile = File(...)):
     )
 
     if not merged.slug:
-        # No model could identify anything — check if it's even Egyptian
-        if gemini_candidate and not gemini_candidate.slug:
-            # Gemini explicitly said "not Egyptian"
+        # No model could identify anything — check if vision AI said "not Egyptian"
+        vision_said_not_egyptian = (
+            (gemini_result and not gemini_result.get("slug"))
+            or (groq_fallback is None and not gemini_candidate)
+        )
+        if vision_said_not_egyptian:
             not_egyptian = {
                 "name": "",
                 "confidence": 0.0,

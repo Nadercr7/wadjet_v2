@@ -287,7 +287,7 @@ KEY RULES:
 - Add Groq/Grok as fallback (same prompt format)
 - Known phrase shortcuts should bypass AI entirely (instant, guaranteed correct)
 
-Available APIs: 17 Gemini keys, 8 Grok keys, 1 Groq key (all in .env)
+Available APIs: 17 Gemini keys, 8 Grok keys, 8 Groq key (all in .env)
 
 After each task, update planning/hieroglyph-rebuild/PROGRESS.md.
 ```
@@ -337,7 +337,7 @@ KEY RULES:
 - Only ADD fallback layers and fill empty content
 - Test with real landmark photos to verify fallback chain
 
-Available APIs: 17 Gemini keys, 8 Grok keys, 1 Groq key, Cloudflare account (all in .env)
+Available APIs: 17 Gemini keys, 8 Grok keys, 8 Groq key, Cloudflare account (all in .env)
 
 After each task, update planning/hieroglyph-rebuild/PROGRESS.md.
 ```

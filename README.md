@@ -17,7 +17,7 @@ pinned: true
 Wadjet v2 uses a **dual-path** design. The landing page presents two equal choices:
 
 - **Hieroglyphs Path** (`/hieroglyphs`) — Scan & identify, Gardiner dictionary, write in hieroglyphs
-- **Landmarks Path** (`/landmarks`) — Explore 52 Egyptian sites, identify from photos
+- **Landmarks Path** (`/landmarks`) — Explore 260+ Egyptian sites, identify from photos
 - **Shared** — Thoth AI chatbot, 2 ML models, offline support
 
 ## Quick Start
@@ -59,9 +59,9 @@ Visit [http://localhost:8000](http://localhost:8000)
 ## Features
 
 - **Scan** — Upload/camera → detect hieroglyphs → classify → transliterate → translate
-- **Dictionary** — Browse 700+ Gardiner signs by category
+- **Dictionary** — Browse 1,000+ Gardiner signs by category
 - **Write** — Convert text to hieroglyphs
-- **Explore** — 52 Egyptian landmarks with AI descriptions
+- **Explore** — 260+ Egyptian landmarks with AI descriptions
 - **Ask Thoth** — AI chatbot for Egyptology questions
 
 ## Design

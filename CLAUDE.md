@@ -8,8 +8,8 @@
 ## Project Identity
 
 **Wadjet v2** is an AI-powered Egyptian heritage web app with **dual-path architecture**:
-- **Hieroglyphs path**: Scan → Detect → Classify → Translate hieroglyphs, Dictionary (700+ Gardiner signs), Write in hieroglyphs
-- **Landmarks path**: Explore 52 Egyptian landmarks, Identify from photos
+- **Hieroglyphs path**: Scan → Detect → Classify → Translate hieroglyphs, Dictionary (1,000+ Gardiner signs), Write in hieroglyphs
+- **Landmarks path**: Explore 260+ Egyptian landmarks, Identify from photos
 - **Shared**: Thoth AI chatbot (Gemini-powered), Quiz
 
 **One-liner**: Scan hieroglyphs, translate inscriptions, explore landmarks, learn from Thoth.
@@ -220,7 +220,7 @@ The old project at `D:\Personal attachements\Projects\Final_Horus\Wadjet\` has:
 - **Models**: ONNX detector (11MB), Keras classifier (222MB), TF.js classifier (20MB), Landmark TF.js (39MB)
 - **Python**: pipeline.py, gardiner_mapping.py, attractions_data.py, translation modules
 - **JS**: hieroglyph-pipeline.js (client-side ML)
-- **Data**: 700+ Gardiner signs, 52 landmarks, 55 metadata JSONs, 50 text descriptions, FAISS corpus
+- **Data**: 1,000+ Gardiner signs, 260+ landmarks, 55 metadata JSONs, 50 text descriptions, FAISS corpus
 
 Run `python scripts/copy_assets.py --dry-run` to see what gets copied.
 

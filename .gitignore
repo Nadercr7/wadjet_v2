@@ -55,3 +55,4 @@ tmp_kaggle_output/
 scripts/test_*.py
 scripts/dataprep-env/
 scripts/_test_*.wav
+*.bak

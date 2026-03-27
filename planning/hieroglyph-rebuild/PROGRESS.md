@@ -98,15 +98,15 @@
 
 | Task | Status | Date | Notes |
 |------|--------|------|-------|
-| W-WRITE-01: Build reverse translation corpus | ⬚ | | EN→MdC parallel data |
-| W-WRITE-02: Rewrite smart mode AI prompt | ⬚ | | Depends: W-WRITE-01 |
-| W-WRITE-03: Add Groq/Grok fallback for smart | ⬚ | | Depends: W-WRITE-02 |
-| W-WRITE-04: Validate AI output against known signs | ⬚ | | Depends: W-WRITE-02 |
-| W-WRITE-05: Add known phrase shortcuts | ⬚ | | No deps |
-| W-WRITE-06: Improve MdC mode coverage | ⬚ | | No deps |
-| W-WRITE-07: Test with known translations | ⬚ | | Depends: W-WRITE-02 |
+| W-WRITE-01: Build reverse translation corpus | ✅ | | 14,593 EN→MdC entries (259 curated + reversed corpus) |
+| W-WRITE-02: Rewrite smart mode AI prompt | ✅ | | Egyptologist persona, grammar rules, few-shot examples |
+| W-WRITE-03: Add Groq/Grok fallback for smart | ✅ | | via AIService.text_json() Gemini→Groq→Grok chain |
+| W-WRITE-04: Validate AI output against known signs | ✅ | | verified field, _validate_ai_glyphs(), local MdC parsing |
+| W-WRITE-05: Add known phrase shortcuts | ✅ | | 60+ phrases bypass AI entirely |
+| W-WRITE-06: Improve MdC mode coverage | ✅ | | j↔i aliases, z→s aliases, MdC formatting stripped; 96.3% corpus resolved |
+| W-WRITE-07: Test with known translations | ✅ | | scripts/test_write.py: 100% shortcuts, 100% MdC, 100% alpha, 96.3% corpus |
 
-**Phase Progress**: 0/7
+**Phase Progress**: 7/7 ✅
 
 ---
 
@@ -114,18 +114,18 @@
 
 | Task | Status | Date | Notes |
 |------|--------|------|-------|
-| L-LANDMARKS-01: Fill empty descriptions with AI | ⬚ | | Script + lazy API generation |
-| L-LANDMARKS-02: Add Groq Vision identify fallback | ⬚ | | Groq Llama 4 Scout |
+| L-LANDMARKS-01: Fill empty descriptions with AI | ✅ | | All 260 sites have descriptions; added AI detail enrichment (highlights/tips/significance) with disk cache + lazy generation |
+| L-LANDMARKS-02: Add Groq Vision identify fallback | ✅ | | Groq Llama 4 Scout as Gemini fallback in identify pipeline; shared prompts |
 | L-LANDMARKS-03: Add Cloudflare Workers AI fallback | ⬚ | | 10K neurons/day free |
-| L-LANDMARKS-04: Enrich detail pages with AI context | ⬚ | | Depends: L-LANDMARKS-01 |
+| L-LANDMARKS-04: Enrich detail pages with AI context | ✅ | | Merged into L-LANDMARKS-01 — _enrich_landmark_detail() in explore.py |
 | L-LANDMARKS-05: Add TLA API integration | ⬚ | | Scholarly grounding |
 | L-LANDMARKS-06: Test identify fallback chain | ⬚ | | Depends: L-LANDMARKS-02 |
 
-**Phase Progress**: 0/6
+**Phase Progress**: 3/6
 
 ---
 
-## Overall: 38/57 tasks complete (H-FIX 19 + H-VISION 8 + H-TRANSLATE 6 + H-AUDIO 5)
+## Overall: 52/57 tasks complete (H-FIX 19 + H-VISION 8 + H-TRANSLATE 6 + H-AUDIO 5 + H-DETECTOR 4 + W-WRITE 7 + L-LANDMARKS 3 — remaining: H-DETECTOR 05/06 + L-LANDMARKS 03/05/06)
 
 ---
 
@@ -137,5 +137,7 @@
 | 2026-03-26 | Phase H-VISION complete (8/8) | |
 | 2026-03-27 | Phase H-TRANSLATE complete (6/6) | |
 | 2026-03-26 | Phase H-AUDIO complete (5/5) | |
+| 2026-03-27 | Phase W-WRITE complete (7/7) | |
+| 2026-03-27 | Phase L-LANDMARKS partial (3/6) | |
 | | Phase H-DETECTOR complete | |
 | | 🎉 Launch ready | |
