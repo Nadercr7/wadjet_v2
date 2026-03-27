@@ -206,7 +206,13 @@ HieroglyphPipeline.prototype.detect = async function(source) {
         x2 = Math.max(0, Math.min(srcW, x2));
         y2 = Math.max(0, Math.min(srcH, y2));
 
-        if (x2 - x1 < 5 || y2 - y1 < 5) continue;
+        if (x2 - x1 < 10 || y2 - y1 < 10) continue;
+
+        // Reject boxes larger than 10% of image area (region detections, not single glyphs)
+        var boxArea = (x2 - x1) * (y2 - y1);
+        var imgArea = srcW * srcH;
+        if (boxArea > imgArea * 0.10) continue;
+
         boxes.push({ x1: x1, y1: y1, x2: x2, y2: y2, confidence: conf });
     }
 
@@ -214,7 +220,10 @@ HieroglyphPipeline.prototype.detect = async function(source) {
     boxes.sort(function(a, b) { return b.confidence - a.confidence; });
 
     // Greedy IoU dedup — suppress overlapping boxes the model missed
-    boxes = this._greedyNms(boxes, 0.45);
+    boxes = this._greedyNms(boxes, 0.25);
+
+    // Containment suppression — remove large boxes that fully contain smaller ones
+    boxes = this._suppressContainers(boxes);
 
     return {
         boxes: boxes,
@@ -247,6 +256,35 @@ HieroglyphPipeline.prototype._iou = function(a, b) {
     var areaB = (b.x2 - b.x1) * (b.y2 - b.y1);
     var union = areaA + areaB - inter;
     return union > 0 ? inter / union : 0;
+};
+
+HieroglyphPipeline.prototype._suppressContainers = function(boxes) {
+    if (boxes.length < 2) return boxes;
+    var suppressed = {};
+    for (var i = 0; i < boxes.length; i++) {
+        if (suppressed[i]) continue;
+        var big = boxes[i];
+        for (var j = 0; j < boxes.length; j++) {
+            if (j === i || suppressed[j]) continue;
+            var small = boxes[j];
+            // Check if small is fully contained inside big
+            if (big.x1 <= small.x1 && big.y1 <= small.y1 &&
+                big.x2 >= small.x2 && big.y2 >= small.y2) {
+                var bigArea = (big.x2 - big.x1) * (big.y2 - big.y1);
+                var smallArea = (small.x2 - small.x1) * (small.y2 - small.y1);
+                // Suppress the bigger box if it's >4x the area of contained box
+                if (bigArea > smallArea * 4) {
+                    suppressed[i] = true;
+                    break;
+                }
+            }
+        }
+    }
+    var result = [];
+    for (var k = 0; k < boxes.length; k++) {
+        if (!suppressed[k]) result.push(boxes[k]);
+    }
+    return result;
 };
 
 /* ── Stage 2: Classification (ONNX NCHW) ───────────── */

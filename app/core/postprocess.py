@@ -14,10 +14,10 @@ from dataclasses import dataclass, field
 # ── Default tuning parameters ────────────────────────────────
 CONF_THRESHOLD = 0.10       # Minimum detection confidence (lowered for stone inscriptions)
 MIN_BOX_AREA_RATIO = 0.0005 # Minimum box area as fraction of image area
-MAX_BOX_AREA_RATIO = 0.40   # Maximum box area as fraction of image area (raised for cartouches)
+MAX_BOX_AREA_RATIO = 0.10   # Maximum box area as fraction of image area
 MIN_BOX_DIM = 10            # Minimum box dimension in pixels (at original scale)
 MAX_ASPECT_RATIO = 5.0      # Maximum width/height or height/width ratio
-DEDUP_IOU_THRESHOLD = 0.45  # IoU threshold for greedy dedup (suppress overlapping boxes)
+DEDUP_IOU_THRESHOLD = 0.25  # IoU threshold for greedy dedup (suppress overlapping boxes)
 INPUT_SIZE = 640             # Model input size
 
 
@@ -176,7 +176,32 @@ class GlyphDetector:
         # 3. Greedy IoU dedup — suppress overlapping boxes the model missed
         detections = self._greedy_nms(detections, self.config.dedup_iou_threshold)
 
+        # 4. Containment suppression — if a large box fully contains a smaller one,
+        #    suppress the larger box (it's a region detection, not a single glyph)
+        detections = self._suppress_containers(detections)
+
         return detections
+
+    @staticmethod
+    def _suppress_containers(detections: list[Detection]) -> list[Detection]:
+        """Remove large boxes that fully contain smaller high-confidence boxes."""
+        if len(detections) < 2:
+            return detections
+        suppressed = set()
+        for i, big in enumerate(detections):
+            if i in suppressed:
+                continue
+            for j, small in enumerate(detections):
+                if j == i or j in suppressed:
+                    continue
+                # Check if small is fully contained inside big
+                if (big.x1 <= small.x1 and big.y1 <= small.y1 and
+                        big.x2 >= small.x2 and big.y2 >= small.y2):
+                    # big contains small — suppress the bigger box if it's >4x the area
+                    if big.area > small.area * 4:
+                        suppressed.add(i)
+                        break
+        return [d for i, d in enumerate(detections) if i not in suppressed]
 
     @staticmethod
     def _greedy_nms(detections: list[Detection], iou_threshold: float) -> list[Detection]:
