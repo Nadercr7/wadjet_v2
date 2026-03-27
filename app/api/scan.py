@@ -564,8 +564,41 @@ async def scan_image(request: Request, file: UploadFile = File(...), translate: 
             _apply_ai_results(result, ai_data, image)
             ai_fallback_used = True
 
-            # Run translation on AI-provided sequence
-            if translate and result.transliteration and not result.translation_en:
+            # Re-classify AI-detected regions with ONNX classifier
+            # Gemini provides bounding boxes but often misidentifies the
+            # Gardiner code. The ONNX classifier (98% accuracy) is more
+            # reliable for classification, so we use AI boxes + ONNX labels.
+            if result.glyphs:
+                try:
+                    onnx_glyphs = await loop.run_in_executor(
+                        None, partial(pipeline._classify_crops, image, result.glyphs)
+                    )
+                    if onnx_glyphs:
+                        for og in onnx_glyphs:
+                            og.confidence = 0.8  # AI-detected box confidence
+                        result.glyphs = onnx_glyphs
+                        result.num_detections = len(onnx_glyphs)
+                        logger.info(
+                            "AI fallback: ONNX re-classified %d glyphs: %s",
+                            len(onnx_glyphs),
+                            [g.gardiner_code for g in onnx_glyphs],
+                        )
+                except Exception:
+                    logger.warning("ONNX re-classification after AI fallback failed")
+
+            # Re-transliterate with pipeline (instead of using Gemini's)
+            if result.glyphs:
+                try:
+                    trans = pipeline._transliterate(result.glyphs)
+                    result.transliteration = trans["transliteration"]
+                    result.gardiner_sequence = trans["gardiner_sequence"]
+                    result.reading_direction = trans["direction"]
+                    result.layout_mode = trans["layout"]
+                except Exception:
+                    logger.warning("Re-transliteration after AI fallback failed")
+
+            # Run translation on the corrected sequence
+            if translate and result.transliteration:
                 try:
                     translation = pipeline._translate(result.transliteration)
                     result.translation_en = translation["en"]
