@@ -56,3 +56,8 @@ scripts/test_*.py
 scripts/dataprep-env/
 scripts/_test_*.wav
 *.bak
+
+# Large archive files (not pushed)
+archive/original-horus/last_model_bgd.keras
+archive/original-horus/HORUS AI .mp4
+archive/original-horus/*.pdf

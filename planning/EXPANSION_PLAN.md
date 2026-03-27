@@ -149,7 +149,7 @@ Format your responses with markdown: use **bold** for key terms, bullet lists fo
 
 #### After T1 is complete:
 ```bash
-cd "D:\Personal attachements\Projects\Final_Horus\Wadjet-v2"
+cd "D:\Personal attachements\Projects\Wadjet"
 npm run build
 # Bump cache version in base.html: ?v=15 → ?v=16
 uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
@@ -496,7 +496,7 @@ Each site/place MUST have:
 
 #### After T2 is complete:
 ```bash
-cd "D:\Personal attachements\Projects\Final_Horus\Wadjet-v2"
+cd "D:\Personal attachements\Projects\Wadjet"
 npm run build
 # Bump cache version in base.html: ?v=17 → ?v=18
 uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
@@ -1073,7 +1073,7 @@ Changes:
 
 #### After T3 is complete:
 ```bash
-cd "D:\Personal attachements\Projects\Final_Horus\Wadjet-v2"
+cd "D:\Personal attachements\Projects\Wadjet"
 npm run build
 # Bump cache version in base.html: ?v=16 → ?v=17
 uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
@@ -1857,7 +1857,7 @@ Move D4, D19, F35 from `UNILITERALS` dict to `BILITERALS` dict. Update their `si
 
 #### After T4 is complete:
 ```bash
-cd "D:\Personal attachements\Projects\Final_Horus\Wadjet-v2"
+cd "D:\Personal attachements\Projects\Wadjet"
 npm run build
 # Bump cache version in base.html: ?v=15 → ?v=16
 uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
@@ -2150,7 +2150,7 @@ Upgrade the result display for Smart mode to show word-by-word breakdown:
 
 #### After T4 Phase 2 is complete:
 ```bash
-cd "D:\Personal attachements\Projects\Final_Horus\Wadjet-v2"
+cd "D:\Personal attachements\Projects\Wadjet"
 npm run build
 # Cache version should already be bumped from Phase 1
 uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
@@ -2361,7 +2361,7 @@ git checkout main && git merge feature/expansion-t1
 - After `npm run build` and cache bump
 
 ```bash
-cd "D:\Personal attachements\Projects\Final_Horus\Wadjet-v2"
+cd "D:\Personal attachements\Projects\Wadjet"
 git add -A
 git status  # review what changed
 git commit -m "feat(chat): fix Thoth formatting — color hierarchy, table render, spacing"
@@ -2390,7 +2390,7 @@ After T1, T4, T3, T2 are all complete and committed, deploy Wadjet v2 to Hugging
 #### 1. Create the Space
 - Go to https://huggingface.co/spaces
 - Create new Space → Docker SDK
-- Name: `wadjet` (or `wadjet-v2`)
+- Name: `wadjet` (or `wadjet`)
 - Visibility: Public
 
 #### 2. Configure Dockerfile for HF Spaces

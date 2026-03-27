@@ -1,3 +1,5 @@
+> **Note**: This is a historical document. File paths may reference the old project location (Final_Horus/Wadjet-v2).
+
 # Wadjet v2 — AI Prompts
 
 > Two prompts for working with an AI assistant: one to START a phase, one to CONTINUE.

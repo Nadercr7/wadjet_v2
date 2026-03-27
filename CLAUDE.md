@@ -86,7 +86,7 @@ Defined in `input.css @layer components`:
 ## Project Structure
 
 ```
-Wadjet-v2/
+Wadjet/
 ├── app/
 │   ├── main.py              # create_app() factory
 │   ├── config.py             # Pydantic Settings
@@ -109,10 +109,10 @@ Wadjet-v2/
 │       ├── landmarks.html     # Landmarks hub
 │       ├── scan.html, dictionary.html, write.html, explore.html, chat.html
 │       └── partials/          # nav.html, footer.html
-├── models/                    # ML models (git-ignored, copied from v1)
-├── data/                      # Data files (git-ignored, copied from v1)
+├── models/                    # ML models (production ONNX + TF.js)
+├── data/                      # Runtime data (embeddings, metadata, corpus)
 ├── planning/                  # CONSTITUTION, PLAN, PROGRESS, PROMPTS, SESSION_LOG, CHECKLIST
-├── scripts/copy_assets.py     # v1→v2 asset copy script
+├── scripts/                   # Build & data scripts
 ├── Dockerfile                 # Multi-stage production build
 ├── docker-compose.yml         # Local container setup
 └── render.yaml                # Render.com deploy config
@@ -214,15 +214,16 @@ Use context7 to fetch up-to-date docs during development:
 
 ---
 
-## V1 Asset Reference
+## Archive Reference
 
-The old project at `D:\Personal attachements\Projects\Final_Horus\Wadjet\` has:
-- **Models**: ONNX detector (11MB), Keras classifier (222MB), TF.js classifier (20MB), Landmark TF.js (39MB)
-- **Python**: pipeline.py, gardiner_mapping.py, attractions_data.py, translation modules
-- **JS**: hieroglyph-pipeline.js (client-side ML)
-- **Data**: 1,000+ Gardiner signs, 260+ landmarks, 55 metadata JSONs, 50 text descriptions, FAISS corpus
+The `archive/` folder contains the full project history:
+- **original-horus/**: The original Horus AI Flask project (app.py, Keras model, PDFs, video)
+- **v1-reference/**: Key files from Wadjet v1 (core/*.py, js/*.js, templates/)
+- **v2-training/**: Training artifacts (DATA_CATALOG.md, Kaggle results, old model versions)
+- **v2-scripts/**: 51 old utility scripts (data prep, TF/Keras migration)
+- **v2-notebooks/**: Kaggle training notebooks (5 total)
 
-Run `python scripts/copy_assets.py --dry-run` to see what gets copied.
+See `JOURNEY.md` for the full development narrative.
 
 ---
 

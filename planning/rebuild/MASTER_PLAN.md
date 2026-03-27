@@ -1,3 +1,5 @@
+> **Note**: This is a historical document. File paths may reference the old project location (Final_Horus/Wadjet-v2).
+
 # Wadjet v2 — Master Plan (PyTorch + Gemini Vision Rebuild)
 
 > **Status**: PLANNING — Implementation starts on "START" prompt

@@ -1,3 +1,6 @@
+# ARCHIVE  This script was used during v1v2 migration. Paths reference old locations.
+# Kept for historical reference. Not needed for production.
+
 """
 Copy assets from Wadjet v1 to Wadjet v2.
 
