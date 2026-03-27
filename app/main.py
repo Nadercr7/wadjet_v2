@@ -53,6 +53,19 @@ async def lifespan(app: FastAPI):
         app.state.groq = None
         logger.info("No Groq API key — Groq fallback disabled")
 
+    # Initialize Cloudflare Workers AI
+    if settings.cloudflare_api_token and settings.cloudflare_account_id:
+        from app.core.cloudflare_service import CloudflareService
+        app.state.cloudflare = CloudflareService(
+            api_token=settings.cloudflare_api_token,
+            account_id=settings.cloudflare_account_id,
+            vision_model=settings.cloudflare_vision_model,
+        )
+        logger.info("CloudflareService ready")
+    else:
+        app.state.cloudflare = None
+        logger.info("No Cloudflare credentials — Cloudflare fallback disabled")
+
     # Initialize unified AIService (wraps Gemini + Groq + Grok)
     from app.core.ai_service import AIService
     app.state.ai_service = AIService(
@@ -76,6 +89,11 @@ async def lifespan(app: FastAPI):
         "loaded" if app.state.translator.available else "unavailable",
     )
 
+    # Initialize TLA (Thesaurus Linguae Aegyptiae) — free, no auth
+    from app.core.tla_service import TLAService
+    app.state.tla = TLAService()
+    logger.info("TLAService ready")
+
     yield  # app runs here
 
     # Cleanup
@@ -83,12 +101,18 @@ async def lifespan(app: FastAPI):
         await app.state.ai_service.close()
     if app.state.grok:
         await app.state.grok.close()
+    if hasattr(app.state, "cloudflare") and app.state.cloudflare:
+        await app.state.cloudflare.close()
+    app.state.cloudflare = None
     app.state.grok = None
     app.state.groq = None
     app.state.gemini = None
     app.state.ai_service = None
     app.state.ai_reader = None
     app.state.translator = None
+    if hasattr(app.state, "tla") and app.state.tla:
+        await app.state.tla.close()
+    app.state.tla = None
 
 
 def create_app() -> FastAPI:

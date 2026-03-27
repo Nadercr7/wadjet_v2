@@ -819,6 +819,11 @@ def _get_groq(request: Request):
     return getattr(request.app.state, "groq", None)
 
 
+def _get_cloudflare(request: Request):
+    """Retrieve CloudflareService from app state."""
+    return getattr(request.app.state, "cloudflare", None)
+
+
 async def _run_onnx(image) -> dict | None:
     """Run ONNX landmark model in thread pool."""
     try:
@@ -887,6 +892,16 @@ async def _run_groq_vision(groq, data: bytes, mime: str) -> dict:
     return {}
 
 
+async def _run_cloudflare_vision(cloudflare, data: bytes, mime: str) -> dict:
+    """Run Cloudflare Workers AI vision landmark identification."""
+    try:
+        if cloudflare and cloudflare.available:
+            return await cloudflare.identify_landmark(data, mime)
+    except Exception:
+        logger.warning("Cloudflare identify_landmark failed")
+    return {}
+
+
 @identify_router.post("/identify")
 async def identify_landmark(request: Request, file: UploadFile = File(...)):
     """Parallel ensemble landmark identification.
@@ -919,6 +934,7 @@ async def identify_landmark(request: Request, file: UploadFile = File(...)):
     gemini = _get_gemini(request)
     grok = _get_grok(request)
     groq = _get_groq(request)
+    cloudflare = _get_cloudflare(request)
     mime = file.content_type or "image/jpeg"
 
     # ── Step 1: ONNX + Gemini in parallel ──
@@ -966,6 +982,19 @@ async def identify_landmark(request: Request, file: UploadFile = File(...)):
             )
             # Treat Groq as if it were Gemini for the merge logic
             gemini_candidate = groq_fallback
+
+    # ── Step 1c: If Gemini + Groq both failed, try Cloudflare ──
+    if not gemini_candidate and cloudflare and cloudflare.available:
+        logger.info("Gemini + Groq failed — trying Cloudflare vision fallback")
+        cf_result = await _run_cloudflare_vision(cloudflare, data, mime)
+        if cf_result and cf_result.get("slug"):
+            gemini_candidate = Candidate(
+                slug=_normalize_slug(cf_result["slug"]),
+                name=cf_result.get("name", ""),
+                confidence=cf_result.get("confidence", 0),
+                source="cloudflare",
+                description=cf_result.get("description", ""),
+            )
 
     # ── Step 2: Check if tiebreaker needed ──
     grok_candidate = None

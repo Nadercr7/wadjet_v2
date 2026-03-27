@@ -25,6 +25,11 @@ class Settings(BaseSettings):
     groq_vision_model: str = "meta-llama/llama-4-scout-17b-16e-instruct"
     groq_text_model: str = "llama-3.3-70b-versatile"
 
+    # Cloudflare Workers AI
+    cloudflare_api_token: str = ""
+    cloudflare_account_id: str = ""
+    cloudflare_vision_model: str = "@cf/meta/llama-3.2-11b-vision-instruct"
+
     # Model paths
     hieroglyph_detector_path: str = "models/hieroglyph/detector/glyph_detector_uint8.onnx"
     hieroglyph_classifier_path: str = (
