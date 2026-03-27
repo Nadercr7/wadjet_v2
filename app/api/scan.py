@@ -1,7 +1,8 @@
 """Scan API endpoints — hieroglyph detection, classification, translation.
 
-POST /api/scan       — Full pipeline: detect → classify → transliterate → translate
+POST /api/scan       — Full pipeline with mode selection (ai/onnx/auto)
 POST /api/detect     — Detection only: returns bounding boxes
+POST /api/read       — AI-only reading (lightweight, no ONNX)
 
 Classification ensemble: ONNX first, then Gemini verifies low-confidence
 glyphs, Grok tiebreaks disagreements.
@@ -13,12 +14,13 @@ import asyncio
 import base64
 import json
 import logging
+import time
 from functools import partial
 
 import cv2
 import numpy as np
 from collections import Counter
-from fastapi import APIRouter, File, HTTPException, Request, UploadFile
+from fastapi import APIRouter, File, Form, HTTPException, Request, UploadFile
 from fastapi.responses import JSONResponse
 
 logger = logging.getLogger(__name__)
@@ -456,8 +458,29 @@ async def _verify_glyphs_grok(
 
     disputed_indices = {i for i, _, _ in disputed}
 
-    # Annotated image highlighting disputed glyphs
+    # Annotated image highlighting disputed glyphs — compress for Grok
     annotated_bytes = _annotate_image(original_image, glyphs, disputed_indices)
+
+    # Compress annotated image if too large (Grok has payload limits)
+    MAX_IMAGE_BYTES = 500_000  # 500KB
+    if len(annotated_bytes) > MAX_IMAGE_BYTES:
+        h, w = original_image.shape[:2]
+        scale = min(1.0, 1024 / max(h, w))
+        if scale < 1.0:
+            small = cv2.resize(original_image, None, fx=scale, fy=scale)
+            # Re-annotate on smaller image
+            from app.core.hieroglyph_pipeline import GlyphResult
+            scaled_glyphs = []
+            for g in glyphs:
+                sg = GlyphResult(
+                    x1=g.x1 * scale, y1=g.y1 * scale,
+                    x2=g.x2 * scale, y2=g.y2 * scale,
+                    confidence=g.confidence, class_id=g.class_id,
+                    gardiner_code=g.gardiner_code,
+                    class_confidence=g.class_confidence,
+                )
+                scaled_glyphs.append(sg)
+            annotated_bytes = _annotate_image(small, scaled_glyphs, disputed_indices)
 
     # Individual crops + description
     crop_messages = []
@@ -522,136 +545,394 @@ async def _verify_glyphs_grok(
 
 
 @router.post("/scan")
-async def scan_image(request: Request, file: UploadFile = File(...), translate: bool = True):
-    """Full scan pipeline with AI detection fallback and ensemble verification.
+async def scan_image(
+    request: Request,
+    file: UploadFile = File(...),
+    translate: bool = True,
+    mode: str = Form("auto"),
+):
+    """Full scan pipeline with mode selection.
 
-    Flow:
-    1. ONNX pipeline: detect → classify → transliterate → translate
-    2. If ONNX detection poor (≤2 glyphs or low confidence):
-       → AI full reading via Gemini Vision (detects + classifies in one shot)
-    3. If ONNX succeeded:
-       → Full-sequence verification (Gemini reads whole inscription, Grok tiebreaks)
-    4. Re-transliterate/translate if corrections were made
+    Modes:
+    - "ai"   : AI Vision reads inscription directly (best quality, needs internet)
+    - "onnx" : ONNX detect→classify only (fast, works offline, lower quality)
+    - "auto" : AI-first with ONNX bboxes for visualization (default, recommended)
+
+    Auto flow:
+    1. Start ONNX detection (for bounding boxes + visualization)
+    2. Send image to AI Vision Reader (primary reading)
+    3. If AI succeeds → use AI reading + ONNX bboxes
+    4. If AI fails → fall back to full ONNX pipeline
     """
     raw_bytes, image = await _read_image_bytes(file)
     pipeline = _get_pipeline()
     mime = file.content_type or "image/jpeg"
+    loop = asyncio.get_running_loop()
 
-    # Step 1: Run full ONNX pipeline
-    loop = asyncio.get_event_loop()
+    # Normalize mode
+    mode = mode.strip().lower()
+    if mode not in ("ai", "onnx", "auto"):
+        mode = "auto"
+
+    ai_reader = getattr(request.app.state, "ai_reader", None)
+    gemini = getattr(request.app.state, "gemini", None)
+    grok = getattr(request.app.state, "grok", None)
+
+    # ── AI-only mode ──
+    if mode == "ai":
+        return await _scan_ai_mode(
+            ai_reader, pipeline, raw_bytes, mime, image, translate, loop,
+        )
+
+    # ── ONNX-only mode ──
+    if mode == "onnx":
+        return await _scan_onnx_mode(
+            pipeline, gemini, grok, raw_bytes, mime, image, translate, loop,
+        )
+
+    # ── Auto mode (default): AI-first with ONNX assist ──
+    return await _scan_auto_mode(
+        ai_reader, pipeline, gemini, grok, raw_bytes, mime, image, translate, loop,
+    )
+
+
+async def _scan_ai_mode(ai_reader, pipeline, raw_bytes, mime, image, translate, loop):
+    """AI Vision reads inscription directly. ONNX only for bboxes."""
+    from app.core.hieroglyph_pipeline import GlyphResult, PipelineResult
+
+    t0 = time.perf_counter()
+
+    # Run ONNX detection in parallel for bbox visualization
+    onnx_bboxes_task = loop.run_in_executor(
+        None, partial(_detect_only, pipeline, image),
+    )
+
+    # AI reading (primary)
+    reading = None
+    if ai_reader and ai_reader.available:
+        reading = await ai_reader.read_inscription(raw_bytes, mime)
+
+    onnx_detections = await onnx_bboxes_task
+
+    if reading and reading.success:
+        result = _build_result_from_ai_reading(
+            reading, image, onnx_detections, pipeline, translate,
+        )
+        result.total_ms = (time.perf_counter() - t0) * 1000
+        response_data = result.to_dict()
+        response_data["detection_source"] = f"ai_vision ({reading.provider})"
+        response_data["mode"] = "ai"
+        response_data["ai_reading"] = reading.to_dict()
+        return JSONResponse(content=response_data)
+
+    # AI failed → ONNX fallback
+    logger.warning("AI mode: all vision providers failed, falling back to ONNX")
     try:
         result = await loop.run_in_executor(
-            None, partial(pipeline.process_image, image, translate=translate)
+            None, partial(pipeline.process_image, image, translate=translate),
+        )
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Pipeline error: {e}") from e
+
+    result.total_ms = (time.perf_counter() - t0) * 1000
+    response_data = result.to_dict()
+    response_data["detection_source"] = "onnx_fallback"
+    response_data["mode"] = "ai"
+    return JSONResponse(content=response_data)
+
+
+async def _scan_onnx_mode(pipeline, gemini, grok, raw_bytes, mime, image, translate, loop):
+    """ONNX pipeline with existing AI verification (legacy behavior)."""
+    t0 = time.perf_counter()
+
+    try:
+        result = await loop.run_in_executor(
+            None, partial(pipeline.process_image, image, translate=translate),
         )
     except Exception as e:
         logger.exception("Scan pipeline failed")
         raise HTTPException(status_code=500, detail=f"Pipeline error: {e}") from e
 
-    gemini = getattr(request.app.state, "gemini", None)
-    grok = getattr(request.app.state, "grok", None)
-
-    # Step 2: AI fallback if ONNX detection was poor
+    # AI fallback if ONNX detection was poor
     ai_fallback_used = False
     if _needs_ai_fallback(result):
-        logger.info(
-            "AI fallback triggered: ONNX found %d detections (avg_conf=%.2f)",
-            result.num_detections,
-            sum(g.confidence for g in result.glyphs) / max(1, len(result.glyphs))
-            if result.glyphs else 0.0,
-        )
         ai_data = await _ai_full_reading(gemini, raw_bytes, mime, image)
         if ai_data and ai_data.get("glyphs"):
             _apply_ai_results(result, ai_data, image)
             ai_fallback_used = True
+            await _onnx_reclassify_and_retranslate(
+                pipeline, result, image, ai_data, translate, loop,
+            )
 
-            # Re-classify AI-detected regions with ONNX classifier
-            # Gemini provides bounding boxes but often misidentifies the
-            # Gardiner code. The ONNX classifier (98% accuracy) is more
-            # reliable for classification, so we use AI boxes + ONNX labels.
-            # However, if ONNX confidence is very low (e.g. line drawings
-            # on white backgrounds), keep Gemini's per-glyph classification.
-            ONNX_RECLASSIFY_THRESHOLD = 0.30
-            if result.glyphs:
-                ai_glyphs_backup = [
-                    (g.gardiner_code, g.class_confidence) for g in result.glyphs
-                ]
-                try:
-                    onnx_glyphs = await loop.run_in_executor(
-                        None, partial(pipeline._classify_crops, image, result.glyphs)
-                    )
-                    if onnx_glyphs:
-                        any_used_onnx = False
-                        for i, og in enumerate(onnx_glyphs):
-                            og.confidence = 0.8  # AI-detected box confidence
-                            if og.class_confidence < ONNX_RECLASSIFY_THRESHOLD and i < len(ai_glyphs_backup):
-                                # ONNX not confident → keep Gemini's code
-                                ai_code, ai_conf = ai_glyphs_backup[i]
-                                logger.info(
-                                    "Glyph #%d: ONNX=%s (%.0f%%) too low, keeping AI=%s",
-                                    i, og.gardiner_code, og.class_confidence * 100, ai_code,
-                                )
-                                og.gardiner_code = ai_code
-                                og.class_confidence = ai_conf
-                                og.low_confidence = True
-                            else:
-                                any_used_onnx = True
-                        result.glyphs = onnx_glyphs
-                        result.num_detections = len(onnx_glyphs)
-                        logger.info(
-                            "AI fallback: final classification %s",
-                            [(g.gardiner_code, f"{g.class_confidence:.0%}") for g in onnx_glyphs],
-                        )
-                except Exception:
-                    logger.warning("ONNX re-classification after AI fallback failed")
-
-            # Re-transliterate with pipeline (instead of using Gemini's)
-            if result.glyphs:
-                try:
-                    trans = pipeline._transliterate(result.glyphs)
-                    result.transliteration = trans["transliteration"]
-                    result.gardiner_sequence = trans["gardiner_sequence"]
-                    result.reading_direction = trans["direction"]
-                    result.layout_mode = trans["layout"]
-                except Exception:
-                    logger.warning("Re-transliteration after AI fallback failed")
-
-            # Run translation on the corrected sequence
-            if translate and result.transliteration:
-                try:
-                    translation = pipeline._translate(result.transliteration)
-                    result.translation_en = translation["en"]
-                    result.translation_ar = translation["ar"]
-                    result.translation_error = translation["error"]
-                except Exception:
-                    logger.warning("Translation after AI fallback failed")
-
-    # Step 3: Full-sequence verification (when ONNX succeeded)
+    # Full-sequence verification (when ONNX succeeded)
+    VERIFY_CONFIDENCE_THRESHOLD = 0.6
     if not ai_fallback_used and result.glyphs:
-        corrected_glyphs, corrections_applied = await _full_sequence_verify(
-            gemini, grok, image, result.glyphs,
-        )
-        result.glyphs = corrected_glyphs
+        avg_class_conf = sum(g.class_confidence for g in result.glyphs) / len(result.glyphs)
+        if avg_class_conf < VERIFY_CONFIDENCE_THRESHOLD:
+            corrected_glyphs, corrections_applied = await _full_sequence_verify(
+                gemini, grok, image, result.glyphs,
+            )
+            result.glyphs = corrected_glyphs
+            if corrections_applied:
+                _retransliterate_and_translate(pipeline, result, translate)
 
-        if corrections_applied:
-            try:
-                trans = pipeline._transliterate(result.glyphs)
-                result.transliteration = trans["transliteration"]
-                result.gardiner_sequence = trans["gardiner_sequence"]
-                result.reading_direction = trans["direction"]
-                result.layout_mode = trans["layout"]
-
-                if translate and result.transliteration:
-                    translation = pipeline._translate(result.transliteration)
-                    result.translation_en = translation["en"]
-                    result.translation_ar = translation["ar"]
-                    result.translation_error = translation["error"]
-            except Exception:
-                logger.warning("Re-transliteration after corrections failed")
-
-    # Build response
+    result.total_ms = (time.perf_counter() - t0) * 1000
     response_data = result.to_dict()
     response_data["detection_source"] = "ai_vision" if ai_fallback_used else "onnx"
+    response_data["mode"] = "onnx"
     return JSONResponse(content=response_data)
+
+
+async def _scan_auto_mode(
+    ai_reader, pipeline, gemini, grok, raw_bytes, mime, image, translate, loop,
+):
+    """Auto mode: AI-first with ONNX bboxes. Best quality."""
+    from app.core.hieroglyph_pipeline import PipelineResult
+
+    t0 = time.perf_counter()
+
+    # Run ONNX full pipeline and AI reading concurrently
+    onnx_task = loop.run_in_executor(
+        None, partial(pipeline.process_image, image, translate=translate),
+    )
+
+    ai_reading = None
+    if ai_reader and ai_reader.available:
+        ai_task = asyncio.create_task(
+            ai_reader.read_inscription(raw_bytes, mime),
+        )
+    else:
+        ai_task = None
+
+    # Wait for ONNX
+    try:
+        onnx_result = await onnx_task
+    except Exception as e:
+        logger.exception("ONNX pipeline failed in auto mode")
+        onnx_result = PipelineResult()
+
+    # Wait for AI
+    if ai_task:
+        try:
+            ai_reading = await ai_task
+        except Exception:
+            logger.warning("AI reading failed in auto mode", exc_info=True)
+
+    # Decide which result to use
+    if ai_reading and ai_reading.success:
+        # AI succeeded — use AI reading for text, ONNX for bboxes
+        result = _merge_ai_and_onnx(ai_reading, onnx_result, image, pipeline, translate)
+        result.total_ms = (time.perf_counter() - t0) * 1000
+        response_data = result.to_dict()
+        response_data["detection_source"] = f"ai_vision ({ai_reading.provider})"
+        response_data["mode"] = "auto"
+        response_data["ai_reading"] = ai_reading.to_dict()
+        return JSONResponse(content=response_data)
+
+    # AI failed — use ONNX result with legacy verification
+    if onnx_result.glyphs:
+        # Run verification on ONNX results if confidence is low
+        VERIFY_CONFIDENCE_THRESHOLD = 0.6
+        avg_class_conf = sum(g.class_confidence for g in onnx_result.glyphs) / len(onnx_result.glyphs)
+        if avg_class_conf < VERIFY_CONFIDENCE_THRESHOLD and gemini:
+            corrected_glyphs, corrections_applied = await _full_sequence_verify(
+                gemini, grok, image, onnx_result.glyphs,
+            )
+            onnx_result.glyphs = corrected_glyphs
+            if corrections_applied:
+                _retransliterate_and_translate(pipeline, onnx_result, translate)
+    elif _needs_ai_fallback(onnx_result):
+        # ONNX detection was poor — try legacy AI fallback
+        ai_data = await _ai_full_reading(gemini, raw_bytes, mime, image)
+        if ai_data and ai_data.get("glyphs"):
+            _apply_ai_results(onnx_result, ai_data, image)
+            await _onnx_reclassify_and_retranslate(
+                pipeline, onnx_result, image, ai_data, translate, loop,
+            )
+
+    onnx_result.total_ms = (time.perf_counter() - t0) * 1000
+    response_data = onnx_result.to_dict()
+    response_data["detection_source"] = "onnx"
+    response_data["mode"] = "auto"
+    return JSONResponse(content=response_data)
+
+
+# ── Helper: Build PipelineResult from AI reading ──
+
+def _build_result_from_ai_reading(reading, image, onnx_detections, pipeline, translate):
+    """Build a PipelineResult using AI reading data, optionally overlaying ONNX bboxes."""
+    from app.core.hieroglyph_pipeline import GlyphResult, PipelineResult
+
+    h, w = image.shape[:2]
+    result = PipelineResult()
+
+    # Build glyphs from AI reading
+    ai_glyphs = []
+    for g in reading.glyphs:
+        bbox = g.get("bbox_pct", [0, 0, 100, 100])
+        x1 = max(0.0, bbox[0] * w / 100.0)
+        y1 = max(0.0, bbox[1] * h / 100.0)
+        x2 = min(float(w), bbox[2] * w / 100.0)
+        y2 = min(float(h), bbox[3] * h / 100.0)
+        conf = float(g.get("confidence", 0.8))
+        ai_glyphs.append(GlyphResult(
+            x1=x1, y1=y1, x2=x2, y2=y2,
+            confidence=conf,
+            class_id=0,
+            gardiner_code=g.get("gardiner_code", ""),
+            class_confidence=conf,
+        ))
+
+    # Prefer ONNX bboxes if available (more precise pixel coordinates)
+    if onnx_detections and len(onnx_detections) >= len(ai_glyphs) // 2:
+        result.glyphs = [
+            GlyphResult(
+                x1=d.x1, y1=d.y1, x2=d.x2, y2=d.y2,
+                confidence=d.confidence,
+                class_id=0,
+                gardiner_code="",
+                class_confidence=0.0,
+            )
+            for d in onnx_detections
+        ]
+    else:
+        result.glyphs = ai_glyphs
+
+    result.num_detections = len(result.glyphs)
+
+    # Use AI text fields directly
+    result.gardiner_sequence = reading.gardiner_sequence
+    result.transliteration = reading.transliteration
+    result.reading_direction = reading.direction
+    result.translation_en = reading.translation_en
+    result.translation_ar = reading.translation_ar
+
+    # If we used ONNX bboxes, map AI Gardiner codes onto them by position
+    if onnx_detections and result.glyphs != ai_glyphs and ai_glyphs:
+        _map_ai_codes_to_onnx_bboxes(result.glyphs, ai_glyphs)
+
+    return result
+
+
+def _merge_ai_and_onnx(ai_reading, onnx_result, image, pipeline, translate):
+    """Merge AI reading (for text) with ONNX result (for bboxes)."""
+    from app.core.hieroglyph_pipeline import PipelineResult
+
+    result = PipelineResult()
+
+    # Use ONNX bboxes if available, else AI bboxes
+    if onnx_result.glyphs:
+        result.glyphs = onnx_result.glyphs
+        result.num_detections = onnx_result.num_detections
+        result.detection_ms = onnx_result.detection_ms
+        result.classification_ms = onnx_result.classification_ms
+    else:
+        h, w = image.shape[:2]
+        from app.core.hieroglyph_pipeline import GlyphResult
+        result.glyphs = [
+            GlyphResult(
+                x1=max(0.0, g["bbox_pct"][0] * w / 100.0),
+                y1=max(0.0, g["bbox_pct"][1] * h / 100.0),
+                x2=min(float(w), g["bbox_pct"][2] * w / 100.0),
+                y2=min(float(h), g["bbox_pct"][3] * h / 100.0),
+                confidence=float(g.get("confidence", 0.8)),
+                class_id=0,
+                gardiner_code=g.get("gardiner_code", ""),
+                class_confidence=float(g.get("confidence", 0.8)),
+            )
+            for g in ai_reading.glyphs
+        ]
+        result.num_detections = len(result.glyphs)
+
+    # Use AI reading for text fields (superior accuracy)
+    result.gardiner_sequence = ai_reading.gardiner_sequence
+    result.transliteration = ai_reading.transliteration
+    result.reading_direction = ai_reading.direction
+    result.translation_en = ai_reading.translation_en
+    result.translation_ar = ai_reading.translation_ar
+
+    return result
+
+
+def _map_ai_codes_to_onnx_bboxes(onnx_glyphs, ai_glyphs):
+    """Map AI Gardiner codes to ONNX bboxes by spatial proximity."""
+    for og in onnx_glyphs:
+        best_dist = float("inf")
+        best_code = ""
+        ox = (og.x1 + og.x2) / 2
+        oy = (og.y1 + og.y2) / 2
+        for ag in ai_glyphs:
+            ax = (ag.x1 + ag.x2) / 2
+            ay = (ag.y1 + ag.y2) / 2
+            dist = ((ox - ax) ** 2 + (oy - ay) ** 2) ** 0.5
+            if dist < best_dist:
+                best_dist = dist
+                best_code = ag.gardiner_code
+                best_conf = ag.class_confidence
+        if best_code:
+            og.gardiner_code = best_code
+            og.class_confidence = best_conf
+
+
+def _detect_only(pipeline, image):
+    """Run ONNX detector only (no classification). Returns detection list."""
+    try:
+        detector = pipeline._get_detector()
+        return detector.detect(image)
+    except Exception:
+        logger.warning("ONNX detection failed", exc_info=True)
+        return []
+
+
+async def _onnx_reclassify_and_retranslate(
+    pipeline, result, image, ai_data, translate, loop,
+):
+    """Re-classify AI-detected bboxes with ONNX, then re-transliterate."""
+    ONNX_RECLASSIFY_THRESHOLD = 0.30
+    if result.glyphs:
+        ai_glyphs_backup = [
+            (g.gardiner_code, g.class_confidence) for g in result.glyphs
+        ]
+        try:
+            onnx_glyphs = await loop.run_in_executor(
+                None, partial(pipeline._classify_crops, image, result.glyphs),
+            )
+            if onnx_glyphs:
+                for i, og in enumerate(onnx_glyphs):
+                    og.confidence = 0.8
+                    if og.class_confidence < ONNX_RECLASSIFY_THRESHOLD and i < len(ai_glyphs_backup):
+                        ai_code, ai_conf = ai_glyphs_backup[i]
+                        og.gardiner_code = ai_code
+                        og.class_confidence = ai_conf
+                        og.low_confidence = True
+                result.glyphs = onnx_glyphs
+                result.num_detections = len(onnx_glyphs)
+        except Exception:
+            logger.warning("ONNX re-classification after AI fallback failed")
+
+    _retransliterate_and_translate(pipeline, result, translate)
+
+
+def _retransliterate_and_translate(pipeline, result, translate):
+    """Re-run transliteration and translation on corrected glyphs."""
+    if result.glyphs:
+        try:
+            trans = pipeline._transliterate(result.glyphs)
+            result.transliteration = trans["transliteration"]
+            result.gardiner_sequence = trans["gardiner_sequence"]
+            result.reading_direction = trans["direction"]
+            result.layout_mode = trans["layout"]
+        except Exception:
+            logger.warning("Re-transliteration failed")
+
+    if translate and result.transliteration:
+        try:
+            translation = pipeline._translate(result.transliteration)
+            result.translation_en = translation["en"]
+            result.translation_ar = translation["ar"]
+            result.translation_error = translation["error"]
+        except Exception:
+            logger.warning("Translation failed")
 
 
 @router.post("/detect")
@@ -664,7 +945,7 @@ async def detect_glyphs(file: UploadFile = File(...)):
         detector = pipeline._get_detector()
         return detector.detect(image)
 
-    loop = asyncio.get_event_loop()
+    loop = asyncio.get_running_loop()
     try:
         detections = await loop.run_in_executor(None, _run_detection)
     except Exception as e:
@@ -676,4 +957,40 @@ async def detect_glyphs(file: UploadFile = File(...)):
         "num_detections": len(detections),
         "image_size": {"width": w, "height": h},
         "detections": [d.to_dict() for d in detections],
+    })
+
+
+@router.post("/read")
+async def read_inscription(request: Request, file: UploadFile = File(...)):
+    """AI-only inscription reading — lightweight, no ONNX.
+
+    Sends image directly to AI Vision (Gemini→Groq→Grok).
+    Used by client-side JS pipeline for AI reading after local detection.
+    Returns the AI reading result as JSON.
+    """
+    raw_bytes, _ = await _read_image_bytes(file)
+    mime = file.content_type or "image/jpeg"
+
+    ai_reader = getattr(request.app.state, "ai_reader", None)
+    if not ai_reader or not ai_reader.available:
+        raise HTTPException(
+            status_code=503,
+            detail="AI vision not available. No API keys configured.",
+        )
+
+    reading = await ai_reader.read_inscription(raw_bytes, mime)
+    if not reading.success:
+        return JSONResponse(
+            status_code=200,
+            content={
+                "success": False,
+                "error": reading.notes or "AI could not read the inscription",
+                "provider": reading.provider,
+                "elapsed_ms": round(reading.elapsed_ms, 1),
+            },
+        )
+
+    return JSONResponse(content={
+        "success": True,
+        **reading.to_dict(),
     })

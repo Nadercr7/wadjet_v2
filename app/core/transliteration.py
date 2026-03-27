@@ -206,8 +206,10 @@ class TransliterationEngine:
                         group_mdc.append(f"<{code}>")
                     num_det += 1
                 elif translit.startswith("["):
+                    # Unknown sign — use [?] to avoid breaking MdC quadrat
+                    # colon notation (e.g. "nTr:[D5]:s" → "nTr:?:s")
                     if self.show_unknown:
-                        group_mdc.append(translit)
+                        group_mdc.append("?")
                     num_unknown += 1
                 else:
                     group_mdc.append(translit)

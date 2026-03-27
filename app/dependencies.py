@@ -26,5 +26,6 @@ def get_pipeline():
         detector_path=root / settings.hieroglyph_detector_path,
         classifier_path=root / settings.hieroglyph_classifier_path,
         label_mapping_path=root / settings.label_mapping_path,
+        detection_confidence_threshold=settings.detection_confidence_threshold,
         enable_translation=True,
     )

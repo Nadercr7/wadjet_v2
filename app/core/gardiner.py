@@ -206,11 +206,22 @@ def get_sign_type(gardiner_code: str) -> SignType:
 
 
 def is_determinative(gardiner_code: str) -> bool:
-    """Check if a Gardiner sign is primarily used as a determinative."""
+    """Check if a Gardiner sign is primarily used as a determinative.
+
+    Signs that have both logographic AND determinative uses (e.g. G7 Horus,
+    N5 Ra) are NOT treated as determinatives — their phonetic/logographic
+    reading takes priority.
+    """
     sign = GARDINER_TRANSLITERATION.get(gardiner_code)
     if sign is None:
         return False
-    return sign.sign_type == SignType.DETERMINATIVE or bool(sign.determinative_class)
+    # Only pure determinatives — signs whose primary type is DETERMINATIVE
+    # and that have no phonetic value
+    if sign.sign_type == SignType.DETERMINATIVE:
+        return True
+    # Signs with a phonetic/logographic reading are NOT determinatives
+    # even if they have a determinative_class
+    return False
 
 
 def get_determinative_class(gardiner_code: str) -> str:

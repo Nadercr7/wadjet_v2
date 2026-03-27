@@ -8,7 +8,7 @@ from fastapi.responses import FileResponse, HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
-from app.api import chat, dictionary, explore, health, pages, quiz, scan, write
+from app.api import audio, chat, dictionary, explore, health, pages, quiz, scan, translate, write
 from app.config import settings
 
 logger = logging.getLogger(__name__)
@@ -39,13 +39,56 @@ async def lifespan(app: FastAPI):
         app.state.grok = None
         logger.info("No Grok API keys — tiebreaker disabled")
 
+    # Initialize Groq
+    groq_keys = settings.groq_keys_list
+    if groq_keys:
+        from app.core.ai_service import GroqService
+        app.state.groq = GroqService(
+            groq_keys,
+            vision_model=settings.groq_vision_model,
+            text_model=settings.groq_text_model,
+        )
+        logger.info("GroqService ready with %d keys", len(groq_keys))
+    else:
+        app.state.groq = None
+        logger.info("No Groq API key — Groq fallback disabled")
+
+    # Initialize unified AIService (wraps Gemini + Groq + Grok)
+    from app.core.ai_service import AIService
+    app.state.ai_service = AIService(
+        gemini=app.state.gemini,
+        groq=app.state.groq,
+        grok=app.state.grok,
+    )
+
+    # Initialize AI Hieroglyph Reader
+    from app.core.ai_reader import AIHieroglyphReader
+    app.state.ai_reader = AIHieroglyphReader(app.state.ai_service)
+
+    # Initialize RAG Translator (Gemini embeddings + fallback chain)
+    from app.core.rag_translator import RAGTranslator
+    app.state.translator = RAGTranslator(
+        gemini=app.state.gemini,
+        ai_service=app.state.ai_service,
+    )
+    logger.info(
+        "RAGTranslator ready (index=%s)",
+        "loaded" if app.state.translator.available else "unavailable",
+    )
+
     yield  # app runs here
 
     # Cleanup
+    if hasattr(app.state, "ai_service") and app.state.ai_service:
+        await app.state.ai_service.close()
     if app.state.grok:
         await app.state.grok.close()
     app.state.grok = None
+    app.state.groq = None
     app.state.gemini = None
+    app.state.ai_service = None
+    app.state.ai_reader = None
+    app.state.translator = None
 
 
 def create_app() -> FastAPI:
@@ -74,12 +117,14 @@ def create_app() -> FastAPI:
     # Routes
     app.include_router(pages.router)
     app.include_router(scan.router)
+    app.include_router(translate.router)
     app.include_router(dictionary.router)
     app.include_router(write.router)
     app.include_router(explore.router)
     app.include_router(explore.identify_router)
     app.include_router(chat.router)
     app.include_router(quiz.router)
+    app.include_router(audio.router)
     app.include_router(health.router, prefix="/api")
 
     # Service Worker — must be served from root for scope='/'

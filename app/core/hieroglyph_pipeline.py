@@ -32,8 +32,8 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent  # Wadjet-v2/
 
 # Default model paths (relative to project root)
 DEFAULT_DETECTOR_PATH = PROJECT_ROOT / "models" / "hieroglyph" / "detector" / "glyph_detector_uint8.onnx"
-DEFAULT_CLASSIFIER_PATH = PROJECT_ROOT / "models" / "hieroglyph" / "classifier" / "hieroglyph_classifier_uint8.onnx"
-DEFAULT_LABEL_MAPPING_PATH = PROJECT_ROOT / "models" / "hieroglyph" / "label_mapping.json"
+DEFAULT_CLASSIFIER_PATH = PROJECT_ROOT / "models" / "hieroglyph" / "classifier" / "hieroglyph_classifier.onnx"
+DEFAULT_LABEL_MAPPING_PATH = PROJECT_ROOT / "models" / "hieroglyph" / "classifier" / "label_mapping.json"
 
 # Classification confidence below this is flagged as uncertain
 LOW_CONFIDENCE_THRESHOLD = 0.3
@@ -120,6 +120,7 @@ class HieroglyphPipeline:
         classifier_path: str | Path | None = None,
         label_mapping_path: str | Path | None = None,
         classifier_input_size: int = 128,
+        detection_confidence_threshold: float | None = None,
         enable_translation: bool = True,
         gemini_model: str = "gemini-2.5-flash",
         top_k: int = 8,
@@ -128,6 +129,7 @@ class HieroglyphPipeline:
         self._classifier_path = Path(classifier_path or DEFAULT_CLASSIFIER_PATH)
         self._label_mapping_path = Path(label_mapping_path or DEFAULT_LABEL_MAPPING_PATH)
         self._classifier_input_size = classifier_input_size
+        self._detection_confidence_threshold = detection_confidence_threshold
         self._enable_translation = enable_translation
         self._gemini_model = gemini_model
         self._top_k = top_k
@@ -151,10 +153,18 @@ class HieroglyphPipeline:
         raw = mapping.get("idx_to_gardiner", mapping)
         self._idx_to_gardiner = {int(k): v for k, v in raw.items()}
 
+        # Initialize facing signs set for reading direction detection
+        from app.core.reading_order import _init_model_facing_signs
+        gardiner_to_idx = {v: int(k) for k, v in raw.items()}
+        _init_model_facing_signs(gardiner_to_idx)
+
     def _get_detector(self):
         if self._detector is None:
-            from app.core.postprocess import GlyphDetector
-            self._detector = GlyphDetector(str(self._detector_path))
+            from app.core.postprocess import GlyphDetector, PostProcessConfig
+            config = None
+            if self._detection_confidence_threshold is not None:
+                config = PostProcessConfig(conf_threshold=self._detection_confidence_threshold)
+            self._detector = GlyphDetector(str(self._detector_path), config=config)
         return self._detector
 
     def _get_classifier(self):
@@ -184,7 +194,6 @@ class HieroglyphPipeline:
             from app.core.rag_translator import RAGTranslator
             self._translator = RAGTranslator(
                 top_k=self._top_k,
-                gemini_model=self._gemini_model,
             )
         return self._translator
 
@@ -219,6 +228,8 @@ class HieroglyphPipeline:
             crop = image[y1:y2, x1:x2]
             if crop.size == 0:
                 continue
+            # BGR→RGB: OpenCV loads BGR but model was trained on RGB
+            crop = cv2.cvtColor(crop, cv2.COLOR_BGR2RGB)
             crop = cv2.resize(crop, (size, size))
             crop = crop.astype(np.float32) / 255.0
             # HWC → CHW for NCHW ONNX model

@@ -38,6 +38,7 @@ var HieroglyphPipelineState = Object.freeze({
  * @param {string} [opts.classifierUrl]    — hieroglyph_classifier_uint8.onnx URL (ONNX)
  * @param {string} [opts.labelMapUrl]      — label_mapping.json URL
  * @param {string} [opts.translationApi]   — Server endpoint for translation
+ * @param {string} [opts.aiReadApi]        — AI reading endpoint (/api/read)
  * @param {number} [opts.detConfThreshold] — Detection confidence (default: 0.15)
  * @param {number} [opts.classInputSize]   — Classification input size (default: 128)
  * @param {Function} [opts.onStateChange]  — State change callback
@@ -48,9 +49,10 @@ function HieroglyphPipeline(opts) {
 
     // URLs (v2 paths — models served at /models/ mount)
     this._detectorUrl    = opts.detectorUrl    || '/models/hieroglyph/detector/glyph_detector_uint8.onnx';
-    this._classifierUrl  = opts.classifierUrl  || '/models/hieroglyph/classifier/hieroglyph_classifier_uint8.onnx';
-    this._labelMapUrl    = opts.labelMapUrl    || '/models/hieroglyph/label_mapping.json';
-    this._translationApi = opts.translationApi || '/api/scan';
+    this._classifierUrl  = opts.classifierUrl  || '/models/hieroglyph/classifier/hieroglyph_classifier.onnx';
+    this._labelMapUrl    = opts.labelMapUrl    || '/models/hieroglyph/classifier/label_mapping.json';
+    this._translationApi = opts.translationApi || '/api/translate';
+    this._aiReadApi      = opts.aiReadApi      || '/api/read';
 
     // Config
     this._detConf    = opts.detConfThreshold || 0.15;
@@ -293,54 +295,62 @@ HieroglyphPipeline.prototype.classify = async function(source, boxes) {
     if (!boxes.length) return [];
 
     var size = this._classSize;
-    var results = [];
     var i2g = this._labelMap.idx_to_gardiner || this._labelMap;
     var inputName = this._classifierSession.inputNames[0];
+    var numBoxes = boxes.length;
+    var pixelCount = size * size;
 
-    // Process each crop through ONNX classifier
-    for (var i = 0; i < boxes.length; i++) {
+    // Pre-allocate batched tensor: [N, 3, size, size]
+    var batchFloats = new Float32Array(numBoxes * 3 * pixelCount);
+
+    // Prepare all crops into the batch tensor
+    var cropCanvas = document.createElement('canvas');
+    cropCanvas.width = size;
+    cropCanvas.height = size;
+    var ctx = cropCanvas.getContext('2d');
+
+    for (var i = 0; i < numBoxes; i++) {
         var box = boxes[i];
-        var cropCanvas = document.createElement('canvas');
-        cropCanvas.width = size;
-        cropCanvas.height = size;
-        var ctx = cropCanvas.getContext('2d');
-
-        // Draw cropped region resized to classifier input
+        ctx.clearRect(0, 0, size, size);
         ctx.drawImage(source,
             box.x1, box.y1, box.x2 - box.x1, box.y2 - box.y1,
             0, 0, size, size
         );
 
-        // Convert to NCHW float32 (PyTorch-origin ONNX model)
         var imgData = ctx.getImageData(0, 0, size, size).data;
-        var floats = new Float32Array(3 * size * size);
-        var pixelCount = size * size;
+        var offset = i * 3 * pixelCount;
         for (var p = 0; p < pixelCount; p++) {
-            floats[p]                    = imgData[p * 4]     / 255.0;  // R plane
-            floats[pixelCount + p]       = imgData[p * 4 + 1] / 255.0;  // G plane
-            floats[2 * pixelCount + p]   = imgData[p * 4 + 2] / 255.0;  // B plane
+            batchFloats[offset + p]                    = imgData[p * 4]     / 255.0;  // R
+            batchFloats[offset + pixelCount + p]       = imgData[p * 4 + 1] / 255.0;  // G
+            batchFloats[offset + 2 * pixelCount + p]   = imgData[p * 4 + 2] / 255.0;  // B
         }
+    }
 
-        var inputTensor = new ort.Tensor('float32', floats, [1, 3, size, size]);
-        var feeds = {};
-        feeds[inputName] = inputTensor;
-        var output = await this._classifierSession.run(feeds);
-        var probs = output[this._classifierSession.outputNames[0]].data;
+    // Single batched inference call
+    var inputTensor = new ort.Tensor('float32', batchFloats, [numBoxes, 3, size, size]);
+    var feeds = {};
+    feeds[inputName] = inputTensor;
+    var output = await this._classifierSession.run(feeds);
+    var allProbs = output[this._classifierSession.outputNames[0]].data;
+    var numClasses = allProbs.length / numBoxes;
 
-        // Find argmax
+    // Parse results
+    var results = [];
+    for (var i = 0; i < numBoxes; i++) {
+        var probOffset = i * numClasses;
         var maxIdx = 0;
-        var maxProb = probs[0];
-        for (var j = 1; j < probs.length; j++) {
-            if (probs[j] > maxProb) {
-                maxProb = probs[j];
+        var maxProb = allProbs[probOffset];
+        for (var j = 1; j < numClasses; j++) {
+            if (allProbs[probOffset + j] > maxProb) {
+                maxProb = allProbs[probOffset + j];
                 maxIdx = j;
             }
         }
 
         var gardiner = i2g[String(maxIdx)] || ('UNK_' + maxIdx);
         results.push({
-            x1: box.x1, y1: box.y1, x2: box.x2, y2: box.y2,
-            confidence: box.confidence,
+            x1: boxes[i].x1, y1: boxes[i].y1, x2: boxes[i].x2, y2: boxes[i].y2,
+            confidence: boxes[i].confidence,
             classId: maxIdx,
             gardinerCode: gardiner,
             classConfidence: maxProb
@@ -418,6 +428,33 @@ HieroglyphPipeline.prototype._clusterIntoLines = function(glyphs) {
         }
     }
     return lines;
+};
+
+/* ── AI Vision Reading (Server API) ─────────────────── */
+
+/**
+ * Send image to /api/read for AI Vision reading.
+ * Returns structured reading or null on failure.
+ * @param {Blob|File} imageBlob
+ * @returns {Promise<Object|null>}
+ */
+HieroglyphPipeline.prototype.aiRead = async function(imageBlob) {
+    try {
+        var formData = new FormData();
+        formData.append('file', imageBlob);
+
+        var resp = await fetch(this._aiReadApi, {
+            method: 'POST',
+            body: formData,
+        });
+        if (!resp.ok) return null;
+
+        var data = await resp.json();
+        if (!data.success) return null;
+        return data;
+    } catch (err) {
+        return null;
+    }
 };
 
 /* ── Stage 4: Translation (Server API) ──────────────── */
@@ -499,6 +536,125 @@ HieroglyphPipeline.prototype.processImage = async function(source, opts) {
     return result;
 };
 
+/**
+ * AI-assisted pipeline: local ONNX detection + server AI reading.
+ * Uses local detector for bounding boxes but sends image to AI for
+ * classification, transliteration, and translation.
+ * @param {HTMLImageElement|HTMLCanvasElement} source
+ * @param {Blob|File} imageBlob — original file for AI upload
+ * @returns {Promise<Object>}
+ */
+HieroglyphPipeline.prototype.processImageAI = async function(source, imageBlob) {
+    this._setState(HieroglyphPipelineState.PROCESSING);
+
+    var result = {
+        numDetections: 0,
+        glyphs: [],
+        transliteration: '',
+        gardinerSequence: '',
+        readingDirection: 'RTL',
+        translationEn: '',
+        translationAr: '',
+        translationError: '',
+        aiReading: null,
+        detectionSource: 'ai_vision',
+        timing: { detectionMs: 0, classificationMs: 0, transliterationMs: 0, translationMs: 0, totalMs: 0 }
+    };
+
+    var tTotal = performance.now();
+
+    // Run local detection (for bboxes) and AI reading concurrently
+    var t0 = performance.now();
+    var detPromise = this.detect(source);
+    var aiPromise = this.aiRead(imageBlob);
+
+    var detResult, aiData;
+    try { detResult = await detPromise; } catch (e) { detResult = { boxes: [] }; }
+    result.timing.detectionMs = performance.now() - t0;
+    result.numDetections = detResult.boxes.length;
+
+    t0 = performance.now();
+    try { aiData = await aiPromise; } catch (e) { aiData = null; }
+    result.timing.classificationMs = performance.now() - t0;
+
+    if (aiData) {
+        // AI reading succeeded — use AI text + local bboxes
+        result.aiReading = aiData;
+        result.transliteration = aiData.transliteration || '';
+        result.gardinerSequence = aiData.gardiner_sequence || '';
+        result.readingDirection = aiData.direction || 'RTL';
+        result.translationEn = aiData.translation_en || '';
+        result.translationAr = aiData.translation_ar || '';
+        result.detectionSource = 'ai_vision (' + (aiData.provider || 'unknown') + ')';
+
+        // Build glyphs: prefer local ONNX bboxes, map AI codes onto them
+        var aiGlyphs = aiData.glyphs || [];
+        if (detResult.boxes.length > 0 && aiGlyphs.length > 0) {
+            // Map AI gardiner codes to ONNX boxes by proximity
+            var srcW = source.naturalWidth || source.width;
+            var srcH = source.naturalHeight || source.height;
+            result.glyphs = detResult.boxes.map(function(box) {
+                var ox = (box.x1 + box.x2) / 2;
+                var oy = (box.y1 + box.y2) / 2;
+                var bestDist = Infinity;
+                var bestCode = '';
+                var bestConf = 0;
+                for (var k = 0; k < aiGlyphs.length; k++) {
+                    var ag = aiGlyphs[k];
+                    var bp = ag.bbox_pct || [0, 0, 100, 100];
+                    var ax = (bp[0] + bp[2]) / 2 * srcW / 100;
+                    var ay = (bp[1] + bp[3]) / 2 * srcH / 100;
+                    var dist = Math.sqrt((ox - ax) * (ox - ax) + (oy - ay) * (oy - ay));
+                    if (dist < bestDist) {
+                        bestDist = dist;
+                        bestCode = ag.gardiner_code || '';
+                        bestConf = ag.confidence || 0.8;
+                    }
+                }
+                return {
+                    x1: box.x1, y1: box.y1, x2: box.x2, y2: box.y2,
+                    confidence: box.confidence,
+                    gardinerCode: bestCode,
+                    classConfidence: bestConf
+                };
+            });
+            result.numDetections = result.glyphs.length;
+        } else if (aiGlyphs.length > 0) {
+            // No ONNX bboxes — use AI bbox_pct
+            var srcW2 = source.naturalWidth || source.width;
+            var srcH2 = source.naturalHeight || source.height;
+            result.glyphs = aiGlyphs.map(function(ag) {
+                var bp = ag.bbox_pct || [0, 0, 100, 100];
+                return {
+                    x1: bp[0] * srcW2 / 100, y1: bp[1] * srcH2 / 100,
+                    x2: bp[2] * srcW2 / 100, y2: bp[3] * srcH2 / 100,
+                    confidence: ag.confidence || 0.8,
+                    gardinerCode: ag.gardiner_code || '',
+                    classConfidence: ag.confidence || 0.8
+                };
+            });
+            result.numDetections = result.glyphs.length;
+        }
+    } else {
+        // AI failed — fall back to full local pipeline
+        result.detectionSource = 'onnx_fallback';
+        if (detResult.boxes.length > 0) {
+            var classResult = await this.classify(source, detResult.boxes);
+            result.glyphs = classResult;
+            result.numDetections = classResult.length;
+
+            var translit = this.transliterate(classResult);
+            result.transliteration = translit.transliteration;
+            result.gardinerSequence = translit.gardinerSequence;
+            result.readingDirection = translit.direction;
+        }
+    }
+
+    result.timing.totalMs = performance.now() - tTotal;
+    this._setState(HieroglyphPipelineState.READY);
+    return result;
+};
+
 /* ── Real-Time Camera Support ───────────────────────── */
 
 /**
@@ -513,6 +669,7 @@ HieroglyphPipeline.prototype.processImage = async function(source, opts) {
 HieroglyphPipeline.prototype.startCameraLoop = function(video, overlayCanvas, opts) {
     opts = opts || {};
     var self = this;
+    var minFrameInterval = opts.minFrameInterval || 150;  // ms between frames (≤~7 FPS)
     this._cameraRunning = true;
 
     var ctx = overlayCanvas.getContext('2d');
@@ -520,6 +677,8 @@ HieroglyphPipeline.prototype.startCameraLoop = function(video, overlayCanvas, op
     async function onPlay() {
         if (!self._cameraRunning) return;
         if (video.paused || video.ended) return setTimeout(onPlay, 100);
+
+        var frameStart = performance.now();
 
         try {
             var detResult = await self.detect(video);
@@ -545,10 +704,13 @@ HieroglyphPipeline.prototype.startCameraLoop = function(video, overlayCanvas, op
             if (opts.onError) opts.onError(err);
         }
 
-        setTimeout(onPlay);
+        // Enforce minimum interval to prevent CPU burn
+        var elapsed = performance.now() - frameStart;
+        var delay = Math.max(0, minFrameInterval - elapsed);
+        setTimeout(onPlay, delay);
     }
 
-    setTimeout(onPlay);
+    setTimeout(onPlay, minFrameInterval);
 };
 
 HieroglyphPipeline.prototype.stopCameraLoop = function() {
@@ -596,6 +758,7 @@ HieroglyphPipeline.prototype._buildGardinerMap = function() {
 
     // Biliterals
     var bi = {
+        'D1':'tp','D2':'Hr',
         'D4':'ir','D28':'kA','D34':'aS','D35':'nw','D39':'mH',
         'D52':'mt','D53':'mw','D56':'rd','D62':'mt',
         'E34':'SA','F4':'kA','F13':'wp','F16':'db','F18':'ns',

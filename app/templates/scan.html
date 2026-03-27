@@ -49,14 +49,14 @@
             </div>
 
             <!-- Processing mode toggle -->
-            <div class="flex justify-center gap-3 mb-8 text-xs">
+            <div class="flex justify-center gap-3 mb-4 text-xs">
                 <label class="flex items-center gap-1.5 cursor-pointer text-text-muted hover:text-text transition-colors py-2 px-2"
                        :class="{'text-gold': processingMode === 'server'}">
                     <input type="radio" value="server" x-model="processingMode" class="hidden">
                     <span class="w-3 h-3 rounded-full border border-current flex items-center justify-center">
                         <span class="w-1.5 h-1.5 rounded-full bg-current" x-show="processingMode === 'server'"></span>
                     </span>
-                    Server (more accurate)
+                    Server
                 </label>
                 <label class="flex items-center gap-1.5 cursor-pointer text-text-muted hover:text-text transition-colors py-2 px-2"
                        :class="{'text-gold': processingMode === 'client'}">
@@ -64,8 +64,30 @@
                     <span class="w-3 h-3 rounded-full border border-current flex items-center justify-center">
                         <span class="w-1.5 h-1.5 rounded-full bg-current" x-show="processingMode === 'client'"></span>
                     </span>
-                    Browser (offline, faster)
+                    Browser (offline)
                 </label>
+            </div>
+
+            <!-- Scan quality mode (server only) -->
+            <div class="flex justify-center gap-2 mb-8 text-xs" x-show="processingMode === 'server'" x-transition>
+                <button @click="scanMode = 'auto'"
+                        class="px-3 py-1.5 rounded-full border transition-colors"
+                        :class="scanMode === 'auto' ? 'border-gold bg-gold/10 text-gold' : 'border-border text-text-muted hover:border-gold/30'">
+                    <svg class="w-3 h-3 inline -mt-0.5 mr-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    Auto
+                </button>
+                <button @click="scanMode = 'ai'"
+                        class="px-3 py-1.5 rounded-full border transition-colors"
+                        :class="scanMode === 'ai' ? 'border-gold bg-gold/10 text-gold' : 'border-border text-text-muted hover:border-gold/30'">
+                    <svg class="w-3 h-3 inline -mt-0.5 mr-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                    AI Vision
+                </button>
+                <button @click="scanMode = 'onnx'"
+                        class="px-3 py-1.5 rounded-full border transition-colors"
+                        :class="scanMode === 'onnx' ? 'border-gold bg-gold/10 text-gold' : 'border-border text-text-muted hover:border-gold/30'">
+                    <svg class="w-3 h-3 inline -mt-0.5 mr-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    Fast Local
+                </button>
             </div>
 
             <!-- Upload mode -->
@@ -159,22 +181,52 @@
                     <div class="text-xs text-text-dim mt-1" x-text="Math.round(pipelineProgress * 100) + '%'"></div>
                 </div>
 
-                <button @click="startScan()" class="btn-gold btn-lg btn-shimmer"
-                        :disabled="scanning || (processingMode === 'client' && pipelineState === 'loading')"
-                        :class="{'opacity-50 cursor-not-allowed': scanning || (processingMode === 'client' && pipelineState === 'loading')}">
-                    <template x-if="!scanning">
-                        <span class="inline-flex items-center gap-2">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-                            Scan Hieroglyphs
+                <!-- Voice description (STT) -->
+                <div x-show="voiceText" class="mb-4">
+                    <div class="card !p-3 inline-block max-w-md">
+                        <div class="flex items-center gap-2 text-sm">
+                            <svg class="w-4 h-4 text-gold shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                            <span class="text-text-muted" x-text="voiceText"></span>
+                            <button @click="voiceText = ''" class="text-text-dim hover:text-text ml-1">&times;</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-center gap-3">
+                    <button @click="startScan()" class="btn-gold btn-lg btn-shimmer"
+                            :disabled="scanning || (processingMode === 'client' && pipelineState === 'loading')"
+                            :class="{'opacity-50 cursor-not-allowed': scanning || (processingMode === 'client' && pipelineState === 'loading')}">
+                        <template x-if="!scanning">
+                            <span class="inline-flex items-center gap-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                                Scan Hieroglyphs
+                            </span>
+                        </template>
+                        <template x-if="scanning">
+                            <span class="inline-flex items-center gap-2">
+                                <svg class="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                                Scanning...
+                            </span>
+                        </template>
+                    </button>
+
+                    <!-- Speak button (STT) -->
+                    <button @click="toggleRecording()"
+                            class="btn-ghost btn-lg relative"
+                            :class="{'!border-red-500 !text-red-400': recording}"
+                            :disabled="scanning"
+                            :title="recording ? 'Stop recording' : 'Describe what you see'"
+                            aria-label="Voice input">
+                        <svg x-show="!recording && !transcribing" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                        <!-- Recording pulse -->
+                        <span x-show="recording" class="flex items-center gap-1.5">
+                            <span class="w-3 h-3 bg-red-500 rounded-full animate-pulse"></span>
+                            <span class="text-sm">Stop</span>
                         </span>
-                    </template>
-                    <template x-if="scanning">
-                        <span class="inline-flex items-center gap-2">
-                            <svg class="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
-                            Scanning...
-                        </span>
-                    </template>
-                </button>
+                        <!-- Transcribing spinner -->
+                        <svg x-show="transcribing" class="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path></svg>
+                    </button>
+                </div>
             </div>
         </div>
 
@@ -190,7 +242,14 @@
                     <h3 class="text-lg font-semibold">
                         <span class="text-gold">Step 1:</span> Detection
                     </h3>
-                    <span class="badge-gold" x-text="result.num_detections + ' glyphs found'"></span>
+                    <div class="flex items-center gap-2">
+                        <span class="text-[10px] px-2 py-0.5 rounded-full border border-gold/20 text-gold/70"
+                              x-show="result.mode" x-text="result.mode?.toUpperCase()"></span>
+                        <span class="text-[10px] px-2 py-0.5 rounded-full bg-gold/10 text-gold/70"
+                              x-show="result.detection_source"
+                              x-text="result.detection_source?.replace('ai_vision', 'AI Vision').replace('onnx', 'ONNX').replace('onnx_fallback', 'ONNX Fallback')"></span>
+                        <span class="badge-gold" x-text="result.num_detections + ' glyphs found'"></span>
+                    </div>
                 </div>
                 <div class="relative inline-block w-full">
                     <canvas x-ref="resultCanvas" class="max-w-full mx-auto rounded-lg border border-border block"></canvas>
@@ -241,8 +300,18 @@
                         <span class="badge-muted" x-text="result.layout_mode"></span>
                     </div>
                 </div>
-                <div class="bg-night rounded-lg p-4 border border-border">
+                <div class="bg-night rounded-lg p-4 border border-border flex items-center justify-between gap-3">
                     <p class="font-mono text-lg text-gold leading-relaxed" x-text="result.transliteration"></p>
+                    <button @click="ttsActiveId = 'translit'; ttsState = WadjetTTS.speakToggle(result.transliteration, {lang: 'en', rate: 0.8, id: 'translit'})"
+                            x-show="WadjetTTS.isSupported()"
+                            class="btn-ghost btn-sm shrink-0 !px-2 !py-1.5"
+                            :class="{'!border-gold !text-gold': ttsState !== 'idle' && ttsActiveId === 'translit'}"
+                            :aria-label="ttsActiveId === 'translit' && ttsState === 'playing' ? 'Pause' : 'Listen to transliteration'">
+                        <!-- Speaker icon (idle/paused) -->
+                        <svg x-show="!(ttsActiveId === 'translit' && ttsState === 'playing')" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                        <!-- Pause icon (playing) -->
+                        <svg x-show="ttsActiveId === 'translit' && ttsState === 'playing'" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </button>
                 </div>
                 <div class="mt-3 flex items-center gap-4 text-sm text-text-dim">
                     <span x-text="'Gardiner: ' + result.gardiner_sequence"></span>
@@ -259,13 +328,33 @@
 
                 <!-- English -->
                 <div class="bg-night rounded-lg p-4 border border-border mb-3" x-show="result.translation_en">
-                    <span class="badge-gold mb-2 inline-block">English</span>
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="badge-gold inline-block">English</span>
+                        <button @click="ttsActiveId = 'en'; ttsState = WadjetTTS.speakToggle(result.translation_en, {lang: 'en', id: 'en'})"
+                                x-show="WadjetTTS.isSupported()"
+                                class="btn-ghost btn-sm !px-2 !py-1.5"
+                                :class="{'!border-gold !text-gold': ttsState !== 'idle' && ttsActiveId === 'en'}"
+                                :aria-label="ttsActiveId === 'en' && ttsState === 'playing' ? 'Pause' : 'Listen in English'">
+                            <svg x-show="!(ttsActiveId === 'en' && ttsState === 'playing')" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                            <svg x-show="ttsActiveId === 'en' && ttsState === 'playing'" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </button>
+                    </div>
                     <p class="text-text leading-relaxed" x-text="result.translation_en"></p>
                 </div>
 
                 <!-- Arabic -->
                 <div class="bg-night rounded-lg p-4 border border-border" x-show="result.translation_ar" dir="rtl">
-                    <span class="badge-gold mb-2 inline-block">العربية</span>
+                    <div class="flex items-center justify-between mb-2" dir="ltr">
+                        <span class="badge-gold inline-block">العربية</span>
+                        <button @click="ttsActiveId = 'ar'; ttsState = WadjetTTS.speakToggle(result.translation_ar, {lang: 'ar', id: 'ar'})"
+                                x-show="WadjetTTS.isSupported()"
+                                class="btn-ghost btn-sm !px-2 !py-1.5"
+                                :class="{'!border-gold !text-gold': ttsState !== 'idle' && ttsActiveId === 'ar'}"
+                                :aria-label="ttsActiveId === 'ar' && ttsState === 'playing' ? 'Pause' : 'Listen in Arabic'">
+                            <svg x-show="!(ttsActiveId === 'ar' && ttsState === 'playing')" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                            <svg x-show="ttsActiveId === 'ar' && ttsState === 'playing'" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </button>
+                    </div>
                     <p class="text-text leading-relaxed font-body" x-text="result.translation_ar"></p>
                 </div>
             </div>
@@ -278,6 +367,20 @@
                     <svg class="w-5 h-5 text-warning shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                     <div>
                         <p class="text-sm text-text-muted">Translation requires an internet connection and Gemini API access. Detection and transliteration work offline.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI reading notes -->
+            <div class="card mb-6 border-gold/10" x-show="result.ai_reading?.notes"
+                 x-transition:enter="transition ease-out duration-300 delay-800"
+                 x-transition:enter-start="opacity-0 translate-y-4" x-transition:enter-end="opacity-100 translate-y-0">
+                <div class="flex items-start gap-3">
+                    <svg class="w-5 h-5 text-gold shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                    <div>
+                        <h4 class="text-sm font-semibold text-gold mb-1">AI Reading Notes</h4>
+                        <p class="text-sm text-text-muted" x-text="result.ai_reading.notes"></p>
+                        <p class="text-[10px] text-text-dim mt-1" x-show="result.ai_reading?.provider" x-text="'Provider: ' + result.ai_reading.provider + ' · ' + Math.round(result.ai_reading.elapsed_ms || 0) + 'ms'"></p>
                     </div>
                 </div>
             </div>
@@ -397,6 +500,7 @@ function scanApp() {
         step: 'upload',         // upload | results | error | empty
         inputMode: 'upload',    // upload | camera
         processingMode: 'server', // server | client
+        scanMode: 'auto',      // auto | ai | onnx (server-side scan quality)
         scanning: false,
         dragOver: false,
 
@@ -409,9 +513,20 @@ function scanApp() {
         cameraActive: false,
         stream: null,
 
+        // STT (voice input)
+        recording: false,
+        transcribing: false,
+        voiceText: '',
+        _mediaRecorder: null,
+        _audioChunks: [],
+
         // Results
         result: {},
         errorMessage: '',
+
+        // TTS state
+        ttsState: 'idle',       // idle | playing | paused
+        ttsActiveId: null,      // 'translit' | 'en' | 'ar'
 
         // Client-side pipeline
         pipeline: null,
@@ -420,6 +535,18 @@ function scanApp() {
 
         // History
         scanHistory: WadjetHistory.getScanHistory(),
+
+        // TTS state poller — sync Alpine state with Web Speech API state
+        _ttsPoller: null,
+        init() {
+            this._ttsPoller = setInterval(() => {
+                if (typeof WadjetTTS !== 'undefined') {
+                    const s = WadjetTTS.getState();
+                    if (s !== this.ttsState) this.ttsState = s;
+                    if (s === 'idle') this.ttsActiveId = null;
+                }
+            }, 250);
+        },
 
         // Gardiner code → Unicode character map (common signs)
         unicodeMap: {
@@ -452,6 +579,78 @@ function scanApp() {
 
         getUnicode(code) {
             return this.unicodeMap[code] || code;
+        },
+
+        // ── STT (Speech-to-Text) via Groq Whisper ──
+        async toggleRecording() {
+            if (this.recording) {
+                // Stop recording
+                if (this._mediaRecorder && this._mediaRecorder.state !== 'inactive') {
+                    this._mediaRecorder.stop();
+                }
+                return;
+            }
+
+            // Start recording
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                this._audioChunks = [];
+                this._mediaRecorder = new MediaRecorder(stream, {
+                    mimeType: MediaRecorder.isTypeSupported('audio/webm') ? 'audio/webm' : 'audio/mp4',
+                });
+
+                this._mediaRecorder.ondataavailable = (e) => {
+                    if (e.data.size > 0) this._audioChunks.push(e.data);
+                };
+
+                this._mediaRecorder.onstop = async () => {
+                    this.recording = false;
+                    stream.getTracks().forEach(t => t.stop());
+
+                    if (this._audioChunks.length === 0) return;
+
+                    const blob = new Blob(this._audioChunks, { type: this._mediaRecorder.mimeType });
+                    await this.sendAudioForTranscription(blob);
+                };
+
+                this._mediaRecorder.start();
+                this.recording = true;
+
+                // Auto-stop after 30 seconds
+                setTimeout(() => {
+                    if (this.recording) this.toggleRecording();
+                }, 30000);
+
+            } catch (err) {
+                const msg = err.name === 'NotAllowedError'
+                    ? 'Microphone access denied'
+                    : 'Could not start recording: ' + (err.message || 'unknown error');
+                Alpine.store('toast').show(msg, 'error');
+            }
+        },
+
+        async sendAudioForTranscription(blob) {
+            this.transcribing = true;
+            try {
+                const formData = new FormData();
+                formData.append('file', blob, 'recording.webm');
+                formData.append('lang', 'en');
+
+                const resp = await fetch('/api/stt', { method: 'POST', body: formData });
+                if (!resp.ok) throw new Error('Transcription failed');
+
+                const data = await resp.json();
+                if (data.text) {
+                    this.voiceText = data.text;
+                    Alpine.store('toast').show('Voice captured!', 'success');
+                } else {
+                    Alpine.store('toast').show('No speech detected', 'info');
+                }
+            } catch (err) {
+                Alpine.store('toast').show('Voice transcription failed — try typing instead', 'error');
+            } finally {
+                this.transcribing = false;
+            }
         },
 
         // ── Client-side pipeline management ──
@@ -569,6 +768,7 @@ function scanApp() {
 
             const formData = new FormData();
             formData.append('file', this.file);
+            formData.append('mode', this.scanMode);
 
             try {
                 const resp = await fetch('/api/scan', {
@@ -624,7 +824,13 @@ function scanApp() {
                     img.onerror = () => reject(new Error('Failed to load image'));
                 });
 
-                const pResult = await this.pipeline.processImage(img, { translate: false });
+                let pResult;
+                // If scan mode is AI or auto and we have network, use hybrid mode
+                if ((this.scanMode === 'ai' || this.scanMode === 'auto') && navigator.onLine) {
+                    pResult = await this.pipeline.processImageAI(img, this.file);
+                } else {
+                    pResult = await this.pipeline.processImage(img, { translate: false });
+                }
 
                 // Map client pipeline result to server-compatible format
                 this.result = {
@@ -641,10 +847,13 @@ function scanApp() {
                     layout_mode: 'browser',
                     translation_en: pResult.translationEn || '',
                     translation_ar: pResult.translationAr || '',
+                    detection_source: pResult.detectionSource || 'onnx',
+                    mode: this.scanMode,
+                    ai_reading: pResult.aiReading || null,
                     timing: {
                         detection_ms: Math.round(pResult.timing.detectionMs),
                         classification_ms: Math.round(pResult.timing.classificationMs),
-                        transliteration_ms: Math.round(pResult.timing.transliterationMs),
+                        transliteration_ms: Math.round(pResult.timing.transliterationMs || 0),
                         total_ms: Math.round(pResult.timing.totalMs),
                     }
                 };
@@ -749,6 +958,10 @@ function scanApp() {
             this.scanning = false;
             this.result = {};
             this.errorMessage = '';
+            this.ttsState = 'idle';
+            this.ttsActiveId = null;
+            this.voiceText = '';
+            if (typeof WadjetTTS !== 'undefined') WadjetTTS.stop();
             this.file = null;
             this.fileName = '';
             if (this.previewUrl) {
@@ -763,6 +976,8 @@ function scanApp() {
             this.stopCamera();
             if (this.previewUrl) URL.revokeObjectURL(this.previewUrl);
             if (this.pipeline) this.pipeline.dispose();
+            if (this._ttsPoller) clearInterval(this._ttsPoller);
+            if (typeof WadjetTTS !== 'undefined') WadjetTTS.stop();
         }
     };
 }

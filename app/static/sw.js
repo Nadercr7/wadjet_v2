@@ -26,8 +26,8 @@ const STATIC_ASSETS = [
 // ML model files — cached on first use (too large to pre-cache)
 const MODEL_PATHS = [
     '/models/hieroglyph/detector/glyph_detector_uint8.onnx',
-    '/models/hieroglyph/classifier/hieroglyph_classifier_uint8.onnx',
-    '/models/hieroglyph/label_mapping.json',
+    '/models/hieroglyph/classifier/hieroglyph_classifier.onnx',
+    '/models/hieroglyph/classifier/label_mapping.json',
     '/models/landmark/landmark_classifier_uint8.onnx',
     '/models/landmark/model_metadata.json',
 ];

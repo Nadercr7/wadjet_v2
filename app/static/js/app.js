@@ -195,7 +195,7 @@ document.addEventListener('alpine:init', () => {
 });
 
 // ── TTS for hieroglyphic pronunciation ──
-// Tries Gemini server TTS first (natural voice), falls back to browser SpeechSynthesis.
+// Delegates to WadjetTTS module (tts.js), with server audio fallback for dictionary.
 const _ttsAudioCache = {};
 let _ttsCurrentAudio = null;
 
@@ -206,12 +206,12 @@ function speakSign(text) {
         _ttsCurrentAudio.pause();
         _ttsCurrentAudio = null;
     }
-    if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+    if (typeof WadjetTTS !== 'undefined') WadjetTTS.stop();
 
-    // Try server TTS (Gemini natural voice)
+    // Try server TTS (Gemini natural voice) for dictionary pronunciation
     const cacheKey = text.trim().toLowerCase();
     if (_ttsAudioCache[cacheKey]) {
-        _playAudio(_ttsAudioCache[cacheKey]);
+        _playAudio(_ttsAudioCache[cacheKey], text);
         return;
     }
 
@@ -222,32 +222,22 @@ function speakSign(text) {
     }).then(blob => {
         const audioUrl = URL.createObjectURL(blob);
         _ttsAudioCache[cacheKey] = audioUrl;
-        _playAudio(audioUrl);
+        _playAudio(audioUrl, text);
     }).catch(() => {
-        // Fallback: browser SpeechSynthesis
-        _speakBrowser(text);
+        // Fallback: WadjetTTS module (Web Speech API)
+        if (typeof WadjetTTS !== 'undefined' && WadjetTTS.isSupported()) {
+            WadjetTTS.speak(text, { lang: 'en', rate: 0.75 });
+        }
     });
 }
 
-function _playAudio(url) {
+function _playAudio(url, fallbackText) {
     const audio = new Audio(url);
     audio.volume = 1.0;
     _ttsCurrentAudio = audio;
-    audio.play().catch(() => _speakBrowser(url));
-}
-
-function _speakBrowser(text) {
-    if (!('speechSynthesis' in window)) return;
-    const utter = new SpeechSynthesisUtterance(text);
-    utter.lang = 'en-US';
-    utter.rate = 0.75;
-    utter.pitch = 0.9;
-    utter.volume = 1.0;
-    // Prefer high-quality voices: Google, Microsoft Neural, then any English
-    const voices = window.speechSynthesis.getVoices();
-    const preferred = voices.find(v => v.lang.startsWith('en') && /google|neural|natural|premium/i.test(v.name))
-        || voices.find(v => v.lang === 'en-US')
-        || voices.find(v => v.lang.startsWith('en'));
-    if (preferred) utter.voice = preferred;
-    window.speechSynthesis.speak(utter);
+    audio.play().catch(() => {
+        if (fallbackText && typeof WadjetTTS !== 'undefined' && WadjetTTS.isSupported()) {
+            WadjetTTS.speak(fallbackText, { lang: 'en', rate: 0.75 });
+        }
+    });
 }
