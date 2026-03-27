@@ -28,6 +28,7 @@ After each task, update the "Progress Log" section at the bottom of this file.
 | T3.1 | Dictionary: UX Overhaul & Learning Journey | DONE ✅ | Medium | dictionary.py (api), dictionary.html |
 | T3.2 | Dictionary: Premium Learning Experience | DONE ✅ | Large | dictionary.py (api), dictionary.html, input.css, lesson_page.html (NEW) |
 | T4 | Write Page: Fix & Real Translation | PHASE 1 DONE ✅ | Large | write.html, write.py, gardiner.py, egyptian_lexicon.jsonl (NEW) |
+| T5 | Landmark AI Experience & Quality | NOT STARTED | Medium | explore.py (api), landmark_pipeline.py, explore.html, landmarks.html |
 
 ---
 
@@ -2184,6 +2185,52 @@ uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 | `antigravity-awesome-skills/skills/llm-app-patterns/` | `Repos/` | Embedding model comparison, vocabulary grounding |
 | `sentence-transformers/examples/training/` | `Repos/` | Fine-tuning embeddings on Egyptian data (future upgrade) |
 | `ragflow/rag/prompts/` | `Repos/08-RAG-VectorDB/` | Cross-language prompt templates |
+
+#### NEW API Providers for T4-P2 (from research)
+
+These free APIs dramatically improve translation quality and reliability:
+
+| Provider | Role in T4-P2 | Free Tier |
+|----------|--------------|-----------|
+| **Voyage AI** | Primary embedder for lexicon FAISS index (replaces all-MiniLM-L6-v2). Use `voyage-4-large` for semantic English→Egyptian word matching. Use `rerank-2.5` to rerank few-shot examples in translation prompt. | 200M tokens lifetime |
+| **TLA API** | Primary data source for building `egyptian_lexicon.jsonl`. 90,000 ancient Egyptian lemmas with transliteration, translation, attestations. `api.thesaurus-linguae-aegyptiae.de` — free, no key. | Free forever, no key |
+| **Cloudflare Workers AI** | Backup embedder (`bge-m3` multilingual). Backup text generation for translation when Gemini+Groq both fail. | 10K neurons/day forever |
+| **Groq** | Translation fallback when Gemini rate-limited. Use `llama-3.3-70b-versatile` for vocabulary-grounded translation. Also `playai-tts-arabic` for Arabic readback of translations. | 1000 req/day free |
+| **Google Cloud TTS** | Read back translations in Arabic Neural voice ("ankh = حياة"). Premium quality multilingual TTS. | 4M chars/month free |
+| **Grok** | Tiebreaker when AI translations disagree. Cross-validate Gemini's sign choices. | 8 keys |
+
+**Embedding strategy**: Use Voyage AI `voyage-4-large` as primary (200M tokens is enormous for a 500-word lexicon). Build FAISS index over lexicon English meanings. At query time: embed user input → find top-K matching Egyptian words → inject into Gemini prompt. Fallback: Cloudflare `bge-m3` if Voyage unavailable.
+
+**Translation fallback chain**: Gemini 2.5 Flash (vocabulary-grounded prompt) → Groq Llama 3.3 70B → Grok → Cloudflare Llama → alpha mode (last resort WITH user warning).
+
+#### Write Page Bugs to Fix BEFORE Building Translation Engine
+
+These bugs exist in current code and must be fixed as part of T4-P2:
+
+| Bug | Severity | Issue |
+|-----|----------|-------|
+| Silent Smart→Alpha fallback | HIGH | When Gemini fails, Smart mode silently degrades to letter-by-letter. User sees no warning. Must show "⚠️ AI unavailable, using phonetic approximation" toast. |
+| Palette insertion in Alpha mode | MEDIUM | `insertFromPalette()` appends transliteration string (e.g. "nfr") to alpha input, which gets split letter-by-letter (n→sign, f→sign, r→sign = 3 wrong signs). Fix: in alpha mode, insert the Unicode character directly. |
+| No error feedback on API failure | MEDIUM | `write.html`: 4xx/5xx responses log to console only. Add visible error toast/notification. |
+| Gemini returns invalid Gardiner codes | MEDIUM | No validation. "A01" instead of "A1", "G01" instead of "G1". Add code normalization: strip leading zeros, validate against `GARDINER_TRANSLITERATION`. |
+| corpus.jsonl completely unused | LOW | 15,604 Egyptian↔English translation pairs sit unused by write. With direction reversal, this could power a basic word lookup even without AI. |
+
+#### Mandatory Test Cases
+
+Test these known Egyptian words after implementation. If ANY fail, the translation engine is not working:
+
+| English Input | Expected MdC | Expected Signs | Determinative |
+|--------------|-------------|----------------|---------------|
+| "life" | anx | S34 N35 Aa1 | Y1 |
+| "beautiful" / "good" | nfr | F35 I9 D21 | Y1 |
+| "peace" / "offering" | Htp | R4 X1 Q3 | A2 |
+| "house" | pr | O1 | Z1 (logogram) |
+| "sun" / "Ra" | ra | N5 | Z1 (logogram) |
+| "god" | nTr | R8 X1 D21 | A40 |
+| "king" | nsw | M23 X1 | A40 |
+| "water" | mw | N35 W24 | N35A |
+| "The king goes to the temple" | nsw + šm + r + Hwt-nTr | Multiple | VSO order |
+| "Nour" (proper name) | n-w-r | N35 G43 D21 | A1 (male) |
 
 ### T4 Self-Prompt (copy this when starting T4)
 
