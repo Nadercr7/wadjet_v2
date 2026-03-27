@@ -562,17 +562,6 @@ async def identify_landmark(request: Request, file: UploadFile = File(...)):
         ])
     )
 
-    # Skip Grok if one model is overwhelmingly more confident
-    if need_tiebreak and onnx_candidate and gemini_candidate:
-        gap = abs(onnx_candidate.confidence - gemini_candidate.confidence)
-        high = max(onnx_candidate.confidence, gemini_candidate.confidence)
-        if high >= 0.85 and gap >= 0.40:
-            logger.info(
-                "Skipping tiebreak: confidence gap %.2f (ONNX=%.2f, Gemini=%.2f)",
-                gap, onnx_candidate.confidence, gemini_candidate.confidence,
-            )
-            need_tiebreak = False
-
     if need_tiebreak and grok and grok.available:
         logger.info(
             "Tiebreak: ONNX=%s vs Gemini=%s — calling Grok",
