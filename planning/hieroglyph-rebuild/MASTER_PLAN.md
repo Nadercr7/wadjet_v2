@@ -7,7 +7,7 @@
 
 ## The Core Insight
 
-When you (Claude/Gemini) look at a hieroglyph photo, you can read it correctly.
+When a vision API looks at a hieroglyph photo, it can read it correctly.
 When our ONNX pipeline does it, it fails — 3-5 blurry detections, random classifications, garbage transliteration.
 
 **The solution: Make AI vision the PRIMARY reader, not the fallback.**

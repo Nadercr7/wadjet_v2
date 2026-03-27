@@ -1,7 +1,6 @@
 # Hieroglyph Detector Rebuild — Comprehensive Plan
 
 > **Created:** 2026-03-24
-> **Author:** AI Assistant
 > **Goal:** Build a hieroglyph detector that actually works on real stone inscription photos
 
 ---

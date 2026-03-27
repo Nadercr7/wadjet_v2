@@ -1,7 +1,7 @@
 # Wadjet v2 — Project Instructions
 
-> This file provides comprehensive context for AI assistants working on this project.
-> Read this alongside `planning/CONSTITUTION.md` before making any changes.
+> Comprehensive project context: tech stack, design system, routes, commands, conventions.
+> Read alongside `planning/CONSTITUTION.md` before making any changes.
 
 ---
 
