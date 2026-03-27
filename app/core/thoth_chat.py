@@ -147,22 +147,28 @@ async def _generate_with_fallback(
 ) -> str:
     """Try Gemini first; fall back to Grok on failure."""
     try:
-        return await gemini.generate_text(
+        reply = await gemini.generate_text(
             prompt,
             system_instruction=SYSTEM_PROMPT,
             temperature=_TEMPERATURE,
             max_output_tokens=_MAX_TOKENS,
         )
+        if reply:
+            return reply
+        raise RuntimeError("Gemini returned empty response")
     except Exception:
         logger.warning("Gemini failed for chat, trying Grok fallback")
         if grok is None:
             raise
-        return await grok.generate_text(
+        reply = await grok.generate_text(
             prompt,
             system_instruction=SYSTEM_PROMPT,
             temperature=_TEMPERATURE,
             max_tokens=_MAX_TOKENS,
         )
+        if not reply:
+            raise RuntimeError("Both Gemini and Grok failed to generate a reply")
+        return reply
 
 
 async def _stream_with_fallback(
@@ -170,26 +176,40 @@ async def _stream_with_fallback(
     grok: GrokService | None,
     prompt: str,
 ) -> AsyncIterator[str]:
-    """Try Gemini streaming; fall back to Grok streaming on failure."""
+    """Try Gemini streaming; fall back to Grok streaming on failure.
+
+    Buffers Gemini's first chunk: if the first chunk arrives, commit to
+    Gemini and stream directly.  If it fails before any data, switch
+    entirely to Grok so the user never sees garbled partial output.
+    """
     try:
-        async for chunk in gemini.generate_text_stream(
+        gemini_stream = gemini.generate_text_stream(
             prompt,
             system_instruction=SYSTEM_PROMPT,
             temperature=_TEMPERATURE,
             max_output_tokens=_MAX_TOKENS,
-        ):
+        )
+        first_chunk = await gemini_stream.__anext__()
+        # Gemini is responding — commit to it
+        yield first_chunk
+        async for chunk in gemini_stream:
             yield chunk
+        return
+    except StopAsyncIteration:
+        # Gemini returned nothing — fall through to Grok
+        pass
     except Exception:
-        logger.warning("Gemini stream failed, trying Grok fallback")
-        if grok is None:
-            raise
-        async for chunk in grok.generate_text_stream(
-            prompt,
-            system_instruction=SYSTEM_PROMPT,
-            temperature=_TEMPERATURE,
-            max_tokens=_MAX_TOKENS,
-        ):
-            yield chunk
+        logger.warning("Gemini stream failed before data, trying Grok fallback")
+
+    if grok is None:
+        raise RuntimeError("Gemini streaming failed and Grok is unavailable")
+    async for chunk in grok.generate_text_stream(
+        prompt,
+        system_instruction=SYSTEM_PROMPT,
+        temperature=_TEMPERATURE,
+        max_tokens=_MAX_TOKENS,
+    ):
+        yield chunk
 
 
 # ── Main chat ──
