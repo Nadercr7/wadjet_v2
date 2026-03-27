@@ -34,7 +34,9 @@ router = APIRouter(prefix="/api/landmarks", tags=["landmarks"])
 DATA_DIR = Path(__file__).parent.parent.parent / "data"
 TEXT_DIR = DATA_DIR / "text"
 METADATA_DIR = DATA_DIR / "metadata"
-MODEL_META = Path(__file__).parent.parent.parent / "models" / "landmark" / "onnx" / "model_metadata.json"
+MODEL_DIR = Path(__file__).parent.parent.parent / "models" / "landmark"
+MODEL_META = MODEL_DIR / "model_metadata.json"
+LABEL_MAPPING = MODEL_DIR / "landmark_label_mapping.json"
 
 
 # ── Wikipedia data loader ──
@@ -78,14 +80,27 @@ def _load_model_classes() -> list[str]:
 
 @lru_cache(maxsize=1)
 def _load_display_names() -> dict[str, str]:
-    """Load display names from model metadata."""
-    if not MODEL_META.exists():
-        return {}
-    try:
-        data = json.loads(MODEL_META.read_text(encoding="utf-8"))
-        return data.get("display_names", {})
-    except Exception:
-        return {}
+    """Load display names from model metadata or label mapping."""
+    # Try model_metadata.json first
+    if MODEL_META.exists():
+        try:
+            data = json.loads(MODEL_META.read_text(encoding="utf-8"))
+            names = data.get("display_names", {})
+            if names:
+                return names
+        except Exception:
+            pass
+    # Fallback: generate from label_mapping.json
+    if LABEL_MAPPING.exists():
+        try:
+            mapping = json.loads(LABEL_MAPPING.read_text(encoding="utf-8"))
+            return {
+                slug: slug.replace("_", " ").title()
+                for slug in mapping.values()
+            }
+        except Exception:
+            pass
+    return {}
 
 
 @lru_cache(maxsize=1)
@@ -235,13 +250,15 @@ async def list_categories():
 @router.get("/{slug}")
 async def get_landmark(slug: str):
     """Get full detail for a single landmark by slug."""
-    # Normalize slug
+    # Normalize slug — try both hyphen and underscore variants
     normalized = slug.lower().strip()
+    hyphen_slug = normalized.replace("_", "-")
+    underscore_slug = normalized.replace("-", "_")
 
-    # Try curated first (rich data)
-    attraction = get_by_slug(normalized)
+    # Try curated first (rich data) — curated uses hyphens
+    attraction = get_by_slug(hyphen_slug) or get_by_slug(underscore_slug) or get_by_slug(normalized)
     if attraction:
-        wiki = _load_wiki_data().get(normalized.replace("-", "_"), {})
+        wiki = _load_wiki_data().get(underscore_slug, {})
         img_counts = _load_image_counts()
 
         # Recommendations
@@ -272,12 +289,11 @@ async def get_landmark(slug: str):
         })
 
     # Try Wikipedia data
-    wiki_slug = normalized.replace("-", "_")
     wiki_data = _load_wiki_data()
-    if wiki_slug in wiki_data:
-        wiki = wiki_data[wiki_slug]
+    if underscore_slug in wiki_data:
+        wiki = wiki_data[underscore_slug]
         return JSONResponse(content={
-            **_wiki_to_dict(wiki_slug, wiki),
+            **_wiki_to_dict(underscore_slug, wiki),
             "highlights": "",
             "visiting_tips": "",
             "historical_significance": "",
@@ -295,13 +311,13 @@ async def get_landmark(slug: str):
 
     # Fallback: model-only landmark (no text data)
     display_names = _load_display_names()
-    if wiki_slug in display_names:
-        name = display_names[wiki_slug]
+    if underscore_slug in display_names:
+        name = display_names[underscore_slug]
         return JSONResponse(content={
             "slug": normalized,
             "name": name,
-            "city": _guess_city(wiki_slug),
-            "type": _guess_type(wiki_slug),
+            "city": _guess_city(underscore_slug),
+            "type": _guess_type(underscore_slug),
             "era": "",
             "popularity": 5,
             "description": f"{name} is an Egyptian heritage landmark recognized by the Wadjet AI model.",
