@@ -1,13 +1,3 @@
----
-title: Wadjet v2
-emoji: 🏛️
-colorFrom: yellow
-colorTo: gray
-sdk: docker
-app_port: 7860
-pinned: true
----
-
 <div align="center">
 
 <!-- Header Banner -->
