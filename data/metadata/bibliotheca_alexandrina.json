@@ -1,0 +1,1333 @@
+[
+  {
+    "hash": "6badcd3c7b7d7628",
+    "original_name": "0.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 6071,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "3bdf3a205d900877",
+    "original_name": "1.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 9614,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "6dccd17fcafdcebb",
+    "original_name": "10.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 10789,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "501d633e80c6052c",
+    "original_name": "11.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 9125,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "2bd5b29a15f03af8",
+    "original_name": "12.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 9023,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "f545dc33511b2706",
+    "original_name": "13.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 6358,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "177ff3d2df53a9ab",
+    "original_name": "14.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 9559,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "56fcdbc695634fb1",
+    "original_name": "15.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 9934,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "fb87b377a83b80c8",
+    "original_name": "16.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 8278,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "81ea551bbc4c3d8a",
+    "original_name": "17.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 9211,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "4452e28b63380825",
+    "original_name": "18.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 9412,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "d27ecd5145a8df84",
+    "original_name": "19.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 8250,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "4e4f3acbdf6d6586",
+    "original_name": "2.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 10335,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "8652946f1a4ed979",
+    "original_name": "20.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 9740,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "d191d0610c31a303",
+    "original_name": "21.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 7907,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "b0523eafac8ed65b",
+    "original_name": "22.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 6962,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "a37d32633329a024",
+    "original_name": "23.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 6695,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "3ea514694c9197b1",
+    "original_name": "24.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 8389,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "47e6dd91d1df99e6",
+    "original_name": "25.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 6284,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "ed500d2e86891b78",
+    "original_name": "26.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 7479,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "792a643c7eee995d",
+    "original_name": "27.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 8280,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "b81d4a23d8512379",
+    "original_name": "28.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 9592,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "fbe5c9b124da6f18",
+    "original_name": "29.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 9343,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "4ca0b49e748193b8",
+    "original_name": "3.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 6909,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "7bbf8e64c54a191b",
+    "original_name": "30.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 8247,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "3540f984be891cbd",
+    "original_name": "31.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 7226,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "9f95891146df3395",
+    "original_name": "32.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 14105,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "8b86f656464b1f6d",
+    "original_name": "33.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 5685,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "30f0bcf7d132af02",
+    "original_name": "34.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 7528,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "1d69239aa2d57a91",
+    "original_name": "35.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 6365,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "7da7d546440ab819",
+    "original_name": "36.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 7463,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "440619f143a91edf",
+    "original_name": "37.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 7844,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "d6dde3c6489e688e",
+    "original_name": "38.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 7756,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "a9a97a35dfaee761",
+    "original_name": "39.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 6424,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "7d0159941a5bee8b",
+    "original_name": "4.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 8392,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "3b15eb2adb3cc1de",
+    "original_name": "40.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 10985,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "afdcb4bc3b9323b0",
+    "original_name": "41.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 10246,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "8dd19bd2b04f4c38",
+    "original_name": "42.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 7078,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "204512dd124cb416",
+    "original_name": "43.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 8873,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "ef32729fb7e4deff",
+    "original_name": "44.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 7514,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "c46f3541f80b0540",
+    "original_name": "45.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 14288,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "44b90c57b116e6c7",
+    "original_name": "46.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 14639,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "62127b2ebf75ca03",
+    "original_name": "47.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 6502,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "c0343dc43bc0448e",
+    "original_name": "48.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 8491,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "e36aa3d599f57d6a",
+    "original_name": "49.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 10017,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "13733ee08b45ada3",
+    "original_name": "5.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 9575,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "88e25fa4eca1d6a0",
+    "original_name": "50.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 8133,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "9be198f84c9fdc2f",
+    "original_name": "51.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 8561,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "a9ac1d6cdb97e491",
+    "original_name": "52.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 8222,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "169e18592316c499",
+    "original_name": "53.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 5857,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "236ec4443eebca31",
+    "original_name": "54.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 9539,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "3603a72530cabc33",
+    "original_name": "55.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 6125,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "338df2b7eaf2b6ee",
+    "original_name": "56.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 10698,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "a9e0e69ea6410e04",
+    "original_name": "57.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 8676,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "c6673cc74528ed09",
+    "original_name": "58.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 9900,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "eb727d893661a4dc",
+    "original_name": "59.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 7391,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "cae3755c0e5fe2a5",
+    "original_name": "6.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 6535,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "a8c3dd68eb8548b3",
+    "original_name": "60.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 9079,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "4cdcceb96fed5a83",
+    "original_name": "61.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 9015,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "4ade5518af66fd48",
+    "original_name": "62.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 9049,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "26b6316b3a6f47c3",
+    "original_name": "63.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 8090,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "28794ee38bc33401",
+    "original_name": "64.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 8745,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "85c0f0d60b2e455a",
+    "original_name": "65.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 10106,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "7d5ad824a2dbaa77",
+    "original_name": "66.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 7392,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "b5d6d9e14b4a6d59",
+    "original_name": "67.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 5701,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "8bee8ca44c673f39",
+    "original_name": "68.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 7346,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "7f7d57496e4ba196",
+    "original_name": "69.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 8931,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "37c7f31e577cee8c",
+    "original_name": "7.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 6046,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "e9fc95856d059a21",
+    "original_name": "70.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 8099,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "f2b1b2be172d4e22",
+    "original_name": "71.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 8221,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "dcfe909cb7350b60",
+    "original_name": "72.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 8944,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "ba4030728a6a05d1",
+    "original_name": "73.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 8146,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "4f8da30c65c9489d",
+    "original_name": "74.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 5801,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "a1b7e9e12c0675c5",
+    "original_name": "75.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 4402,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "19d0a4caeb445f71",
+    "original_name": "76.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 9354,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "da8318701f4db423",
+    "original_name": "8.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 7874,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "735c8f7b1f7be593",
+    "original_name": "9.jpg",
+    "original_class": "Bibliotheca_Alexandrina",
+    "size_bytes": 7482,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:23"
+  },
+  {
+    "hash": "5044d3afbbec4c34",
+    "original_name": "0.jpg",
+    "original_class": "Bibliotheca_Alexandrina_planetarium",
+    "size_bytes": 9125,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:24"
+  },
+  {
+    "hash": "dd073c6bfe165056",
+    "original_name": "1.jpg",
+    "original_class": "Bibliotheca_Alexandrina_planetarium",
+    "size_bytes": 6343,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:24"
+  },
+  {
+    "hash": "dd576e94554f7af7",
+    "original_name": "10.jpg",
+    "original_class": "Bibliotheca_Alexandrina_planetarium",
+    "size_bytes": 10057,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:24"
+  },
+  {
+    "hash": "60a56ca96a7cce88",
+    "original_name": "11.jpg",
+    "original_class": "Bibliotheca_Alexandrina_planetarium",
+    "size_bytes": 9215,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:24"
+  },
+  {
+    "hash": "de6b3166248cd390",
+    "original_name": "12.jpg",
+    "original_class": "Bibliotheca_Alexandrina_planetarium",
+    "size_bytes": 7315,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:24"
+  },
+  {
+    "hash": "ae63f1c3bbbc74c4",
+    "original_name": "13.jpg",
+    "original_class": "Bibliotheca_Alexandrina_planetarium",
+    "size_bytes": 6807,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:24"
+  },
+  {
+    "hash": "a801cdd57d620cdd",
+    "original_name": "2.jpg",
+    "original_class": "Bibliotheca_Alexandrina_planetarium",
+    "size_bytes": 8948,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:24"
+  },
+  {
+    "hash": "f5b53e7104f9e5cf",
+    "original_name": "3.jpg",
+    "original_class": "Bibliotheca_Alexandrina_planetarium",
+    "size_bytes": 7891,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:24"
+  },
+  {
+    "hash": "d2334cc9a653fb0d",
+    "original_name": "4.jpg",
+    "original_class": "Bibliotheca_Alexandrina_planetarium",
+    "size_bytes": 7782,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:24"
+  },
+  {
+    "hash": "fd537fa9b6e9d350",
+    "original_name": "5.jpg",
+    "original_class": "Bibliotheca_Alexandrina_planetarium",
+    "size_bytes": 10142,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:24"
+  },
+  {
+    "hash": "bf58d548de1107f9",
+    "original_name": "6.jpg",
+    "original_class": "Bibliotheca_Alexandrina_planetarium",
+    "size_bytes": 9031,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:24"
+  },
+  {
+    "hash": "96bcaca054ceec0d",
+    "original_name": "7.jpg",
+    "original_class": "Bibliotheca_Alexandrina_planetarium",
+    "size_bytes": 7940,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:24"
+  },
+  {
+    "hash": "fa17560c439b7634",
+    "original_name": "8.jpg",
+    "original_class": "Bibliotheca_Alexandrina_planetarium",
+    "size_bytes": 8159,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:24"
+  },
+  {
+    "hash": "edbef3482d4a0807",
+    "original_name": "9.jpg",
+    "original_class": "Bibliotheca_Alexandrina_planetarium",
+    "size_bytes": 6949,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:24"
+  },
+  {
+    "hash": "73fe790f9a11fd84",
+    "original_name": "10.jpg",
+    "original_class": "Bibliotheca Alexandrina",
+    "size_bytes": 11430,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:09"
+  },
+  {
+    "hash": "45e12958011044aa",
+    "original_name": "14.jpg",
+    "original_class": "Bibliotheca Alexandrina",
+    "size_bytes": 10594,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:09"
+  },
+  {
+    "hash": "f15bcbb05327ec7a",
+    "original_name": "6.jpg",
+    "original_class": "Bibliotheca Alexandrina",
+    "size_bytes": 3260,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:09"
+  },
+  {
+    "hash": "0214d119e5454c34",
+    "original_name": "AlexLib02.jpg",
+    "original_class": "Bibliotheca Alexandrina",
+    "size_bytes": 226919,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:09"
+  },
+  {
+    "hash": "d97c47a291d7e8f7",
+    "original_name": "bibalex_share.jpg",
+    "original_class": "Bibliotheca Alexandrina",
+    "size_bytes": 47340,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:09"
+  },
+  {
+    "hash": "44e12c93e24f84c7",
+    "original_name": "Bibliotheca_Alexandrina_plaza_003.jpg",
+    "original_class": "Bibliotheca Alexandrina",
+    "size_bytes": 108184,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:09"
+  },
+  {
+    "hash": "4373da62e1c3c6a9",
+    "original_name": "photo4jpg.jpg",
+    "original_class": "Bibliotheca Alexandrina",
+    "size_bytes": 202999,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:09"
+  },
+  {
+    "hash": "5b2ba1e68d817f24",
+    "original_name": "place-2015-02-20-6-Bibliothecaalexandrina26df3350bb6ba3968f29e9dce1d93f8d.jpg",
+    "original_class": "Bibliotheca Alexandrina",
+    "size_bytes": 26961,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:09"
+  },
+  {
+    "filename": "8b496e6b585d5312.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Bibliotheca_Alexandrina_plaza_006.jpg",
+    "title": "File:Bibliotheca Alexandrina plaza 006.jpg",
+    "license": "Public domain",
+    "artist": "Original uploader was <a href=\"https://foundation.wikimedia.org/wiki/meta:User:Moushira\" class=\"extiw\" title=\"wikimedia:meta:User:Moushira\">Moushira</a> at <a class=\"external text\" href=\"https://meta.wikimedia.org\">meta.wikimedia</a>",
+    "width": 1280,
+    "height": 960,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:38:36"
+  },
+  {
+    "filename": "42e420bf23450836.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Bibliotheca_Alexandrina_002.jpg",
+    "title": "File:Bibliotheca Alexandrina 002.jpg",
+    "license": "Public domain",
+    "artist": "Original uploader was <a href=\"https://foundation.wikimedia.org/wiki/meta:User:Moushira\" class=\"extiw\" title=\"wikimedia:meta:User:Moushira\">Moushira</a> at <a class=\"external text\" href=\"https://meta.wikimedia.org\">meta.wikimedia</a>",
+    "width": 960,
+    "height": 1134,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:38:36"
+  },
+  {
+    "filename": "62b6f79fb1fb4b7e.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Bibliotheca_Alexandrina_--_Library_entrance.jpg",
+    "title": "File:Bibliotheca Alexandrina -- Library entrance.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Bastique\" title=\"User:Bastique\">Cary Bass</a>",
+    "width": 3712,
+    "height": 2088,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:38:36"
+  },
+  {
+    "filename": "e5fb8e3a68c3d2dc.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/23/Bibliotheca_Alexandrina_--_Wall_detail.jpg",
+    "title": "File:Bibliotheca Alexandrina -- Wall detail.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Bastique\" title=\"User:Bastique\">Cary Bass</a>",
+    "width": 3712,
+    "height": 2088,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:38:36"
+  },
+  {
+    "filename": "115eb3fa8ec6a557.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/72/Bibliotheca_Alexandrina_%282007-05-021%29.jpg",
+    "title": "File:Bibliotheca Alexandrina (2007-05-021).jpg",
+    "license": "CC BY 2.0",
+    "artist": "Argenberg",
+    "width": 2048,
+    "height": 1365,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:38:36"
+  },
+  {
+    "filename": "1ec3df558c02c52a.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/de/Bibliotheca_Alexandrina_02.jpg",
+    "title": "File:Bibliotheca Alexandrina 02.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Cecioka&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Cecioka (page does not exist)\">Cecioka</a>",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:38:36"
+  },
+  {
+    "filename": "9a030f69c65e9140.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/49/Bibliotheca_Alexandrina_20.jpg",
+    "title": "File:Bibliotheca Alexandrina 20.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Cecioka&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Cecioka (page does not exist)\">Cecioka</a>",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:38:36"
+  },
+  {
+    "filename": "be670f10d0f57918.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/07/Bibliotheca_Alexandrina_30.jpg",
+    "title": "File:Bibliotheca Alexandrina 30.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Cecioka&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Cecioka (page does not exist)\">Cecioka</a>",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:38:36"
+  },
+  {
+    "filename": "26bf1c342eda9bf6.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Bibliotheca_Alexandrina_32.jpg",
+    "title": "File:Bibliotheca Alexandrina 32.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Cecioka&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Cecioka (page does not exist)\">Cecioka</a>",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:38:36"
+  },
+  {
+    "filename": "b672ae4d457c8057.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Bibliotheca_Alexandrina_33.jpg",
+    "title": "File:Bibliotheca Alexandrina 33.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Cecioka&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Cecioka (page does not exist)\">Cecioka</a>",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:38:36"
+  },
+  {
+    "filename": "c900417af71ea023.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Bibliotheca_Alexandrina_34.jpg",
+    "title": "File:Bibliotheca Alexandrina 34.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Cecioka&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Cecioka (page does not exist)\">Cecioka</a>",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:38:36"
+  },
+  {
+    "filename": "39d00b9cda2fa9e7.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/e3/Bibliotheca_Alexandrina_35.jpg",
+    "title": "File:Bibliotheca Alexandrina 35.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Cecioka&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Cecioka (page does not exist)\">Cecioka</a>",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:38:36"
+  },
+  {
+    "filename": "8b3767bf32aacf6e.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/65/Bibliotheca_Alexandrina_40.jpg",
+    "title": "File:Bibliotheca Alexandrina 40.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Cecioka&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Cecioka (page does not exist)\">Cecioka</a>",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:38:36"
+  },
+  {
+    "filename": "a5f5ceabbdededeb.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/b6/Bibliotheca_Alexandrina_41.jpg",
+    "title": "File:Bibliotheca Alexandrina 41.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Cecioka&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Cecioka (page does not exist)\">Cecioka</a>",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:38:36"
+  },
+  {
+    "filename": "967f4796bee726a9.png",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Bibliotheca_Alexandrina_32-cropped.png",
+    "title": "File:Bibliotheca Alexandrina 32-cropped.png",
+    "license": "CC BY-SA 4.0",
+    "artist": "Cecioka",
+    "width": 1324,
+    "height": 2336,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:38:36"
+  },
+  {
+    "filename": "7914d8882309426a.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/fa/View_of_Bibliotheca_Alexandrina.jpg",
+    "title": "File:View of Bibliotheca Alexandrina.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:AhmadSherif\" title=\"User:AhmadSherif\">Ahmed Sherif</a>",
+    "width": 2560,
+    "height": 1700,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:38:36"
+  },
+  {
+    "filename": "b203fbed8ad91475.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/37/Egypt%2C_Alexandria%2C_Bibliotheca_Alexandrina.jpg",
+    "title": "File:Egypt, Alexandria, Bibliotheca Alexandrina.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Argenberg\" title=\"User:Argenberg\">Vyacheslav Argenberg</a>",
+    "width": 3072,
+    "height": 2048,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:38:36"
+  },
+  {
+    "filename": "8dfd1e97b33f1295.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/45/Egypt%2C_Alexandria%2C_Bibliotheca_Alexandrina_2.jpg",
+    "title": "File:Egypt, Alexandria, Bibliotheca Alexandrina 2.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Argenberg\" title=\"User:Argenberg\">Vyacheslav Argenberg</a>",
+    "width": 3072,
+    "height": 2048,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:38:36"
+  },
+  {
+    "filename": "226a5d66e1453a42.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Painting_%22Temporary_marriage%22-_Exhibition_in_Bibliotheca_Alexandrina_-_2022.jpg",
+    "title": "File:Painting \"Temporary marriage\"- Exhibition in Bibliotheca Alexandrina - 2022.jpg",
+    "license": "CC0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Blana22&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Blana22 (page does not exist)\">Blana22</a>",
+    "width": 1080,
+    "height": 810,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:38:36"
+  },
+  {
+    "filename": "fd6cbcf3ece9de24.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Bibliotheca_Alexandrina_in_atmospheric_light.jpg",
+    "title": "File:Bibliotheca Alexandrina in atmospheric light.jpg",
+    "license": "CC BY-SA 1.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Mogaio\" title=\"User:Mogaio\">Mogaio</a>",
+    "width": 2560,
+    "height": 1745,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:38:36"
+  },
+  {
+    "filename": "0131647b1cb8eefd.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/e3/Bibliotheca_Alexandrina-Grafemi.jpg",
+    "title": "File:Bibliotheca Alexandrina-Grafemi.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a href=\"https://tr.wikipedia.org/wiki/Kullan%C4%B1c%C4%B1:Ninlil\" class=\"extiw\" title=\"tr:Kullanıcı:Ninlil\">Kullanıcı:Ninlil</a>",
+    "width": 519,
+    "height": 692,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:38:36"
+  },
+  {
+    "filename": "569ef686995c8d1a.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Bibliotheca_Alexandrina_001.jpg",
+    "title": "File:Bibliotheca Alexandrina 001.jpg",
+    "license": "Public domain",
+    "artist": "Original uploader was <a href=\"https://foundation.wikimedia.org/wiki/meta:User:Moushira\" class=\"extiw\" title=\"wikimedia:meta:User:Moushira\">Moushira</a> at <a class=\"external text\" href=\"https://meta.wikimedia.org\">meta.wikimedia</a>",
+    "width": 1280,
+    "height": 960,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:38:36"
+  },
+  {
+    "filename": "6405572fcedd634d.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Bibliotheca_Alexandrina_-_ceiling_detail.JPG",
+    "title": "File:Bibliotheca Alexandrina - ceiling detail.JPG",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Pfctdayelise\" title=\"User:Pfctdayelise\">Pfctdayelise</a>",
+    "width": 3328,
+    "height": 1872,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:38:36"
+  },
+  {
+    "filename": "de9c51a9132a0b01.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Bibliotheca_Alexandrina_--_Wall_detail_2.jpg",
+    "title": "File:Bibliotheca Alexandrina -- Wall detail 2.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Bastique\" title=\"User:Bastique\">Cary Bass</a>",
+    "width": 3712,
+    "height": 2088,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:38:36"
+  },
+  {
+    "filename": "27ec42cbc4e82f1f.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/46/Bibliotheca_Alexandrina_pool_-_1.jpg",
+    "title": "File:Bibliotheca Alexandrina pool - 1.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Bastique\" title=\"User:Bastique\">Cary Bass</a>",
+    "width": 3712,
+    "height": 2088,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:38:36"
+  },
+  {
+    "filename": "da33b5f576bc690a.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/06/Bibliotheca_Alexandrina_pool_-_2.jpg",
+    "title": "File:Bibliotheca Alexandrina pool - 2.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Bastique\" title=\"User:Bastique\">Cary Bass</a>",
+    "width": 3712,
+    "height": 2088,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:38:36"
+  },
+  {
+    "filename": "e923dc4992b8b316.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/89/Bibliotheca_Alexandrina_-_20080720a.jpg",
+    "title": "File:Bibliotheca Alexandrina - 20080720a.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "Taken by the uploader, <a href=\"https://en.wikipedia.org/wiki/es:Usuario:Barcex\" class=\"extiw\" title=\"w:es:Usuario:Barcex\">w:es:Usuario:Barcex</a>",
+    "width": 3880,
+    "height": 2580,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:38:36"
+  },
+  {
+    "filename": "227c3ebfe1a3a258.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Bibliotheca_Alexandrina_-_20080720b.jpg",
+    "title": "File:Bibliotheca Alexandrina - 20080720b.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "Taken by the uploader, <a href=\"https://en.wikipedia.org/wiki/es:Usuario:Barcex\" class=\"extiw\" title=\"w:es:Usuario:Barcex\">w:es:Usuario:Barcex</a>",
+    "width": 2580,
+    "height": 3880,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:38:36"
+  },
+  {
+    "filename": "e83dd3e229664915.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/77/Bibliotheca_Alexandrina_-_20080720c.jpg",
+    "title": "File:Bibliotheca Alexandrina - 20080720c.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "Taken by the uploader, <a href=\"https://en.wikipedia.org/wiki/es:Usuario:Barcex\" class=\"extiw\" title=\"w:es:Usuario:Barcex\">w:es:Usuario:Barcex</a>",
+    "width": 3880,
+    "height": 2580,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:38:36"
+  },
+  {
+    "filename": "340bb4b60b930cf6.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/26/Bibliotheca_Alexandrina_-_20080720e.jpg",
+    "title": "File:Bibliotheca Alexandrina - 20080720e.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "Taken by the uploader, <a href=\"https://en.wikipedia.org/wiki/es:Usuario:Barcex\" class=\"extiw\" title=\"w:es:Usuario:Barcex\">w:es:Usuario:Barcex</a>",
+    "width": 3880,
+    "height": 2580,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:38:36"
+  },
+  {
+    "filename": "bd82f7d7c90142f1.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/92/Bibliotheca_Alexandrina-Side_View.JPG",
+    "title": "File:Bibliotheca Alexandrina-Side View.JPG",
+    "license": "CC BY-SA 3.0",
+    "artist": "Captured by Alaa Abd Al-Rahman, <a href=\"//commons.wikimedia.org/wiki/User:AhmadSherif\" title=\"User:AhmadSherif\">AhmadSherif</a>",
+    "width": 2560,
+    "height": 1920,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:38:36"
+  },
+  {
+    "filename": "29fdaf1d989da98c.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Coast_of_Alexandria%2C_A_view_From_Bibliotheca_Alexandrina%2C_Egypt.jpg",
+    "title": "File:Coast of Alexandria, A view From Bibliotheca Alexandrina, Egypt.jpg",
+    "license": "CC0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Moro_2088&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Moro 2088 (page does not exist)\">Moro 2088</a>",
+    "width": 550,
+    "height": 371,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:38:36"
+  },
+  {
+    "filename": "38a9125be4340b33.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Bibliotheca_Alexandrina%2C_Egypt%2C_2013.jpg",
+    "title": "File:Bibliotheca Alexandrina, Egypt, 2013.jpg",
+    "license": "CC BY-SA 2.0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/35262403@N05\">Leif Halvorsen</a>",
+    "width": 2048,
+    "height": 1536,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:38:36"
+  },
+  {
+    "filename": "9e1f30abb0f47239.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/54/Bibliotheca_Alexandrina_%281%29.jpg",
+    "title": "File:Bibliotheca Alexandrina (1).jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:A_maraqa\" title=\"User:A maraqa\">A maraqa</a>",
+    "width": 5216,
+    "height": 3477,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:38:36"
+  },
+  {
+    "filename": "aa6ddeba4eb6b52d.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Bibliotheca_Alexandrina_3.jpg",
+    "title": "File:Bibliotheca Alexandrina 3.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Ibrahim_El-Mezayen\" title=\"User:Ibrahim El-Mezayen\">Ibrahim El-Mezayen</a>",
+    "width": 2219,
+    "height": 1479,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:38:36"
+  },
+  {
+    "filename": "d243a3a665705410.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Bibliotheca_Alexandrina_07.jpg",
+    "title": "File:Bibliotheca Alexandrina 07.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Cecioka&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Cecioka (page does not exist)\">Cecioka</a>",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:38:36"
+  },
+  {
+    "filename": "28066dd085dbbb24.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Bibliotheca_Alexandrina_28.jpg",
+    "title": "File:Bibliotheca Alexandrina 28.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Cecioka&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Cecioka (page does not exist)\">Cecioka</a>",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:38:36"
+  },
+  {
+    "filename": "3620ec6d4675b664.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Bibliotheca_Alexandrina_Wall.jpg",
+    "title": "File:Bibliotheca Alexandrina Wall.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Mohamed_Khalil90&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Mohamed Khalil90 (page does not exist)\">Mohamed Khalil</a>",
+    "width": 5184,
+    "height": 3456,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:38:36"
+  },
+  {
+    "filename": "0d857cff623df1d1.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Bibliotheca_Alexandrina_-_20080720d.jpg",
+    "title": "File:Bibliotheca Alexandrina - 20080720d.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "Taken by the uploader, <a href=\"https://en.wikipedia.org/wiki/es:Usuario:Barcex\" class=\"extiw\" title=\"w:es:Usuario:Barcex\">w:es:Usuario:Barcex</a>",
+    "width": 3880,
+    "height": 2580,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:38:36"
+  },
+  {
+    "filename": "b7e11d393a482aa8.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Bibliotheca_Alexandrina_%282007-05-022%29.jpg",
+    "title": "File:Bibliotheca Alexandrina (2007-05-022).jpg",
+    "license": "CC BY 2.0",
+    "artist": "Argenberg",
+    "width": 2048,
+    "height": 1365,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:38:36"
+  },
+  {
+    "filename": "da3422da79410f71.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/25/Bibliotheca_Alexandrina_04.jpg",
+    "title": "File:Bibliotheca Alexandrina 04.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Cecioka&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Cecioka (page does not exist)\">Cecioka</a>",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:38:36"
+  },
+  {
+    "filename": "1d9e8b3eda3f9d53.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Bibliotheca_Alexandrina_06.jpg",
+    "title": "File:Bibliotheca Alexandrina 06.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Cecioka&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Cecioka (page does not exist)\">Cecioka</a>",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:38:36"
+  },
+  {
+    "filename": "fcafd396cb21a221.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Bibliotheca_Alexandrina_09.jpg",
+    "title": "File:Bibliotheca Alexandrina 09.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Cecioka&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Cecioka (page does not exist)\">Cecioka</a>",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:38:36"
+  },
+  {
+    "filename": "daa59cc2227a7a2f.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Bibliotheca_Alexandrina_11.jpg",
+    "title": "File:Bibliotheca Alexandrina 11.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Cecioka&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Cecioka (page does not exist)\">Cecioka</a>",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:38:36"
+  },
+  {
+    "filename": "c387e356e97a0191.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Bibliotheca_Alexandrina_16.jpg",
+    "title": "File:Bibliotheca Alexandrina 16.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Cecioka&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Cecioka (page does not exist)\">Cecioka</a>",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:38:36"
+  },
+  {
+    "filename": "1f6c37ad469b1546.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/89/Bibliotheca_Alexandrina_21.jpg",
+    "title": "File:Bibliotheca Alexandrina 21.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Cecioka&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Cecioka (page does not exist)\">Cecioka</a>",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:38:36"
+  },
+  {
+    "filename": "9f1927cccac3a210.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Bibliotheca_Alexandrina_22.jpg",
+    "title": "File:Bibliotheca Alexandrina 22.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Cecioka&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Cecioka (page does not exist)\">Cecioka</a>",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:38:36"
+  },
+  {
+    "filename": "a2c00a73cd612145.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Bibliotheca_Alexandrina_25.jpg",
+    "title": "File:Bibliotheca Alexandrina 25.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Cecioka&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Cecioka (page does not exist)\">Cecioka</a>",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:38:36"
+  },
+  {
+    "filename": "d73fc33a0869845a.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/46/Alexandria%2C_the_view_from_outside_the_Bibliotheca_Alexandrina.jpg",
+    "title": "File:Alexandria, the view from outside the Bibliotheca Alexandrina.jpg",
+    "license": "CC BY-SA 1.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Mogaio\" title=\"User:Mogaio\">mogaio</a>",
+    "width": 2264,
+    "height": 1622,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:38:36"
+  }
+]

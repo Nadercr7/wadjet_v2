@@ -1,0 +1,1766 @@
+[
+  {
+    "hash": "cd80a23c891c203f",
+    "original_name": "0.jpg",
+    "original_class": "Deir_el-Medina",
+    "size_bytes": 9822,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:25"
+  },
+  {
+    "hash": "a0e2e48174640598",
+    "original_name": "1.jpg",
+    "original_class": "Deir_el-Medina",
+    "size_bytes": 11722,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:25"
+  },
+  {
+    "hash": "49a2e79ebfa8c40f",
+    "original_name": "10.jpg",
+    "original_class": "Deir_el-Medina",
+    "size_bytes": 11326,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:25"
+  },
+  {
+    "hash": "3323c9a386451889",
+    "original_name": "11.jpg",
+    "original_class": "Deir_el-Medina",
+    "size_bytes": 12350,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:25"
+  },
+  {
+    "hash": "343b025e5d6aaead",
+    "original_name": "12.jpg",
+    "original_class": "Deir_el-Medina",
+    "size_bytes": 10864,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:25"
+  },
+  {
+    "hash": "6c1bff8ef4372479",
+    "original_name": "13.jpg",
+    "original_class": "Deir_el-Medina",
+    "size_bytes": 10621,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:25"
+  },
+  {
+    "hash": "c9677e446a156c49",
+    "original_name": "14.jpg",
+    "original_class": "Deir_el-Medina",
+    "size_bytes": 16404,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:25"
+  },
+  {
+    "hash": "62b1beb6dca96281",
+    "original_name": "15.jpg",
+    "original_class": "Deir_el-Medina",
+    "size_bytes": 10507,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:25"
+  },
+  {
+    "hash": "030bd326ba0bd0da",
+    "original_name": "16.jpg",
+    "original_class": "Deir_el-Medina",
+    "size_bytes": 7934,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:25"
+  },
+  {
+    "hash": "0c7e8e3c691f3335",
+    "original_name": "17.jpg",
+    "original_class": "Deir_el-Medina",
+    "size_bytes": 14261,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:25"
+  },
+  {
+    "hash": "55e1e8d02df71049",
+    "original_name": "18.jpg",
+    "original_class": "Deir_el-Medina",
+    "size_bytes": 12967,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:25"
+  },
+  {
+    "hash": "e1023414e149148d",
+    "original_name": "19.jpg",
+    "original_class": "Deir_el-Medina",
+    "size_bytes": 6796,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:25"
+  },
+  {
+    "hash": "9bbc9a97f6f73bd7",
+    "original_name": "2.jpg",
+    "original_class": "Deir_el-Medina",
+    "size_bytes": 9141,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:25"
+  },
+  {
+    "hash": "ea735b9b8e61c057",
+    "original_name": "20.jpg",
+    "original_class": "Deir_el-Medina",
+    "size_bytes": 9764,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:25"
+  },
+  {
+    "hash": "539b9ba05db8bd88",
+    "original_name": "21.jpg",
+    "original_class": "Deir_el-Medina",
+    "size_bytes": 6323,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:25"
+  },
+  {
+    "hash": "c67a569eeea15c27",
+    "original_name": "22.jpg",
+    "original_class": "Deir_el-Medina",
+    "size_bytes": 8320,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:25"
+  },
+  {
+    "hash": "b024356281f479b7",
+    "original_name": "23.jpg",
+    "original_class": "Deir_el-Medina",
+    "size_bytes": 8046,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:25"
+  },
+  {
+    "hash": "555af9c9029e833d",
+    "original_name": "24.jpg",
+    "original_class": "Deir_el-Medina",
+    "size_bytes": 9042,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:25"
+  },
+  {
+    "hash": "abc7be8aed59177c",
+    "original_name": "25.jpg",
+    "original_class": "Deir_el-Medina",
+    "size_bytes": 10387,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:25"
+  },
+  {
+    "hash": "b33155c9d885553c",
+    "original_name": "26.jpg",
+    "original_class": "Deir_el-Medina",
+    "size_bytes": 12104,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:25"
+  },
+  {
+    "hash": "9334a1ff72f23ff0",
+    "original_name": "27.jpg",
+    "original_class": "Deir_el-Medina",
+    "size_bytes": 8078,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:25"
+  },
+  {
+    "hash": "8de3d2a09bfbaed2",
+    "original_name": "28.jpg",
+    "original_class": "Deir_el-Medina",
+    "size_bytes": 8758,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:25"
+  },
+  {
+    "hash": "534fd111245fa23c",
+    "original_name": "29.jpg",
+    "original_class": "Deir_el-Medina",
+    "size_bytes": 11657,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:25"
+  },
+  {
+    "hash": "a2db1e69671f32bd",
+    "original_name": "3.jpg",
+    "original_class": "Deir_el-Medina",
+    "size_bytes": 9996,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:25"
+  },
+  {
+    "hash": "69ac829a190beaf5",
+    "original_name": "30.jpg",
+    "original_class": "Deir_el-Medina",
+    "size_bytes": 9795,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:25"
+  },
+  {
+    "hash": "2fddb0ee13618467",
+    "original_name": "31.jpg",
+    "original_class": "Deir_el-Medina",
+    "size_bytes": 8268,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:25"
+  },
+  {
+    "hash": "80c42273bc659fa1",
+    "original_name": "32.jpg",
+    "original_class": "Deir_el-Medina",
+    "size_bytes": 10898,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:25"
+  },
+  {
+    "hash": "3f59ef44dfcc6112",
+    "original_name": "33.jpg",
+    "original_class": "Deir_el-Medina",
+    "size_bytes": 11432,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:25"
+  },
+  {
+    "hash": "b0e3637e30b761fe",
+    "original_name": "34.jpg",
+    "original_class": "Deir_el-Medina",
+    "size_bytes": 11533,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:25"
+  },
+  {
+    "hash": "5241ff6d08b6be06",
+    "original_name": "4.jpg",
+    "original_class": "Deir_el-Medina",
+    "size_bytes": 8028,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:25"
+  },
+  {
+    "hash": "b1d7bc03a3486a14",
+    "original_name": "5.jpg",
+    "original_class": "Deir_el-Medina",
+    "size_bytes": 12227,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:25"
+  },
+  {
+    "hash": "fc87b888fada8018",
+    "original_name": "6.jpg",
+    "original_class": "Deir_el-Medina",
+    "size_bytes": 15108,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:25"
+  },
+  {
+    "hash": "6b875088d63aac63",
+    "original_name": "7.jpg",
+    "original_class": "Deir_el-Medina",
+    "size_bytes": 14468,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:25"
+  },
+  {
+    "hash": "5af0d067e7c58a28",
+    "original_name": "8.jpg",
+    "original_class": "Deir_el-Medina",
+    "size_bytes": 11332,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:25"
+  },
+  {
+    "hash": "8198ad98a06e6fb9",
+    "original_name": "9.jpg",
+    "original_class": "Deir_el-Medina",
+    "size_bytes": 8060,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:25"
+  },
+  {
+    "hash": "de8191bae30a3d48",
+    "original_name": "0.jpg",
+    "original_class": "Ptolemaic_Temple_of_Hathor_in_Deir_el-Medina",
+    "size_bytes": 11576,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:33"
+  },
+  {
+    "hash": "79b1bb45d13a8890",
+    "original_name": "1.jpg",
+    "original_class": "Ptolemaic_Temple_of_Hathor_in_Deir_el-Medina",
+    "size_bytes": 11480,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:33"
+  },
+  {
+    "hash": "c0e2e066aa032e45",
+    "original_name": "10.jpg",
+    "original_class": "Ptolemaic_Temple_of_Hathor_in_Deir_el-Medina",
+    "size_bytes": 12865,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:33"
+  },
+  {
+    "hash": "6b0f091da46fbbd2",
+    "original_name": "11.jpg",
+    "original_class": "Ptolemaic_Temple_of_Hathor_in_Deir_el-Medina",
+    "size_bytes": 13419,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:33"
+  },
+  {
+    "hash": "89ba372a04bf1ae9",
+    "original_name": "12.jpg",
+    "original_class": "Ptolemaic_Temple_of_Hathor_in_Deir_el-Medina",
+    "size_bytes": 13834,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:33"
+  },
+  {
+    "hash": "8584da1215479138",
+    "original_name": "13.jpg",
+    "original_class": "Ptolemaic_Temple_of_Hathor_in_Deir_el-Medina",
+    "size_bytes": 14893,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:33"
+  },
+  {
+    "hash": "76fa2317ebf050ee",
+    "original_name": "14.jpg",
+    "original_class": "Ptolemaic_Temple_of_Hathor_in_Deir_el-Medina",
+    "size_bytes": 9162,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:33"
+  },
+  {
+    "hash": "67113c51fe72d317",
+    "original_name": "15.jpg",
+    "original_class": "Ptolemaic_Temple_of_Hathor_in_Deir_el-Medina",
+    "size_bytes": 8401,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:33"
+  },
+  {
+    "hash": "c73f4c98a45bd083",
+    "original_name": "16.jpg",
+    "original_class": "Ptolemaic_Temple_of_Hathor_in_Deir_el-Medina",
+    "size_bytes": 9651,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:33"
+  },
+  {
+    "hash": "dc92f0dd10482574",
+    "original_name": "17.jpg",
+    "original_class": "Ptolemaic_Temple_of_Hathor_in_Deir_el-Medina",
+    "size_bytes": 12755,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:33"
+  },
+  {
+    "hash": "50e00ad35a9fc632",
+    "original_name": "18.jpg",
+    "original_class": "Ptolemaic_Temple_of_Hathor_in_Deir_el-Medina",
+    "size_bytes": 10197,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:33"
+  },
+  {
+    "hash": "463fd410d460d9d8",
+    "original_name": "19.jpg",
+    "original_class": "Ptolemaic_Temple_of_Hathor_in_Deir_el-Medina",
+    "size_bytes": 9474,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:33"
+  },
+  {
+    "hash": "eb992f8acac56bcd",
+    "original_name": "2.jpg",
+    "original_class": "Ptolemaic_Temple_of_Hathor_in_Deir_el-Medina",
+    "size_bytes": 8183,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:33"
+  },
+  {
+    "hash": "c8bf759a042a6f2c",
+    "original_name": "20.jpg",
+    "original_class": "Ptolemaic_Temple_of_Hathor_in_Deir_el-Medina",
+    "size_bytes": 10246,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:33"
+  },
+  {
+    "hash": "96f5bb63a6d0d794",
+    "original_name": "21.jpg",
+    "original_class": "Ptolemaic_Temple_of_Hathor_in_Deir_el-Medina",
+    "size_bytes": 8951,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:33"
+  },
+  {
+    "hash": "32b66594079b04c9",
+    "original_name": "22.jpg",
+    "original_class": "Ptolemaic_Temple_of_Hathor_in_Deir_el-Medina",
+    "size_bytes": 9742,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:33"
+  },
+  {
+    "hash": "f8d25a706656480f",
+    "original_name": "23.jpg",
+    "original_class": "Ptolemaic_Temple_of_Hathor_in_Deir_el-Medina",
+    "size_bytes": 9839,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:33"
+  },
+  {
+    "hash": "1c0ce818c1816f65",
+    "original_name": "24.jpg",
+    "original_class": "Ptolemaic_Temple_of_Hathor_in_Deir_el-Medina",
+    "size_bytes": 10578,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:33"
+  },
+  {
+    "hash": "76192e34ebc39c5d",
+    "original_name": "25.jpg",
+    "original_class": "Ptolemaic_Temple_of_Hathor_in_Deir_el-Medina",
+    "size_bytes": 7348,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:33"
+  },
+  {
+    "hash": "957f2a035a7ae16d",
+    "original_name": "26.jpg",
+    "original_class": "Ptolemaic_Temple_of_Hathor_in_Deir_el-Medina",
+    "size_bytes": 8354,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:33"
+  },
+  {
+    "hash": "f738988d174d30f4",
+    "original_name": "27.jpg",
+    "original_class": "Ptolemaic_Temple_of_Hathor_in_Deir_el-Medina",
+    "size_bytes": 7143,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:33"
+  },
+  {
+    "hash": "85471edff63a74e7",
+    "original_name": "28.jpg",
+    "original_class": "Ptolemaic_Temple_of_Hathor_in_Deir_el-Medina",
+    "size_bytes": 8370,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:33"
+  },
+  {
+    "hash": "32028808f7effcd4",
+    "original_name": "29.jpg",
+    "original_class": "Ptolemaic_Temple_of_Hathor_in_Deir_el-Medina",
+    "size_bytes": 9646,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:33"
+  },
+  {
+    "hash": "8606b93554526466",
+    "original_name": "3.jpg",
+    "original_class": "Ptolemaic_Temple_of_Hathor_in_Deir_el-Medina",
+    "size_bytes": 8354,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:33"
+  },
+  {
+    "hash": "4651f813a11f7e5b",
+    "original_name": "30.jpg",
+    "original_class": "Ptolemaic_Temple_of_Hathor_in_Deir_el-Medina",
+    "size_bytes": 10137,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:33"
+  },
+  {
+    "hash": "ab23a3e097f0b485",
+    "original_name": "31.jpg",
+    "original_class": "Ptolemaic_Temple_of_Hathor_in_Deir_el-Medina",
+    "size_bytes": 15736,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:33"
+  },
+  {
+    "hash": "998e0c99a22d7fe4",
+    "original_name": "32.jpg",
+    "original_class": "Ptolemaic_Temple_of_Hathor_in_Deir_el-Medina",
+    "size_bytes": 7864,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:33"
+  },
+  {
+    "hash": "1604984ced54cba4",
+    "original_name": "33.jpg",
+    "original_class": "Ptolemaic_Temple_of_Hathor_in_Deir_el-Medina",
+    "size_bytes": 11827,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:33"
+  },
+  {
+    "hash": "1b23c2271a1791db",
+    "original_name": "34.jpg",
+    "original_class": "Ptolemaic_Temple_of_Hathor_in_Deir_el-Medina",
+    "size_bytes": 10779,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:33"
+  },
+  {
+    "hash": "c037a48a46d1b877",
+    "original_name": "35.jpg",
+    "original_class": "Ptolemaic_Temple_of_Hathor_in_Deir_el-Medina",
+    "size_bytes": 9017,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:33"
+  },
+  {
+    "hash": "73cd7e761abf32d0",
+    "original_name": "36.jpg",
+    "original_class": "Ptolemaic_Temple_of_Hathor_in_Deir_el-Medina",
+    "size_bytes": 7966,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:33"
+  },
+  {
+    "hash": "b7db059df89d205b",
+    "original_name": "37.jpg",
+    "original_class": "Ptolemaic_Temple_of_Hathor_in_Deir_el-Medina",
+    "size_bytes": 9156,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:33"
+  },
+  {
+    "hash": "7cae7ec85bf38f95",
+    "original_name": "38.jpg",
+    "original_class": "Ptolemaic_Temple_of_Hathor_in_Deir_el-Medina",
+    "size_bytes": 11113,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:33"
+  },
+  {
+    "hash": "a793e3c7c2ce642a",
+    "original_name": "39.jpg",
+    "original_class": "Ptolemaic_Temple_of_Hathor_in_Deir_el-Medina",
+    "size_bytes": 7848,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:33"
+  },
+  {
+    "hash": "8dd8e79cc33e25b4",
+    "original_name": "4.jpg",
+    "original_class": "Ptolemaic_Temple_of_Hathor_in_Deir_el-Medina",
+    "size_bytes": 9110,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:33"
+  },
+  {
+    "hash": "d3f8cfaf4b33f47d",
+    "original_name": "40.jpg",
+    "original_class": "Ptolemaic_Temple_of_Hathor_in_Deir_el-Medina",
+    "size_bytes": 11159,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:33"
+  },
+  {
+    "hash": "a0d7b22d1e309537",
+    "original_name": "41.jpg",
+    "original_class": "Ptolemaic_Temple_of_Hathor_in_Deir_el-Medina",
+    "size_bytes": 9058,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:33"
+  },
+  {
+    "hash": "3b36d2a41b13a5b5",
+    "original_name": "42.jpg",
+    "original_class": "Ptolemaic_Temple_of_Hathor_in_Deir_el-Medina",
+    "size_bytes": 10287,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:33"
+  },
+  {
+    "hash": "7095c9d69f3cbd32",
+    "original_name": "43.jpg",
+    "original_class": "Ptolemaic_Temple_of_Hathor_in_Deir_el-Medina",
+    "size_bytes": 9451,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:33"
+  },
+  {
+    "hash": "294a9bf38401bf95",
+    "original_name": "44.jpg",
+    "original_class": "Ptolemaic_Temple_of_Hathor_in_Deir_el-Medina",
+    "size_bytes": 9877,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:33"
+  },
+  {
+    "hash": "a00c38fe2b5e3556",
+    "original_name": "45.jpg",
+    "original_class": "Ptolemaic_Temple_of_Hathor_in_Deir_el-Medina",
+    "size_bytes": 11230,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:33"
+  },
+  {
+    "hash": "bf1fa66e68b89c1d",
+    "original_name": "46.jpg",
+    "original_class": "Ptolemaic_Temple_of_Hathor_in_Deir_el-Medina",
+    "size_bytes": 8551,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:33"
+  },
+  {
+    "hash": "58c3e2dfa27171ed",
+    "original_name": "47.jpg",
+    "original_class": "Ptolemaic_Temple_of_Hathor_in_Deir_el-Medina",
+    "size_bytes": 6541,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:33"
+  },
+  {
+    "hash": "01c67774c8f7fc1b",
+    "original_name": "48.jpg",
+    "original_class": "Ptolemaic_Temple_of_Hathor_in_Deir_el-Medina",
+    "size_bytes": 13602,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:33"
+  },
+  {
+    "hash": "af33a1873ab5785e",
+    "original_name": "49.jpg",
+    "original_class": "Ptolemaic_Temple_of_Hathor_in_Deir_el-Medina",
+    "size_bytes": 9795,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:33"
+  },
+  {
+    "hash": "1edacca7236756b2",
+    "original_name": "5.jpg",
+    "original_class": "Ptolemaic_Temple_of_Hathor_in_Deir_el-Medina",
+    "size_bytes": 13718,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:33"
+  },
+  {
+    "hash": "9bfb6965eeb9cf8c",
+    "original_name": "50.jpg",
+    "original_class": "Ptolemaic_Temple_of_Hathor_in_Deir_el-Medina",
+    "size_bytes": 12154,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:33"
+  },
+  {
+    "hash": "9b1866949a9e0668",
+    "original_name": "51.jpg",
+    "original_class": "Ptolemaic_Temple_of_Hathor_in_Deir_el-Medina",
+    "size_bytes": 15015,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:33"
+  },
+  {
+    "hash": "1f0228208717dc55",
+    "original_name": "52.jpg",
+    "original_class": "Ptolemaic_Temple_of_Hathor_in_Deir_el-Medina",
+    "size_bytes": 9060,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:33"
+  },
+  {
+    "hash": "00415d42bb966c1e",
+    "original_name": "53.jpg",
+    "original_class": "Ptolemaic_Temple_of_Hathor_in_Deir_el-Medina",
+    "size_bytes": 8763,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:33"
+  },
+  {
+    "hash": "ef3a7a799d1f6783",
+    "original_name": "6.jpg",
+    "original_class": "Ptolemaic_Temple_of_Hathor_in_Deir_el-Medina",
+    "size_bytes": 10168,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:33"
+  },
+  {
+    "hash": "0943caa5850ebd1f",
+    "original_name": "7.jpg",
+    "original_class": "Ptolemaic_Temple_of_Hathor_in_Deir_el-Medina",
+    "size_bytes": 12029,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:33"
+  },
+  {
+    "hash": "50b835b27aee844d",
+    "original_name": "8.jpg",
+    "original_class": "Ptolemaic_Temple_of_Hathor_in_Deir_el-Medina",
+    "size_bytes": 17086,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:33"
+  },
+  {
+    "hash": "b048da153b815024",
+    "original_name": "9.jpg",
+    "original_class": "Ptolemaic_Temple_of_Hathor_in_Deir_el-Medina",
+    "size_bytes": 9489,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:33"
+  },
+  {
+    "filename": "6c0b33056d1ab09d.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Ra_slays_Apep_%28tomb_scene_in_Deir_el-Medina%29.jpg/500px-Ra_slays_Apep_%28tomb_scene_in_Deir_el-Medina%29.jpg",
+    "wikipedia_title": "Deir_el-Medina",
+    "source": "wikipedia",
+    "downloaded_at": "2026-03-02T02:12:10"
+  },
+  {
+    "filename": "002cf3b607151716.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Temple_of_Deir_el-Medina_04.JPG",
+    "title": "File:Temple of Deir el-Medina 04.JPG",
+    "license": "CC BY 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Oltau\" title=\"User:Oltau\">Olaf Tausch</a>",
+    "width": 3838,
+    "height": 2880,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "b128853eaeaff846.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/e3/Temple_of_Deir_el-Medina_18.JPG",
+    "title": "File:Temple of Deir el-Medina 18.JPG",
+    "license": "CC BY 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Oltau\" title=\"User:Oltau\">Olaf Tausch</a>",
+    "width": 3244,
+    "height": 4318,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "388e1f4dcd958222.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/bc/Thebes%2C_Luxor%2C_Egypt%2C_Theban_Necropolis_in_Deir_el-Medina.jpg",
+    "title": "File:Thebes, Luxor, Egypt, Theban Necropolis in Deir el-Medina.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Argenberg\" title=\"User:Argenberg\">Vyacheslav Argenberg</a>",
+    "width": 3072,
+    "height": 2048,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "42eea3d981bc8723.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Thebes%2C_Luxor%2C_Egypt%2C_Deir_el-Medina.jpg",
+    "title": "File:Thebes, Luxor, Egypt, Deir el-Medina.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Argenberg\" title=\"User:Argenberg\">Vyacheslav Argenberg</a>",
+    "width": 3072,
+    "height": 2048,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "528e7e6b4cf430c5.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/42/Thebes%2C_Luxor%2C_Egypt%2C_Temple_in_Deir_el-Medina.jpg",
+    "title": "File:Thebes, Luxor, Egypt, Temple in Deir el-Medina.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Argenberg\" title=\"User:Argenberg\">Vyacheslav Argenberg</a>",
+    "width": 3072,
+    "height": 2048,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "9645d183e009333d.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Deir_el-Medina%2C_Luxor%2C_Egipto%2C_2022-04-03%2C_DD_18.jpg",
+    "title": "File:Deir el-Medina, Luxor, Egipto, 2022-04-03, DD 18.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<bdi><a href=\"https://www.wikidata.org/wiki/Q28147777\" class=\"extiw\" title=\"d:Q28147777\"><span title=\"Spanish photographer\">Diego Delso</span></a></bdi>",
+    "width": 7599,
+    "height": 5066,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "1e016e0ba8d04651.png",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/96/Ra_slays_Apep_%28tomb_scene_in_Deir_el-Medina%29%28improved_contrast%29.png",
+    "title": "File:Ra slays Apep (tomb scene in Deir el-Medina)(improved contrast).png",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Hajor~commonswiki\" title=\"User:Hajor~commonswiki\">user:Hajor~commonswiki</a>",
+    "width": 640,
+    "height": 480,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "6f0b71f80520bcad.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/43/Schiaparelli%27s_excavations_-_Theban_region%2C_Deir_el-Medina%2C_Campsite%2C_1909%2C_photo_1_of_10_-_Archivio_fotografico_Museo_Egizio%2C_Turin_C00918.jpg",
+    "title": "File:Schiaparelli's excavations - Theban region, Deir el-Medina, Campsite, 1909, photo 1 of 10 - Archivio fotografico Museo Egizio, Turin C00918.jpg",
+    "license": "CC0",
+    "artist": "unknown",
+    "width": 8424,
+    "height": 5874,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "0683462c9effc58a.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/70/Schiaparelli%27s_excavations_-_Theban_region%2C_Deir_el-Medina%2C_Campsite%2C_1909%2C_photo_7_of_10_-_Archivio_fotografico_Museo_Egizio%2C_Turin_INV52_044.jpg",
+    "title": "File:Schiaparelli's excavations - Theban region, Deir el-Medina, Campsite, 1909, photo 7 of 10 - Archivio fotografico Museo Egizio, Turin INV52 044.jpg",
+    "license": "CC0",
+    "artist": "unknown",
+    "width": 4440,
+    "height": 3367,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "dcc42084094c7db6.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Schiaparelli%27s_excavations_-_Theban_region%2C_Deir_el-Medina%2C_Campsite%2C_1909%2C_photo_8_of_10_-_Archivio_fotografico_Museo_Egizio%2C_Turin_-_Museo_di_antropologia_UniTo_MAFM_0136.jpg",
+    "title": "File:Schiaparelli's excavations - Theban region, Deir el-Medina, Campsite, 1909, photo 8 of 10 - Archivio fotografico Museo Egizio, Turin - Museo di antropologia UniTo MAFM 0136.jpg",
+    "license": "CC0",
+    "artist": "unknown",
+    "width": 7786,
+    "height": 5808,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "525cd62eef1dda1a.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Theban_region%2C_Deir_el-Medina%2C_Campsite%2C_1909%2C_photo_9_of_10_-_Archivio_fotografico_Museo_Egizio%2C_Turin_-_CEFB%2C_Como_F_052.jpg",
+    "title": "File:Theban region, Deir el-Medina, Campsite, 1909, photo 9 of 10 - Archivio fotografico Museo Egizio, Turin - CEFB, Como F 052.jpg",
+    "license": "CC0",
+    "artist": "unknown",
+    "width": 4945,
+    "height": 3523,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "8538a38634d904d0.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/bb/Theban_region%2C_Deir_el-Medina%2C_Campsite%2C_1909%2C_photo_10_of_10_-_Archivio_fotografico_Museo_Egizio%2C_Turin_-_CEFB%2C_Como_F_053.jpg",
+    "title": "File:Theban region, Deir el-Medina, Campsite, 1909, photo 10 of 10 - Archivio fotografico Museo Egizio, Turin - CEFB, Como F 053.jpg",
+    "license": "CC0",
+    "artist": "unknown",
+    "width": 4655,
+    "height": 3425,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "d22c09d730bfc4fd.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/72/Schiaparelli%27s_excavations_-_Theban_region%2C_Deir_el-Medina%2C_Excavations_north_of_temple_of_Hathor%2C_1905%2C_photo_13_of_45_-_Archivio_fotografico_Museo_Egizio%2C_Turin_C00943.jpg",
+    "title": "File:Schiaparelli's excavations - Theban region, Deir el-Medina, Excavations north of temple of Hathor, 1905, photo 13 of 45 - Archivio fotografico Museo Egizio, Turin C00943.jpg",
+    "license": "CC0",
+    "artist": "unknown",
+    "width": 8325,
+    "height": 5949,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "4381e5c130914ad0.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Schiaparelli%27s_excavations_-_Theban_region%2C_Deir_el-Medina%2C_Excavations_north_of_temple_of_Hathor%2C_1905%2C_photo_14_of_45_-_Archivio_fotografico_Museo_Egizio%2C_Turin_C00941.jpg",
+    "title": "File:Schiaparelli's excavations - Theban region, Deir el-Medina, Excavations north of temple of Hathor, 1905, photo 14 of 45 - Archivio fotografico Museo Egizio, Turin C00941.jpg",
+    "license": "CC0",
+    "artist": "unknown",
+    "width": 8400,
+    "height": 5899,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "fd8b2be9b40b669b.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Schiaparelli%27s_excavations_-_Theban_region%2C_Deir_el-Medina%2C_Excavations_north_of_temple_of_Hathor%2C_1905%2C_photo_15_of_45_-_Archivio_fotografico_Museo_Egizio%2C_Turin_C00938.jpg",
+    "title": "File:Schiaparelli's excavations - Theban region, Deir el-Medina, Excavations north of temple of Hathor, 1905, photo 15 of 45 - Archivio fotografico Museo Egizio, Turin C00938.jpg",
+    "license": "CC0",
+    "artist": "unknown",
+    "width": 8350,
+    "height": 5850,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "25ef71aa55b9159a.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/39/Schiaparelli%27s_excavations_-_Theban_region%2C_Deir_el-Medina%2C_Excavations_north_of_temple_of_Hathor%2C_1905%2C_photo_20_of_45_-_Archivio_fotografico_Museo_Egizio%2C_Turin_C00940.jpg",
+    "title": "File:Schiaparelli's excavations - Theban region, Deir el-Medina, Excavations north of temple of Hathor, 1905, photo 20 of 45 - Archivio fotografico Museo Egizio, Turin C00940.jpg",
+    "license": "CC0",
+    "artist": "unknown",
+    "width": 8375,
+    "height": 5975,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "9367153d23e8f6e6.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/86/Schiaparelli%27s_excavations_-_Theban_region%2C_Deir_el-Medina%2C_Excavations_at_the_village%2C_temple_and_chapels%2C_1906-1909%2C_photo_21_of_38_-_Archivio_fotografico_Museo_Egizio%2C_Turin_B00084.jpg",
+    "title": "File:Schiaparelli's excavations - Theban region, Deir el-Medina, Excavations at the village, temple and chapels, 1906-1909, photo 21 of 38 - Archivio fotografico Museo Egizio, Turin B00084.jpg",
+    "license": "CC0",
+    "artist": "unknown",
+    "width": 5345,
+    "height": 4080,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "4e4591ad3af9eeaf.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/16/Schiaparelli%27s_excavations_-_Theban_region%2C_Deir_el-Medina%2C_Excavations_at_the_village%2C_temple_and_chapels%2C_1905-1909%2C_photo_32_of_38_-_Archivio_fotografico_Museo_Egizio%2C_Turin_C00860.jpg",
+    "title": "File:Schiaparelli's excavations - Theban region, Deir el-Medina, Excavations at the village, temple and chapels, 1905-1909, photo 32 of 38 - Archivio fotografico Museo Egizio, Turin C00860.jpg",
+    "license": "CC0",
+    "artist": "unknown",
+    "width": 8374,
+    "height": 5900,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "b01826761d16b5c6.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/48/Schiaparelli%27s_excavations_-_Theban_region%2C_Deir_el-Medina%2C_Excavations_in_the_mountain%2C_photo_16_of_22_-_Archivio_fotografico_Museo_Egizio%2C_Turin_B00081.jpg",
+    "title": "File:Schiaparelli's excavations - Theban region, Deir el-Medina, Excavations in the mountain, photo 16 of 22 - Archivio fotografico Museo Egizio, Turin B00081.jpg",
+    "license": "CC0",
+    "artist": "unknown",
+    "width": 5449,
+    "height": 4149,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "d38f0d29080e67e4.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/18/Schiaparelli%27s_excavations_-_Theban_region%2C_Deir_el-Medina%2C_Excavations_in_the_mountain%2C_1905-1909%2C_photo_17_of_22_-_Archivio_fotografico_Museo_Egizio%2C_Turin_B00083.jpg",
+    "title": "File:Schiaparelli's excavations - Theban region, Deir el-Medina, Excavations in the mountain, 1905-1909, photo 17 of 22 - Archivio fotografico Museo Egizio, Turin B00083.jpg",
+    "license": "CC0",
+    "artist": "unknown",
+    "width": 5522,
+    "height": 3990,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "e20aed12c943d3b6.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Deir_el-Medina_06.JPG",
+    "title": "File:Deir el-Medina 06.JPG",
+    "license": "CC BY 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Oltau\" title=\"User:Oltau\">Olaf Tausch</a>",
+    "width": 4367,
+    "height": 3275,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "7c231b2cb497dbeb.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/49/Deir_el-Medina_R01.jpg",
+    "title": "File:Deir el-Medina R01.jpg",
+    "license": "CC BY 3.0",
+    "artist": "Marc Ryckaert (<a href=\"//commons.wikimedia.org/wiki/User:MJJR\" title=\"User:MJJR\">MJJR</a>)",
+    "width": 3496,
+    "height": 1880,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "b9443c1abb56a118.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/90/Deir_el-Medina_R02.jpg",
+    "title": "File:Deir el-Medina R02.jpg",
+    "license": "CC BY 3.0",
+    "artist": "Marc Ryckaert (<a href=\"//commons.wikimedia.org/wiki/User:MJJR\" title=\"User:MJJR\">MJJR</a>)",
+    "width": 3440,
+    "height": 2249,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "1329aabf7c413813.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Deir_el-Medina_2016-03-23a.jpg",
+    "title": "File:Deir el-Medina 2016-03-23a.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Djehouty\" title=\"User:Djehouty\">Djehouty</a>",
+    "width": 5148,
+    "height": 3432,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "d8790e197cf64204.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Schiaparelli%27s_excavations_-_Theban_region%2C_Deir_el-Medina%2C_Campsite%2C_1909%2C_photo_2_of_10_-_Archivio_fotografico_Museo_Egizio%2C_Turin_C00910.jpg",
+    "title": "File:Schiaparelli's excavations - Theban region, Deir el-Medina, Campsite, 1909, photo 2 of 10 - Archivio fotografico Museo Egizio, Turin C00910.jpg",
+    "license": "CC0",
+    "artist": "unknown",
+    "width": 8374,
+    "height": 5949,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "673b75e7a86352a3.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/82/Schiaparelli%27s_excavations_-_Theban_region%2C_Deir_el-Medina%2C_Excavations_north_of_temple_of_Hathor%2C_1905%2C_photo_9_of_45_-_Archivio_fotografico_Museo_Egizio%2C_Turin_C00895.jpg",
+    "title": "File:Schiaparelli's excavations - Theban region, Deir el-Medina, Excavations north of temple of Hathor, 1905, photo 9 of 45 - Archivio fotografico Museo Egizio, Turin C00895.jpg",
+    "license": "CC0",
+    "artist": "unknown",
+    "width": 8349,
+    "height": 5949,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "71ee9d04bc439c39.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Schiaparelli%27s_excavations_-_Theban_region%2C_Deir_el-Medina%2C_Excavations_north_of_temple_of_Hathor%2C_1905%2C_photo_34_of_45_-_Archivio_fotografico_Museo_Egizio%2C_Turin_C00899.jpg",
+    "title": "File:Schiaparelli's excavations - Theban region, Deir el-Medina, Excavations north of temple of Hathor, 1905, photo 34 of 45 - Archivio fotografico Museo Egizio, Turin C00899.jpg",
+    "license": "CC0",
+    "artist": "unknown",
+    "width": 8075,
+    "height": 5949,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "ed6ad2b23ccf3352.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Schiaparelli%27s_excavations_-_Theban_region%2C_Deir_el-Medina%2C_Excavations_north_of_temple_of_Hathor%2C_1905%2C_photo_35_of_45_-_Archivio_fotografico_Museo_Egizio%2C_Turin_C00939.jpg",
+    "title": "File:Schiaparelli's excavations - Theban region, Deir el-Medina, Excavations north of temple of Hathor, 1905, photo 35 of 45 - Archivio fotografico Museo Egizio, Turin C00939.jpg",
+    "license": "CC0",
+    "artist": "unknown",
+    "width": 8450,
+    "height": 5975,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "e27f848b154f9416.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/80/Schiaparelli%27s_excavations_-_Theban_region%2C_Deir_el-Medina%2C_Excavations_north_of_temple_of_Hathor%2C_1905%2C_photo_36_of_45_-_Archivio_fotografico_Museo_Egizio%2C_Turin_C00903.jpg",
+    "title": "File:Schiaparelli's excavations - Theban region, Deir el-Medina, Excavations north of temple of Hathor, 1905, photo 36 of 45 - Archivio fotografico Museo Egizio, Turin C00903.jpg",
+    "license": "CC0",
+    "artist": "unknown",
+    "width": 8325,
+    "height": 5674,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "20313aad8ea26706.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Schiaparelli%27s_excavations_-_Theban_region%2C_Deir_el-Medina%2C_Excavations_north_of_temple_of_Hathor%2C_1905%2C_photo_37_of_45_-_Archivio_fotografico_Museo_Egizio%2C_Turin_C00898.jpg",
+    "title": "File:Schiaparelli's excavations - Theban region, Deir el-Medina, Excavations north of temple of Hathor, 1905, photo 37 of 45 - Archivio fotografico Museo Egizio, Turin C00898.jpg",
+    "license": "CC0",
+    "artist": "unknown",
+    "width": 5900,
+    "height": 8349,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "a59658c8405b4940.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Schiaparelli%27s_excavations_-_Theban_region%2C_Deir_el-Medina%2C_Excavations_north_of_temple_of_Hathor%2C_1905%2C_photo_38_of_45_-_Archivio_fotografico_Museo_Egizio%2C_Turin_C00900.jpg",
+    "title": "File:Schiaparelli's excavations - Theban region, Deir el-Medina, Excavations north of temple of Hathor, 1905, photo 38 of 45 - Archivio fotografico Museo Egizio, Turin C00900.jpg",
+    "license": "CC0",
+    "artist": "unknown",
+    "width": 5900,
+    "height": 8100,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "0bcbfd1a04c64338.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Schiaparelli%27s_excavations_-_Theban_region%2C_Deir_el-Medina%2C_Excavations_in_the_mountain%2C_1909%2C_photo_7_of_22_-_Archivio_fotografico_Museo_Egizio%2C_Turin_C01347.jpg",
+    "title": "File:Schiaparelli's excavations - Theban region, Deir el-Medina, Excavations in the mountain, 1909, photo 7 of 22 - Archivio fotografico Museo Egizio, Turin C01347.jpg",
+    "license": "CC0",
+    "artist": "unknown",
+    "width": 8400,
+    "height": 5899,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "ae07d5a1039795ed.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Schiaparelli%27s_excavations_-_Theban_region%2C_Deir_el-Medina%2C_Excavations_in_the_mountain%2C_1909%2C_photo_9_of_22_-_Archivio_fotografico_Museo_Egizio%2C_Turin_B00076.jpg",
+    "title": "File:Schiaparelli's excavations - Theban region, Deir el-Medina, Excavations in the mountain, 1909, photo 9 of 22 - Archivio fotografico Museo Egizio, Turin B00076.jpg",
+    "license": "CC0",
+    "artist": "unknown",
+    "width": 5350,
+    "height": 4200,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "5b9e38f602f0399e.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/74/Schiaparelli%27s_excavations_-_Theban_region%2C_Deir_el-Medina%2C_Excavations_in_the_mountain%2C_1909%2C_photo_11_of_22_-_Archivio_fotografico_Museo_Egizio%2C_Turin_B00082.jpg",
+    "title": "File:Schiaparelli's excavations - Theban region, Deir el-Medina, Excavations in the mountain, 1909, photo 11 of 22 - Archivio fotografico Museo Egizio, Turin B00082.jpg",
+    "license": "CC0",
+    "artist": "unknown",
+    "width": 5407,
+    "height": 4200,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "3017c1a16a2b4023.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/69/Schiaparelli%27s_excavations_-_Theban_region%2C_Deir_el-Medina%2C_Excavations_north_of_temple_of_Hathor%2C_1905%2C_photo_12_of_45_-_Archivio_fotografico_Museo_Egizio%2C_Turin_C00942.jpg",
+    "title": "File:Schiaparelli's excavations - Theban region, Deir el-Medina, Excavations north of temple of Hathor, 1905, photo 12 of 45 - Archivio fotografico Museo Egizio, Turin C00942.jpg",
+    "license": "CC0",
+    "artist": "unknown",
+    "width": 8375,
+    "height": 5925,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "5430518701b0aa4b.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/29/Schiaparelli%27s_excavations_-_Theban_region%2C_Deir_el-Medina%2C_Excavations_north_of_temple_of_Hathor%2C_1905%2C_photo_17_of_45_-_Archivio_fotografico_Museo_Egizio%2C_Turin_C00891.jpg",
+    "title": "File:Schiaparelli's excavations - Theban region, Deir el-Medina, Excavations north of temple of Hathor, 1905, photo 17 of 45 - Archivio fotografico Museo Egizio, Turin C00891.jpg",
+    "license": "CC0",
+    "artist": "unknown",
+    "width": 8424,
+    "height": 5975,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "7658bcf8ba7ac7e8.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/83/Schiaparelli%27s_excavations_-_Theban_region%2C_Deir_el-Medina%2C_Excavations_north_of_temple_of_Hathor%2C_1905%2C_photo_22_of_45_-_Archivio_fotografico_Museo_Egizio%2C_Turin_B00254.jpg",
+    "title": "File:Schiaparelli's excavations - Theban region, Deir el-Medina, Excavations north of temple of Hathor, 1905, photo 22 of 45 - Archivio fotografico Museo Egizio, Turin B00254.jpg",
+    "license": "CC0",
+    "artist": "unknown",
+    "width": 5363,
+    "height": 4144,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "f099f25966e59a8c.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Schiaparelli%27s_excavations_-_Theban_region%2C_Deir_el-Medina%2C_Excavations_north_of_temple_of_Hathor%2C_1905%2C_photo_25_of_45_-_Archivio_fotografico_Museo_Egizio%2C_Turin_B00247.jpg",
+    "title": "File:Schiaparelli's excavations - Theban region, Deir el-Medina, Excavations north of temple of Hathor, 1905, photo 25 of 45 - Archivio fotografico Museo Egizio, Turin B00247.jpg",
+    "license": "CC0",
+    "artist": "unknown",
+    "width": 5396,
+    "height": 3808,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "68adff6d14406a45.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/80/Schiaparelli%27s_excavations_-_Theban_region%2C_Deir_el-Medina%2C_Excavations_north_of_temple_of_Hathor%2C_1905%2C_photo_26_of_45_-_Archivio_fotografico_Museo_Egizio%2C_Turin_B00257.jpg",
+    "title": "File:Schiaparelli's excavations - Theban region, Deir el-Medina, Excavations north of temple of Hathor, 1905, photo 26 of 45 - Archivio fotografico Museo Egizio, Turin B00257.jpg",
+    "license": "CC0",
+    "artist": "unknown",
+    "width": 7200,
+    "height": 5266,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "307873f940bdbcde.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Schiaparelli%27s_excavations_-_Theban_region%2C_Deir_el-Medina%2C_Excavations_at_the_village%2C_temple_and_chapels%2C_1905-1909%2C_photo_28_of_38_-_Archivio_fotografico_Museo_Egizio%2C_Turin_C00089.jpg",
+    "title": "File:Schiaparelli's excavations - Theban region, Deir el-Medina, Excavations at the village, temple and chapels, 1905-1909, photo 28 of 38 - Archivio fotografico Museo Egizio, Turin C00089.jpg",
+    "license": "CC0",
+    "artist": "unknown",
+    "width": 8250,
+    "height": 5925,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "83bf02fa311aae8b.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Deir_el-Medina_01.JPG",
+    "title": "File:Deir el-Medina 01.JPG",
+    "license": "CC BY 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Oltau\" title=\"User:Oltau\">Olaf Tausch</a>",
+    "width": 4255,
+    "height": 3191,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "08d2e251ab44550f.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Deir_el-Medina_02.JPG",
+    "title": "File:Deir el-Medina 02.JPG",
+    "license": "CC BY 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Oltau\" title=\"User:Oltau\">Olaf Tausch</a>",
+    "width": 4379,
+    "height": 3283,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "c22cdcd4f95b3238.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Artifacts_at_Deir_el-Medina_%28I%29.jpg",
+    "title": "File:Artifacts at Deir el-Medina (I).jpg",
+    "license": "CC BY 2.0",
+    "artist": "Institute for the Study of the Ancient World",
+    "width": 3296,
+    "height": 2472,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "23a70fd369bc3f12.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/65/Coptic_Church_at_Deir_el-Medina_%28I%29.jpg",
+    "title": "File:Coptic Church at Deir el-Medina (I).jpg",
+    "license": "CC BY 2.0",
+    "artist": "Institute for the Study of the Ancient World",
+    "width": 3296,
+    "height": 2472,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "05df678ff7195a6e.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/21/Deir_el-Medina_2016-03-23c.jpg",
+    "title": "File:Deir el-Medina 2016-03-23c.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Djehouty\" title=\"User:Djehouty\">Djehouty</a>",
+    "width": 4626,
+    "height": 3084,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "167035e46c6efe2e.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Deir_el-Medina_2016-03-23b.jpg",
+    "title": "File:Deir el-Medina 2016-03-23b.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Djehouty\" title=\"User:Djehouty\">Djehouty</a>",
+    "width": 5064,
+    "height": 3376,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "3d3e5dd1c85d79c1.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/60/Deir_el-Medina_2016-03-23d.jpg",
+    "title": "File:Deir el-Medina 2016-03-23d.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Djehouty\" title=\"User:Djehouty\">Djehouty</a>",
+    "width": 5184,
+    "height": 3456,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "5e3efe55c81a69fc.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Deir_el-Medina_2016-03-23e.jpg",
+    "title": "File:Deir el-Medina 2016-03-23e.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Djehouty\" title=\"User:Djehouty\">Djehouty</a>",
+    "width": 5184,
+    "height": 3456,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "dc5a5962a1ed6900.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/95/Deir_el-Medina_2016-03-23l.jpg",
+    "title": "File:Deir el-Medina 2016-03-23l.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Djehouty\" title=\"User:Djehouty\">Djehouty</a>",
+    "width": 5184,
+    "height": 3456,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "c2354def448a54b9.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Deir_el-Medina_2016-03-23m.jpg",
+    "title": "File:Deir el-Medina 2016-03-23m.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Djehouty\" title=\"User:Djehouty\">Djehouty</a>",
+    "width": 5142,
+    "height": 3428,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "ce539dcdf5f6fe86.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Deir_el-Medina_2016-03-23n.jpg",
+    "title": "File:Deir el-Medina 2016-03-23n.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Djehouty\" title=\"User:Djehouty\">Djehouty</a>",
+    "width": 3320,
+    "height": 4980,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "c50cea68419c3b8c.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Schiaparelli%27s_excavations_-_Theban_region%2C_Deir_el-Medina%2C_Excavations_in_the_mountain%2C_1909%2C_photo_8_of_22_-_Archivio_fotografico_Museo_Egizio%2C_Turin_C02044.jpg",
+    "title": "File:Schiaparelli's excavations - Theban region, Deir el-Medina, Excavations in the mountain, 1909, photo 8 of 22 - Archivio fotografico Museo Egizio, Turin C02044.jpg",
+    "license": "CC0",
+    "artist": "unknown",
+    "width": 7825,
+    "height": 5075,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "a4e306b23dcc1779.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Schiaparelli%27s_excavations_-_Theban_region%2C_Deir_el-Medina%2C_Excavations_in_the_mountain%2C_1909%2C_photo_10_of_22_-_Archivio_fotografico_Museo_Egizio%2C_Turin_C00924.jpg",
+    "title": "File:Schiaparelli's excavations - Theban region, Deir el-Medina, Excavations in the mountain, 1909, photo 10 of 22 - Archivio fotografico Museo Egizio, Turin C00924.jpg",
+    "license": "CC0",
+    "artist": "unknown",
+    "width": 5900,
+    "height": 8475,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "630c756542085eda.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Schiaparelli%27s_excavations_-_Theban_region%2C_Deir_el-Medina%2C_Excavations_at_the_village%2C_temple_and_chapels%2C_1905-1909%2C_photo_25_of_38_-_Archivio_fotografico_Museo_Egizio%2C_Turin_C00081.jpg",
+    "title": "File:Schiaparelli's excavations - Theban region, Deir el-Medina, Excavations at the village, temple and chapels, 1905-1909, photo 25 of 38 - Archivio fotografico Museo Egizio, Turin C00081.jpg",
+    "license": "CC0",
+    "artist": "unknown",
+    "width": 8350,
+    "height": 5949,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "08df41e0082d1f5e.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/35/Deir_el-Medina_ruins_%282009a%29.jpg",
+    "title": "File:Deir el-Medina ruins (2009a).jpg",
+    "license": "CC BY 2.0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/waldenpond/\">Andrew®</a>",
+    "width": 3888,
+    "height": 2592,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "cc342579be1b03c7.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/94/Deir_el-Medina_03.JPG",
+    "title": "File:Deir el-Medina 03.JPG",
+    "license": "CC BY 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Oltau\" title=\"User:Oltau\">Olaf Tausch</a>",
+    "width": 4416,
+    "height": 3309,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "7530b6f9f8e02b00.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/42/Deir_el-Medina_04.JPG",
+    "title": "File:Deir el-Medina 04.JPG",
+    "license": "CC BY 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Oltau\" title=\"User:Oltau\">Olaf Tausch</a>",
+    "width": 4357,
+    "height": 3267,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "4ff071c88e0660f0.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Deir_el-Medina_05.JPG",
+    "title": "File:Deir el-Medina 05.JPG",
+    "license": "CC BY 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Oltau\" title=\"User:Oltau\">Olaf Tausch</a>",
+    "width": 4058,
+    "height": 3043,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "3237f8250b63a0c8.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Deir_el-Medina_07.JPG",
+    "title": "File:Deir el-Medina 07.JPG",
+    "license": "CC BY 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Oltau\" title=\"User:Oltau\">Olaf Tausch</a>",
+    "width": 4289,
+    "height": 3214,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "610a61b630a87363.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/01/Deir_el-Medina_08.JPG",
+    "title": "File:Deir el-Medina 08.JPG",
+    "license": "CC BY 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Oltau\" title=\"User:Oltau\">Olaf Tausch</a>",
+    "width": 4381,
+    "height": 3282,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "5e0c5f0994970f07.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Deir_el-Medina_09.JPG",
+    "title": "File:Deir el-Medina 09.JPG",
+    "license": "CC BY 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Oltau\" title=\"User:Oltau\">Olaf Tausch</a>",
+    "width": 4362,
+    "height": 3271,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "4d42345acdcd857e.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Deir_el-Medina_10.JPG",
+    "title": "File:Deir el-Medina 10.JPG",
+    "license": "CC BY 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Oltau\" title=\"User:Oltau\">Olaf Tausch</a>",
+    "width": 4286,
+    "height": 3214,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "8023d3ca3d80bdbd.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/59/Deir_el-Medina_11.JPG",
+    "title": "File:Deir el-Medina 11.JPG",
+    "license": "CC BY 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Oltau\" title=\"User:Oltau\">Olaf Tausch</a>",
+    "width": 4410,
+    "height": 3307,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "97d83c19c2b4353a.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Deir_el-Medina_12.JPG",
+    "title": "File:Deir el-Medina 12.JPG",
+    "license": "CC BY 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Oltau\" title=\"User:Oltau\">Olaf Tausch</a>",
+    "width": 4226,
+    "height": 3169,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "86b7a2656835fb6e.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Deir_el-Medina_13.JPG",
+    "title": "File:Deir el-Medina 13.JPG",
+    "license": "CC BY 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Oltau\" title=\"User:Oltau\">Olaf Tausch</a>",
+    "width": 4327,
+    "height": 3246,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "c67318498f384f96.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/14/Deir_el-Medina%2C_Luxor%2C_3_Jan_2011_-_panoramio_%281%29.jpg",
+    "title": "File:Deir el-Medina, Luxor, 3 Jan 2011 - panoramio (1).jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://web.archive.org/web/20161016130427/http://www.panoramio.com/user/3280227?with_photo_id=46587442\">anagh</a>",
+    "width": 4288,
+    "height": 2848,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "9c41f3fae3db95aa.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Deir_el-Medina%2C_Luxor%2C_3_Jan_2011_-_panoramio_%283%29.jpg",
+    "title": "File:Deir el-Medina, Luxor, 3 Jan 2011 - panoramio (3).jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://web.archive.org/web/20161017162202/http://www.panoramio.com/user/3280227?with_photo_id=46588626\">anagh</a>",
+    "width": 4288,
+    "height": 2848,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "8957ee18d0a3d2fb.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Deir_el-Medina%2C_Luxor%2C_3_Jan_2011_-_panoramio_%285%29.jpg",
+    "title": "File:Deir el-Medina, Luxor, 3 Jan 2011 - panoramio (5).jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://web.archive.org/web/20161017214901/http://www.panoramio.com/user/3280227?with_photo_id=46591053\">anagh</a>",
+    "width": 4288,
+    "height": 2848,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "ee3fc9f348c469fe.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Deir_el-Medina%2C_Luxor%2C_3_Jan_2011_-_panoramio_%286%29.jpg",
+    "title": "File:Deir el-Medina, Luxor, 3 Jan 2011 - panoramio (6).jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://web.archive.org/web/20161017064445/http://www.panoramio.com/user/3280227?with_photo_id=46591123\">anagh</a>",
+    "width": 4288,
+    "height": 2848,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "e30398bf635b5cd5.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Deir_el-Medina%2C_Luxor%2C_3_Jan_2011_-_panoramio_%287%29.jpg",
+    "title": "File:Deir el-Medina, Luxor, 3 Jan 2011 - panoramio (7).jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://web.archive.org/web/20161017151354/http://www.panoramio.com/user/3280227?with_photo_id=46592019\">anagh</a>",
+    "width": 4288,
+    "height": 2848,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "7dcd797437eec707.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Deir_el-Medina%2C_Luxor%2C_3_Jan_2011_-_panoramio_%288%29.jpg",
+    "title": "File:Deir el-Medina, Luxor, 3 Jan 2011 - panoramio (8).jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://web.archive.org/web/20161017130422/http://www.panoramio.com/user/3280227?with_photo_id=46592111\">anagh</a>",
+    "width": 4288,
+    "height": 2848,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "e7d0c9a23cdc1d9a.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Deir_el-Medina%2C_Luxor%2C_3_Jan_2011_-_panoramio_%282%29.jpg",
+    "title": "File:Deir el-Medina, Luxor, 3 Jan 2011 - panoramio (2).jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://web.archive.org/web/20161017111013/http://www.panoramio.com/user/3280227?with_photo_id=46636299\">anagh</a>",
+    "width": 4288,
+    "height": 2848,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "8148210ad3f5e446.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Deir_el-Medina_1999_01.jpg",
+    "title": "File:Deir el-Medina 1999 01.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:LBM1948\" title=\"User:LBM1948\">LBM1948</a>",
+    "width": 1032,
+    "height": 670,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "65432b61ff990db4.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/88/Deir_el-Medina_1999_02.jpg",
+    "title": "File:Deir el-Medina 1999 02.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:LBM1948\" title=\"User:LBM1948\">LBM1948</a>",
+    "width": 712,
+    "height": 1070,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "bcf878f0442615d4.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Deir_el-Medina1.JPG",
+    "title": "File:Deir el-Medina1.JPG",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:R%C3%A9mih\" title=\"User:Rémih\">Rémih</a>",
+    "width": 2048,
+    "height": 1536,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "8aec7e79e2e5e833.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/03/Deir_el-Medina2.JPG",
+    "title": "File:Deir el-Medina2.JPG",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:R%C3%A9mih\" title=\"User:Rémih\">Rémih</a>",
+    "width": 2048,
+    "height": 1536,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "6acaf1050cf9f8f6.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Deir_el-Medina3.JPG",
+    "title": "File:Deir el-Medina3.JPG",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:R%C3%A9mih\" title=\"User:Rémih\">Rémih</a>",
+    "width": 1536,
+    "height": 2048,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "a3db4d3a1f629a33.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Deir_el-Medina.JPG",
+    "title": "File:Deir el-Medina.JPG",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:R%C3%A9mih\" title=\"User:Rémih\">Rémih</a>",
+    "width": 1536,
+    "height": 2048,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "4c17e1597fce4da5.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/48/Deir_el-Medina4.JPG",
+    "title": "File:Deir el-Medina4.JPG",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:R%C3%A9mih\" title=\"User:Rémih\">Rémih</a>",
+    "width": 2048,
+    "height": 1536,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "1849d9a2da0d673d.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Deir_el-Medina%2C_Luxor%2C_3_Jan_2011_-_panoramio.jpg",
+    "title": "File:Deir el-Medina, Luxor, 3 Jan 2011 - panoramio.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://web.archive.org/web/20161016173854/http://www.panoramio.com/user/3280227?with_photo_id=46546698\">anagh</a>",
+    "width": 4288,
+    "height": 2848,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "5c71c8c8b7a06cab.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/25/Deir_el-Medina-04-Totengraeberstadt_von_oben-1982-gje.jpg",
+    "title": "File:Deir el-Medina-04-Totengraeberstadt von oben-1982-gje.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Gerd_Eichmann\" title=\"User:Gerd Eichmann\">Gerd Eichmann</a>",
+    "width": 3626,
+    "height": 2400,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "1fc09c6cea6c63e1.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Deir_el-Medina-06-Totengraeberstadt_von_oben-1982-gje.jpg",
+    "title": "File:Deir el-Medina-06-Totengraeberstadt von oben-1982-gje.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Gerd_Eichmann\" title=\"User:Gerd Eichmann\">Gerd Eichmann</a>",
+    "width": 2352,
+    "height": 3133,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "6da93f8019bd7c19.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/c4/Deir_el-Medina-02-Tempel_von_oben-Ptolemaeer-Zeit-2.JH-1982-gje.jpg",
+    "title": "File:Deir el-Medina-02-Tempel von oben-Ptolemaeer-Zeit-2.JH-1982-gje.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Gerd_Eichmann\" title=\"User:Gerd Eichmann\">Gerd Eichmann</a>",
+    "width": 3626,
+    "height": 2400,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "ccecb46ea77ad526.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Deir_el-Medina%2CLuxor%2C_West_Bank%2C_Egypt.JPG",
+    "title": "File:Deir el-Medina,Luxor, West Bank, Egypt.JPG",
+    "license": "Public domain",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Pufacz\" title=\"User:Pufacz\">Pufacz</a>",
+    "width": 3264,
+    "height": 2448,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "e91442c603ec4bf8.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/04/Schiaparelli%27s_excavations_-_Theban_region%2C_Deir_el-Medina%2C_Chapel_of_Maia%2C_1905-1906%2C_photo_6_of_22_-_Archivio_fotografico_Museo_Egizio%2C_Turin_C00515.jpg",
+    "title": "File:Schiaparelli's excavations - Theban region, Deir el-Medina, Chapel of Maia, 1905-1906, photo 6 of 22 - Archivio fotografico Museo Egizio, Turin C00515.jpg",
+    "license": "CC0",
+    "artist": "unknown",
+    "width": 8350,
+    "height": 5850,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "eee9a21c3f33e09e.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Schiaparelli%27s_excavations_-_Theban_region%2C_Deir_el-Medina%2C_Chapel_of_Maia%2C_1905-1906%2C_photo_14_of_22_-_Archivio_fotografico_Museo_Egizio%2C_Turin_C00888.jpg",
+    "title": "File:Schiaparelli's excavations - Theban region, Deir el-Medina, Chapel of Maia, 1905-1906, photo 14 of 22 - Archivio fotografico Museo Egizio, Turin C00888.jpg",
+    "license": "CC0",
+    "artist": "unknown",
+    "width": 5900,
+    "height": 8475,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "7f8c3908822dcf0d.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/16/Schiaparelli%27s_excavations_-_Theban_region%2C_Deir_el-Medina%2C_Chapel_of_Maia%2C_1905-1906%2C_photo_15_of_22_-_Archivio_fotografico_Museo_Egizio%2C_Turin_C00889.jpg",
+    "title": "File:Schiaparelli's excavations - Theban region, Deir el-Medina, Chapel of Maia, 1905-1906, photo 15 of 22 - Archivio fotografico Museo Egizio, Turin C00889.jpg",
+    "license": "CC0",
+    "artist": "unknown",
+    "width": 5899,
+    "height": 8400,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "ea87a9134d6f3168.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/42/Schiaparelli%27s_excavations_-_Theban_region%2C_Deir_el-Medina%2C_Chapel_of_Maia%2C_1905-1906%2C_photo_16_of_22_-_Archivio_fotografico_Museo_Egizio%2C_Turin_E00465.jpg",
+    "title": "File:Schiaparelli's excavations - Theban region, Deir el-Medina, Chapel of Maia, 1905-1906, photo 16 of 22 - Archivio fotografico Museo Egizio, Turin E00465.jpg",
+    "license": "CC0",
+    "artist": "unknown",
+    "width": 4912,
+    "height": 3848,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "38126ef1d8ad1b58.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Schiaparelli%27s_excavations_-_Theban_region%2C_Deir_el-Medina%2C_Chapel_of_Maia%2C_1905-1906%2C_photo_1_of_22_-_Archivio_fotografico_Museo_Egizio%2C_Turin_C00880.jpg",
+    "title": "File:Schiaparelli's excavations - Theban region, Deir el-Medina, Chapel of Maia, 1905-1906, photo 1 of 22 - Archivio fotografico Museo Egizio, Turin C00880.jpg",
+    "license": "CC0",
+    "artist": "unknown",
+    "width": 8400,
+    "height": 5899,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "8d0a1fe66650cb8b.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Schiaparelli%27s_excavations_-_Theban_region%2C_Deir_el-Medina%2C_Chapel_of_Maia%2C_1905-1906%2C_photo_3_of_22_-_Archivio_fotografico_Museo_Egizio%2C_Turin_C00929.jpg",
+    "title": "File:Schiaparelli's excavations - Theban region, Deir el-Medina, Chapel of Maia, 1905-1906, photo 3 of 22 - Archivio fotografico Museo Egizio, Turin C00929.jpg",
+    "license": "CC0",
+    "artist": "unknown",
+    "width": 5900,
+    "height": 8499,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "71f59d293b07a9eb.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Schiaparelli%27s_excavations_-_Theban_region%2C_Deir_el-Medina%2C_Chapel_of_Maia%2C_1905-1906%2C_photo_13_of_22_-_Archivio_fotografico_Museo_Egizio%2C_Turin_B00778.jpg",
+    "title": "File:Schiaparelli's excavations - Theban region, Deir el-Medina, Chapel of Maia, 1905-1906, photo 13 of 22 - Archivio fotografico Museo Egizio, Turin B00778.jpg",
+    "license": "CC0",
+    "artist": "unknown",
+    "width": 4290,
+    "height": 5724,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "f77193f277142897.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Schiaparelli%27s_excavations_-_Theban_region%2C_Deir_el-Medina%2C_Chapel_of_Maia%2C_1905-1906%2C_photo_17_of_22_-_Archivio_fotografico_Museo_Egizio%2C_Turin_B00773.jpg",
+    "title": "File:Schiaparelli's excavations - Theban region, Deir el-Medina, Chapel of Maia, 1905-1906, photo 17 of 22 - Archivio fotografico Museo Egizio, Turin B00773.jpg",
+    "license": "CC0",
+    "artist": "unknown",
+    "width": 5656,
+    "height": 4226,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "fde6c2b160955d4a.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Schiaparelli%27s_excavations_-_Theban_region%2C_Deir_el-Medina%2C_Chapel_of_Maia%2C_1905-1906%2C_photo_18_of_22_-_Archivio_fotografico_Museo_Egizio%2C_Turin_B00775.jpg",
+    "title": "File:Schiaparelli's excavations - Theban region, Deir el-Medina, Chapel of Maia, 1905-1906, photo 18 of 22 - Archivio fotografico Museo Egizio, Turin B00775.jpg",
+    "license": "CC0",
+    "artist": "unknown",
+    "width": 5707,
+    "height": 4241,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "a1dd0eb0fcf538a8.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Schiaparelli%27s_excavations_-_Theban_region%2C_Deir_el-Medina%2C_Excavations_in_the_mountain%2C_1909%2C_photo_12_of_22_-_Archivio_fotografico_Museo_Egizio%2C_Turin_B00077.jpg",
+    "title": "File:Schiaparelli's excavations - Theban region, Deir el-Medina, Excavations in the mountain, 1909, photo 12 of 22 - Archivio fotografico Museo Egizio, Turin B00077.jpg",
+    "license": "CC0",
+    "artist": "unknown",
+    "width": 5325,
+    "height": 4275,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  },
+  {
+    "filename": "51a408af0efafd47.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/96/Schiaparelli%27s_excavations_-_Theban_region%2C_Deir_el-Medina%2C_Chapel_of_Maia%2C_1905-1906%2C_photo_2_of_22_-_Archivio_fotografico_Museo_Egizio%2C_Turin_C00514.jpg",
+    "title": "File:Schiaparelli's excavations - Theban region, Deir el-Medina, Chapel of Maia, 1905-1906, photo 2 of 22 - Archivio fotografico Museo Egizio, Turin C00514.jpg",
+    "license": "CC0",
+    "artist": "unknown",
+    "width": 5825,
+    "height": 8250,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:10:16"
+  }
+]

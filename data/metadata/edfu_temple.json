@@ -1,0 +1,478 @@
+[
+  {
+    "hash": "184fcee7a7d98235",
+    "original_name": "0.jpg",
+    "original_class": "Edfu_Temple",
+    "size_bytes": 7495,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:26"
+  },
+  {
+    "hash": "b6dd40f4b0318efd",
+    "original_name": "1.jpg",
+    "original_class": "Edfu_Temple",
+    "size_bytes": 8938,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:26"
+  },
+  {
+    "hash": "b2d58221fa1e303f",
+    "original_name": "10.jpg",
+    "original_class": "Edfu_Temple",
+    "size_bytes": 10461,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:26"
+  },
+  {
+    "hash": "bd41b5097d649547",
+    "original_name": "11.jpg",
+    "original_class": "Edfu_Temple",
+    "size_bytes": 5163,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:26"
+  },
+  {
+    "hash": "1e2de5a674431ee0",
+    "original_name": "12.jpg",
+    "original_class": "Edfu_Temple",
+    "size_bytes": 10174,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:26"
+  },
+  {
+    "hash": "bd4e3acb6ad07f97",
+    "original_name": "13.jpg",
+    "original_class": "Edfu_Temple",
+    "size_bytes": 6977,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:26"
+  },
+  {
+    "hash": "31eeccb5d53cba20",
+    "original_name": "14.jpg",
+    "original_class": "Edfu_Temple",
+    "size_bytes": 9788,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:26"
+  },
+  {
+    "hash": "793c8ebda72a63c5",
+    "original_name": "15.jpg",
+    "original_class": "Edfu_Temple",
+    "size_bytes": 5876,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:26"
+  },
+  {
+    "hash": "720904859acb59ce",
+    "original_name": "16.jpg",
+    "original_class": "Edfu_Temple",
+    "size_bytes": 6067,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:26"
+  },
+  {
+    "hash": "a6cf1a681f81c36b",
+    "original_name": "2.jpg",
+    "original_class": "Edfu_Temple",
+    "size_bytes": 7737,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:26"
+  },
+  {
+    "hash": "eb62a028cce808d5",
+    "original_name": "3.jpg",
+    "original_class": "Edfu_Temple",
+    "size_bytes": 6000,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:26"
+  },
+  {
+    "hash": "d58d18609cf616c8",
+    "original_name": "4.jpg",
+    "original_class": "Edfu_Temple",
+    "size_bytes": 9553,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:26"
+  },
+  {
+    "hash": "4c60480cb2c0c658",
+    "original_name": "5.jpg",
+    "original_class": "Edfu_Temple",
+    "size_bytes": 6135,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:26"
+  },
+  {
+    "hash": "febf4cbcd5801149",
+    "original_name": "6.jpg",
+    "original_class": "Edfu_Temple",
+    "size_bytes": 7269,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:26"
+  },
+  {
+    "hash": "f2c6143de5cb9a4a",
+    "original_name": "7.jpg",
+    "original_class": "Edfu_Temple",
+    "size_bytes": 7562,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:26"
+  },
+  {
+    "hash": "74db3c103883c52c",
+    "original_name": "8.jpg",
+    "original_class": "Edfu_Temple",
+    "size_bytes": 10011,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:26"
+  },
+  {
+    "hash": "74b8663aa635c9ce",
+    "original_name": "9.jpg",
+    "original_class": "Edfu_Temple",
+    "size_bytes": 9115,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:26"
+  },
+  {
+    "filename": "d0d8f34db4dae33d.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Temple_of_Edfu_02.jpg",
+    "title": "File:Temple of Edfu 02.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:AdMeskens\" class=\"mw-redirect\" title=\"User:AdMeskens\">Ad Meskens</a>",
+    "width": 3648,
+    "height": 2736,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T02:02:32"
+  },
+  {
+    "filename": "16876c5f7338df6c.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Edfu_Temple_R02.jpg",
+    "title": "File:Edfu Temple R02.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:MJJR\" title=\"User:MJJR\">Marc Ryckaert</a>",
+    "width": 4622,
+    "height": 3081,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T02:02:32"
+  },
+  {
+    "filename": "bc68d8cb44817e7d.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/15/Edfu_Temple_R04.jpg",
+    "title": "File:Edfu Temple R04.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:MJJR\" title=\"User:MJJR\">Marc Ryckaert</a>",
+    "width": 4459,
+    "height": 2873,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T02:02:32"
+  },
+  {
+    "filename": "c10772dc03797413.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Temple_of_Edfu%2C_Statue_of_Horus%2C_Egypt.jpg",
+    "title": "File:Temple of Edfu, Statue of Horus, Egypt.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Argenberg\" title=\"User:Argenberg\">Vyacheslav Argenberg</a>",
+    "width": 3072,
+    "height": 2048,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T02:02:32"
+  },
+  {
+    "filename": "9b617478efed8847.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Temple_of_Edfu%2C_Court%2C_Egypt.jpg",
+    "title": "File:Temple of Edfu, Court, Egypt.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Argenberg\" title=\"User:Argenberg\">Vyacheslav Argenberg</a>",
+    "width": 3072,
+    "height": 2048,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T02:02:32"
+  },
+  {
+    "filename": "5a425fdfafebd903.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/4d/Temple_of_Edfu%2C_Pylon%2C_Gate%2C_Egypt.jpg",
+    "title": "File:Temple of Edfu, Pylon, Gate, Egypt.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Argenberg\" title=\"User:Argenberg\">Vyacheslav Argenberg</a>",
+    "width": 3072,
+    "height": 2048,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T02:02:32"
+  },
+  {
+    "filename": "76cd6821ba88bbde.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/43/Temple_of_Edfu%2C_Statue_of_Horus_3%2C_Egypt.jpg",
+    "title": "File:Temple of Edfu, Statue of Horus 3, Egypt.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Argenberg\" title=\"User:Argenberg\">Vyacheslav Argenberg</a>",
+    "width": 3072,
+    "height": 2048,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T02:02:32"
+  },
+  {
+    "filename": "f232294cb2eb066e.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Temple_of_Edfu%2C_Columns%2C_Egypt.jpg",
+    "title": "File:Temple of Edfu, Columns, Egypt.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Argenberg\" title=\"User:Argenberg\">Vyacheslav Argenberg</a>",
+    "width": 3072,
+    "height": 2048,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T02:02:32"
+  },
+  {
+    "filename": "803d740067e401ce.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Temple_of_Edfu%2C_Inner_halls%2C_Egypt.jpg",
+    "title": "File:Temple of Edfu, Inner halls, Egypt.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Argenberg\" title=\"User:Argenberg\">Vyacheslav Argenberg</a>",
+    "width": 3072,
+    "height": 2048,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T02:02:32"
+  },
+  {
+    "filename": "22b4874eeff74537.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Temple_of_Edfu%2C_Ceiling%2C_Egypt.jpg",
+    "title": "File:Temple of Edfu, Ceiling, Egypt.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Argenberg\" title=\"User:Argenberg\">Vyacheslav Argenberg</a>",
+    "width": 3072,
+    "height": 2048,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T02:02:32"
+  },
+  {
+    "filename": "9b97eaa8c37583fe.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Temple_of_Edfu%2C_Corridors%2C_Egypt.jpg",
+    "title": "File:Temple of Edfu, Corridors, Egypt.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Argenberg\" title=\"User:Argenberg\">Vyacheslav Argenberg</a>",
+    "width": 3072,
+    "height": 2048,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T02:02:32"
+  },
+  {
+    "filename": "6c7f4dc31e19d66a.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/10/Temple_of_Edfu%2C_Hall%2C_Egypt.jpg",
+    "title": "File:Temple of Edfu, Hall, Egypt.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Argenberg\" title=\"User:Argenberg\">Vyacheslav Argenberg</a>",
+    "width": 3072,
+    "height": 2048,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T02:02:32"
+  },
+  {
+    "filename": "3eef65a1c3ab3a53.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Temple_of_Edfu%2C_Horus%2C_Egypt.jpg",
+    "title": "File:Temple of Edfu, Horus, Egypt.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Argenberg\" title=\"User:Argenberg\">Vyacheslav Argenberg</a>",
+    "width": 3072,
+    "height": 2048,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T02:02:32"
+  },
+  {
+    "filename": "98c3f089b1d8db74.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Temple_Edfou_Egypte.jpg",
+    "wikipedia_title": "Temple_of_Edfu",
+    "source": "wikipedia",
+    "downloaded_at": "2026-03-02T02:10:42"
+  },
+  {
+    "filename": "cec866c3e58bf5e7.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Temple_Edfou_Egypte.jpg/1280px-Temple_Edfou_Egypte.jpg",
+    "wikipedia_title": "Temple_of_Edfu",
+    "source": "wikipedia",
+    "downloaded_at": "2026-03-02T02:10:42"
+  },
+  {
+    "filename": "c091073ed191f9b6.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Temple_of_Edfu_sanctuary.jpg/960px-Temple_of_Edfu_sanctuary.jpg",
+    "wikipedia_title": "Temple_of_Edfu",
+    "source": "wikipedia",
+    "downloaded_at": "2026-03-02T02:10:42"
+  },
+  {
+    "filename": "9789495414e450c3.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Temple_of_Edfu%2C_Horus_2%2C_Egypt.jpg",
+    "title": "File:Temple of Edfu, Horus 2, Egypt.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Argenberg\" title=\"User:Argenberg\">Vyacheslav Argenberg</a>",
+    "width": 3072,
+    "height": 2048,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:12:58"
+  },
+  {
+    "filename": "2007b42e09662e79.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/62/Temple_of_Edfu%2C_Egypt.jpg",
+    "title": "File:Temple of Edfu, Egypt.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Argenberg\" title=\"User:Argenberg\">Vyacheslav Argenberg</a>",
+    "width": 3072,
+    "height": 2048,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:12:58"
+  },
+  {
+    "filename": "fe83ed2feddaccbf.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Temple_of_Edfu%2C_Pylon%2C_Egypt.jpg",
+    "title": "File:Temple of Edfu, Pylon, Egypt.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Argenberg\" title=\"User:Argenberg\">Vyacheslav Argenberg</a>",
+    "width": 3072,
+    "height": 2048,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:12:58"
+  },
+  {
+    "filename": "f7563833470bdb1b.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Temple_of_Edfu%2C_Pillared_hall%2C_Egypt.jpg",
+    "title": "File:Temple of Edfu, Pillared hall, Egypt.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Argenberg\" title=\"User:Argenberg\">Vyacheslav Argenberg</a>",
+    "width": 3072,
+    "height": 2048,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:12:58"
+  },
+  {
+    "filename": "cfaa126dee5cf383.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Temple_of_Edfu%2C_Pylon_2%2C_Egypt.jpg",
+    "title": "File:Temple of Edfu, Pylon 2, Egypt.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Argenberg\" title=\"User:Argenberg\">Vyacheslav Argenberg</a>",
+    "width": 3072,
+    "height": 2048,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:12:58"
+  },
+  {
+    "filename": "0f4b521211e476d5.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/1b/02010_05831_Edfu_Temple.jpg",
+    "title": "File:02010 05831 Edfu Temple.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "Silar",
+    "width": 3179,
+    "height": 2120,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:12:58"
+  },
+  {
+    "filename": "5da86c68ce4fa0c7.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Temple_of_Edfu%2C_Statue_of_Horus_2%2C_Egypt.jpg",
+    "title": "File:Temple of Edfu, Statue of Horus 2, Egypt.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Argenberg\" title=\"User:Argenberg\">Vyacheslav Argenberg</a>",
+    "width": 3072,
+    "height": 2048,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:12:58"
+  },
+  {
+    "filename": "b0d50040c91bc2b3.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/a5/By_ovedc_-_Edfu_Temple_-_01.jpg",
+    "title": "File:By ovedc - Edfu Temple - 01.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Ovedc\" title=\"User:Ovedc\">Ovedc</a>",
+    "width": 5312,
+    "height": 2988,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:12:58"
+  },
+  {
+    "filename": "6930a8954bc7d814.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f3/By_ovedc_-_Edfu_Temple_-_02.jpg",
+    "title": "File:By ovedc - Edfu Temple - 02.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Ovedc\" title=\"User:Ovedc\">Ovedc</a>",
+    "width": 5312,
+    "height": 2988,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:12:58"
+  },
+  {
+    "filename": "61fd7724f765e2f8.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/76/By_ovedc_-_Edfu_Temple_-_06.jpg",
+    "title": "File:By ovedc - Edfu Temple - 06.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Ovedc\" title=\"User:Ovedc\">Ovedc</a>",
+    "width": 5312,
+    "height": 2988,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:12:58"
+  },
+  {
+    "filename": "ed680e14955fd509.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/9d/By_ovedc_-_Edfu_Temple_-_07.jpg",
+    "title": "File:By ovedc - Edfu Temple - 07.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Ovedc\" title=\"User:Ovedc\">Ovedc</a>",
+    "width": 5312,
+    "height": 2988,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:12:58"
+  },
+  {
+    "filename": "4ddd1bed1cb1dc79.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Edfu_Temple_R01.jpg",
+    "title": "File:Edfu Temple R01.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:MJJR\" title=\"User:MJJR\">Marc Ryckaert</a>",
+    "width": 4696,
+    "height": 3145,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:12:58"
+  },
+  {
+    "filename": "91f7bc84481c1ded.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Edfu_Temple_R03.jpg",
+    "title": "File:Edfu Temple R03.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:MJJR\" title=\"User:MJJR\">Marc Ryckaert</a>",
+    "width": 4743,
+    "height": 3162,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:12:58"
+  },
+  {
+    "filename": "0620b8b7d3405802.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/3a/02010_05833_Statues_of_Horus_in_Edfu_Temple.jpg",
+    "title": "File:02010 05833 Statues of Horus in Edfu Temple.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "Silar",
+    "width": 2058,
+    "height": 2966,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:12:58"
+  },
+  {
+    "filename": "4c50b9d8a3b24f4f.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/42/Temple_of_Edfu_05.jpg",
+    "title": "File:Temple of Edfu 05.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:AdMeskens\" class=\"mw-redirect\" title=\"User:AdMeskens\">Ad Meskens</a>",
+    "width": 2598,
+    "height": 3140,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:12:58"
+  },
+  {
+    "filename": "1723f8470464090a.png",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/09/Temple_of_Horus_Edfu_04_977.PNG",
+    "title": "File:Temple of Horus Edfu 04 977.PNG",
+    "license": "Public domain",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Ijanderson977\" class=\"mw-redirect\" title=\"User:Ijanderson977\">Ijanderson977</a>",
+    "width": 3072,
+    "height": 2304,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:12:58"
+  }
+]

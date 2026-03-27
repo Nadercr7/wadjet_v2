@@ -1,0 +1,22 @@
+{
+  "wikipedia": {
+    "en": {
+      "title": "Mortuary temple of Hatshepsut",
+      "extract": "The mortuary temple of Hatshepsut was built during the reign of Pharaoh Hatshepsut of the Eighteenth Dynasty of Egypt. Located opposite the city of Luxor, it is considered to be a masterpiece of ancient architecture. Its three massive terraces rise above the desert floor and into the cliffs of Deir el-Bahari. Hatshepsut's tomb, KV20, lies inside the same massif capped by El Qurn, a pyramid for her mortuary complex. At the edge of the desert, 1 km (0.62 mi) east, connected to the complex by a causeway, lies the accompanying valley temple. Across the river Nile, the whole structure points towards the monumental Eighth Pylon, Hatshepsut's most recognizable addition to the Temple of Karnak and the site from which the procession of the Beautiful Festival of the Valley departed. Its axes identify the temple's twin functions: Its central east-west axis served to receive the barque of Amun-Re at the climax of the festival, while its north-south axis represented the life cycle of the pharaoh from coronation to rebirth.",
+      "description": "Ancient Egyptian temple",
+      "coordinates": {
+        "lat": 25.73827778,
+        "lon": 32.60658333
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Templo_funerario_de_Hatshepsut%2C_Luxor%2C_Egipto%2C_2022-04-03%2C_DD_13.jpg/330px-Templo_funerario_de_Hatshepsut%2C_Luxor%2C_Egipto%2C_2022-04-03%2C_DD_13.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/7/74/Templo_funerario_de_Hatshepsut%2C_Luxor%2C_Egipto%2C_2022-04-03%2C_DD_13.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Mortuary_temple_of_Hatshepsut"
+    },
+    "ar": {
+      "title": "الدير البحري",
+      "extract": "الدير البحري هو مجموعة من المعابد والمقابر الفرعونية الموجودة في الضفة الغربية من النيل المقابلة لمدينة الأقصر بمصر. شيدت الدير الملكة حتشبسوت لتؤدي فيه الطقوس التي تفيدها في العالم الآخر، أما اسم الدير البحري فهو اسم عربي حديث أطلق على هذه المنطقة في القرن السابع الميلادي بعد أن استخدم الأقباط هذا المعبد ديرًا لهم. ويتكون المعبد من ثلاثة مدرجات متصاعدة يوصل بينهم منصات منحدرة للصعود والنزول. وكان أول نصب تذكاري تم بناؤه في الموقع هو المعبد الجنائزي لمنتوحتب الثاني من الأسرة الحادية عشرة خلال القرن الحادي والعشرين قبل الميلاد، خلال الأسرة الثامنة عشرة قام أمنحتب الأول وحتشبسوت أيضًا بالبناء على نطاق واسع في الموقع.",
+      "description": "مجموعة من المعابد والمقابر المصرية الموجودة في الضفة الغربية من النيل المقابلة لمدينة طيبة (الأقصر) بمصر",
+      "wikipedia_url": "https://ar.wikipedia.org/wiki/%D8%A7%D9%84%D8%AF%D9%8A%D8%B1_%D8%A7%D9%84%D8%A8%D8%AD%D8%B1%D9%8A"
+    }
+  }
+}

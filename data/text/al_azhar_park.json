@@ -1,0 +1,19 @@
+{
+  "wikipedia": {
+    "en": {
+      "title": "Al-Azhar Park",
+      "extract": "Al-Azhar Park is a public park in Cairo, Egypt. It is located in qism al-Darb al-Ahmar, in Historic Cairo. Among several honors, this park is listed as one of the world's sixty great public spaces by the Project for Public Spaces.",
+      "description": "Public park in Cairo, Egypt",
+      "coordinates": {},
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Al_Azhar_Park_Egypt_%28cropped%29.jpg/330px-Al_Azhar_Park_Egypt_%28cropped%29.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/5/52/Al_Azhar_Park_Egypt_%28cropped%29.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Al-Azhar_Park"
+    },
+    "ar": {
+      "title": "حديقة الأزهر",
+      "extract": "حديقة الأزهر هي إحدى أضخم حدائق القاهرة الكبرى وواحدة من أكبر وأجمل حدائق العالم. تقع على مساحة 80 فدان كانت تستغل في الماضي كمقلب للقمامة والمخلفات لمدة تزيد علي ألف عام. تم الإعلان عن المشروع في عام 1984 وافتتحت للزائرين في عام 2005 حيث استغرق إنشاؤها أكثر من 7 أعوام بتكلفة إجمالية تزيد على 100 مليون جنيه تحملتها مؤسسة أغاخان للعمارة الإسلامية.",
+      "description": "حديقة في مصر",
+      "wikipedia_url": "https://ar.wikipedia.org/wiki/%D8%AD%D8%AF%D9%8A%D9%82%D8%A9_%D8%A7%D9%84%D8%A3%D8%B2%D9%87%D8%B1"
+    }
+  }
+}

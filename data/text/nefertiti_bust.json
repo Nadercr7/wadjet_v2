@@ -1,0 +1,19 @@
+{
+  "wikipedia": {
+    "en": {
+      "title": "Nefertiti Bust",
+      "extract": "The Nefertiti Bust is a painted stucco-coated limestone bust of Nefertiti, the Great Royal Wife of Egyptian pharaoh Akhenaten. It is on display in the Egyptian Museum of Berlin.",
+      "description": "Ancient sculpture from Egypt",
+      "coordinates": {},
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Nofretete_Neues_Museum.jpg/330px-Nofretete_Neues_Museum.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Nofretete_Neues_Museum.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Nefertiti_Bust"
+    },
+    "ar": {
+      "title": "تمثال نفرتيتي",
+      "extract": " تمثال نفرتيتي  أحد أشهر الأعمال الأثرية المصرية القديمة، وهو تمثال نصفي مدهون من الحجر الجيري عمره أكثر من 3300 عام، نحته النحات المصري تحتمس عام 1345 ق.م تقريبًا، للملكة نفرتيتي زوجة الفرعون المصري إخناتون. جعل هذا التمثال من نفرتيتي أحد أشهر نساء العالم القديم، ورمز من رموز الجمال الأنثوي.",
+      "description": "منحوتة لرأس الملكة نفرتيتي",
+      "wikipedia_url": "https://ar.wikipedia.org/wiki/%D8%AA%D9%85%D8%AB%D8%A7%D9%84_%D9%86%D9%81%D8%B1%D8%AA%D9%8A%D8%AA%D9%8A"
+    }
+  }
+}

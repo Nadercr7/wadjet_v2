@@ -1,0 +1,962 @@
+[
+  {
+    "hash": "755c5637d9ee64d2",
+    "original_name": "0.jpg",
+    "original_class": "Baron_Empain_Palace",
+    "size_bytes": 11163,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:22"
+  },
+  {
+    "hash": "be2c9d6d0e7edcef",
+    "original_name": "1.jpg",
+    "original_class": "Baron_Empain_Palace",
+    "size_bytes": 8054,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:22"
+  },
+  {
+    "hash": "d05091a080af5c00",
+    "original_name": "10.jpg",
+    "original_class": "Baron_Empain_Palace",
+    "size_bytes": 8454,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:22"
+  },
+  {
+    "hash": "5cc0948cebfd76ff",
+    "original_name": "11.jpg",
+    "original_class": "Baron_Empain_Palace",
+    "size_bytes": 11164,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:22"
+  },
+  {
+    "hash": "c7d337b41cc60f2e",
+    "original_name": "12.jpg",
+    "original_class": "Baron_Empain_Palace",
+    "size_bytes": 7953,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:22"
+  },
+  {
+    "hash": "23ee1c18a1d8dfbf",
+    "original_name": "13.jpg",
+    "original_class": "Baron_Empain_Palace",
+    "size_bytes": 11272,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:22"
+  },
+  {
+    "hash": "7e1f90fa2024791a",
+    "original_name": "14.jpg",
+    "original_class": "Baron_Empain_Palace",
+    "size_bytes": 11830,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:22"
+  },
+  {
+    "hash": "2762378183e6e983",
+    "original_name": "15.jpg",
+    "original_class": "Baron_Empain_Palace",
+    "size_bytes": 9426,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:22"
+  },
+  {
+    "hash": "cb2e4adeb441704e",
+    "original_name": "16.jpg",
+    "original_class": "Baron_Empain_Palace",
+    "size_bytes": 11753,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:22"
+  },
+  {
+    "hash": "4b1c34e1b8adbbf8",
+    "original_name": "17.jpg",
+    "original_class": "Baron_Empain_Palace",
+    "size_bytes": 11935,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:22"
+  },
+  {
+    "hash": "29a5d335c6b9e35d",
+    "original_name": "18.jpg",
+    "original_class": "Baron_Empain_Palace",
+    "size_bytes": 8866,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:22"
+  },
+  {
+    "hash": "85d525dbc3a1eeb6",
+    "original_name": "19.jpg",
+    "original_class": "Baron_Empain_Palace",
+    "size_bytes": 8445,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:22"
+  },
+  {
+    "hash": "d8b2310515972c4c",
+    "original_name": "2.jpg",
+    "original_class": "Baron_Empain_Palace",
+    "size_bytes": 9960,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:22"
+  },
+  {
+    "hash": "9af29726f7a5685d",
+    "original_name": "20.jpg",
+    "original_class": "Baron_Empain_Palace",
+    "size_bytes": 6952,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:22"
+  },
+  {
+    "hash": "88a161cbabf7581a",
+    "original_name": "21.jpg",
+    "original_class": "Baron_Empain_Palace",
+    "size_bytes": 16959,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:22"
+  },
+  {
+    "hash": "701371ca648ec3e0",
+    "original_name": "22.jpg",
+    "original_class": "Baron_Empain_Palace",
+    "size_bytes": 14575,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:22"
+  },
+  {
+    "hash": "3dd3a895bed4fba0",
+    "original_name": "23.jpg",
+    "original_class": "Baron_Empain_Palace",
+    "size_bytes": 10163,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:22"
+  },
+  {
+    "hash": "778a2f4b87b1cfea",
+    "original_name": "24.jpg",
+    "original_class": "Baron_Empain_Palace",
+    "size_bytes": 8468,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:22"
+  },
+  {
+    "hash": "0b111f68d2df311d",
+    "original_name": "25.jpg",
+    "original_class": "Baron_Empain_Palace",
+    "size_bytes": 8709,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:22"
+  },
+  {
+    "hash": "dafa51452c568773",
+    "original_name": "26.jpg",
+    "original_class": "Baron_Empain_Palace",
+    "size_bytes": 8393,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:22"
+  },
+  {
+    "hash": "bb2d79c327921dc1",
+    "original_name": "27.jpg",
+    "original_class": "Baron_Empain_Palace",
+    "size_bytes": 11337,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:22"
+  },
+  {
+    "hash": "ed62d0b5827edeac",
+    "original_name": "3.jpg",
+    "original_class": "Baron_Empain_Palace",
+    "size_bytes": 11815,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:22"
+  },
+  {
+    "hash": "76866885e137f7de",
+    "original_name": "4.jpg",
+    "original_class": "Baron_Empain_Palace",
+    "size_bytes": 10114,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:22"
+  },
+  {
+    "hash": "eec1d060c3ab46e5",
+    "original_name": "5.jpg",
+    "original_class": "Baron_Empain_Palace",
+    "size_bytes": 8146,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:22"
+  },
+  {
+    "hash": "25bd5a182faf01a0",
+    "original_name": "6.jpg",
+    "original_class": "Baron_Empain_Palace",
+    "size_bytes": 6884,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:22"
+  },
+  {
+    "hash": "4fd6f5f65f208a8a",
+    "original_name": "7.jpg",
+    "original_class": "Baron_Empain_Palace",
+    "size_bytes": 9829,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:22"
+  },
+  {
+    "hash": "fe59922336fec349",
+    "original_name": "8.jpg",
+    "original_class": "Baron_Empain_Palace",
+    "size_bytes": 8769,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:22"
+  },
+  {
+    "hash": "0ccd94d9e9e6625d",
+    "original_name": "9.jpg",
+    "original_class": "Baron_Empain_Palace",
+    "size_bytes": 10037,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:22"
+  },
+  {
+    "filename": "b0339ec907c7405b.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/5d/The_exterior_of_the_Baron_Empain_palace.jpg",
+    "title": "File:The exterior of the Baron Empain palace.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Bishoy_Samuel&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Bishoy Samuel (page does not exist)\">Bishoy Samuel</a>",
+    "width": 1716,
+    "height": 2211,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T02:03:40"
+  },
+  {
+    "filename": "fd60aa338399e33f.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Baron_Empain_Palace_Interior_87.jpg",
+    "title": "File:Baron Empain Palace Interior 87.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nabbegat\" title=\"User:Nabbegat\">Nabbegat</a>",
+    "width": 4032,
+    "height": 2268,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T02:03:40"
+  },
+  {
+    "filename": "1f7a8db2ad2ff002.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/23/Baron_Palace.jpg",
+    "wikipedia_title": "Baron_Empain_Palace",
+    "source": "wikipedia",
+    "downloaded_at": "2026-03-02T02:11:17"
+  },
+  {
+    "filename": "6ac20ef942ab33ca.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Baron_Palace.jpg/1280px-Baron_Palace.jpg",
+    "wikipedia_title": "Baron_Empain_Palace",
+    "source": "wikipedia",
+    "downloaded_at": "2026-03-02T02:11:17"
+  },
+  {
+    "filename": "a9355225f531e0e1.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Baron_Empain_Palace_in_Late_2024.jpg/1280px-Baron_Empain_Palace_in_Late_2024.jpg",
+    "wikipedia_title": "Baron_Empain_Palace",
+    "source": "wikipedia",
+    "downloaded_at": "2026-03-02T02:11:17"
+  },
+  {
+    "filename": "babca89b767dabb7.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Baron_Empain_Palace_Interior_05.jpg",
+    "title": "File:Baron Empain Palace Interior 05.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nabbegat\" title=\"User:Nabbegat\">Nabbegat</a>",
+    "width": 4032,
+    "height": 2268,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "395e3e786dae8f5f.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Baron_Empain_Palace_Interior_09.jpg",
+    "title": "File:Baron Empain Palace Interior 09.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nabbegat\" title=\"User:Nabbegat\">Nabbegat</a>",
+    "width": 2268,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "de6b6f7783f4cf69.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Baron_Empain_Palace_Interior_14.jpg",
+    "title": "File:Baron Empain Palace Interior 14.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nabbegat\" title=\"User:Nabbegat\">Nabbegat</a>",
+    "width": 4032,
+    "height": 2268,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "cd6a5a9fa6a09e0b.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Baron_Empain_Palace_Interior_17.jpg",
+    "title": "File:Baron Empain Palace Interior 17.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nabbegat\" title=\"User:Nabbegat\">Nabbegat</a>",
+    "width": 2268,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "5a66c8fac77e4224.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/94/Baron_Empain_Palace_Interior_20.jpg",
+    "title": "File:Baron Empain Palace Interior 20.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nabbegat\" title=\"User:Nabbegat\">Nabbegat</a>",
+    "width": 4000,
+    "height": 2256,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "704930585f294877.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/de/Baron_Empain_Palace_Interior_24.jpg",
+    "title": "File:Baron Empain Palace Interior 24.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nabbegat\" title=\"User:Nabbegat\">Nabbegat</a>",
+    "width": 4032,
+    "height": 2268,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "35b9bbd1c29e7057.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/11/Baron_Empain_Palace_Interior_23.jpg",
+    "title": "File:Baron Empain Palace Interior 23.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nabbegat\" title=\"User:Nabbegat\">Nabbegat</a>",
+    "width": 4032,
+    "height": 2268,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "8bffb1c60acbe428.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/48/Baron_Empain_Palace_Interior_42.jpg",
+    "title": "File:Baron Empain Palace Interior 42.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nabbegat\" title=\"User:Nabbegat\">Nabbegat</a>",
+    "width": 2268,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "5ece3769759d4792.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Baron_Empain_Palace_Interior_43.jpg",
+    "title": "File:Baron Empain Palace Interior 43.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nabbegat\" title=\"User:Nabbegat\">Nabbegat</a>",
+    "width": 2268,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "3dba7c1cd7ea5cbb.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/79/Baron_Empain_Palace_Interior_45.jpg",
+    "title": "File:Baron Empain Palace Interior 45.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nabbegat\" title=\"User:Nabbegat\">Nabbegat</a>",
+    "width": 4032,
+    "height": 2268,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "b8af9e9f9535290c.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/84/Baron_Empain_Palace_Interior_47.jpg",
+    "title": "File:Baron Empain Palace Interior 47.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nabbegat\" title=\"User:Nabbegat\">Nabbegat</a>",
+    "width": 4032,
+    "height": 2268,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "29fe2d0a6dc79e05.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/97/Baron_Empain_Palace_Interior_49.jpg",
+    "title": "File:Baron Empain Palace Interior 49.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nabbegat\" title=\"User:Nabbegat\">Nabbegat</a>",
+    "width": 2268,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "8a2971e4406538e8.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Baron_Empain_Palace_Interior_51.jpg",
+    "title": "File:Baron Empain Palace Interior 51.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nabbegat\" title=\"User:Nabbegat\">Nabbegat</a>",
+    "width": 4032,
+    "height": 2268,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "84fb5abced8767f0.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Baron_Empain_Palace_Interior_56.jpg",
+    "title": "File:Baron Empain Palace Interior 56.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nabbegat\" title=\"User:Nabbegat\">Nabbegat</a>",
+    "width": 4032,
+    "height": 2268,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "e5fd5d3ef2515f0e.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Baron_Empain_Palace_Interior_71.jpg",
+    "title": "File:Baron Empain Palace Interior 71.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nabbegat\" title=\"User:Nabbegat\">Nabbegat</a>",
+    "width": 2268,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "6f32b1f1605c4e47.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Baron_Empain_Palace_Interior_79.jpg",
+    "title": "File:Baron Empain Palace Interior 79.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nabbegat\" title=\"User:Nabbegat\">Nabbegat</a>",
+    "width": 4032,
+    "height": 2268,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "95938e825e42a965.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Baron_Empain_Palace_Interior_90.jpg",
+    "title": "File:Baron Empain Palace Interior 90.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nabbegat\" title=\"User:Nabbegat\">Nabbegat</a>",
+    "width": 4032,
+    "height": 2268,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "b2938d9994fe80ef.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Baron_Empain_Palace_Interior_07.jpg",
+    "title": "File:Baron Empain Palace Interior 07.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nabbegat\" title=\"User:Nabbegat\">Nabbegat</a>",
+    "width": 2268,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "236a26d37388fb4b.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/70/Baron_Empain_Palace_Interior_15.jpg",
+    "title": "File:Baron Empain Palace Interior 15.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nabbegat\" title=\"User:Nabbegat\">Nabbegat</a>",
+    "width": 4032,
+    "height": 2268,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "35a7ef171b842036.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Baron_Empain_Palace_Interior_18.jpg",
+    "title": "File:Baron Empain Palace Interior 18.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nabbegat\" title=\"User:Nabbegat\">Nabbegat</a>",
+    "width": 2268,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "4f23fa689accc12e.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Baron_Empain_Palace_Interior_22.jpg",
+    "title": "File:Baron Empain Palace Interior 22.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nabbegat\" title=\"User:Nabbegat\">Nabbegat</a>",
+    "width": 2268,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "168c81c9f8a728bc.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/51/Baron_Empain_Palace_Interior_33.jpg",
+    "title": "File:Baron Empain Palace Interior 33.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nabbegat\" title=\"User:Nabbegat\">Nabbegat</a>",
+    "width": 4032,
+    "height": 2268,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "2926e09b7271e0c8.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Baron_Empain_Palace_Interior_35.jpg",
+    "title": "File:Baron Empain Palace Interior 35.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nabbegat\" title=\"User:Nabbegat\">Nabbegat</a>",
+    "width": 4032,
+    "height": 2268,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "9583de19f6a69c3d.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Baron_Empain_Palace_Interior_39.jpg",
+    "title": "File:Baron Empain Palace Interior 39.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nabbegat\" title=\"User:Nabbegat\">Nabbegat</a>",
+    "width": 2268,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "6e9cfe351cff6037.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/47/Baron_Empain_Palace_Interior_40.jpg",
+    "title": "File:Baron Empain Palace Interior 40.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nabbegat\" title=\"User:Nabbegat\">Nabbegat</a>",
+    "width": 4032,
+    "height": 2268,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "95cdeff7ecaf6ce7.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Baron_Empain_Palace_Interior_53.jpg",
+    "title": "File:Baron Empain Palace Interior 53.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nabbegat\" title=\"User:Nabbegat\">Nabbegat</a>",
+    "width": 4032,
+    "height": 2268,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "303d7676ca20c866.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Baron_Empain_Palace_Interior_55.jpg",
+    "title": "File:Baron Empain Palace Interior 55.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nabbegat\" title=\"User:Nabbegat\">Nabbegat</a>",
+    "width": 2268,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "7c187fb3146363a5.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/4d/Baron_Empain_Palace_Interior_58.jpg",
+    "title": "File:Baron Empain Palace Interior 58.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nabbegat\" title=\"User:Nabbegat\">Nabbegat</a>",
+    "width": 4032,
+    "height": 2268,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "0b3880831e053bd9.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/49/Baron_Empain_Palace_Interior_59.jpg",
+    "title": "File:Baron Empain Palace Interior 59.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nabbegat\" title=\"User:Nabbegat\">Nabbegat</a>",
+    "width": 4032,
+    "height": 2268,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "4bc2ddaeca43261c.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/07/Baron_Empain_Palace_Interior_64.jpg",
+    "title": "File:Baron Empain Palace Interior 64.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nabbegat\" title=\"User:Nabbegat\">Nabbegat</a>",
+    "width": 4032,
+    "height": 2268,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "32faad64de883ffd.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Baron_Empain_Palace_Interior_66.jpg",
+    "title": "File:Baron Empain Palace Interior 66.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nabbegat\" title=\"User:Nabbegat\">Nabbegat</a>",
+    "width": 4000,
+    "height": 2256,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "b174402772172078.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Baron_Empain_Palace_Interior_70.jpg",
+    "title": "File:Baron Empain Palace Interior 70.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nabbegat\" title=\"User:Nabbegat\">Nabbegat</a>",
+    "width": 4032,
+    "height": 2268,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "c375d0478ca9e026.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Baron_Empain_Palace_Interior_74.jpg",
+    "title": "File:Baron Empain Palace Interior 74.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nabbegat\" title=\"User:Nabbegat\">Nabbegat</a>",
+    "width": 4032,
+    "height": 2268,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "8764834ceb1258ee.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/15/Baron_Empain_Palace_Interior_76.jpg",
+    "title": "File:Baron Empain Palace Interior 76.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nabbegat\" title=\"User:Nabbegat\">Nabbegat</a>",
+    "width": 4032,
+    "height": 2268,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "4ac42cb29fed307c.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/28/Baron_Empain_Palace_Interior_77.jpg",
+    "title": "File:Baron Empain Palace Interior 77.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nabbegat\" title=\"User:Nabbegat\">Nabbegat</a>",
+    "width": 4032,
+    "height": 2268,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "34d2d4089e06e8af.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Baron_Empain_Palace_Interior_82.jpg",
+    "title": "File:Baron Empain Palace Interior 82.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nabbegat\" title=\"User:Nabbegat\">Nabbegat</a>",
+    "width": 4032,
+    "height": 2268,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "f894f08eb7f855ef.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Baron_Empain_Palace_Interior_89.jpg",
+    "title": "File:Baron Empain Palace Interior 89.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nabbegat\" title=\"User:Nabbegat\">Nabbegat</a>",
+    "width": 4032,
+    "height": 2268,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "11eaaa7b9b7d2add.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/32/Baron_Empain_Palace_Interior_01.jpg",
+    "title": "File:Baron Empain Palace Interior 01.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nabbegat\" title=\"User:Nabbegat\">Nabbegat</a>",
+    "width": 2268,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "0c4a3784d9048223.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Baron_Empain_Palace_Interior_02.jpg",
+    "title": "File:Baron Empain Palace Interior 02.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nabbegat\" title=\"User:Nabbegat\">Nabbegat</a>",
+    "width": 4032,
+    "height": 2268,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "d39b30bcb72b8ce1.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Baron_Empain_Palace_Interior_25.jpg",
+    "title": "File:Baron Empain Palace Interior 25.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nabbegat\" title=\"User:Nabbegat\">Nabbegat</a>",
+    "width": 4032,
+    "height": 2268,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "224ea8becf8918c8.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Baron_Empain_Palace_Interior_28.jpg",
+    "title": "File:Baron Empain Palace Interior 28.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nabbegat\" title=\"User:Nabbegat\">Nabbegat</a>",
+    "width": 2268,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "d0b3008951acaa22.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/17/Baron_Empain_Palace_Interior_30.jpg",
+    "title": "File:Baron Empain Palace Interior 30.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nabbegat\" title=\"User:Nabbegat\">Nabbegat</a>",
+    "width": 2268,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "77feb30eb179ccbf.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/34/Baron_Empain_Palace_Interior_27.jpg",
+    "title": "File:Baron Empain Palace Interior 27.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nabbegat\" title=\"User:Nabbegat\">Nabbegat</a>",
+    "width": 2268,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "29843888eb2f9ca4.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Baron_Empain_Palace_Interior_34.jpg",
+    "title": "File:Baron Empain Palace Interior 34.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nabbegat\" title=\"User:Nabbegat\">Nabbegat</a>",
+    "width": 4032,
+    "height": 2268,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "674f532e08d1eee4.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/36/Baron_Empain_Palace_Interior_57.jpg",
+    "title": "File:Baron Empain Palace Interior 57.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nabbegat\" title=\"User:Nabbegat\">Nabbegat</a>",
+    "width": 4032,
+    "height": 2268,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "a73435a88377d846.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/96/Baron_Empain_Palace_Interior_73.jpg",
+    "title": "File:Baron Empain Palace Interior 73.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nabbegat\" title=\"User:Nabbegat\">Nabbegat</a>",
+    "width": 4032,
+    "height": 2268,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "9b7e19d811277e0d.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Baron_Empain_Palace_Interior_85.jpg",
+    "title": "File:Baron Empain Palace Interior 85.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nabbegat\" title=\"User:Nabbegat\">Nabbegat</a>",
+    "width": 4032,
+    "height": 2268,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "3f8c811cabe9002b.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/78/Baron_Empain_Palace_HDR.jpg",
+    "title": "File:Baron Empain Palace HDR.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Yasser_Nazmi&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Yasser Nazmi (page does not exist)\">Yasser Nazmi</a>",
+    "width": 1800,
+    "height": 1054,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "8b5e1b7857de2e63.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Baron_Empain_palace_2.JPG",
+    "title": "File:Baron Empain palace 2.JPG",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Gr8worldfromgr8god&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Gr8worldfromgr8god (page does not exist)\">Gr8worldfromgr8god</a>",
+    "width": 4288,
+    "height": 3216,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "dbe36f0d9d356470.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/38/Baron_Empain_Palace_in_Heliopolis.jpg",
+    "title": "File:Baron Empain Palace in Heliopolis.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Senni555&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Senni555 (page does not exist)\">Senni555</a>",
+    "width": 4000,
+    "height": 2778,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "eaec21f1a8de8201.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/28/Baron_Empain_Palace_2025.jpg",
+    "title": "File:Baron Empain Palace 2025.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nabbegat\" title=\"User:Nabbegat\">Nabbegat</a>",
+    "width": 4032,
+    "height": 2268,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "504a241953f74e75.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Baron_Empain_Palace_Interior_03.jpg",
+    "title": "File:Baron Empain Palace Interior 03.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nabbegat\" title=\"User:Nabbegat\">Nabbegat</a>",
+    "width": 4032,
+    "height": 2268,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "bc707fd3dc9a3605.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Baron_Empain_Palace_Interior_04.jpg",
+    "title": "File:Baron Empain Palace Interior 04.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nabbegat\" title=\"User:Nabbegat\">Nabbegat</a>",
+    "width": 4032,
+    "height": 2268,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "98785553ccfddaf4.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/02/Baron_Empain_Palace_Interior_06.jpg",
+    "title": "File:Baron Empain Palace Interior 06.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nabbegat\" title=\"User:Nabbegat\">Nabbegat</a>",
+    "width": 2268,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "6e247755da982f30.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Baron_Empain_Palace_Interior_08.jpg",
+    "title": "File:Baron Empain Palace Interior 08.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nabbegat\" title=\"User:Nabbegat\">Nabbegat</a>",
+    "width": 2268,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "3f13066c6ca65c94.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Baron_Empain_Palace_Interior_10.jpg",
+    "title": "File:Baron Empain Palace Interior 10.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nabbegat\" title=\"User:Nabbegat\">Nabbegat</a>",
+    "width": 2268,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "d64fbf94cbe41c39.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/01/Baron_Empain_Palace_Interior_11.jpg",
+    "title": "File:Baron Empain Palace Interior 11.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nabbegat\" title=\"User:Nabbegat\">Nabbegat</a>",
+    "width": 4032,
+    "height": 2268,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "008549b8a2c42142.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/09/Baron_Empain_Palace_Interior_12.jpg",
+    "title": "File:Baron Empain Palace Interior 12.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nabbegat\" title=\"User:Nabbegat\">Nabbegat</a>",
+    "width": 2268,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "2b39f78ac93de53f.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Baron_Empain_Palace_Interior_13.jpg",
+    "title": "File:Baron Empain Palace Interior 13.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nabbegat\" title=\"User:Nabbegat\">Nabbegat</a>",
+    "width": 4032,
+    "height": 2268,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "496ead18233a970a.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Baron_Empain_Palace_Interior_16.jpg",
+    "title": "File:Baron Empain Palace Interior 16.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nabbegat\" title=\"User:Nabbegat\">Nabbegat</a>",
+    "width": 4032,
+    "height": 2268,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "eeb6557635aa7ccd.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Baron_Empain_Palace_Interior_19.jpg",
+    "title": "File:Baron Empain Palace Interior 19.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nabbegat\" title=\"User:Nabbegat\">Nabbegat</a>",
+    "width": 4032,
+    "height": 2268,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "a2ba7a9e016da6f3.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Baron_Empain_Palace_Interior_21.jpg",
+    "title": "File:Baron Empain Palace Interior 21.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nabbegat\" title=\"User:Nabbegat\">Nabbegat</a>",
+    "width": 4032,
+    "height": 2268,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  },
+  {
+    "filename": "440a738be93eb771.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/88/Baron_Empain_Palace_Interior_26.jpg",
+    "title": "File:Baron Empain Palace Interior 26.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nabbegat\" title=\"User:Nabbegat\">Nabbegat</a>",
+    "width": 2268,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:32:40"
+  }
+]

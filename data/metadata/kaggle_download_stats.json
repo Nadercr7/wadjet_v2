@@ -1,0 +1,26 @@
+{
+  "timestamp": "2026-03-02T03:46:49",
+  "datasets_processed": [
+    "monaabdelrazek/finaldataset"
+  ],
+  "total_new_images": 2598,
+  "classes_with_images": 16,
+  "per_class": {
+    "akhenaten": 0,
+    "colossi_of_memnon": 1801,
+    "bent_pyramid": 0,
+    "philae_temple": 0,
+    "temple_of_hatshepsut": 0,
+    "great_pyramids_of_giza": 0,
+    "king_thutmose_iii": 0,
+    "mask_of_tutankhamun": 0,
+    "nefertiti_bust": 0,
+    "pyramid_of_djoser": 0,
+    "ramesses_ii": 0,
+    "ramesseum": 797,
+    "statue_of_tutankhamun": 0,
+    "kom_ombo_temple": 0,
+    "abu_simbel": 0,
+    "great_sphinx_of_giza": 0
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "phase": "H5.1_H5.2",
+  "total_pairs": 15604,
+  "duplicates_removed": 2842,
+  "sources": {
+    "fayrose": 11199,
+    "pyramid": 3698,
+    "nederhof": 707
+  },
+  "splits": {
+    "train": 13263,
+    "val": 1170,
+    "test": 1171
+  },
+  "avg_transliteration_length": 21.5,
+  "avg_translation_length": 40.1
+}

@@ -1,0 +1,22 @@
+{
+  "wikipedia": {
+    "en": {
+      "title": "Baron Empain Palace",
+      "extract": "The Baron Empain Palace, also known as Le Palais Hindou, is a distinctive and historic mansion in Heliopolis, a suburb northeast of central Cairo, Egypt. It was built in 1905 for Édouard Empain, Baron Empain, a Belgian businessman and industrialist with particular interests in tramways. The building was inspired architecturally by Hindu temples.",
+      "description": "Architectural structure in Heliopolis, a suburb near Cairo, Egypt",
+      "coordinates": {
+        "lat": 30.08666667,
+        "lon": 31.33027778
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Baron_Palace.jpg/330px-Baron_Palace.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/2/23/Baron_Palace.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Baron_Empain_Palace"
+    },
+    "ar": {
+      "title": "قصر البارون إمبان",
+      "extract": "قصر البارون إمبان أو أو هو أحد قصور مصر الأثرية ذات الطراز المعماري الخاص. شيده المليونير البلجيكي البارون ادوارد إمبان الذي جاء إلى مصر قادماً من الهند في نهاية القرن التاسع عشر بعد وقت قليل من افتتاح قناة السويس، فشرع في إقامة مشروع سكني جديد في صحراء القاهرة تحت اسم «هيليوبوليس»، وقرر إنشاء قصره الخاص بها فاختار تصميماً على طراز العمارة الهندوسية الأوروبية للمعماري الفرنسي ألكساندر مارسيل كان معروضاً خلال معرض هندسي في باريس، بدأ بناء القصر في عام 1906م وافتتح في عام 1911م. منذ الخمسينات ومع تناقل ملكية القصر بدأ القصر يتعرض للإهمال حتى قامت الحكومة المصرية بشرائه في عام 2005 لقيمته الأثرية والمعمارية، وبدأت وزارة الآثار المصرية أعمال ترميمه في عام 2017 والتي انتهت بافتتاحه في عام 2020. يقع القصر حالياً في قلب منطقة مصر الجديدة بالقاهرة.",
+      "description": "قصر في مصر",
+      "wikipedia_url": "https://ar.wikipedia.org/wiki/%D9%82%D8%B5%D8%B1_%D8%A7%D9%84%D8%A8%D8%A7%D8%B1%D9%88%D9%86_%D8%A5%D9%85%D8%A8%D8%A7%D9%86"
+    }
+  }
+}

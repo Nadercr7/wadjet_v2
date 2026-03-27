@@ -1,0 +1,16 @@
+{
+  "wikipedia": {
+    "en": {
+      "title": "Bent Pyramid",
+      "extract": "The Bent Pyramid is an ancient Egyptian pyramid located at the royal necropolis of Dahshur, approximately 40 kilometres (25 mi) south of Cairo, built under the Old Kingdom Pharaoh Sneferu. A unique example of early pyramid development in Egypt, this was the second of four pyramids built by Sneferu.",
+      "description": "Egyptian pyramid built by Sneferu",
+      "coordinates": {
+        "lat": 29.79027778,
+        "lon": 31.20916667
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Bent_Pyramid_%E6%9B%B2%E6%8A%98%E9%87%91%E5%AD%97%E5%A1%94_-_panoramio.jpg/330px-Bent_Pyramid_%E6%9B%B2%E6%8A%98%E9%87%91%E5%AD%97%E5%A1%94_-_panoramio.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/2/26/Bent_Pyramid_%E6%9B%B2%E6%8A%98%E9%87%91%E5%AD%97%E5%A1%94_-_panoramio.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Bent_Pyramid"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "wikipedia": {
+    "en": {
+      "title": "Ramesseum",
+      "extract": "The Ramesseum is the memorial temple of Pharaoh Ramesses II. It is located in the Theban Necropolis in Upper Egypt, on the west of the River Nile, across from the modern city of Luxor.",
+      "description": "Memorial temple of Ramesses II in Egypt",
+      "coordinates": {
+        "lat": 25.72777778,
+        "lon": 32.61055556
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/SFEC_AEH_-ThebesNecropolis-2010-RamsesII-021.jpg/330px-SFEC_AEH_-ThebesNecropolis-2010-RamsesII-021.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/8/80/SFEC_AEH_-ThebesNecropolis-2010-RamsesII-021.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Ramesseum"
+    }
+  }
+}

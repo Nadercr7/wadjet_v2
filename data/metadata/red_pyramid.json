@@ -1,0 +1,735 @@
+[
+  {
+    "hash": "61c57a4b85f32e2e",
+    "original_name": "0.jpg",
+    "original_class": "Red_Pyramid",
+    "size_bytes": 5638,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:34"
+  },
+  {
+    "hash": "0daa9e25e6f5fff4",
+    "original_name": "1.jpg",
+    "original_class": "Red_Pyramid",
+    "size_bytes": 9677,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:34"
+  },
+  {
+    "hash": "ce488e137fdf4132",
+    "original_name": "10.jpg",
+    "original_class": "Red_Pyramid",
+    "size_bytes": 10991,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:34"
+  },
+  {
+    "hash": "28e0c728bd5c3313",
+    "original_name": "11.jpg",
+    "original_class": "Red_Pyramid",
+    "size_bytes": 8591,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:34"
+  },
+  {
+    "hash": "60379ecbe35b25a9",
+    "original_name": "12.jpg",
+    "original_class": "Red_Pyramid",
+    "size_bytes": 10422,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:34"
+  },
+  {
+    "hash": "c6427b818205c11a",
+    "original_name": "13.jpg",
+    "original_class": "Red_Pyramid",
+    "size_bytes": 6177,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:34"
+  },
+  {
+    "hash": "3e5f976e087e63de",
+    "original_name": "14.jpg",
+    "original_class": "Red_Pyramid",
+    "size_bytes": 2588,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:34"
+  },
+  {
+    "hash": "71dacfb8f9a0577d",
+    "original_name": "15.jpg",
+    "original_class": "Red_Pyramid",
+    "size_bytes": 8076,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:34"
+  },
+  {
+    "hash": "687b1831c821c04a",
+    "original_name": "16.jpg",
+    "original_class": "Red_Pyramid",
+    "size_bytes": 10471,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:34"
+  },
+  {
+    "hash": "5a2314043ce1afce",
+    "original_name": "17.jpg",
+    "original_class": "Red_Pyramid",
+    "size_bytes": 6807,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:34"
+  },
+  {
+    "hash": "681e50dccdcfa8f4",
+    "original_name": "18.jpg",
+    "original_class": "Red_Pyramid",
+    "size_bytes": 10444,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:34"
+  },
+  {
+    "hash": "f7b4ef57126e74be",
+    "original_name": "19.jpg",
+    "original_class": "Red_Pyramid",
+    "size_bytes": 6523,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:34"
+  },
+  {
+    "hash": "940e87606bf5c28f",
+    "original_name": "2.jpg",
+    "original_class": "Red_Pyramid",
+    "size_bytes": 7552,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:34"
+  },
+  {
+    "hash": "c1dece53b8f481e3",
+    "original_name": "20.jpg",
+    "original_class": "Red_Pyramid",
+    "size_bytes": 8085,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:34"
+  },
+  {
+    "hash": "96f04bca0a52bcd1",
+    "original_name": "21.jpg",
+    "original_class": "Red_Pyramid",
+    "size_bytes": 8868,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:34"
+  },
+  {
+    "hash": "d46c43642d67f2da",
+    "original_name": "22.jpg",
+    "original_class": "Red_Pyramid",
+    "size_bytes": 6745,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:34"
+  },
+  {
+    "hash": "23589d186ee379fe",
+    "original_name": "23.jpg",
+    "original_class": "Red_Pyramid",
+    "size_bytes": 8591,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:34"
+  },
+  {
+    "hash": "e24e680b7a5bff16",
+    "original_name": "24.jpg",
+    "original_class": "Red_Pyramid",
+    "size_bytes": 10669,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:34"
+  },
+  {
+    "hash": "d26dbe32c6032356",
+    "original_name": "25.jpg",
+    "original_class": "Red_Pyramid",
+    "size_bytes": 10078,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:34"
+  },
+  {
+    "hash": "c471b943a25fdad9",
+    "original_name": "26.jpg",
+    "original_class": "Red_Pyramid",
+    "size_bytes": 17213,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:34"
+  },
+  {
+    "hash": "a2dc2c4e1b6088e6",
+    "original_name": "3.jpg",
+    "original_class": "Red_Pyramid",
+    "size_bytes": 10359,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:34"
+  },
+  {
+    "hash": "58ed9979e47eb706",
+    "original_name": "4.jpg",
+    "original_class": "Red_Pyramid",
+    "size_bytes": 8941,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:34"
+  },
+  {
+    "hash": "6cc357ec74b0e0ef",
+    "original_name": "5.jpg",
+    "original_class": "Red_Pyramid",
+    "size_bytes": 9131,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:34"
+  },
+  {
+    "hash": "d5fffe745ab21f51",
+    "original_name": "6.jpg",
+    "original_class": "Red_Pyramid",
+    "size_bytes": 10946,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:34"
+  },
+  {
+    "hash": "9980561f9e34831d",
+    "original_name": "7.jpg",
+    "original_class": "Red_Pyramid",
+    "size_bytes": 6776,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:34"
+  },
+  {
+    "hash": "3336e8ae38a3575e",
+    "original_name": "8.jpg",
+    "original_class": "Red_Pyramid",
+    "size_bytes": 8747,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:34"
+  },
+  {
+    "hash": "99faba425f156fc3",
+    "original_name": "9.jpg",
+    "original_class": "Red_Pyramid",
+    "size_bytes": 12565,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:34"
+  },
+  {
+    "filename": "7baedc26bdb596c6.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/94/Bricks_of_the_Red_Pyramid_in_Dahshur.jpg",
+    "title": "File:Bricks of the Red Pyramid in Dahshur.jpg",
+    "license": "CC BY 3.0",
+    "artist": "<a href=\"https://en.wikipedia.org/wiki/User:Ivrienen\" class=\"extiw\" title=\"wikipedia:User:Ivrienen\">Ivrienen</a> at <a href=\"https://en.wikipedia.org/wiki/\" class=\"extiw\" title=\"wikipedia:\">English Wikipedia</a>",
+    "width": 1944,
+    "height": 2592,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T02:02:43"
+  },
+  {
+    "filename": "861be40cd0e4b7c6.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Snofrus_Red_Pyramid_in_Dahshur_%282%29.jpg",
+    "title": "File:Snofrus Red Pyramid in Dahshur (2).jpg",
+    "license": "CC BY 3.0",
+    "artist": "<a href=\"https://en.wikipedia.org/wiki/User:Ivrienen\" class=\"extiw\" title=\"wikipedia:User:Ivrienen\">Ivrienen</a> at <a href=\"https://en.wikipedia.org/wiki/\" class=\"extiw\" title=\"wikipedia:\">English Wikipedia</a>",
+    "width": 1944,
+    "height": 2592,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T02:02:43"
+  },
+  {
+    "filename": "df0fc4e9e750e3a6.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/66/Restoration_Project_at_the_Red_Pyramid_in_Dahshur.jpg",
+    "title": "File:Restoration Project at the Red Pyramid in Dahshur.jpg",
+    "license": "CC BY 3.0",
+    "artist": "<a href=\"https://en.wikipedia.org/wiki/user:Ivrienen\" class=\"extiw\" title=\"en:user:Ivrienen\">Ivrienen</a>",
+    "width": 2592,
+    "height": 1944,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T02:02:43"
+  },
+  {
+    "filename": "df0fc4e9e750e3a6.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/66/Restoration_Project_at_the_Red_Pyramid_in_Dahshur.jpg",
+    "title": "File:Restoration Project at the Red Pyramid in Dahshur.jpg",
+    "license": "CC BY 3.0",
+    "artist": "<a href=\"https://en.wikipedia.org/wiki/user:Ivrienen\" class=\"extiw\" title=\"en:user:Ivrienen\">Ivrienen</a>",
+    "width": 2592,
+    "height": 1944,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:16:52"
+  },
+  {
+    "filename": "c8c5b27bb4084cb0.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Red_Pyramid_Pyramidion.jpg",
+    "title": "File:Red Pyramid Pyramidion.jpg",
+    "license": "CC BY 3.0",
+    "artist": "<ul><li>derivative work: <a href=\"//commons.wikimedia.org/wiki/User:GDK\" title=\"User:GDK\">GDK</a> (<a href=\"//commons.wikimedia.org/wiki/User_talk:GDK\" title=\"User talk:GDK\"><span class=\"signature-talk\">talk</span></a>)</li>\n<li><a href=\"//commons.wikimedia.org/wiki/File:Restauration_Project_at_the_Red_Pyramid_in_Dahshur.jpg\" class=\"mw-redirect\" title=\"File:Restauration Project at the Red Pyramid in Dahshur.jpg\">Restauration_Project_at_the_Red_Pyramid_in_Dahshur.jpg</a>: <a href=\"https://en.wikipedia.org/wiki/user:Ivrienen\" class=\"extiw\" title=\"en:user:Ivrienen\">en:user:Ivrienen</a></li></ul>",
+    "width": 599,
+    "height": 445,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:16:52"
+  },
+  {
+    "filename": "7baedc26bdb596c6.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/94/Bricks_of_the_Red_Pyramid_in_Dahshur.jpg",
+    "title": "File:Bricks of the Red Pyramid in Dahshur.jpg",
+    "license": "CC BY 3.0",
+    "artist": "<a href=\"https://en.wikipedia.org/wiki/User:Ivrienen\" class=\"extiw\" title=\"wikipedia:User:Ivrienen\">Ivrienen</a> at <a href=\"https://en.wikipedia.org/wiki/\" class=\"extiw\" title=\"wikipedia:\">English Wikipedia</a>",
+    "width": 1944,
+    "height": 2592,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:16:52"
+  },
+  {
+    "filename": "ec0f2d2ecd5fdc9d.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/bd/The_Red_Pyramid_in_Dahshur.jpg",
+    "title": "File:The Red Pyramid in Dahshur.jpg",
+    "license": "CC BY 3.0",
+    "artist": "<a href=\"https://en.wikipedia.org/wiki/User:Ivrienen\" class=\"extiw\" title=\"en:User:Ivrienen\">Ivrienen</a> at <a class=\"external text\" href=\"https://en.wikipedia.org\">en.wikipedia</a>",
+    "width": 2592,
+    "height": 1944,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:16:52"
+  },
+  {
+    "filename": "861be40cd0e4b7c6.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Snofrus_Red_Pyramid_in_Dahshur_%282%29.jpg",
+    "title": "File:Snofrus Red Pyramid in Dahshur (2).jpg",
+    "license": "CC BY 3.0",
+    "artist": "<a href=\"https://en.wikipedia.org/wiki/User:Ivrienen\" class=\"extiw\" title=\"wikipedia:User:Ivrienen\">Ivrienen</a> at <a href=\"https://en.wikipedia.org/wiki/\" class=\"extiw\" title=\"wikipedia:\">English Wikipedia</a>",
+    "width": 1944,
+    "height": 2592,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:16:52"
+  },
+  {
+    "filename": "d2aec168b3e9d800.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/be/Red_Pyramid_Dahshur_Panorama.jpg",
+    "title": "File:Red Pyramid Dahshur Panorama.jpg",
+    "license": "CC BY-SA 2.0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/28747587@N00\">Ankur P</a>",
+    "width": 4658,
+    "height": 1300,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:16:52"
+  },
+  {
+    "filename": "1dd3381f994f1758.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/12/Red_Pyramid_2.jpg",
+    "title": "File:Red Pyramid 2.jpg",
+    "license": "CC BY-SA 2.0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/20113193@N00\">Sigurd Gartmann</a>",
+    "width": 2002,
+    "height": 3028,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:16:52"
+  },
+  {
+    "filename": "28adfb50a5a9cbe2.png",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/74/Red_Pyramid_plan.png",
+    "title": "File:Red Pyramid plan.png",
+    "license": "CC BY 2.5",
+    "artist": "<ul><li><a href=\"//commons.wikimedia.org/wiki/File:Pyramide-rouge-plans.jpg\" title=\"File:Pyramide-rouge-plans.jpg\">Pyramide-rouge-plans.jpg</a>: MONNIER Franck</li>\n<li>derivative work: <a href=\"//commons.wikimedia.org/wiki/User:GDK\" title=\"User:GDK\">GDK</a> (<a href=\"//commons.wikimedia.org/wiki/User_talk:GDK\" title=\"User talk:GDK\"><span class=\"signature-talk\">talk</span></a>)</li></ul>",
+    "width": 1270,
+    "height": 620,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:16:52"
+  },
+  {
+    "filename": "ab8efb1f0e5c13f0.png",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/08/Red_Pyramid_Inscript.png",
+    "title": "File:Red Pyramid Inscript.png",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:GDK\" title=\"User:GDK\">GDK</a>",
+    "width": 1024,
+    "height": 721,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:16:52"
+  },
+  {
+    "filename": "6791288c9d1391d7.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/58/Red_Pyramid_Dhashur.jpg",
+    "title": "File:Red Pyramid Dhashur.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:R.F.Morgan&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:R.F.Morgan (page does not exist)\">R.F.Morgan</a>",
+    "width": 1401,
+    "height": 2792,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:16:52"
+  },
+  {
+    "filename": "716b4f70a9eca267.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/93/Red_Pyramid_Internals.jpg",
+    "title": "File:Red Pyramid Internals.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:R.F.Morgan&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:R.F.Morgan (page does not exist)\">R.F.Morgan</a>",
+    "width": 1153,
+    "height": 862,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:16:52"
+  },
+  {
+    "filename": "92c9fa9e1406280e.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Bent_Pyramid_and_Red_Pyramid_from_Saqqarah.JPG",
+    "title": "File:Bent Pyramid and Red Pyramid from Saqqarah.JPG",
+    "license": "CC BY-SA 3.0",
+    "artist": "MusikAnimal",
+    "width": 6000,
+    "height": 4000,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:16:52"
+  },
+  {
+    "filename": "aea8f61722e8e21d.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Massive_corbel-vaulted_ceiling_of_the_Red_Pyramid%27s_Main_burial_chamber_%2814609359948%29.jpg",
+    "title": "File:Massive corbel-vaulted ceiling of the Red Pyramid's Main burial chamber (14609359948).jpg",
+    "license": "CC BY 2.0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/8721758@N06\">Jorge Láscar</a> from Melbourne, Australia",
+    "width": 2798,
+    "height": 4213,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:16:52"
+  },
+  {
+    "filename": "78697eac4455167e.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Red_pyramid_in_Egypt.jpg",
+    "title": "File:Red pyramid in Egypt.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Leon_petrosyan\" title=\"User:Leon petrosyan\">Leon petrosyan</a>",
+    "width": 4608,
+    "height": 3456,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:16:52"
+  },
+  {
+    "filename": "b8252ae07d4fc912.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Red_Pyramid_at_Dahshur.jpg",
+    "title": "File:Red Pyramid at Dahshur.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Darer101\" title=\"User:Darer101\">Darer101</a>",
+    "width": 4608,
+    "height": 3072,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:16:52"
+  },
+  {
+    "filename": "4e85680706ebed81.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/62/Tourists_visiting_Snofrus_Red_Pyramid_in_Dahshur.jpg",
+    "title": "File:Tourists visiting Snofrus Red Pyramid in Dahshur.jpg",
+    "license": "CC BY 3.0",
+    "artist": "<a href=\"https://en.wikipedia.org/wiki/User:Ivrienen\" class=\"extiw\" title=\"wikipedia:User:Ivrienen\">Ivrienen</a> at <a href=\"https://en.wikipedia.org/wiki/\" class=\"extiw\" title=\"wikipedia:\">English Wikipedia</a>",
+    "width": 2592,
+    "height": 1944,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:16:52"
+  },
+  {
+    "filename": "4e78a541fe625037.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/88/Snofrus_Red_Pyramid_in_Dahshur.jpg",
+    "title": "File:Snofrus Red Pyramid in Dahshur.jpg",
+    "license": "CC BY 3.0",
+    "artist": "<a href=\"https://en.wikipedia.org/wiki/User:Ivrienen\" class=\"extiw\" title=\"en:User:Ivrienen\">Ivrienen</a> at <a class=\"external text\" href=\"https://en.wikipedia.org\">en.wikipedia</a>",
+    "width": 1944,
+    "height": 2592,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:16:52"
+  },
+  {
+    "filename": "e4f0216999da94eb.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/93/Dahshur_-_Red_Pyramid_from_road.JPG",
+    "title": "File:Dahshur - Red Pyramid from road.JPG",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Maveric149\" class=\"mw-redirect\" title=\"User:Maveric149\">Daniel Mayer</a>",
+    "width": 3068,
+    "height": 1503,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:16:52"
+  },
+  {
+    "filename": "6cde22de007b06aa.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/21/Dahshur_-_Red_Pyramid_-_Tourist_policemen_on_camel.JPG",
+    "title": "File:Dahshur - Red Pyramid - Tourist policemen on camel.JPG",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Maveric149\" class=\"mw-redirect\" title=\"User:Maveric149\">Daniel Mayer</a>",
+    "width": 3264,
+    "height": 2448,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:16:52"
+  },
+  {
+    "filename": "f9b10571b8fcdbfb.png",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Red_Pyramid.png",
+    "title": "File:Red Pyramid.png",
+    "license": "Public domain",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:NeferKaRe&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:NeferKaRe (page does not exist)\">NeferKaRe</a>",
+    "width": 1024,
+    "height": 768,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:16:52"
+  },
+  {
+    "filename": "abaa4e365efecd73.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/7c/08_red_pyramid.jpg",
+    "title": "File:08 red pyramid.jpg",
+    "license": "Copyrighted free use",
+    "artist": "Jon Bodsworth",
+    "width": 667,
+    "height": 500,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:16:52"
+  },
+  {
+    "filename": "8e6360545b2bb9cb.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/8b/09_red_pyramidion.jpg",
+    "title": "File:09 red pyramidion.jpg",
+    "license": "Copyrighted free use",
+    "artist": "Jon Bodsworth",
+    "width": 500,
+    "height": 667,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:16:52"
+  },
+  {
+    "filename": "1f1429ace7dd16fc.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Dahshur%2C_Red_Pyramid_%286201580430%29.jpg",
+    "title": "File:Dahshur, Red Pyramid (6201580430).jpg",
+    "license": "CC BY 2.0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/67769030@N07\">Arian Zwegers</a> from Brussels, Belgium",
+    "width": 1710,
+    "height": 1164,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:16:52"
+  },
+  {
+    "filename": "4cd010ed5f3bc120.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/34/The_Red_Pyramid%2C_Saqqara_-_panoramio.jpg",
+    "title": "File:The Red Pyramid, Saqqara - panoramio.jpg",
+    "license": "CC BY 3.0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://web.archive.org/web/20161020091223/http://www.panoramio.com/user/6080917?with_photo_id=61834791\">jokertrekker</a>",
+    "width": 2592,
+    "height": 1944,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:16:52"
+  },
+  {
+    "filename": "b6a6b368c3ab8703.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/72/Red_Pyramid_%E7%B4%85%E8%89%B2%E9%87%91%E5%AD%97%E5%A1%94_-_panoramio.jpg",
+    "title": "File:Red Pyramid 紅色金字塔 - panoramio.jpg",
+    "license": "CC BY 3.0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://web.archive.org/web/20161022073059/http://www.panoramio.com/user/6452510?with_photo_id=68023635\">lienyuan lee</a>",
+    "width": 2560,
+    "height": 1920,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:16:52"
+  },
+  {
+    "filename": "6699ab60d97613f8.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/bf/%E7%B4%85%E9%87%91%E5%AD%97%E5%A1%94_Red_Pyramid_-_panoramio.jpg",
+    "title": "File:紅金字塔 Red Pyramid - panoramio.jpg",
+    "license": "CC BY 3.0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://web.archive.org/web/20161028022713/http://www.panoramio.com/user/6452510?with_photo_id=101664078\">lienyuan lee</a>",
+    "width": 2560,
+    "height": 1920,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:16:52"
+  },
+  {
+    "filename": "7db3001f96426aac.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/ee/Entry_to_the_Red_Pyramid_%28The_third_largest_granite_building_of_the_world%29_%2814613492710%29.jpg",
+    "title": "File:Entry to the Red Pyramid (The third largest granite building of the world) (14613492710).jpg",
+    "license": "CC BY 2.0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/8721758@N06\">Jorge Láscar</a> from Melbourne, Australia",
+    "width": 4288,
+    "height": 2848,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:16:52"
+  },
+  {
+    "filename": "590187095140db40.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/73/View_from_the_entry_of_the_Red_Pyramid_%2814613517348%29.jpg",
+    "title": "File:View from the entry of the Red Pyramid (14613517348).jpg",
+    "license": "CC BY 2.0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/8721758@N06\">Jorge Láscar</a> from Melbourne, Australia",
+    "width": 4288,
+    "height": 2848,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:16:52"
+  },
+  {
+    "filename": "5baeaea4e16d8172.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/7b/The_Red_Pyramid_%2814795035995%29.jpg",
+    "title": "File:The Red Pyramid (14795035995).jpg",
+    "license": "CC BY 2.0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/8721758@N06\">Jorge Láscar</a> from Melbourne, Australia",
+    "width": 2448,
+    "height": 3264,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:16:52"
+  },
+  {
+    "filename": "4dea01c151af1290.png",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Sneferu%27s_Bent_Pyramid_%26_Red_Pyramid%2C_Giza%2C_Egypt.png",
+    "title": "File:Sneferu's Bent Pyramid & Red Pyramid, Giza, Egypt.png",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Mohamed_abdelzaher\" title=\"User:Mohamed abdelzaher\">Mohamed abdelzaher</a>",
+    "width": 2430,
+    "height": 681,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:16:52"
+  },
+  {
+    "filename": "7bf46390dee39234.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/a7/The_red_pyramid.jpg",
+    "title": "File:The red pyramid.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Bassameltomy&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Bassameltomy (page does not exist)\">Bassameltomy</a>",
+    "width": 671,
+    "height": 458,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:16:52"
+  },
+  {
+    "filename": "5e3bd580ae092c09.png",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Red_Pyramid_plan_cs.png",
+    "title": "File:Red Pyramid plan cs.png",
+    "license": "CC BY 2.5",
+    "artist": "<ul><li><a href=\"//commons.wikimedia.org/wiki/File:Red_Pyramid_plan.png\" title=\"File:Red Pyramid plan.png\">Red Pyramid plan.png</a>: MONNIER Franck + <a href=\"//commons.wikimedia.org/w/index.php?title=User:GDK_(diskuse)&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:GDK (diskuse) (page does not exist)\">GDK (diskuse)</a></li>\n<li>derivative work: <a href=\"//commons.wikimedia.org/wiki/User:Jann\" title=\"User:Jann\">Jann</a></li></ul>",
+    "width": 1270,
+    "height": 620,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:16:52"
+  },
+  {
+    "filename": "2b92db82232c1766.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/61/Red_pyramid_in_Egypt_2.jpg",
+    "title": "File:Red pyramid in Egypt 2.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Leon_petrosyan\" title=\"User:Leon petrosyan\">Leon petrosyan</a>",
+    "width": 3456,
+    "height": 4608,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:16:52"
+  },
+  {
+    "filename": "05378000b5af6675.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Red_pyramid_in_Egypt_3.jpg",
+    "title": "File:Red pyramid in Egypt 3.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Leon_petrosyan\" title=\"User:Leon petrosyan\">Leon petrosyan</a>",
+    "width": 3456,
+    "height": 4608,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:16:52"
+  },
+  {
+    "filename": "0f86a4a64a27762b.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Inside_the_Red_Pyramid_%288492319898%29.jpg",
+    "title": "File:Inside the Red Pyramid (8492319898).jpg",
+    "license": "CC BY 2.0",
+    "artist": "<bdi><a href=\"https://en.wikipedia.org/wiki/en:Christopher_Michel\" class=\"extiw\" title=\"w:en:Christopher Michel\"><span title=\"American entrepreneur, photographer, and investor\">Christopher Michel</span></a></bdi>",
+    "width": 612,
+    "height": 612,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:16:52"
+  },
+  {
+    "filename": "e16946adf1616b6c.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/99/Bent_Pyramid_and_Red_Pyramid_from_fare_away_-_panoramio.jpg",
+    "title": "File:Bent Pyramid and Red Pyramid from fare away - panoramio.jpg",
+    "license": "CC BY 3.0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://web.archive.org/web/20161013071732/http://www.panoramio.com/user/1927654?with_photo_id=14543734\">Ocean Star</a>",
+    "width": 3296,
+    "height": 2472,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:16:52"
+  },
+  {
+    "filename": "58fc35fab222c751.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/0c/%E7%B4%85%E8%89%B2%E9%87%91%E5%AD%97%E5%A1%94_Red_Pyramid_-_panoramio.jpg",
+    "title": "File:紅色金字塔 Red Pyramid - panoramio.jpg",
+    "license": "CC BY 3.0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://web.archive.org/web/20161022082922/http://www.panoramio.com/user/6452510?with_photo_id=64008013\">lienyuan lee</a>",
+    "width": 2560,
+    "height": 1920,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:16:52"
+  },
+  {
+    "filename": "2fed72751ae32d0e.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/72/Inside_the_Red_Pyramid_-_panoramio.jpg",
+    "title": "File:Inside the Red Pyramid - panoramio.jpg",
+    "license": "CC BY 3.0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://web.archive.org/web/20161022031132/http://www.panoramio.com/user/6080917?with_photo_id=61834814\">jokertrekker</a>",
+    "width": 1944,
+    "height": 2592,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:16:52"
+  },
+  {
+    "filename": "faacb2b261d2f3b3.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Interior_of_the_Red_Pyramid_-_Massive_corbel-vaulted_ceiling_of_the_Red_Pyramid%27s_Main_burial_chamber_%2814802848662%29.jpg",
+    "title": "File:Interior of the Red Pyramid - Massive corbel-vaulted ceiling of the Red Pyramid's Main burial chamber (14802848662).jpg",
+    "license": "CC BY 2.0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/8721758@N06\">Jorge Láscar</a> from Melbourne, Australia",
+    "width": 2593,
+    "height": 3930,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:16:52"
+  },
+  {
+    "filename": "11d377da9c5a8b35.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/cf/26712-_Red_Pyramid_in_morning_haze.jpg",
+    "title": "File:26712- Red Pyramid in morning haze.jpg",
+    "license": "CC BY-SA 2.0",
+    "artist": "Panegyrics of Granovetter",
+    "width": 8256,
+    "height": 5504,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:16:52"
+  },
+  {
+    "filename": "0dbe71e0d9898abe.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/55/Bend_Pyramid_and_Red_Pyramid_of_Dahshur_-_panoramio.jpg",
+    "title": "File:Bend Pyramid and Red Pyramid of Dahshur - panoramio.jpg",
+    "license": "CC BY 3.0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://web.archive.org/web/20161029205625/http://www.panoramio.com/user/854118?with_photo_id=97837097\">Banja-Frans Mulder</a>",
+    "width": 1188,
+    "height": 792,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:16:52"
+  },
+  {
+    "filename": "220167000cee74ca.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/be/26715-_The_Red_Pyramid_as_the_Nile_morning_mist_begins_to_lift.jpg",
+    "title": "File:26715- The Red Pyramid as the Nile morning mist begins to lift.jpg",
+    "license": "CC BY-SA 2.0",
+    "artist": "Panegyrics of Granovetter",
+    "width": 8256,
+    "height": 5504,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:16:52"
+  },
+  {
+    "filename": "2bb40b2f55ab8c66.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/ea/26714-_inside_the_Red_Pyramid.jpg",
+    "title": "File:26714- inside the Red Pyramid.jpg",
+    "license": "CC BY-SA 2.0",
+    "artist": "Panegyrics of Granovetter",
+    "width": 8256,
+    "height": 5504,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:16:52"
+  },
+  {
+    "filename": "bc47e5f2c70b4517.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/21/26725-_pyramidion_installed_near_the_Red_pyramid.jpg",
+    "title": "File:26725- pyramidion installed near the Red pyramid.jpg",
+    "license": "CC BY-SA 2.0",
+    "artist": "Panegyrics of Granovetter",
+    "width": 8256,
+    "height": 5504,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-02T23:16:52"
+  }
+]

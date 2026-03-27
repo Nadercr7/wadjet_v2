@@ -1,0 +1,22 @@
+{
+  "wikipedia": {
+    "en": {
+      "title": "Pyramid of Djoser",
+      "extract": "The Pyramid of Djoser, sometimes called the Step Pyramid of Djoser or Step Pyramid of Horus Netjerikhet, is an archaeological site in the Saqqara necropolis, Egypt, northwest of the ruins of Memphis. It was the first Egyptian pyramid to be built. The six-tier, four-sided structure is the earliest colossal stone building in Egypt. It was built in the 27th century BC during the Third Dynasty for the burial of Pharaoh Djoser. The pyramid is the central feature of a vast mortuary complex in an enormous courtyard surrounded by ceremonial structures and decoration.",
+      "description": "Archeological site in Egypt",
+      "coordinates": {
+        "lat": 29.8711,
+        "lon": 31.2167
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Saqqara_pyramid_ver_2.jpg/330px-Saqqara_pyramid_ver_2.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Saqqara_pyramid_ver_2.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Pyramid_of_Djoser"
+    },
+    "ar": {
+      "title": "هرم زوسر",
+      "extract": "هرم زوسر أو هرم سقارة أو الهرم المدرج هو معلم آثري بجبانة سقارة شمال غرب مدينة ممفيس القديمة في مصر. بُني خلال القرن 27 ق.م لدفن الفرعون زوسر؛ بناه له وزيره إمحوتب. وكان المهندس والطبيب أمحتب هو المهندس الأساسي للمجموعة الجنائزية الواسعة في فناء الهرم وما يحيطه من هياكل الاحتفالية.",
+      "description": "هرم مصري",
+      "wikipedia_url": "https://ar.wikipedia.org/wiki/%D9%87%D8%B1%D9%85_%D8%B2%D9%88%D8%B3%D8%B1"
+    }
+  }
+}

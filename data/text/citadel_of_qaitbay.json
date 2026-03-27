@@ -1,0 +1,22 @@
+{
+  "wikipedia": {
+    "en": {
+      "title": "Citadel of Qaitbay",
+      "extract": "The Citadel of Qaitbay is a 15th-century defensive fortress located on the Mediterranean sea coast, in Alexandria, Egypt. It was built from 1477 to 1479 AD by Sultan Al-Ashraf Sayf al-Din Qaitbay. The Citadel is situated on the eastern side of the northern tip of Pharos Island at the mouth of the Eastern Harbour.",
+      "description": "Building in Alexandria, Egypt",
+      "coordinates": {
+        "lat": 31.213,
+        "lon": 29.8852
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/QaitbeyCitadel.jpg/330px-QaitbeyCitadel.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/4/4a/QaitbeyCitadel.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Citadel_of_Qaitbay"
+    },
+    "ar": {
+      "title": "قلعة قايتباي",
+      "extract": "قلعة قايتباي هي قلعةُ في نهاية جزيرة فاروس منطقة السياله في حي الجمرك بأقصى غرب الإسكندرية، شيدت علي أنقاض واحدة من عجائب الدنيا السبع. وهي منارة الإسكندرية القديمة التي تهدمت سنة 702 هـ إثر الزلزال المدمر الذي حدث في عهد السلطان الناصر محمد بن قلاوون، وقد بدأ السلطان الأشرف أبو النصر قايتباي بناء هذه القلعة في سنة 882 هـ وانتهى من بنائها سنة 884 هـ.",
+      "description": "بناء في الإسكندرية، مصر",
+      "wikipedia_url": "https://ar.wikipedia.org/wiki/%D9%82%D9%84%D8%B9%D8%A9_%D9%82%D8%A7%D9%8A%D8%AA%D8%A8%D8%A7%D9%8A"
+    }
+  }
+}

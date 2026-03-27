@@ -1,0 +1,923 @@
+[
+  {
+    "hash": "f9faeb9c997f9c56",
+    "original_name": "0.jpg",
+    "original_class": "Luxor_Temple",
+    "size_bytes": 8790,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "39c09efad791855c",
+    "original_name": "1.jpg",
+    "original_class": "Luxor_Temple",
+    "size_bytes": 9094,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "14ba89b670c58339",
+    "original_name": "10.jpg",
+    "original_class": "Luxor_Temple",
+    "size_bytes": 10613,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "4f0a42d53821b0d3",
+    "original_name": "11.jpg",
+    "original_class": "Luxor_Temple",
+    "size_bytes": 9957,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "e02c59228a393dff",
+    "original_name": "12.jpg",
+    "original_class": "Luxor_Temple",
+    "size_bytes": 12790,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "92701ad3b86ccf34",
+    "original_name": "13.jpg",
+    "original_class": "Luxor_Temple",
+    "size_bytes": 12845,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "30cdef00ce7e1716",
+    "original_name": "14.jpg",
+    "original_class": "Luxor_Temple",
+    "size_bytes": 10617,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "13fe3fc29c160c41",
+    "original_name": "15.jpg",
+    "original_class": "Luxor_Temple",
+    "size_bytes": 9888,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "9e0ef2c4ab5cdf30",
+    "original_name": "16.jpg",
+    "original_class": "Luxor_Temple",
+    "size_bytes": 7564,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "1044e5495f10ba74",
+    "original_name": "17.jpg",
+    "original_class": "Luxor_Temple",
+    "size_bytes": 10123,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "f3fa969340ab580f",
+    "original_name": "18.jpg",
+    "original_class": "Luxor_Temple",
+    "size_bytes": 10909,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "39008b4787dbbda3",
+    "original_name": "19.jpg",
+    "original_class": "Luxor_Temple",
+    "size_bytes": 11291,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "426ba7e9a5d6ec5d",
+    "original_name": "2.jpg",
+    "original_class": "Luxor_Temple",
+    "size_bytes": 9052,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "3c924be338da3ab7",
+    "original_name": "20.jpg",
+    "original_class": "Luxor_Temple",
+    "size_bytes": 6773,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "f19a60fa6c8d296c",
+    "original_name": "21.jpg",
+    "original_class": "Luxor_Temple",
+    "size_bytes": 10869,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "5449a20561471b48",
+    "original_name": "22.jpg",
+    "original_class": "Luxor_Temple",
+    "size_bytes": 10604,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "a2e2689530ac11f3",
+    "original_name": "23.jpg",
+    "original_class": "Luxor_Temple",
+    "size_bytes": 7466,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "e9bd6af72de63328",
+    "original_name": "24.jpg",
+    "original_class": "Luxor_Temple",
+    "size_bytes": 6729,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "8e55441c88b86d4d",
+    "original_name": "25.jpg",
+    "original_class": "Luxor_Temple",
+    "size_bytes": 11386,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "953a1ec7ba77d275",
+    "original_name": "26.jpg",
+    "original_class": "Luxor_Temple",
+    "size_bytes": 9969,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "83eae4553a545636",
+    "original_name": "27.jpg",
+    "original_class": "Luxor_Temple",
+    "size_bytes": 12495,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "0989643f99d2900a",
+    "original_name": "28.jpg",
+    "original_class": "Luxor_Temple",
+    "size_bytes": 11134,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "38ef241cac841773",
+    "original_name": "29.jpg",
+    "original_class": "Luxor_Temple",
+    "size_bytes": 9987,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "59cb6baa8637ad48",
+    "original_name": "3.jpg",
+    "original_class": "Luxor_Temple",
+    "size_bytes": 12098,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "2ef1daf151f5f611",
+    "original_name": "30.jpg",
+    "original_class": "Luxor_Temple",
+    "size_bytes": 11943,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "83962fd42b699721",
+    "original_name": "31.jpg",
+    "original_class": "Luxor_Temple",
+    "size_bytes": 11329,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "27abd57c2a8e4c73",
+    "original_name": "32.jpg",
+    "original_class": "Luxor_Temple",
+    "size_bytes": 11284,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "27f20848f4dcbf47",
+    "original_name": "33.jpg",
+    "original_class": "Luxor_Temple",
+    "size_bytes": 8749,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "ffac7ec8f1f553b0",
+    "original_name": "34.jpg",
+    "original_class": "Luxor_Temple",
+    "size_bytes": 6443,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "5716557e05153faa",
+    "original_name": "35.jpg",
+    "original_class": "Luxor_Temple",
+    "size_bytes": 7901,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "be13ba85956e2d15",
+    "original_name": "36.jpg",
+    "original_class": "Luxor_Temple",
+    "size_bytes": 10414,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "5e61c3d7f1bb6c97",
+    "original_name": "4.jpg",
+    "original_class": "Luxor_Temple",
+    "size_bytes": 8437,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "30c6705c44cf359a",
+    "original_name": "5.jpg",
+    "original_class": "Luxor_Temple",
+    "size_bytes": 13133,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "101867b2e5144aca",
+    "original_name": "6.jpg",
+    "original_class": "Luxor_Temple",
+    "size_bytes": 13271,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "df8c9fbecc9ba3bc",
+    "original_name": "7.jpg",
+    "original_class": "Luxor_Temple",
+    "size_bytes": 11585,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "95ac0c5b683cf608",
+    "original_name": "8.jpg",
+    "original_class": "Luxor_Temple",
+    "size_bytes": 14092,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "f55227da4b7ce081",
+    "original_name": "9.jpg",
+    "original_class": "Luxor_Temple",
+    "size_bytes": 10686,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "filename": "97cf4f579609a140.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Templo_de_Luxor%2C_Luxor%2C_Egipto%2C_2022-04-01%2C_DD_01.jpg",
+    "wikipedia_title": "Luxor_Temple",
+    "source": "wikipedia",
+    "downloaded_at": "2026-03-02T02:10:01"
+  },
+  {
+    "filename": "3d4d1d03731f70b5.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Templo_de_Luxor%2C_Luxor%2C_Egipto%2C_2022-04-01%2C_DD_01.jpg/1280px-Templo_de_Luxor%2C_Luxor%2C_Egipto%2C_2022-04-01%2C_DD_01.jpg",
+    "wikipedia_title": "Luxor_Temple",
+    "source": "wikipedia",
+    "downloaded_at": "2026-03-02T02:10:01"
+  },
+  {
+    "filename": "55f2014fe3f0ea8d.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Theban_region%2C_Luxor_temple%2C_19th_century_pictures%2C_1870-1888%2C_photo_32_of_37_-_Archivio_fotografico_Museo_Egizio%2C_Turin_INV36_004.jpg/1280px-Theban_region%2C_Luxor_temple%2C_19th_century_pictures%2C_1870-1888%2C_photo_32_of_37_-_Archivio_fotografico_Museo_Egizio%2C_Turin_INV36_004.jpg",
+    "wikipedia_title": "Luxor_Temple",
+    "source": "wikipedia",
+    "downloaded_at": "2026-03-02T02:10:01"
+  },
+  {
+    "filename": "ad6e1b25cf032c59.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Luxor%2C_Luxor_Temple%2C_sphinx_alley_at_night%2C_Egypt%2C_Oct_2004.jpg/960px-Luxor%2C_Luxor_Temple%2C_sphinx_alley_at_night%2C_Egypt%2C_Oct_2004.jpg",
+    "wikipedia_title": "Luxor_Temple",
+    "source": "wikipedia",
+    "downloaded_at": "2026-03-02T02:10:01"
+  },
+  {
+    "filename": "7a42fcd2fe5d66f7.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Luxor_Temple_at_night%2C_Luxor%2C_Egypt.jpg/960px-Luxor_Temple_at_night%2C_Luxor%2C_Egypt.jpg",
+    "wikipedia_title": "Luxor_Temple",
+    "source": "wikipedia",
+    "downloaded_at": "2026-03-02T02:10:01"
+  },
+  {
+    "filename": "ae5670305edb537c.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Luxor_temple45.JPG/330px-Luxor_temple45.JPG",
+    "wikipedia_title": "Luxor_Temple",
+    "source": "wikipedia",
+    "downloaded_at": "2026-03-02T02:10:01"
+  },
+  {
+    "filename": "89551a74764bf812.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Luxor%2C_Luxor_Temple%2C_south_west_view%2C_Egypt%2C_Oct_2004.jpg",
+    "title": "File:Luxor, Luxor Temple, south west view, Egypt, Oct 2004.jpg",
+    "license": "CC BY-SA 2.0",
+    "artist": "unknown",
+    "width": 1280,
+    "height": 822,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:24:47"
+  },
+  {
+    "filename": "453921ff5561e6a1.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Luxor%2C_Luxor_Temple%2C_west_side_view%2C_Egypt%2C_Oct_2004.jpg",
+    "title": "File:Luxor, Luxor Temple, west side view, Egypt, Oct 2004.jpg",
+    "license": "CC BY-SA 2.0",
+    "artist": "unknown",
+    "width": 1280,
+    "height": 807,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:24:47"
+  },
+  {
+    "filename": "301d2a823785d829.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Luxor_Temple_R04.jpg",
+    "title": "File:Luxor Temple R04.jpg",
+    "license": "CC BY 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:MJJR\" title=\"User:MJJR\">Marc Ryckaert</a>",
+    "width": 4288,
+    "height": 2584,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:24:47"
+  },
+  {
+    "filename": "d68bc10ec38b1990.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Pylons_and_obelisk_Luxor_temple.JPG",
+    "title": "File:Pylons and obelisk Luxor temple.JPG",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Ad_Meskens\" title=\"User:Ad Meskens\">Ad Meskens</a>",
+    "width": 3604,
+    "height": 2045,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:24:47"
+  },
+  {
+    "filename": "c79591bad8132415.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/44/Luxor_Temple_Square_R01.jpg",
+    "title": "File:Luxor Temple Square R01.jpg",
+    "license": "CC BY 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:MJJR\" title=\"User:MJJR\">Marc Ryckaert</a>",
+    "width": 3956,
+    "height": 2562,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:24:47"
+  },
+  {
+    "filename": "b30aaab6547560d4.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/07/Luxor_Temple%2C_Luxor%2C_Egypt.jpg",
+    "title": "File:Luxor Temple, Luxor, Egypt.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Argenberg\" title=\"User:Argenberg\">Vyacheslav Argenberg</a>",
+    "width": 3072,
+    "height": 2048,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:24:47"
+  },
+  {
+    "filename": "e303564550f9243a.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Luxor_Temple%2C_Pillars%2C_Built_for_Eternity%2C_Luxor%2C_Egypt.jpg",
+    "title": "File:Luxor Temple, Pillars, Built for Eternity, Luxor, Egypt.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Argenberg\" title=\"User:Argenberg\">Vyacheslav Argenberg</a>",
+    "width": 3072,
+    "height": 2048,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:24:47"
+  },
+  {
+    "filename": "c7b3c3866536d77f.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/11/Luxor_Temple%2C_Pillars%2C_Luxor%2C_Egypt.jpg",
+    "title": "File:Luxor Temple, Pillars, Luxor, Egypt.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Argenberg\" title=\"User:Argenberg\">Vyacheslav Argenberg</a>",
+    "width": 3072,
+    "height": 2048,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:24:47"
+  },
+  {
+    "filename": "6c919bb8f3a5f613.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/68/Luxor_Temple_at_night%2C_Luxor%2C_Egypt.jpg",
+    "title": "File:Luxor Temple at night, Luxor, Egypt.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Argenberg\" title=\"User:Argenberg\">Vyacheslav Argenberg</a>",
+    "width": 3072,
+    "height": 2048,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:24:47"
+  },
+  {
+    "filename": "f688187d2d10538d.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/19/Luxor_Temple%2C_Statues%2C_Luxor%2C_Egypt.jpg",
+    "title": "File:Luxor Temple, Statues, Luxor, Egypt.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Argenberg\" title=\"User:Argenberg\">Vyacheslav Argenberg</a>",
+    "width": 3072,
+    "height": 2048,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:24:47"
+  },
+  {
+    "filename": "42a61b9969dcd1b3.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Luxor_Temple_at_night%2C_lights%2C_Luxor%2C_Egypt.jpg",
+    "title": "File:Luxor Temple at night, lights, Luxor, Egypt.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Argenberg\" title=\"User:Argenberg\">Vyacheslav Argenberg</a>",
+    "width": 3072,
+    "height": 2048,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:24:47"
+  },
+  {
+    "filename": "755df09cdc71fb17.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Luxor_Temple%2C_Statues_2%2C_Luxor%2C_Egypt.jpg",
+    "title": "File:Luxor Temple, Statues 2, Luxor, Egypt.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Argenberg\" title=\"User:Argenberg\">Vyacheslav Argenberg</a>",
+    "width": 3072,
+    "height": 2048,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:24:47"
+  },
+  {
+    "filename": "51722e9e60d4d74d.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Luxor_Temple%2C_Sanctuary%2C_Luxor%2C_Egypt.jpg",
+    "title": "File:Luxor Temple, Sanctuary, Luxor, Egypt.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Argenberg\" title=\"User:Argenberg\">Vyacheslav Argenberg</a>",
+    "width": 3072,
+    "height": 2048,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:24:47"
+  },
+  {
+    "filename": "b55c9a079c2c01de.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Luxor_Temple_at_night%2C_Sanctuary%2C_Luxor%2C_Egypt.jpg",
+    "title": "File:Luxor Temple at night, Sanctuary, Luxor, Egypt.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Argenberg\" title=\"User:Argenberg\">Vyacheslav Argenberg</a>",
+    "width": 3072,
+    "height": 2048,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:24:47"
+  },
+  {
+    "filename": "c26e4f5aa5a358ce.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/8e/Luxor%2C_Luxor_Temple%2C_south_west_view_2%2C_Egypt%2C_Oct_2004.jpg",
+    "title": "File:Luxor, Luxor Temple, south west view 2, Egypt, Oct 2004.jpg",
+    "license": "CC BY-SA 2.0",
+    "artist": "unknown",
+    "width": 1280,
+    "height": 728,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:24:47"
+  },
+  {
+    "filename": "f55150859bc24050.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/73/Luxor_Temple_in_January.jpg",
+    "title": "File:Luxor Temple in January.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:J.B._Burrell&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:J.B. Burrell (page does not exist)\">J.B. Burrell</a>",
+    "width": 4288,
+    "height": 2848,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:24:47"
+  },
+  {
+    "filename": "3ef2423aa41f316d.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/14/Luxor_Temple_2022_01.jpg",
+    "title": "File:Luxor Temple 2022 01.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Onceinawhile\" title=\"User:Onceinawhile\">Onceinawhile</a>",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:24:47"
+  },
+  {
+    "filename": "6ec479aabbbff3b9.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Luxor_Temple_2022_03.jpg",
+    "title": "File:Luxor Temple 2022 03.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Onceinawhile\" title=\"User:Onceinawhile\">Onceinawhile</a>",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:24:47"
+  },
+  {
+    "filename": "1bade5de774c49fa.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Luxor_Temple_2022_02.jpg",
+    "title": "File:Luxor Temple 2022 02.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Onceinawhile\" title=\"User:Onceinawhile\">Onceinawhile</a>",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:24:47"
+  },
+  {
+    "filename": "18f3057ba3db08e1.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/56/Luxor_Temple_2022_05.jpg",
+    "title": "File:Luxor Temple 2022 05.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Onceinawhile\" title=\"User:Onceinawhile\">Onceinawhile</a>",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:24:47"
+  },
+  {
+    "filename": "152e5b6454218589.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Luxor_Temple_2022_06.jpg",
+    "title": "File:Luxor Temple 2022 06.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Onceinawhile\" title=\"User:Onceinawhile\">Onceinawhile</a>",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:24:47"
+  },
+  {
+    "filename": "955ef6b38e603e1d.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/68/Luxor_Temple_2022_04.jpg",
+    "title": "File:Luxor Temple 2022 04.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Onceinawhile\" title=\"User:Onceinawhile\">Onceinawhile</a>",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:24:47"
+  },
+  {
+    "filename": "3e76419b42c184e2.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Luxor_Temple_2022_07.jpg",
+    "title": "File:Luxor Temple 2022 07.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Onceinawhile\" title=\"User:Onceinawhile\">Onceinawhile</a>",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:24:47"
+  },
+  {
+    "filename": "e8d4fb4de2a81593.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/59/Luxor_Temple_2022_09.jpg",
+    "title": "File:Luxor Temple 2022 09.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Onceinawhile\" title=\"User:Onceinawhile\">Onceinawhile</a>",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:24:47"
+  },
+  {
+    "filename": "8b8c255f7b92ed06.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Luxor_Temple_2022_11.jpg",
+    "title": "File:Luxor Temple 2022 11.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Onceinawhile\" title=\"User:Onceinawhile\">Onceinawhile</a>",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:24:47"
+  },
+  {
+    "filename": "83da4009d41cdd65.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/77/Luxor_Temple_2022_12.jpg",
+    "title": "File:Luxor Temple 2022 12.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Onceinawhile\" title=\"User:Onceinawhile\">Onceinawhile</a>",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:24:47"
+  },
+  {
+    "filename": "6debd4b8067326b6.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/98/Luxor_Temple_2022_10.jpg",
+    "title": "File:Luxor Temple 2022 10.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Onceinawhile\" title=\"User:Onceinawhile\">Onceinawhile</a>",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:24:47"
+  },
+  {
+    "filename": "207ce76ee7100af4.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/94/Luxor_Temple_2022_14.jpg",
+    "title": "File:Luxor Temple 2022 14.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Onceinawhile\" title=\"User:Onceinawhile\">Onceinawhile</a>",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:24:47"
+  },
+  {
+    "filename": "1e24b6aeace84ce2.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Luxor_Temple_2022_16.jpg",
+    "title": "File:Luxor Temple 2022 16.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Onceinawhile\" title=\"User:Onceinawhile\">Onceinawhile</a>",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:24:47"
+  },
+  {
+    "filename": "42d5d45a2b030b07.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/b6/Luxor_Temple_2022_17.jpg",
+    "title": "File:Luxor Temple 2022 17.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Onceinawhile\" title=\"User:Onceinawhile\">Onceinawhile</a>",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:24:47"
+  },
+  {
+    "filename": "1afe24b486fe894d.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/34/Luxor_Temple_2022_18.jpg",
+    "title": "File:Luxor Temple 2022 18.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Onceinawhile\" title=\"User:Onceinawhile\">Onceinawhile</a>",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:24:47"
+  },
+  {
+    "filename": "38ac773122da8c6a.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/20/Luxor_Temple_2022_19.jpg",
+    "title": "File:Luxor Temple 2022 19.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Onceinawhile\" title=\"User:Onceinawhile\">Onceinawhile</a>",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:24:47"
+  },
+  {
+    "filename": "eadda544c8daf86d.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/48/Luxor_Temple_2022_21.jpg",
+    "title": "File:Luxor Temple 2022 21.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Onceinawhile\" title=\"User:Onceinawhile\">Onceinawhile</a>",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:24:47"
+  },
+  {
+    "filename": "3d5cd63a05cf3685.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/79/Luxor_Temple_2022_15.jpg",
+    "title": "File:Luxor Temple 2022 15.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Onceinawhile\" title=\"User:Onceinawhile\">Onceinawhile</a>",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:24:47"
+  },
+  {
+    "filename": "25656f0c47a53538.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/45/Luxor_Temple_R01.jpg",
+    "title": "File:Luxor Temple R01.jpg",
+    "license": "CC BY 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:MJJR\" title=\"User:MJJR\">Marc Ryckaert</a>",
+    "width": 3928,
+    "height": 2629,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:24:47"
+  },
+  {
+    "filename": "5a40e9b11a2cb2d8.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/84/Luxor_Temple_%2814075082689%29.jpg",
+    "title": "File:Luxor Temple (14075082689).jpg",
+    "license": "CC BY 2.0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/8721758@N06\">Jorge Láscar</a> from Melbourne, Australia",
+    "width": 4288,
+    "height": 2848,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:24:47"
+  },
+  {
+    "filename": "4f4449eff43c721a.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Luxor_Temple_R14.jpg",
+    "title": "File:Luxor Temple R14.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:MJJR\" title=\"User:MJJR\">Marc Ryckaert</a>",
+    "width": 4853,
+    "height": 3194,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:24:47"
+  },
+  {
+    "filename": "b6fc81055d678cf7.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Luxor_Temple_from_Nile_2022.jpg",
+    "title": "File:Luxor Temple from Nile 2022.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Marsupium\" title=\"User:Marsupium\">Marsupium</a>",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:24:47"
+  },
+  {
+    "filename": "247ccdbf04ed5c11.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/21/Luxor_Temple_2022_08.jpg",
+    "title": "File:Luxor Temple 2022 08.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Onceinawhile\" title=\"User:Onceinawhile\">Onceinawhile</a>",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:24:47"
+  },
+  {
+    "filename": "2ad446e3dad1e97d.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/be/Luxor_Temple_2022_13.jpg",
+    "title": "File:Luxor Temple 2022 13.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Onceinawhile\" title=\"User:Onceinawhile\">Onceinawhile</a>",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:24:47"
+  },
+  {
+    "filename": "2625a30bc5a549d0.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/82/Luxor_Temple_2022_20.jpg",
+    "title": "File:Luxor Temple 2022 20.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Onceinawhile\" title=\"User:Onceinawhile\">Onceinawhile</a>",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:24:47"
+  },
+  {
+    "filename": "bebfc904da5c3669.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Luxor_Temple_-_%D9%85%D8%B9%D8%A8%D8%AF_%D8%A7%D9%84%D8%A3%D9%82%D8%B5%D8%B1_%2842%29.jpg",
+    "title": "File:Luxor Temple - معبد الأقصر (42).jpg",
+    "license": "Public domain",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:%D9%88%D9%84%D8%A7%D8%A1\" title=\"User:ولاء\">ولاء</a>",
+    "width": 5712,
+    "height": 4284,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:24:47"
+  },
+  {
+    "filename": "4e6608450d27eb7e.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Luxor_Temple_-_%D9%85%D8%B9%D8%A8%D8%AF_%D8%A7%D9%84%D8%A3%D9%82%D8%B5%D8%B1_%2856%29.jpg",
+    "title": "File:Luxor Temple - معبد الأقصر (56).jpg",
+    "license": "Public domain",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:%D9%88%D9%84%D8%A7%D8%A1\" title=\"User:ولاء\">ولاء</a>",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:24:47"
+  },
+  {
+    "filename": "c33a2d86b513f036.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Luxor_Temple_-_%D9%85%D8%B9%D8%A8%D8%AF_%D8%A7%D9%84%D8%A3%D9%82%D8%B5%D8%B1_%2867%29.jpg",
+    "title": "File:Luxor Temple - معبد الأقصر (67).jpg",
+    "license": "Public domain",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:%D9%88%D9%84%D8%A7%D8%A1\" title=\"User:ولاء\">ولاء</a>",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:24:47"
+  },
+  {
+    "filename": "178c39fd3482e5d1.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/b6/Avenue_of_the_Sphinxes%2C_Luxor_Temple%2C_Luxor%2C_LG%2C_EGY_%2848009767217%29.jpg",
+    "title": "File:Avenue of the Sphinxes, Luxor Temple, Luxor, LG, EGY (48009767217).jpg",
+    "license": "CC0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/59081381@N03\">Warren LeMay</a> from Chicago, IL, United States",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:24:47"
+  },
+  {
+    "filename": "3981d38b3d1cfc3d.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Avenue_of_the_Sphinxes%2C_Luxor_Temple%2C_Luxor%2C_LG%2C_EGY_%2848009672651%29.jpg",
+    "title": "File:Avenue of the Sphinxes, Luxor Temple, Luxor, LG, EGY (48009672651).jpg",
+    "license": "CC0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/59081381@N03\">Warren LeMay</a> from Chicago, IL, United States",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:24:47"
+  },
+  {
+    "filename": "cb39cdc0d798f4c0.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Avenue_of_the_Sphinxes%2C_Luxor_Temple%2C_Luxor%2C_LG%2C_EGY_%2848009762062%29.jpg",
+    "title": "File:Avenue of the Sphinxes, Luxor Temple, Luxor, LG, EGY (48009762062).jpg",
+    "license": "CC0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/59081381@N03\">Warren LeMay</a> from Chicago, IL, United States",
+    "width": 2612,
+    "height": 3487,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:24:47"
+  },
+  {
+    "filename": "d774a18d13c5f165.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/75/Luxor_Temple_R03.jpg",
+    "title": "File:Luxor Temple R03.jpg",
+    "license": "CC BY 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:MJJR\" title=\"User:MJJR\">Marc Ryckaert</a>",
+    "width": 3612,
+    "height": 2421,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:24:47"
+  },
+  {
+    "filename": "f94615b687a648d3.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Luxor_Temple_R05.jpg",
+    "title": "File:Luxor Temple R05.jpg",
+    "license": "CC BY 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:MJJR\" title=\"User:MJJR\">Marc Ryckaert</a>",
+    "width": 3884,
+    "height": 2640,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:24:47"
+  },
+  {
+    "filename": "c4116bb22d980ed0.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Luxor_Temple_detail_R01.jpg",
+    "title": "File:Luxor Temple detail R01.jpg",
+    "license": "CC BY 3.0",
+    "artist": "Marc Ryckaert (<a href=\"//commons.wikimedia.org/wiki/User:MJJR\" title=\"User:MJJR\">MJJR</a>)",
+    "width": 3032,
+    "height": 2364,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:24:47"
+  },
+  {
+    "filename": "48618ba2126416b7.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Luxor_Temple_R06.jpg",
+    "title": "File:Luxor Temple R06.jpg",
+    "license": "CC BY 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:MJJR\" title=\"User:MJJR\">Marc Ryckaert</a>",
+    "width": 2209,
+    "height": 3665,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:24:47"
+  },
+  {
+    "filename": "4865599b57ff05ba.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Ramses_II_in_Luxor_Temple.jpg",
+    "title": "File:Ramses II in Luxor Temple.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:M_mousa_86\" title=\"User:M mousa 86\">Mohammed Moussa</a>",
+    "width": 3384,
+    "height": 2331,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:24:47"
+  },
+  {
+    "filename": "76277605695f4c6b.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/22/Luxor_Temple_R15.jpg",
+    "title": "File:Luxor Temple R15.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:MJJR\" title=\"User:MJJR\">Marc Ryckaert</a>",
+    "width": 4824,
+    "height": 3162,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:24:47"
+  }
+]

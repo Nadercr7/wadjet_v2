@@ -1,0 +1,3258 @@
+{
+  "num_classes": 171,
+  "gardiner_to_idx": {
+    "A55": 0,
+    "Aa15": 1,
+    "Aa26": 2,
+    "Aa27": 3,
+    "Aa28": 4,
+    "D1": 5,
+    "D2": 6,
+    "D4": 7,
+    "D10": 8,
+    "D19": 9,
+    "D21": 10,
+    "D28": 11,
+    "D34": 12,
+    "D35": 13,
+    "D36": 14,
+    "D39": 15,
+    "D46": 16,
+    "D52": 17,
+    "D53": 18,
+    "D54": 19,
+    "D56": 20,
+    "D58": 21,
+    "D60": 22,
+    "D62": 23,
+    "D156": 24,
+    "E1": 25,
+    "E9": 26,
+    "E17": 27,
+    "E23": 28,
+    "E34": 29,
+    "F4": 30,
+    "F9": 31,
+    "F12": 32,
+    "F13": 33,
+    "F16": 34,
+    "F18": 35,
+    "F21": 36,
+    "F22": 37,
+    "F23": 38,
+    "F26": 39,
+    "F29": 40,
+    "F30": 41,
+    "F31": 42,
+    "F32": 43,
+    "F34": 44,
+    "F35": 45,
+    "F40": 46,
+    "G1": 47,
+    "G4": 48,
+    "G5": 49,
+    "G7": 50,
+    "G10": 51,
+    "G14": 52,
+    "G17": 53,
+    "G21": 54,
+    "G25": 55,
+    "G26": 56,
+    "G29": 57,
+    "G35": 58,
+    "G36": 59,
+    "G37": 60,
+    "G39": 61,
+    "G40": 62,
+    "G43": 63,
+    "G50": 64,
+    "H6": 65,
+    "I5": 66,
+    "I9": 67,
+    "I10": 68,
+    "L1": 69,
+    "M1": 70,
+    "M3": 71,
+    "M4": 72,
+    "M8": 73,
+    "M12": 74,
+    "M16": 75,
+    "M17": 76,
+    "M18": 77,
+    "M20": 78,
+    "M23": 79,
+    "M26": 80,
+    "M29": 81,
+    "M40": 82,
+    "M41": 83,
+    "M42": 84,
+    "M44": 85,
+    "M195": 86,
+    "N1": 87,
+    "N2": 88,
+    "N5": 89,
+    "N14": 90,
+    "N16": 91,
+    "N17": 92,
+    "N18": 93,
+    "N19": 94,
+    "N24": 95,
+    "N25": 96,
+    "N26": 97,
+    "N29": 98,
+    "N30": 99,
+    "N31": 100,
+    "N35": 101,
+    "N36": 102,
+    "N37": 103,
+    "N41": 104,
+    "O1": 105,
+    "O4": 106,
+    "O11": 107,
+    "O28": 108,
+    "O29": 109,
+    "O31": 110,
+    "O34": 111,
+    "O49": 112,
+    "O50": 113,
+    "O51": 114,
+    "P1": 115,
+    "P6": 116,
+    "P8": 117,
+    "P13": 118,
+    "P98": 119,
+    "Q1": 120,
+    "Q3": 121,
+    "Q7": 122,
+    "R4": 123,
+    "R8": 124,
+    "S24": 125,
+    "S28": 126,
+    "S29": 127,
+    "S34": 128,
+    "S42": 129,
+    "T14": 130,
+    "T20": 131,
+    "T21": 132,
+    "T22": 133,
+    "T28": 134,
+    "T30": 135,
+    "U1": 136,
+    "U7": 137,
+    "U15": 138,
+    "U28": 139,
+    "U33": 140,
+    "U35": 141,
+    "V4": 142,
+    "V6": 143,
+    "V7": 144,
+    "V13": 145,
+    "V16": 146,
+    "V22": 147,
+    "V24": 148,
+    "V25": 149,
+    "V28": 150,
+    "V30": 151,
+    "V31": 152,
+    "W11": 153,
+    "W14": 154,
+    "W15": 155,
+    "W18": 156,
+    "W19": 157,
+    "W22": 158,
+    "W24": 159,
+    "W25": 160,
+    "X1": 161,
+    "X6": 162,
+    "X8": 163,
+    "Y1": 164,
+    "Y2": 165,
+    "Y3": 166,
+    "Y5": 167,
+    "Z1": 168,
+    "Z7": 169,
+    "Z11": 170
+  },
+  "idx_to_gardiner": {
+    "0": "A55",
+    "1": "Aa15",
+    "2": "Aa26",
+    "3": "Aa27",
+    "4": "Aa28",
+    "5": "D1",
+    "6": "D2",
+    "7": "D4",
+    "8": "D10",
+    "9": "D19",
+    "10": "D21",
+    "11": "D28",
+    "12": "D34",
+    "13": "D35",
+    "14": "D36",
+    "15": "D39",
+    "16": "D46",
+    "17": "D52",
+    "18": "D53",
+    "19": "D54",
+    "20": "D56",
+    "21": "D58",
+    "22": "D60",
+    "23": "D62",
+    "24": "D156",
+    "25": "E1",
+    "26": "E9",
+    "27": "E17",
+    "28": "E23",
+    "29": "E34",
+    "30": "F4",
+    "31": "F9",
+    "32": "F12",
+    "33": "F13",
+    "34": "F16",
+    "35": "F18",
+    "36": "F21",
+    "37": "F22",
+    "38": "F23",
+    "39": "F26",
+    "40": "F29",
+    "41": "F30",
+    "42": "F31",
+    "43": "F32",
+    "44": "F34",
+    "45": "F35",
+    "46": "F40",
+    "47": "G1",
+    "48": "G4",
+    "49": "G5",
+    "50": "G7",
+    "51": "G10",
+    "52": "G14",
+    "53": "G17",
+    "54": "G21",
+    "55": "G25",
+    "56": "G26",
+    "57": "G29",
+    "58": "G35",
+    "59": "G36",
+    "60": "G37",
+    "61": "G39",
+    "62": "G40",
+    "63": "G43",
+    "64": "G50",
+    "65": "H6",
+    "66": "I5",
+    "67": "I9",
+    "68": "I10",
+    "69": "L1",
+    "70": "M1",
+    "71": "M3",
+    "72": "M4",
+    "73": "M8",
+    "74": "M12",
+    "75": "M16",
+    "76": "M17",
+    "77": "M18",
+    "78": "M20",
+    "79": "M23",
+    "80": "M26",
+    "81": "M29",
+    "82": "M40",
+    "83": "M41",
+    "84": "M42",
+    "85": "M44",
+    "86": "M195",
+    "87": "N1",
+    "88": "N2",
+    "89": "N5",
+    "90": "N14",
+    "91": "N16",
+    "92": "N17",
+    "93": "N18",
+    "94": "N19",
+    "95": "N24",
+    "96": "N25",
+    "97": "N26",
+    "98": "N29",
+    "99": "N30",
+    "100": "N31",
+    "101": "N35",
+    "102": "N36",
+    "103": "N37",
+    "104": "N41",
+    "105": "O1",
+    "106": "O4",
+    "107": "O11",
+    "108": "O28",
+    "109": "O29",
+    "110": "O31",
+    "111": "O34",
+    "112": "O49",
+    "113": "O50",
+    "114": "O51",
+    "115": "P1",
+    "116": "P6",
+    "117": "P8",
+    "118": "P13",
+    "119": "P98",
+    "120": "Q1",
+    "121": "Q3",
+    "122": "Q7",
+    "123": "R4",
+    "124": "R8",
+    "125": "S24",
+    "126": "S28",
+    "127": "S29",
+    "128": "S34",
+    "129": "S42",
+    "130": "T14",
+    "131": "T20",
+    "132": "T21",
+    "133": "T22",
+    "134": "T28",
+    "135": "T30",
+    "136": "U1",
+    "137": "U7",
+    "138": "U15",
+    "139": "U28",
+    "140": "U33",
+    "141": "U35",
+    "142": "V4",
+    "143": "V6",
+    "144": "V7",
+    "145": "V13",
+    "146": "V16",
+    "147": "V22",
+    "148": "V24",
+    "149": "V25",
+    "150": "V28",
+    "151": "V30",
+    "152": "V31",
+    "153": "W11",
+    "154": "W14",
+    "155": "W15",
+    "156": "W18",
+    "157": "W19",
+    "158": "W22",
+    "159": "W24",
+    "160": "W25",
+    "161": "X1",
+    "162": "X6",
+    "163": "X8",
+    "164": "Y1",
+    "165": "Y2",
+    "166": "Y3",
+    "167": "Y5",
+    "168": "Z1",
+    "169": "Z7",
+    "170": "Z11"
+  },
+  "class_info": {
+    "A55": {
+      "class_id": 0,
+      "gardiner_code": "A55",
+      "category": "A",
+      "category_name": "Man and his occupations",
+      "total_images": 3,
+      "per_source": {
+        "glyphnet_manual": 1,
+        "glyphnet_automated": 1,
+        "huggingface_train": 1
+      },
+      "needs_synthetic": true,
+      "deficit": 27,
+      "unicode_char": "𓁀",
+      "description": "Mummy on bed",
+      "details": "Det. sḏr “lie down,” dead."
+    },
+    "Aa15": {
+      "class_id": 1,
+      "gardiner_code": "Aa15",
+      "category": "Aa",
+      "category_name": "Unclassified signs",
+      "total_images": 6,
+      "per_source": {
+        "glyphnet_manual": 3,
+        "huggingface_train": 3
+      },
+      "needs_synthetic": true,
+      "deficit": 24,
+      "unicode_char": "𓐝",
+      "description": "Var. Aa13",
+      "details": "Phono. im, m."
+    },
+    "Aa26": {
+      "class_id": 2,
+      "gardiner_code": "Aa26",
+      "category": "Aa",
+      "category_name": "Unclassified signs",
+      "total_images": 12,
+      "per_source": {
+        "glyphnet_manual": 5,
+        "glyphnet_automated": 2,
+        "huggingface_train": 5
+      },
+      "needs_synthetic": true,
+      "deficit": 18,
+      "unicode_char": "𓐨",
+      "description": "Unknown",
+      "details": "Det. in sbi “rebel.”"
+    },
+    "Aa27": {
+      "class_id": 3,
+      "gardiner_code": "Aa27",
+      "category": "Aa",
+      "category_name": "Unclassified signs",
+      "total_images": 7,
+      "per_source": {
+        "glyphnet_manual": 3,
+        "glyphnet_automated": 2,
+        "huggingface_train": 2
+      },
+      "needs_synthetic": true,
+      "deficit": 23,
+      "unicode_char": "𓐩",
+      "description": "Unknown",
+      "details": "Phono. nḏ. In nḏ “ask, inquire.”"
+    },
+    "Aa28": {
+      "class_id": 4,
+      "gardiner_code": "Aa28",
+      "category": "Aa",
+      "category_name": "Unclassified signs",
+      "total_images": 3,
+      "per_source": {
+        "glyphnet_manual": 1,
+        "glyphnet_automated": 1,
+        "huggingface_train": 1
+      },
+      "needs_synthetic": true,
+      "deficit": 27,
+      "unicode_char": "𓐪",
+      "description": "Builder’s tool?",
+      "details": "Phono. qd. In qd “build.”"
+    },
+    "D1": {
+      "class_id": 5,
+      "gardiner_code": "D1",
+      "category": "D",
+      "category_name": "Parts of the human body",
+      "total_images": 14,
+      "per_source": {
+        "glyphnet_manual": 5,
+        "glyphnet_automated": 5,
+        "huggingface_train": 4
+      },
+      "needs_synthetic": true,
+      "deficit": 16,
+      "unicode_char": "𓁶",
+      "description": "Head",
+      "details": "Phono. tp. Det. or Ideo. for tp “head,” tpy “first, chief.” Det. ḏ3ḏ3“head.”"
+    },
+    "D2": {
+      "class_id": 6,
+      "gardiner_code": "D2",
+      "category": "D",
+      "category_name": "Parts of the human body",
+      "total_images": 56,
+      "per_source": {
+        "glyphnet_manual": 24,
+        "glyphnet_automated": 14,
+        "huggingface_train": 18
+      },
+      "needs_synthetic": false,
+      "deficit": 0,
+      "unicode_char": "𓁷",
+      "description": "Face",
+      "details": "Phon. ḥr. Ideo. for ḥr “face.”"
+    },
+    "D4": {
+      "class_id": 7,
+      "gardiner_code": "D4",
+      "category": "D",
+      "category_name": "Parts of the human body",
+      "total_images": 104,
+      "per_source": {
+        "glyphnet_manual": 37,
+        "glyphnet_automated": 32,
+        "huggingface_train": 35
+      },
+      "needs_synthetic": false,
+      "deficit": 0,
+      "unicode_char": "𓁹",
+      "description": "Eye",
+      "details": "Phono. iri “to do, make.” Ideo. for irt “eye.”"
+    },
+    "D10": {
+      "class_id": 8,
+      "gardiner_code": "D10",
+      "category": "D",
+      "category_name": "Parts of the human body",
+      "total_images": 6,
+      "per_source": {
+        "glyphnet_manual": 3,
+        "huggingface_train": 3
+      },
+      "needs_synthetic": true,
+      "deficit": 24,
+      "unicode_char": "𓂀",
+      "description": "Eye with falcon’s head marking",
+      "details": "Det. or Ideo. for w3ḏt “wedjat eye.”"
+    },
+    "D19": {
+      "class_id": 9,
+      "gardiner_code": "D19",
+      "category": "D",
+      "category_name": "Parts of the human body",
+      "total_images": 8,
+      "per_source": {
+        "glyphnet_manual": 3,
+        "glyphnet_automated": 3,
+        "huggingface_train": 2
+      },
+      "needs_synthetic": true,
+      "deficit": 22,
+      "unicode_char": "𓂉",
+      "description": "Eye, nose, and cheek",
+      "details": "Det. or Ideo. for fnd “nose.” Det. sn “smell,” rš “rejoice.”"
+    },
+    "D21": {
+      "class_id": 10,
+      "gardiner_code": "D21",
+      "category": "D",
+      "category_name": "Parts of the human body",
+      "total_images": 468,
+      "per_source": {
+        "glyphnet_manual": 183,
+        "glyphnet_automated": 120,
+        "huggingface_train": 165
+      },
+      "needs_synthetic": false,
+      "deficit": 0,
+      "unicode_char": "𓂑",
+      "description": "T30",
+      "details": "T31"
+    },
+    "D28": {
+      "class_id": 11,
+      "gardiner_code": "D28",
+      "category": "D",
+      "category_name": "Parts of the human body",
+      "total_images": 49,
+      "per_source": {
+        "glyphnet_manual": 17,
+        "glyphnet_automated": 16,
+        "huggingface_train": 16
+      },
+      "needs_synthetic": false,
+      "deficit": 0,
+      "unicode_char": "𓂓",
+      "description": "Two arms",
+      "details": "Phono. k3. Ideo. for k3 “soul.”"
+    },
+    "D34": {
+      "class_id": 12,
+      "gardiner_code": "D34",
+      "category": "D",
+      "category_name": "Parts of the human body",
+      "total_images": 3,
+      "per_source": {
+        "glyphnet_manual": 1,
+        "glyphnet_automated": 1,
+        "huggingface_train": 1
+      },
+      "needs_synthetic": true,
+      "deficit": 27,
+      "unicode_char": "𓂚",
+      "description": "Arms with shield and axe",
+      "details": "Ideo. for ʿḥ3 “fight”"
+    },
+    "D35": {
+      "class_id": 13,
+      "gardiner_code": "D35",
+      "category": "D",
+      "category_name": "Parts of the human body",
+      "total_images": 146,
+      "per_source": {
+        "glyphnet_manual": 57,
+        "glyphnet_automated": 40,
+        "huggingface_train": 49
+      },
+      "needs_synthetic": false,
+      "deficit": 0,
+      "unicode_char": "𓂜",
+      "description": "Negative arms",
+      "details": "Phono. n. Ideo. for n and nn, “not.” Det. negation."
+    },
+    "D36": {
+      "class_id": 14,
+      "gardiner_code": "D36",
+      "category": "D",
+      "category_name": "Parts of the human body",
+      "total_images": 158,
+      "per_source": {
+        "glyphnet_manual": 59,
+        "glyphnet_automated": 44,
+        "huggingface_train": 55
+      },
+      "needs_synthetic": false,
+      "deficit": 0,
+      "unicode_char": "𓂝",
+      "description": "Arm",
+      "details": "Phono. ʿ. Ideo. ʿ “arm, hand.”"
+    },
+    "D39": {
+      "class_id": 15,
+      "gardiner_code": "D39",
+      "category": "D",
+      "category_name": "Parts of the human body",
+      "total_images": 6,
+      "per_source": {
+        "glyphnet_manual": 2,
+        "glyphnet_automated": 2,
+        "huggingface_train": 2
+      },
+      "needs_synthetic": true,
+      "deficit": 24,
+      "unicode_char": "𓂠",
+      "description": "Arm holding W24",
+      "details": "Det. for offer, present. ex. ḥnk “present,” drp “offer.”"
+    },
+    "D46": {
+      "class_id": 16,
+      "gardiner_code": "D46",
+      "category": "D",
+      "category_name": "Parts of the human body",
+      "total_images": 134,
+      "per_source": {
+        "glyphnet_manual": 50,
+        "glyphnet_automated": 37,
+        "huggingface_train": 47
+      },
+      "needs_synthetic": false,
+      "deficit": 0,
+      "unicode_char": "𓂧",
+      "description": "Hand",
+      "details": "Phono. d. Ideo. for ḏrt “hand.”"
+    },
+    "D52": {
+      "class_id": 17,
+      "gardiner_code": "D52",
+      "category": "D",
+      "category_name": "Parts of the human body",
+      "total_images": 13,
+      "per_source": {
+        "glyphnet_manual": 5,
+        "glyphnet_automated": 4,
+        "huggingface_train": 4
+      },
+      "needs_synthetic": true,
+      "deficit": 17,
+      "unicode_char": "𓂸",
+      "description": "Penis",
+      "details": "Phono. mt. Det. for male. ex. ʿ3 “ass,” ṯ3y “male.” Ideo. k3 “bull.”"
+    },
+    "D53": {
+      "class_id": 18,
+      "gardiner_code": "D53",
+      "category": "D",
+      "category_name": "Parts of the human body",
+      "total_images": 3,
+      "per_source": {
+        "glyphnet_manual": 1,
+        "glyphnet_automated": 1,
+        "huggingface_train": 1
+      },
+      "needs_synthetic": true,
+      "deficit": 27,
+      "unicode_char": "𓂺",
+      "description": "Penis with liquid",
+      "details": "Det. for male, penis. ex. m b3ḥ “in the presence of” ḏr b3ḥ “since,” r b3ḥ “before.”"
+    },
+    "D54": {
+      "class_id": 19,
+      "gardiner_code": "D54",
+      "category": "D",
+      "category_name": "Parts of the human body",
+      "total_images": 35,
+      "per_source": {
+        "glyphnet_manual": 12,
+        "glyphnet_automated": 11,
+        "huggingface_train": 12
+      },
+      "needs_synthetic": false,
+      "deficit": 0,
+      "unicode_char": "𓂻",
+      "description": "Legs walking",
+      "details": "Phono. iw in iwi “come.” Det. for motion."
+    },
+    "D56": {
+      "class_id": 20,
+      "gardiner_code": "D56",
+      "category": "D",
+      "category_name": "Parts of the human body",
+      "total_images": 9,
+      "per_source": {
+        "glyphnet_manual": 3,
+        "glyphnet_automated": 3,
+        "huggingface_train": 3
+      },
+      "needs_synthetic": true,
+      "deficit": 21,
+      "unicode_char": "𓂾",
+      "description": "Leg",
+      "details": "Phono. pd. Det. for leg, foot. ex. rd “leg,” pd “knee.”"
+    },
+    "D58": {
+      "class_id": 21,
+      "gardiner_code": "D58",
+      "category": "D",
+      "category_name": "Parts of the human body",
+      "total_images": 104,
+      "per_source": {
+        "glyphnet_manual": 36,
+        "glyphnet_automated": 34,
+        "huggingface_train": 34
+      },
+      "needs_synthetic": false,
+      "deficit": 0,
+      "unicode_char": "𓃀",
+      "description": "Foot",
+      "details": "Phono. b. Ideo. for bw “place.”"
+    },
+    "D60": {
+      "class_id": 22,
+      "gardiner_code": "D60",
+      "category": "D",
+      "category_name": "Parts of the human body",
+      "total_images": 18,
+      "per_source": {
+        "glyphnet_manual": 6,
+        "glyphnet_automated": 6,
+        "huggingface_train": 6
+      },
+      "needs_synthetic": true,
+      "deficit": 12,
+      "unicode_char": "𓃂",
+      "description": "Foot with water streaming",
+      "details": "Ideo. for wʿb “pure, clean.”"
+    },
+    "D62": {
+      "class_id": 23,
+      "gardiner_code": "D62",
+      "category": "D",
+      "category_name": "Parts of the human body",
+      "total_images": 3,
+      "per_source": {
+        "glyphnet_manual": 1,
+        "glyphnet_automated": 1,
+        "huggingface_train": 1
+      },
+      "needs_synthetic": true,
+      "deficit": 27,
+      "unicode_char": "𓃄",
+      "description": "Var. D61",
+      "details": "Use as D61."
+    },
+    "D156": {
+      "class_id": 24,
+      "gardiner_code": "D156",
+      "category": "D",
+      "category_name": "Parts of the human body",
+      "total_images": 9,
+      "per_source": {
+        "glyphnet_manual": 3,
+        "glyphnet_automated": 3,
+        "huggingface_train": 3
+      },
+      "needs_synthetic": true,
+      "deficit": 21,
+      "unicode_char": "",
+      "description": "Rare body part sign",
+      "details": "Extended Gardiner, variant body part."
+    },
+    "E1": {
+      "class_id": 25,
+      "gardiner_code": "E1",
+      "category": "E",
+      "category_name": "Mammals",
+      "total_images": 17,
+      "per_source": {
+        "glyphnet_manual": 7,
+        "glyphnet_automated": 7,
+        "huggingface_train": 3
+      },
+      "needs_synthetic": true,
+      "deficit": 13,
+      "unicode_char": "𓃒",
+      "description": "Bull",
+      "details": "Det. of cattle. ex. ng “bull,” mnmnt “cattle.” Ideo. in k3 “bull.”"
+    },
+    "E9": {
+      "class_id": 26,
+      "gardiner_code": "E9",
+      "category": "E",
+      "category_name": "Mammals",
+      "total_images": 25,
+      "per_source": {
+        "glyphnet_manual": 10,
+        "glyphnet_automated": 8,
+        "huggingface_train": 7
+      },
+      "needs_synthetic": true,
+      "deficit": 5,
+      "unicode_char": "𓃚",
+      "description": "Newborn bubalis",
+      "details": "Phon. iw. In iwr “conceive.”"
+    },
+    "E17": {
+      "class_id": 27,
+      "gardiner_code": "E17",
+      "category": "E",
+      "category_name": "Mammals",
+      "total_images": 3,
+      "per_source": {
+        "glyphnet_manual": 1,
+        "glyphnet_automated": 1,
+        "huggingface_train": 1
+      },
+      "needs_synthetic": true,
+      "deficit": 27,
+      "unicode_char": "𓃥",
+      "description": "Jackal",
+      "details": "Det. or Ideo. in s3b “jackal” and “dignitary.”"
+    },
+    "E23": {
+      "class_id": 28,
+      "gardiner_code": "E23",
+      "category": "E",
+      "category_name": "Mammals",
+      "total_images": 24,
+      "per_source": {
+        "glyphnet_manual": 10,
+        "glyphnet_automated": 7,
+        "huggingface_train": 7
+      },
+      "needs_synthetic": true,
+      "deficit": 6,
+      "unicode_char": "𓃭",
+      "description": "Recumbent Lion",
+      "details": "Phon. rw. Det. or Ideo. in rw “lion.”"
+    },
+    "E34": {
+      "class_id": 29,
+      "gardiner_code": "E34",
+      "category": "E",
+      "category_name": "Mammals",
+      "total_images": 328,
+      "per_source": {
+        "glyphnet_manual": 122,
+        "glyphnet_automated": 101,
+        "huggingface_train": 105
+      },
+      "needs_synthetic": false,
+      "deficit": 0,
+      "unicode_char": "𓃹",
+      "description": "Hare",
+      "details": "Phono. wn. wnn “be.”"
+    },
+    "F4": {
+      "class_id": 30,
+      "gardiner_code": "F4",
+      "category": "F",
+      "category_name": "Parts of mammals",
+      "total_images": 11,
+      "per_source": {
+        "glyphnet_manual": 4,
+        "glyphnet_automated": 3,
+        "huggingface_train": 4
+      },
+      "needs_synthetic": true,
+      "deficit": 19,
+      "unicode_char": "𓄂",
+      "description": "Forepart of lion",
+      "details": "Ideo. in ḥ3t “front,” ḥ3ty “heart.”"
+    },
+    "F9": {
+      "class_id": 31,
+      "gardiner_code": "F9",
+      "category": "F",
+      "category_name": "Parts of mammals",
+      "total_images": 9,
+      "per_source": {
+        "glyphnet_manual": 3,
+        "glyphnet_automated": 3,
+        "huggingface_train": 3
+      },
+      "needs_synthetic": true,
+      "deficit": 21,
+      "unicode_char": "𓄇",
+      "description": "Head of leopard",
+      "details": "Det. or Ideo. in pḥty “strength.”"
+    },
+    "F12": {
+      "class_id": 32,
+      "gardiner_code": "F12",
+      "category": "F",
+      "category_name": "Parts of mammals",
+      "total_images": 3,
+      "per_source": {
+        "glyphnet_manual": 1,
+        "glyphnet_automated": 1,
+        "huggingface_train": 1
+      },
+      "needs_synthetic": true,
+      "deficit": 27,
+      "unicode_char": "𓄊",
+      "description": "Head and neck of jackal",
+      "details": "Phon. wsr. Ideo in wsrt “neck.” In wsr “powerful”"
+    },
+    "F13": {
+      "class_id": 33,
+      "gardiner_code": "F13",
+      "category": "F",
+      "category_name": "Parts of mammals",
+      "total_images": 20,
+      "per_source": {
+        "glyphnet_manual": 8,
+        "glyphnet_automated": 4,
+        "huggingface_train": 8
+      },
+      "needs_synthetic": true,
+      "deficit": 10,
+      "unicode_char": "𓄋",
+      "description": "Horns of ox",
+      "details": "Phon. wp. Ideo. in wpt “brow, beginning.”"
+    },
+    "F16": {
+      "class_id": 34,
+      "gardiner_code": "F16",
+      "category": "F",
+      "category_name": "Parts of mammals",
+      "total_images": 19,
+      "per_source": {
+        "glyphnet_manual": 7,
+        "glyphnet_automated": 7,
+        "huggingface_train": 5
+      },
+      "needs_synthetic": true,
+      "deficit": 11,
+      "unicode_char": "𓄏",
+      "description": "Horn",
+      "details": "Phono. ʿb. Det. or Ideo. in db “horn,” ʿb “horn.” In m-ʿb “together with.”"
+    },
+    "F18": {
+      "class_id": 35,
+      "gardiner_code": "F18",
+      "category": "F",
+      "category_name": "Parts of mammals",
+      "total_images": 17,
+      "per_source": {
+        "glyphnet_manual": 6,
+        "glyphnet_automated": 5,
+        "huggingface_train": 6
+      },
+      "needs_synthetic": true,
+      "deficit": 13,
+      "unicode_char": "𓄑",
+      "description": "Tusk of elephant",
+      "details": "Phono. bḥ, ḥw. Det. and Ideo. in ibḥ “tooth.” Det. in sbḥ “cry.”"
+    },
+    "F21": {
+      "class_id": 36,
+      "gardiner_code": "F21",
+      "category": "F",
+      "category_name": "Parts of mammals",
+      "total_images": 3,
+      "per_source": {
+        "glyphnet_manual": 1,
+        "glyphnet_automated": 1,
+        "huggingface_train": 1
+      },
+      "needs_synthetic": true,
+      "deficit": 27,
+      "unicode_char": "𓄔",
+      "description": "Ear of ox",
+      "details": "Phono. sḏm, idn. Det. or Ideo. in msḏr “ear. Ideo. sḏm, “hear.”"
+    },
+    "F22": {
+      "class_id": 37,
+      "gardiner_code": "F22",
+      "category": "F",
+      "category_name": "Parts of mammals",
+      "total_images": 3,
+      "per_source": {
+        "glyphnet_manual": 1,
+        "glyphnet_automated": 1,
+        "huggingface_train": 1
+      },
+      "needs_synthetic": true,
+      "deficit": 27,
+      "unicode_char": "𓄖",
+      "description": "Hindquarters of leopard or lion",
+      "details": "Phono. pḥ in “reach,” pḥty “strength.” Ideo. for pḥwy “end.”"
+    },
+    "F23": {
+      "class_id": 38,
+      "gardiner_code": "F23",
+      "category": "F",
+      "category_name": "Parts of mammals",
+      "total_images": 3,
+      "per_source": {
+        "glyphnet_manual": 1,
+        "glyphnet_automated": 1,
+        "huggingface_train": 1
+      },
+      "needs_synthetic": true,
+      "deficit": 27,
+      "unicode_char": "𓄗",
+      "description": "Foreleg of ox",
+      "details": "Det. or Ideo. in ḫpš “strong arm, leg.”"
+    },
+    "F26": {
+      "class_id": 39,
+      "gardiner_code": "F26",
+      "category": "F",
+      "category_name": "Parts of mammals",
+      "total_images": 12,
+      "per_source": {
+        "glyphnet_manual": 4,
+        "glyphnet_automated": 4,
+        "huggingface_train": 4
+      },
+      "needs_synthetic": true,
+      "deficit": 18,
+      "unicode_char": "𓄚",
+      "description": "Goatskin",
+      "details": "Phono. ẖn. In ẖnw “interior,” ẖn “approach.”"
+    },
+    "F29": {
+      "class_id": 40,
+      "gardiner_code": "F29",
+      "category": "F",
+      "category_name": "Parts of mammals",
+      "total_images": 2,
+      "per_source": {
+        "glyphnet_manual": 1,
+        "huggingface_train": 1
+      },
+      "needs_synthetic": true,
+      "deficit": 28,
+      "unicode_char": "𓄝",
+      "description": "Combination of F28 + arrow",
+      "details": "Phono. st. Det. and Ideo. sti “pierce, shoot.”"
+    },
+    "F30": {
+      "class_id": 41,
+      "gardiner_code": "F30",
+      "category": "F",
+      "category_name": "Parts of mammals",
+      "total_images": 2,
+      "per_source": {
+        "glyphnet_manual": 1,
+        "huggingface_train": 1
+      },
+      "needs_synthetic": true,
+      "deficit": 28,
+      "unicode_char": "𓄞",
+      "description": "Water skin",
+      "details": "Phono. šd. In šdi “draw forth,” šdw “water skin.”"
+    },
+    "F31": {
+      "class_id": 42,
+      "gardiner_code": "F31",
+      "category": "F",
+      "category_name": "Parts of mammals",
+      "total_images": 20,
+      "per_source": {
+        "glyphnet_manual": 8,
+        "glyphnet_automated": 7,
+        "huggingface_train": 5
+      },
+      "needs_synthetic": true,
+      "deficit": 10,
+      "unicode_char": "𓄟",
+      "description": "Three fox skins",
+      "details": "Phono. ms. In msi “give birth.”"
+    },
+    "F32": {
+      "class_id": 43,
+      "gardiner_code": "F32",
+      "category": "F",
+      "category_name": "Parts of mammals",
+      "total_images": 2,
+      "per_source": {
+        "glyphnet_manual": 1,
+        "huggingface_train": 1
+      },
+      "needs_synthetic": true,
+      "deficit": 28,
+      "unicode_char": "𓄡",
+      "description": "Animal belly and tail",
+      "details": "Phono. ẖ. Ideo. in ẖt “belly, body.”"
+    },
+    "F34": {
+      "class_id": 44,
+      "gardiner_code": "F34",
+      "category": "F",
+      "category_name": "Parts of mammals",
+      "total_images": 27,
+      "per_source": {
+        "glyphnet_manual": 10,
+        "glyphnet_automated": 8,
+        "huggingface_train": 9
+      },
+      "needs_synthetic": true,
+      "deficit": 3,
+      "unicode_char": "W6",
+      "description": "W7",
+      "details": "W21"
+    },
+    "F35": {
+      "class_id": 45,
+      "gardiner_code": "F35",
+      "category": "F",
+      "category_name": "Parts of mammals",
+      "total_images": 8,
+      "per_source": {
+        "glyphnet_manual": 3,
+        "glyphnet_automated": 3,
+        "huggingface_train": 2
+      },
+      "needs_synthetic": true,
+      "deficit": 22,
+      "unicode_char": "𓄤",
+      "description": "Heart and windpipe",
+      "details": "Phono. nfr. In nfr “good, beautiful.”"
+    },
+    "F40": {
+      "class_id": 46,
+      "gardiner_code": "F40",
+      "category": "F",
+      "category_name": "Parts of mammals",
+      "total_images": 6,
+      "per_source": {
+        "glyphnet_manual": 2,
+        "glyphnet_automated": 2,
+        "huggingface_train": 2
+      },
+      "needs_synthetic": true,
+      "deficit": 24,
+      "unicode_char": "𓄫",
+      "description": "Backbone and spinal cord at each end",
+      "details": "Phono. 3w."
+    },
+    "G1": {
+      "class_id": 47,
+      "gardiner_code": "G1",
+      "category": "G",
+      "category_name": "Birds",
+      "total_images": 93,
+      "per_source": {
+        "glyphnet_manual": 35,
+        "glyphnet_automated": 33,
+        "huggingface_train": 25
+      },
+      "needs_synthetic": false,
+      "deficit": 0,
+      "unicode_char": "𓄿",
+      "description": "Vulture",
+      "details": "Phono. 3. In 3 “vulture.’"
+    },
+    "G4": {
+      "class_id": 48,
+      "gardiner_code": "G4",
+      "category": "G",
+      "category_name": "Birds",
+      "total_images": 23,
+      "per_source": {
+        "glyphnet_manual": 8,
+        "glyphnet_automated": 7,
+        "huggingface_train": 8
+      },
+      "needs_synthetic": true,
+      "deficit": 7,
+      "unicode_char": "𓅂",
+      "description": "Buzzard",
+      "details": "Phono. tyw."
+    },
+    "G5": {
+      "class_id": 49,
+      "gardiner_code": "G5",
+      "category": "G",
+      "category_name": "Birds",
+      "total_images": 86,
+      "per_source": {
+        "glyphnet_manual": 31,
+        "glyphnet_automated": 27,
+        "huggingface_train": 28
+      },
+      "needs_synthetic": false,
+      "deficit": 0,
+      "unicode_char": "𓅃",
+      "description": "Falcon",
+      "details": "Ideo. ḥrw “Horus.”"
+    },
+    "G7": {
+      "class_id": 50,
+      "gardiner_code": "G7",
+      "category": "G",
+      "category_name": "Birds",
+      "total_images": 25,
+      "per_source": {
+        "glyphnet_manual": 11,
+        "glyphnet_automated": 8,
+        "huggingface_train": 6
+      },
+      "needs_synthetic": true,
+      "deficit": 5,
+      "unicode_char": "𓅆",
+      "description": "Falcon on standard",
+      "details": "Det. imn “Amun,” nsw “king,” divine. 1st sing. pro. i, wi, with divine speaker."
+    },
+    "G10": {
+      "class_id": 51,
+      "gardiner_code": "G10",
+      "category": "G",
+      "category_name": "Birds",
+      "total_images": 3,
+      "per_source": {
+        "glyphnet_manual": 1,
+        "glyphnet_automated": 1,
+        "huggingface_train": 1
+      },
+      "needs_synthetic": true,
+      "deficit": 27,
+      "unicode_char": "𓅋",
+      "description": "Falcon in sacred bark",
+      "details": "Det. in skr “Sokar,” ḥnw “Sokar bark.”"
+    },
+    "G14": {
+      "class_id": 52,
+      "gardiner_code": "G14",
+      "category": "G",
+      "category_name": "Birds",
+      "total_images": 6,
+      "per_source": {
+        "glyphnet_manual": 2,
+        "glyphnet_automated": 2,
+        "huggingface_train": 2
+      },
+      "needs_synthetic": true,
+      "deficit": 24,
+      "unicode_char": "𓅐",
+      "description": "Vulture",
+      "details": "Phono. mwt, mt. In mwt “mother.”"
+    },
+    "G17": {
+      "class_id": 53,
+      "gardiner_code": "G17",
+      "category": "G",
+      "category_name": "Birds",
+      "total_images": 539,
+      "per_source": {
+        "glyphnet_manual": 195,
+        "glyphnet_automated": 169,
+        "huggingface_train": 175
+      },
+      "needs_synthetic": false,
+      "deficit": 0,
+      "unicode_char": "𓅓",
+      "description": "Owl",
+      "details": "Phono. m."
+    },
+    "G21": {
+      "class_id": 54,
+      "gardiner_code": "G21",
+      "category": "G",
+      "category_name": "Birds",
+      "total_images": 6,
+      "per_source": {
+        "glyphnet_manual": 2,
+        "glyphnet_automated": 2,
+        "huggingface_train": 2
+      },
+      "needs_synthetic": true,
+      "deficit": 24,
+      "unicode_char": "𓅘",
+      "description": "Guinea fowl",
+      "details": "Phono. nḥ. In nḥḥ “eternity.”"
+    },
+    "G25": {
+      "class_id": 55,
+      "gardiner_code": "G25",
+      "category": "G",
+      "category_name": "Birds",
+      "total_images": 75,
+      "per_source": {
+        "glyphnet_manual": 27,
+        "glyphnet_automated": 21,
+        "huggingface_train": 27
+      },
+      "needs_synthetic": false,
+      "deficit": 0,
+      "unicode_char": "𓅜",
+      "description": "Crested Ibis",
+      "details": "Phono. 3ḫ. In “spirit.”"
+    },
+    "G26": {
+      "class_id": 56,
+      "gardiner_code": "G26",
+      "category": "G",
+      "category_name": "Birds",
+      "total_images": 5,
+      "per_source": {
+        "glyphnet_manual": 2,
+        "glyphnet_automated": 1,
+        "huggingface_train": 2
+      },
+      "needs_synthetic": true,
+      "deficit": 25,
+      "unicode_char": "𓅝",
+      "description": "Sacred ibis on standard",
+      "details": "Det. in ḏḥwty “Thoth.”"
+    },
+    "G29": {
+      "class_id": 57,
+      "gardiner_code": "G29",
+      "category": "G",
+      "category_name": "Birds",
+      "total_images": 9,
+      "per_source": {
+        "glyphnet_manual": 3,
+        "glyphnet_automated": 3,
+        "huggingface_train": 3
+      },
+      "needs_synthetic": true,
+      "deficit": 21,
+      "unicode_char": "𓅡",
+      "description": "Jabiru",
+      "details": "Phono. b3. In “soul.”"
+    },
+    "G35": {
+      "class_id": 58,
+      "gardiner_code": "G35",
+      "category": "G",
+      "category_name": "Birds",
+      "total_images": 113,
+      "per_source": {
+        "glyphnet_manual": 38,
+        "glyphnet_automated": 37,
+        "huggingface_train": 38
+      },
+      "needs_synthetic": false,
+      "deficit": 0,
+      "unicode_char": "𓅧",
+      "description": "Cormorant",
+      "details": "Phono. ʿq. In ʿq “enter.”"
+    },
+    "G36": {
+      "class_id": 59,
+      "gardiner_code": "G36",
+      "category": "G",
+      "category_name": "Birds",
+      "total_images": 26,
+      "per_source": {
+        "glyphnet_manual": 9,
+        "glyphnet_automated": 8,
+        "huggingface_train": 9
+      },
+      "needs_synthetic": true,
+      "deficit": 4,
+      "unicode_char": "𓅨",
+      "description": "Swallow",
+      "details": "Phono. wr. In wr “great.”"
+    },
+    "G37": {
+      "class_id": 60,
+      "gardiner_code": "G37",
+      "category": "G",
+      "category_name": "Birds",
+      "total_images": 9,
+      "per_source": {
+        "glyphnet_manual": 3,
+        "glyphnet_automated": 3,
+        "huggingface_train": 3
+      },
+      "needs_synthetic": true,
+      "deficit": 21,
+      "unicode_char": "𓅪",
+      "description": "Sparrow",
+      "details": "Det. in nḏs “small,” bin “bad.”"
+    },
+    "G39": {
+      "class_id": 61,
+      "gardiner_code": "G39",
+      "category": "G",
+      "category_name": "Birds",
+      "total_images": 55,
+      "per_source": {
+        "glyphnet_manual": 21,
+        "glyphnet_automated": 15,
+        "huggingface_train": 19
+      },
+      "needs_synthetic": false,
+      "deficit": 0,
+      "unicode_char": "𓅭",
+      "description": "Duck",
+      "details": "Phono. s3. In s3 “son.” Det. in si “duck.”"
+    },
+    "G40": {
+      "class_id": 62,
+      "gardiner_code": "G40",
+      "category": "G",
+      "category_name": "Birds",
+      "total_images": 23,
+      "per_source": {
+        "glyphnet_manual": 8,
+        "glyphnet_automated": 8,
+        "huggingface_train": 7
+      },
+      "needs_synthetic": true,
+      "deficit": 7,
+      "unicode_char": "𓅮",
+      "description": "Duck flying",
+      "details": "Phono. p3. In p3 “the,” “fly.”"
+    },
+    "G43": {
+      "class_id": 63,
+      "gardiner_code": "G43",
+      "category": "G",
+      "category_name": "Birds",
+      "total_images": 566,
+      "per_source": {
+        "glyphnet_manual": 197,
+        "glyphnet_automated": 186,
+        "huggingface_train": 183
+      },
+      "needs_synthetic": false,
+      "deficit": 0,
+      "unicode_char": "𓅱",
+      "description": "Quail chick, var. Z7",
+      "details": "Phono. w."
+    },
+    "G50": {
+      "class_id": 64,
+      "gardiner_code": "G50",
+      "category": "G",
+      "category_name": "Birds",
+      "total_images": 3,
+      "per_source": {
+        "glyphnet_manual": 1,
+        "glyphnet_automated": 1,
+        "huggingface_train": 1
+      },
+      "needs_synthetic": true,
+      "deficit": 27,
+      "unicode_char": "𓅺",
+      "description": "Two plovers",
+      "details": "Ideo. for rḫty “washerman.”"
+    },
+    "H6": {
+      "class_id": 65,
+      "gardiner_code": "H6",
+      "category": "H",
+      "category_name": "Parts of birds",
+      "total_images": 18,
+      "per_source": {
+        "glyphnet_manual": 7,
+        "glyphnet_automated": 4,
+        "huggingface_train": 7
+      },
+      "needs_synthetic": true,
+      "deficit": 12,
+      "unicode_char": "𓆄",
+      "description": "Feather",
+      "details": "Phono. šw. Ideo. in šwt “feather.” Det. and Ideo. in m3ʿt “truth.”"
+    },
+    "I5": {
+      "class_id": 66,
+      "gardiner_code": "I5",
+      "category": "I",
+      "category_name": "Amphibians and reptiles",
+      "total_images": 3,
+      "per_source": {
+        "glyphnet_manual": 1,
+        "glyphnet_automated": 1,
+        "huggingface_train": 1
+      },
+      "needs_synthetic": true,
+      "deficit": 27,
+      "unicode_char": "𓆌",
+      "description": "Crocodile with curved tail",
+      "details": "Det. in s3q “collect, gather.”"
+    },
+    "I9": {
+      "class_id": 67,
+      "gardiner_code": "I9",
+      "category": "I",
+      "category_name": "Amphibians and reptiles",
+      "total_images": 370,
+      "per_source": {
+        "glyphnet_manual": 146,
+        "glyphnet_automated": 100,
+        "huggingface_train": 124
+      },
+      "needs_synthetic": false,
+      "deficit": 0,
+      "unicode_char": "𓆑",
+      "description": "Horned viper",
+      "details": "Phono. f. Det. in it “father.”"
+    },
+    "I10": {
+      "class_id": 68,
+      "gardiner_code": "I10",
+      "category": "I",
+      "category_name": "Amphibians and reptiles",
+      "total_images": 104,
+      "per_source": {
+        "glyphnet_manual": 41,
+        "glyphnet_automated": 27,
+        "huggingface_train": 36
+      },
+      "needs_synthetic": false,
+      "deficit": 0,
+      "unicode_char": "𓆓",
+      "description": "Cobra",
+      "details": "Phono. ḏ."
+    },
+    "L1": {
+      "class_id": 69,
+      "gardiner_code": "L1",
+      "category": "L",
+      "category_name": "Invertebrates",
+      "total_images": 8,
+      "per_source": {
+        "glyphnet_manual": 3,
+        "glyphnet_automated": 3,
+        "huggingface_train": 2
+      },
+      "needs_synthetic": true,
+      "deficit": 22,
+      "unicode_char": "𓆣",
+      "description": "Scarab beetle",
+      "details": "Phono. ḫpr. In ḫpr “being, exist, become."
+    },
+    "M1": {
+      "class_id": 70,
+      "gardiner_code": "M1",
+      "category": "M",
+      "category_name": "Trees and plants",
+      "total_images": 9,
+      "per_source": {
+        "glyphnet_manual": 3,
+        "glyphnet_automated": 3,
+        "huggingface_train": 3
+      },
+      "needs_synthetic": true,
+      "deficit": 21,
+      "unicode_char": "𓆭",
+      "description": "Tree",
+      "details": "Phono. im3. Det. nhwt, mnw “trees.”"
+    },
+    "M3": {
+      "class_id": 71,
+      "gardiner_code": "M3",
+      "category": "M",
+      "category_name": "Trees and plants",
+      "total_images": 10,
+      "per_source": {
+        "glyphnet_manual": 4,
+        "glyphnet_automated": 2,
+        "huggingface_train": 4
+      },
+      "needs_synthetic": true,
+      "deficit": 20,
+      "unicode_char": "𓆱",
+      "description": "Branch",
+      "details": "Phono. ḫt. In ḫt “wood,” ḫtyw “terrace,” nḫt “strong.”"
+    },
+    "M4": {
+      "class_id": 72,
+      "gardiner_code": "M4",
+      "category": "M",
+      "category_name": "Trees and plants",
+      "total_images": 3,
+      "per_source": {
+        "glyphnet_manual": 1,
+        "glyphnet_automated": 1,
+        "huggingface_train": 1
+      },
+      "needs_synthetic": true,
+      "deficit": 27,
+      "unicode_char": "𓆳",
+      "description": "Stripped palm branch",
+      "details": "Ideo. in rnpt “year,” ḥsbt “regnal year.” Det. in tr “time.”"
+    },
+    "M8": {
+      "class_id": 73,
+      "gardiner_code": "M8",
+      "category": "M",
+      "category_name": "Trees and plants",
+      "total_images": 6,
+      "per_source": {
+        "glyphnet_manual": 2,
+        "glyphnet_automated": 2,
+        "huggingface_train": 2
+      },
+      "needs_synthetic": true,
+      "deficit": 24,
+      "unicode_char": "𓆷",
+      "description": "Pool with lilies",
+      "details": "Phono š3. In š3 “marsh.” Ideo. 3ḫt “Inundation” (season)."
+    },
+    "M12": {
+      "class_id": 74,
+      "gardiner_code": "M12",
+      "category": "M",
+      "category_name": "Trees and plants",
+      "total_images": 9,
+      "per_source": {
+        "glyphnet_manual": 3,
+        "glyphnet_automated": 3,
+        "huggingface_train": 3
+      },
+      "needs_synthetic": true,
+      "deficit": 21,
+      "unicode_char": "𓆼",
+      "description": "Lily plant",
+      "details": "Phono. ḫ3. In ḫ3w nw sšn “lily plants” ḫ3 “1,000,” sḫ3 “remember.”"
+    },
+    "M16": {
+      "class_id": 75,
+      "gardiner_code": "M16",
+      "category": "M",
+      "category_name": "Trees and plants",
+      "total_images": 6,
+      "per_source": {
+        "glyphnet_manual": 2,
+        "glyphnet_automated": 2,
+        "huggingface_train": 2
+      },
+      "needs_synthetic": true,
+      "deficit": 24,
+      "unicode_char": "𓇉",
+      "description": "Papyrus clump",
+      "details": "Phono. ḥ3 . In ḥ3q “capture.” Det. in “The Delta.”"
+    },
+    "M17": {
+      "class_id": 76,
+      "gardiner_code": "M17",
+      "category": "M",
+      "category_name": "Trees and plants",
+      "total_images": 990,
+      "per_source": {
+        "glyphnet_manual": 364,
+        "glyphnet_automated": 307,
+        "huggingface_train": 319
+      },
+      "needs_synthetic": false,
+      "deficit": 0,
+      "unicode_char": "𓇋",
+      "description": "Reed leaf",
+      "details": "Phono. i. Phono. y, when doubled."
+    },
+    "M18": {
+      "class_id": 77,
+      "gardiner_code": "M18",
+      "category": "M",
+      "category_name": "Trees and plants",
+      "total_images": 35,
+      "per_source": {
+        "glyphnet_manual": 13,
+        "glyphnet_automated": 11,
+        "huggingface_train": 11
+      },
+      "needs_synthetic": false,
+      "deficit": 0,
+      "unicode_char": "𓇍",
+      "description": "Combination of M17 + D54",
+      "details": "Phono i. In ii “come.”"
+    },
+    "M20": {
+      "class_id": 78,
+      "gardiner_code": "M20",
+      "category": "M",
+      "category_name": "Trees and plants",
+      "total_images": 4,
+      "per_source": {
+        "glyphnet_manual": 3,
+        "glyphnet_automated": 1
+      },
+      "needs_synthetic": true,
+      "deficit": 26,
+      "unicode_char": "𓇏",
+      "description": "Reed field",
+      "details": "Det. sḫt “marshland,” sm “occupation.”"
+    },
+    "M23": {
+      "class_id": 79,
+      "gardiner_code": "M23",
+      "category": "M",
+      "category_name": "Trees and plants",
+      "total_images": 107,
+      "per_source": {
+        "glyphnet_manual": 38,
+        "glyphnet_automated": 31,
+        "huggingface_train": 38
+      },
+      "needs_synthetic": false,
+      "deficit": 0,
+      "unicode_char": "𓇓",
+      "description": "Sedge",
+      "details": "Phono. sw. Ideo. nswt “king.”"
+    },
+    "M26": {
+      "class_id": 80,
+      "gardiner_code": "M26",
+      "category": "M",
+      "category_name": "Trees and plants",
+      "total_images": 3,
+      "per_source": {
+        "glyphnet_manual": 1,
+        "glyphnet_automated": 1,
+        "huggingface_train": 1
+      },
+      "needs_synthetic": true,
+      "deficit": 27,
+      "unicode_char": "𓇗",
+      "description": "Sedge",
+      "details": "Phono. šmʿ. Ideo. šmʿw in “Upper Egypt.”"
+    },
+    "M29": {
+      "class_id": 81,
+      "gardiner_code": "M29",
+      "category": "M",
+      "category_name": "Trees and plants",
+      "total_images": 9,
+      "per_source": {
+        "glyphnet_manual": 3,
+        "glyphnet_automated": 3,
+        "huggingface_train": 3
+      },
+      "needs_synthetic": true,
+      "deficit": 21,
+      "unicode_char": "𓇛",
+      "description": "Pod",
+      "details": "Phono. nḏm. In nḏm “sweet."
+    },
+    "M40": {
+      "class_id": 82,
+      "gardiner_code": "M40",
+      "category": "M",
+      "category_name": "Trees and plants",
+      "total_images": 9,
+      "per_source": {
+        "glyphnet_manual": 3,
+        "glyphnet_automated": 3,
+        "huggingface_train": 3
+      },
+      "needs_synthetic": true,
+      "deficit": 21,
+      "unicode_char": "𓇨",
+      "description": "Aa29",
+      "details": "P11"
+    },
+    "M41": {
+      "class_id": 83,
+      "gardiner_code": "M41",
+      "category": "M",
+      "category_name": "Trees and plants",
+      "total_images": 9,
+      "per_source": {
+        "glyphnet_manual": 3,
+        "glyphnet_automated": 3,
+        "huggingface_train": 3
+      },
+      "needs_synthetic": true,
+      "deficit": 21,
+      "unicode_char": "𓇫",
+      "description": "Wood log",
+      "details": "Det. in ʿš “cedar.”"
+    },
+    "M42": {
+      "class_id": 84,
+      "gardiner_code": "M42",
+      "category": "M",
+      "category_name": "Trees and plants",
+      "total_images": 12,
+      "per_source": {
+        "glyphnet_manual": 5,
+        "glyphnet_automated": 3,
+        "huggingface_train": 4
+      },
+      "needs_synthetic": true,
+      "deficit": 18,
+      "unicode_char": "𓇬",
+      "description": "Flower",
+      "details": "Phono. wn. In wnm “eat,” ḥwn “be young.”"
+    },
+    "M44": {
+      "class_id": 85,
+      "gardiner_code": "M44",
+      "category": "M",
+      "category_name": "Trees and plants",
+      "total_images": 20,
+      "per_source": {
+        "glyphnet_manual": 7,
+        "glyphnet_automated": 6,
+        "huggingface_train": 7
+      },
+      "needs_synthetic": true,
+      "deficit": 10,
+      "unicode_char": "𓇮",
+      "description": "Thorn",
+      "details": "Det. spd “sharp.”"
+    },
+    "M195": {
+      "class_id": 86,
+      "gardiner_code": "M195",
+      "category": "M",
+      "category_name": "Trees and plants",
+      "total_images": 9,
+      "per_source": {
+        "glyphnet_manual": 3,
+        "glyphnet_automated": 3,
+        "huggingface_train": 3
+      },
+      "needs_synthetic": true,
+      "deficit": 21,
+      "unicode_char": "",
+      "description": "Rare plant sign",
+      "details": "Extended Gardiner, plant variant."
+    },
+    "N1": {
+      "class_id": 87,
+      "gardiner_code": "N1",
+      "category": "N",
+      "category_name": "Sky, earth, water",
+      "total_images": 52,
+      "per_source": {
+        "glyphnet_manual": 18,
+        "glyphnet_automated": 16,
+        "huggingface_train": 18
+      },
+      "needs_synthetic": false,
+      "deficit": 0,
+      "unicode_char": "N37",
+      "description": "N38",
+      "details": "N39"
+    },
+    "N2": {
+      "class_id": 88,
+      "gardiner_code": "N2",
+      "category": "N",
+      "category_name": "Sky, earth, water",
+      "total_images": 3,
+      "per_source": {
+        "glyphnet_manual": 1,
+        "glyphnet_automated": 1,
+        "huggingface_train": 1
+      },
+      "needs_synthetic": true,
+      "deficit": 27,
+      "unicode_char": "𓇰",
+      "description": "Sky with broken S40",
+      "details": "Det. or Ideo. grḥ “night.”"
+    },
+    "N5": {
+      "class_id": 89,
+      "gardiner_code": "N5",
+      "category": "N",
+      "category_name": "Sky, earth, water",
+      "total_images": 58,
+      "per_source": {
+        "glyphnet_manual": 21,
+        "glyphnet_automated": 19,
+        "huggingface_train": 18
+      },
+      "needs_synthetic": false,
+      "deficit": 0,
+      "unicode_char": "N9",
+      "description": "N10",
+      "details": "Aa1"
+    },
+    "N14": {
+      "class_id": 90,
+      "gardiner_code": "N14",
+      "category": "N",
+      "category_name": "Sky, earth, water",
+      "total_images": 39,
+      "per_source": {
+        "glyphnet_manual": 14,
+        "glyphnet_automated": 12,
+        "huggingface_train": 13
+      },
+      "needs_synthetic": false,
+      "deficit": 0,
+      "unicode_char": "𓇼",
+      "description": "Star",
+      "details": "Phono. sb3, dw3. In sb3 “star,” dw3 “morning.” Ideo. wnwt “hour.”"
+    },
+    "N16": {
+      "class_id": 91,
+      "gardiner_code": "N16",
+      "category": "N",
+      "category_name": "Sky, earth, water",
+      "total_images": 3,
+      "per_source": {
+        "glyphnet_manual": 1,
+        "glyphnet_automated": 1,
+        "huggingface_train": 1
+      },
+      "needs_synthetic": true,
+      "deficit": 27,
+      "unicode_char": "𓇾",
+      "description": "Flat land with grain",
+      "details": "Phono. t3. In t3 “land, earth.”Det. in ḏt “eternity.”"
+    },
+    "N17": {
+      "class_id": 92,
+      "gardiner_code": "N17",
+      "category": "N",
+      "category_name": "Sky, earth, water",
+      "total_images": 22,
+      "per_source": {
+        "glyphnet_manual": 8,
+        "glyphnet_automated": 8,
+        "huggingface_train": 6
+      },
+      "needs_synthetic": true,
+      "deficit": 8,
+      "unicode_char": "𓇿",
+      "description": "Var. of N16",
+      "details": "Use as N16."
+    },
+    "N18": {
+      "class_id": 93,
+      "gardiner_code": "N18",
+      "category": "N",
+      "category_name": "Sky, earth, water",
+      "total_images": 49,
+      "per_source": {
+        "glyphnet_manual": 19,
+        "glyphnet_automated": 11,
+        "huggingface_train": 19
+      },
+      "needs_synthetic": false,
+      "deficit": 0,
+      "unicode_char": "𓈀",
+      "description": "Strip of sand",
+      "details": "Ideo. in iw “island.”"
+    },
+    "N19": {
+      "class_id": 94,
+      "gardiner_code": "N19",
+      "category": "N",
+      "category_name": "Sky, earth, water",
+      "total_images": 3,
+      "per_source": {
+        "glyphnet_manual": 1,
+        "glyphnet_automated": 1,
+        "huggingface_train": 1
+      },
+      "needs_synthetic": true,
+      "deficit": 27,
+      "unicode_char": "𓈃",
+      "description": "Two strips of sand",
+      "details": "Ideo. in 3ḫt “horizon,” ḥrw-3ḫty “Horakhty.”"
+    },
+    "N24": {
+      "class_id": 95,
+      "gardiner_code": "N24",
+      "category": "N",
+      "category_name": "Sky, earth, water",
+      "total_images": 3,
+      "per_source": {
+        "glyphnet_manual": 1,
+        "glyphnet_automated": 1,
+        "huggingface_train": 1
+      },
+      "needs_synthetic": true,
+      "deficit": 27,
+      "unicode_char": "𓈈",
+      "description": "Irrigation canal system",
+      "details": "Det. or Ideo. in sp3t “nome.”"
+    },
+    "N25": {
+      "class_id": 96,
+      "gardiner_code": "N25",
+      "category": "N",
+      "category_name": "Sky, earth, water",
+      "total_images": 6,
+      "per_source": {
+        "glyphnet_manual": 2,
+        "glyphnet_automated": 2,
+        "huggingface_train": 2
+      },
+      "needs_synthetic": true,
+      "deficit": 24,
+      "unicode_char": "𓈉",
+      "description": "Mountain rande",
+      "details": "Ideo. in ḫ3st “foreign land, hill country.”"
+    },
+    "N26": {
+      "class_id": 97,
+      "gardiner_code": "N26",
+      "category": "N",
+      "category_name": "Sky, earth, water",
+      "total_images": 3,
+      "per_source": {
+        "glyphnet_manual": 1,
+        "glyphnet_automated": 1,
+        "huggingface_train": 1
+      },
+      "needs_synthetic": true,
+      "deficit": 27,
+      "unicode_char": "𓈋",
+      "description": "Mountain",
+      "details": "Phono. ḏw “mountain.”"
+    },
+    "N29": {
+      "class_id": 98,
+      "gardiner_code": "N29",
+      "category": "N",
+      "category_name": "Sky, earth, water",
+      "total_images": 51,
+      "per_source": {
+        "glyphnet_manual": 18,
+        "glyphnet_automated": 17,
+        "huggingface_train": 16
+      },
+      "needs_synthetic": false,
+      "deficit": 0,
+      "unicode_char": "𓈎",
+      "description": "Sandy slope",
+      "details": "Phono. q."
+    },
+    "N30": {
+      "class_id": 99,
+      "gardiner_code": "N30",
+      "category": "N",
+      "category_name": "Sky, earth, water",
+      "total_images": 28,
+      "per_source": {
+        "glyphnet_manual": 12,
+        "glyphnet_automated": 10,
+        "huggingface_train": 6
+      },
+      "needs_synthetic": true,
+      "deficit": 2,
+      "unicode_char": "𓈏",
+      "description": "Hill with shrubs",
+      "details": "Det. or Ideo. in i3t “mound.”"
+    },
+    "N31": {
+      "class_id": 100,
+      "gardiner_code": "N31",
+      "category": "N",
+      "category_name": "Sky, earth, water",
+      "total_images": 50,
+      "per_source": {
+        "glyphnet_manual": 17,
+        "glyphnet_automated": 16,
+        "huggingface_train": 17
+      },
+      "needs_synthetic": false,
+      "deficit": 0,
+      "unicode_char": "𓈐",
+      "description": "Road bordered by shrubs",
+      "details": "Det. and Ideo. in w3t “road.”"
+    },
+    "N35": {
+      "class_id": 101,
+      "gardiner_code": "N35",
+      "category": "N",
+      "category_name": "Sky, earth, water",
+      "total_images": 1139,
+      "per_source": {
+        "glyphnet_manual": 448,
+        "glyphnet_automated": 288,
+        "huggingface_train": 403
+      },
+      "needs_synthetic": false,
+      "deficit": 0,
+      "unicode_char": "𓈖",
+      "description": "Water ripple",
+      "details": "Phono. n."
+    },
+    "N36": {
+      "class_id": 102,
+      "gardiner_code": "N36",
+      "category": "N",
+      "category_name": "Sky, earth, water",
+      "total_images": 5,
+      "per_source": {
+        "glyphnet_manual": 2,
+        "glyphnet_automated": 1,
+        "huggingface_train": 2
+      },
+      "needs_synthetic": true,
+      "deficit": 25,
+      "unicode_char": "𓈘",
+      "description": "Canal",
+      "details": "Phono. mr. In mr “canal.”"
+    },
+    "N37": {
+      "class_id": 103,
+      "gardiner_code": "N37",
+      "category": "N",
+      "category_name": "Sky, earth, water",
+      "total_images": 87,
+      "per_source": {
+        "glyphnet_manual": 30,
+        "glyphnet_automated": 27,
+        "huggingface_train": 30
+      },
+      "needs_synthetic": false,
+      "deficit": 0,
+      "unicode_char": "𓈙",
+      "description": "Pool",
+      "details": "Phono. š. In š “pool.”"
+    },
+    "N41": {
+      "class_id": 104,
+      "gardiner_code": "N41",
+      "category": "N",
+      "category_name": "Sky, earth, water",
+      "total_images": 9,
+      "per_source": {
+        "glyphnet_manual": 3,
+        "glyphnet_automated": 3,
+        "huggingface_train": 3
+      },
+      "needs_synthetic": true,
+      "deficit": 21,
+      "unicode_char": "𓈞",
+      "description": "Well with water",
+      "details": "Phono. ḥm. In ḥmt “wife.” Det. in bi3 “copper.”"
+    },
+    "O1": {
+      "class_id": 105,
+      "gardiner_code": "O1",
+      "category": "O",
+      "category_name": "Buildings and parts",
+      "total_images": 57,
+      "per_source": {
+        "glyphnet_manual": 20,
+        "glyphnet_automated": 18,
+        "huggingface_train": 19
+      },
+      "needs_synthetic": false,
+      "deficit": 0,
+      "unicode_char": "𓉐",
+      "description": "House plan",
+      "details": "Phono. pr. In pr “house,” pri “go.”"
+    },
+    "O4": {
+      "class_id": 106,
+      "gardiner_code": "O4",
+      "category": "O",
+      "category_name": "Buildings and parts",
+      "total_images": 38,
+      "per_source": {
+        "glyphnet_manual": 14,
+        "glyphnet_automated": 10,
+        "huggingface_train": 14
+      },
+      "needs_synthetic": false,
+      "deficit": 0,
+      "unicode_char": "𓉔",
+      "description": "Reed shelter",
+      "details": "Phono. h."
+    },
+    "O11": {
+      "class_id": 107,
+      "gardiner_code": "O11",
+      "category": "O",
+      "category_name": "Buildings and parts",
+      "total_images": 3,
+      "per_source": {
+        "glyphnet_manual": 1,
+        "glyphnet_automated": 1,
+        "huggingface_train": 1
+      },
+      "needs_synthetic": true,
+      "deficit": 27,
+      "unicode_char": "𓉛",
+      "description": "Palace",
+      "details": "Bilit. aH. Ideo. palace, palace facade."
+    },
+    "O28": {
+      "class_id": 108,
+      "gardiner_code": "O28",
+      "category": "O",
+      "category_name": "Buildings and parts",
+      "total_images": 23,
+      "per_source": {
+        "glyphnet_manual": 10,
+        "glyphnet_automated": 10,
+        "huggingface_train": 3
+      },
+      "needs_synthetic": true,
+      "deficit": 7,
+      "unicode_char": "𓉹",
+      "description": "Column with tenon",
+      "details": "Phono iwn. In iwnw “Heliopolis,” iwn “column.”"
+    },
+    "O29": {
+      "class_id": 109,
+      "gardiner_code": "O29",
+      "category": "O",
+      "category_name": "Buildings and parts",
+      "total_images": 2,
+      "per_source": {
+        "glyphnet_manual": 1,
+        "huggingface_train": 1
+      },
+      "needs_synthetic": true,
+      "deficit": 28,
+      "unicode_char": "𓉺",
+      "description": "Wood column",
+      "details": "Phono. ʿ3. In ʿ3 “great.”"
+    },
+    "O31": {
+      "class_id": 110,
+      "gardiner_code": "O31",
+      "category": "O",
+      "category_name": "Buildings and parts",
+      "total_images": 15,
+      "per_source": {
+        "glyphnet_manual": 7,
+        "glyphnet_automated": 7,
+        "huggingface_train": 1
+      },
+      "needs_synthetic": true,
+      "deficit": 15,
+      "unicode_char": "𓉿",
+      "description": "Door",
+      "details": "Det. in ʿ3 “door,” sn, wn “open.”"
+    },
+    "O34": {
+      "class_id": 111,
+      "gardiner_code": "O34",
+      "category": "O",
+      "category_name": "Buildings and parts",
+      "total_images": 53,
+      "per_source": {
+        "glyphnet_manual": 19,
+        "glyphnet_automated": 15,
+        "huggingface_train": 19
+      },
+      "needs_synthetic": false,
+      "deficit": 0,
+      "unicode_char": "𓊃",
+      "description": "Door bolt",
+      "details": "Phono. s. In s “bolt.”"
+    },
+    "O49": {
+      "class_id": 112,
+      "gardiner_code": "O49",
+      "category": "O",
+      "category_name": "Buildings and parts",
+      "total_images": 31,
+      "per_source": {
+        "glyphnet_manual": 13,
+        "glyphnet_automated": 12,
+        "huggingface_train": 6
+      },
+      "needs_synthetic": false,
+      "deficit": 0,
+      "unicode_char": "𓊖",
+      "description": "Area with crossroads",
+      "details": "Ideo. in niwt “town.”"
+    },
+    "O50": {
+      "class_id": 113,
+      "gardiner_code": "O50",
+      "category": "O",
+      "category_name": "Buildings and parts",
+      "total_images": 304,
+      "per_source": {
+        "glyphnet_manual": 106,
+        "glyphnet_automated": 97,
+        "huggingface_train": 101
+      },
+      "needs_synthetic": false,
+      "deficit": 0,
+      "unicode_char": "𓊗",
+      "description": "Threshing floor with grain",
+      "details": "Phono. sp. In sp “occasion, time, event,” sp sn “two times.”"
+    },
+    "O51": {
+      "class_id": 114,
+      "gardiner_code": "O51",
+      "category": "O",
+      "category_name": "Buildings and parts",
+      "total_images": 3,
+      "per_source": {
+        "glyphnet_manual": 1,
+        "glyphnet_automated": 1,
+        "huggingface_train": 1
+      },
+      "needs_synthetic": true,
+      "deficit": 27,
+      "unicode_char": "𓊚",
+      "description": "Grain mound on mud floor",
+      "details": "Det. or Ideo. in šnwt “granary.”"
+    },
+    "P1": {
+      "class_id": 115,
+      "gardiner_code": "P1",
+      "category": "P",
+      "category_name": "Ships and parts",
+      "total_images": 13,
+      "per_source": {
+        "glyphnet_manual": 5,
+        "glyphnet_automated": 3,
+        "huggingface_train": 5
+      },
+      "needs_synthetic": true,
+      "deficit": 17,
+      "unicode_char": "𓊛",
+      "description": "Boat on water",
+      "details": "Det. of boats. In dpt “ship,” ḥʿw “ships,” ḫdi “sail downstream.”"
+    },
+    "P6": {
+      "class_id": 116,
+      "gardiner_code": "P6",
+      "category": "P",
+      "category_name": "Ships and parts",
+      "total_images": 9,
+      "per_source": {
+        "glyphnet_manual": 3,
+        "glyphnet_automated": 3,
+        "huggingface_train": 3
+      },
+      "needs_synthetic": true,
+      "deficit": 21,
+      "unicode_char": "𓊢",
+      "description": "Mast",
+      "details": "Phono. ʿḥʿ. In ʿḥʿ “stand.”"
+    },
+    "P8": {
+      "class_id": 117,
+      "gardiner_code": "P8",
+      "category": "P",
+      "category_name": "Ships and parts",
+      "total_images": 44,
+      "per_source": {
+        "glyphnet_manual": 16,
+        "glyphnet_automated": 13,
+        "huggingface_train": 15
+      },
+      "needs_synthetic": false,
+      "deficit": 0,
+      "unicode_char": "𓊤",
+      "description": "Oar",
+      "details": "Phono ḫrw. In m3ʿ ḫrw “justified” ḫrw “voice,” ḫrwy “enemy.”"
+    },
+    "P13": {
+      "class_id": 118,
+      "gardiner_code": "P13",
+      "category": "P",
+      "category_name": "Ships and parts",
+      "total_images": 3,
+      "per_source": {
+        "glyphnet_manual": 1,
+        "glyphnet_automated": 1,
+        "huggingface_train": 1
+      },
+      "needs_synthetic": true,
+      "deficit": 27,
+      "unicode_char": "",
+      "description": "Steering oar",
+      "details": "Trilit. xrw. Used in nautical contexts."
+    },
+    "P98": {
+      "class_id": 119,
+      "gardiner_code": "P98",
+      "category": "P",
+      "category_name": "Ships and parts",
+      "total_images": 12,
+      "per_source": {
+        "glyphnet_manual": 5,
+        "glyphnet_automated": 4,
+        "huggingface_train": 3
+      },
+      "needs_synthetic": true,
+      "deficit": 18,
+      "unicode_char": "",
+      "description": "Rare boat sign",
+      "details": "Extended Gardiner, boat variant."
+    },
+    "Q1": {
+      "class_id": 120,
+      "gardiner_code": "Q1",
+      "category": "Q",
+      "category_name": "Furniture",
+      "total_images": 48,
+      "per_source": {
+        "glyphnet_manual": 17,
+        "glyphnet_automated": 14,
+        "huggingface_train": 17
+      },
+      "needs_synthetic": false,
+      "deficit": 0,
+      "unicode_char": "𓊨",
+      "description": "Seat",
+      "details": "Phono. st, ws. In st “seat, place,” wsir “Osiris,” ḥtm “perish.”"
+    },
+    "Q3": {
+      "class_id": 121,
+      "gardiner_code": "Q3",
+      "category": "Q",
+      "category_name": "Furniture",
+      "total_images": 217,
+      "per_source": {
+        "glyphnet_manual": 77,
+        "glyphnet_automated": 68,
+        "huggingface_train": 72
+      },
+      "needs_synthetic": false,
+      "deficit": 0,
+      "unicode_char": "O39",
+      "description": "Z8",
+      "details": "O47"
+    },
+    "Q7": {
+      "class_id": 122,
+      "gardiner_code": "Q7",
+      "category": "Q",
+      "category_name": "Furniture",
+      "total_images": 9,
+      "per_source": {
+        "glyphnet_manual": 3,
+        "glyphnet_automated": 3,
+        "huggingface_train": 3
+      },
+      "needs_synthetic": true,
+      "deficit": 21,
+      "unicode_char": "𓊮",
+      "description": "Brazier with flame",
+      "details": "Det. of fire. In ḫt “fire,” sḏt “flame,” srf “temperature.”"
+    },
+    "R4": {
+      "class_id": 123,
+      "gardiner_code": "R4",
+      "category": "R",
+      "category_name": "Temple furniture and sacred emblems",
+      "total_images": 9,
+      "per_source": {
+        "glyphnet_manual": 3,
+        "glyphnet_automated": 3,
+        "huggingface_train": 3
+      },
+      "needs_synthetic": true,
+      "deficit": 21,
+      "unicode_char": "𓊵",
+      "description": "Bread loaf on mat",
+      "details": "Phono. ḥtp. In ḥtp “altar, rest, be pleased.”"
+    },
+    "R8": {
+      "class_id": 124,
+      "gardiner_code": "R8",
+      "category": "R",
+      "category_name": "Temple furniture and sacred emblems",
+      "total_images": 151,
+      "per_source": {
+        "glyphnet_manual": 67,
+        "glyphnet_automated": 34,
+        "huggingface_train": 50
+      },
+      "needs_synthetic": false,
+      "deficit": 0,
+      "unicode_char": "R9",
+      "description": "T7a",
+      "details": "T3"
+    },
+    "S24": {
+      "class_id": 125,
+      "gardiner_code": "S24",
+      "category": "S",
+      "category_name": "Crowns, dress, staves",
+      "total_images": 6,
+      "per_source": {
+        "glyphnet_manual": 2,
+        "glyphnet_automated": 2,
+        "huggingface_train": 2
+      },
+      "needs_synthetic": true,
+      "deficit": 24,
+      "unicode_char": "R22",
+      "description": "R23",
+      "details": "T11"
+    },
+    "S28": {
+      "class_id": 126,
+      "gardiner_code": "S28",
+      "category": "S",
+      "category_name": "Crowns, dress, staves",
+      "total_images": 5,
+      "per_source": {
+        "glyphnet_manual": 2,
+        "glyphnet_automated": 2,
+        "huggingface_train": 1
+      },
+      "needs_synthetic": true,
+      "deficit": 25,
+      "unicode_char": "𓋳",
+      "description": "Cloth with fringe + S29",
+      "details": "Det. in ḥbs “clothing,” ḥ3p “conceal,” kfi “uncover.”"
+    },
+    "S29": {
+      "class_id": 127,
+      "gardiner_code": "S29",
+      "category": "S",
+      "category_name": "Crowns, dress, staves",
+      "total_images": 743,
+      "per_source": {
+        "glyphnet_manual": 265,
+        "glyphnet_automated": 240,
+        "huggingface_train": 238
+      },
+      "needs_synthetic": false,
+      "deficit": 0,
+      "unicode_char": "𓋴",
+      "description": "Folded cloth",
+      "details": "Phono. s. In ʿnḫ.(w) (w)ḏ3 snb “may he live, be prosperous, be healthy.” (L.P.H.)"
+    },
+    "S34": {
+      "class_id": 128,
+      "gardiner_code": "S34",
+      "category": "S",
+      "category_name": "Crowns, dress, staves",
+      "total_images": 26,
+      "per_source": {
+        "glyphnet_manual": 10,
+        "glyphnet_automated": 6,
+        "huggingface_train": 10
+      },
+      "needs_synthetic": true,
+      "deficit": 4,
+      "unicode_char": "𓋹",
+      "description": "Sandal strap",
+      "details": "Phono. ʿnḫ. In ʿnḫ “live,” ʿnḫ “sandal strap.”"
+    },
+    "S42": {
+      "class_id": 129,
+      "gardiner_code": "S42",
+      "category": "S",
+      "category_name": "Crowns, dress, staves",
+      "total_images": 2,
+      "per_source": {
+        "glyphnet_manual": 1,
+        "huggingface_train": 1
+      },
+      "needs_synthetic": true,
+      "deficit": 28,
+      "unicode_char": "𓌂",
+      "description": "Scepter",
+      "details": "Phono. sḫm. In sḫm “have power,” sḫm “scepter.” Det. or Ideo. in ḫrp “manage, at head.”"
+    },
+    "T14": {
+      "class_id": 130,
+      "gardiner_code": "T14",
+      "category": "T",
+      "category_name": "Warfare, hunting, butchery",
+      "total_images": 3,
+      "per_source": {
+        "glyphnet_manual": 1,
+        "glyphnet_automated": 1,
+        "huggingface_train": 1
+      },
+      "needs_synthetic": true,
+      "deficit": 27,
+      "unicode_char": "𓌙",
+      "description": "Throw stick",
+      "details": "Det. of “foreign.” Ideo. in ʿ3m “Asiatics,” ṯḥnw “Libya.” Det. in qm3 “create,” qm3i “create.”"
+    },
+    "T20": {
+      "class_id": 131,
+      "gardiner_code": "T20",
+      "category": "T",
+      "category_name": "Warfare, hunting, butchery",
+      "total_images": 11,
+      "per_source": {
+        "glyphnet_manual": 4,
+        "glyphnet_automated": 3,
+        "huggingface_train": 4
+      },
+      "needs_synthetic": true,
+      "deficit": 19,
+      "unicode_char": "𓌠",
+      "description": "Var. of T19",
+      "details": "Use as T19"
+    },
+    "T21": {
+      "class_id": 132,
+      "gardiner_code": "T21",
+      "category": "T",
+      "category_name": "Warfare, hunting, butchery",
+      "total_images": 8,
+      "per_source": {
+        "glyphnet_manual": 3,
+        "glyphnet_automated": 2,
+        "huggingface_train": 3
+      },
+      "needs_synthetic": true,
+      "deficit": 22,
+      "unicode_char": "U20",
+      "description": "U19",
+      "details": "U21"
+    },
+    "T22": {
+      "class_id": 133,
+      "gardiner_code": "T22",
+      "category": "T",
+      "category_name": "Warfare, hunting, butchery",
+      "total_images": 20,
+      "per_source": {
+        "glyphnet_manual": 9,
+        "glyphnet_automated": 9,
+        "huggingface_train": 2
+      },
+      "needs_synthetic": true,
+      "deficit": 10,
+      "unicode_char": "𓌢",
+      "description": "Arrowhead",
+      "details": "Phono. sn. In sn “brother,” sn “smell.”"
+    },
+    "T28": {
+      "class_id": 134,
+      "gardiner_code": "T28",
+      "category": "T",
+      "category_name": "Warfare, hunting, butchery",
+      "total_images": 5,
+      "per_source": {
+        "glyphnet_manual": 2,
+        "glyphnet_automated": 1,
+        "huggingface_train": 2
+      },
+      "needs_synthetic": true,
+      "deficit": 25,
+      "unicode_char": "𓌨",
+      "description": "Butcher’s block",
+      "details": "Phono. ẖr. In ẖr “under,” ẖrt “portion.”"
+    },
+    "T30": {
+      "class_id": 135,
+      "gardiner_code": "T30",
+      "category": "T",
+      "category_name": "Warfare, hunting, butchery",
+      "total_images": 6,
+      "per_source": {
+        "glyphnet_manual": 3,
+        "glyphnet_automated": 2,
+        "huggingface_train": 1
+      },
+      "needs_synthetic": true,
+      "deficit": 24,
+      "unicode_char": "𓌪",
+      "description": "Knife",
+      "details": "Ideo. for dmt “knife.” Det. in dm “be sharp.”"
+    },
+    "U1": {
+      "class_id": 136,
+      "gardiner_code": "U1",
+      "category": "U",
+      "category_name": "Agriculture, crafts",
+      "total_images": 67,
+      "per_source": {
+        "glyphnet_manual": 25,
+        "glyphnet_automated": 22,
+        "huggingface_train": 20
+      },
+      "needs_synthetic": false,
+      "deficit": 0,
+      "unicode_char": "𓌳",
+      "description": "Sickle",
+      "details": "Phono. m3. In m33 “see,” 3sḫ “reap.”"
+    },
+    "U7": {
+      "class_id": 137,
+      "gardiner_code": "U7",
+      "category": "U",
+      "category_name": "Agriculture, crafts",
+      "total_images": 12,
+      "per_source": {
+        "glyphnet_manual": 4,
+        "glyphnet_automated": 4,
+        "huggingface_train": 4
+      },
+      "needs_synthetic": true,
+      "deficit": 18,
+      "unicode_char": "𓌻",
+      "description": "Var. of U6",
+      "details": "Use as U6."
+    },
+    "U15": {
+      "class_id": 138,
+      "gardiner_code": "U15",
+      "category": "U",
+      "category_name": "Agriculture, crafts",
+      "total_images": 35,
+      "per_source": {
+        "glyphnet_manual": 13,
+        "glyphnet_automated": 11,
+        "huggingface_train": 11
+      },
+      "needs_synthetic": false,
+      "deficit": 0,
+      "unicode_char": "𓍃",
+      "description": "Sled",
+      "details": "Phono. tm. In tm “be complete,” ḥtm “perish.”"
+    },
+    "U28": {
+      "class_id": 139,
+      "gardiner_code": "U28",
+      "category": "U",
+      "category_name": "Agriculture, crafts",
+      "total_images": 9,
+      "per_source": {
+        "glyphnet_manual": 3,
+        "glyphnet_automated": 3,
+        "huggingface_train": 3
+      },
+      "needs_synthetic": true,
+      "deficit": 21,
+      "unicode_char": "𓍑",
+      "description": "Fire drill",
+      "details": "Phono. ḏ3. In ʿnḫ.(w) (w)ḏ3 snb “may he live, be prosperous, be healthy.” (L.P.H.)"
+    },
+    "U33": {
+      "class_id": 140,
+      "gardiner_code": "U33",
+      "category": "U",
+      "category_name": "Agriculture, crafts",
+      "total_images": 46,
+      "per_source": {
+        "glyphnet_manual": 17,
+        "glyphnet_automated": 16,
+        "huggingface_train": 13
+      },
+      "needs_synthetic": false,
+      "deficit": 0,
+      "unicode_char": "𓍘",
+      "description": "Pestle",
+      "details": "Phono. ti."
+    },
+    "U35": {
+      "class_id": 141,
+      "gardiner_code": "U35",
+      "category": "U",
+      "category_name": "Agriculture, crafts",
+      "total_images": 3,
+      "per_source": {
+        "glyphnet_manual": 1,
+        "glyphnet_automated": 1,
+        "huggingface_train": 1
+      },
+      "needs_synthetic": true,
+      "deficit": 27,
+      "unicode_char": "𓍚",
+      "description": "Combination of U34 + I9",
+      "details": "Phono. ḫsf."
+    },
+    "V4": {
+      "class_id": 142,
+      "gardiner_code": "V4",
+      "category": "V",
+      "category_name": "Rope, fibre, baskets",
+      "total_images": 37,
+      "per_source": {
+        "glyphnet_manual": 13,
+        "glyphnet_automated": 12,
+        "huggingface_train": 12
+      },
+      "needs_synthetic": false,
+      "deficit": 0,
+      "unicode_char": "𓍯",
+      "description": "Lasso",
+      "details": "Phono. w3. In w3ḥ “endure.”"
+    },
+    "V6": {
+      "class_id": 143,
+      "gardiner_code": "V6",
+      "category": "V",
+      "category_name": "Rope, fibre, baskets",
+      "total_images": 6,
+      "per_source": {
+        "glyphnet_manual": 2,
+        "glyphnet_automated": 2,
+        "huggingface_train": 2
+      },
+      "needs_synthetic": true,
+      "deficit": 24,
+      "unicode_char": "𓍱",
+      "description": "Cord with loop facing downwards",
+      "details": "Phono. šs, šsr."
+    },
+    "V7": {
+      "class_id": 144,
+      "gardiner_code": "V7",
+      "category": "V",
+      "category_name": "Rope, fibre, baskets",
+      "total_images": 15,
+      "per_source": {
+        "glyphnet_manual": 5,
+        "glyphnet_automated": 5,
+        "huggingface_train": 5
+      },
+      "needs_synthetic": true,
+      "deficit": 15,
+      "unicode_char": "𓍲",
+      "description": "Cord with loop facing upwards",
+      "details": "Phono. šn."
+    },
+    "V13": {
+      "class_id": 145,
+      "gardiner_code": "V13",
+      "category": "V",
+      "category_name": "Rope, fibre, baskets",
+      "total_images": 210,
+      "per_source": {
+        "glyphnet_manual": 79,
+        "glyphnet_automated": 60,
+        "huggingface_train": 71
+      },
+      "needs_synthetic": false,
+      "deficit": 0,
+      "unicode_char": "𓍿",
+      "description": "Tethering rope",
+      "details": "Phono. ṯ."
+    },
+    "V16": {
+      "class_id": 146,
+      "gardiner_code": "V16",
+      "category": "V",
+      "category_name": "Rope, fibre, baskets",
+      "total_images": 3,
+      "per_source": {
+        "glyphnet_manual": 1,
+        "glyphnet_automated": 1,
+        "huggingface_train": 1
+      },
+      "needs_synthetic": true,
+      "deficit": 27,
+      "unicode_char": "𓎂",
+      "description": "Hobble for cattle",
+      "details": "Phono. s3. In s3 “protection.”"
+    },
+    "V22": {
+      "class_id": 147,
+      "gardiner_code": "V22",
+      "category": "V",
+      "category_name": "Rope, fibre, baskets",
+      "total_images": 2,
+      "per_source": {
+        "glyphnet_manual": 1,
+        "huggingface_train": 1
+      },
+      "needs_synthetic": true,
+      "deficit": 28,
+      "unicode_char": "𓎔",
+      "description": "Whip",
+      "details": "Phono. mḥ. In mḥ “fill.”"
+    },
+    "V24": {
+      "class_id": 148,
+      "gardiner_code": "V24",
+      "category": "V",
+      "category_name": "Rope, fibre, baskets",
+      "total_images": 14,
+      "per_source": {
+        "glyphnet_manual": 5,
+        "glyphnet_automated": 4,
+        "huggingface_train": 5
+      },
+      "needs_synthetic": true,
+      "deficit": 16,
+      "unicode_char": "𓎗",
+      "description": "Cord on Stick",
+      "details": "Phono. wḏ. In wḏ “command, decree.”"
+    },
+    "V25": {
+      "class_id": 149,
+      "gardiner_code": "V25",
+      "category": "V",
+      "category_name": "Rope, fibre, baskets",
+      "total_images": 3,
+      "per_source": {
+        "glyphnet_manual": 1,
+        "glyphnet_automated": 1,
+        "huggingface_train": 1
+      },
+      "needs_synthetic": true,
+      "deficit": 27,
+      "unicode_char": "U23",
+      "description": "S42",
+      "details": "U34"
+    },
+    "V28": {
+      "class_id": 150,
+      "gardiner_code": "V28",
+      "category": "V",
+      "category_name": "Rope, fibre, baskets",
+      "total_images": 102,
+      "per_source": {
+        "glyphnet_manual": 36,
+        "glyphnet_automated": 32,
+        "huggingface_train": 34
+      },
+      "needs_synthetic": false,
+      "deficit": 0,
+      "unicode_char": "𓎛",
+      "description": "Wick",
+      "details": "Phono. ḥ."
+    },
+    "V30": {
+      "class_id": 151,
+      "gardiner_code": "V30",
+      "category": "V",
+      "category_name": "Rope, fibre, baskets",
+      "total_images": 20,
+      "per_source": {
+        "glyphnet_manual": 8,
+        "glyphnet_automated": 5,
+        "huggingface_train": 7
+      },
+      "needs_synthetic": true,
+      "deficit": 10,
+      "unicode_char": "V31",
+      "description": "V31a",
+      "details": "W3"
+    },
+    "V31": {
+      "class_id": 152,
+      "gardiner_code": "V31",
+      "category": "V",
+      "category_name": "Rope, fibre, baskets",
+      "total_images": 358,
+      "per_source": {
+        "glyphnet_manual": 133,
+        "glyphnet_automated": 107,
+        "huggingface_train": 118
+      },
+      "needs_synthetic": false,
+      "deficit": 0,
+      "unicode_char": "𓎡",
+      "description": "Basket with handle",
+      "details": "Phono k."
+    },
+    "W11": {
+      "class_id": 153,
+      "gardiner_code": "W11",
+      "category": "W",
+      "category_name": "Vessels",
+      "total_images": 15,
+      "per_source": {
+        "glyphnet_manual": 5,
+        "glyphnet_automated": 5,
+        "huggingface_train": 5
+      },
+      "needs_synthetic": true,
+      "deficit": 15,
+      "unicode_char": "𓎼",
+      "description": "Ring stand",
+      "details": "Phono. g. Det. or Ideo. in nst “throne.”"
+    },
+    "W14": {
+      "class_id": 154,
+      "gardiner_code": "W14",
+      "category": "W",
+      "category_name": "Vessels",
+      "total_images": 3,
+      "per_source": {
+        "glyphnet_manual": 1,
+        "glyphnet_automated": 1,
+        "huggingface_train": 1
+      },
+      "needs_synthetic": true,
+      "deficit": 27,
+      "unicode_char": "𓎿",
+      "description": "Tall jar",
+      "details": "Phono. ḥs. In ḥst “water jar.”"
+    },
+    "W15": {
+      "class_id": 155,
+      "gardiner_code": "W15",
+      "category": "W",
+      "category_name": "Vessels",
+      "total_images": 3,
+      "per_source": {
+        "glyphnet_manual": 1,
+        "glyphnet_automated": 1,
+        "huggingface_train": 1
+      },
+      "needs_synthetic": true,
+      "deficit": 27,
+      "unicode_char": "𓏁",
+      "description": "Tall jar with water",
+      "details": "Det. or Ideo. in qbb, qbḥ “cool, water.”"
+    },
+    "W18": {
+      "class_id": 156,
+      "gardiner_code": "W18",
+      "category": "W",
+      "category_name": "Vessels",
+      "total_images": 16,
+      "per_source": {
+        "glyphnet_manual": 7,
+        "glyphnet_automated": 4,
+        "huggingface_train": 5
+      },
+      "needs_synthetic": true,
+      "deficit": 14,
+      "unicode_char": "𓏅",
+      "description": "Var. W17",
+      "details": "Use as W17"
+    },
+    "W19": {
+      "class_id": 157,
+      "gardiner_code": "W19",
+      "category": "W",
+      "category_name": "Vessels",
+      "total_images": 11,
+      "per_source": {
+        "glyphnet_manual": 4,
+        "glyphnet_automated": 4,
+        "huggingface_train": 3
+      },
+      "needs_synthetic": true,
+      "deficit": 19,
+      "unicode_char": "𓏇",
+      "description": "Milk jug",
+      "details": "Phono. mi. In mi “likeness.”"
+    },
+    "W22": {
+      "class_id": 158,
+      "gardiner_code": "W22",
+      "category": "W",
+      "category_name": "Vessels",
+      "total_images": 6,
+      "per_source": {
+        "glyphnet_manual": 2,
+        "glyphnet_automated": 2,
+        "huggingface_train": 2
+      },
+      "needs_synthetic": true,
+      "deficit": 24,
+      "unicode_char": "𓏊",
+      "description": "Beer jugs",
+      "details": "Ideo. in ḥnqt “beer.” Det. in qrḥt “vessel.”"
+    },
+    "W24": {
+      "class_id": 159,
+      "gardiner_code": "W24",
+      "category": "W",
+      "category_name": "Vessels",
+      "total_images": 105,
+      "per_source": {
+        "glyphnet_manual": 39,
+        "glyphnet_automated": 37,
+        "huggingface_train": 29
+      },
+      "needs_synthetic": false,
+      "deficit": 0,
+      "unicode_char": "𓏌",
+      "description": "Bowl",
+      "details": "Phono. nw, in, ink."
+    },
+    "W25": {
+      "class_id": 160,
+      "gardiner_code": "W25",
+      "category": "W",
+      "category_name": "Vessels",
+      "total_images": 36,
+      "per_source": {
+        "glyphnet_manual": 12,
+        "glyphnet_automated": 12,
+        "huggingface_train": 12
+      },
+      "needs_synthetic": false,
+      "deficit": 0,
+      "unicode_char": "𓏎",
+      "description": "Combination of W24 + legs",
+      "details": "Phono. in. In ini “fetch, bring.”"
+    },
+    "X1": {
+      "class_id": 161,
+      "gardiner_code": "X1",
+      "category": "X",
+      "category_name": "Loaves and cakes",
+      "total_images": 650,
+      "per_source": {
+        "glyphnet_manual": 232,
+        "glyphnet_automated": 213,
+        "huggingface_train": 205
+      },
+      "needs_synthetic": false,
+      "deficit": 0,
+      "unicode_char": "𓏏",
+      "description": "Small bread loaf",
+      "details": "Phono. t. Ideo. in t “bread.”"
+    },
+    "X6": {
+      "class_id": 162,
+      "gardiner_code": "X6",
+      "category": "X",
+      "category_name": "Loaves and cakes",
+      "total_images": 3,
+      "per_source": {
+        "glyphnet_manual": 1,
+        "glyphnet_automated": 1,
+        "huggingface_train": 1
+      },
+      "needs_synthetic": true,
+      "deficit": 27,
+      "unicode_char": "𓏖",
+      "description": "Round loaf with baker’s mark",
+      "details": "Det. in p3t “loaf.”"
+    },
+    "X8": {
+      "class_id": 163,
+      "gardiner_code": "X8",
+      "category": "X",
+      "category_name": "Loaves and cakes",
+      "total_images": 16,
+      "per_source": {
+        "glyphnet_manual": 6,
+        "glyphnet_automated": 4,
+        "huggingface_train": 6
+      },
+      "needs_synthetic": true,
+      "deficit": 14,
+      "unicode_char": "𓏙",
+      "description": "Conical Loaf",
+      "details": "Phono. di. In rdi “give.”"
+    },
+    "Y1": {
+      "class_id": 164,
+      "gardiner_code": "Y1",
+      "category": "Y",
+      "category_name": "Writings, games, music",
+      "total_images": 3,
+      "per_source": {
+        "glyphnet_manual": 1,
+        "glyphnet_automated": 1,
+        "huggingface_train": 1
+      },
+      "needs_synthetic": true,
+      "deficit": 27,
+      "unicode_char": "𓏛",
+      "description": "Papyrus scroll",
+      "details": "Phono. mḏ3t. Ideo. in mḏ3t “paypyrus roll, book.” Det. in rḫ “know.”"
+    },
+    "Y2": {
+      "class_id": 165,
+      "gardiner_code": "Y2",
+      "category": "Y",
+      "category_name": "Writings, games, music",
+      "total_images": 20,
+      "per_source": {
+        "glyphnet_manual": 7,
+        "glyphnet_automated": 6,
+        "huggingface_train": 7
+      },
+      "needs_synthetic": true,
+      "deficit": 10,
+      "unicode_char": "𓏝",
+      "description": "Var. of Y1",
+      "details": "Use as Y1"
+    },
+    "Y3": {
+      "class_id": 166,
+      "gardiner_code": "Y3",
+      "category": "Y",
+      "category_name": "Writings, games, music",
+      "total_images": 9,
+      "per_source": {
+        "glyphnet_manual": 3,
+        "glyphnet_automated": 3,
+        "huggingface_train": 3
+      },
+      "needs_synthetic": true,
+      "deficit": 21,
+      "unicode_char": "𓏞",
+      "description": "Scribal kit",
+      "details": "Det. or Ideo. in sš “write,” nʿʿ “smooth.”"
+    },
+    "Y5": {
+      "class_id": 167,
+      "gardiner_code": "Y5",
+      "category": "Y",
+      "category_name": "Writings, games, music",
+      "total_images": 19,
+      "per_source": {
+        "glyphnet_manual": 8,
+        "glyphnet_automated": 7,
+        "huggingface_train": 4
+      },
+      "needs_synthetic": true,
+      "deficit": 11,
+      "unicode_char": "𓏠",
+      "description": "Game board",
+      "details": "Phono. mn. In imn “Amun” mn “remain.”"
+    },
+    "Z1": {
+      "class_id": 168,
+      "gardiner_code": "Z1",
+      "category": "Z",
+      "category_name": "Strokes and signs derived from Hieratic",
+      "total_images": 138,
+      "per_source": {
+        "glyphnet_manual": 49,
+        "glyphnet_automated": 42,
+        "huggingface_train": 47
+      },
+      "needs_synthetic": false,
+      "deficit": 0,
+      "unicode_char": "𓏤",
+      "description": "Stroke",
+      "details": "Follows Ideograms. Det. wʿ “one.” Ideo. numerals 1-9."
+    },
+    "Z7": {
+      "class_id": 169,
+      "gardiner_code": "Z7",
+      "category": "Z",
+      "category_name": "Strokes and signs derived from Hieratic",
+      "total_images": 11,
+      "per_source": {
+        "glyphnet_manual": 4,
+        "glyphnet_automated": 3,
+        "huggingface_train": 4
+      },
+      "needs_synthetic": true,
+      "deficit": 19,
+      "unicode_char": "𓏲",
+      "description": "From hieratic var. of G43.",
+      "details": "Phono. w."
+    },
+    "Z11": {
+      "class_id": 170,
+      "gardiner_code": "Z11",
+      "category": "Z",
+      "category_name": "Strokes and signs derived from Hieratic",
+      "total_images": 31,
+      "per_source": {
+        "glyphnet_manual": 11,
+        "glyphnet_automated": 9,
+        "huggingface_train": 11
+      },
+      "needs_synthetic": false,
+      "deficit": 0,
+      "unicode_char": "S44",
+      "description": "Aa25",
+      "details": "M44"
+    }
+  },
+  "stats": {
+    "total_images": 10885,
+    "min_per_class": 2,
+    "max_per_class": 1139,
+    "mean_per_class": 63.7,
+    "classes_above_threshold": 52,
+    "classes_below_threshold": 119,
+    "classes_needing_synthetic": 119
+  }
+}

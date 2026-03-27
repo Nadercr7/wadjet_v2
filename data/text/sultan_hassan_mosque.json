@@ -1,0 +1,22 @@
+{
+  "wikipedia": {
+    "en": {
+      "title": "Mosque-Madrasa of Sultan Hasan",
+      "extract": "The Mosque-Madrasa of Sultan Hasan is a monumental mosque and madrasa located in Salah al-Din Square in the historic district of Cairo, Egypt. It was built between 1356 and 1363 CE during the Bahri Mamluk period, commissioned by Sultan an-Nasir Hasan. The mosque was considered remarkable for its massive size and innovative architectural components, and is still considered one of the most impressive historic monuments in Cairo today.",
+      "description": "Mosque in Cairo, Egypt",
+      "coordinates": {
+        "lat": 30.0319,
+        "lon": 31.2567
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Flickr_-_archer10_%28Dennis%29_-_Egypt-13A-061_%28cropped%29.jpg/330px-Flickr_-_archer10_%28Dennis%29_-_Egypt-13A-061_%28cropped%29.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/8/84/Flickr_-_archer10_%28Dennis%29_-_Egypt-13A-061_%28cropped%29.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Mosque-Madrasa_of_Sultan_Hasan"
+    },
+    "ar": {
+      "title": "مسجد السلطان الناصر حسن ومدرسته",
+      "extract": "مسجد السلطان الناصر حسن ومدرسته أو مدرسة السلطان حسن أو مسجد السلطان حسن هو أحد المساجد الأثريّة الشهيرة بالقاهرة. يوصف بأنه درة العمارة الإسلامية بالشرق، ويعد أكثر آثار القاهرة الإسلامية تناسقاً وانسجاماً، ويمثل مرحلة نضوج العمارة المملوكية. أنشأه السلطان الناصر حسن بن الناصر محمد بن قلاوون خلال الفترة من 757هـ/1356م إلى 764هـ/1363م خلال حقبة حكم المماليك البحرية لمصر. يتكون البناء من مسجد ومدرسة للمذاهب الأربعة ، وكان يْدَرَّس بها أيضاً علوم تفسير القرآن، الحديث النبوي، القراءات السبع، بالإضافة إلى مُكتِّبين لتحفيظ الأيتام القرآن وتعليمهم الخط.",
+      "description": "مسجد يقع في القاهرة، مصر",
+      "wikipedia_url": "https://ar.wikipedia.org/wiki/%D9%85%D8%B3%D8%AC%D8%AF_%D8%A7%D9%84%D8%B3%D9%84%D8%B7%D8%A7%D9%86_%D8%A7%D9%84%D9%86%D8%A7%D8%B5%D8%B1_%D8%AD%D8%B3%D9%86_%D9%88%D9%85%D8%AF%D8%B1%D8%B3%D8%AA%D9%87"
+    }
+  }
+}

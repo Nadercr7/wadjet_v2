@@ -1,0 +1,22 @@
+{
+  "wikipedia": {
+    "en": {
+      "title": "Hanging Church",
+      "extract": "Saint Virgin Mary's Coptic Orthodox Church, also known as the Hanging Church, is one of the oldest churches in Egypt which dates to the third century. It belongs to the Coptic Orthodox Church of Alexandria.",
+      "description": "Church in Babylon, Egypt",
+      "coordinates": {
+        "lat": 30.0054,
+        "lon": 31.2301
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Kairo_Hanging_Church_BW_1.jpg/330px-Kairo_Hanging_Church_BW_1.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Kairo_Hanging_Church_BW_1.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Hanging_Church"
+    },
+    "ar": {
+      "title": "الكنيسة المعلقة",
+      "extract": "تقع الكنيسة المعلقة في حي مصر القديمة، في منطقة القاهرة القبطية الأثرية الهامة، فهي على مقربة من جامع عمرو بن العاص، ومعبد بن عزرا اليهودي، وكنيسة القديس مينا بجوار حصن بابليون، وكنيسة الشهيد مرقوريوس ، وكنائس عديدة أخرى.",
+      "description": "كنيسة في مصر",
+      "wikipedia_url": "https://ar.wikipedia.org/wiki/%D8%A7%D9%84%D9%83%D9%86%D9%8A%D8%B3%D8%A9_%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%82%D8%A9"
+    }
+  }
+}

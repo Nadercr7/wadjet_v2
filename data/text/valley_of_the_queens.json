@@ -1,0 +1,22 @@
+{
+  "wikipedia": {
+    "en": {
+      "title": "Valley of the Queens",
+      "extract": "The Valley of the Queens is a site in Egypt, in which queens, princes, princesses, and other high-ranking officials were buried from roughly 1560 BC to 1130 BC. Pharaohs were buried in the Valley of the Kings. The Valley of the Queens was known anciently as Ta-Set-Neferu, which has a double meaning of \"The Place of Beauty\" and/or \"the Place of the Royal Children\". Excavation of the tombs at the Valley of the Queens was pioneered by Ernesto Schiaparelli and Francesco Ballerini in the early 1900s.",
+      "description": "Historic site in Luxor, Egypt",
+      "coordinates": {
+        "lat": 25.7275,
+        "lon": 32.59305556
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Valley_of_the_Queens_by_Zureks.jpg/330px-Valley_of_the_Queens_by_Zureks.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/0/03/Valley_of_the_Queens_by_Zureks.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Valley_of_the_Queens"
+    },
+    "ar": {
+      "title": "وادي الملكات",
+      "extract": "وادي الملكات هو مكان دفن الملكات في مصر القديمة. عرف قديمًا باسم \"تا - ست - نفرو\"، ومعناه: \"مكان أبناء الفرعون\" أو \"مكان الجمال\"؛ لأن في هذا المكان تم دفن ملكات الأسرات الثامنة عشر، والتاسعة عشر والعشرين ، بالإضافة إلى العديد من الأمراء والأميرات وعدد من طبقة النبلاء. وتمت المحافظة على قبور هؤلاء الأفراد من قبل الكهنة الذين أدوا الطقوس الجنائزية اليومية والصلاة على النبلاء الموتى.",
+      "description": "مكان دفن الملكات في مصر القديمة",
+      "wikipedia_url": "https://ar.wikipedia.org/wiki/%D9%88%D8%A7%D8%AF%D9%8A_%D8%A7%D9%84%D9%85%D9%84%D9%83%D8%A7%D8%AA"
+    }
+  }
+}

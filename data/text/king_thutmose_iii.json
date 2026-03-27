@@ -1,0 +1,19 @@
+{
+  "wikipedia": {
+    "en": {
+      "title": "Thutmose III",
+      "extract": "Thutmose III, sometimes called Thutmose the Great, was the fifth pharaoh of the 18th Dynasty of Egypt. He is regarded as one of the greatest warriors, military commanders, and military strategists of all time; as Egypt's preeminent warrior pharaoh and conqueror; and as a dominant figure in the New Kingdom period.",
+      "description": "Fifth Egyptian Pharaoh of the 18th Dynasty (c. 1479–1425 BC)",
+      "coordinates": {},
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Thutmosis_III-2_%28cropped%29.jpg/330px-Thutmosis_III-2_%28cropped%29.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/0/00/Thutmosis_III-2_%28cropped%29.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Thutmose_III"
+    },
+    "ar": {
+      "title": "تحتمس الثالث",
+      "extract": "تحوتمس الثالث ، ويُعرف أحيانًا بلقب تحوتمس العظيم، ، هو الفرعون الخامس من الأسرة الثامنة عشرة في مصر القديمة. ويُعتبر أحد أعظم المحاربين والقادة العسكريين والاستراتيجيين في التاريخ، كما يُعرف بكونه الفرعون المقاتل الأول في مصر وأبرز الفاتحين في عهد الدولة الحديثة.",
+      "description": "ملك مصري ومؤسس الإمبراطورية المصرية",
+      "wikipedia_url": "https://ar.wikipedia.org/wiki/%D8%AA%D8%AD%D8%AA%D9%85%D8%B3_%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB"
+    }
+  }
+}

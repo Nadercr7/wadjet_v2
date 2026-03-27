@@ -1,0 +1,19 @@
+{
+  "wikipedia": {
+    "en": {
+      "title": "Mask of Tutankhamun",
+      "extract": "The mask of Tutankhamun is a gold funerary mask that belonged to Tutankhamun, who reigned over the New Kingdom of Egypt from 1332 BC to 1323 BC, during the Eighteenth Dynasty. After being buried with Tutankhamun's mummy for over 3,000 years, it was found in 1925 following the discovery of Tutankhamun's tomb three years earlier by the British archaeologist Howard Carter at the Valley of the Kings. It is on public display at the Grand Egyptian Museum in Cairo.",
+      "description": "Gold mask of Egyptian pharaoh",
+      "coordinates": {},
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/CairoEgMuseumTaaMaskMostlyPhotographed.jpg/330px-CairoEgMuseumTaaMaskMostlyPhotographed.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/2/27/CairoEgMuseumTaaMaskMostlyPhotographed.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Mask_of_Tutankhamun"
+    },
+    "ar": {
+      "title": "قناع توت عنخ آمون",
+      "extract": "قناع توت عنخ آمون هو قناع جنائزي ذهبي للملك توت عنخ آمون، الذي حكم المملكة المصرية الحديثة من 1332 قبل الميلاد حتى 1323 قبل الميلاد خلال الأسرة الثامنة عشرة. اكتشف القناع في عام 1925 عقب اكتشاف مقبرة توت عنخ آمون قبل ثلاث سنوات على يد عالم الآثار البريطاني هوارد كارتر في وادي الملوك. وهو معروض الآن للجمهور في المتحف المصري الكبير في القاهرة.",
+      "description": "قناع موت الملك توت عنخ آمون الذهبي",
+      "wikipedia_url": "https://ar.wikipedia.org/wiki/%D9%82%D9%86%D8%A7%D8%B9_%D8%AA%D9%88%D8%AA_%D8%B9%D9%86%D8%AE_%D8%A2%D9%85%D9%88%D9%86"
+    }
+  }
+}

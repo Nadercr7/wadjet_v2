@@ -1,0 +1,22 @@
+{
+  "wikipedia": {
+    "en": {
+      "title": "Aswan Dam",
+      "extract": "The Aswan Dam, or Aswan High & Low Dam, is one of the world's largest embankment dams, which was built between 1960 and 1970 across the Nile in Aswan, Egypt. The project was developed by the military regime that took power following the 1952 Egyptian revolution, to better control flooding, provide increased water storage for irrigation and generate hydroelectricity, the dam was seen as pivotal to the country's industrialization plans. Like the earlier implementation, the High Dam has had a significant effect on the economy and culture of Egypt.",
+      "description": "Dam in Aswan, Egypt",
+      "coordinates": {
+        "lat": 23.97055556,
+        "lon": 32.87777778
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/BarragemAssu%C3%A3o.jpg/330px-BarragemAssu%C3%A3o.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/2/2e/BarragemAssu%C3%A3o.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Aswan_Dam"
+    },
+    "ar": {
+      "title": "السد العالي",
+      "extract": "السد العالي بأسوان، هو سد مائي في جنوب مصر. يقع على نهر النيل في أقصى جنوب البلاد بمحافظة أسوان، ويُعد الركيزة الأساسية لمشروع التحكم الكامل في مياه النيل وتنظيم فيضانه. بدأ تشييده عام 1960 خلال عهد الرئيس جمال عبد الناصر، بمساهمة مالية وفنية كبيرة من الاتحاد السوفييتي الذي قدّم الدعم في إطار التعاون المصري–السوفييتي آنذاك.",
+      "description": "حاجز مائي في جنوب اسوان بمصر",
+      "wikipedia_url": "https://ar.wikipedia.org/wiki/%D8%A7%D9%84%D8%B3%D8%AF_%D8%A7%D9%84%D8%B9%D8%A7%D9%84%D9%8A"
+    }
+  }
+}

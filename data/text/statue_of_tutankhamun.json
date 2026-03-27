@@ -1,0 +1,19 @@
+{
+  "wikipedia": {
+    "en": {
+      "title": "Tutankhamun",
+      "extract": "Tutankhamun or Tutankhamen, was the thirteenth pharaoh of the Eighteenth Dynasty of ancient Egypt, who ruled c. 1332 – 1323 BC. Born Tutankhaten, he instituted the restoration of the traditional polytheistic form of ancient Egyptian religion, undoing a previous shift to the religion known as Atenism. Tutankhamun's reign is considered one of the greatest restoration periods in ancient Egyptian history, and his tomb door proclaims his dedication to illustrative constructions of the ancient Egyptian gods.",
+      "description": "Pharaoh of Egypt from 1332 to 1323 BC",
+      "coordinates": {},
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/CairoEgMuseumTaaMaskMostlyPhotographed.jpg/330px-CairoEgMuseumTaaMaskMostlyPhotographed.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/2/27/CairoEgMuseumTaaMaskMostlyPhotographed.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Tutankhamun"
+    },
+    "ar": {
+      "title": "توت عنخ آمون",
+      "extract": "توت عنخ آمون هو أحد فراعنة الأسرة المصرية الثامنة عشر في تاريخ مصر القديم، وكان فرعون مصر من 1334 ق.م إلى 1325 ق.م. يعدّ توت عنخ آمون من أشهر الفراعنة لأسباب لا تتعلق بإنجازات حققّها أو حروب انتصر فيها كما هو الحال مع الكثير من الفراعنة؛ وإنما لأسباب أخرى تعدّ مهمة من الناحية التاريخية ومن أبرزها هو اكتشاف مقبرته وكنوزه بالكامل دون أي تلف. واللغز الذي أحاط بظروف وفاته إذ اعتبر الكثير وفاة فرعون في سن مبكرة جدًا أمرًا غير طبيعي وخاصة مع وجود آثار لكسور في عظمي الفخذ و‌الجمجمة، وزواج وزيره من أرملته من بعد وفاته وتنصيب نفسه فرعونًا. كل هذه الأحداث الغامضة، والاستعمال الكثيف لأسطورة لعنة الفراعنة المرتبطة بمقبرة توت عنخ أمون التي استخدمت في الأفلام وألعاب الفيديو جعلت من توت عنخ آمون أشهر الفراعنة لألغاز وأسئلة لا تزال بلا جواب، اعتبرها البعض من أقدم الاغتيالات في تاريخ الإنسانية. توفي توت عنخ أمون صغير السن ودفن في مقبرته -مقبرة 62 - في وادي الملوك.",
+      "description": "أحد فراعنة الأسرة الملكية المصرية الثامنة عشرة",
+      "wikipedia_url": "https://ar.wikipedia.org/wiki/%D8%AA%D9%88%D8%AA_%D8%B9%D9%86%D8%AE_%D8%A2%D9%85%D9%88%D9%86"
+    }
+  }
+}

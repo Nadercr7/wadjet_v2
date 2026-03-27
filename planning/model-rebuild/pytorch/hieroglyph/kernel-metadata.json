@@ -1,0 +1,16 @@
+{
+  "id": "nadermohamedcr7/wadjet-hieroglyph-classifier",
+  "title": "Wadjet Hieroglyph Classifier",
+  "code_file": "hieroglyph_classifier.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": true,
+  "machine_shape": "NvidiaTeslaT4",
+  "dataset_sources": [
+    "nadermohamedcr7/wadjet-hieroglyph-classification"
+  ],
+  "competition_sources": [],
+  "kernel_sources": []
+}

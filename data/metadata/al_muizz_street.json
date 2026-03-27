@@ -1,0 +1,916 @@
+[
+  {
+    "hash": "a31426670c0bd0eb",
+    "original_name": "0.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 7956,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "202fef5e02a069f1",
+    "original_name": "1.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 11822,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "57e1dcfe765430ef",
+    "original_name": "10.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 12422,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "7a5e6f539beac32b",
+    "original_name": "11.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 7933,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "d99f1f08dab06133",
+    "original_name": "12.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 10668,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "9959fb095fdb5adb",
+    "original_name": "13.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 9964,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "9c466939cde702e5",
+    "original_name": "14.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 12573,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "f592bc6d8fb188d0",
+    "original_name": "15.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 8426,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "8cb146755ba8ca60",
+    "original_name": "16.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 11215,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "e33abbce4d1218fc",
+    "original_name": "17.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 11802,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "0c73ce1216fa93fe",
+    "original_name": "18.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 8268,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "bae789ae404aa3fc",
+    "original_name": "19.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 11965,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "5c5f60aae2a5536e",
+    "original_name": "2.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 11156,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "56c12ca327242cac",
+    "original_name": "20.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 9890,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "4b9201dd0073aeff",
+    "original_name": "21.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 10345,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "7abf01c436f8fa72",
+    "original_name": "22.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 12378,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "65f9c4feb1ea284b",
+    "original_name": "23.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 12801,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "9130ec8a893ed036",
+    "original_name": "24.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 11891,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "621fc3caf7a1b13b",
+    "original_name": "25.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 14042,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "3fe489b6a7dbbae7",
+    "original_name": "26.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 13157,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "8cfb8fad16bfada8",
+    "original_name": "27.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 10219,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "3aaac490e994a29c",
+    "original_name": "28.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 9858,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "33eab005b5bfd076",
+    "original_name": "29.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 13777,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "84b00f8ea64329e2",
+    "original_name": "3.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 7952,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "e6663e2b3b45144b",
+    "original_name": "30.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 12618,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "11d4b1f10d7c85af",
+    "original_name": "31.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 11812,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "c58d8c1edf1ea070",
+    "original_name": "32.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 11140,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "3a4bbe6278d0f447",
+    "original_name": "33.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 15465,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "069355db2339ecf8",
+    "original_name": "34.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 11089,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "3954a7f0a37cbc8d",
+    "original_name": "35.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 8413,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "399e08b9fa463abf",
+    "original_name": "36.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 12002,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "115bd632f4db3a47",
+    "original_name": "37.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 14544,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "238509d10e42d3c0",
+    "original_name": "38.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 9889,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "057e2eee358b9cc7",
+    "original_name": "39.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 11842,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "18e2dd6dd7f420fb",
+    "original_name": "4.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 13527,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "a5c68f0833abcbed",
+    "original_name": "40.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 13170,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "e4a78a89b0f98eea",
+    "original_name": "41.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 15079,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "8cad85fa404ae669",
+    "original_name": "42.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 8396,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "7865ee01743c920d",
+    "original_name": "43.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 12812,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "15e6e4456ca5a4d9",
+    "original_name": "44.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 11823,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "3356c8a4d448d69a",
+    "original_name": "45.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 10651,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "d42d71189e93cda5",
+    "original_name": "46.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 7524,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "be1d4e891120ba13",
+    "original_name": "47.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 10150,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "ff849e9649c717a3",
+    "original_name": "48.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 8644,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "8019763124b37d6c",
+    "original_name": "49.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 9760,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "265af2a2c667d731",
+    "original_name": "5.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 18195,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "515b10fbcc46870e",
+    "original_name": "50.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 10312,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "78bb8c1f33f08a77",
+    "original_name": "51.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 12108,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "796097a861111745",
+    "original_name": "52.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 12906,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "bdc75b5d0d136b80",
+    "original_name": "53.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 14429,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "8c7a4974fee7f92c",
+    "original_name": "54.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 14303,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "a2aa1a4b5bc63406",
+    "original_name": "55.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 13315,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "42eb86427bfa2081",
+    "original_name": "56.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 13958,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "675b3462ed2e3b0b",
+    "original_name": "57.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 11936,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "8aba659e35c50cc9",
+    "original_name": "58.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 11844,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "2dbce3cd48c36914",
+    "original_name": "59.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 12272,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "65ea48a3ed75b298",
+    "original_name": "6.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 12011,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "fa14fe7c00fa7f0f",
+    "original_name": "60.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 7620,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "7a44425356be774f",
+    "original_name": "61.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 16541,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "8467208f0ad79b78",
+    "original_name": "62.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 11415,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "bbe232974c81e923",
+    "original_name": "63.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 14893,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "0fb7fd8201e3653d",
+    "original_name": "64.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 13546,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "3e2d84cd1d4a3400",
+    "original_name": "65.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 8631,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "835f6321cd751921",
+    "original_name": "66.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 12138,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "470d950e0b100879",
+    "original_name": "67.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 10967,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "cc29a39ef1299ae1",
+    "original_name": "68.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 9559,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "2fad4bd64aecdd13",
+    "original_name": "69.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 11224,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "597bcfab500814d5",
+    "original_name": "7.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 11397,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "c6980c3060be6e47",
+    "original_name": "70.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 10271,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "b7ff15994df1b109",
+    "original_name": "71.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 12323,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "77f7db6a1cb4b17c",
+    "original_name": "72.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 11781,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "33d4853809da17e7",
+    "original_name": "73.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 10085,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "2afadec409f85017",
+    "original_name": "74.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 11813,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "bf6dd3f5ac402943",
+    "original_name": "75.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 9528,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "4d7883a81d9ed078",
+    "original_name": "76.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 12436,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "e925aea87712cef7",
+    "original_name": "77.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 13972,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "74f5652728657988",
+    "original_name": "78.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 13223,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "d80b22780ede259a",
+    "original_name": "79.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 14102,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "cf62c02f82e8b28c",
+    "original_name": "8.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 9867,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "20c02d9284d80d3c",
+    "original_name": "80.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 12524,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "efa4e5ea00216022",
+    "original_name": "81.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 15008,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "f7a675618942083b",
+    "original_name": "82.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 17875,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "8d1e245d7539db81",
+    "original_name": "83.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 11271,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "96087a6fa89a9e64",
+    "original_name": "84.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 14721,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "bac7b1f761384b63",
+    "original_name": "85.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 10395,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "f2bd16f0a58618a4",
+    "original_name": "86.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 15889,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "ad218edca6cd0ce5",
+    "original_name": "87.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 12919,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "f60db943ae4c9663",
+    "original_name": "88.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 12648,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "b3e1e08a1ca2fb68",
+    "original_name": "89.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 16203,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "124fff82dc0d76e6",
+    "original_name": "9.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 10262,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "3b3c9aa0b6e0f82d",
+    "original_name": "90.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 12188,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "5bb3759e470e29bc",
+    "original_name": "91.jpg",
+    "original_class": "Muizz_Street",
+    "size_bytes": 8588,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "7dfe6a947c7324e5",
+    "original_name": "107.jpg",
+    "original_class": "Muizz Street",
+    "size_bytes": 136328,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:40"
+  },
+  {
+    "hash": "0264ff55807e4d6a",
+    "original_name": "115.jpg",
+    "original_class": "Muizz Street",
+    "size_bytes": 13010,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:40"
+  },
+  {
+    "hash": "40f7ec29edf0d192",
+    "original_name": "117.jpg",
+    "original_class": "Muizz Street",
+    "size_bytes": 275594,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:40"
+  },
+  {
+    "hash": "5d931e55c61e51a1",
+    "original_name": "118.jpg",
+    "original_class": "Muizz Street",
+    "size_bytes": 11118,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:40"
+  },
+  {
+    "hash": "180b923852a17c9a",
+    "original_name": "1521457402hTzOS-1024x678.jpg",
+    "original_class": "Muizz Street",
+    "size_bytes": 177267,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:40"
+  },
+  {
+    "hash": "74b7f2db29116cb0",
+    "original_name": "644816042-Muizz-Street-Cairo-Old-Streets.jpg",
+    "original_class": "Muizz Street",
+    "size_bytes": 709020,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:40"
+  },
+  {
+    "hash": "bcc03e4f43a70332",
+    "original_name": "86392-Another-view-of-al-muizz-st.jpg",
+    "original_class": "Muizz Street",
+    "size_bytes": 86392,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:40"
+  },
+  {
+    "hash": "46cfbc9d5893a1bc",
+    "original_name": "95.jpg",
+    "original_class": "Muizz Street",
+    "size_bytes": 29669,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:40"
+  },
+  {
+    "hash": "a990d45a22256a08",
+    "original_name": "96.jpg",
+    "original_class": "Muizz Street",
+    "size_bytes": 150742,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:40"
+  },
+  {
+    "hash": "1d5c8847e64dab99",
+    "original_name": "Calle-Al-Muizz-04.jpeg",
+    "original_class": "Muizz Street",
+    "size_bytes": 139602,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:40"
+  },
+  {
+    "hash": "3ab0dd6592547251",
+    "original_name": "download (1).jpg",
+    "original_class": "Muizz Street",
+    "size_bytes": 12157,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:40"
+  },
+  {
+    "hash": "709b16d68b7e9d5a",
+    "original_name": "download.jpg",
+    "original_class": "Muizz Street",
+    "size_bytes": 10681,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:40"
+  },
+  {
+    "hash": "bf910c8eb5e626c4",
+    "original_name": "Muizz-street.jpg",
+    "original_class": "Muizz Street",
+    "size_bytes": 50869,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:40"
+  },
+  {
+    "hash": "5329f6c3017e4018",
+    "original_name": "Muizz_Street_-_Egypt.jpg",
+    "original_class": "Muizz Street",
+    "size_bytes": 1105607,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:40"
+  },
+  {
+    "filename": "1585f241f0eb8dcc.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Madrasa_of_al-Nasir_Muhammad_-_Muizz_Street_Cairo_%281%29.jpg",
+    "title": "File:Madrasa of al-Nasir Muhammad - Muizz Street Cairo (1).jpg",
+    "license": "CC BY 3.0 pl",
+    "artist": "Radosław Botev",
+    "width": 4000,
+    "height": 3000,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:33:15"
+  },
+  {
+    "filename": "fd77e6cf40bd517f.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/89/Madrasa_of_al-Nasir_Muhammad_-_Muizz_Street_Cairo_%282%29.jpg",
+    "title": "File:Madrasa of al-Nasir Muhammad - Muizz Street Cairo (2).jpg",
+    "license": "CC BY 3.0 pl",
+    "artist": "Radosław Botev",
+    "width": 4000,
+    "height": 3000,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:33:15"
+  },
+  {
+    "filename": "fcd54dc86f22222e.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/94/Boy_selling_ice_in_a_sunny_day_at_Al-Muizz_street.jpg",
+    "title": "File:Boy selling ice in a sunny day at Al-Muizz street.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Dardoush&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Dardoush (page does not exist)\">Dardoush</a>",
+    "width": 1600,
+    "height": 1222,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:33:15"
+  },
+  {
+    "filename": "756875d05b9b08b3.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/31/Muizz_Street_Cairo_%281%29.jpg",
+    "title": "File:Muizz Street Cairo (1).jpg",
+    "license": "CC BY 3.0 pl",
+    "artist": "Radosław Botev",
+    "width": 4000,
+    "height": 3000,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:33:15"
+  },
+  {
+    "filename": "599ce790737ef4b8.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/68/Muizz_Street_Cairo_%282%29.jpg",
+    "title": "File:Muizz Street Cairo (2).jpg",
+    "license": "CC BY 3.0 pl",
+    "artist": "Radosław Botev",
+    "width": 4000,
+    "height": 3000,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:33:15"
+  },
+  {
+    "filename": "7937a5353a920b85.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/33/Al-Muizz_Street%2C_Old_Cairo%2C_al-Q%C4%81hirah%2C_CG%2C_EGY_%2847859477762%29.jpg",
+    "title": "File:Al-Muizz Street, Old Cairo, al-Qāhirah, CG, EGY (47859477762).jpg",
+    "license": "CC0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/59081381@N03\">Warren LeMay</a> from Chicago, IL, United States",
+    "width": 2354,
+    "height": 3140,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:33:15"
+  }
+]

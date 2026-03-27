@@ -1,0 +1,25 @@
+{
+  "model": "mobilenetv3_small_100",
+  "framework": "pytorch",
+  "input_size": 128,
+  "num_classes": 171,
+  "format": "NCHW",
+  "input_range": [
+    0.0,
+    1.0
+  ],
+  "normalization": "divide_by_255",
+  "test_top1_accuracy": 0.9818024263431543,
+  "test_top5_accuracy": 0.9991334488734835,
+  "quantized": true,
+  "opset_version": 18,
+  "fp32_size_mb": 6.8,
+  "uint8_size_mb": 1.9,
+  "training": {
+    "phase1_epochs": 5,
+    "phase2_epochs": 30,
+    "loss": "FocalLoss(gamma=2.0)",
+    "augmentation": "rotation_10deg+brightness+contrast+blur (NO h-flip)",
+    "precision": "float32 (no mixed precision)"
+  }
+}
