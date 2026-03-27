@@ -61,3 +61,7 @@ scripts/_test_*.wav
 archive/original-horus/last_model_bgd.keras
 archive/original-horus/HORUS AI .mp4
 archive/original-horus/*.pdf
+
+# Internal development files (not public)
+CLAUDE.md
+planning/
