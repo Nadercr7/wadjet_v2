@@ -5,7 +5,7 @@
  * ═══════════════════════════════════════════════════════════════
  *
  *  Stages (all client-side except translation):
- *    1. Detection:        ONNX Runtime Web → bounding boxes (YOLOv8, NCHW)
+ *    1. Detection:        ONNX Runtime Web → bounding boxes (YOLO26s NMS-free, NCHW)
  *    2. Classification:   ONNX Runtime Web → Gardiner codes (MobileNetV3, NCHW)
  *    3. Transliteration:  JS → MdC notation
  *    4. Translation:      Server API (POST /api/scan)
@@ -39,7 +39,6 @@ var HieroglyphPipelineState = Object.freeze({
  * @param {string} [opts.labelMapUrl]      — label_mapping.json URL
  * @param {string} [opts.translationApi]   — Server endpoint for translation
  * @param {number} [opts.detConfThreshold] — Detection confidence (default: 0.15)
- * @param {number} [opts.nmsIouThreshold]  — NMS IoU threshold (default: 0.45)
  * @param {number} [opts.classInputSize]   — Classification input size (default: 128)
  * @param {Function} [opts.onStateChange]  — State change callback
  * @param {Function} [opts.onProgress]     — Loading progress callback (0–1)
@@ -55,7 +54,6 @@ function HieroglyphPipeline(opts) {
 
     // Config
     this._detConf    = opts.detConfThreshold || 0.15;
-    this._nmsIou     = opts.nmsIouThreshold  || 0.45;
     this._classSize  = opts.classInputSize   || 128;
     this._detSize    = 640;
 
@@ -143,7 +141,7 @@ HieroglyphPipeline.prototype._warmup = async function() {
     await this._classifierSession.run(clsFeeds);
 };
 
-/* ── Stage 1: Detection (ONNX NCHW) ────────────────── */
+/* ── Stage 1: Detection (ONNX NCHW, YOLO26s NMS-free) ── */
 
 HieroglyphPipeline.prototype.detect = async function(source) {
     var canvas = document.createElement('canvas');
@@ -171,7 +169,7 @@ HieroglyphPipeline.prototype.detect = async function(source) {
     ctx.fillRect(0, 0, this._detSize, this._detSize);
     ctx.drawImage(source, padX, padY, newW, newH);
 
-    // Convert to NCHW float32 tensor (for YOLOv8)
+    // Convert to NCHW float32 tensor
     var imgData = ctx.getImageData(0, 0, this._detSize, this._detSize).data;
     var floats = new Float32Array(3 * this._detSize * this._detSize);
     var pixelCount = this._detSize * this._detSize;
@@ -187,24 +185,21 @@ HieroglyphPipeline.prototype.detect = async function(source) {
     var output = await this._detectorSession.run(feeds);
     var rawOutput = output[this._detectorSession.outputNames[0]];
 
-    // Parse YOLO output: [1, 5, 8400]
+    // Parse YOLO26s NMS-free output: [1, 300, 6]
+    // Columns: x1, y1, x2, y2, confidence, class_id
     var data = rawOutput.data;
-    var numBoxes = rawOutput.dims[2];
+    var numDets = rawOutput.dims[1];  // 300
     var boxes = [];
 
-    for (var b = 0; b < numBoxes; b++) {
-        var conf = data[4 * numBoxes + b];
+    for (var b = 0; b < numDets; b++) {
+        var offset = b * 6;
+        var conf = data[offset + 4];
         if (conf < this._detConf) continue;
 
-        var cx = data[0 * numBoxes + b];
-        var cy = data[1 * numBoxes + b];
-        var bw = data[2 * numBoxes + b];
-        var bh = data[3 * numBoxes + b];
-
-        var x1 = ((cx - bw / 2) - padX) / scale;
-        var y1 = ((cy - bh / 2) - padY) / scale;
-        var x2 = ((cx + bw / 2) - padX) / scale;
-        var y2 = ((cy + bh / 2) - padY) / scale;
+        var x1 = (data[offset + 0] - padX) / scale;
+        var y1 = (data[offset + 1] - padY) / scale;
+        var x2 = (data[offset + 2] - padX) / scale;
+        var y2 = (data[offset + 3] - padY) / scale;
 
         x1 = Math.max(0, Math.min(srcW, x1));
         y1 = Math.max(0, Math.min(srcH, y1));
@@ -215,41 +210,13 @@ HieroglyphPipeline.prototype.detect = async function(source) {
         boxes.push({ x1: x1, y1: y1, x2: x2, y2: y2, confidence: conf });
     }
 
-    boxes = this._nms(boxes, this._nmsIou);
+    // Sort by confidence descending (no NMS needed — model is NMS-free)
+    boxes.sort(function(a, b) { return b.confidence - a.confidence; });
 
     return {
         boxes: boxes,
         preprocessInfo: { scale: scale, padX: padX, padY: padY, srcW: srcW, srcH: srcH }
     };
-};
-
-HieroglyphPipeline.prototype._nms = function(boxes, iouThreshold) {
-    boxes.sort(function(a, b) { return b.confidence - a.confidence; });
-    var keep = [];
-    var suppressed = new Set();
-
-    for (var i = 0; i < boxes.length; i++) {
-        if (suppressed.has(i)) continue;
-        keep.push(boxes[i]);
-        for (var j = i + 1; j < boxes.length; j++) {
-            if (suppressed.has(j)) continue;
-            if (this._iou(boxes[i], boxes[j]) > iouThreshold) {
-                suppressed.add(j);
-            }
-        }
-    }
-    return keep;
-};
-
-HieroglyphPipeline.prototype._iou = function(a, b) {
-    var x1 = Math.max(a.x1, b.x1);
-    var y1 = Math.max(a.y1, b.y1);
-    var x2 = Math.min(a.x2, b.x2);
-    var y2 = Math.min(a.y2, b.y2);
-    var inter = Math.max(0, x2 - x1) * Math.max(0, y2 - y1);
-    var areaA = (a.x2 - a.x1) * (a.y2 - a.y1);
-    var areaB = (b.x2 - b.x1) * (b.y2 - b.y1);
-    return inter / (areaA + areaB - inter + 1e-6);
 };
 
 /* ── Stage 2: Classification (ONNX NCHW) ───────────── */
