@@ -210,13 +210,43 @@ HieroglyphPipeline.prototype.detect = async function(source) {
         boxes.push({ x1: x1, y1: y1, x2: x2, y2: y2, confidence: conf });
     }
 
-    // Sort by confidence descending (no NMS needed — model is NMS-free)
+    // Sort by confidence descending
     boxes.sort(function(a, b) { return b.confidence - a.confidence; });
+
+    // Greedy IoU dedup — suppress overlapping boxes the model missed
+    boxes = this._greedyNms(boxes, 0.45);
 
     return {
         boxes: boxes,
         preprocessInfo: { scale: scale, padX: padX, padY: padY, srcW: srcW, srcH: srcH }
     };
+};
+
+HieroglyphPipeline.prototype._greedyNms = function(boxes, iouThreshold) {
+    if (!boxes.length) return [];
+    var keep = [];
+    var suppressed = {};
+    for (var i = 0; i < boxes.length; i++) {
+        if (suppressed[i]) continue;
+        keep.push(boxes[i]);
+        for (var j = i + 1; j < boxes.length; j++) {
+            if (suppressed[j]) continue;
+            if (this._iou(boxes[i], boxes[j]) >= iouThreshold) {
+                suppressed[j] = true;
+            }
+        }
+    }
+    return keep;
+};
+
+HieroglyphPipeline.prototype._iou = function(a, b) {
+    var ix1 = Math.max(a.x1, b.x1), iy1 = Math.max(a.y1, b.y1);
+    var ix2 = Math.min(a.x2, b.x2), iy2 = Math.min(a.y2, b.y2);
+    var inter = Math.max(0, ix2 - ix1) * Math.max(0, iy2 - iy1);
+    var areaA = (a.x2 - a.x1) * (a.y2 - a.y1);
+    var areaB = (b.x2 - b.x1) * (b.y2 - b.y1);
+    var union = areaA + areaB - inter;
+    return union > 0 ? inter / union : 0;
 };
 
 /* ── Stage 2: Classification (ONNX NCHW) ───────────── */

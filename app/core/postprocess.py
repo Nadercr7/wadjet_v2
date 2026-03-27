@@ -1,7 +1,8 @@
-"""H3.9 — Glyph detection post-processing: confidence filtering, size filtering.
+"""H3.9 — Glyph detection post-processing: confidence filtering, size filtering, IoU dedup.
 
 ONNX-based inference pipeline with configurable post-processing for
 hieroglyph bounding box detection using the YOLO26s model (NMS-free).
+Includes greedy IoU suppression to remove residual overlapping detections.
 """
 
 import numpy as np
@@ -16,6 +17,7 @@ MIN_BOX_AREA_RATIO = 0.0005 # Minimum box area as fraction of image area
 MAX_BOX_AREA_RATIO = 0.40   # Maximum box area as fraction of image area (raised for cartouches)
 MIN_BOX_DIM = 10            # Minimum box dimension in pixels (at original scale)
 MAX_ASPECT_RATIO = 5.0      # Maximum width/height or height/width ratio
+DEDUP_IOU_THRESHOLD = 0.45  # IoU threshold for greedy dedup (suppress overlapping boxes)
 INPUT_SIZE = 640             # Model input size
 
 
@@ -70,6 +72,7 @@ class PostProcessConfig:
     max_box_area_ratio: float = MAX_BOX_AREA_RATIO
     min_box_dim: int = MIN_BOX_DIM
     max_aspect_ratio: float = MAX_ASPECT_RATIO
+    dedup_iou_threshold: float = DEDUP_IOU_THRESHOLD
 
 
 class GlyphDetector:
@@ -170,7 +173,32 @@ class GlyphDetector:
         # Sort by confidence descending
         detections.sort(key=lambda d: d.confidence, reverse=True)
 
+        # 3. Greedy IoU dedup — suppress overlapping boxes the model missed
+        detections = self._greedy_nms(detections, self.config.dedup_iou_threshold)
+
         return detections
+
+    @staticmethod
+    def _greedy_nms(detections: list[Detection], iou_threshold: float) -> list[Detection]:
+        """Greedy NMS: keep highest-confidence box, suppress overlapping ones."""
+        if not detections:
+            return []
+        keep = []
+        suppressed = set()
+        for i, det_i in enumerate(detections):
+            if i in suppressed:
+                continue
+            keep.append(det_i)
+            for j in range(i + 1, len(detections)):
+                if j in suppressed:
+                    continue
+                iou = _box_iou(
+                    (det_i.x1, det_i.y1, det_i.x2, det_i.y2),
+                    (detections[j].x1, detections[j].y1, detections[j].x2, detections[j].y2),
+                )
+                if iou >= iou_threshold:
+                    suppressed.add(j)
+        return keep
 
     def detect(self, image: np.ndarray) -> list[Detection]:
         """Run full detection pipeline: preprocess → inference → postprocess."""
