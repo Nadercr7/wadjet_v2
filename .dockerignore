@@ -35,6 +35,7 @@ models/landmark/onnx/
 data/hieroglyph_classification/
 data/landmark_classification/
 data/reference/
+data/detection/
 
 # Logs
 logs/
@@ -45,6 +46,8 @@ planning/
 scripts/
 kaggle_logs/
 tmp_pull_test/
+tmp_kaggle_hiero/
+tmp_kaggle_output/
 
 # Docker overrides
 docker-compose.override.yml
