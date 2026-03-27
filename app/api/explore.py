@@ -69,13 +69,23 @@ def _load_wiki_data() -> dict[str, dict]:
 @lru_cache(maxsize=1)
 def _load_model_classes() -> list[str]:
     """Load model class names for identification mapping."""
-    if not MODEL_META.exists():
-        return []
-    try:
-        data = json.loads(MODEL_META.read_text(encoding="utf-8"))
-        return data.get("class_names", [])
-    except Exception:
-        return []
+    # Try class_names from model_metadata.json
+    if MODEL_META.exists():
+        try:
+            data = json.loads(MODEL_META.read_text(encoding="utf-8"))
+            names = data.get("class_names", [])
+            if names:
+                return names
+        except Exception:
+            pass
+    # Fallback: get slugs from label_mapping.json
+    if LABEL_MAPPING.exists():
+        try:
+            mapping = json.loads(LABEL_MAPPING.read_text(encoding="utf-8"))
+            return sorted(set(mapping.values()))
+        except Exception:
+            pass
+    return []
 
 
 @lru_cache(maxsize=1)
@@ -251,7 +261,7 @@ async def list_categories():
 async def get_landmark(slug: str):
     """Get full detail for a single landmark by slug."""
     # Normalize slug — try both hyphen and underscore variants
-    normalized = slug.lower().strip()
+    normalized = _normalize_slug(slug.lower().strip())
     hyphen_slug = normalized.replace("_", "-")
     underscore_slug = normalized.replace("-", "_")
 
@@ -342,6 +352,46 @@ async def get_landmark(slug: str):
         })
 
     raise HTTPException(status_code=404, detail=f"Landmark '{slug}' not found")
+
+
+def _normalize_slug(raw_slug: str) -> str:
+    """Map an arbitrary slug (e.g. from Gemini) to the closest known model class.
+
+    Tries exact match first, then checks if any known class is a prefix/substring
+    of the raw slug, or vice-versa. Returns the raw slug unchanged if no match.
+    """
+    normalized = raw_slug.lower().strip().replace("-", "_")
+    classes = _load_model_classes()
+    if not classes:
+        return normalized
+    class_set = set(classes)
+
+    # Exact match
+    if normalized in class_set:
+        return normalized
+
+    # Check known class as prefix of raw slug (e.g. "bibliotheca_alexandrina" in "bibliotheca_alexandrina_planetarium")
+    best_match = ""
+    for cls in classes:
+        if normalized.startswith(cls) and len(cls) > len(best_match):
+            best_match = cls
+        elif cls.startswith(normalized) and len(normalized) > len(best_match):
+            best_match = normalized
+
+    if best_match and best_match in class_set:
+        return best_match
+
+    # Also check wiki data slugs
+    wiki = _load_wiki_data()
+    if normalized in wiki:
+        return normalized
+    for slug in wiki:
+        if normalized.startswith(slug) and len(slug) > len(best_match):
+            best_match = slug
+    if best_match:
+        return best_match
+
+    return normalized
 
 
 @router.get("")
@@ -464,8 +514,9 @@ async def identify_landmark(request: Request, file: UploadFile = File(...)):
                 gemini_result = await gemini.identify_landmark(data, mime)
                 if gemini_result.get("confidence", 0) > onnx_result["confidence"]:
                     # Gemini is more confident — use its identification
+                    gemini_slug = _normalize_slug(gemini_result.get("slug", "")) or onnx_result["slug"]
                     onnx_result = {
-                        "slug": gemini_result.get("slug", onnx_result["slug"]),
+                        "slug": gemini_slug,
                         "name": gemini_result.get("name", onnx_result["name"]),
                         "confidence": gemini_result.get("confidence", onnx_result["confidence"]),
                         "top3": onnx_result["top3"],
@@ -480,12 +531,13 @@ async def identify_landmark(request: Request, file: UploadFile = File(...)):
                 mime = file.content_type or "image/jpeg"
                 gemini_result = await gemini.identify_landmark(data, mime)
                 if gemini_result.get("slug"):
+                    gemini_slug = _normalize_slug(gemini_result["slug"])
                     onnx_result = {
-                        "slug": gemini_result["slug"],
+                        "slug": gemini_slug,
                         "name": gemini_result.get("name", ""),
                         "confidence": gemini_result.get("confidence", 0),
                         "top3": [{
-                            "slug": gemini_result["slug"],
+                            "slug": gemini_slug,
                             "name": gemini_result.get("name", ""),
                             "confidence": gemini_result.get("confidence", 0),
                         }],
@@ -501,13 +553,18 @@ async def identify_landmark(request: Request, file: UploadFile = File(...)):
             detail="Landmark identification temporarily unavailable",
         )
 
+    # Normalize the final slug to ensure it maps to a known landmark
+    final_slug = _normalize_slug(onnx_result["slug"])
     result = {
         "name": onnx_result["name"],
         "confidence": onnx_result["confidence"],
-        "slug": onnx_result["slug"],
+        "slug": final_slug,
         "source": source,
         "description": description,
-        "top3": onnx_result.get("top3", []),
+        "top3": [
+            {**m, "slug": _normalize_slug(m["slug"])} if "slug" in m else m
+            for m in onnx_result.get("top3", [])
+        ],
     }
 
     # Return HTML partial for HTMX requests, JSON otherwise
