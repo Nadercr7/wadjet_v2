@@ -12,7 +12,7 @@ from fastapi.templating import Jinja2Templates
 from slowapi import _rate_limit_exceeded_handler
 from slowapi.errors import RateLimitExceeded
 
-from app.api import audio, chat, dictionary, explore, health, pages, quiz, scan, translate, write
+from app.api import audio, auth, chat, dictionary, explore, health, pages, quiz, scan, translate, user, write
 from app.config import settings
 from app.rate_limit import limiter
 
@@ -99,6 +99,11 @@ async def lifespan(app: FastAPI):
     app.state.tla = TLAService()
     logger.info("TLAService ready")
 
+    # Initialize database
+    from app.db.database import init_db
+    await init_db()
+    logger.info("Database initialized")
+
     yield  # app runs here
 
     # Cleanup
@@ -134,14 +139,18 @@ def create_app() -> FastAPI:
     app.state.limiter = limiter
     app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 
-    # CSRF protection for POST/PUT/DELETE (skip GET, health, docs)
+    # CSRF protection for POST/PUT/DELETE (skip GET, health, docs, auth)
     csrf_secret = settings.csrf_secret or secrets.token_hex(32)
+    # Ensure JWT secret is set (auto-generate for dev, must be env var in production)
+    if not settings.jwt_secret:
+        settings.jwt_secret = secrets.token_hex(32)
     from starlette_csrf import CSRFMiddleware
     app.add_middleware(
         CSRFMiddleware,
         secret=csrf_secret,
         exempt_urls=[
             re.compile(r"^/api/health$"),
+            re.compile(r"^/api/auth/"),
             re.compile(r"^/docs"),
             re.compile(r"^/openapi\.json$"),
         ],
@@ -172,6 +181,8 @@ def create_app() -> FastAPI:
     app.include_router(explore.identify_router)
     app.include_router(chat.router)
     app.include_router(quiz.router)
+    app.include_router(auth.router)
+    app.include_router(user.router)
     app.include_router(audio.router)
     app.include_router(health.router, prefix="/api")
 

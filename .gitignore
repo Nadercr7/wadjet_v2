@@ -26,6 +26,7 @@ data/hieroglyph_classification/
 data/landmark_classification/
 data/detection/
 data/reference/
+*.db
 
 # TailwindCSS build output
 app/static/dist/

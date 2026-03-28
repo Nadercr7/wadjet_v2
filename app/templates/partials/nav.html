@@ -19,12 +19,34 @@
                 <a href="/chat" class="px-4 py-2 rounded-lg text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-all duration-200">Thoth</a>
             </div>
 
-            <!-- CTA -->
-            <div class="hidden md:block">
-                <a href="/scan" class="btn-gold btn-sm">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                    Scan
-                </a>
+            <!-- CTA + Auth -->
+            <div class="hidden md:flex items-center gap-2">
+                <!-- Auth: shown when NOT logged in -->
+                <template x-if="!$store.auth.user">
+                    <div class="flex items-center gap-2">
+                        <button @click="$store.auth.showLogin = true" class="px-3 py-1.5 rounded-lg text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-all duration-200">Sign In</button>
+                        <button @click="$store.auth.showSignup = true" class="btn-gold btn-sm">Sign Up</button>
+                    </div>
+                </template>
+                <!-- Auth: shown when logged in -->
+                <template x-if="$store.auth.user">
+                    <div class="flex items-center gap-2" x-data="{ userMenu: false }">
+                        <a href="/scan" class="btn-gold btn-sm">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            Scan
+                        </a>
+                        <div class="relative">
+                            <button @click="userMenu = !userMenu" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-all">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+                                <span x-text="$store.auth.user.display_name || $store.auth.user.email.split('@')[0]" class="max-w-[100px] truncate"></span>
+                            </button>
+                            <div x-show="userMenu" @click.outside="userMenu = false" x-cloak
+                                 x-transition class="absolute right-0 mt-1 w-40 bg-surface border border-border rounded-lg shadow-lg overflow-hidden z-50">
+                                <button @click="$store.auth.logout(); userMenu = false" class="w-full text-left px-4 py-2.5 text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-colors">Sign Out</button>
+                            </div>
+                        </div>
+                    </div>
+                </template>
             </div>
 
             <!-- Mobile menu button -->
@@ -62,8 +84,19 @@
                 <a href="/explore" class="px-4 py-3 rounded-lg text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-all pl-8">↳ Explore</a>
                 <a href="/quiz" class="px-4 py-3 rounded-lg text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-all">Quiz</a>
                 <a href="/chat" class="px-4 py-3 rounded-lg text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-all">Thoth</a>
-                <div class="pt-2">
-                    <a href="/scan" class="btn-gold w-full text-center">Scan Now</a>
+                <div class="pt-2 flex flex-col gap-2">
+                    <template x-if="!$store.auth.user">
+                        <div class="flex flex-col gap-2">
+                            <button @click="$store.auth.showLogin = true; mobileMenu = false" class="btn-ghost w-full text-center">Sign In</button>
+                            <button @click="$store.auth.showSignup = true; mobileMenu = false" class="btn-gold w-full text-center">Sign Up</button>
+                        </div>
+                    </template>
+                    <template x-if="$store.auth.user">
+                        <div class="flex flex-col gap-2">
+                            <a href="/scan" class="btn-gold w-full text-center">Scan Now</a>
+                            <button @click="$store.auth.logout(); mobileMenu = false" class="btn-ghost w-full text-center">Sign Out</button>
+                        </div>
+                    </template>
                 </div>
             </div>
         </div>

@@ -25,6 +25,14 @@ faiss-cpu>=1.8.0
 slowapi>=0.1.9
 starlette-csrf>=3.0.0
 
+# Database & Auth
+sqlalchemy[asyncio]>=2.0
+aiosqlite>=0.20.0
+alembic>=1.14
+python-jose[cryptography]>=3.3
+bcrypt>=4.0
+pydantic[email]>=2.0
+
 # Utilities
 aiofiles>=24.1.0
 httpx>=0.27.0

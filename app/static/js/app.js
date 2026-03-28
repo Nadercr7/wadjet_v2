@@ -224,6 +224,96 @@ document.addEventListener('alpine:init', () => {
             setTimeout(() => { this.visible = false; }, duration);
         }
     });
+
+    // ── Auth store ──
+    Alpine.store('auth', {
+        user: null,
+        token: null,
+        showLogin: false,
+        showSignup: false,
+        loading: false,
+        error: '',
+
+        init() {
+            // Restore from localStorage on page load
+            const stored = localStorage.getItem('wadjet_auth');
+            if (stored) {
+                try {
+                    const data = JSON.parse(stored);
+                    this.user = data.user;
+                    this.token = data.token;
+                } catch { /* corrupt data */ }
+            }
+        },
+
+        _save() {
+            if (this.user && this.token) {
+                localStorage.setItem('wadjet_auth', JSON.stringify({ user: this.user, token: this.token }));
+            } else {
+                localStorage.removeItem('wadjet_auth');
+            }
+        },
+
+        async register(email, password, displayName) {
+            this.loading = true;
+            this.error = '';
+            try {
+                const r = await fetch('/api/auth/register', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password, display_name: displayName || null }),
+                });
+                const data = await r.json();
+                if (!r.ok) { this.error = data.detail || 'Registration failed'; return false; }
+                this.user = data.user;
+                this.token = data.access_token;
+                this._save();
+                this.showSignup = false;
+                Alpine.store('toast').show('Welcome to Wadjet!', 'success');
+                return true;
+            } catch { this.error = 'Network error'; return false; }
+            finally { this.loading = false; }
+        },
+
+        async login(email, password) {
+            this.loading = true;
+            this.error = '';
+            try {
+                const r = await fetch('/api/auth/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password }),
+                });
+                const data = await r.json();
+                if (!r.ok) { this.error = data.detail || 'Login failed'; return false; }
+                this.user = data.user;
+                this.token = data.access_token;
+                this._save();
+                this.showLogin = false;
+                Alpine.store('toast').show('Welcome back!', 'success');
+                return true;
+            } catch { this.error = 'Network error'; return false; }
+            finally { this.loading = false; }
+        },
+
+        async logout() {
+            try { await fetch('/api/auth/logout', { method: 'POST' }); } catch { /* best-effort */ }
+            this.user = null;
+            this.token = null;
+            this._save();
+            Alpine.store('toast').show('Signed out', 'info');
+        },
+
+        async refreshToken() {
+            try {
+                const r = await fetch('/api/auth/refresh', { method: 'POST' });
+                if (!r.ok) { this.logout(); return; }
+                const data = await r.json();
+                this.token = data.access_token;
+                this._save();
+            } catch { this.logout(); }
+        },
+    });
 });
 
 // ── TTS for hieroglyphic pronunciation ──

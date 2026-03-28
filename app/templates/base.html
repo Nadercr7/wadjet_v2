@@ -42,6 +42,62 @@
     <!-- Footer -->
     {% include "partials/footer.html" %}
 
+    <!-- Auth Modals -->
+    <!-- Login Modal -->
+    <div x-data="{ email: '', password: '' }"
+         x-show="$store.auth.showLogin" x-cloak
+         @keydown.escape.window="$store.auth.showLogin = false"
+         class="fixed inset-0 z-[9999] flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-night/80 backdrop-blur-sm" @click="$store.auth.showLogin = false"></div>
+        <div class="relative bg-surface border border-border rounded-2xl shadow-2xl w-full max-w-md p-6"
+             x-transition>
+            <button @click="$store.auth.showLogin = false" class="absolute top-4 right-4 text-text-dim hover:text-text">&times;</button>
+            <h2 class="font-display text-xl font-bold text-gold mb-1">Welcome Back</h2>
+            <p class="text-sm text-text-muted mb-5">Sign in to save your progress</p>
+            <div x-show="$store.auth.error" class="mb-3 p-2.5 rounded-lg bg-error/10 border border-error/20 text-error text-sm" x-text="$store.auth.error"></div>
+            <form @submit.prevent="$store.auth.login(email, password)" class="flex flex-col gap-3">
+                <input x-model="email" type="email" placeholder="Email" required autocomplete="email" class="input">
+                <input x-model="password" type="password" placeholder="Password" required minlength="8" autocomplete="current-password" class="input">
+                <button type="submit" class="btn-gold w-full" :disabled="$store.auth.loading">
+                    <span x-show="!$store.auth.loading">Sign In</span>
+                    <span x-show="$store.auth.loading" x-cloak>Signing in…</span>
+                </button>
+            </form>
+            <p class="mt-4 text-center text-sm text-text-muted">
+                Don't have an account?
+                <button @click="$store.auth.showLogin = false; $store.auth.showSignup = true; $store.auth.error = ''" class="text-gold hover:text-gold-light">Sign Up</button>
+            </p>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div x-data="{ email: '', password: '', displayName: '' }"
+         x-show="$store.auth.showSignup" x-cloak
+         @keydown.escape.window="$store.auth.showSignup = false"
+         class="fixed inset-0 z-[9999] flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-night/80 backdrop-blur-sm" @click="$store.auth.showSignup = false"></div>
+        <div class="relative bg-surface border border-border rounded-2xl shadow-2xl w-full max-w-md p-6"
+             x-transition>
+            <button @click="$store.auth.showSignup = false" class="absolute top-4 right-4 text-text-dim hover:text-text">&times;</button>
+            <h2 class="font-display text-xl font-bold text-gold mb-1">Join Wadjet</h2>
+            <p class="text-sm text-text-muted mb-5">Create an account to track your discoveries</p>
+            <div x-show="$store.auth.error" class="mb-3 p-2.5 rounded-lg bg-error/10 border border-error/20 text-error text-sm" x-text="$store.auth.error"></div>
+            <form @submit.prevent="$store.auth.register(email, password, displayName)" class="flex flex-col gap-3">
+                <input x-model="displayName" type="text" placeholder="Display Name (optional)" maxlength="100" autocomplete="name" class="input">
+                <input x-model="email" type="email" placeholder="Email" required autocomplete="email" class="input">
+                <input x-model="password" type="password" placeholder="Password (8+ characters)" required minlength="8" autocomplete="new-password" class="input">
+                <button type="submit" class="btn-gold w-full" :disabled="$store.auth.loading">
+                    <span x-show="!$store.auth.loading">Create Account</span>
+                    <span x-show="$store.auth.loading" x-cloak>Creating…</span>
+                </button>
+            </form>
+            <p class="mt-4 text-center text-sm text-text-muted">
+                Already have an account?
+                <button @click="$store.auth.showSignup = false; $store.auth.showLogin = true; $store.auth.error = ''" class="text-gold hover:text-gold-light">Sign In</button>
+            </p>
+        </div>
+    </div>
+
     <!-- Toast notification -->
     <div x-data x-show="$store.toast.visible"
          x-transition:enter="transition ease-out duration-300"

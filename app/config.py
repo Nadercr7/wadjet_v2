@@ -12,6 +12,10 @@ class Settings(BaseSettings):
 
     # Security
     csrf_secret: str = ""  # Auto-generated if empty (see main.py)
+    jwt_secret: str = ""  # Auto-generated if empty (see main.py)
+
+    # Database
+    database_url: str = "sqlite+aiosqlite:///data/wadjet.db"
 
     # Gemini
     gemini_api_keys: str = ""
