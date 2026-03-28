@@ -332,3 +332,41 @@
 - ✅ `toggleLang()` function present in nav
 - ✅ Arabic heading text (مسح) present on scan page
 - ✅ `common.signs` key exists in both en.json and ar.json
+
+### Phase 6 Audit — 50+ Missed Strings Found & Fixed
+**Commit**: `60af209` — `[Phase 6] Audit fixes — 50+ missed i18n strings, mtime-based cache`
+
+**Translation Quality Assessment:**
+- All Arabic translations verified as genuine Modern Standard Arabic (MSA)
+- Proper Egyptological terminology (أحادي الصوت, محدد, لوغوغرام)
+- Correct Arabic-Indic numerals (٢٦٠, ١٧١)
+- Natural sentence construction, not machine output
+
+**~50 Hardcoded English Strings Fixed Across 8 Templates:**
+
+| Template | Fixes | Key Examples |
+|----------|-------|-------------|
+| lesson_page.html | 17 | See It in Action, Can You Read, Reveal Answer, Prev/Next Lesson, Browse Dict, detail modal labels |
+| scan.html | 10 | Preview alt, glyphs found/identified/confidence, 3 TTS aria-labels, Gardiner prefix, Share, Clear |
+| write.html | 8 | Mode buttons, placeholder ternary, copy/share labels, palette tab names, examples array |
+| quiz.html | 3 | Cancel, Question X of Y, Next/See Results |
+| dictionary.html | 2 | All button, Page X of Y · Z signs |
+| chat.html | 1 | Clear all |
+| nav.html | 2 | aria-label on both toggle buttons |
+
+**New JSON Keys Added:**
+- `nav.toggle_lang`: "Switch language" / "تبديل اللغة"
+- `scan.preview_alt`: "Preview" / "معاينة"
+- Full `lesson_page` section (11 keys): meta_desc, see_in_action, see_in_action_desc, can_you_read, can_you_read_desc, reveal_answer, prev_lesson, next_lesson, browse_dict, silent_adds, listen_label
+
+**Critical Bug Fixed:**
+- `@lru_cache` on `_load()` cached stale JSON data — new keys added during dev weren't visible until server restart
+- Replaced with mtime-based cache: checks file modification time, auto-refreshes when JSON files change
+- No more need to restart server after editing translation files
+
+**Testing Results (all pass):**
+- ✅ All 24 pages return 200 (9 EN + 9 AR + 6 lessons)
+- ✅ Lesson page Arabic: see_in_action, reveal_answer, prev/next lesson all render correctly
+- ✅ No literal key names in HTML output
+- ✅ Write page Arabic mode buttons, placeholders, palette tabs render correctly
+- ✅ Scan page has `dir="rtl"` in Arabic mode
