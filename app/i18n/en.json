@@ -50,7 +50,9 @@
         "sub_scan": "↳ Scan",
         "sub_dictionary": "↳ Dictionary",
         "sub_explore": "↳ Explore",
-        "sub_write": "↳ Write"
+        "sub_write": "↳ Write",
+        "dashboard": "Dashboard",
+        "settings": "Settings"
     },
     "auth": {
         "welcome_back": "Welcome Back",
@@ -389,7 +391,9 @@
         "detail_related": "Related Sites",
         "detail_recommend": "You Might Also Like",
         "detail_maps": "Google Maps",
-        "detail_wikipedia": "Wikipedia →"
+        "detail_wikipedia": "Wikipedia →",
+        "favorite": "Add to favorites",
+        "unfavorite": "Remove from favorites"
     },
     "chat": {
         "meta_desc": "Chat with Thoth, AI god of wisdom. Ask about hieroglyphs, pharaohs, temples, and Egyptian history.",
@@ -504,5 +508,55 @@
         "browse_dict": "Browse Full Dictionary",
         "silent_adds": "silent — adds meaning",
         "listen_label": "listen"
+    },
+    "dashboard": {
+        "title": "Dashboard",
+        "meta_desc": "Your personal Wadjet dashboard — track scans, story progress, and favorites.",
+        "login_required": "Sign In Required",
+        "login_required_desc": "Please sign in to view your dashboard.",
+        "welcome": "Welcome back",
+        "subtitle": "Here's your Egyptian heritage journey at a glance.",
+        "settings": "Settings",
+        "stat_scans": "Scans",
+        "stat_glyphs": "Glyphs Scanned",
+        "stat_stories": "Stories",
+        "stat_favorites": "Favorites",
+        "recent_scans": "Recent Scans",
+        "scan_more": "Scan more",
+        "no_scans": "No scans yet. Try scanning some hieroglyphs!",
+        "glyphs_detected": "glyphs detected",
+        "story_progress": "Story Progress",
+        "browse_stories": "Browse stories",
+        "no_stories": "No stories started yet. Explore the tales!",
+        "chapter": "Chapter",
+        "score": "Score",
+        "completed": "Completed",
+        "your_favorites": "Your Favorites",
+        "explore_more": "Explore more",
+        "no_favorites": "No favorites yet. Heart items you love!",
+        "remove_favorite": "Remove favorite",
+        "favorite_removed": "Removed from favorites"
+    },
+    "settings": {
+        "title": "Settings",
+        "meta_desc": "Manage your Wadjet profile, language, and password.",
+        "subtitle": "Manage your account and preferences.",
+        "profile": "Profile",
+        "display_name": "Display Name",
+        "name_placeholder": "Enter your name",
+        "email_label": "Email",
+        "email_readonly": "Email cannot be changed.",
+        "language": "Language",
+        "save_profile": "Save Profile",
+        "profile_saved": "Profile updated successfully!",
+        "change_password": "Change Password",
+        "current_password": "Current Password",
+        "new_password": "New Password",
+        "password_hint": "8+ characters",
+        "update_password": "Update Password",
+        "password_changed": "Password changed successfully!",
+        "account": "Account",
+        "tier": "Plan",
+        "member_since": "Member Since"
     }
 }

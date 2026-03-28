@@ -97,6 +97,20 @@ async def dictionary_lesson_page(request: Request, level: int):
     return templates.TemplateResponse(request, "lesson_page.html", {"level": level, "lang": lang})
 
 
+@router.get("/dashboard", response_class=HTMLResponse)
+async def dashboard(request: Request):
+    templates = request.app.state.templates
+    lang = get_lang(request)
+    return templates.TemplateResponse(request, "dashboard.html", {"lang": lang})
+
+
+@router.get("/settings", response_class=HTMLResponse)
+async def user_settings(request: Request):
+    templates = request.app.state.templates
+    lang = get_lang(request)
+    return templates.TemplateResponse(request, "settings.html", {"lang": lang})
+
+
 @router.get("/robots.txt", response_class=PlainTextResponse)
 async def robots_txt():
     base = settings.base_url.rstrip("/")

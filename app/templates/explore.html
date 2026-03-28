@@ -144,6 +144,15 @@
                         </template>
                         <!-- Badges top row -->
                         <div class="absolute top-2 right-2 flex gap-1">
+                            <!-- Favorite button (logged-in users) -->
+                            <template x-if="$store.auth.user">
+                                <button @click.stop="toggleFavorite(lm.slug)"
+                                        class="text-[10px] p-1 rounded-full transition-all"
+                                        :class="isFavorited(lm.slug) ? 'bg-gold/90 text-night' : 'bg-night/60 backdrop-blur-sm text-gold/70 hover:text-gold'"
+                                        :aria-label="isFavorited(lm.slug) ? '{{ t('explore.unfavorite', lang) }}' : '{{ t('explore.favorite', lang) }}'">
+                                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" :fill="isFavorited(lm.slug) ? 'currentColor' : 'none'" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                                </button>
+                            </template>
                             <template x-if="lm.featured">
                                 <span class="text-[10px] px-1.5 py-0.5 rounded-full bg-gold/90 text-night font-semibold">{{ t('explore.badge_featured', lang) }}</span>
                             </template>
@@ -603,6 +612,9 @@ function exploreApp() {
         detailLandmark: null,
         detailLoading: false,
 
+        // Favorites
+        favoriteIds: new Set(),
+
         // Identify state
         identifyMode: 'upload',
         identifyPreview: null,
@@ -616,6 +628,48 @@ function exploreApp() {
         async init() {
             await this.fetchCategories();
             await this.fetchLandmarks();
+            await this._loadFavorites();
+        },
+
+        async _loadFavorites() {
+            if (!Alpine.store('auth').user) return;
+            try {
+                const res = await fetch('/api/user/favorites', {
+                    headers: { 'Authorization': 'Bearer ' + Alpine.store('auth').token },
+                });
+                if (res.ok) {
+                    const favs = await res.json();
+                    this.favoriteIds = new Set(favs.filter(f => f.item_type === 'landmark').map(f => f.item_id));
+                }
+            } catch (e) { /* ignore */ }
+        },
+
+        isFavorited(slug) {
+            return this.favoriteIds.has(slug);
+        },
+
+        async toggleFavorite(slug) {
+            const token = Alpine.store('auth').token;
+            if (!token) return;
+            if (this.isFavorited(slug)) {
+                try {
+                    await fetch(`/api/user/favorites/landmark/${encodeURIComponent(slug)}`, {
+                        method: 'DELETE', headers: { 'Authorization': 'Bearer ' + token },
+                    });
+                    this.favoriteIds.delete(slug);
+                    this.favoriteIds = new Set(this.favoriteIds);
+                } catch (e) { /* ignore */ }
+            } else {
+                try {
+                    await fetch('/api/user/favorites', {
+                        method: 'POST',
+                        headers: { 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ item_type: 'landmark', item_id: slug }),
+                    });
+                    this.favoriteIds.add(slug);
+                    this.favoriteIds = new Set(this.favoriteIds);
+                } catch (e) { /* ignore */ }
+            }
         },
 
         async fetchCategories() {

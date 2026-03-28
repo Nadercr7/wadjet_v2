@@ -597,20 +597,51 @@ async def scan_image(
 
     # ── AI-only mode ──
     if mode == "ai":
-        return await _scan_ai_mode(
+        response = await _scan_ai_mode(
             ai_reader, pipeline, raw_bytes, mime, image, translate, loop,
         )
-
     # ── ONNX-only mode ──
-    if mode == "onnx":
-        return await _scan_onnx_mode(
+    elif mode == "onnx":
+        response = await _scan_onnx_mode(
             pipeline, gemini, grok, raw_bytes, mime, image, translate, loop,
         )
-
     # ── Auto mode (default): AI-first with ONNX assist ──
-    return await _scan_auto_mode(
-        ai_reader, pipeline, gemini, grok, raw_bytes, mime, image, translate, loop,
-    )
+    else:
+        response = await _scan_auto_mode(
+            ai_reader, pipeline, gemini, grok, raw_bytes, mime, image, translate, loop,
+        )
+
+    # Save scan history for authenticated users (fire-and-forget)
+    await _save_scan_history(request, response)
+
+    return response
+
+
+async def _save_scan_history(request: Request, response: JSONResponse):
+    """Save scan result to user's history if authenticated."""
+    try:
+        from app.auth.dependencies import get_optional_user
+        from app.db.crud import add_scan_history
+        from app.db.database import get_db
+
+        # Get user from auth header
+        async for db in get_db():
+            user = await get_optional_user(request, db)
+            if not user:
+                return
+            # Extract data from response body
+            body = json.loads(response.body.decode())
+            glyph_count = body.get("glyph_count", 0)
+            glyphs = body.get("glyphs", [])
+            if glyphs:
+                conf_avg = sum(g.get("class_confidence", 0) for g in glyphs) / len(glyphs)
+            else:
+                conf_avg = 0.0
+            results_json = json.dumps(body.get("glyphs", []))
+            await add_scan_history(db, user.id, results_json, conf_avg, glyph_count)
+            break
+    except Exception:
+        logger.debug("Scan history save failed (non-critical)", exc_info=True)
 
 
 async def _scan_ai_mode(ai_reader, pipeline, raw_bytes, mime, image, translate, loop):

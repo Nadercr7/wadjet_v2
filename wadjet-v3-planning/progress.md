@@ -13,7 +13,7 @@
 | 6 | ✅ DONE | 2026-03-28 | 2026-03-28 | — | Arabic i18n |
 | 7 | ✅ DONE | 2026-03-28 | 2026-03-28 | — | SEO & social + cross-phase audit |
 | 8 | ✅ DONE | 2026-03-28 | 2026-03-28 | 46a7376 | Stories of the Nile — 5 stories, AI images, TTS narration, Ken Burns |
-| 9 | ⬜ TODO | — | — | — | SaaS dashboard |
+| 9 | ✅ DONE | 2026-03-29 | 2026-03-29 | — | SaaS dashboard, settings, favorites, scan history, story progress |
 | 10 | ⬜ TODO | — | — | — | Beta finalize |
 
 ## Bug Tracker

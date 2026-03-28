@@ -94,6 +94,22 @@
                             <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                             <span class="text-xs" x-text="story.glyphs_taught.length + ' {{ t('stories.glyphs_to_learn', lang) }}'"></span>
                         </div>
+
+                        <!-- Progress (logged-in users) -->
+                        <template x-if="getProgress(story.id)">
+                            <div class="mt-3">
+                                <div class="w-full h-1.5 rounded-full bg-border overflow-hidden">
+                                    <div class="h-full rounded-full transition-all"
+                                         :class="getProgress(story.id).completed ? 'bg-green-500' : 'bg-gold'"
+                                         :style="'width:' + (getProgress(story.id).completed ? 100 : Math.min(90, (getProgress(story.id).chapter_index + 1) / story.chapter_count * 100)) + '%'"></div>
+                                </div>
+                                <div class="flex justify-between mt-1 text-[10px] text-text-dim">
+                                    <span x-show="getProgress(story.id).completed" class="text-green-400">{{ t('dashboard.completed', lang) }}</span>
+                                    <span x-show="!getProgress(story.id).completed" x-text="'{{ t('stories.chapter', lang) }} ' + (getProgress(story.id).chapter_index + 1)"></span>
+                                    <span x-text="getProgress(story.id).score + ' pts'"></span>
+                                </div>
+                            </div>
+                        </template>
                     </a>
                 </template>
             </div>
@@ -117,6 +133,7 @@ function storiesApp() {
         stories: [],
         filter: 'all',
         loading: true,
+        progressMap: {},
 
         async init() {
             try {
@@ -128,6 +145,26 @@ function storiesApp() {
             } finally {
                 this.loading = false;
             }
+            await this._loadProgress();
+        },
+
+        async _loadProgress() {
+            if (!Alpine.store('auth').user) return;
+            try {
+                const res = await fetch('/api/user/progress', {
+                    headers: { 'Authorization': 'Bearer ' + Alpine.store('auth').token },
+                });
+                if (res.ok) {
+                    const items = await res.json();
+                    for (const sp of items) {
+                        this.progressMap[sp.story_id] = sp;
+                    }
+                }
+            } catch (e) { /* ignore */ }
+        },
+
+        getProgress(storyId) {
+            return this.progressMap[storyId] || null;
         },
 
         get filteredStories() {

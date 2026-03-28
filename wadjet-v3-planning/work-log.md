@@ -553,3 +553,50 @@ Interactive Egyptian mythology storytelling experience replacing Quiz in the nav
 - ✅ Arabic i18n renders حكايات, RTL active
 - ✅ Nav shows "Stories" not "Quiz"
 - ✅ /api/stories returns all 5 stories with correct metadata
+
+---
+
+## Phase 9 — SaaS Dashboard & User Features
+
+### What Was Built
+Full user dashboard, account settings, favorites system, scan history tracking, and story progress sync. Connects the existing auth/DB foundation (Phase 3) to user-facing features.
+
+### New Files (2)
+| File | Purpose |
+|------|---------|
+| `app/templates/dashboard.html` | User dashboard — stats cards, recent scans, story progress, favorites grid |
+| `app/templates/settings.html` | Account settings — profile edit, language preference, password change |
+
+### Modified Files (10)
+| File | Change |
+|------|--------|
+| `app/db/crud.py` | Added 5 CRUD functions: get_all_story_progress, upsert_story_progress, update_user_profile, update_user_password, get_user_stats |
+| `app/db/schemas.py` | Added 4 schemas: UpdateProfileRequest, ChangePasswordRequest, FavoriteRequest, StoryProgressRequest |
+| `app/api/user.py` | Expanded from 3 to 10 endpoints: PATCH profile, PATCH password, POST/DELETE favorites, GET stats, GET/POST progress |
+| `app/api/pages.py` | Added /dashboard and /settings page routes |
+| `app/api/scan.py` | Integrated scan history saving for authenticated users (fire-and-forget after response) |
+| `app/templates/partials/nav.html` | Added Dashboard + Settings links in user dropdown (desktop) and mobile menu |
+| `app/templates/explore.html` | Added heart/favorite button on landmark cards with toggle, loaded user favorites on init |
+| `app/templates/stories.html` | Added progress bars on story cards, loaded user progress on init |
+| `app/templates/story_reader.html` | Syncs story progress to server for logged-in users, restores from server on init |
+| `app/i18n/en.json` | Added nav.dashboard, nav.settings, 25 dashboard.* keys, 20 settings.* keys, explore.favorite/unfavorite |
+| `app/i18n/ar.json` | Same i18n additions in Arabic |
+
+### API Endpoints Added (7 new)
+| Method | Path | Purpose |
+|--------|------|---------|
+| PATCH | /api/user/profile | Update display name / language |
+| PATCH | /api/user/password | Change password (requires current) |
+| POST | /api/user/favorites | Add favorite item |
+| DELETE | /api/user/favorites/{type}/{id} | Remove favorite item |
+| GET | /api/user/stats | Dashboard aggregate stats |
+| GET | /api/user/progress | All story progress |
+| POST | /api/user/progress | Save/update story progress |
+
+### Key Design Decisions
+- Dashboard is client-rendered (Alpine.js fetches from API with Bearer token)
+- Auth gate in templates (shows sign-in prompt to guests, dashboard to logged-in users)
+- Favorites use optimistic UI (Set-based toggle, instant visual feedback)
+- Scan history saved as fire-and-forget (non-critical — errors logged but don't affect scan response)
+- Story progress synced bidirectionally: save on chapter change, restore from server on init (falls back to localStorage for guests)
+- Settings page auto-reloads if language preference changes (applies cookie + reload)

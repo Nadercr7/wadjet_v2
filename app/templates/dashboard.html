@@ -1,0 +1,232 @@
+{% extends "base.html" %}
+
+{% block title %}{{ t('dashboard.title', lang) }}{% endblock %}
+{% block description %}{{ t('dashboard.meta_desc', lang) }}{% endblock %}
+
+{% block content %}
+<section class="py-12 min-h-screen" x-data="dashboardApp()" x-init="init()">
+    <div class="container-wide mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Auth Gate: redirect if not logged in -->
+        <template x-if="!$store.auth.user">
+            <div class="text-center py-20">
+                <span class="text-5xl block mb-4 opacity-40">𓂀</span>
+                <h1 class="text-2xl font-display font-bold text-text mb-2">{{ t('dashboard.login_required', lang) }}</h1>
+                <p class="text-text-muted mb-6">{{ t('dashboard.login_required_desc', lang) }}</p>
+                <button @click="$store.auth.showLogin = true" class="btn-gold">{{ t('nav.sign_in', lang) }}</button>
+            </div>
+        </template>
+
+        <template x-if="$store.auth.user">
+            <div>
+                <!-- Header -->
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
+                    <div>
+                        <h1 class="text-3xl font-display font-bold">
+                            <span class="text-text">{{ t('dashboard.welcome', lang) }},</span>
+                            <span class="text-gold" x-text="$store.auth.user.display_name || $store.auth.user.email.split('@')[0]"></span>
+                        </h1>
+                        <p class="text-text-muted mt-1">{{ t('dashboard.subtitle', lang) }}</p>
+                    </div>
+                    <a href="/settings" class="btn-ghost inline-flex items-center gap-2 self-start">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><circle cx="12" cy="12" r="3"/></svg>
+                        {{ t('dashboard.settings', lang) }}
+                    </a>
+                </div>
+
+                <!-- Stats Cards -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+                    <div class="card p-5 text-center">
+                        <div class="text-3xl font-display font-bold text-gold mb-1" x-text="stats.scans"></div>
+                        <div class="text-sm text-text-muted">{{ t('dashboard.stat_scans', lang) }}</div>
+                    </div>
+                    <div class="card p-5 text-center">
+                        <div class="text-3xl font-display font-bold text-gold mb-1" x-text="stats.total_glyphs_scanned"></div>
+                        <div class="text-sm text-text-muted">{{ t('dashboard.stat_glyphs', lang) }}</div>
+                    </div>
+                    <div class="card p-5 text-center">
+                        <div class="text-3xl font-display font-bold text-gold mb-1" x-text="stats.stories_completed + '/' + stats.stories_started"></div>
+                        <div class="text-sm text-text-muted">{{ t('dashboard.stat_stories', lang) }}</div>
+                    </div>
+                    <div class="card p-5 text-center">
+                        <div class="text-3xl font-display font-bold text-gold mb-1" x-text="stats.favorites"></div>
+                        <div class="text-sm text-text-muted">{{ t('dashboard.stat_favorites', lang) }}</div>
+                    </div>
+                </div>
+
+                <!-- Two-column layout -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+                    <!-- Recent Scans -->
+                    <div class="card p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h2 class="text-lg font-display font-semibold text-text">{{ t('dashboard.recent_scans', lang) }}</h2>
+                            <a href="/scan" class="text-sm text-gold hover:text-gold-light">{{ t('dashboard.scan_more', lang) }} →</a>
+                        </div>
+                        <template x-if="loading">
+                            <div class="flex justify-center py-8">
+                                <div class="w-6 h-6 border-2 border-gold/30 border-t-gold rounded-full animate-spin"></div>
+                            </div>
+                        </template>
+                        <template x-if="!loading && history.length === 0">
+                            <div class="text-center py-8 text-text-dim">
+                                <svg class="w-10 h-10 mx-auto mb-2 opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><circle cx="12" cy="13" r="3"/></svg>
+                                <p class="text-sm">{{ t('dashboard.no_scans', lang) }}</p>
+                            </div>
+                        </template>
+                        <template x-if="!loading && history.length > 0">
+                            <div class="space-y-3">
+                                <template x-for="scan in history.slice(0, 5)" :key="scan.id">
+                                    <div class="flex items-center justify-between p-3 rounded-lg bg-night/50 border border-border/50">
+                                        <div>
+                                            <div class="text-sm font-medium text-text">
+                                                <span x-text="scan.glyph_count"></span>
+                                                <span>{{ t('dashboard.glyphs_detected', lang) }}</span>
+                                            </div>
+                                            <div class="text-xs text-text-dim" x-text="new Date(scan.created_at).toLocaleDateString()"></div>
+                                        </div>
+                                        <div class="text-sm text-gold font-medium" x-text="Math.round(scan.confidence_avg * 100) + '%'"></div>
+                                    </div>
+                                </template>
+                            </div>
+                        </template>
+                    </div>
+
+                    <!-- Story Progress -->
+                    <div class="card p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h2 class="text-lg font-display font-semibold text-text">{{ t('dashboard.story_progress', lang) }}</h2>
+                            <a href="/stories" class="text-sm text-gold hover:text-gold-light">{{ t('dashboard.browse_stories', lang) }} →</a>
+                        </div>
+                        <template x-if="loading">
+                            <div class="flex justify-center py-8">
+                                <div class="w-6 h-6 border-2 border-gold/30 border-t-gold rounded-full animate-spin"></div>
+                            </div>
+                        </template>
+                        <template x-if="!loading && storyProgress.length === 0">
+                            <div class="text-center py-8 text-text-dim">
+                                <svg class="w-10 h-10 mx-auto mb-2 opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                                <p class="text-sm">{{ t('dashboard.no_stories', lang) }}</p>
+                            </div>
+                        </template>
+                        <template x-if="!loading && storyProgress.length > 0">
+                            <div class="space-y-3">
+                                <template x-for="sp in storyProgress" :key="sp.id">
+                                    <a :href="'/stories/' + sp.story_id" class="block p-3 rounded-lg bg-night/50 border border-border/50 hover:border-gold/30 transition-colors">
+                                        <div class="flex items-center justify-between mb-2">
+                                            <span class="text-sm font-medium text-text capitalize" x-text="sp.story_id.replace(/-/g, ' ')"></span>
+                                            <span x-show="sp.completed" class="text-xs px-2 py-0.5 rounded-full bg-green-500/10 text-green-400 border border-green-500/20">{{ t('dashboard.completed', lang) }}</span>
+                                        </div>
+                                        <div class="w-full h-1.5 rounded-full bg-border overflow-hidden">
+                                            <div class="h-full rounded-full bg-gold transition-all"
+                                                 :style="'width:' + (sp.completed ? 100 : Math.min(90, sp.chapter_index * 20)) + '%'"></div>
+                                        </div>
+                                        <div class="flex justify-between mt-1 text-xs text-text-dim">
+                                            <span>{{ t('dashboard.chapter', lang) }} <span x-text="sp.chapter_index + 1"></span></span>
+                                            <span>{{ t('dashboard.score', lang) }}: <span x-text="sp.score"></span></span>
+                                        </div>
+                                    </a>
+                                </template>
+                            </div>
+                        </template>
+                    </div>
+
+                    <!-- Favorites -->
+                    <div class="card p-6 lg:col-span-2">
+                        <div class="flex items-center justify-between mb-4">
+                            <h2 class="text-lg font-display font-semibold text-text">{{ t('dashboard.your_favorites', lang) }}</h2>
+                            <a href="/explore" class="text-sm text-gold hover:text-gold-light">{{ t('dashboard.explore_more', lang) }} →</a>
+                        </div>
+                        <template x-if="loading">
+                            <div class="flex justify-center py-8">
+                                <div class="w-6 h-6 border-2 border-gold/30 border-t-gold rounded-full animate-spin"></div>
+                            </div>
+                        </template>
+                        <template x-if="!loading && favs.length === 0">
+                            <div class="text-center py-8 text-text-dim">
+                                <svg class="w-10 h-10 mx-auto mb-2 opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                                <p class="text-sm">{{ t('dashboard.no_favorites', lang) }}</p>
+                            </div>
+                        </template>
+                        <template x-if="!loading && favs.length > 0">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+                                <template x-for="f in favs" :key="f.id">
+                                    <div class="flex items-center justify-between p-3 rounded-lg bg-night/50 border border-border/50">
+                                        <div class="flex items-center gap-2 min-w-0">
+                                            <span class="text-lg shrink-0"
+                                                  x-text="f.item_type === 'landmark' ? '𓉐' : f.item_type === 'glyph' ? '𓊹' : '𓂀'"></span>
+                                            <div class="min-w-0">
+                                                <div class="text-sm font-medium text-text truncate capitalize" x-text="f.item_id.replace(/-/g, ' ')"></div>
+                                                <div class="text-xs text-text-dim capitalize" x-text="f.item_type"></div>
+                                            </div>
+                                        </div>
+                                        <button @click.prevent="removeFavorite(f.item_type, f.item_id, f.id)"
+                                                class="text-text-dim hover:text-error transition-colors shrink-0 p-1"
+                                                :aria-label="'{{ t('dashboard.remove_favorite', lang) }}'">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                                        </button>
+                                    </div>
+                                </template>
+                            </div>
+                        </template>
+                    </div>
+
+                </div>
+            </div>
+        </template>
+
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+function dashboardApp() {
+    return {
+        stats: { scans: 0, favorites: 0, stories_started: 0, stories_completed: 0, total_glyphs_scanned: 0 },
+        history: [],
+        storyProgress: [],
+        favs: [],
+        loading: true,
+
+        async init() {
+            if (!Alpine.store('auth').user) return;
+            const token = Alpine.store('auth').token;
+            const headers = { 'Authorization': 'Bearer ' + token };
+            try {
+                const [statsRes, histRes, progRes, favsRes] = await Promise.all([
+                    fetch('/api/user/stats', { headers }),
+                    fetch('/api/user/history', { headers }),
+                    fetch('/api/user/progress', { headers }),
+                    fetch('/api/user/favorites', { headers }),
+                ]);
+                if (statsRes.ok) this.stats = await statsRes.json();
+                if (histRes.ok) this.history = await histRes.json();
+                if (progRes.ok) this.storyProgress = await progRes.json();
+                if (favsRes.ok) this.favs = await favsRes.json();
+            } catch (e) {
+                console.error('Dashboard load failed:', e);
+            }
+            this.loading = false;
+        },
+
+        async removeFavorite(itemType, itemId, favId) {
+            const token = Alpine.store('auth').token;
+            try {
+                const res = await fetch(`/api/user/favorites/${itemType}/${encodeURIComponent(itemId)}`, {
+                    method: 'DELETE',
+                    headers: { 'Authorization': 'Bearer ' + token },
+                });
+                if (res.ok) {
+                    this.favs = this.favs.filter(f => f.id !== favId);
+                    this.stats.favorites = Math.max(0, this.stats.favorites - 1);
+                    Alpine.store('toast').show('{{ t("dashboard.favorite_removed", lang) }}', 'success');
+                }
+            } catch (e) {
+                Alpine.store('toast').show('{{ t("common.error", lang) }}', 'error');
+            }
+        },
+    };
+}
+</script>
+{% endblock %}

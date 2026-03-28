@@ -267,6 +267,23 @@ function storyReader(storyId, lang) {
                     } catch {}
                 }
 
+                // If logged in, prefer server progress over localStorage
+                if (Alpine.store('auth').user) {
+                    try {
+                        const progResp = await fetch('/api/user/progress', {
+                            headers: { 'Authorization': 'Bearer ' + Alpine.store('auth').token },
+                        });
+                        if (progResp.ok) {
+                            const allProgress = await progResp.json();
+                            const sp = allProgress.find(p => p.story_id === this.storyId);
+                            if (sp) {
+                                this.chapterIdx = sp.chapter_index || 0;
+                                try { this.glyphsLearned = JSON.parse(sp.glyphs_learned) || []; } catch { this.glyphsLearned = []; }
+                            }
+                        }
+                    } catch {}
+                }
+
                 this.loadChapterImage();
             } catch (e) {
                 this.error = e.message;
@@ -437,6 +454,21 @@ function storyReader(storyId, lang) {
                 chapterIdx: this.chapterIdx,
                 glyphsLearned: this.glyphsLearned
             }));
+            // Sync to server for logged-in users
+            if (Alpine.store('auth').user) {
+                const token = Alpine.store('auth').token;
+                fetch('/api/user/progress', {
+                    method: 'POST',
+                    headers: { 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        story_id: this.storyId,
+                        chapter_index: this.chapterIdx,
+                        glyphs_learned: JSON.stringify(this.glyphsLearned),
+                        score: this.glyphsLearned.length * 10,
+                        completed: this.chapterIdx >= (this.story.chapters.length - 1),
+                    }),
+                }).catch(() => {});
+            }
         }
     };
 }

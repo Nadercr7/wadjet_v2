@@ -50,7 +50,9 @@
         "sub_scan": "↳ فحص",
         "sub_dictionary": "↳ القاموس",
         "sub_explore": "↳ استكشاف",
-        "sub_write": "↳ اكتب"
+        "sub_write": "↳ اكتب",
+        "dashboard": "لوحة التحكم",
+        "settings": "الإعدادات"
     },
     "auth": {
         "welcome_back": "مرحبًا بعودتك",
@@ -389,7 +391,9 @@
         "detail_related": "مواقع ذات صلة",
         "detail_recommend": "قد يعجبك أيضًا",
         "detail_maps": "خرائط جوجل",
-        "detail_wikipedia": "ويكيبيديا ←"
+        "detail_wikipedia": "ويكيبيديا ←",
+        "favorite": "أضف للمفضلة",
+        "unfavorite": "إزالة من المفضلة"
     },
     "chat": {
         "meta_desc": "تحدّث مع تحوت، إله الحكمة بالذكاء الاصطناعي. اسأل عن الهيروغليفية والفراعنة والمعابد والتاريخ المصري.",
@@ -504,5 +508,55 @@
         "browse_dict": "تصفّح القاموس الكامل",
         "silent_adds": "صامت — يضيف معنى",
         "listen_label": "استمع"
+    },
+    "dashboard": {
+        "title": "لوحة التحكم",
+        "meta_desc": "لوحة التحكم الشخصية — تتبع عمليات الفحص وتقدم القصص والمفضلة.",
+        "login_required": "تسجيل الدخول مطلوب",
+        "login_required_desc": "سجّل الدخول لعرض لوحة التحكم.",
+        "welcome": "مرحبًا بعودتك",
+        "subtitle": "إليك نظرة عامة على رحلتك في التراث المصري.",
+        "settings": "الإعدادات",
+        "stat_scans": "عمليات الفحص",
+        "stat_glyphs": "رموز مفحوصة",
+        "stat_stories": "القصص",
+        "stat_favorites": "المفضلة",
+        "recent_scans": "آخر عمليات الفحص",
+        "scan_more": "افحص المزيد",
+        "no_scans": "لا توجد عمليات فحص بعد. جرّب فحص بعض الهيروغليفية!",
+        "glyphs_detected": "رموز مكتشفة",
+        "story_progress": "تقدم القصص",
+        "browse_stories": "تصفّح القصص",
+        "no_stories": "لم تبدأ أي قصة بعد. استكشف الحكايات!",
+        "chapter": "الفصل",
+        "score": "النقاط",
+        "completed": "مكتمل",
+        "your_favorites": "مفضلاتك",
+        "explore_more": "استكشف المزيد",
+        "no_favorites": "لا توجد مفضلات بعد. أضف العناصر التي تعجبك!",
+        "remove_favorite": "إزالة من المفضلة",
+        "favorite_removed": "تمت الإزالة من المفضلة"
+    },
+    "settings": {
+        "title": "الإعدادات",
+        "meta_desc": "إدارة الملف الشخصي واللغة وكلمة المرور.",
+        "subtitle": "إدارة حسابك وتفضيلاتك.",
+        "profile": "الملف الشخصي",
+        "display_name": "اسم العرض",
+        "name_placeholder": "أدخل اسمك",
+        "email_label": "البريد الإلكتروني",
+        "email_readonly": "لا يمكن تغيير البريد الإلكتروني.",
+        "language": "اللغة",
+        "save_profile": "حفظ الملف الشخصي",
+        "profile_saved": "تم تحديث الملف الشخصي بنجاح!",
+        "change_password": "تغيير كلمة المرور",
+        "current_password": "كلمة المرور الحالية",
+        "new_password": "كلمة المرور الجديدة",
+        "password_hint": "٨ أحرف فأكثر",
+        "update_password": "تحديث كلمة المرور",
+        "password_changed": "تم تغيير كلمة المرور بنجاح!",
+        "account": "الحساب",
+        "tier": "الخطة",
+        "member_since": "عضو منذ"
     }
 }

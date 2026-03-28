@@ -48,6 +48,9 @@
                             </button>
                             <div x-show="userMenu" @click.outside="userMenu = false" x-cloak
                                  x-transition class="absolute right-0 mt-1 w-40 bg-surface border border-border rounded-lg shadow-lg overflow-hidden z-50 rtl:right-auto rtl:left-0">
+                                <a href="/dashboard" class="block w-full text-left rtl:text-right px-4 py-2.5 text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-colors">{{ t('nav.dashboard', lang) }}</a>
+                                <a href="/settings" class="block w-full text-left rtl:text-right px-4 py-2.5 text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-colors">{{ t('nav.settings', lang) }}</a>
+                                <div class="border-t border-border"></div>
                                 <button @click="$store.auth.logout(); userMenu = false" class="w-full text-left rtl:text-right px-4 py-2.5 text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-colors">{{ t('nav.sign_out', lang) }}</button>
                             </div>
                         </div>
@@ -106,6 +109,7 @@
                     </template>
                     <template x-if="$store.auth.user">
                         <div class="flex flex-col gap-2">
+                            <a href="/dashboard" class="btn-ghost w-full text-center">{{ t('nav.dashboard', lang) }}</a>
                             <a href="/scan" class="btn-gold w-full text-center">{{ t('nav.scan_now', lang) }}</a>
                             <button @click="$store.auth.logout(); mobileMenu = false" class="btn-ghost w-full text-center">{{ t('nav.sign_out', lang) }}</button>
                         </div>

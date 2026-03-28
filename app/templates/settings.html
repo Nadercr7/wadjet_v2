@@ -1,0 +1,182 @@
+{% extends "base.html" %}
+
+{% block title %}{{ t('settings.title', lang) }}{% endblock %}
+{% block description %}{{ t('settings.meta_desc', lang) }}{% endblock %}
+
+{% block content %}
+<section class="py-12 min-h-screen" x-data="settingsApp()" x-init="init()">
+    <div class="container-wide mx-auto px-4 sm:px-6 lg:px-8 max-w-2xl">
+
+        <!-- Auth Gate -->
+        <template x-if="!$store.auth.user">
+            <div class="text-center py-20">
+                <span class="text-5xl block mb-4 opacity-40">𓂀</span>
+                <h1 class="text-2xl font-display font-bold text-text mb-2">{{ t('dashboard.login_required', lang) }}</h1>
+                <p class="text-text-muted mb-6">{{ t('dashboard.login_required_desc', lang) }}</p>
+                <button @click="$store.auth.showLogin = true" class="btn-gold">{{ t('nav.sign_in', lang) }}</button>
+            </div>
+        </template>
+
+        <template x-if="$store.auth.user">
+            <div>
+                <!-- Header -->
+                <div class="flex items-center gap-4 mb-8">
+                    <a href="/dashboard" class="text-text-dim hover:text-gold transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                    </a>
+                    <div>
+                        <h1 class="text-2xl font-display font-bold text-text">{{ t('settings.title', lang) }}</h1>
+                        <p class="text-sm text-text-muted">{{ t('settings.subtitle', lang) }}</p>
+                    </div>
+                </div>
+
+                <!-- Profile Section -->
+                <div class="card p-6 mb-6">
+                    <h2 class="text-lg font-display font-semibold text-text mb-4">{{ t('settings.profile', lang) }}</h2>
+                    <form @submit.prevent="updateProfile()" class="space-y-4">
+                        <div>
+                            <label class="block text-sm text-text-muted mb-1">{{ t('settings.display_name', lang) }}</label>
+                            <input x-model="profileForm.display_name" type="text" maxlength="100" class="input w-full"
+                                   placeholder="{{ t('settings.name_placeholder', lang) }}">
+                        </div>
+                        <div>
+                            <label class="block text-sm text-text-muted mb-1">{{ t('settings.email_label', lang) }}</label>
+                            <input :value="$store.auth.user.email" type="email" disabled
+                                   class="input w-full opacity-50 cursor-not-allowed">
+                            <p class="text-xs text-text-dim mt-1">{{ t('settings.email_readonly', lang) }}</p>
+                        </div>
+                        <div>
+                            <label class="block text-sm text-text-muted mb-1">{{ t('settings.language', lang) }}</label>
+                            <select x-model="profileForm.preferred_lang" class="input w-full">
+                                <option value="en">English</option>
+                                <option value="ar">العربية</option>
+                            </select>
+                        </div>
+                        <div class="pt-2">
+                            <button type="submit" class="btn-gold" :disabled="profileSaving">
+                                <span x-show="!profileSaving">{{ t('settings.save_profile', lang) }}</span>
+                                <span x-show="profileSaving" x-cloak>{{ t('common.loading', lang) }}</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Password Section -->
+                <div class="card p-6 mb-6">
+                    <h2 class="text-lg font-display font-semibold text-text mb-4">{{ t('settings.change_password', lang) }}</h2>
+                    <form @submit.prevent="changePassword()" class="space-y-4">
+                        <div>
+                            <label class="block text-sm text-text-muted mb-1">{{ t('settings.current_password', lang) }}</label>
+                            <input x-model="pwForm.current_password" type="password" required minlength="8"
+                                   autocomplete="current-password" class="input w-full">
+                        </div>
+                        <div>
+                            <label class="block text-sm text-text-muted mb-1">{{ t('settings.new_password', lang) }}</label>
+                            <input x-model="pwForm.new_password" type="password" required minlength="8"
+                                   autocomplete="new-password" class="input w-full"
+                                   placeholder="{{ t('settings.password_hint', lang) }}">
+                        </div>
+                        <div x-show="pwError" class="p-2.5 rounded-lg bg-error/10 border border-error/20 text-error text-sm" x-text="pwError"></div>
+                        <div class="pt-2">
+                            <button type="submit" class="btn-ghost" :disabled="pwSaving">
+                                <span x-show="!pwSaving">{{ t('settings.update_password', lang) }}</span>
+                                <span x-show="pwSaving" x-cloak>{{ t('common.loading', lang) }}</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Account Info -->
+                <div class="card p-6">
+                    <h2 class="text-lg font-display font-semibold text-text mb-4">{{ t('settings.account', lang) }}</h2>
+                    <div class="space-y-3 text-sm">
+                        <div class="flex justify-between">
+                            <span class="text-text-muted">{{ t('settings.tier', lang) }}</span>
+                            <span class="text-gold capitalize" x-text="$store.auth.user.tier"></span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-text-muted">{{ t('settings.member_since', lang) }}</span>
+                            <span class="text-text" x-text="new Date($store.auth.user.created_at).toLocaleDateString()"></span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </template>
+
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+function settingsApp() {
+    return {
+        profileForm: { display_name: '', preferred_lang: 'en' },
+        pwForm: { current_password: '', new_password: '' },
+        profileSaving: false,
+        pwSaving: false,
+        pwError: '',
+
+        init() {
+            if (!Alpine.store('auth').user) return;
+            const u = Alpine.store('auth').user;
+            this.profileForm.display_name = u.display_name || '';
+            this.profileForm.preferred_lang = u.preferred_lang || 'en';
+        },
+
+        async updateProfile() {
+            this.profileSaving = true;
+            const token = Alpine.store('auth').token;
+            try {
+                const res = await fetch('/api/user/profile', {
+                    method: 'PATCH',
+                    headers: { 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' },
+                    body: JSON.stringify(this.profileForm),
+                });
+                if (res.ok) {
+                    const data = await res.json();
+                    Alpine.store('auth').user = data;
+                    Alpine.store('auth')._save();
+                    Alpine.store('toast').show('{{ t("settings.profile_saved", lang) }}', 'success');
+                    // If language changed, reload to apply
+                    if (data.preferred_lang !== '{{ lang }}') {
+                        document.cookie = 'wadjet_lang=' + data.preferred_lang + ';path=/;max-age=31536000;SameSite=Lax';
+                        window.location.reload();
+                    }
+                } else {
+                    const err = await res.json();
+                    Alpine.store('toast').show(err.detail || '{{ t("common.error", lang) }}', 'error');
+                }
+            } catch (e) {
+                Alpine.store('toast').show('{{ t("common.error", lang) }}', 'error');
+            }
+            this.profileSaving = false;
+        },
+
+        async changePassword() {
+            this.pwSaving = true;
+            this.pwError = '';
+            const token = Alpine.store('auth').token;
+            try {
+                const res = await fetch('/api/user/password', {
+                    method: 'PATCH',
+                    headers: { 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' },
+                    body: JSON.stringify(this.pwForm),
+                });
+                if (res.ok) {
+                    this.pwForm = { current_password: '', new_password: '' };
+                    Alpine.store('toast').show('{{ t("settings.password_changed", lang) }}', 'success');
+                } else {
+                    const err = await res.json();
+                    this.pwError = err.detail || '{{ t("common.error", lang) }}';
+                }
+            } catch (e) {
+                this.pwError = '{{ t("common.error", lang) }}';
+            }
+            this.pwSaving = false;
+        },
+    };
+}
+</script>
+{% endblock %}
