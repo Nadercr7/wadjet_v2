@@ -1,4 +1,6 @@
 import logging
+import re
+import secrets
 from contextlib import asynccontextmanager
 from pathlib import Path
 
@@ -7,9 +9,12 @@ from fastapi.middleware.gzip import GZipMiddleware
 from fastapi.responses import FileResponse, HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
+from slowapi import _rate_limit_exceeded_handler
+from slowapi.errors import RateLimitExceeded
 
 from app.api import audio, chat, dictionary, explore, health, pages, quiz, scan, translate, write
 from app.config import settings
+from app.rate_limit import limiter
 
 logger = logging.getLogger(__name__)
 
@@ -121,6 +126,25 @@ def create_app() -> FastAPI:
         description="AI-powered Egyptian heritage app",
         version="2.0.0",
         lifespan=lifespan,
+    )
+
+    # ── Security middleware ──
+
+    # Rate limiter
+    app.state.limiter = limiter
+    app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
+
+    # CSRF protection for POST/PUT/DELETE (skip GET, health, docs)
+    csrf_secret = settings.csrf_secret or secrets.token_hex(32)
+    from starlette_csrf import CSRFMiddleware
+    app.add_middleware(
+        CSRFMiddleware,
+        secret=csrf_secret,
+        exempt_urls=[
+            re.compile(r"^/api/health$"),
+            re.compile(r"^/docs"),
+            re.compile(r"^/openapi\.json$"),
+        ],
     )
 
     # GZip compression for responses > 500 bytes

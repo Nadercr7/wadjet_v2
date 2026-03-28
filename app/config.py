@@ -10,6 +10,9 @@ class Settings(BaseSettings):
     host: str = "0.0.0.0"
     port: int = 8000
 
+    # Security
+    csrf_secret: str = ""  # Auto-generated if empty (see main.py)
+
     # Gemini
     gemini_api_keys: str = ""
     gemini_model: str = "gemini-2.5-flash"

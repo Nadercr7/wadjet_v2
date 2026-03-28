@@ -15,6 +15,8 @@ from fastapi import APIRouter, Request
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel, Field
 
+from app.rate_limit import limiter
+
 from app.core.gardiner import (
     GARDINER_TRANSLITERATION,
     GardinerSign,
@@ -430,6 +432,7 @@ async def _ai_translate_to_hieroglyphs(request: Request, text: str) -> tuple[lis
 
 
 @router.post("")
+@limiter.limit("30/minute")
 async def convert_text(req: WriteRequest, request: Request):
     """Convert text to hieroglyphic sequence.
 

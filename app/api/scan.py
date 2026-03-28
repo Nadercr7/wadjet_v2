@@ -23,13 +23,21 @@ from collections import Counter
 from fastapi import APIRouter, File, Form, HTTPException, Request, UploadFile
 from fastapi.responses import JSONResponse
 
+from app.rate_limit import limiter
+
 logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/api", tags=["scan"])
 
 MAX_FILE_SIZE = 10 * 1024 * 1024
-ALLOWED_TYPES = {"image/jpeg", "image/png", "image/webp"}
 LOW_CONF_THRESHOLD = 0.5  # glyphs below this get AI verification
+
+# Magic byte signatures for image validation (not just Content-Type header)
+MAGIC_BYTES = {
+    b'\xff\xd8\xff': 'image/jpeg',
+    b'\x89PNG': 'image/png',
+    b'RIFF': 'image/webp',  # WebP starts with RIFF....WEBP
+}
 
 
 def _get_pipeline():
@@ -40,22 +48,30 @@ def _get_pipeline():
 
 async def _read_image_bytes(file: UploadFile) -> tuple[bytes, np.ndarray]:
     """Read an uploaded file into raw bytes + BGR numpy array."""
-    if file.content_type and file.content_type not in ALLOWED_TYPES:
-        raise HTTPException(
-            status_code=400,
-            detail=f"Unsupported file type: {file.content_type}. Use JPEG, PNG, or WebP.",
-        )
-
     data = await file.read()
-    if len(data) > MAX_FILE_SIZE:
-        raise HTTPException(status_code=400, detail="File too large. Maximum 10 MB.")
     if len(data) == 0:
         raise HTTPException(status_code=400, detail="Empty file uploaded.")
+    if len(data) > MAX_FILE_SIZE:
+        raise HTTPException(status_code=400, detail="File too large. Maximum 10 MB.")
+
+    # Validate magic bytes (not just content-type header which can be spoofed)
+    valid = False
+    for magic, mime in MAGIC_BYTES.items():
+        if data[:len(magic)] == magic:
+            if magic == b'RIFF' and data[8:12] != b'WEBP':
+                continue  # RIFF but not WebP
+            valid = True
+            break
+    if not valid:
+        raise HTTPException(
+            status_code=400,
+            detail="Unsupported file type. Use JPEG, PNG, or WebP.",
+        )
 
     arr = np.frombuffer(data, np.uint8)
     image = cv2.imdecode(arr, cv2.IMREAD_COLOR)
     if image is None:
-        raise HTTPException(status_code=400, detail="Could not decode image. Check format.")
+        raise HTTPException(status_code=400, detail="Could not decode image.")
     return data, image
 
 
@@ -545,6 +561,7 @@ async def _verify_glyphs_grok(
 
 
 @router.post("/scan")
+@limiter.limit("30/minute")
 async def scan_image(
     request: Request,
     file: UploadFile = File(...),
@@ -632,7 +649,7 @@ async def _scan_ai_mode(ai_reader, pipeline, raw_bytes, mime, image, translate, 
             None, partial(pipeline.process_image, image, translate=translate),
         )
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Pipeline error: {e}") from e
+        raise HTTPException(status_code=500, detail="An error occurred processing your request.")
 
     result.total_ms = (time.perf_counter() - t0) * 1000
     response_data = result.to_dict()
@@ -649,9 +666,9 @@ async def _scan_onnx_mode(pipeline, gemini, grok, raw_bytes, mime, image, transl
         result = await loop.run_in_executor(
             None, partial(pipeline.process_image, image, translate=translate),
         )
-    except Exception as e:
+    except Exception:
         logger.exception("Scan pipeline failed")
-        raise HTTPException(status_code=500, detail=f"Pipeline error: {e}") from e
+        raise HTTPException(status_code=500, detail="An error occurred processing your request.")
 
     # AI fallback if ONNX detection was poor
     ai_fallback_used = False
@@ -936,7 +953,8 @@ def _retransliterate_and_translate(pipeline, result, translate):
 
 
 @router.post("/detect")
-async def detect_glyphs(file: UploadFile = File(...)):
+@limiter.limit("30/minute")
+async def detect_glyphs(request: Request, file: UploadFile = File(...)):
     """Detection only — returns bounding boxes without classification."""
     _, image = await _read_image_bytes(file)
     pipeline = _get_pipeline()
@@ -948,9 +966,9 @@ async def detect_glyphs(file: UploadFile = File(...)):
     loop = asyncio.get_running_loop()
     try:
         detections = await loop.run_in_executor(None, _run_detection)
-    except Exception as e:
+    except Exception:
         logger.exception("Detection failed")
-        raise HTTPException(status_code=500, detail=f"Detection error: {e}") from e
+        raise HTTPException(status_code=500, detail="An error occurred processing your request.")
 
     h, w = image.shape[:2]
     return JSONResponse(content={
@@ -961,6 +979,7 @@ async def detect_glyphs(file: UploadFile = File(...)):
 
 
 @router.post("/read")
+@limiter.limit("30/minute")
 async def read_inscription(request: Request, file: UploadFile = File(...)):
     """AI-only inscription reading — lightweight, no ONNX.
 

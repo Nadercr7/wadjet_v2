@@ -14,6 +14,8 @@ from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import JSONResponse, StreamingResponse
 from pydantic import BaseModel, Field
 
+from app.rate_limit import limiter
+
 logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/api/chat", tags=["chat"])
@@ -48,6 +50,7 @@ def _get_groq(request: Request):
 
 
 @router.post("")
+@limiter.limit("30/minute")
 async def chat_message(body: ChatRequest, request: Request):
     """Non-streaming chat — returns full reply as JSON."""
     from app.core.thoth_chat import chat
@@ -74,6 +77,7 @@ async def chat_message(body: ChatRequest, request: Request):
 
 
 @router.get("/stream")
+@limiter.limit("30/minute")
 async def chat_stream(
     message: str,
     session_id: str,

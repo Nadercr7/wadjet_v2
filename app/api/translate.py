@@ -11,6 +11,8 @@ from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 
+from app.rate_limit import limiter
+
 logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/api", tags=["translate"])
@@ -22,6 +24,7 @@ class TranslateRequest(BaseModel):
 
 
 @router.post("/translate")
+@limiter.limit("30/minute")
 async def translate_transliteration(req: TranslateRequest, request: Request):
     """Translate MdC transliteration to English and Arabic.
 
@@ -55,6 +58,6 @@ async def translate_transliteration(req: TranslateRequest, request: Request):
             "latency_ms": result.get("latency_ms", 0),
             "from_cache": result.get("from_cache", False),
         })
-    except Exception as e:
+    except Exception:
         logger.exception("Translation failed")
-        raise HTTPException(status_code=500, detail=f"Translation error: {e}") from e
+        raise HTTPException(status_code=500, detail="An error occurred processing your request.")

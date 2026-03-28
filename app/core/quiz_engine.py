@@ -9,6 +9,7 @@ from __future__ import annotations
 import json
 import logging
 import random
+import secrets
 import uuid
 from dataclasses import dataclass
 from typing import TYPE_CHECKING
@@ -67,10 +68,8 @@ def _build_question_pool() -> list[QuizQuestion]:
         if attr.description:
             n += 1
             wrong = [a.name for a in attractions if a.name != attr.name]
-            random.seed(n)
             distractors = random.sample(wrong, min(3, len(wrong)))
             opts = [attr.name, *distractors]
-            random.seed(n + 1000)
             random.shuffle(opts)
             pool.append(QuizQuestion(
                 id=f"q-identify-{n}",
@@ -86,10 +85,8 @@ def _build_question_pool() -> list[QuizQuestion]:
             n += 1
             all_cities = sorted({a.city.value for a in attractions})
             other = [c for c in all_cities if c != attr.city.value]
-            random.seed(n)
             distractors = random.sample(other, min(3, len(other)))
             opts = [attr.city.value, *distractors]
-            random.seed(n + 2000)
             random.shuffle(opts)
             pool.append(QuizQuestion(
                 id=f"q-city-{n}",
@@ -105,10 +102,8 @@ def _build_question_pool() -> list[QuizQuestion]:
             n += 1
             all_eras = sorted({a.era for a in attractions if a.era})
             other = [e for e in all_eras if e != attr.era]
-            random.seed(n)
             distractors = random.sample(other, min(3, len(other)))
             opts = [attr.era, *distractors]
-            random.seed(n + 3000)
             random.shuffle(opts)
             pool.append(QuizQuestion(
                 id=f"q-era-{n}",
@@ -138,7 +133,7 @@ def get_random_question(
         candidates = [q for q in candidates if q.question_type == question_type]
     if difficulty:
         candidates = [q for q in candidates if q.difficulty == difficulty]
-    return random.choice(candidates) if candidates else None
+    return secrets.choice(candidates) if candidates else None
 
 
 def check_answer(question_id: str, answer: str) -> QuizResult | None:

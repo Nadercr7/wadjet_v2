@@ -37,3 +37,44 @@
 - ✅ No video generation (no free API) → Ken Burns animations instead
 - ✅ Smart defaults: system picks best provider, no user selector
 - ✅ Version replacement via PowerShell script in Phase 10
+
+---
+
+## 2026-03-28 — Phase 1: Security Hardening
+
+**Bugs Fixed:**
+- **C2**: Content-Type bypass → replaced with magic byte validation (JPEG `FF D8 FF`, PNG `89 50 4E 47`, WebP `RIFF...WEBP`) in scan.py and explore.py
+- **C3**: Quiz answers client-side → removed `_correct` and `correct_answer` from client JS; AI questions now use HMAC-signed hashes verified server-side via `/api/quiz/check-ai`
+- **C5**: Error message leakage → all 500 errors now return generic "An error occurred processing your request." while logging full tracebacks server-side
+- **C6**: No CSRF protection → added `starlette-csrf` middleware with cookie + `x-csrftoken` header; exempts GET, health, docs
+- **H3**: Quiz dedup infinite loop → reviewed pool building (uses sequential IDs, no dedup loop possible)
+- **H6**: No rate limiting → added `slowapi` rate limiter (30/min on scan/detect/read/chat/translate/write, 20/min on identify, 10/min on quiz generate)
+- **M14**: Deterministic quiz seed → removed `random.seed(n)` from question pool building; `get_random_question` uses `secrets.choice`
+
+**Files Created:**
+- `app/rate_limit.py` — shared `slowapi.Limiter` instance (avoids circular imports)
+
+**Files Modified:**
+- `requirements.txt` — added `slowapi>=0.1.9`, `starlette-csrf>=3.0.0`
+- `app/config.py` — added `csrf_secret` setting
+- `app/main.py` — CSRF middleware, rate limiter init, `re` import
+- `app/api/scan.py` — magic byte validation, rate limiting, error sanitization
+- `app/api/chat.py` — rate limiting import
+- `app/api/quiz.py` — HMAC answer signing, `/check-ai` endpoint, rate limiting
+- `app/api/write.py` — rate limiting import
+- `app/api/translate.py` — error sanitization, rate limiting
+- `app/api/explore.py` — magic byte validation, rate limiting
+- `app/core/quiz_engine.py` — `secrets.choice`, removed deterministic seeds
+- `app/templates/quiz.html` — removed `_correct`, all answers verified server-side
+
+**Test Results (all pass):**
+- ✅ Upload .exe → 400 "Unsupported file type"
+- ✅ PNG magic bytes with wrong Content-Type → accepts correctly
+- ✅ Empty file → 400
+- ✅ Quiz HTML: no `_correct` or answer text in source
+- ✅ Quiz answer checked server-side (static + AI)
+- ✅ HMAC check-ai rejects bad signatures
+- ✅ POST without CSRF → 403
+- ✅ 35 scan requests → 429 triggered at request #28
+- ✅ 10 quiz requests → 10 unique questions (non-deterministic)
+- ✅ All error responses return generic message, server logs full traceback

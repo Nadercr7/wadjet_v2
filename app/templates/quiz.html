@@ -281,8 +281,8 @@ function quizApp() {
                 const data = await res.json();
                 this.questions = data.questions.map(q => ({
                     ...q,
-                    correctAnswer: null, // hide correct_answer
-                    _correct: q.correct_answer, // keep for local check
+                    correctAnswer: null,
+                    answer_sig: q.answer_sig, // HMAC signature for server-side verification
                 }));
                 if (this.questions.length > 0) {
                     this.currentIndex = 0;
@@ -324,15 +324,27 @@ function quizApp() {
                 } catch {}
             }
 
-            // For AI questions, check locally
-            const correct = q._correct || q.correct_answer;
-            const isCorrect = selected === correct;
-            scope.correct = isCorrect;
-            if (isCorrect) this.score++;
-            q.correctAnswer = correct;
-            this.resultExplanation = isCorrect
-                ? 'Correct! Well done.'
-                : `Incorrect. The correct answer is: ${correct}`;
+            // For AI questions, verify via HMAC signature on server
+            if (q.answer_sig) {
+                try {
+                    const res = await fetch('/api/quiz/check-ai', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ answer: selected, signature: q.answer_sig }),
+                    });
+                    if (res.ok) {
+                        const result = await res.json();
+                        scope.correct = result.is_correct;
+                        if (result.is_correct) this.score++;
+                        this.resultExplanation = result.explanation;
+                        if (result.is_correct) q.correctAnswer = selected;
+                        return;
+                    }
+                } catch {}
+            }
+
+            // Fallback: no verification possible
+            this.resultExplanation = 'Could not verify answer. Please try again.';
         },
 
         nextQuestion(scope) {

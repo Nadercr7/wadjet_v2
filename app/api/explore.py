@@ -20,6 +20,8 @@ import numpy as np
 from fastapi import APIRouter, File, HTTPException, Query, Request, UploadFile
 from fastapi.responses import JSONResponse
 
+from app.rate_limit import limiter
+
 from app.core.landmarks import (
     ATTRACTIONS,
     Attraction,
@@ -790,7 +792,13 @@ async def list_landmarks(
 identify_router = APIRouter(prefix="/api/explore", tags=["explore"])
 
 MAX_FILE_SIZE = 10 * 1024 * 1024
-ALLOWED_IMAGE_TYPES = {"image/jpeg", "image/png", "image/webp"}
+
+# Magic byte signatures for image validation
+MAGIC_BYTES = {
+    b'\xff\xd8\xff': 'image/jpeg',
+    b'\x89PNG': 'image/png',
+    b'RIFF': 'image/webp',
+}
 
 _landmark_pipeline = None
 
@@ -903,6 +911,7 @@ async def _run_cloudflare_vision(cloudflare, data: bytes, mime: str) -> dict:
 
 
 @identify_router.post("/identify")
+@limiter.limit("20/minute")
 async def identify_landmark(request: Request, file: UploadFile = File(...)):
     """Parallel ensemble landmark identification.
 
@@ -917,14 +926,22 @@ async def identify_landmark(request: Request, file: UploadFile = File(...)):
     from app.core.ensemble import Candidate, merge_landmark
 
     # Validate file
-    if file.content_type and file.content_type not in ALLOWED_IMAGE_TYPES:
-        raise HTTPException(status_code=422, detail="File is not a valid image")
-
     data = await file.read()
-    if len(data) > MAX_FILE_SIZE:
-        raise HTTPException(status_code=413, detail="File too large (max 10MB)")
     if not data:
         raise HTTPException(status_code=422, detail="Empty file")
+    if len(data) > MAX_FILE_SIZE:
+        raise HTTPException(status_code=413, detail="File too large (max 10MB)")
+
+    # Validate magic bytes (not just content-type header)
+    valid = False
+    for magic, _mime in MAGIC_BYTES.items():
+        if data[:len(magic)] == magic:
+            if magic == b'RIFF' and data[8:12] != b'WEBP':
+                continue
+            valid = True
+            break
+    if not valid:
+        raise HTTPException(status_code=422, detail="Unsupported file type. Use JPEG, PNG, or WebP.")
 
     arr = np.frombuffer(data, np.uint8)
     image = cv2.imdecode(arr, cv2.IMREAD_COLOR)

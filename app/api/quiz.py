@@ -3,16 +3,22 @@
 GET  /api/quiz/question    — Get a random question (static pool)
 POST /api/quiz/answer      — Check an answer
 POST /api/quiz/generate    — Generate AI questions via Gemini
+POST /api/quiz/check-ai    — Check AI-generated question answer (HMAC-verified)
 GET  /api/quiz/info        — Pool size and question types
 """
 
 from __future__ import annotations
 
+import hashlib
+import hmac
 import logging
+import os
 
 from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel, Field
+
+from app.rate_limit import limiter
 
 from app.core.quiz_engine import (
     QUIZ_CATEGORIES,
@@ -28,10 +34,35 @@ logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/api/quiz", tags=["quiz"])
 
+# Derive HMAC secret from CSRF secret for stability across workers/restarts.
+# Falls back to random bytes if no CSRF secret is configured.
+from app.config import settings as _quiz_settings
+_QUIZ_SECRET = (
+    hashlib.sha256((_quiz_settings.csrf_secret or "").encode()).digest()
+    if _quiz_settings.csrf_secret
+    else os.urandom(32)
+)
+
+
+def _sign_answer(answer: str) -> str:
+    """HMAC-sign a correct answer so clients can't tamper."""
+    return hmac.new(_QUIZ_SECRET, answer.encode("utf-8"), hashlib.sha256).hexdigest()
+
+
+def _verify_answer(answer: str, signature: str) -> bool:
+    """Verify an answer matches its HMAC signature."""
+    expected = hmac.new(_QUIZ_SECRET, answer.encode("utf-8"), hashlib.sha256).hexdigest()
+    return hmac.compare_digest(expected, signature)
+
 
 class AnswerRequest(BaseModel):
     question_id: str = Field(..., min_length=1, max_length=100)
     answer: str = Field(..., min_length=1, max_length=500)
+
+
+class AiAnswerRequest(BaseModel):
+    answer: str = Field(..., min_length=1, max_length=500)
+    signature: str = Field(..., min_length=64, max_length=64)
 
 
 class GenerateRequest(BaseModel):
@@ -64,7 +95,8 @@ async def random_question(
 
 
 @router.post("/answer")
-async def submit_answer(body: AnswerRequest):
+@limiter.limit("30/minute")
+async def submit_answer(body: AnswerRequest, request: Request):
     """Check an answer and return result."""
     result = check_answer(body.question_id, body.answer)
     if result is None:
@@ -79,6 +111,7 @@ async def submit_answer(body: AnswerRequest):
 
 
 @router.post("/generate")
+@limiter.limit("10/minute")
 async def generate_quiz_endpoint(body: GenerateRequest, request: Request):
     """Generate AI-powered quiz questions via Gemini."""
     gemini = getattr(request.app.state, "gemini", None)
@@ -105,6 +138,7 @@ async def generate_quiz_endpoint(body: GenerateRequest, request: Request):
                     "options": q.options,
                     "difficulty": q.difficulty,
                     "category": q.category,
+                    "answer_sig": _sign_answer(q.correct_answer),
                 }
                 for q in questions
             ],
@@ -113,6 +147,26 @@ async def generate_quiz_endpoint(body: GenerateRequest, request: Request):
     except Exception:
         logger.exception("Quiz generation failed")
         raise HTTPException(status_code=500, detail="Failed to generate quiz")
+
+
+@router.post("/check-ai")
+@limiter.limit("30/minute")
+async def check_ai_answer(body: AiAnswerRequest, request: Request):
+    """Check an AI-generated quiz answer using HMAC verification.
+
+    The client sends the selected answer + the signature it received
+    when the question was generated. No correct answer is ever exposed.
+    """
+    is_correct = _verify_answer(body.answer, body.signature)
+    return JSONResponse(content={
+        "is_correct": is_correct,
+        "submitted_answer": body.answer,
+        "explanation": (
+            "Correct! Well done."
+            if is_correct
+            else "Incorrect."
+        ),
+    })
 
 
 @router.get("/info")

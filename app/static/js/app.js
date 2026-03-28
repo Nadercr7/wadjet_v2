@@ -3,6 +3,38 @@
  * Global Alpine.js components, HTMX config, Atropos, GSAP, Lenis
  */
 
+// ── CSRF token helper (reads starlette-csrf cookie) ──
+function _getCsrfToken() {
+    const m = document.cookie.match(/(?:^|;\s*)csrftoken=([^;]*)/);
+    return m ? decodeURIComponent(m[1]) : '';
+}
+
+// Patch global fetch to auto-include CSRF token on mutating requests
+const _originalFetch = window.fetch;
+window.fetch = function(input, init) {
+    init = init || {};
+    const method = (init.method || 'GET').toUpperCase();
+    if (['POST', 'PUT', 'DELETE', 'PATCH'].includes(method)) {
+        init.headers = init.headers || {};
+        // Support both Headers object and plain object
+        if (init.headers instanceof Headers) {
+            if (!init.headers.has('x-csrftoken')) {
+                init.headers.set('x-csrftoken', _getCsrfToken());
+            }
+        } else {
+            if (!init.headers['x-csrftoken']) {
+                init.headers['x-csrftoken'] = _getCsrfToken();
+            }
+        }
+    }
+    return _originalFetch.call(this, input, init);
+};
+
+// HTMX: include CSRF token on every request
+document.addEventListener('htmx:configRequest', function(e) {
+    e.detail.headers['x-csrftoken'] = _getCsrfToken();
+});
+
 // ── Service Worker registration ──
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
