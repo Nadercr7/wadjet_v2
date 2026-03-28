@@ -8,7 +8,7 @@
 | 1 | ✅ DONE | 2026-03-28 | 2026-03-28 | — | Security hardening |
 | 2 | ✅ DONE | 2026-03-28 | 2026-03-28 | — | CDN self-host + offline |
 | 3 | ✅ DONE | 2026-03-28 | 2026-03-28 | — | Database & auth |
-| 4 | ⬜ TODO | — | — | — | UX & accessibility |
+| 4 | ✅ DONE | 2026-03-28 | 2026-03-28 | — | UX, accessibility & TTS |
 | 5 | ⬜ TODO | — | — | — | Performance |
 | 6 | ⬜ TODO | — | — | — | Arabic i18n |
 | 7 | ⬜ TODO | — | — | — | SEO & social |
@@ -22,18 +22,18 @@
 - [x] C1: CDN scripts not cached (Phase 2)
 - [x] C2: Content-Type bypass (Phase 1)
 - [x] C3: Quiz answers client-side (Phase 1)
-- [ ] C4: Chat TTS English-only (Phase 4)
+- [x] C4: Chat TTS English-only (Phase 4)
 - [x] C5: Error message leakage (Phase 1)
 - [x] C6: No CSRF protection (Phase 1)
 
 ### High (8)
-- [ ] H1: /write missing from nav (Phase 4)
-- [ ] H2: Browser TTS instead of server TTS (Phase 4)
+- [x] H1: /write missing from nav (Phase 4)
+- [x] H2: Browser TTS instead of server TTS (Phase 4)
 - [x] H3: Quiz dedup infinite loop (Phase 1)
-- [ ] H4: Was Scepter R11→S42 (Phase 4)
-- [ ] H5: text-dim WCAG contrast (Phase 4)
+- [x] H4: Was Scepter R11→S42 (Phase 4)
+- [x] H5: text-dim WCAG contrast (Phase 4)
 - [x] H6: No rate limiting (Phase 1)
-- [ ] H7: Glyph of Day only 7 entries (Phase 4)
+- [x] H7: Glyph of Day only 7 entries (Phase 4)
 - [x] H8: Model cache network-first (Phase 5)
 
 ### Medium (18)
@@ -46,12 +46,12 @@
 - [ ] M7: No lazy loading (Phase 5)
 - [x] M8: HTMX no defer (Phase 2)
 - [ ] M9: 260 cards load at once (Phase 5)
-- [ ] M10: Missing form labels (Phase 4)
+- [x] M10: Missing form labels (Phase 4)
 - [x] M11: No SRI on CDN (Phase 2)
 - [x] M12: tts.js not in SW cache (Phase 2)
-- [ ] M13: Noto Sans font declared not loaded (Phase 4)
+- [x] M13: Noto Sans font declared not loaded (Phase 4)
 - [x] M14: Deterministic quiz seed (Phase 1)
-- [ ] M15: Favicon MIME mismatch (Phase 4)
+- [x] M15: Favicon MIME mismatch (Phase 4)
 - [x] M16: In-memory sessions (Phase 3)
-- [ ] M17: No confidence shown (Phase 4)
+- [x] M17: No confidence shown (Phase 4)
 - [x] M18: Cache wipes everything (Phase 2)

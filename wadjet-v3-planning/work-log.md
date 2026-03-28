@@ -151,3 +151,42 @@
 - ✅ T12: Password stored as bcrypt hash ($2b$12$...)
 - ✅ T13: JWT contains only sub + exp + jti (no sensitive data)
 - ✅ T14: User data persists in SQLite file
+
+---
+
+## Phase 4 — UX, Accessibility & TTS Service
+**Date**: 2026-03-28
+**Commit**: `a9d6859` — `[Phase 4] UX, accessibility & TTS service — nav fix, Gemini TTS, WCAG contrast, labels, narration`
+
+### Changes (12 files, 420 insertions)
+- **H1**: Added `/write` to desktop and mobile nav in `nav.html`
+- **C4+H2**: Created `app/core/tts_service.py` — Gemini TTS with key rotation, voice presets (Orus/Charon/Rasalgethi/Aoede), director's notes per context, WAV disk caching
+- **C4+H2**: Added `POST /api/audio/speak` endpoint in `audio.py` — Gemini→Groq→204 fallback, 20/min rate limit
+- **C4+H2**: Created `app/templates/partials/narration_button.html` — floating 🔊 button, Alpine.js, server TTS with browser fallback
+- **C4+H2**: Upgraded chat.html TTS — server-first with `speakMessage()` method, context-aware (thoth_chat voice)
+- **H4**: Fixed Was Scepter from R11/𓊹 to S42/𓌂 in `landing.html`
+- **H5**: Fixed `--color-text-dim` contrast from #5A5A5A (3.1:1) to #7E7E7E (4.7:1) in `input.css`
+- **H7**: Expanded Glyph of Day from 7 to 32 entries across Gardiner categories
+- **M10**: Added sr-only labels + id attributes to dictionary.html and explore.html search inputs
+- **M13**: Added `@font-face` for Noto Sans Egyptian Hieroglyphs in `input.css`
+- **M15**: Fixed favicon href to `/static/images/favicon.svg` in `base.html`
+- **M17**: Enhanced scan confidence with dynamic color coding (green/gold/red) and "confidence" label
+- **Infra**: Added `app/static/cache/` to `.gitignore`, added narration block to `base.html`
+
+### Testing Results (15/15 automated PASS, 6 manual/skip)
+- ✅ T1: /write in desktop nav
+- ✅ T2: /write in mobile nav
+- ✅ T3: /write page loads (200)
+- ✅ T7: Chat uses server TTS (/api/audio/speak)
+- ✅ T8: Browser TTS fallback present
+- ✅ T9: Narration button on landing, explore, dictionary
+- ✅ T10: Narration uses server TTS
+- ✅ T13: Was Scepter S42 (R11 is only Djed Pillar in glyph array)
+- ✅ T14: text-dim #7E7E7E in compiled CSS
+- ✅ T15: 32 Glyph of Day entries
+- ✅ T16: Dictionary search has label
+- ✅ T17: Explore search has label
+- ✅ T18: Noto Sans Egyptian Hieroglyphs loaded
+- ✅ T19: Favicon SVG in place
+- ✅ T20-T21: Confidence shown with color coding
+- ✅ BONUS: /api/audio/speak returns 200 with CSRF token, audio cached to disk
