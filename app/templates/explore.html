@@ -53,7 +53,7 @@
             <div class="flex-1 relative">
                 <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-text-dim" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                 <label for="explore-search" class="sr-only">Search landmarks</label>
-                <input id="explore-search" type="text" x-model.debounce.300ms="searchQuery" @input="fetchLandmarks()"
+                <input id="explore-search" type="text" x-model="searchQuery" @input.debounce.300ms="fetchLandmarks()"
                        placeholder="Search landmarks..."
                        class="input pl-10 w-full">
             </div>
@@ -75,6 +75,7 @@
             <button @click="selectType(null)" class="px-3 py-2 rounded-full text-sm font-medium transition-all"
                     :class="!activeType ? 'bg-gold text-night' : 'bg-surface border border-border text-text-muted hover:border-gold/30 hover:text-text'">
                 All <span class="ml-1 opacity-60" x-text="totalCount"></span>
+
             </button>
             <template x-for="t in types" :key="t.name">
                 <button @click="selectType(t.name)"
@@ -186,7 +187,7 @@
         <!-- Result count -->
         <div class="mt-6 text-center text-sm text-text-dim" x-show="!loading && landmarks.length > 0">
             Showing <span class="text-text-muted" x-text="landmarks.length"></span>
-            of <span class="text-text-muted" x-text="totalCount"></span> landmarks
+            of <span class="text-text-muted" x-text="filteredCount"></span> landmarks
         </div>
 
         </div><!-- end BROWSE MODE -->
@@ -583,6 +584,7 @@ function exploreApp() {
         cities: [],
         categoryTree: [],
         totalCount: 0,
+        filteredCount: 0,
         activeType: null,
         activeSubcategory: null,
         cityFilter: '',
@@ -626,6 +628,7 @@ function exploreApp() {
             this.loading = true;
             this.currentPage = 1;
             this.hasMore = false;
+            this._loadMoreFailures = 0;
             try {
                 const params = new URLSearchParams();
                 if (this.activeType) params.set('category', this.activeType);
@@ -639,7 +642,7 @@ function exploreApp() {
                 const resp = await fetch(url);
                 const data = await resp.json();
                 this.landmarks = data.landmarks;
-                this.totalCount = data.total;
+                this.filteredCount = data.total;
                 this.hasMore = data.has_more;
                 this.currentPage = 1;
             } catch (err) {
@@ -669,6 +672,8 @@ function exploreApp() {
                 this.currentPage++;
             } catch (err) {
                 console.error('Failed to load more landmarks:', err);
+                this._loadMoreFailures = (this._loadMoreFailures || 0) + 1;
+                if (this._loadMoreFailures >= 3) this.hasMore = false;
             } finally {
                 this.loadingMore = false;
             }
@@ -700,7 +705,7 @@ function exploreApp() {
                 this.detailLandmark = await resp.json();
             } catch (err) {
                 console.error('Failed to load landmark detail:', err);
-                this.detailLandmark = null;
+                this.detailLandmark = { _error: true, name: 'Error', description: 'Failed to load landmark details. Please try again.' };
             } finally {
                 this.detailLoading = false;
             }

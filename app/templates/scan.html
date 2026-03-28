@@ -705,6 +705,7 @@ function scanApp() {
             }
             this.file = file;
             this.fileName = file.name;
+            if (this.previewUrl) URL.revokeObjectURL(this.previewUrl);
             this.previewUrl = URL.createObjectURL(file);
 
             // Pre-load client pipeline when file is selected in client mode

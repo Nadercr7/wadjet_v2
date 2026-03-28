@@ -9,6 +9,7 @@ POST /api/explore/identify     — Hybrid ONNX + Gemini landmark identification
 
 from __future__ import annotations
 
+import asyncio
 import json
 import logging
 from collections import OrderedDict
@@ -83,16 +84,22 @@ class _EnrichmentCache:
         self._cache.move_to_end(slug)
         if len(self._cache) > _MAX_ENRICHMENT_CACHE:
             self._cache.popitem(last=False)
-        self._save()
+
+    async def put_async(self, slug: str, fields: dict) -> None:
+        self.put(slug, fields)
+        await self.save_async()
 
     def _save(self) -> None:
         try:
-            _ENRICHMENT_CACHE_FILE.write_text(
-                json.dumps(dict(self._cache), ensure_ascii=False, indent=2),
-                encoding="utf-8",
-            )
+            data = json.dumps(dict(self._cache), ensure_ascii=False, indent=2)
+            tmp = _ENRICHMENT_CACHE_FILE.with_suffix('.tmp')
+            tmp.write_text(data, encoding="utf-8")
+            tmp.replace(_ENRICHMENT_CACHE_FILE)
         except Exception:
             logger.warning("Failed to save enrichment cache")
+
+    async def save_async(self) -> None:
+        await asyncio.to_thread(self._save)
 
 
 _enrichment_cache = _EnrichmentCache()
@@ -148,7 +155,7 @@ async def _enrich_landmark_detail(request, result: dict) -> None:
                 "visiting_tips": data.get("visiting_tips", ""),
                 "historical_significance": data.get("historical_significance", ""),
             }
-            _enrichment_cache.put(slug, fields)
+            await _enrichment_cache.put_async(slug, fields)
             result["highlights"] = fields["highlights"]
             result["visiting_tips"] = fields["visiting_tips"]
             result["historical_significance"] = fields["historical_significance"]
@@ -449,7 +456,8 @@ def _get_all_landmarks() -> list[dict]:
 # ── Endpoints ──
 
 @router.get("/categories")
-async def list_categories():
+@limiter.limit("60/minute")
+async def list_categories(request: Request):
     """List available types, cities, and subcategories with counts."""
     all_lm = _get_all_landmarks()
     # Only count top-level sites for category/city counts
@@ -721,8 +729,8 @@ def _normalize_slug(raw_slug: str) -> str:
     for cls in classes:
         if normalized.startswith(cls) and len(cls) > len(best_match):
             best_match = cls
-        elif cls.startswith(normalized) and len(normalized) > len(best_match):
-            best_match = normalized
+        elif cls.startswith(normalized) and len(cls) > len(best_match):
+            best_match = cls
 
     if best_match and best_match in class_set:
         return best_match
@@ -741,7 +749,9 @@ def _normalize_slug(raw_slug: str) -> str:
 
 
 @router.get("")
+@limiter.limit("60/minute")
 async def list_landmarks(
+    request: Request,
     category: str | None = Query(None, description="Filter by type (Pharaonic, Islamic, etc.)"),
     subcategory: str | None = Query(None, description="Filter by subcategory"),
     city: str | None = Query(None, description="Filter by region/city"),

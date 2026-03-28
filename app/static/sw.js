@@ -1,5 +1,5 @@
 /**
- * Wadjet v2 — Service Worker
+ * Wadjet v3 — Service Worker
  * Caches static assets and ML models for offline scanning.
  */
 
@@ -31,14 +31,7 @@ const STATIC_ASSETS = [
     '/static/vendor/atropos.min.js',
 ];
 
-// ML model files — cached on first use (too large to pre-cache)
-const MODEL_PATHS = [
-    '/models/hieroglyph/detector/glyph_detector_uint8.onnx',
-    '/models/hieroglyph/classifier/hieroglyph_classifier.onnx',
-    '/models/hieroglyph/classifier/label_mapping.json',
-    '/models/landmark/landmark_classifier_uint8.onnx',
-    '/models/landmark/model_metadata.json',
-];
+// ML models are cached on first use via cacheFirst() — too large to pre-cache
 
 // Install: pre-cache static assets
 self.addEventListener('install', (event) => {
