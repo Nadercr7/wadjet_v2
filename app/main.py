@@ -140,7 +140,9 @@ def create_app() -> FastAPI:
     app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 
     # CSRF protection for POST/PUT/DELETE (skip GET, health, docs, auth)
-    csrf_secret = settings.csrf_secret or secrets.token_hex(32)
+    if not settings.csrf_secret:
+        settings.csrf_secret = secrets.token_hex(32)
+    csrf_secret = settings.csrf_secret
     # Ensure JWT secret is set (auto-generate for dev, must be env var in production)
     if not settings.jwt_secret:
         settings.jwt_secret = secrets.token_hex(32)

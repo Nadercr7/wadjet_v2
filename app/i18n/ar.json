@@ -24,7 +24,9 @@
         "showing": "عرض",
         "landmarks": "معالم",
         "signs": "علامة",
-        "page": "صفحة"
+        "page": "صفحة",
+        "play_narration": "تشغيل السرد",
+        "pause_narration": "إيقاف السرد"
     },
     "nav": {
         "aria_main": "التنقل الرئيسي",
@@ -44,10 +46,10 @@
         "scan_now": "افحص الآن",
         "toggle_lang": "تبديل اللغة",
         "toggle_menu": "القائمة",
-        "sub_scan": "← فحص",
-        "sub_dictionary": "← القاموس",
-        "sub_explore": "← استكشاف",
-        "sub_write": "← اكتب"
+        "sub_scan": "↳ فحص",
+        "sub_dictionary": "↳ القاموس",
+        "sub_explore": "↳ استكشاف",
+        "sub_write": "↳ اكتب"
     },
     "auth": {
         "welcome_back": "مرحبًا بعودتك",
@@ -260,6 +262,7 @@
         "tab_learn": "تعلّم الهيروغليفية",
         "search_aria": "بحث الهيروغليفية",
         "search_placeholder": "ابحث بالكود أو النطق أو الوصف...",
+        "filter_type": "تصفية حسب نوع العلامة",
         "all_types": "كل الأنواع",
         "type_uniliteral": "أحادي الصوت (أبجدية)",
         "type_biliteral": "ثنائي الصوت (صوتان)",
@@ -351,6 +354,7 @@
         "tab_identify": "تعرّف من صورة",
         "search_aria": "بحث المعالم",
         "search_placeholder": "ابحث عن معالم...",
+        "filter_city": "تصفية حسب المدينة",
         "all_cities": "كل المدن",
         "no_results": "لا توجد معالم مطابقة.",
         "badge_featured": "★ مميز",

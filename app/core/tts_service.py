@@ -125,9 +125,11 @@ async def _gemini_tts(
     else:
         prompt = text
 
-    # Try each key on failure (simple rotation)
+    # Try keys from the pool (randomized to distribute quota)
+    import random as _rng
+    keys_to_try = _rng.sample(api_keys, min(5, len(api_keys)))
     last_error: Exception | None = None
-    for key in api_keys[:3]:  # Try up to 3 keys
+    for key in keys_to_try:
         try:
             client = genai.Client(api_key=key)
             response = await client.aio.models.generate_content(

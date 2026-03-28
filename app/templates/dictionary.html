@@ -58,7 +58,8 @@
                            placeholder="{{ t('dictionary.search_placeholder', lang) }}"
                            class="input pl-10 w-full">
                 </div>
-                <select x-model="typeFilter" @change="currentPage = 1; fetchSigns()"
+                <label for=\"dict-type-filter\" class=\"sr-only\">{{ t('dictionary.filter_type', lang) }}</label>
+                <select id=\"dict-type-filter\" x-model=\"typeFilter\" @change=\"currentPage = 1; fetchSigns()\"
                         class="input w-full sm:w-48 cursor-pointer">
                     <option value="">{{ t('dictionary.all_types', lang) }}</option>
                     <option value="uniliteral">{{ t('dictionary.type_uniliteral', lang) }}</option>

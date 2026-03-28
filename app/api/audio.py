@@ -30,6 +30,7 @@ _TTS_MODEL = "playai-tts"
 
 
 @router.post("/tts")
+@limiter.limit("20/minute")
 async def text_to_speech(
     request: Request,
     text: str = Form(..., min_length=1, max_length=2000),
@@ -78,6 +79,7 @@ _STT_MODEL = "whisper-large-v3-turbo"
 
 
 @router.post("/stt")
+@limiter.limit("10/minute")
 async def speech_to_text(
     request: Request,
     file: UploadFile = File(...),

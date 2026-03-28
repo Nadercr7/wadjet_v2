@@ -18,6 +18,7 @@ from app.db.crud import (
     store_refresh_token,
     validate_refresh_token,
 )
+from app.config import settings
 from app.db.database import get_db
 from app.db.schemas import LoginRequest, RegisterRequest, TokenResponse, UserResponse
 from app.rate_limit import limiter
@@ -35,7 +36,7 @@ def _set_refresh_cookie(response: Response, token: str) -> None:
         key=REFRESH_COOKIE,
         value=token,
         httponly=True,
-        secure=False,  # Set True in production (HTTPS)
+        secure=settings.environment != "development",
         samesite="lax",
         max_age=REFRESH_MAX_AGE,
         path="/api/auth",
@@ -128,6 +129,7 @@ async def refresh(request: Request, db: AsyncSession = Depends(get_db)):
 
 
 @router.post("/logout")
+@limiter.limit("10/minute")
 async def logout(request: Request, db: AsyncSession = Depends(get_db)):
     """Invalidate the refresh token and clear the cookie."""
     token = request.cookies.get(REFRESH_COOKIE)

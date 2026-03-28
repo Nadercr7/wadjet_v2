@@ -65,7 +65,8 @@
             </div>
 
             <!-- City filter -->
-            <select x-model="cityFilter" @change="fetchLandmarks()"
+            <label for=\"city-filter\" class=\"sr-only\">{{ t('explore.filter_city', lang) }}</label>
+            <select id=\"city-filter\" x-model=\"cityFilter\" @change=\"fetchLandmarks()\"
                     class="input w-full sm:w-48 cursor-pointer">
                 <option value="">{{ t('explore.all_cities', lang) }}</option>
                 <template x-for="c in cities" :key="c.name">

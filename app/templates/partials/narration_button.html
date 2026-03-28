@@ -3,7 +3,9 @@
 <div class="fixed bottom-20 right-6 z-50" x-data="narrationBtn" x-show="hasContent" x-cloak>
     <button @click="toggle()"
             class="w-14 h-14 rounded-full bg-gold/20 border border-gold/50 backdrop-blur-xl flex items-center justify-center shadow-lg hover:bg-gold/30 transition"
-            :aria-label="playing ? 'Pause narration' : 'Play narration'">
+            data-label-play="{{ t('common.play_narration', lang) }}"
+            data-label-pause="{{ t('common.pause_narration', lang) }}"
+            :aria-label="playing ? $el.dataset.labelPause : $el.dataset.labelPlay">
         <svg x-show="!loading && !playing" class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072M17.95 6.05a8 8 0 010 11.9M11 5L6 9H2v6h4l5 4V5z"/>
         </svg>

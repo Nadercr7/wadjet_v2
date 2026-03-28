@@ -83,7 +83,9 @@ def _question_to_dict(q) -> dict:
 
 
 @router.get("/question")
+@limiter.limit("60/minute")
 async def random_question(
+    request: Request,
     question_type: str | None = None,
     difficulty: str | None = None,
 ):
@@ -101,13 +103,15 @@ async def submit_answer(body: AnswerRequest, request: Request):
     result = check_answer(body.question_id, body.answer)
     if result is None:
         raise HTTPException(status_code=404, detail="Question not found")
-    return JSONResponse(content={
+    response = {
         "question_id": result.question_id,
         "is_correct": result.is_correct,
         "submitted_answer": result.submitted_answer,
-        "correct_answer": result.correct_answer,
         "explanation": result.explanation,
-    })
+    }
+    if result.is_correct:
+        response["correct_answer"] = result.correct_answer
+    return JSONResponse(content=response)
 
 
 @router.post("/generate")

@@ -56,7 +56,7 @@
                             <span class="text-lg">𓁟</span>
                             <span class="text-xs font-medium text-gold">{{ t('chat.thoth_label', lang) }}</span>
                             <button @click="speakMessage(msg.content.replace(/[#*`>|\-]/g,''), 'msg-'+idx)"
-                                    x-show="typeof WadjetTTS !== 'undefined' && WadjetTTS.isSupported()"
+                                    x-show="navigator.onLine || (typeof WadjetTTS !== 'undefined' && WadjetTTS.isSupported())"
                                     class="ml-auto p-1 rounded-md text-text-dim hover:text-gold hover:bg-gold/10 transition-all"
                                     :class="{'!text-gold': ttsState !== 'idle' && ttsActiveId === 'msg-'+idx}"
                                     :aria-label="ttsActiveId === 'msg-'+idx && ttsState === 'playing' ? '{{ t('chat.pause', lang) }}' : '{{ t('chat.listen', lang) }}'">

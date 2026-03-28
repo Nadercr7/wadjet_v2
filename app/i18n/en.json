@@ -24,7 +24,9 @@
         "showing": "Showing",
         "landmarks": "landmarks",
         "signs": "signs",
-        "page": "Page"
+        "page": "Page",
+        "play_narration": "Play narration",
+        "pause_narration": "Pause narration"
     },
     "nav": {
         "aria_main": "Main navigation",
@@ -260,6 +262,7 @@
         "tab_learn": "Learn Hieroglyphs",
         "search_aria": "Search hieroglyphs",
         "search_placeholder": "Search by code, transliteration, or description...",
+        "filter_type": "Filter by sign type",
         "all_types": "All Types",
         "type_uniliteral": "Uniliteral (alphabet)",
         "type_biliteral": "Biliteral (2 sounds)",
@@ -351,6 +354,7 @@
         "tab_identify": "Identify from Photo",
         "search_aria": "Search landmarks",
         "search_placeholder": "Search landmarks...",
+        "filter_city": "Filter by city",
         "all_cities": "All Cities",
         "no_results": "No landmarks match your search.",
         "badge_featured": "★ Featured",
