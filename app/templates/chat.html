@@ -206,6 +206,7 @@ function chatApp() {
         _audioChunks: [],
         _ttsPoller: null,
         _chatAudio: null,
+        _chatAudioUrl: null,
         _recordTimer: null,
         starters: [
             'Tell me about the Great Pyramids of Giza',
@@ -230,15 +231,20 @@ function chatApp() {
         destroy() {
             if (this._ttsPoller) clearInterval(this._ttsPoller);
             if (this._recordTimer) clearTimeout(this._recordTimer);
-            if (this._chatAudio) { this._chatAudio.pause(); this._chatAudio = null; }
+            this._cleanupAudio();
             if (typeof WadjetTTS !== 'undefined') WadjetTTS.stop();
+        },
+
+        _cleanupAudio() {
+            if (this._chatAudio) { this._chatAudio.pause(); this._chatAudio = null; }
+            if (this._chatAudioUrl) { URL.revokeObjectURL(this._chatAudioUrl); this._chatAudioUrl = null; }
         },
 
         async speakMessage(text, msgId) {
             const chatLang = document.documentElement.lang || 'en';
-            // If same message is playing, toggle off
-            if (this.ttsActiveId === msgId && this.ttsState === 'playing') {
-                if (this._chatAudio) { this._chatAudio.pause(); this._chatAudio = null; }
+            // If same message is already active, toggle off
+            if (this.ttsActiveId === msgId) {
+                this._cleanupAudio();
                 if (typeof WadjetTTS !== 'undefined') WadjetTTS.stop();
                 this.ttsState = 'idle';
                 this.ttsActiveId = null;
@@ -255,11 +261,11 @@ function chatApp() {
                     });
                     if (resp.ok && resp.status !== 204) {
                         const blob = await resp.blob();
-                        const url = URL.createObjectURL(blob);
-                        if (this._chatAudio) this._chatAudio.pause();
-                        this._chatAudio = new Audio(url);
+                        this._cleanupAudio();
+                        this._chatAudioUrl = URL.createObjectURL(blob);
+                        this._chatAudio = new Audio(this._chatAudioUrl);
                         this._chatAudio.onplay = () => { this.ttsState = 'playing'; };
-                        this._chatAudio.onended = () => { this.ttsState = 'idle'; this.ttsActiveId = null; };
+                        this._chatAudio.onended = () => { this.ttsState = 'idle'; this.ttsActiveId = null; this._cleanupAudio(); };
                         this._chatAudio.onpause = () => { this.ttsState = 'idle'; };
                         this._chatAudio.play();
                         return;

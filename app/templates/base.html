@@ -22,7 +22,7 @@
 
     {% block head %}{% endblock %}
 </head>
-<body class="min-h-screen flex flex-col" x-data="{ mobileMenu: false }">
+<body class="min-h-screen flex flex-col" x-data="{ mobileMenu: false }" {% block body_attrs %}{% endblock %}>
 
     <!-- Skip to content (accessibility) -->
     <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[10000] focus:bg-gold focus:text-night focus:px-4 focus:py-2 focus:rounded-lg focus:text-sm focus:font-medium">Skip to content</a>

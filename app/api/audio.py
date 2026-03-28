@@ -142,7 +142,7 @@ async def speech_to_text(
 class SpeakRequest(BaseModel):
     text: str = Field(min_length=1, max_length=5000)
     lang: str = Field(default="en", max_length=5)
-    context: str = Field(default="default", max_length=30)
+    context: str = Field(default="default", pattern=r"^[a-z_]{1,30}$")
 
 
 @router.post("/audio/speak")

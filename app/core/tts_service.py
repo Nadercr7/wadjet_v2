@@ -7,6 +7,7 @@ Audio is cached to disk by content hash for instant replay.
 
 from __future__ import annotations
 
+import asyncio
 import hashlib
 import io
 import logging
@@ -20,7 +21,7 @@ from app.config import settings
 
 logger = logging.getLogger(__name__)
 
-CACHE_DIR = Path("app/static/cache/audio")
+CACHE_DIR = Path(__file__).parent.parent / "static" / "cache" / "audio"
 TTS_MODEL = "gemini-2.5-flash-preview-tts"
 
 # Voice presets per context (from constitution.md)
@@ -90,10 +91,10 @@ async def speak(
     text = text[:5000]  # Limit length
     voice = VOICE_PRESETS.get(context, VOICE_PRESETS["default"])
 
-    # Check cache first
-    CACHE_DIR.mkdir(parents=True, exist_ok=True)
+    # Check cache first (offload blocking I/O to thread)
+    await asyncio.to_thread(CACHE_DIR.mkdir, parents=True, exist_ok=True)
     cache_file = CACHE_DIR / _cache_key(text, voice)
-    if cache_file.exists() and cache_file.stat().st_size > 0:
+    if await asyncio.to_thread(lambda: cache_file.exists() and cache_file.stat().st_size > 0):
         return cache_file
 
     # Try Gemini TTS
@@ -149,9 +150,11 @@ async def _gemini_tts(
             if not pcm_data:
                 continue
 
-            # Wrap in WAV and cache
+            # Wrap in WAV and cache atomically (write to .tmp, then rename)
             wav_data = _pcm_to_wav(pcm_data)
-            cache_file.write_bytes(wav_data)
+            tmp_file = cache_file.with_suffix(".tmp")
+            await asyncio.to_thread(tmp_file.write_bytes, wav_data)
+            await asyncio.to_thread(tmp_file.rename, cache_file)
             logger.info("Gemini TTS: cached %s (%d bytes)", cache_file.name, len(wav_data))
             return cache_file
 
