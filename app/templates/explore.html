@@ -153,6 +153,14 @@
                                     <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" :fill="isFavorited(lm.slug) ? 'currentColor' : 'none'" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
                                 </button>
                             </template>
+                            <!-- Favorite button (guest → prompt sign in) -->
+                            <template x-if="!$store.auth.user">
+                                <button @click.stop="$store.auth.showLogin = true"
+                                        class="text-[10px] p-1 rounded-full bg-night/60 backdrop-blur-sm text-gold/70 hover:text-gold transition-all"
+                                        :aria-label="'{{ t('explore.sign_in_favorite', lang) }}'">
+                                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                                </button>
+                            </template>
                             <template x-if="lm.featured">
                                 <span class="text-[10px] px-1.5 py-0.5 rounded-full bg-gold/90 text-night font-semibold">{{ t('explore.badge_featured', lang) }}</span>
                             </template>

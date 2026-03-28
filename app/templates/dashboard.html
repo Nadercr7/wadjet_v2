@@ -19,6 +19,18 @@
 
         <template x-if="$store.auth.user">
             <div>
+                <!-- Free tier limit banner -->
+                <template x-if="limits.tier === 'free' && limits.usage.scans_today >= (limits.limits.scans_per_day - 2)">
+                    <div class="mb-6 p-3 rounded-lg bg-gold/5 border border-gold/20 flex items-center gap-3">
+                        <svg class="w-5 h-5 text-gold shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        <p class="text-sm text-text-muted">
+                            {{ t('dashboard.limit_warning', lang) }}
+                            <span class="text-gold font-medium" x-text="limits.usage.scans_today + '/' + limits.limits.scans_per_day"></span>
+                            {{ t('dashboard.limit_scans_today', lang) }}
+                        </p>
+                    </div>
+                </template>
+
                 <!-- Header -->
                 <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
                     <div>
@@ -76,16 +88,43 @@
                         </template>
                         <template x-if="!loading && history.length > 0">
                             <div class="space-y-3">
-                                <template x-for="scan in history.slice(0, 5)" :key="scan.id">
-                                    <div class="flex items-center justify-between p-3 rounded-lg bg-night/50 border border-border/50">
-                                        <div>
-                                            <div class="text-sm font-medium text-text">
-                                                <span x-text="scan.glyph_count"></span>
-                                                <span>{{ t('dashboard.glyphs_detected', lang) }}</span>
+                                <template x-for="scan in history.slice(0, 6)" :key="scan.id">
+                                    <div class="rounded-lg bg-night/50 border border-border/50 overflow-hidden transition-colors hover:border-gold/30 cursor-pointer"
+                                         @click="expandedScan === scan.id ? expandedScan = null : expandedScan = scan.id">
+                                        <div class="flex items-center justify-between p-3">
+                                            <div class="flex items-center gap-3 min-w-0">
+                                                <!-- Glyph preview thumbnails -->
+                                                <div class="flex -space-x-1 shrink-0">
+                                                    <template x-for="(g, gi) in (parseGlyphs(scan.results_json) || []).slice(0, 3)" :key="gi">
+                                                        <div class="w-7 h-7 rounded bg-surface border border-border flex items-center justify-center text-gold text-[10px] font-mono" x-text="g.gardiner_code || '?'"></div>
+                                                    </template>
+                                                </div>
+                                                <div class="min-w-0">
+                                                    <div class="text-sm font-medium text-text">
+                                                        <span x-text="scan.glyph_count"></span>
+                                                        <span>{{ t('dashboard.glyphs_detected', lang) }}</span>
+                                                    </div>
+                                                    <div class="text-xs text-text-dim" x-text="new Date(scan.created_at).toLocaleDateString()"></div>
+                                                </div>
                                             </div>
-                                            <div class="text-xs text-text-dim" x-text="new Date(scan.created_at).toLocaleDateString()"></div>
+                                            <div class="flex items-center gap-2">
+                                                <div class="text-sm text-gold font-medium" x-text="Math.round(scan.confidence_avg * 100) + '%'"></div>
+                                                <svg class="w-4 h-4 text-text-dim transition-transform" :class="expandedScan === scan.id && 'rotate-180'" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                                            </div>
                                         </div>
-                                        <div class="text-sm text-gold font-medium" x-text="Math.round(scan.confidence_avg * 100) + '%'"></div>
+                                        <!-- Expanded detail -->
+                                        <div x-show="expandedScan === scan.id" x-transition class="px-3 pb-3 border-t border-border/30">
+                                            <div class="pt-3 grid grid-cols-3 sm:grid-cols-4 gap-2">
+                                                <template x-for="(g, gi) in (parseGlyphs(scan.results_json) || [])" :key="gi">
+                                                    <div class="bg-surface border border-border rounded-lg p-2 text-center">
+                                                        <div class="text-sm font-mono font-bold text-gold" x-text="g.gardiner_code || '?'"></div>
+                                                        <div class="text-[10px] mt-0.5"
+                                                             :class="(g.class_confidence || 0) > 0.7 ? 'text-green-400' : 'text-gold'"
+                                                             x-text="Math.round((g.class_confidence || 0) * 100) + '%'"></div>
+                                                    </div>
+                                                </template>
+                                            </div>
+                                        </div>
                                     </div>
                                 </template>
                             </div>
@@ -183,31 +222,39 @@
 <script>
 function dashboardApp() {
     return {
-        stats: { scans: 0, favorites: 0, stories_started: 0, stories_completed: 0, total_glyphs_scanned: 0 },
+        stats: { scans: 0, favorites: 0, stories_started: 0, stories_completed: 0, total_glyphs_scanned: 0, scans_today: 0 },
         history: [],
         storyProgress: [],
         favs: [],
+        limits: { tier: 'free', limits: { scans_per_day: 10 }, usage: { scans_today: 0 } },
         loading: true,
+        expandedScan: null,
 
         async init() {
             if (!Alpine.store('auth').user) return;
             const token = Alpine.store('auth').token;
             const headers = { 'Authorization': 'Bearer ' + token };
             try {
-                const [statsRes, histRes, progRes, favsRes] = await Promise.all([
+                const [statsRes, histRes, progRes, favsRes, limitsRes] = await Promise.all([
                     fetch('/api/user/stats', { headers }),
                     fetch('/api/user/history', { headers }),
                     fetch('/api/user/progress', { headers }),
                     fetch('/api/user/favorites', { headers }),
+                    fetch('/api/user/limits', { headers }),
                 ]);
                 if (statsRes.ok) this.stats = await statsRes.json();
                 if (histRes.ok) this.history = await histRes.json();
                 if (progRes.ok) this.storyProgress = await progRes.json();
                 if (favsRes.ok) this.favs = await favsRes.json();
+                if (limitsRes.ok) this.limits = await limitsRes.json();
             } catch (e) {
                 console.error('Dashboard load failed:', e);
             }
             this.loading = false;
+        },
+
+        parseGlyphs(jsonStr) {
+            try { return JSON.parse(jsonStr || '[]'); } catch { return []; }
         },
 
         async removeFavorite(itemType, itemId, favId) {

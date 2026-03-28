@@ -176,3 +176,25 @@ async def save_progress(
         "chapter_index": sp.chapter_index,
         "completed": sp.completed,
     })
+
+
+# ── Free Tier Limits ──
+
+FREE_LIMITS = {
+    "scans_per_day": 10,
+    "chat_messages_per_day": 20,
+    "stories_accessible": 3,
+}
+
+
+@router.get("/limits")
+async def limits(user: User = Depends(get_current_user), db: AsyncSession = Depends(get_db)):
+    """Get free tier usage and limits for the current user."""
+    stats_data = await get_user_stats(db, user.id)
+    return JSONResponse(content={
+        "tier": user.tier or "free",
+        "limits": FREE_LIMITS,
+        "usage": {
+            "scans_today": stats_data.get("scans_today", 0),
+        },
+    })

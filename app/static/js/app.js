@@ -270,6 +270,12 @@ document.addEventListener('alpine:init', () => {
                 this._save();
                 this.showSignup = false;
                 Alpine.store('toast').show('Welcome to Wadjet!', 'success');
+                // Redirect to dashboard if on landing, otherwise reload to refresh auth-gated content
+                if (window.location.pathname === '/') {
+                    window.location.href = '/dashboard';
+                } else {
+                    window.location.reload();
+                }
                 return true;
             } catch { this.error = 'Network error'; return false; }
             finally { this.loading = false; }
@@ -291,6 +297,12 @@ document.addEventListener('alpine:init', () => {
                 this._save();
                 this.showLogin = false;
                 Alpine.store('toast').show('Welcome back!', 'success');
+                // Redirect to dashboard if on landing, otherwise reload to refresh auth-gated content
+                if (window.location.pathname === '/') {
+                    window.location.href = '/dashboard';
+                } else {
+                    window.location.reload();
+                }
                 return true;
             } catch { this.error = 'Network error'; return false; }
             finally { this.loading = false; }

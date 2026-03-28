@@ -426,6 +426,7 @@ function storyReader(storyId, lang) {
                 this.writeInputs = {};
                 this.chapterImage = null;
                 this.loadChapterImage();
+                this.saveProgress();
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
         },

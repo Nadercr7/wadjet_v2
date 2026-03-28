@@ -236,6 +236,7 @@
         "total": "Total",
         "save_png": "Save as PNG",
         "scan_another": "Scan Another",
+        "sign_in_save": "Sign in to save your scan results to your history.",
         "scan_failed": "Scan Failed",
         "try_again": "Try Again",
         "no_glyphs": "No Hieroglyphs Found",
@@ -393,7 +394,8 @@
         "detail_maps": "Google Maps",
         "detail_wikipedia": "Wikipedia →",
         "favorite": "Add to favorites",
-        "unfavorite": "Remove from favorites"
+        "unfavorite": "Remove from favorites",
+        "sign_in_favorite": "Sign in to save favorites"
     },
     "chat": {
         "meta_desc": "Chat with Thoth, AI god of wisdom. Ask about hieroglyphs, pharaohs, temples, and Egyptian history.",
@@ -483,6 +485,7 @@
         "intermediate": "Intermediate",
         "advanced": "Advanced",
         "glyphs_to_learn": "glyphs to learn",
+        "sign_in_track": "Sign in to track progress",
         "no_stories": "No stories found",
         "chapter": "Chapter",
         "glyphs_learned": "glyphs learned",
@@ -535,7 +538,9 @@
         "explore_more": "Explore more",
         "no_favorites": "No favorites yet. Heart items you love!",
         "remove_favorite": "Remove favorite",
-        "favorite_removed": "Removed from favorites"
+        "favorite_removed": "Removed from favorites",
+        "limit_warning": "You've used",
+        "limit_scans_today": "free scans today."
     },
     "settings": {
         "title": "Settings",

@@ -200,10 +200,19 @@ async def get_user_stats(db: AsyncSession, user_id: str) -> dict:
     total_glyphs = await db.execute(
         select(func.coalesce(func.sum(ScanHistory.glyph_count), 0)).where(ScanHistory.user_id == user_id)
     )
+    # Today's scans (for free tier limit display)
+    today_start = datetime.now(timezone.utc).replace(hour=0, minute=0, second=0, microsecond=0)
+    scans_today = await db.execute(
+        select(func.count()).select_from(ScanHistory).where(
+            ScanHistory.user_id == user_id,
+            ScanHistory.created_at >= today_start,
+        )
+    )
     return {
         "scans": scan_count.scalar() or 0,
         "favorites": fav_count.scalar() or 0,
         "stories_started": story_count.scalar() or 0,
         "stories_completed": completed_count.scalar() or 0,
         "total_glyphs_scanned": total_glyphs.scalar() or 0,
+        "scans_today": scans_today.scalar() or 0,
     }

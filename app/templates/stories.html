@@ -110,6 +110,12 @@
                                 </div>
                             </div>
                         </template>
+                        <!-- Sign in to track (guest users) -->
+                        <template x-if="!$store.auth.user">
+                            <div class="mt-3 text-center">
+                                <button @click.prevent="$store.auth.showLogin = true" class="text-[10px] text-gold/60 hover:text-gold transition-colors">{{ t('stories.sign_in_track', lang) }}</button>
+                            </div>
+                        </template>
                     </a>
                 </template>
             </div>

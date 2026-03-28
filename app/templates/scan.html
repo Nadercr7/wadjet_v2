@@ -433,6 +433,14 @@
                     {{ t('scan.scan_another', lang) }}
                 </button>
             </div>
+
+            <!-- Sign in to save prompt (guests only) -->
+            <template x-if="!$store.auth.user">
+                <div class="mt-6 p-4 rounded-lg bg-gold/5 border border-gold/20 text-center">
+                    <p class="text-sm text-text-muted mb-2">{{ t('scan.sign_in_save', lang) }}</p>
+                    <button @click="$store.auth.showLogin = true" class="text-sm text-gold hover:text-gold-light font-medium underline underline-offset-2">{{ t('nav.sign_in', lang) }}</button>
+                </div>
+            </template>
         </div>
 
         <!-- ================================================================
