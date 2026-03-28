@@ -190,3 +190,23 @@
 - ✅ T19: Favicon SVG in place
 - ✅ T20-T21: Confidence shown with color coding
 - ✅ BONUS: /api/audio/speak returns 200 with CSRF token, audio cached to disk
+
+### Phase 4 Audit — 14 Issues Found & Fixed
+**Commit**: `e261148` — `[Phase 4] Audit fixes — async I/O, blob URL cleanup, S42 glyph, context validation, z-index overlap`
+
+| # | Severity | Issue | Fix |
+|---|----------|-------|-----|
+| 1 | HIGH | Blocking sync I/O in async `tts_service.py` (mkdir, exists, write_bytes) | Wrapped with `asyncio.to_thread()` |
+| 2 | HIGH | Blob URL memory leak in `narration_button.html` (never revoked) | Added `_revokeUrl()` on stop/ended |
+| 3 | HIGH | Blob URL memory leak in `chat.html` `speakMessage()` | Added `_cleanupAudio()` with `revokeObjectURL` |
+| 4 | HIGH | S42 Was Scepter glyph was U+FFFD (corrupted) | Replaced with correct `𓌂` (U+13302) |
+| 5 | MEDIUM | Relative `CACHE_DIR` path fragile outside project root | Changed to `Path(__file__).parent.parent / "static" / ...` |
+| 6 | MEDIUM | TOCTOU race condition on cache file write | Atomic write via `.tmp` + `rename()` |
+| 7 | MEDIUM | `data-narration-context` never set on `<body>` | Added `{% block body_attrs %}` to base.html, set per-page |
+| 8 | MEDIUM | Double-click race in chat TTS toggle | Changed to check `ttsActiveId === msgId` only (not `ttsState`) |
+| 9 | MEDIUM | Narration button (z-50) covered by toast (z-9998) | Moved narration to `bottom-20` |
+| 10 | MEDIUM | Duplicate Gardiner code S29 (`𓊃` mislabeled) | Corrected to O34 (door bolt) |
+| 11 | LOW | `context` field accepts arbitrary strings | Added `pattern=r"^[a-z_]{1,30}$"` |
+| 12 | LOW | `hasContent` always `true` | Added `init()` with `getText().length > 10` check |
+| 13 | LOW | N35+A1 entries merged on one line | Split to separate lines |
+| 14 | LOW | `--color-gold-light`/`dark` drift from CLAUDE.md | Noted, not changed (functional) |
