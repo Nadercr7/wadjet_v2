@@ -161,6 +161,16 @@ def create_app() -> FastAPI:
     # GZip compression for responses > 500 bytes
     app.add_middleware(GZipMiddleware, minimum_size=500)
 
+    # Security response headers
+    @app.middleware("http")
+    async def security_headers(request: Request, call_next):
+        response = await call_next(request)
+        response.headers["X-Content-Type-Options"] = "nosniff"
+        response.headers["X-Frame-Options"] = "DENY"
+        response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
+        response.headers["Permissions-Policy"] = "camera=(self), microphone=(self), geolocation=()"
+        return response
+
     # Static files
     app.mount("/static", StaticFiles(directory=BASE_DIR / "static"), name="static")
 

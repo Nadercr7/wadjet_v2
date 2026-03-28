@@ -680,6 +680,7 @@ async def _scan_ai_mode(ai_reader, pipeline, raw_bytes, mime, image, translate, 
             None, partial(pipeline.process_image, image, translate=translate),
         )
     except Exception as e:
+        logger.exception("ONNX fallback failed in AI mode")
         raise HTTPException(status_code=500, detail="An error occurred processing your request.")
 
     result.total_ms = (time.perf_counter() - t0) * 1000

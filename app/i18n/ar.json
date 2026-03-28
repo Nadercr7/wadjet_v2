@@ -410,6 +410,8 @@
         "placeholder": "اسأل عن مصر القديمة...",
         "voice_aria": "إدخال صوتي",
         "voice_stop": "إيقاف التسجيل",
+        "send": "إرسال رسالة",
+        "dismiss": "إغلاق",
         "clear_convo": "مسح المحادثة",
         "hide_history": "إخفاء السجل",
         "past_convos_pre": "محادثات سابقة (",

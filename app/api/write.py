@@ -11,7 +11,7 @@ import logging
 import re
 from pathlib import Path
 
-from fastapi import APIRouter, Request
+from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel, Field
 
@@ -441,6 +441,16 @@ async def convert_text(req: WriteRequest, request: Request):
     - mdc: Parse Manuel de Codage transliteration and find matching signs
     - smart: AI-powered translation (shortcuts → MdC detect → AI → fallback)
     """
+    try:
+        return await _convert_text_inner(req, request)
+    except HTTPException:
+        raise
+    except Exception:
+        logger.exception("Unexpected error in convert_text")
+        raise HTTPException(status_code=500, detail="An error occurred processing your request.")
+
+
+async def _convert_text_inner(req: WriteRequest, request: Request):
     _build_reverse_map()
     _build_alpha_map()
 

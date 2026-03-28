@@ -1,7 +1,7 @@
 import re
 
 from fastapi import APIRouter, HTTPException, Request
-from fastapi.responses import HTMLResponse, PlainTextResponse, Response
+from fastapi.responses import HTMLResponse, PlainTextResponse, RedirectResponse, Response
 
 from app.config import settings
 from app.i18n import get_lang
@@ -67,11 +67,9 @@ async def chat(request: Request):
     return templates.TemplateResponse(request, "chat.html", {"lang": lang})
 
 
-@router.get("/quiz", response_class=HTMLResponse)
+@router.get("/quiz")
 async def quiz(request: Request):
-    templates = request.app.state.templates
-    lang = get_lang(request)
-    return templates.TemplateResponse(request, "quiz.html", {"lang": lang})
+    return RedirectResponse("/stories", status_code=301)
 
 
 @router.get("/stories", response_class=HTMLResponse)
@@ -122,7 +120,7 @@ async def robots_txt():
         f"Sitemap: {base}/sitemap.xml\n"
         "\n"
         "User-agent: GPTBot\n"
-        "Disallow: /\n"
+        "Disallow: /api/\n"
     )
 
 
@@ -138,7 +136,6 @@ async def sitemap_xml():
         "/write",
         "/explore",
         "/chat",
-        "/quiz",
         "/stories",
     ]
     # Add lesson pages (5 levels)

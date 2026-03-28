@@ -49,8 +49,8 @@
             <template x-for="(msg, idx) in messages" :key="idx">
                 <div :class="msg.role === 'user' ? 'flex justify-end' : 'flex justify-start'">
                     <div :class="msg.role === 'user'
-                        ? 'bg-gold/15 border border-gold/20 text-text rounded-2xl rounded-br-sm max-w-[80%] px-4 py-3'
-                        : 'bg-surface border border-border text-text rounded-2xl rounded-bl-sm max-w-[85%] px-4 py-3'">
+                        ? 'bg-gold/15 border border-gold/20 text-text rounded-2xl rounded-br-sm rtl:rounded-br-2xl rtl:rounded-bl-sm max-w-[80%] px-4 py-3'
+                        : 'bg-surface border border-border text-text rounded-2xl rounded-bl-sm rtl:rounded-bl-2xl rtl:rounded-br-sm max-w-[85%] px-4 py-3'">
                         <!-- Thoth avatar + listen -->
                         <div x-show="msg.role === 'assistant'" class="flex items-center gap-2 mb-2">
                             <span class="text-lg">𓁟</span>
@@ -73,7 +73,7 @@
             <!-- Streaming indicator -->
             <template x-if="isLoading">
                 <div class="flex justify-start">
-                    <div class="bg-surface border border-border rounded-2xl rounded-bl-sm max-w-[85%] px-4 py-3">
+                    <div class="bg-surface border border-border rounded-2xl rounded-bl-sm rtl:rounded-bl-2xl rtl:rounded-br-sm max-w-[85%] px-4 py-3">
                         <div class="flex items-center gap-2 mb-2">
                             <span class="text-lg">𓁟</span>
                             <span class="text-xs font-medium text-gold">{{ t('chat.thoth_label', lang) }}</span>
@@ -120,7 +120,8 @@
                        placeholder="{{ t('chat.placeholder', lang) }}"
                        class="input flex-1 !py-3 text-sm"
                        maxlength="2000"
-                       autocomplete="off">
+                       autocomplete="off"
+                       aria-label="{{ t('chat.placeholder', lang) }}">
                 <!-- Mic button -->
                 <button type="button"
                         @click="toggleRecording()"
@@ -141,6 +142,7 @@
                 <!-- Send button -->
                 <button type="submit"
                         :disabled="isLoading || !input.trim()"
+                        aria-label="{{ t('chat.send', lang) }}"
                         class="btn-gold !px-4 !py-3 shrink-0 disabled:opacity-40 disabled:cursor-not-allowed">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -179,7 +181,8 @@
                             <p class="text-[10px] text-text-dim" x-text="item.messageCount + '{{ t('chat.messages_dot', lang) }}' + new Date(item.timestamp).toLocaleDateString()"></p>
                         </div>
                         <button @click.stop="WadjetHistory.removeChatItem(item.timestamp); chatHistory = WadjetHistory.getChatHistory()"
-                                class="w-5 h-5 rounded-full bg-surface-alt flex items-center justify-center text-text-dim hover:text-error opacity-0 group-hover:opacity-100 transition-opacity text-xs shrink-0">&times;</button>
+                                class="w-5 h-5 rounded-full bg-surface-alt flex items-center justify-center text-text-dim hover:text-error opacity-0 group-hover:opacity-100 transition-opacity text-xs shrink-0"
+                                aria-label="{{ t('chat.dismiss', lang) }}">&times;</button>
                     </div>
                 </template>
             </div>
@@ -213,14 +216,7 @@ function chatApp() {
         _chatAudio: null,
         _chatAudioUrl: null,
         _recordTimer: null,
-        starters: [
-            'Tell me about the Great Pyramids of Giza',
-            'Who was Cleopatra?',
-            'What do hieroglyphs mean?',
-            'What was daily life like in ancient Egypt?',
-            'Tell me about the Valley of the Kings',
-            'Who built the Sphinx?',
-        ],
+        starters: {{ t('chat.starters', lang) | tojson }},
 
         init() {
             // TTS state poller — sync Alpine with Web Speech API
@@ -308,7 +304,7 @@ function chatApp() {
                         const ext = mimeType.includes('webm') ? 'webm' : 'm4a';
                         const fd = new FormData();
                         fd.append('file', blob, 'voice.' + ext);
-                        fd.append('lang', 'en');
+                        fd.append('lang', document.documentElement.lang || 'en');
                         const resp = await fetch('/api/stt', { method: 'POST', body: fd });
                         if (resp.ok) {
                             const data = await resp.json();

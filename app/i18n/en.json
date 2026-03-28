@@ -410,6 +410,8 @@
         "placeholder": "Ask about ancient Egypt...",
         "voice_aria": "Voice input",
         "voice_stop": "Stop recording",
+        "send": "Send message",
+        "dismiss": "Dismiss",
         "clear_convo": "Clear conversation",
         "hide_history": "Hide history",
         "past_convos_pre": "Past conversations (",
