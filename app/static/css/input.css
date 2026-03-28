@@ -26,7 +26,7 @@
   /* Text palette */
   --color-text: #F0F0F0;
   --color-text-muted: #8A8A8A;
-  --color-text-dim: #5A5A5A;
+  --color-text-dim: #7E7E7E;
 
   /* Semantic */
   --color-success: #4CAF50;
@@ -48,6 +48,12 @@
 /* ========================================
    Base styles
    ======================================== */
+
+@font-face {
+  font-family: 'Noto Sans Egyptian Hieroglyphs';
+  src: url('/static/fonts/NotoSansEgyptianHieroglyphs-Regular.ttf') format('truetype');
+  font-display: swap;
+}
 
 @layer base {
   body {

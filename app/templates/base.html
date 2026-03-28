@@ -6,7 +6,7 @@
     <title>{% block title %}Wadjet{% endblock %} — Egyptian Heritage AI</title>
     <meta name="description" content="{% block description %}AI-powered Egyptian heritage app — scan hieroglyphs, translate inscriptions, explore landmarks{% endblock %}">
     <meta name="view-transition" content="same-origin">
-    <link rel="icon" href="/favicon.ico" type="image/svg+xml">
+    <link rel="icon" href="/static/images/favicon.svg" type="image/svg+xml">
 
     <!-- DNS prefetch for Google Fonts -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
@@ -41,6 +41,9 @@
 
     <!-- Footer -->
     {% include "partials/footer.html" %}
+
+    <!-- Narration Button (content pages) -->
+    {% block narration %}{% endblock %}
 
     <!-- Auth Modals -->
     <!-- Login Modal -->

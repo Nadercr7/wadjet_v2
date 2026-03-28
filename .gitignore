@@ -28,6 +28,9 @@ data/detection/
 data/reference/
 *.db
 
+# Generated cache (TTS audio, AI images)
+app/static/cache/
+
 # TailwindCSS build output
 app/static/dist/
 

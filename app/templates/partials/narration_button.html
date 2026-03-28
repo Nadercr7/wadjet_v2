@@ -1,0 +1,98 @@
+<!-- Floating narration button — include on content pages -->
+<!-- Reads aloud the page's main content via server TTS, falls back to browser -->
+<div class="fixed bottom-6 right-6 z-50" x-data="narrationBtn" x-show="hasContent" x-cloak>
+    <button @click="toggle()"
+            class="w-14 h-14 rounded-full bg-gold/20 border border-gold/50 backdrop-blur-xl flex items-center justify-center shadow-lg hover:bg-gold/30 transition"
+            :aria-label="playing ? 'Pause narration' : 'Play narration'">
+        <svg x-show="!loading && !playing" class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072M17.95 6.05a8 8 0 010 11.9M11 5L6 9H2v6h4l5 4V5z"/>
+        </svg>
+        <svg x-show="!loading && playing" x-cloak class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6"/>
+        </svg>
+        <svg x-show="loading" x-cloak class="w-5 h-5 text-gold animate-spin" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/>
+        </svg>
+    </button>
+</div>
+
+<script>
+document.addEventListener('alpine:init', () => {
+    Alpine.data('narrationBtn', () => ({
+        playing: false,
+        loading: false,
+        hasContent: true,
+        _audio: null,
+
+        getText() {
+            // Grab main content text, strip HTML
+            const main = document.getElementById('main-content');
+            if (!main) return '';
+            // Get visible text, skip scripts/styles
+            const walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+                acceptNode(node) {
+                    const tag = node.parentElement?.tagName;
+                    if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'NOSCRIPT') return NodeFilter.FILTER_REJECT;
+                    if (node.parentElement?.closest('[x-cloak], [hidden], .sr-only')) return NodeFilter.FILTER_REJECT;
+                    return node.textContent.trim() ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+                }
+            });
+            const parts = [];
+            while (walker.nextNode()) parts.push(walker.currentNode.textContent.trim());
+            return parts.join(' ').replace(/\s+/g, ' ').slice(0, 4000);
+        },
+
+        async toggle() {
+            if (this.playing) {
+                this.stop();
+                return;
+            }
+
+            const text = this.getText();
+            if (!text) return;
+
+            this.loading = true;
+            const lang = document.documentElement.lang || 'en';
+            const ctx = document.body.dataset.narrationContext || 'default';
+
+            try {
+                if (navigator.onLine) {
+                    const resp = await fetch('/api/audio/speak', {
+                        method: 'POST',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify({ text, lang, context: ctx })
+                    });
+                    if (resp.ok && resp.status !== 204) {
+                        const blob = await resp.blob();
+                        const url = URL.createObjectURL(blob);
+                        this._audio = new Audio(url);
+                        this._audio.onended = () => { this.playing = false; };
+                        this._audio.play();
+                        this.playing = true;
+                        this.loading = false;
+                        return;
+                    }
+                }
+            } catch (e) { /* fall through to browser TTS */ }
+
+            // Browser fallback
+            if (typeof WadjetTTS !== 'undefined' && WadjetTTS.isSupported()) {
+                WadjetTTS.speakToggle(text, { lang, rate: 0.95, id: 'narration' });
+                this.playing = true;
+            }
+            this.loading = false;
+        },
+
+        stop() {
+            if (this._audio) {
+                this._audio.pause();
+                this._audio.currentTime = 0;
+                this._audio = null;
+            }
+            if (typeof WadjetTTS !== 'undefined') WadjetTTS.stop();
+            this.playing = false;
+        }
+    }));
+});
+</script>

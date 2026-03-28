@@ -50,7 +50,7 @@
                         <div x-show="msg.role === 'assistant'" class="flex items-center gap-2 mb-2">
                             <span class="text-lg">𓁟</span>
                             <span class="text-xs font-medium text-gold">Thoth</span>
-                            <button @click="ttsActiveId = 'msg-'+idx; ttsState = WadjetTTS.speakToggle(msg.content.replace(/[#*`>|\-]/g,''), {lang: 'en', rate: 0.95, id: 'msg-'+idx})"
+                            <button @click="speakMessage(msg.content.replace(/[#*`>|\-]/g,''), 'msg-'+idx)"
                                     x-show="typeof WadjetTTS !== 'undefined' && WadjetTTS.isSupported()"
                                     class="ml-auto p-1 rounded-md text-text-dim hover:text-gold hover:bg-gold/10 transition-all"
                                     :class="{'!text-gold': ttsState !== 'idle' && ttsActiveId === 'msg-'+idx}"
@@ -205,6 +205,7 @@ function chatApp() {
         _mediaRecorder: null,
         _audioChunks: [],
         _ttsPoller: null,
+        _chatAudio: null,
         _recordTimer: null,
         starters: [
             'Tell me about the Great Pyramids of Giza',
@@ -229,7 +230,46 @@ function chatApp() {
         destroy() {
             if (this._ttsPoller) clearInterval(this._ttsPoller);
             if (this._recordTimer) clearTimeout(this._recordTimer);
+            if (this._chatAudio) { this._chatAudio.pause(); this._chatAudio = null; }
             if (typeof WadjetTTS !== 'undefined') WadjetTTS.stop();
+        },
+
+        async speakMessage(text, msgId) {
+            const chatLang = document.documentElement.lang || 'en';
+            // If same message is playing, toggle off
+            if (this.ttsActiveId === msgId && this.ttsState === 'playing') {
+                if (this._chatAudio) { this._chatAudio.pause(); this._chatAudio = null; }
+                if (typeof WadjetTTS !== 'undefined') WadjetTTS.stop();
+                this.ttsState = 'idle';
+                this.ttsActiveId = null;
+                return;
+            }
+            this.ttsActiveId = msgId;
+            // Try server TTS when online
+            if (navigator.onLine) {
+                try {
+                    const resp = await fetch('/api/audio/speak', {
+                        method: 'POST',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify({ text, lang: chatLang, context: 'thoth_chat' })
+                    });
+                    if (resp.ok && resp.status !== 204) {
+                        const blob = await resp.blob();
+                        const url = URL.createObjectURL(blob);
+                        if (this._chatAudio) this._chatAudio.pause();
+                        this._chatAudio = new Audio(url);
+                        this._chatAudio.onplay = () => { this.ttsState = 'playing'; };
+                        this._chatAudio.onended = () => { this.ttsState = 'idle'; this.ttsActiveId = null; };
+                        this._chatAudio.onpause = () => { this.ttsState = 'idle'; };
+                        this._chatAudio.play();
+                        return;
+                    }
+                } catch (e) { /* fall through to browser TTS */ }
+            }
+            // Offline fallback: browser TTS
+            if (typeof WadjetTTS !== 'undefined') {
+                this.ttsState = WadjetTTS.speakToggle(text, { lang: chatLang, rate: 0.95, id: msgId });
+            }
         },
 
         async toggleRecording() {

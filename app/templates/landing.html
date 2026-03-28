@@ -277,6 +277,8 @@
 </section>
 {% endblock %}
 
+{% block narration %}{% include "partials/narration_button.html" %}{% endblock %}
+
 {% block scripts %}
 <script>
 function discoverApp() {
@@ -288,10 +290,33 @@ function discoverApp() {
         { glyph: '𓋹', label: 'Ankh', code: 'S34', meaning: 'The key of life — eternal existence' },
         { glyph: '𓇳', label: 'Sun Disk', code: 'N5', meaning: 'Ra — the sun god' },
         { glyph: '𓆣', label: 'Scarab', code: 'L1', meaning: 'Khepri — rebirth & transformation' },
-        { glyph: '𓊹', label: 'Was Scepter', code: 'R11', meaning: 'Power & dominion' },
+        { glyph: '�', label: 'Was Scepter', code: 'S42', meaning: 'Power & dominion' },
         { glyph: '𓇯', label: 'Sky', code: 'N1', meaning: 'Nut — the sky goddess' },
-        { glyph: '𓈖', label: 'Water', code: 'N35', meaning: 'Ripple of water — the letter N' },
-    ];
+        { glyph: '𓈖', label: 'Water', code: 'N35', meaning: 'Ripple of water — the letter N' },        { glyph: '𓀀', label: 'Seated Man', code: 'A1', meaning: 'Man, person — the determinative for male' },
+        { glyph: '𓃀', label: 'Foot', code: 'D58', meaning: 'The letter B — movement' },
+        { glyph: '𓂋', label: 'Mouth', code: 'D21', meaning: 'The letter R — speech & opening' },
+        { glyph: '𓂧', label: 'Hand', code: 'D46', meaning: 'The letter D — action & giving' },
+        { glyph: '𓅃', label: 'Falcon', code: 'G5', meaning: 'Horus — the sky god & pharaoh' },
+        { glyph: '𓅱', label: 'Quail Chick', code: 'G43', meaning: 'The letter W/U — royalty' },
+        { glyph: '𓆓', label: 'Cobra', code: 'I10', meaning: 'Uraeus — divine authority' },
+        { glyph: '𓇋', label: 'Reed', code: 'M17', meaning: 'The letter I/Y — Upper Egypt' },
+        { glyph: '𓊃', label: 'Folded Cloth', code: 'S29', meaning: 'The letter S — royalty' },
+        { glyph: '𓏏', label: 'Bread Loaf', code: 'X1', meaning: 'The letter T — offering' },
+        { glyph: '𓈗', label: 'Water Lines', code: 'N36', meaning: 'Canal, water channel' },
+        { glyph: '𓏤', label: 'Stroke', code: 'Z1', meaning: 'Unity — the number one' },
+        { glyph: '𓋴', label: 'Folded Cloth', code: 'S29', meaning: 'The letter S' },
+        { glyph: '𓊪', label: 'Stool', code: 'Q3', meaning: 'The letter P — seat of power' },
+        { glyph: '𓈎', label: 'Sand Slope', code: 'N29', meaning: 'The letter Q — hill country' },
+        { glyph: '𓏲', label: 'Rope Coil', code: 'Z7', meaning: 'The letter W — binding' },
+        { glyph: '𓆑', label: 'Horned Viper', code: 'I9', meaning: 'The letter F — fatherhood' },
+        { glyph: '𓎛', label: 'Wick', code: 'V28', meaning: 'The letter H — illumination' },
+        { glyph: '𓇓', label: 'Sedge', code: 'M23', meaning: 'King of Upper Egypt' },
+        { glyph: '𓉐', label: 'House', code: 'O1', meaning: 'House, dwelling — shelter' },
+        { glyph: '𓊽', label: 'Djed Pillar', code: 'R11', meaning: 'Stability — backbone of Osiris' },
+        { glyph: '𓃭', label: 'Lion', code: 'E23', meaning: 'Power, ferocity — royal guardian' },
+        { glyph: '𓄿', label: 'Vulture', code: 'G1', meaning: 'The letter A — Nekhbet goddess' },
+        { glyph: '𓇽', label: 'Star', code: 'N14', meaning: 'Star — the afterlife & sky' },
+        { glyph: '𓋔', label: 'White Crown', code: 'S1', meaning: 'Hedjet — crown of Upper Egypt' },    ];
 
     const landmarks = [
         { name: 'Great Pyramids of Giza', city: 'Giza', type: 'Pharaonic', description: 'The last surviving Wonder of the Ancient World, built as royal tombs during the Old Kingdom.' },
