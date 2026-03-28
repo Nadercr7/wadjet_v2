@@ -174,6 +174,7 @@ def create_app() -> FastAPI:
     # i18n — register t() as Jinja2 global for all templates
     from app.i18n import t as _translate
     templates.env.globals["t"] = _translate
+    templates.env.globals["base_url"] = settings.base_url.rstrip("/")
 
     # Routes
     app.include_router(pages.router)

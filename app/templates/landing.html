@@ -2,6 +2,12 @@
 
 {% block body_attrs %}data-narration-context="landing"{% endblock %}
 {% block title %}{{ t('app.name', lang) }}{% endblock %}
+{% block seo %}
+{% set og_title = t('app.name', lang) + ' — ' + t('app.tagline', lang) %}
+{% set og_description = t('app.site_desc', lang) %}
+{% set canonical_url = base_url + '/' %}
+{% include "partials/seo.html" %}
+{% endblock %}
 
 {% block content %}
 <!-- Hero Section -->

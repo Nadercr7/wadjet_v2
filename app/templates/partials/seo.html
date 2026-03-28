@@ -1,0 +1,48 @@
+{# SEO partial — included in base.html, overridden per page via {% block seo %} #}
+
+<!-- Canonical URL -->
+<link rel="canonical" href="{{ canonical_url | default(base_url) }}">
+
+<!-- Language alternates -->
+{% set _path = canonical_url | default(base_url) | replace(base_url, '') %}
+<link rel="alternate" hreflang="en" href="{{ base_url }}{{ _path }}">
+<link rel="alternate" hreflang="ar" href="{{ base_url }}{{ _path }}{{ '&' if '?' in _path else '?' }}lang=ar">
+<link rel="alternate" hreflang="x-default" href="{{ base_url }}{{ _path }}">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ canonical_url | default(base_url) }}">
+<meta property="og:title" content="{{ og_title | default(t('app.name', lang) + ' — ' + t('app.tagline', lang)) }}">
+<meta property="og:description" content="{{ og_description | default(t('app.site_desc', lang)) }}">
+<meta property="og:image" content="{{ og_image | default(base_url + '/static/images/og-default.png') }}">
+<meta property="og:locale" content="{{ 'ar_EG' if lang == 'ar' else 'en_US' }}">
+<meta property="og:site_name" content="{{ t('app.name', lang) }}">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ og_title | default(t('app.name', lang) + ' — ' + t('app.tagline', lang)) }}">
+<meta name="twitter:description" content="{{ og_description | default(t('app.site_desc', lang)) }}">
+<meta name="twitter:image" content="{{ og_image | default(base_url + '/static/images/og-default.png') }}">
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Wadjet",
+    "description": "{{ t('app.site_desc', 'en') }}",
+    "url": "{{ base_url }}",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "Web",
+    "inLanguage": ["en", "ar"],
+    "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Mr Robot"
+    }
+}
+</script>

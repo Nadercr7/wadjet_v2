@@ -1,6 +1,12 @@
 {% extends "base.html" %}
-{% block title %}{{ t('chat.title', lang) }} {{ t('chat.title_gold', lang) }}{% endblock %}
+{% block title %}{{ t('chat.title', lang) }} {{ t('chat.title_gold', lang) }} — {{ t('app.name', lang) }}{% endblock %}
 {% block description %}{{ t('chat.meta_desc', lang) }}{% endblock %}
+{% block seo %}
+{% set og_title = t('chat.title', lang) + ' ' + t('chat.title_gold', lang) + ' — ' + t('app.name', lang) %}
+{% set og_description = t('chat.meta_desc', lang) %}
+{% set canonical_url = base_url + '/chat' %}
+{% include "partials/seo.html" %}
+{% endblock %}
 
 {% block content %}
 <section class="section !pb-4" x-data="chatApp()" x-cloak>

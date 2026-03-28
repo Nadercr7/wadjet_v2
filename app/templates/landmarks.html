@@ -1,6 +1,13 @@
 {% extends "base.html" %}
 
 {% block title %}{{ t('nav.landmarks_link', lang) }} — {{ t('app.name', lang) }}{% endblock %}
+{% block description %}{{ t('landmarks_hub.hero_sub', lang) }}{% endblock %}
+{% block seo %}
+{% set og_title = t('landmarks_hub.hero_1', lang) + ' ' + t('landmarks_hub.hero_2', lang) + ' — ' + t('app.name', lang) %}
+{% set og_description = t('landmarks_hub.hero_sub', lang) %}
+{% set canonical_url = base_url + '/landmarks' %}
+{% include "partials/seo.html" %}
+{% endblock %}
 
 {% block content %}
 <!-- Hero -->

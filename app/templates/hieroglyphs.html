@@ -1,6 +1,13 @@
 {% extends "base.html" %}
 
 {% block title %}{{ t('nav.hieroglyphs', lang) }} — {{ t('app.name', lang) }}{% endblock %}
+{% block description %}{{ t('hieroglyphs_hub.hero_sub', lang) }}{% endblock %}
+{% block seo %}
+{% set og_title = t('hieroglyphs_hub.hero_1', lang) + ' ' + t('hieroglyphs_hub.hero_2', lang) + ' — ' + t('app.name', lang) %}
+{% set og_description = t('hieroglyphs_hub.hero_sub', lang) %}
+{% set canonical_url = base_url + '/hieroglyphs' %}
+{% include "partials/seo.html" %}
+{% endblock %}
 
 {% block content %}
 <!-- Hero -->

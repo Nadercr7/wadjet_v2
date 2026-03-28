@@ -11,7 +11,7 @@
 | 4 | ✅ DONE | 2026-03-28 | 2026-03-28 | — | UX, accessibility & TTS |
 | 5 | ✅ DONE | 2026-03-28 | 2026-03-28 | — | Performance |
 | 6 | ✅ DONE | 2026-03-28 | 2026-03-28 | — | Arabic i18n |
-| 7 | ⬜ TODO | — | — | — | SEO & social |
+| 7 | ✅ DONE | 2026-03-28 | 2026-03-28 | — | SEO & social |
 | 8 | ⬜ TODO | — | — | — | Stories of the Nile |
 | 9 | ⬜ TODO | — | — | — | SaaS dashboard |
 | 10 | ⬜ TODO | — | — | — | Beta finalize |
@@ -41,8 +41,8 @@
 - [x] M2: Arabic names not rendered (Phase 6) ✅
 - [x] M3: Write English-only examples (Phase 6) ✅
 - [x] M4: No Arabic translations (Phase 6) ✅
-- [ ] M5: No OG/Twitter tags (Phase 7)
-- [ ] M6: No robots.txt/sitemap (Phase 7)
+- [x] M5: No OG/Twitter tags (Phase 7) ✅
+- [x] M6: No robots.txt/sitemap (Phase 7) ✅
 - [x] M7: No lazy loading (Phase 5)
 - [x] M8: HTMX no defer (Phase 2)
 - [x] M9: 260 cards load at once (Phase 5)

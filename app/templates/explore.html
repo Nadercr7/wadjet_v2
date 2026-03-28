@@ -2,6 +2,12 @@
 {% block body_attrs %}data-narration-context="explore"{% endblock %}
 {% block title %}{{ t('explore.title', lang) }} {{ t('explore.title_gold', lang) }} — {{ t('app.name', lang) }}{% endblock %}
 {% block description %}{{ t('explore.meta_desc', lang) }}{% endblock %}
+{% block seo %}
+{% set og_title = t('explore.title', lang) + ' ' + t('explore.title_gold', lang) + ' — ' + t('app.name', lang) %}
+{% set og_description = t('explore.meta_desc', lang) %}
+{% set canonical_url = base_url + '/explore' %}
+{% include "partials/seo.html" %}
+{% endblock %}
 
 {% block head %}
 <!-- ONNX Runtime Web loaded lazily on first identification request -->

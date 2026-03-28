@@ -1,6 +1,12 @@
 {% extends "base.html" %}
 {% block title %}{{ t('quiz.title', lang) }} — {{ t('app.name', lang) }}{% endblock %}
 {% block description %}{{ t('quiz.meta_desc', lang) }}{% endblock %}
+{% block seo %}
+{% set og_title = t('quiz.title', lang) + ' ' + t('quiz.title_gold', lang) + ' — ' + t('app.name', lang) %}
+{% set og_description = t('quiz.meta_desc', lang) %}
+{% set canonical_url = base_url + '/quiz' %}
+{% include "partials/seo.html" %}
+{% endblock %}
 
 {% block content %}
 <section class="section" x-data="quizApp()" x-cloak>

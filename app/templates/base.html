@@ -8,6 +8,9 @@
     <meta name="view-transition" content="same-origin">
     <link rel="icon" href="/static/images/favicon.svg" type="image/svg+xml">
 
+    <!-- SEO: OG, Twitter Cards, JSON-LD, canonical, hreflang -->
+    {% block seo %}{% include "partials/seo.html" %}{% endblock %}
+
     <!-- DNS prefetch for Google Fonts -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
 

@@ -1,6 +1,7 @@
 from fastapi import APIRouter, Request
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, PlainTextResponse, Response
 
+from app.config import settings
 from app.i18n import get_lang
 
 router = APIRouter()
@@ -74,3 +75,49 @@ async def dictionary_lesson_page(request: Request, level: int):
     templates = request.app.state.templates
     lang = get_lang(request)
     return templates.TemplateResponse(request, "lesson_page.html", {"level": level, "lang": lang})
+
+
+@router.get("/robots.txt", response_class=PlainTextResponse)
+async def robots_txt():
+    base = settings.base_url.rstrip("/")
+    return (
+        "User-agent: *\n"
+        "Allow: /\n"
+        "Disallow: /api/\n"
+        "\n"
+        "User-agent: GPTBot\n"
+        "Disallow: /\n"
+        "\n"
+        f"Sitemap: {base}/sitemap.xml\n"
+    )
+
+
+@router.get("/sitemap.xml")
+async def sitemap_xml():
+    base = settings.base_url.rstrip("/")
+    pages = [
+        "/",
+        "/hieroglyphs",
+        "/landmarks",
+        "/scan",
+        "/dictionary",
+        "/write",
+        "/explore",
+        "/chat",
+        "/quiz",
+    ]
+    urls = ""
+    for page in pages:
+        urls += (
+            "  <url>\n"
+            f"    <loc>{base}{page}</loc>\n"
+            "    <changefreq>weekly</changefreq>\n"
+            "  </url>\n"
+        )
+    xml = (
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        f"{urls}"
+        "</urlset>\n"
+    )
+    return Response(content=xml, media_type="application/xml")

@@ -1,6 +1,12 @@
 {% extends "base.html" %}
 {% block title %}{{ t('write.breadcrumb', lang) }} — {{ t('app.name', lang) }}{% endblock %}
 {% block description %}{{ t('write.meta_desc', lang) }}{% endblock %}
+{% block seo %}
+{% set og_title = t('write.title', lang) + ' ' + t('write.title_gold', lang) + ' — ' + t('app.name', lang) %}
+{% set og_description = t('write.meta_desc', lang) %}
+{% set canonical_url = base_url + '/write' %}
+{% include "partials/seo.html" %}
+{% endblock %}
 
 {% block content %}
 <section class="section" x-data="writeApp()" x-cloak>

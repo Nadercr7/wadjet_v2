@@ -13,6 +13,7 @@ class Settings(BaseSettings):
     # Security
     csrf_secret: str = ""  # Auto-generated if empty (see main.py)
     jwt_secret: str = ""  # Auto-generated if empty (see main.py)
+    base_url: str = "https://wadjet.onrender.com"  # Override in .env for custom domain
 
     # Database
     database_url: str = "sqlite+aiosqlite:///data/wadjet.db"

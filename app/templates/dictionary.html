@@ -2,6 +2,12 @@
 {% block body_attrs %}data-narration-context="dictionary"{% endblock %}
 {% block title %}{{ t('dictionary.breadcrumb', lang) }} — {{ t('app.name', lang) }}{% endblock %}
 {% block description %}{{ t('dictionary.meta_desc', lang) }}{% endblock %}
+{% block seo %}
+{% set og_title = t('dictionary.title', lang) + ' ' + t('dictionary.title_gold', lang) + ' — ' + t('app.name', lang) %}
+{% set og_description = t('dictionary.meta_desc', lang) %}
+{% set canonical_url = base_url + '/dictionary' %}
+{% include "partials/seo.html" %}
+{% endblock %}
 
 {% block content %}
 <section class="section" x-data="dictionaryApp()" x-cloak>

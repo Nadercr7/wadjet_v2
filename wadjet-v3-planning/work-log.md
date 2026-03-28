@@ -370,3 +370,72 @@
 - ✅ No literal key names in HTML output
 - ✅ Write page Arabic mode buttons, placeholders, palette tabs render correctly
 - ✅ Scan page has `dir="rtl"` in Arabic mode
+
+---
+
+## Phase 6 — Emoji + Translation Fix
+**Date**: 2026-03-28
+**Commit**: `7607fba` — `[Phase 6] Fix emojis to Lucide SVGs + fix Arabic translations`
+
+### Changes
+- Replaced 11 emoji occurrences (🏛️, 🧭, ✅, ❌, 📝, ⭐, 🎯, etc.) across 4 templates with Lucide inline SVG icons
+- Fixed ~20 Arabic keys using "مسح" (wipe/erase) → "فحص" (examine/inspect) for scan operations
+- Fixed محدد→مخصّص (determinative), منسّق→مختار (curated), أداتان→أداتين (dual form)
+- Removed duplicate ★ symbols in explore.html badge templates
+
+---
+
+## Phase 7 — SEO & Social Sharing
+**Date**: 2026-03-28
+
+### Changes (14 files, ~250 insertions)
+
+**SEO Partial Created:**
+- `app/templates/partials/seo.html` — reusable SEO block with:
+  - Canonical URL (`<link rel="canonical">`)
+  - Hreflang alternates (en, ar with `?lang=ar`, x-default)
+  - Open Graph tags (type, url, title, description, image, locale, site_name)
+  - Twitter Card tags (summary_large_image)
+  - JSON-LD structured data (WebApplication schema with free offer, author "Mr Robot")
+
+**Base Template Updated:**
+- `app/templates/base.html` — added `{% block seo %}{% include "partials/seo.html" %}{% endblock %}` after description meta
+
+**Per-Page SEO Overrides (10 templates):**
+- Each template now has a `{% block seo %}` with custom `og_title`, `og_description`, `canonical_url`
+- Fixed `chat.html` missing `— {{ t('app.name', lang) }}` suffix in title
+- Added missing `{% block description %}` to `hieroglyphs.html` and `landmarks.html`
+
+**Robots.txt + Sitemap.xml Routes:**
+- `app/api/pages.py` — added `GET /robots.txt` (Allow all, block GPTBot, Sitemap reference) and `GET /sitemap.xml` (9 public routes, weekly changefreq)
+
+**OG Default Image:**
+- `app/static/images/og-default.png` — 1200×630 black background, gold Eye of Horus (𓂀), "Wadjet" title, subtitle, tagline
+
+**Config:**
+- `app/config.py` — added `base_url: str = "https://wadjet.onrender.com"`
+- `app/main.py` — registered `base_url` as Jinja2 global
+
+**Bugs Resolved:**
+- **M5**: No OG/Twitter tags → full OG + Twitter Cards on all pages
+- **M6**: No robots.txt/sitemap → dynamic robots.txt + sitemap.xml routes
+
+### Files Created
+- `app/templates/partials/seo.html`
+- `app/static/images/og-default.png`
+- `scripts/gen_og_image.py`
+
+### Files Modified
+- `app/config.py`, `app/main.py`, `app/api/pages.py`
+- `app/templates/base.html`
+- 10 page templates: landing, scan, hieroglyphs, landmarks, explore, chat, dictionary, write, quiz, lesson_page
+
+### Testing Results (all pass)
+- ✅ OG tags visible in page source (title, description, image, locale, site_name)
+- ✅ Correct per-page title/description/image on scan, chat, explore
+- ✅ `/robots.txt` returns valid robots file (Allow /, Disallow /api/, block GPTBot)
+- ✅ `/sitemap.xml` returns valid XML with 9 URLs
+- ✅ Canonical URL in `<head>` per page
+- ✅ Arabic pages: `og:locale` is `ar_EG`
+- ✅ No duplicate title/description tags (1 each)
+- ✅ JSON-LD WebApplication structured data present with correct schema
