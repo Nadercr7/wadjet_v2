@@ -1,0 +1,747 @@
+{% extends "base.html" %}
+{% block title %}Explore Egyptian Landmarks — Wadjet{% endblock %}
+{% block description %}Browse 190+ Egyptian heritage sites — pyramids, temples, mosques, churches, museums, and natural wonders. Filter by category, region, or subcategory.{% endblock %}
+
+{% block head %}
+<!-- ONNX Runtime Web loaded lazily on first identification request -->
+{% endblock %}
+
+{% block content %}
+<section class="section" x-data="exploreApp()" x-cloak>
+    <div class="container-wide">
+
+        <!-- Breadcrumb -->
+        <div class="flex items-center gap-2 text-sm text-text-muted mb-8" data-animate>
+            <a href="/landmarks" class="hover:text-gold transition-colors">𓉐 Landmarks</a>
+            <span class="text-text-dim">/</span>
+            <span class="text-text">Explore</span>
+        </div>
+
+        <!-- Heading -->
+        <div class="text-center mb-10" data-animate>
+            <h1 class="mb-4">Explore <span class="text-gold-gradient">Egypt</span></h1>
+            <p class="text-text-muted text-lg max-w-2xl mx-auto">
+                Discover <span class="text-gold font-medium" x-text="totalCount"></span> heritage sites — pyramids, temples, mosques, churches, museums, and natural wonders.
+            </p>
+        </div>
+
+        <!-- Mode Tabs -->
+        <div class="flex justify-center gap-2 mb-10" data-animate>
+            <button @click="mode = 'browse'; stopIdentifyCamera()"
+                    :class="mode === 'browse' ? 'btn-gold btn-sm' : 'btn-ghost btn-sm'">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                Browse All
+            </button>
+            <button @click="mode = 'identify'"
+                    :class="mode === 'identify' ? 'btn-gold btn-sm' : 'btn-ghost btn-sm'">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                Identify from Photo
+            </button>
+        </div>
+
+        <!-- ════════════════════════════════════════════════
+             BROWSE MODE
+             ════════════════════════════════════════════════ -->
+        <div x-show="mode === 'browse'" x-transition>
+
+        <!-- ════════════════════════════════════════════════
+             Search + Filters
+             ════════════════════════════════════════════════ -->
+        <div class="mb-8 flex flex-col sm:flex-row gap-3" data-animate>
+            <!-- Search -->
+            <div class="flex-1 relative">
+                <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-text-dim" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                <input type="text" x-model.debounce.300ms="searchQuery" @input="fetchLandmarks()"
+                       placeholder="Search landmarks..."
+                       class="input pl-10 w-full">
+            </div>
+
+            <!-- City filter -->
+            <select x-model="cityFilter" @change="fetchLandmarks()"
+                    class="input w-full sm:w-48 cursor-pointer">
+                <option value="">All Cities</option>
+                <template x-for="c in cities" :key="c.name">
+                    <option :value="c.name" x-text="c.name + ' (' + c.count + ')'"></option>
+                </template>
+            </select>
+        </div>
+
+        <!-- ════════════════════════════════════════════════
+             Type pills
+             ════════════════════════════════════════════════ -->
+        <div class="mb-8 flex flex-wrap gap-2" data-animate>
+            <button @click="selectType(null)" class="px-3 py-2 rounded-full text-sm font-medium transition-all"
+                    :class="!activeType ? 'bg-gold text-night' : 'bg-surface border border-border text-text-muted hover:border-gold/30 hover:text-text'">
+                All <span class="ml-1 opacity-60" x-text="totalCount"></span>
+            </button>
+            <template x-for="t in types" :key="t.name">
+                <button @click="selectType(t.name)"
+                        class="px-3 py-2 rounded-full text-sm font-medium transition-all"
+                        :class="activeType === t.name ? 'bg-gold text-night' : 'bg-surface border border-border text-text-muted hover:border-gold/30 hover:text-text'">
+                    <span x-text="t.name"></span>
+                    <span class="ml-1 opacity-60" x-text="t.count"></span>
+                </button>
+            </template>
+        </div>
+
+        <!-- Subcategory pills (shown when a type is selected) -->
+        <div class="mb-8 flex flex-wrap gap-2" x-show="activeType && activeSubcategories.length > 0" x-transition data-animate>
+            <template x-for="sc in activeSubcategories" :key="sc.name">
+                <button @click="selectSubcategory(sc.name)"
+                        class="px-2.5 py-1.5 rounded-full text-xs font-medium transition-all"
+                        :class="activeSubcategory === sc.name ? 'bg-gold/80 text-night' : 'bg-night border border-gold/20 text-sand hover:border-gold/40 hover:text-gold-light'">
+                    <span x-text="sc.name"></span>
+                    <span class="ml-1 opacity-50" x-text="sc.count"></span>
+                </button>
+            </template>
+        </div>
+
+        <!-- ════════════════════════════════════════════════
+             Loading state
+             ════════════════════════════════════════════════ -->
+        <div x-show="loading" class="text-center py-12">
+            <svg class="w-8 h-8 animate-spin text-gold mx-auto" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path></svg>
+        </div>
+
+        <!-- Empty state -->
+        <div x-show="!loading && landmarks.length === 0" class="card text-center py-16" x-transition>
+            <span class="text-5xl mb-4 block opacity-30">𓉐</span>
+            <p class="text-text-muted">No landmarks match your search.</p>
+        </div>
+
+        <!-- ════════════════════════════════════════════════
+             Landmarks Grid
+             ════════════════════════════════════════════════ -->
+        <div x-show="!loading && landmarks.length > 0" x-transition
+             class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+            <template x-for="lm in landmarks" :key="lm.slug">
+                <button @click="lm.children_slugs && lm.children_slugs.length > 0 ? openDetail(lm.slug) : openDetail(lm.slug)"
+                        class="card group text-left cursor-pointer hover:border-gold/40 transition-all">
+                    <!-- Thumbnail -->
+                    <div class="aspect-[4/3] rounded-lg overflow-hidden mb-4 bg-night relative">
+                        <template x-if="lm.thumbnail">
+                            <img :src="lm.thumbnail" :alt="lm.name"
+                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                 loading="lazy">
+                        </template>
+                        <template x-if="!lm.thumbnail">
+                            <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-surface to-night">
+                                <div class="text-center">
+                                    <span class="text-4xl block mb-1 opacity-30">𓉐</span>
+                                    <span class="text-[10px] text-text-dim/40 uppercase tracking-wider" x-text="lm.type"></span>
+                                </div>
+                            </div>
+                        </template>
+                        <!-- Badges top row -->
+                        <div class="absolute top-2 right-2 flex gap-1">
+                            <template x-if="lm.featured">
+                                <span class="text-[10px] px-1.5 py-0.5 rounded-full bg-gold/90 text-night font-semibold">★ Featured</span>
+                            </template>
+                            <template x-if="lm.source === 'curated' && !lm.featured">
+                                <span class="text-[10px] px-1.5 py-0.5 rounded-full bg-gold/90 text-night">★ Curated</span>
+                            </template>
+                        </div>
+                        <!-- Children count bottom row -->
+                        <template x-if="lm.children_slugs && lm.children_slugs.length > 0">
+                            <span class="absolute bottom-2 left-2 text-[10px] px-2 py-1 rounded-full bg-night/80 backdrop-blur-sm text-gold-light border border-gold/30 font-medium">
+                                <span x-text="lm.children_slugs.length"></span> sub-sites ▸
+                            </span>
+                        </template>
+                    </div>
+
+                    <!-- Name -->
+                    <h3 class="font-semibold text-sm mb-0.5 group-hover:text-gold transition-colors line-clamp-1"
+                        x-text="lm.name"></h3>
+                    <p class="text-xs text-sand/60 font-arabic mb-1 line-clamp-1" x-show="lm.name_ar" x-text="lm.name_ar"></p>
+
+                    <!-- City + Type + Subcategory -->
+                    <div class="flex items-center gap-2 text-xs text-text-dim mb-2 flex-wrap">
+                        <span x-text="lm.city"></span>
+                        <span>·</span>
+                        <span x-text="lm.type"></span>
+                        <template x-if="lm.subcategory">
+                            <span class="text-sand/50" x-text="'· ' + lm.subcategory"></span>
+                        </template>
+                    </div>
+
+                    <!-- Description (truncated) -->
+                    <p class="text-xs text-text-muted line-clamp-2" x-text="lm.description || ''"></p>
+                </button>
+            </template>
+        </div>
+
+        <!-- Result count -->
+        <div class="mt-6 text-center text-sm text-text-dim" x-show="!loading && landmarks.length > 0">
+            Showing <span class="text-text-muted" x-text="landmarks.length"></span>
+            of <span class="text-text-muted" x-text="totalCount"></span> landmarks
+        </div>
+
+        </div><!-- end BROWSE MODE -->
+
+        <!-- ════════════════════════════════════════════════
+             IDENTIFY MODE
+             ════════════════════════════════════════════════ -->
+        <div x-show="mode === 'identify'" x-transition>
+            <div class="max-w-2xl mx-auto">
+
+                <!-- Upload form (HTMX) -->
+                <form id="identify-form"
+                      hx-post="/api/explore/identify"
+                      hx-target="#identify-results"
+                      hx-swap="innerHTML"
+                      hx-encoding="multipart/form-data"
+                      hx-indicator="#identify-spinner"
+                      @htmx:before-request.window="if(event.detail.elt.id === 'identify-form') { $refs.identifyBtn.disabled = true; identifyError = ''; }"
+                      @htmx:after-request.window="if(event.detail.elt.id === 'identify-form') { $refs.identifyBtn.disabled = false; if(!event.detail.successful) { identifyError = event.detail.xhr?.status === 503 ? 'Identification temporarily unavailable. Please try again.' : 'Something went wrong (' + (event.detail.xhr?.status || 'network error') + '). Please try again.'; } }"
+                      enctype="multipart/form-data">
+
+                    <!-- Tabs: Upload / Camera -->
+                    <div class="flex justify-center gap-2 mb-6">
+                        <button type="button" @click="identifyMode = 'upload'; stopIdentifyCamera()"
+                                :class="identifyMode === 'upload' ? 'btn-gold btn-sm' : 'btn-ghost btn-sm'">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
+                            Upload Image
+                        </button>
+                        <button type="button" @click="identifyMode = 'camera'"
+                                :class="identifyMode === 'camera' ? 'btn-gold btn-sm' : 'btn-ghost btn-sm'">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                            Camera
+                        </button>
+                    </div>
+
+                    <!-- Upload area -->
+                    <div x-show="identifyMode === 'upload'" class="card border-dashed border-2 border-border hover:border-gold/30 transition-colors text-center py-16 cursor-pointer relative mb-6"
+                         @click="$refs.identifyInput.click()"
+                         @dragover.prevent="identifyDragOver = true"
+                         @dragleave.prevent="identifyDragOver = false"
+                         @drop.prevent="handleIdentifyDrop($event)"
+                         :class="{'border-gold/50 bg-gold/5': identifyDragOver}">
+
+                        <input type="file" name="file" x-ref="identifyInput" accept="image/jpeg,image/png,image/webp"
+                               @change="handleIdentifyFile($event)" class="hidden">
+
+                        <template x-if="!identifyPreview">
+                            <div>
+                                <div class="w-20 h-20 rounded-full bg-gold/10 border border-gold/20 flex items-center justify-center mx-auto mb-6">
+                                    <svg class="w-10 h-10 text-gold/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    </svg>
+                                </div>
+                                <p class="text-text-muted mb-2">
+                                    <span class="text-gold font-medium">Upload a photo</span> of any Egyptian landmark
+                                </p>
+                                <p class="text-text-dim text-sm">The AI will identify which site it is from 139+ heritage sites</p>
+                            </div>
+                        </template>
+
+                        <template x-if="identifyPreview && identifyMode === 'upload'">
+                            <div>
+                                <img :src="identifyPreview" class="max-h-64 rounded-lg mx-auto mb-4 object-contain" alt="Uploaded landmark">
+                                <p class="text-text-dim text-sm">Click to change image</p>
+                            </div>
+                        </template>
+                    </div>
+
+                    <!-- Camera mode -->
+                    <div x-show="identifyMode === 'camera'" x-transition>
+                        <div class="card text-center mb-6">
+                            <template x-if="!identifyCameraActive && !identifyPreview">
+                                <div class="py-12">
+                                    <div class="w-20 h-20 rounded-full bg-gold/10 border border-gold/20 flex items-center justify-center mx-auto mb-6">
+                                        <svg class="w-10 h-10 text-gold/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                        </svg>
+                                    </div>
+                                    <button type="button" @click="startIdentifyCamera()" class="btn-gold">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                                        Start Camera
+                                    </button>
+                                    <p class="text-text-dim text-sm mt-3">Requires camera permission</p>
+                                </div>
+                            </template>
+
+                            <template x-if="identifyCameraActive">
+                                <div>
+                                    <div class="relative inline-block">
+                                        <video x-ref="identifyVideo" autoplay playsinline class="max-h-80 rounded-lg border border-border"></video>
+                                        <div class="absolute inset-0 border-2 border-gold/30 rounded-lg pointer-events-none">
+                                            <div class="absolute top-2 left-2 w-6 h-6 border-t-2 border-l-2 border-gold"></div>
+                                            <div class="absolute top-2 right-2 w-6 h-6 border-t-2 border-r-2 border-gold"></div>
+                                            <div class="absolute bottom-2 left-2 w-6 h-6 border-b-2 border-l-2 border-gold"></div>
+                                            <div class="absolute bottom-2 right-2 w-6 h-6 border-b-2 border-r-2 border-gold"></div>
+                                        </div>
+                                    </div>
+                                    <canvas x-ref="identifyCanvas" class="hidden"></canvas>
+                                    <div class="flex justify-center gap-3 mt-4">
+                                        <button type="button" @click="captureIdentifyPhoto()" class="btn-gold">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path></svg>
+                                            Capture
+                                        </button>
+                                        <button type="button" @click="stopIdentifyCamera()" class="btn-ghost">Stop Camera</button>
+                                    </div>
+                                </div>
+                            </template>
+
+                            <template x-if="!identifyCameraActive && identifyPreview && identifyMode === 'camera'">
+                                <div class="py-6">
+                                    <img :src="identifyPreview" class="max-h-64 rounded-lg mx-auto mb-4 object-contain" alt="Captured landmark">
+                                    <button type="button" @click="identifyPreview = null; identifyFile = null;" class="btn-ghost btn-sm">Retake</button>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+
+                    <!-- Identify button -->
+                    <div x-show="identifyPreview" class="text-center mb-8">
+                        <button type="submit" x-ref="identifyBtn" class="btn-gold">
+                            <span class="htmx-indicator-hide">Identify Landmark</span>
+                            <span id="identify-spinner" class="htmx-indicator flex items-center gap-2">
+                                <svg class="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path></svg>
+                                Analyzing…
+                            </span>
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Results (swapped by HTMX) -->
+                <div id="identify-results"></div>
+
+                <!-- Error state -->
+                <div x-show="identifyError" class="card border-red-500/30 text-center py-6">
+                    <p class="text-red-400 text-sm" x-text="identifyError"></p>
+                </div>
+
+            </div>
+        </div><!-- end IDENTIFY MODE -->
+
+        <!-- ════════════════════════════════════════════════
+             Detail Modal
+             ════════════════════════════════════════════════ -->
+        <div x-show="detailLandmark" x-transition:enter="transition ease-out duration-200"
+             x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+             x-transition:leave="transition ease-in duration-150"
+             x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
+             class="fixed inset-0 z-50 flex items-center justify-center p-4"
+             @click.self="detailLandmark = null" @keydown.escape.window="detailLandmark = null">
+
+            <!-- Backdrop -->
+            <div class="absolute inset-0 bg-night/80 backdrop-blur-sm pointer-events-none"></div>
+
+            <!-- Modal content -->
+            <div x-show="detailLandmark"
+                 x-transition:enter="transition ease-out duration-200 delay-75"
+                 x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100"
+                 class="relative bg-surface border border-border rounded-xl max-w-2xl w-full max-h-[85vh] overflow-y-auto p-6 shadow-2xl"
+                 data-lenis-prevent>
+
+                <!-- Close button -->
+                <button @click="detailLandmark = null"
+                        class="absolute top-4 right-4 z-10 text-text-dim hover:text-text transition-colors bg-surface/80 rounded-full p-1">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+
+                <template x-if="detailLoading">
+                    <div class="text-center py-12">
+                        <svg class="w-8 h-8 animate-spin text-gold mx-auto" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path></svg>
+                    </div>
+                </template>
+
+                <template x-if="detailLandmark && !detailLoading">
+                    <div>
+                        <!-- Hero image -->
+                        <template x-if="detailLandmark.original_image || detailLandmark.thumbnail">
+                            <div class="aspect-video rounded-lg overflow-hidden mb-6 -mt-1 -mx-1">
+                                <img :src="detailLandmark.original_image || detailLandmark.thumbnail"
+                                     :alt="detailLandmark.name"
+                                     class="w-full h-full object-cover">
+                            </div>
+                        </template>
+
+                        <!-- Parent breadcrumb (for child sites) -->
+                        <template x-if="detailLandmark.parent">
+                            <div class="flex items-center gap-2 text-xs text-text-dim mb-3">
+                                <button @click="openDetail(detailLandmark.parent.slug)"
+                                        class="text-gold hover:text-gold-light transition-colors cursor-pointer">
+                                    ◂ <span x-text="detailLandmark.parent.name"></span>
+                                </button>
+                                <span>›</span>
+                                <span class="text-text-muted" x-text="detailLandmark.name"></span>
+                            </div>
+                        </template>
+
+                        <!-- Name + Arabic name + Badges -->
+                        <h2 class="text-2xl font-bold mb-1" x-text="detailLandmark.name"></h2>
+                        <p class="text-base text-sand/70 font-arabic mb-3" x-show="detailLandmark.name_ar" x-text="detailLandmark.name_ar"></p>
+                        <div class="flex flex-wrap items-center gap-2 mb-4">
+                            <span class="badge-gold text-xs" x-text="detailLandmark.type"></span>
+                            <template x-if="detailLandmark.subcategory">
+                                <span class="text-xs px-2 py-0.5 rounded-full bg-gold/10 border border-gold/20 text-gold-light" x-text="detailLandmark.subcategory"></span>
+                            </template>
+                            <span class="badge-muted text-xs" x-text="detailLandmark.city"></span>
+                            <span class="badge-muted text-xs" x-show="detailLandmark.era" x-text="detailLandmark.era"></span>
+                            <span class="badge-muted text-xs" x-show="detailLandmark.period" x-text="detailLandmark.period"></span>
+                        </div>
+
+                        <!-- Description -->
+                        <p class="text-text-muted text-sm leading-relaxed mb-6"
+                           x-text="detailLandmark.description"></p>
+
+                        <!-- Highlights (curated only) -->
+                        <template x-if="detailLandmark.highlights">
+                            <div class="mb-6">
+                                <h3 class="text-sm font-semibold text-gold mb-2">Highlights</h3>
+                                <p class="text-text-muted text-sm leading-relaxed" x-text="detailLandmark.highlights"></p>
+                            </div>
+                        </template>
+
+                        <!-- Historical significance (curated only) -->
+                        <template x-if="detailLandmark.historical_significance">
+                            <div class="mb-6">
+                                <h3 class="text-sm font-semibold text-gold mb-2">Historical Significance</h3>
+                                <p class="text-text-muted text-sm leading-relaxed" x-text="detailLandmark.historical_significance"></p>
+                            </div>
+                        </template>
+
+                        <!-- Key features / artifacts grid -->
+                        <template x-if="detailLandmark.notable_features || detailLandmark.key_artifacts || detailLandmark.architectural_features">
+                            <div class="mb-6 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                <template x-if="detailLandmark.notable_features">
+                                    <div class="bg-night/50 rounded-lg p-3">
+                                        <h4 class="text-xs font-semibold text-gold mb-1.5">Notable Features</h4>
+                                        <p class="text-xs text-text-dim" x-text="detailLandmark.notable_features"></p>
+                                    </div>
+                                </template>
+                                <template x-if="detailLandmark.key_artifacts">
+                                    <div class="bg-night/50 rounded-lg p-3">
+                                        <h4 class="text-xs font-semibold text-gold mb-1.5">Key Artifacts</h4>
+                                        <p class="text-xs text-text-dim" x-text="detailLandmark.key_artifacts"></p>
+                                    </div>
+                                </template>
+                                <template x-if="detailLandmark.architectural_features">
+                                    <div class="bg-night/50 rounded-lg p-3">
+                                        <h4 class="text-xs font-semibold text-gold mb-1.5">Architecture</h4>
+                                        <p class="text-xs text-text-dim" x-text="detailLandmark.architectural_features"></p>
+                                    </div>
+                                </template>
+                            </div>
+                        </template>
+
+                        <!-- Visiting tips (curated only) -->
+                        <template x-if="detailLandmark.visiting_tips">
+                            <div class="mb-6">
+                                <h3 class="text-sm font-semibold text-gold mb-2">Visiting Tips</h3>
+                                <p class="text-text-muted text-sm leading-relaxed" x-text="detailLandmark.visiting_tips"></p>
+                            </div>
+                        </template>
+
+                        <!-- Wikipedia extract (extra context) -->
+                        <template x-if="detailLandmark.wikipedia_extract">
+                            <div class="mb-6">
+                                <h3 class="text-sm font-semibold text-gold mb-2">From Wikipedia</h3>
+                                <p class="text-text-muted text-xs leading-relaxed line-clamp-6" x-text="detailLandmark.wikipedia_extract"></p>
+                            </div>
+                        </template>
+
+                        <!-- Sections (rich content) -->
+                        <template x-if="detailLandmark.sections && detailLandmark.sections.length > 0">
+                            <div class="mb-6">
+                                <h3 class="text-sm font-semibold text-gold mb-3">Sections</h3>
+                                <div class="space-y-3">
+                                    <template x-for="(sec, i) in detailLandmark.sections" :key="i">
+                                        <div class="bg-night/50 rounded-lg p-4 border border-border/50">
+                                            <h4 class="text-sm font-semibold text-sand mb-1.5" x-text="sec.title"></h4>
+                                            <p class="text-xs text-text-dim leading-relaxed" x-text="sec.content"></p>
+                                        </div>
+                                    </template>
+                                </div>
+                            </div>
+                        </template>
+
+                        <!-- Children sub-sites -->
+                        <template x-if="detailLandmark.children && detailLandmark.children.length > 0">
+                            <div class="mb-6">
+                                <h3 class="text-sm font-semibold text-gold mb-3">Explore Inside</h3>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                    <template x-for="child in detailLandmark.children" :key="child.slug">
+                                        <button @click="openDetail(child.slug)"
+                                                class="bg-night/50 rounded-lg p-3 border border-border/50 hover:border-gold/30 transition-all text-left cursor-pointer group">
+                                            <div class="flex items-start gap-3">
+                                                <template x-if="child.thumbnail">
+                                                    <img :src="child.thumbnail" :alt="child.name"
+                                                         class="w-14 h-14 rounded-md object-cover flex-shrink-0" loading="lazy">
+                                                </template>
+                                                <template x-if="!child.thumbnail">
+                                                    <div class="w-14 h-14 rounded-md bg-surface flex items-center justify-center flex-shrink-0">
+                                                        <span class="text-lg opacity-30">𓉐</span>
+                                                    </div>
+                                                </template>
+                                                <div class="min-w-0">
+                                                    <h4 class="text-sm font-medium text-text group-hover:text-gold transition-colors line-clamp-1" x-text="child.name"></h4>
+                                                    <p class="text-[10px] text-sand/50 font-arabic line-clamp-1" x-show="child.name_ar" x-text="child.name_ar"></p>
+                                                    <p class="text-[11px] text-text-dim line-clamp-2 mt-1" x-text="child.description"></p>
+                                                    <template x-if="child.featured">
+                                                        <span class="inline-block text-[9px] mt-1 px-1.5 py-0.5 rounded-full bg-gold/20 text-gold-light">★ Featured</span>
+                                                    </template>
+                                                </div>
+                                            </div>
+                                        </button>
+                                    </template>
+                                </div>
+                            </div>
+                        </template>
+
+                        <!-- Tags -->
+                        <template x-if="detailLandmark.tags && detailLandmark.tags.length > 0">
+                            <div class="mb-6 flex flex-wrap gap-1.5">
+                                <template x-for="tag in detailLandmark.tags" :key="tag">
+                                    <span class="text-[10px] px-2 py-0.5 rounded-full bg-night border border-border text-text-dim" x-text="tag"></span>
+                                </template>
+                            </div>
+                        </template>
+
+                        <!-- Related Sites -->
+                        <template x-if="detailLandmark.related_sites && detailLandmark.related_sites.length > 0">
+                            <div class="mb-6">
+                                <h3 class="text-sm font-semibold text-gold mb-2">Related Sites</h3>
+                                <div class="flex flex-wrap gap-2">
+                                    <template x-for="rel in detailLandmark.related_sites" :key="rel">
+                                        <button @click="openDetail(rel)"
+                                                class="text-xs px-3 py-1.5 rounded-lg bg-night border border-gold/20 text-sand hover:border-gold/40 hover:text-gold-light transition-colors cursor-pointer"
+                                                x-text="rel.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase())">
+                                        </button>
+                                    </template>
+                                </div>
+                            </div>
+                        </template>
+
+                        <!-- Recommendations (curated only) -->
+                        <template x-if="detailLandmark.recommendations && detailLandmark.recommendations.length > 0">
+                            <div class="mb-6">
+                                <h3 class="text-sm font-semibold text-gold mb-2">You Might Also Like</h3>
+                                <div class="flex flex-wrap gap-2">
+                                    <template x-for="rec in detailLandmark.recommendations" :key="rec.slug">
+                                        <button @click="openDetail(rec.slug)"
+                                                class="text-xs px-3 py-1.5 rounded-lg bg-night border border-gold/20 text-sand hover:border-gold/40 hover:text-gold-light transition-colors cursor-pointer"
+                                                x-text="rec.name">
+                                        </button>
+                                    </template>
+                                </div>
+                            </div>
+                        </template>
+
+                        <!-- Action links -->
+                        <div class="flex flex-wrap gap-3 pt-2 border-t border-border">
+                            <template x-if="detailLandmark.maps_url">
+                                <a :href="detailLandmark.maps_url" target="_blank" rel="noopener noreferrer"
+                                   class="btn-ghost btn-sm">
+                                    <svg class="w-4 h-4 mr-1 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                    Google Maps
+                                </a>
+                            </template>
+                            <template x-if="detailLandmark.wikipedia_url">
+                                <a :href="detailLandmark.wikipedia_url" target="_blank" rel="noopener noreferrer"
+                                   class="btn-ghost btn-sm">
+                                    Wikipedia →
+                                </a>
+                            </template>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+function exploreApp() {
+    return {
+        // Mode
+        mode: new URLSearchParams(window.location.search).get('identify') ? 'identify' : 'browse',
+
+        // Browse state
+        landmarks: [],
+        types: [],
+        cities: [],
+        categoryTree: [],
+        totalCount: 0,
+        activeType: null,
+        activeSubcategory: null,
+        cityFilter: '',
+        searchQuery: '',
+        loading: true,
+        detailLandmark: null,
+        detailLoading: false,
+
+        // Identify state
+        identifyMode: 'upload',
+        identifyPreview: null,
+        identifyDragOver: false,
+        identifyFile: null,
+        identifyError: '',
+        identifyCameraActive: false,
+        identifyStream: null,
+
+        // Init
+        async init() {
+            await this.fetchCategories();
+            await this.fetchLandmarks();
+        },
+
+        async fetchCategories() {
+            try {
+                const resp = await fetch('/api/landmarks/categories');
+                const data = await resp.json();
+                this.types = data.types;
+                this.cities = data.cities;
+                this.categoryTree = data.category_tree || [];
+                this.totalCount = data.total;
+            } catch (err) {
+                console.error('Failed to load categories:', err);
+            }
+        },
+
+        async fetchLandmarks() {
+            this.loading = true;
+            try {
+                const params = new URLSearchParams();
+                if (this.activeType) params.set('category', this.activeType);
+                if (this.activeSubcategory) params.set('subcategory', this.activeSubcategory);
+                if (this.cityFilter) params.set('city', this.cityFilter);
+                if (this.searchQuery) params.set('search', this.searchQuery);
+
+                const url = '/api/landmarks' + (params.toString() ? '?' + params : '');
+                const resp = await fetch(url);
+                const data = await resp.json();
+                this.landmarks = data.landmarks;
+            } catch (err) {
+                console.error('Failed to load landmarks:', err);
+            } finally {
+                this.loading = false;
+            }
+        },
+
+        selectType(type) {
+            this.activeType = type;
+            this.activeSubcategory = null;
+            this.fetchLandmarks();
+        },
+
+        selectSubcategory(sc) {
+            this.activeSubcategory = this.activeSubcategory === sc ? null : sc;
+            this.fetchLandmarks();
+        },
+
+        get activeSubcategories() {
+            if (!this.activeType) return [];
+            const cat = this.categoryTree.find(c => c.name === this.activeType);
+            return cat ? cat.subcategories : [];
+        },
+
+        async openDetail(slug) {
+            this.detailLandmark = {};
+            this.detailLoading = true;
+            try {
+                const resp = await fetch('/api/landmarks/' + encodeURIComponent(slug));
+                if (!resp.ok) throw new Error('Not found');
+                this.detailLandmark = await resp.json();
+            } catch (err) {
+                console.error('Failed to load landmark detail:', err);
+                this.detailLandmark = null;
+            } finally {
+                this.detailLoading = false;
+            }
+        },
+
+        // ── Identify: file handling ──
+
+        handleIdentifyFile(e) {
+            const file = e.target.files[0];
+            if (file) this._setIdentifyFile(file);
+        },
+
+        handleIdentifyDrop(e) {
+            this.identifyDragOver = false;
+            const file = e.dataTransfer.files[0];
+            if (file && file.type.startsWith('image/')) this._setIdentifyFile(file);
+        },
+
+        _setIdentifyFile(file) {
+            if (file.size > 10 * 1024 * 1024) {
+                this.identifyError = 'File too large. Maximum 10 MB.';
+                return;
+            }
+            this.identifyFile = file;
+            this.identifyResults = [];
+            this.identifyError = '';
+            // Use object URL — instant, no base64 encoding lag
+            if (this.identifyPreview) URL.revokeObjectURL(this.identifyPreview);
+            this.identifyPreview = URL.createObjectURL(file);
+
+            // Sync to the actual file input so HTMX picks it up
+            this._syncFileInput(file);
+        },
+
+        _syncFileInput(file) {
+            const dt = new DataTransfer();
+            dt.items.add(file);
+            if (this.$refs.identifyInput) {
+                this.$refs.identifyInput.files = dt.files;
+            }
+        },
+
+        // ── Identify: camera ──
+
+        async startIdentifyCamera() {
+            try {
+                this.identifyError = '';
+                this.identifyPreview = null;
+                this.identifyFile = null;
+                const stream = await navigator.mediaDevices.getUserMedia({
+                    video: { facingMode: 'environment', width: { ideal: 1280 }, height: { ideal: 720 } }
+                });
+                this.identifyStream = stream;
+                this.identifyCameraActive = true;
+                await this.$nextTick();
+                if (this.$refs.identifyVideo) {
+                    this.$refs.identifyVideo.srcObject = stream;
+                }
+            } catch (err) {
+                console.error('Camera error:', err);
+                this.identifyError = 'Could not access camera. Please check permissions.';
+            }
+        },
+
+        captureIdentifyPhoto() {
+            const video = this.$refs.identifyVideo;
+            const canvas = this.$refs.identifyCanvas;
+            if (!video || !canvas) return;
+
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            canvas.getContext('2d').drawImage(video, 0, 0);
+
+            this.stopIdentifyCamera();
+
+            canvas.toBlob((blob) => {
+                if (!blob) return;
+                const file = new File([blob], 'camera-capture.jpg', { type: 'image/jpeg' });
+                this._setIdentifyFile(file);
+            }, 'image/jpeg', 0.9);
+        },
+
+        stopIdentifyCamera() {
+            if (this.identifyStream) {
+                this.identifyStream.getTracks().forEach(t => t.stop());
+                this.identifyStream = null;
+            }
+            this.identifyCameraActive = false;
+        },
+
+    };
+}
+</script>
+{% endblock %}

@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About the Horus AI Team - Discover the minds behind the ancient Egyptian AI platform">
+    <meta name="theme-color" content="#ffd700">
+    
+    <title>About Us - Horus AI</title>
+    
+    <!-- Enhanced CSS with Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS Variables for consistent theming */
+        :root {
+            --primary-gold: #ffd700;
+            --primary-gold-hover: #e6c300;
+            --primary-gold-light: #fff4b3;
+            --text-white: #ffffff;
+            --text-light: #e0e0e0;
+            --text-muted: #cccccc;
+            --bg-dark: #000000;
+            --bg-card: rgba(30, 30, 30, 0.95);
+            --bg-overlay: rgba(0, 0, 0, 0.7);
+            --border-radius: 12px;
+            --border-radius-small: 8px;
+            --shadow-light: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-medium: 0 8px 25px rgba(0, 0, 0, 0.3);
+            --shadow-heavy: 0 15px 35px rgba(0, 0, 0, 0.4);
+            --transition-fast: 0.2s ease;
+            --transition-medium: 0.3s ease;
+            --transition-slow: 0.5s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            color: var(--text-white);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('{{ url_for("static", filename="background.jpg") }}') no-repeat center center/cover;
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            backdrop-filter: blur(15px);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-heavy);
+            border: 2px solid rgba(255, 215, 0, 0.2);
+            animation: fadeInUp 0.8s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.05) 0%, rgba(255, 215, 0, 0.02) 100%);
+            pointer-events: none;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Enhanced Navigation */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--text-white);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            transition: var(--transition-medium);
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+            text-shadow: 0 4px 8px rgba(0,0,0,0.7);
+        }
+
+        .logo span {
+            color: var(--primary-gold);
+            background: linear-gradient(45deg, var(--primary-gold), var(--primary-gold-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            color: var(--text-white);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 10px 15px;
+            border-radius: var(--border-radius-small);
+            transition: var(--transition-fast);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.2), transparent);
+            transition: var(--transition-medium);
+        }
+
+        .nav-links a:hover::before {
+            left: 100%;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-gold);
+            background: rgba(255, 215, 0, 0.1);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-light);
+        }
+
+        /* Egyptian-themed icons */
+        .nav-icon {
+            width: 20px;
+            height: 20px;
+            background: var(--primary-gold);
+            border-radius: 50%;
+            display: inline-block;
+            position: relative;
+        }
+
+        .nav-icon::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 12px;
+            height: 12px;
+            background: var(--bg-dark);
+            border-radius: 50%;
+        }
+
+        .nav-icon.home::after {
+            content: '◢';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--primary-gold);
+            font-size: 8px;
+            font-weight: bold;
+        }
+
+        .nav-icon.about::after {
+            content: '☥';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--primary-gold);
+            font-size: 10px;
+            font-weight: bold;
+        }
+
+        /* Enhanced Team Section */
+        .team-section {
+            position: relative;
+            z-index: 1;
+        }
+
+        .team-section h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-gold);
+            margin-bottom: 40px;
+            text-align: center;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.7);
+            background: linear-gradient(45deg, var(--primary-gold), var(--primary-gold-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: slideInDown 0.8s ease-out 0.2s both;
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .team-intro {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--text-light);
+            font-size: 1.2rem;
+            line-height: 1.7;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeIn 1s ease-out 0.4s both;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .team-member {
+            background: rgba(0, 0, 0, 0.4);
+            border: 2px solid rgba(255, 215, 0, 0.2);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            text-align: left;
+            backdrop-filter: blur(10px);
+            transition: var(--transition-medium);
+            position: relative;
+            overflow: hidden;
+            animation: slideInUp 0.6s ease-out 0.6s both;
+        }
+
+        .team-member:nth-child(2) {
+            animation-delay: 0.8s;
+        }
+
+        .team-member:nth-child(3) {
+            animation-delay: 1s;
+        }
+
+        .team-member:nth-child(4) {
+            animation-delay: 1.2s;
+        }
+
+        .team-member::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.05) 0%, rgba(255, 215, 0, 0.02) 100%);
+            pointer-events: none;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 215, 0, 0.4);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .team-member h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--primary-gold);
+            margin-top: 0;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            position: relative;
+            z-index: 1;
+        }
+
+        .team-member p {
+            color: var(--text-light);
+            line-height: 1.7;
+            margin: 0;
+            font-size: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .team-member-role {
+            color: var(--primary-gold-light);
+            font-weight: 500;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .team-member-linkedin {
+            margin-top: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .team-member-linkedin a {
+            color: var(--primary-gold);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: var(--border-radius-small);
+            transition: var(--transition-medium);
+        }
+
+        .team-member-linkedin a:hover {
+            background: rgba(255, 215, 0, 0.1);
+            border-color: var(--primary-gold);
+            transform: translateY(-2px);
+        }
+
+        .linkedin-icon {
+            width: 16px;
+            height: 16px;
+            background: #0077b5;
+            border-radius: 2px;
+            display: inline-block;
+            position: relative;
+        }
+
+        .linkedin-icon::before {
+            content: 'in';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 10px;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Enhanced Mission Section */
+        .mission-section {
+            background: rgba(0, 0, 0, 0.4);
+            border: 2px solid rgba(255, 215, 0, 0.2);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            margin-top: 50px;
+            backdrop-filter: blur(10px);
+            text-align: center;
+            animation: slideInUp 0.6s ease-out 1.2s both;
+        }
+
+        .mission-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--primary-gold);
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .mission-section p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            line-height: 1.7;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Enhanced Back to Home Button */
+        .back-home {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .back-btn {
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--primary-gold-hover) 100%);
+            color: var(--bg-dark);
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition-medium);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: var(--shadow-medium);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .back-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: var(--transition-medium);
+        }
+
+        .back-btn:hover::before {
+            left: 100%;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-heavy);
+            background: linear-gradient(135deg, var(--primary-gold-light) 0%, var(--primary-gold) 100%);
+        }
+
+        .back-btn-icon {
+            width: 20px;
+            height: 20px;
+            background: var(--bg-dark);
+            border-radius: 50%;
+            display: inline-block;
+            position: relative;
+        }
+
+        .back-btn-icon::before {
+            content: '◢';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--primary-gold);
+            font-size: 10px;
+            font-weight: bold;
+        }
+
+        /* Enhanced Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+
+            .container {
+                padding: 25px 20px;
+            }
+
+            .team-section h1 {
+                font-size: 2.2rem;
+            }
+
+            .navbar {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .nav-links {
+                gap: 15px;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .team-member {
+                padding: 25px 20px;
+            }
+
+            .mission-section {
+                padding: 30px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px 15px;
+            }
+
+            .team-section h1 {
+                font-size: 1.8rem;
+            }
+
+            .team-member {
+                padding: 20px 15px;
+            }
+
+            .mission-section {
+                padding: 25px 15px;
+            }
+
+            .back-btn {
+                padding: 12px 20px;
+                font-size: 1rem;
+            }
+        }
+
+        /* Enhanced Focus States */
+        button:focus,
+        a:focus {
+            outline: 2px solid var(--primary-gold);
+            outline-offset: 2px;
+        }
+
+        /* Smooth transitions */
+        * {
+            transition: var(--transition-fast);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Enhanced Navigation -->
+        <nav class="navbar">
+            <div class="logo">HORUS <span>AI</span></div>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('index') }}"><span class="nav-icon home"></span>Home</a></li>
+                <li><a href="{{ url_for('about_us') }}" class="active"><span class="nav-icon about"></span>About Us</a></li>
+            </ul>
+        </nav>
+
+        <!-- Enhanced Team Section -->
+        <section class="team-section">
+            <h1>Meet the Horus AI Team</h1>
+            
+            <div class="team-intro">
+                We are passionate innovators dedicated to bridging the gap between ancient Egyptian heritage and modern technology. Our team combines expertise in AI, software engineering, and cultural preservation to create an immersive experience that brings the wonders of ancient Egypt to life.
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="team-member-role">Founder & Lead Developer</div>
+                    <h3>Nader Mohamed</h3>
+                    <p>Nader is the driving force behind Horus AI, bringing a passion for ancient history and cutting-edge technology together. With a background in software engineering and a deep appreciation for Egyptian heritage, Nader envisioned a tool that could bring the past to life in new and interactive ways.</p>
+                    <div class="team-member-linkedin">
+                        <a href="https://www.linkedin.com/in/nadermohamed7" target="_blank" rel="noopener noreferrer">
+                            <span class="linkedin-icon"></span>
+                            Connect on LinkedIn
+                        </a>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="team-member-role">AI & Machine Learning Engineer</div>
+                    <h3>Youssef Othman</h3>
+                    <p>Youssef is the mastermind behind the sophisticated AI models that power Horus AI. His expertise in machine learning and image recognition allows the platform to accurately identify and provide information about ancient artifacts. Youssef is dedicated to pushing the boundaries of what AI can achieve in the field of cultural heritage.</p>
+                    <div class="team-member-linkedin">
+                        <a href="https://www.linkedin.com/in/youssef-othman-06b532246/" target="_blank" rel="noopener noreferrer">
+                            <span class="linkedin-icon"></span>
+                            Connect on LinkedIn
+                        </a>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="team-member-role">Backend Developer & System Architect</div>
+                    <h3>Amr Sherif</h3>
+                    <p>Amr is responsible for the robust backend infrastructure that powers Horus AI. His expertise in system architecture and database design ensures that the platform can handle complex queries and provide fast, reliable responses. Amr's work ensures that users have a seamless experience when interacting with the AI.</p>
+                    <div class="team-member-linkedin">
+                        <a href="https://www.linkedin.com/in/amrozz-sherif1/" target="_blank" rel="noopener noreferrer">
+                            <span class="linkedin-icon"></span>
+                            Connect on LinkedIn
+                        </a>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="team-member-role">UX/UI Designer & Frontend Developer</div>
+                    <h3>Shahd Ibrahim</h3>
+                    <p>Shahd is responsible for the intuitive and engaging user experience of the Horus AI platform. She combines artistic talent with a deep understanding of user-centered design principles to create interfaces that are both beautiful and easy to use. Shahd believes that technology should be accessible and enjoyable for everyone.</p>
+                    <div class="team-member-linkedin">
+                        <a href="https://www.linkedin.com/in/shahd-ibrahim-a09271296/" target="_blank" rel="noopener noreferrer">
+                            <span class="linkedin-icon"></span>
+                            Connect on LinkedIn
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Enhanced Mission Section -->
+            <div class="mission-section">
+                <h2>Our Mission</h2>
+                <p>At Horus AI, we believe that the wonders of ancient Egypt should be accessible to everyone, everywhere. Our mission is to leverage the power of artificial intelligence to create an immersive, educational, and engaging platform that allows users to explore Egyptian artifacts and receive personalized tour recommendations. We're committed to preserving cultural heritage while making it relevant and exciting for the modern world.</p>
+            </div>
+
+            <!-- Enhanced Back to Home Button -->
+            <div class="back-home">
+                <a href="{{ url_for('index') }}" class="back-btn">
+                    <span class="back-btn-icon"></span>
+                    <span>Back to Home</span>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Enhanced JavaScript for better UX
+        document.addEventListener('DOMContentLoaded', function() {
+            // Enhanced scroll animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe team members for scroll animations
+            document.querySelectorAll('.team-member').forEach(member => {
+                observer.observe(member);
+            });
+
+            // Enhanced keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Tab') {
+                    document.body.classList.add('keyboard-navigation');
+                }
+            });
+
+            document.addEventListener('mousedown', function() {
+                document.body.classList.remove('keyboard-navigation');
+            });
+
+            // Enhanced hover effects
+            document.querySelectorAll('.team-member').forEach(member => {
+                member.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px) scale(1.02)';
+                });
+
+                member.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+
+            // Enhanced accessibility
+            document.querySelectorAll('a, button').forEach(element => {
+                element.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        this.click();
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+

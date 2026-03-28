@@ -1,0 +1,19 @@
+{
+  "slug": "city_of_the_dead",
+  "category": "Historic",
+  "region": "Cairo",
+  "wikipedia": {
+    "en": {
+      "title": "City of the Dead (Cairo)",
+      "extract": "The City of the Dead, or Cairo Necropolis, also referred to as the Qarāfa, is a series of vast Islamic-era necropolises and cemeteries in Cairo, Egypt. They extend to the north and to the south of the Cairo Citadel, below the Mokattam Hills and outside the historic city walls, covering an area roughly 4 miles (6.4 km) long. They are included in the UNESCO World Heritage Site of \"Historic Cairo\".",
+      "description": "Cemetery in Cairo, Egypt",
+      "coordinates": {
+        "lat": 30.04666667,
+        "lon": 31.27638889
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Wiki_city_of_the_dead_DSCF0114_Edit.jpg/330px-Wiki_city_of_the_dead_DSCF0114_Edit.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/d/d1/Wiki_city_of_the_dead_DSCF0114_Edit.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/City_of_the_Dead_(Cairo)"
+    }
+  }
+}

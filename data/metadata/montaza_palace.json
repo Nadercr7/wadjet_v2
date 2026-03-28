@@ -1,0 +1,711 @@
+[
+  {
+    "hash": "23072e24bf0c05cb",
+    "original_name": "0.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 8030,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "17d841d38e35006b",
+    "original_name": "1.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 8843,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "64480a48349f682c",
+    "original_name": "10.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 13186,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "9f4b547b2b3930e8",
+    "original_name": "11.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 11329,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "b84c6814d8dcc013",
+    "original_name": "12.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 11640,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "a5a4864c7b4d6ead",
+    "original_name": "13.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 8357,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "82b54b72235cf6ec",
+    "original_name": "14.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 9775,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "3fe4c0ca10767e01",
+    "original_name": "15.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 12696,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "f8c1f9d8a92a9c01",
+    "original_name": "16.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 9556,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "f5a5956b01056feb",
+    "original_name": "17.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 4062,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "f786b9ce4d3bcc33",
+    "original_name": "18.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 9259,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "9e3f1f92065680c3",
+    "original_name": "19.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 7293,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "2d492eb971ae1fc5",
+    "original_name": "2.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 9092,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "3dfd4333d554d3fe",
+    "original_name": "20.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 13681,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "d9b51880f814f278",
+    "original_name": "21.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 8882,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "0c28c2f44c211183",
+    "original_name": "22.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 7574,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "e16187c3cfb21e25",
+    "original_name": "23.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 7821,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "b344e13d271868ea",
+    "original_name": "24.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 16633,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "8f76fe1497b9a9a3",
+    "original_name": "25.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 13414,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "2663bb72cddb8862",
+    "original_name": "26.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 9041,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "bc9a2de613d8d35c",
+    "original_name": "27.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 8366,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "83f57bc9791736dc",
+    "original_name": "28.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 7286,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "81df2b4123542a54",
+    "original_name": "29.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 6296,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "b76ac6883f097da1",
+    "original_name": "3.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 8609,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "7b0c14fef3ab017c",
+    "original_name": "30.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 11962,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "85ab2d3cd659885e",
+    "original_name": "31.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 8979,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "0a1e22387b8e64ef",
+    "original_name": "32.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 10278,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "611696a702eea468",
+    "original_name": "33.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 8279,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "a11a60012bb0759b",
+    "original_name": "34.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 10710,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "12dd1fa49b046fd4",
+    "original_name": "35.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 9113,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "c64f38f306ae878c",
+    "original_name": "36.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 10346,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "37656498a2e5bdcf",
+    "original_name": "37.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 10946,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "a6109ca34d90bf6a",
+    "original_name": "38.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 10300,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "6e231ae32953f847",
+    "original_name": "39.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 7993,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "da69c67092a88317",
+    "original_name": "4.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 9993,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "f14f204aa49edf9e",
+    "original_name": "40.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 7373,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "e5aead8510e48261",
+    "original_name": "41.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 8146,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "a642acb246ab32d5",
+    "original_name": "42.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 10695,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "31172f39546ac956",
+    "original_name": "43.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 8047,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "5a1d5c81e85692db",
+    "original_name": "44.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 12165,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "bcbe4f222f596ab2",
+    "original_name": "45.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 12751,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "348f449e07a68c3d",
+    "original_name": "46.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 6071,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "6e6ad49db5b0470a",
+    "original_name": "47.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 9177,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "263b4851a2891429",
+    "original_name": "48.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 11293,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "ad02633b1b6d9d51",
+    "original_name": "49.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 9032,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "50a7844eed3907e1",
+    "original_name": "5.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 9616,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "f99a45ab2723c9db",
+    "original_name": "50.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 13229,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "366c4014e34ab06e",
+    "original_name": "51.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 6831,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "01e358a1bc65994a",
+    "original_name": "52.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 13783,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "95a36ff8915bee4d",
+    "original_name": "53.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 13097,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "3977ee7e5d0c98e6",
+    "original_name": "54.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 7243,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "af406adcf16c4cfa",
+    "original_name": "55.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 13748,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "c8aeb35469376ed4",
+    "original_name": "56.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 8509,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "a61a559dd083a019",
+    "original_name": "57.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 11889,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "fa5d82d315badfd5",
+    "original_name": "58.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 8206,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "197010bc47c44864",
+    "original_name": "59.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 7384,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "cde75b3572e7444d",
+    "original_name": "6.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 8986,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "a1f9bff10a991d51",
+    "original_name": "60.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 9434,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "1b8182e9ac233404",
+    "original_name": "61.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 7574,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "e593e37dd834f9b6",
+    "original_name": "62.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 7494,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "fce9284040176f58",
+    "original_name": "63.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 8167,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "8d0a7f5d5945cced",
+    "original_name": "64.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 8361,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "81f45c0234148d8a",
+    "original_name": "65.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 14685,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "e9776f5ca2640e02",
+    "original_name": "66.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 9584,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "64797bb80f8c4b67",
+    "original_name": "67.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 9698,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "7c729ffacc5b64dc",
+    "original_name": "68.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 8197,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "ea04cc6a95d59cff",
+    "original_name": "69.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 13081,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "e15ef965fdd747e6",
+    "original_name": "7.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 10640,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "3b3d21d0bc8be4fb",
+    "original_name": "70.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 9960,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "449d1373585e206e",
+    "original_name": "71.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 9406,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "c3033ace95ea90e2",
+    "original_name": "72.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 9519,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "2723564a321b57b5",
+    "original_name": "73.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 8882,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "dd10325e14a1c86c",
+    "original_name": "74.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 9013,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "7638eea6e53be57f",
+    "original_name": "75.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 11934,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "e44fb41e945b2af2",
+    "original_name": "76.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 9178,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "f702c291746d56b1",
+    "original_name": "77.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 11928,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "b07c4eaf2b93af66",
+    "original_name": "78.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 11428,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "bb20b06dd55ab66b",
+    "original_name": "79.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 9431,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "ed4be7d1d6df1152",
+    "original_name": "8.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 8665,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "fcc891eb409cae4c",
+    "original_name": "80.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 7265,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "82abe5af1814540b",
+    "original_name": "81.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 7909,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "8921c72ac2306c19",
+    "original_name": "82.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 9620,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "47af65d207ba38a6",
+    "original_name": "83.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 8116,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "824832da89dc14d7",
+    "original_name": "84.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 9989,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "705b512e5254856f",
+    "original_name": "85.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 7561,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "hash": "cb8bfab4d588e613",
+    "original_name": "9.jpg",
+    "original_class": "Montaza_Palace",
+    "size_bytes": 5141,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:30"
+  },
+  {
+    "filename": "16911ce23b5e6a2c.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Egypt-14A-148_-_Al-Montazah_Palace_%282216757121%29.jpg",
+    "wikipedia_title": "Montaza_Palace",
+    "source": "wikipedia",
+    "downloaded_at": "2026-03-02T02:11:20"
+  },
+  {
+    "filename": "e78a02818160c295.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Egypt-14A-148_-_Al-Montazah_Palace_%282216757121%29.jpg/1280px-Egypt-14A-148_-_Al-Montazah_Palace_%282216757121%29.jpg",
+    "wikipedia_title": "Montaza_Palace",
+    "source": "wikipedia",
+    "downloaded_at": "2026-03-02T02:11:20"
+  },
+  {
+    "filename": "e1af7838d43bc4f3.png",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Montaza_Palace_Gardens.png/500px-Montaza_Palace_Gardens.png",
+    "wikipedia_title": "Montaza_Palace",
+    "source": "wikipedia",
+    "downloaded_at": "2026-03-02T02:11:20"
+  }
+]

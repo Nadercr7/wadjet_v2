@@ -1,0 +1,22 @@
+{
+  "wikipedia": {
+    "en": {
+      "title": "Al-Azhar Mosque",
+      "extract": "Al-Azhar Mosque, known in Egypt simply as al-Azhar, is a mosque in the historic Islamic core of the city of Cairo, Egypt. Commissioned as the new capital of the Fatimid Caliphate in 970 CE, it was the first mosque established in a city that eventually earned the nickname \"the City of a Thousand Minarets\". Its name is usually thought to derive from az-Zahrāʾ, a title given to Fatima, the daughter of Muhammad.",
+      "description": "Mosque in Cairo, Egypt",
+      "coordinates": {
+        "lat": 30.045709,
+        "lon": 31.262683
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Mosqu%C3%A9e_Al-Azhar.jpg/330px-Mosqu%C3%A9e_Al-Azhar.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Mosqu%C3%A9e_Al-Azhar.jpg/3000px-Mosqu%C3%A9e_Al-Azhar.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Al-Azhar_Mosque"
+    },
+    "ar": {
+      "title": "الجامع الأزهر",
+      "extract": "الجامع الأزهر هو أهم مساجد مصر على الإطلاق، وأحد المعاقل التاريخية لنشر وتعليم الإسلام كذلك هو واحد من أشهر المساجد الأثرية في مصر والعالم الإسلامي، وجزء من مؤسسة الأزهر الشريف يعود تاريخ بنائه إلى بداية عهد الدولة الفاطمية في مصر، بعدما أتم جوهر الصقلي فتح مصر سنة 969م، وشرع في تأسيس القاهرة قام بإنشاء القصر الكبير وأعده لنزول الخليفة المعز لدين الله، وفي أثناء ذلك بدأ في إنشاء الجامع الأزهر ليصلي فيه الخليفة، وليكون مسجداً جامعاً للمدينة حديثة النشأة أسوة بجامع عمرو في الفسطاط وجامع ابن طولون في القطائع، كذلك أعد وقتها ليكون معهداً تعليمياً لتعليم المذهب الشيعي ونشره، فبدأ في بناؤه في جمادي الأول 359هـ/970م، وأتم بناءه وأقيمت أول جمعة فيه في رمضان سنة 361هـ /972م، وعرف بجامع القاهرة ورغم أن يد الإصلاح والترميم توالت عليه على مر العصور فغيرت كثيراً من معالمه الفاطمية إلا أنه يعد أقدم أثر فاطمي قائم بمصر. وقد اختلف المؤرخون في أصل تسمية هذا الجامع، والراجح أن الفاطميين سموه بالأزهر تيمناً بفاطمة الزهراء ابنة النبي محمد.",
+      "description": "مسجد يقع في العاصمة المصرية القاهرة، مصر",
+      "wikipedia_url": "https://ar.wikipedia.org/wiki/%D8%A7%D9%84%D8%AC%D8%A7%D9%85%D8%B9_%D8%A7%D9%84%D8%A3%D8%B2%D9%87%D8%B1"
+    }
+  }
+}

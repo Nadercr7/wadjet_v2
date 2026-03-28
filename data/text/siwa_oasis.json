@@ -1,0 +1,22 @@
+{
+  "wikipedia": {
+    "en": {
+      "title": "Siwa Oasis",
+      "extract": "The Siwa Oasis is an urban oasis in Egypt. It is situated between the Qattara Depression and the Great Sand Sea in the Western Desert, 50 kilometres (31 mi) east of the Egypt–Libya border and 560 kilometres (350 mi) from the Egyptian capital city of Cairo. It is famed from its role in ancient Egypt as the home to an oracle of Amun, the ruins of which are a popular tourist attraction, giving it the ancient name Oasis of Amun-Ra, after the major Egyptian deity.",
+      "description": "Oasis in Matrouh, Egypt",
+      "coordinates": {
+        "lat": 29.20527778,
+        "lon": 25.51944444
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/%D9%8A%D9%88%D9%85_%D8%AC%D8%AF%D9%8A%D8%AF.jpg/330px-%D9%8A%D9%88%D9%85_%D8%AC%D8%AF%D9%8A%D8%AF.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/a/af/%D9%8A%D9%88%D9%85_%D8%AC%D8%AF%D9%8A%D8%AF.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Siwa_Oasis"
+    },
+    "ar": {
+      "title": "سيوة",
+      "extract": "سِيوَّة هي مدينة وواحة مصرية في الصحراء الغربية، تبعد حوالي 300 كم عن ساحل البحر المتوسط إلى الجنوب الغربي من مرسى مطروح، وتتبع محافظة مطروح إدارياً. ينتشر في أرجائها الآبار والعيون التي تستخدم لأغراض الري والشرب وتعبئة المياه الطبيعية والعلاج، وبها أربع بحيرات كبرى، فيما اكتشف بها عدة أماكن أثرية مثل معبد آمون، الذي يشهد ظاهرة الاعتدال الربيعي مرتان كل عام، ومقابر جبل الموتى، وأعلنت بها محمية طبيعية تبلغ مساحتها 7800 كم، تضم عدة أنواع لأشكال الحياة الحيوانية والنباتية. يقطن الواحة ما يقارب من 37 ألف نسمة تقريباً، يعمل أغلبهم بالزراعة أو السياحة. يسود المناخ القاري الصحراوي الواحة، فهي شديدة الحرارة صيفاً، أما شتاؤها فدافئ نهاراً شديد البرودة ليلاً.",
+      "description": "واحة في الصحراء الغربية المصرية وتتبع محافظة مطروح إدارياً",
+      "wikipedia_url": "https://ar.wikipedia.org/wiki/%D8%B3%D9%8A%D9%88%D8%A9"
+    }
+  }
+}

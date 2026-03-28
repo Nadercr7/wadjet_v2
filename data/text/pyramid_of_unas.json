@@ -1,0 +1,19 @@
+{
+  "slug": "pyramid_of_unas",
+  "category": "Pharaonic",
+  "region": "Saqqara",
+  "wikipedia": {
+    "en": {
+      "title": "Pyramid of Unas",
+      "extract": "The pyramid of Unas is the funerary monument built for the Egyptian pharaoh Unas, the ninth and final king of the Fifth Dynasty, in the 24th century BC. It is the smallest Old Kingdom pyramid, but significant due to the discovery of Pyramid Texts – spells for the king's afterlife – incised into the walls of its subterranean chambers. Inscribed for the first time in Unas's pyramid, the tradition of these funerary texts carried on in the pyramids of subsequent rulers through to the end of the Old Kingdom, and into the Middle Kingdom through the Coffin Texts that form the basis of the Book of the Dead.",
+      "description": "Fifth Dynasty Egyptian pyramid complex",
+      "coordinates": {
+        "lat": 29.86833333,
+        "lon": 31.21472222
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Unas-Pyramide_%28Sakkara%29_08.jpg/330px-Unas-Pyramide_%28Sakkara%29_08.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/1/13/Unas-Pyramide_%28Sakkara%29_08.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Pyramid_of_Unas"
+    }
+  }
+}

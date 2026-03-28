@@ -1,0 +1,19 @@
+{
+  "slug": "pyramid_of_khafre",
+  "category": "Pharaonic",
+  "region": "Giza",
+  "wikipedia": {
+    "en": {
+      "title": "Pyramid of Khafre",
+      "extract": "The pyramid of Khafre or of Chephren is the middle of the three Ancient Egyptian Pyramids of Giza, the second tallest and second largest of the group. It is the only pyramid out of the three that still has cladding at the top. It is the tomb of the Fourth-Dynasty Pharaoh Khafre (Chefren), who ruled c. 2558−2532 BC.",
+      "description": "Smooth-sided pyramid in Giza, Egypt",
+      "coordinates": {
+        "lat": 29.97611111,
+        "lon": 31.13083333
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Pyramid_of_Khafre_and_Sphinx%2C_Giza%2C_Greater_Cairo%2C_Egypt.jpg/330px-Pyramid_of_Khafre_and_Sphinx%2C_Giza%2C_Greater_Cairo%2C_Egypt.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/6/69/Pyramid_of_Khafre_and_Sphinx%2C_Giza%2C_Greater_Cairo%2C_Egypt.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Pyramid_of_Khafre"
+    }
+  }
+}

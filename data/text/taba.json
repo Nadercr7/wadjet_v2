@@ -1,0 +1,19 @@
+{
+  "slug": "taba",
+  "category": "Nature",
+  "region": "Sinai",
+  "wikipedia": {
+    "en": {
+      "title": "Taba, Egypt",
+      "extract": "Taba is a town in the South Sinai of Egypt, near the northern tip of the Gulf of Aqaba. Taba is the location of one of Egypt's busiest border crossings. It is the northernmost resort of Egypt's Red Sea Riviera.",
+      "description": "Town in South Sinai, Egypt",
+      "coordinates": {
+        "lat": 29.49166667,
+        "lon": 34.89444444
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/%D9%82%D9%84%D8%B9%D8%A9_%D8%B5%D9%84%D8%A7%D8%AD_%D8%A7%D9%84%D8%AF%D9%8A%D9%86_%D8%A7%D9%84%D8%A3%D9%8A%D9%88%D8%A8%D9%8A_%D8%A8%D8%B7%D8%A7%D8%A8%D8%A7.jpg/330px-%D9%82%D9%84%D8%B9%D8%A9_%D8%B5%D9%84%D8%A7%D8%AD_%D8%A7%D9%84%D8%AF%D9%8A%D9%86_%D8%A7%D9%84%D8%A3%D9%8A%D9%88%D8%A8%D9%8A_%D8%A8%D8%B7%D8%A7%D8%A8%D8%A7.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/f/f1/%D9%82%D9%84%D8%B9%D8%A9_%D8%B5%D9%84%D8%A7%D8%AD_%D8%A7%D9%84%D8%AF%D9%8A%D9%86_%D8%A7%D9%84%D8%A3%D9%8A%D9%88%D8%A8%D9%8A_%D8%A8%D8%B7%D8%A7%D8%A8%D8%A7.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Taba%2C_Egypt"
+    }
+  }
+}

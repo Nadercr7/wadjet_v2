@@ -1,0 +1,230 @@
+{
+  "total_samples": 20,
+  "avg_bleu": 0.594,
+  "passing_rate": 0.7,
+  "errors": 0,
+  "avg_latency_ms": 5377.5,
+  "gate_trn_g7": "PASS",
+  "results": [
+    {
+      "transliteration": "Htp-di-nsw",
+      "expected_en": "an offering which the king gives",
+      "got_en": "A royal offering",
+      "got_ar": "تقدمة ملكية",
+      "bleu": 0.222,
+      "provider": "gemini",
+      "latency_ms": 4378.8,
+      "error": null,
+      "category": "offering formula"
+    },
+    {
+      "transliteration": "anx wDA snb",
+      "expected_en": "life, prosperity, health",
+      "got_en": "life prosperity and health",
+      "got_ar": "حياة وازدهار وصحة",
+      "bleu": 0.857,
+      "provider": "gemini",
+      "latency_ms": 8741.4,
+      "error": null,
+      "category": "epithet formula"
+    },
+    {
+      "transliteration": "nTr aA nb pt",
+      "expected_en": "great god, lord of heaven",
+      "got_en": "great god lord of heaven",
+      "got_ar": "إله عظيم رب السماء",
+      "bleu": 1.0,
+      "provider": "gemini",
+      "latency_ms": 3475.5,
+      "error": null,
+      "category": "divine epithet"
+    },
+    {
+      "transliteration": "jmAx xr wsjr",
+      "expected_en": "revered before Osiris",
+      "got_en": "revered with Osiris",
+      "got_ar": "مُبَجَّل مع أوزيريس",
+      "bleu": 0.667,
+      "provider": "gemini",
+      "latency_ms": 4104.1,
+      "error": null,
+      "category": "funerary formula"
+    },
+    {
+      "transliteration": "nsw-bjtj nb tAwj",
+      "expected_en": "king of Upper and Lower Egypt, lord of the Two Lands",
+      "got_en": "The king of Upper and Lower Egypt, lord of the Two Lands:",
+      "got_ar": "ملك الوجهين القبلي والبحري، رب الأرضين",
+      "bleu": 1.0,
+      "provider": "gemini",
+      "latency_ms": 3586.9,
+      "error": null,
+      "category": "royal title"
+    },
+    {
+      "transliteration": "Dd mdw jn",
+      "expected_en": "words spoken by",
+      "got_en": "words said by",
+      "got_ar": "كلمات تُقال بواسطة",
+      "bleu": 0.667,
+      "provider": "gemini",
+      "latency_ms": 3994.7,
+      "error": null,
+      "category": "speech formula"
+    },
+    {
+      "transliteration": "sA Ra",
+      "expected_en": "son of Re",
+      "got_en": "son of re",
+      "got_ar": "ابن رع",
+      "bleu": 1.0,
+      "provider": "gemini",
+      "latency_ms": 3740.5,
+      "error": null,
+      "category": "royal title"
+    },
+    {
+      "transliteration": "di anx Dd wAs",
+      "expected_en": "given life, stability, and dominion",
+      "got_en": "given life stability dominion and",
+      "got_ar": "مُعطى حياة، استقرار، وسيادة",
+      "bleu": 1.0,
+      "provider": "gemini",
+      "latency_ms": 5780.2,
+      "error": null,
+      "category": "royal blessing"
+    },
+    {
+      "transliteration": "nTr nfr nb tAwj",
+      "expected_en": "the good god, lord of the Two Lands",
+      "got_en": "the good god, lord of the Two Lands",
+      "got_ar": "الإله الصالح، رب الأرضين",
+      "bleu": 1.0,
+      "provider": "gemini",
+      "latency_ms": 3252.9,
+      "error": null,
+      "category": "royal epithet"
+    },
+    {
+      "transliteration": "mAa-xrw",
+      "expected_en": "true of voice",
+      "got_en": "justified",
+      "got_ar": "المبرأ",
+      "bleu": 0.0,
+      "provider": "gemini",
+      "latency_ms": 4089.0,
+      "error": null,
+      "category": "funerary epithet"
+    },
+    {
+      "transliteration": "jmj-rA pr",
+      "expected_en": "overseer of the house",
+      "got_en": "steward",
+      "got_ar": "وكيل",
+      "bleu": 0.0,
+      "provider": "gemini",
+      "latency_ms": 5775.3,
+      "error": null,
+      "category": "title"
+    },
+    {
+      "transliteration": "Hm nTr",
+      "expected_en": "servant of the god",
+      "got_en": "hm ntr priest",
+      "got_ar": "كاهن",
+      "bleu": 0.0,
+      "provider": "gemini",
+      "latency_ms": 4156.0,
+      "error": null,
+      "category": "priestly title"
+    },
+    {
+      "transliteration": "nb anx",
+      "expected_en": "lord of life",
+      "got_en": "lord of life",
+      "got_ar": "رب الحياة",
+      "bleu": 1.0,
+      "provider": "gemini",
+      "latency_ms": 4860.5,
+      "error": null,
+      "category": "divine epithet"
+    },
+    {
+      "transliteration": "di=f prt-xrw",
+      "expected_en": "he gives an invocation offering",
+      "got_en": "may he give invocation offerings",
+      "got_ar": "عسى أن يهب قرابين دعائية",
+      "bleu": 0.4,
+      "provider": "gemini",
+      "latency_ms": 10783.5,
+      "error": null,
+      "category": "offering formula"
+    },
+    {
+      "transliteration": "t Hnqt kAw Apdw",
+      "expected_en": "bread, beer, oxen, fowl",
+      "got_en": "of bread beer oxen and fowl",
+      "got_ar": "من الخبز والجعة والثيران والطيور",
+      "bleu": 0.8,
+      "provider": "gemini",
+      "latency_ms": 2803.9,
+      "error": null,
+      "category": "offering list"
+    },
+    {
+      "transliteration": "Xrt-nTr",
+      "expected_en": "necropolis",
+      "got_en": "necropolis",
+      "got_ar": "الجبانة",
+      "bleu": 1.0,
+      "provider": "gemini",
+      "latency_ms": 2607.5,
+      "error": null,
+      "category": "toponym"
+    },
+    {
+      "transliteration": "tA mri",
+      "expected_en": "the beloved land",
+      "got_en": "egypt",
+      "got_ar": "مصر",
+      "bleu": 0.0,
+      "provider": "gemini",
+      "latency_ms": 4743.9,
+      "error": null,
+      "category": "toponym"
+    },
+    {
+      "transliteration": "wab nsw",
+      "expected_en": "royal wab-priest",
+      "got_en": "The king is pure.",
+      "got_ar": "الملك طاهر.",
+      "bleu": 0.0,
+      "provider": "gemini",
+      "latency_ms": 8091.7,
+      "error": null,
+      "category": "priestly title"
+    },
+    {
+      "transliteration": "Htp di wsjr",
+      "expected_en": "an offering which Osiris gives",
+      "got_en": "an offering of Osiris",
+      "got_ar": "تقدمة أوزيريس",
+      "bleu": 0.667,
+      "provider": "gemini",
+      "latency_ms": 11523.8,
+      "error": null,
+      "category": "offering formula"
+    },
+    {
+      "transliteration": "xntj-jmntjw",
+      "expected_en": "foremost of the westerners",
+      "got_en": "foremost of those in the west",
+      "got_ar": "مقدم الغربيين",
+      "bleu": 0.6,
+      "provider": "gemini",
+      "latency_ms": 7059.1,
+      "error": null,
+      "category": "divine epithet"
+    }
+  ]
+}

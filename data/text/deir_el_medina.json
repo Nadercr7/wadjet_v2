@@ -1,0 +1,22 @@
+{
+  "wikipedia": {
+    "en": {
+      "title": "Deir el-Medina",
+      "extract": "Deir el-Medina, or Dayr al-Madīnah, is an ancient Egyptian workmen's village which was home to the artisans who worked on the tombs in the Valley of the Kings during the 18th to 20th Dynasties of the New Kingdom of Egypt. The settlement's ancient name was Set maat, and the workmen who lived there were called \"Servants in the Place of Truth\". During the Christian era, the temple of Hathor was converted into a Monastery of Saint Isidorus the Martyr from which the Egyptian Arabic name Deir el-Medina is derived.",
+      "description": "Ancient Egyptian village in the Valley of the Kings",
+      "coordinates": {
+        "lat": 25.7283,
+        "lon": 32.6014
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Deir_el-Medina%2C_Luxor%2C_Egipto%2C_2022-04-03%2C_DD_18.jpg/330px-Deir_el-Medina%2C_Luxor%2C_Egipto%2C_2022-04-03%2C_DD_18.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Deir_el-Medina%2C_Luxor%2C_Egipto%2C_2022-04-03%2C_DD_18.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Deir_el-Medina"
+    },
+    "ar": {
+      "title": "دير المدينة",
+      "extract": "دير المدينة، في صعيد مصر، جزء من جبانة طيبة في شمال وادي الملوك في محافظة الأقصر، بالتحديد على الضفة الغربية لنهر النيل. كان مقرا لعائلات العمال الحرفيين خلال عهد المملكة المصرية الحديثة. فكان منهم من يقوم بحفر وبناء قبور الفراعنة في وادي الملوك، وآخرون يشتغلون في صناعة التماثيل والأثاث والأواني لتجهيز قبر كل فرعون على حسب رغبته قبل الموت. والعمال الذين كانوا يقومون ببناء المقابر كانوا متخصصين وفنانين في اصميم وحفر وتزيين جدران المقبرة، لتكون «قصرا» يمكن لفرعون العودة إليه في المناسبات بعد مماته.كان هذا هو اعتقاد قدماء المصريين أن يعيش فرعون في السماء بين الآلهة، مع إمكانية زيارة الأرض وأهلها بعد مماته، بل ومساعدتهم أيضا. لهذا كان كل عامل في إحدى أبنية فرعون يعمل بإخلاص وبلا كلل، إذ أن فرعون سوف يعتني به من السماء.",
+      "description": "مقر عائلات العمال الحرفيين في مصر القديمة",
+      "wikipedia_url": "https://ar.wikipedia.org/wiki/%D8%AF%D9%8A%D8%B1_%D8%A7%D9%84%D9%85%D8%AF%D9%8A%D9%86%D8%A9"
+    }
+  }
+}

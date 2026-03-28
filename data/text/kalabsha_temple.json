@@ -1,0 +1,19 @@
+{
+  "slug": "kalabsha_temple",
+  "category": "Pharaonic",
+  "region": "Aswan",
+  "wikipedia": {
+    "en": {
+      "title": "Temple of Kalabsha",
+      "extract": "The Temple of Kalabsha is an ancient Egyptian temple that was originally located at Bab al-Kalabsha, approximately 50 km south of Aswan.",
+      "description": "Building in Egypt",
+      "coordinates": {
+        "lat": 23.6,
+        "lon": 32.816667
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/The_Temple_of_Kalabsha_by_Dennis_G._Jarvis.jpg/330px-The_Temple_of_Kalabsha_by_Dennis_G._Jarvis.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/7/75/The_Temple_of_Kalabsha_by_Dennis_G._Jarvis.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Temple_of_Kalabsha"
+    }
+  }
+}

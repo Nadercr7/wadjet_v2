@@ -1,0 +1,19 @@
+{
+  "slug": "kharga_oasis",
+  "category": "Nature",
+  "region": "Kharga Oasis",
+  "wikipedia": {
+    "en": {
+      "title": "Kharga Oasis",
+      "extract": "The Kharga Oasis lit. 'the outer'; Coptic: (ϯ)ⲟⲩⲁϩ ⲛ̀ϩⲏⲃ (di)wah enhib, \"Oasis of Hib\", (ϯ)ⲟⲩⲁϩ ⲙ̀ⲯⲟⲓ (di)wah empsoi \"Oasis of Psoi\") is the southernmost of Egypt's five western oases. It is located in the Western Desert, about 200 km to the west of the Nile valley. \"Kharga\" or \"El Kharga\" is also the name of a major town located in the oasis, the capital of New Valley Governorate. The oasis, which was known as the 'Southern Oasis' to the Ancient Egyptians, the 'outer' to the Greeks and Oasis Magna to the Romans, is the largest of the oases in the Libyan Desert of Egypt. It is in a depression about 160 km long and from 20 km to 80 km wide. Its estimated population is 87,482 as of 2023.",
+      "description": "Oasis in Egypt",
+      "coordinates": {
+        "lat": 25.43833333,
+        "lon": 30.55833333
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Temple_of_Hibis.jpg/330px-Temple_of_Hibis.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/d/de/Temple_of_Hibis.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Kharga_Oasis"
+    }
+  }
+}

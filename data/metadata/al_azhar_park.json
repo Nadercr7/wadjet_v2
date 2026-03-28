@@ -1,0 +1,625 @@
+[
+  {
+    "hash": "ff7d3c533ffe4d03",
+    "original_name": "0.jpg",
+    "original_class": "Al-Azhar_Park_(Cairo)",
+    "size_bytes": 15171,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:21"
+  },
+  {
+    "hash": "47dca1de6257ec7c",
+    "original_name": "1.jpg",
+    "original_class": "Al-Azhar_Park_(Cairo)",
+    "size_bytes": 10907,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:21"
+  },
+  {
+    "hash": "302b3f6312934f66",
+    "original_name": "10.jpg",
+    "original_class": "Al-Azhar_Park_(Cairo)",
+    "size_bytes": 9618,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:21"
+  },
+  {
+    "hash": "62c06653ebda20bd",
+    "original_name": "11.jpg",
+    "original_class": "Al-Azhar_Park_(Cairo)",
+    "size_bytes": 12457,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:21"
+  },
+  {
+    "hash": "e9f3ac79e6e5d218",
+    "original_name": "12.jpg",
+    "original_class": "Al-Azhar_Park_(Cairo)",
+    "size_bytes": 6977,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:21"
+  },
+  {
+    "hash": "df1a5a6e5c433c8e",
+    "original_name": "13.jpg",
+    "original_class": "Al-Azhar_Park_(Cairo)",
+    "size_bytes": 16315,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:21"
+  },
+  {
+    "hash": "340aec939028858e",
+    "original_name": "14.jpg",
+    "original_class": "Al-Azhar_Park_(Cairo)",
+    "size_bytes": 9576,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:21"
+  },
+  {
+    "hash": "1ae648a5b49b5120",
+    "original_name": "15.jpg",
+    "original_class": "Al-Azhar_Park_(Cairo)",
+    "size_bytes": 7282,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:21"
+  },
+  {
+    "hash": "fbfb39f5d8b63f79",
+    "original_name": "16.jpg",
+    "original_class": "Al-Azhar_Park_(Cairo)",
+    "size_bytes": 14383,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:21"
+  },
+  {
+    "hash": "0d2388bf0f81a098",
+    "original_name": "17.jpg",
+    "original_class": "Al-Azhar_Park_(Cairo)",
+    "size_bytes": 12848,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:21"
+  },
+  {
+    "hash": "2e3e1b8fe79451e7",
+    "original_name": "18.jpg",
+    "original_class": "Al-Azhar_Park_(Cairo)",
+    "size_bytes": 9618,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:21"
+  },
+  {
+    "hash": "650e445d965df0ee",
+    "original_name": "19.jpg",
+    "original_class": "Al-Azhar_Park_(Cairo)",
+    "size_bytes": 11647,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:21"
+  },
+  {
+    "hash": "b78f9fc5334ae915",
+    "original_name": "2.jpg",
+    "original_class": "Al-Azhar_Park_(Cairo)",
+    "size_bytes": 14840,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:21"
+  },
+  {
+    "hash": "d3cc3d4709cce7aa",
+    "original_name": "20.jpg",
+    "original_class": "Al-Azhar_Park_(Cairo)",
+    "size_bytes": 7402,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:21"
+  },
+  {
+    "hash": "e7ea63691f6742cf",
+    "original_name": "21.jpg",
+    "original_class": "Al-Azhar_Park_(Cairo)",
+    "size_bytes": 9277,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:21"
+  },
+  {
+    "hash": "15a6107fa50315e9",
+    "original_name": "22.jpg",
+    "original_class": "Al-Azhar_Park_(Cairo)",
+    "size_bytes": 14975,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:21"
+  },
+  {
+    "hash": "16df4585b539798a",
+    "original_name": "23.jpg",
+    "original_class": "Al-Azhar_Park_(Cairo)",
+    "size_bytes": 10082,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:21"
+  },
+  {
+    "hash": "1b3b1701a9460d60",
+    "original_name": "24.jpg",
+    "original_class": "Al-Azhar_Park_(Cairo)",
+    "size_bytes": 8818,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:21"
+  },
+  {
+    "hash": "07269f2842cc0f5f",
+    "original_name": "25.jpg",
+    "original_class": "Al-Azhar_Park_(Cairo)",
+    "size_bytes": 7847,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:21"
+  },
+  {
+    "hash": "441bf2e90a206623",
+    "original_name": "26.jpg",
+    "original_class": "Al-Azhar_Park_(Cairo)",
+    "size_bytes": 7519,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:21"
+  },
+  {
+    "hash": "a30641ed9de04788",
+    "original_name": "27.jpg",
+    "original_class": "Al-Azhar_Park_(Cairo)",
+    "size_bytes": 5107,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:21"
+  },
+  {
+    "hash": "e8ddbaf52f983c3f",
+    "original_name": "28.jpg",
+    "original_class": "Al-Azhar_Park_(Cairo)",
+    "size_bytes": 6803,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:21"
+  },
+  {
+    "hash": "9f3079661ffe8a75",
+    "original_name": "29.jpg",
+    "original_class": "Al-Azhar_Park_(Cairo)",
+    "size_bytes": 11377,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:21"
+  },
+  {
+    "hash": "c625de6fdc6f3a59",
+    "original_name": "3.jpg",
+    "original_class": "Al-Azhar_Park_(Cairo)",
+    "size_bytes": 9166,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:21"
+  },
+  {
+    "hash": "1357d21b09970352",
+    "original_name": "30.jpg",
+    "original_class": "Al-Azhar_Park_(Cairo)",
+    "size_bytes": 13040,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:21"
+  },
+  {
+    "hash": "f69708fbc639c8e9",
+    "original_name": "31.jpg",
+    "original_class": "Al-Azhar_Park_(Cairo)",
+    "size_bytes": 4773,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:21"
+  },
+  {
+    "hash": "ebfb082ca1af0846",
+    "original_name": "32.jpg",
+    "original_class": "Al-Azhar_Park_(Cairo)",
+    "size_bytes": 7268,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:21"
+  },
+  {
+    "hash": "ab261e9056a18726",
+    "original_name": "33.jpg",
+    "original_class": "Al-Azhar_Park_(Cairo)",
+    "size_bytes": 11485,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:21"
+  },
+  {
+    "hash": "88d1ed0e88ac62d2",
+    "original_name": "34.jpg",
+    "original_class": "Al-Azhar_Park_(Cairo)",
+    "size_bytes": 14779,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:21"
+  },
+  {
+    "hash": "c602b1f3ff419b92",
+    "original_name": "35.jpg",
+    "original_class": "Al-Azhar_Park_(Cairo)",
+    "size_bytes": 9397,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:21"
+  },
+  {
+    "hash": "8ff20db6d440303a",
+    "original_name": "36.jpg",
+    "original_class": "Al-Azhar_Park_(Cairo)",
+    "size_bytes": 12581,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:21"
+  },
+  {
+    "hash": "3ac603f50919c119",
+    "original_name": "37.jpg",
+    "original_class": "Al-Azhar_Park_(Cairo)",
+    "size_bytes": 9273,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:21"
+  },
+  {
+    "hash": "88261231626a05c2",
+    "original_name": "38.jpg",
+    "original_class": "Al-Azhar_Park_(Cairo)",
+    "size_bytes": 12620,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:21"
+  },
+  {
+    "hash": "94149a5fe3f98a8b",
+    "original_name": "39.jpg",
+    "original_class": "Al-Azhar_Park_(Cairo)",
+    "size_bytes": 11605,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:21"
+  },
+  {
+    "hash": "a5f5a257bad9b12a",
+    "original_name": "4.jpg",
+    "original_class": "Al-Azhar_Park_(Cairo)",
+    "size_bytes": 13463,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:21"
+  },
+  {
+    "hash": "2687458eba19376f",
+    "original_name": "40.jpg",
+    "original_class": "Al-Azhar_Park_(Cairo)",
+    "size_bytes": 11662,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:21"
+  },
+  {
+    "hash": "8e68c035453e554d",
+    "original_name": "41.jpg",
+    "original_class": "Al-Azhar_Park_(Cairo)",
+    "size_bytes": 14656,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:21"
+  },
+  {
+    "hash": "6c53f9d3fd590783",
+    "original_name": "42.jpg",
+    "original_class": "Al-Azhar_Park_(Cairo)",
+    "size_bytes": 10354,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:21"
+  },
+  {
+    "hash": "a3df15c803e5816f",
+    "original_name": "43.jpg",
+    "original_class": "Al-Azhar_Park_(Cairo)",
+    "size_bytes": 14525,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:21"
+  },
+  {
+    "hash": "b981b4e2c6cf2304",
+    "original_name": "44.jpg",
+    "original_class": "Al-Azhar_Park_(Cairo)",
+    "size_bytes": 5367,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:21"
+  },
+  {
+    "hash": "7dbf00ea3d63a7cc",
+    "original_name": "45.jpg",
+    "original_class": "Al-Azhar_Park_(Cairo)",
+    "size_bytes": 6072,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:21"
+  },
+  {
+    "hash": "375f7145def6bfc3",
+    "original_name": "46.jpg",
+    "original_class": "Al-Azhar_Park_(Cairo)",
+    "size_bytes": 10721,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:21"
+  },
+  {
+    "hash": "4a08df2291dedc94",
+    "original_name": "47.jpg",
+    "original_class": "Al-Azhar_Park_(Cairo)",
+    "size_bytes": 9437,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:21"
+  },
+  {
+    "hash": "621f453bc8e26716",
+    "original_name": "48.jpg",
+    "original_class": "Al-Azhar_Park_(Cairo)",
+    "size_bytes": 13803,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:21"
+  },
+  {
+    "hash": "4f549f6d9aa45bff",
+    "original_name": "49.jpg",
+    "original_class": "Al-Azhar_Park_(Cairo)",
+    "size_bytes": 10171,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:21"
+  },
+  {
+    "hash": "25b30799797e1af1",
+    "original_name": "5.jpg",
+    "original_class": "Al-Azhar_Park_(Cairo)",
+    "size_bytes": 11960,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:21"
+  },
+  {
+    "hash": "8433597ebfe97c20",
+    "original_name": "6.jpg",
+    "original_class": "Al-Azhar_Park_(Cairo)",
+    "size_bytes": 11924,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:21"
+  },
+  {
+    "hash": "34385aff7c5a6ede",
+    "original_name": "7.jpg",
+    "original_class": "Al-Azhar_Park_(Cairo)",
+    "size_bytes": 11532,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:21"
+  },
+  {
+    "hash": "f3c376251a48cb04",
+    "original_name": "8.jpg",
+    "original_class": "Al-Azhar_Park_(Cairo)",
+    "size_bytes": 4643,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:21"
+  },
+  {
+    "hash": "006dd377a3d9cf79",
+    "original_name": "9.jpg",
+    "original_class": "Al-Azhar_Park_(Cairo)",
+    "size_bytes": 14854,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:21"
+  },
+  {
+    "filename": "3551ef77757e000e.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/52/Al_Azhar_Park_Egypt_%28cropped%29.jpg",
+    "wikipedia_title": "Al-Azhar_Park",
+    "source": "wikipedia",
+    "downloaded_at": "2026-03-02T02:11:57"
+  },
+  {
+    "filename": "2b331f3ac8ed90f5.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Al_Azhar_Park_Egypt_%28cropped%29.jpg/1280px-Al_Azhar_Park_Egypt_%28cropped%29.jpg",
+    "wikipedia_title": "Al-Azhar_Park",
+    "source": "wikipedia",
+    "downloaded_at": "2026-03-02T02:11:57"
+  },
+  {
+    "filename": "cf7b929db7c7f464.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/62/Al-Azhar_Park_Cairo_01-2006.jpg",
+    "title": "File:Al-Azhar Park Cairo 01-2006.jpg",
+    "license": "CC BY 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Blago_Tebi\" title=\"User:Blago Tebi\">Błażej Pindor</a>",
+    "width": 2048,
+    "height": 1628,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:20:45"
+  },
+  {
+    "filename": "d1e3d7283c8f0b3b.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/ee/Al-Azhar_Park_haddara.jpg",
+    "title": "File:Al-Azhar Park haddara.jpg",
+    "license": "CC BY 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Haddara&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Haddara (page does not exist)\">Haddara</a>",
+    "width": 768,
+    "height": 1024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:20:45"
+  },
+  {
+    "filename": "e6d44419b274cae0.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/58/Al-Azhar_Park_Kairo_03.jpg",
+    "title": "File:Al-Azhar Park Kairo 03.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nicola\" title=\"User:Nicola\">Nicola</a>",
+    "width": 2304,
+    "height": 2334,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:20:45"
+  },
+  {
+    "filename": "c69c986193a3ce6e.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/55/Al-Azhar_Park_Kairo_01.jpg",
+    "title": "File:Al-Azhar Park Kairo 01.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nicola\" title=\"User:Nicola\">Nicola</a>",
+    "width": 2790,
+    "height": 1855,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:20:45"
+  },
+  {
+    "filename": "3ef26762866f9489.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Al-Azhar_Park_06_Kairo.jpg",
+    "title": "File:Al-Azhar Park 06 Kairo.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nicola\" title=\"User:Nicola\">Nicola</a>",
+    "width": 2304,
+    "height": 3072,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:20:45"
+  },
+  {
+    "filename": "d833af81f0a42742.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Ayyubid_Wall_Al-Azhar_Park_Cairo_01-2006.jpg",
+    "title": "File:Ayyubid Wall Al-Azhar Park Cairo 01-2006.jpg",
+    "license": "CC BY 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Blago_Tebi\" title=\"User:Blago Tebi\">Błażej Pindor</a>",
+    "width": 1600,
+    "height": 1088,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:20:45"
+  },
+  {
+    "filename": "72f7fe593af62eef.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Al-Azhar_Park_Kairo_04.jpg",
+    "title": "File:Al-Azhar Park Kairo 04.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nicola\" title=\"User:Nicola\">Nicola</a>",
+    "width": 2913,
+    "height": 1812,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:20:45"
+  },
+  {
+    "filename": "4ab6aec60ea01698.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/78/Al-Azhar_Park_Kairo_02.jpg",
+    "title": "File:Al-Azhar Park Kairo 02.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nicola\" title=\"User:Nicola\">Nicola</a>",
+    "width": 2304,
+    "height": 2164,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:20:45"
+  },
+  {
+    "filename": "8c525745c2563f86.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Al-Azhar_Park_%D8%AD%D8%AF%D9%8A%D9%82%D8%A9_%D8%A7%D9%84%D8%A3%D8%B2%D9%87%D8%B1.jpg",
+    "title": "File:Al-Azhar Park حديقة الأزهر.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Rania_magdy&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Rania magdy (page does not exist)\">Rania magdy</a>",
+    "width": 3264,
+    "height": 2448,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:20:45"
+  },
+  {
+    "filename": "b554e67da0b2541a.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Al-Azhar_Park%D8%AD%D8%AF%D9%8A%D9%82%D8%A9_%D8%A7%D9%84%D8%A3%D8%B2%D9%87%D8%B1.jpg",
+    "title": "File:Al-Azhar Parkحديقة الأزهر.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Rania_magdy&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Rania magdy (page does not exist)\">Rania magdy</a>",
+    "width": 3264,
+    "height": 2448,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:20:45"
+  },
+  {
+    "filename": "c789195d23766d58.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/58/Al-Azhar_park_%D8%AD%D8%AF%D9%8A%D9%82%D8%A9_%D8%A7%D9%84%D8%A3%D8%B2%D9%87%D8%B1.jpg",
+    "title": "File:Al-Azhar park حديقة الأزهر.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Rania_magdy&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Rania magdy (page does not exist)\">Rania magdy</a>",
+    "width": 3264,
+    "height": 2448,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:20:45"
+  },
+  {
+    "filename": "c1ecf1ce4045b672.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Al-azhar_Park%D8%AD%D8%AF%D9%8A%D9%82%D8%A9_%D8%A7%D9%84%D8%A3%D8%B2%D9%87%D8%B1.jpg",
+    "title": "File:Al-azhar Parkحديقة الأزهر.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Rania_magdy&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Rania magdy (page does not exist)\">Rania magdy</a>",
+    "width": 3264,
+    "height": 2448,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:20:45"
+  },
+  {
+    "filename": "bc4f7d8e6dd94964.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Al-Azhar_Park_Cairo_%281%29.jpg",
+    "title": "File:Al-Azhar Park Cairo (1).jpg",
+    "license": "CC BY 3.0 pl",
+    "artist": "Radosław Botev",
+    "width": 4000,
+    "height": 3000,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:20:45"
+  },
+  {
+    "filename": "a9235c9be1b8535b.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Al-Azhar_Park_Cairo_%283%29.jpg",
+    "title": "File:Al-Azhar Park Cairo (3).jpg",
+    "license": "CC BY 3.0 pl",
+    "artist": "Radosław Botev",
+    "width": 4000,
+    "height": 3000,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:20:45"
+  },
+  {
+    "filename": "f8e4ae6a0e2d12e7.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Al-Azhar_Park_Cairo_%282%29.jpg",
+    "title": "File:Al-Azhar Park Cairo (2).jpg",
+    "license": "CC BY 3.0 pl",
+    "artist": "Radosław Botev",
+    "width": 4000,
+    "height": 3000,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:20:45"
+  },
+  {
+    "filename": "4d9e60aecd9a2561.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Al-Azhar_Park_Kairo_05.jpg",
+    "title": "File:Al-Azhar Park Kairo 05.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nicola\" title=\"User:Nicola\">Nicola</a>",
+    "width": 3072,
+    "height": 2304,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:20:45"
+  },
+  {
+    "filename": "6cdf169b60c5d35b.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/fb/A_view_from_Al-Azhar_Park.jpg",
+    "title": "File:A view from Al-Azhar Park.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Ikraam24&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Ikraam24 (page does not exist)\">Ikraam24</a>",
+    "width": 720,
+    "height": 482,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:20:45"
+  },
+  {
+    "filename": "8582fc5f498a54f6.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Al-Azhar_Park.jpg",
+    "title": "File:Al-Azhar Park.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Aymankamelali&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Aymankamelali (page does not exist)\">Aymankamelali</a>",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:20:45"
+  },
+  {
+    "filename": "1764f67290448cb9.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Cairo_Citadel_from_al-Azhar_Park.JPG",
+    "title": "File:Cairo Citadel from al-Azhar Park.JPG",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Ashashyou\" title=\"User:Ashashyou\">Ashashyou</a>",
+    "width": 2560,
+    "height": 1712,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:20:45"
+  }
+]

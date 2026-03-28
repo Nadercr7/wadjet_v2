@@ -1,0 +1,19 @@
+{
+  "slug": "meidum_pyramid",
+  "category": "Pharaonic",
+  "region": "Beni Suef",
+  "wikipedia": {
+    "en": {
+      "title": "Meidum",
+      "extract": "Meidum, Maydum or Maidum is an archaeological site in Lower Egypt. It contains a large pyramid and several mudbrick mastabas. The pyramid was Egypt's first straight-sided one, but it partially collapsed in ancient times. The area is located around 72 kilometres (45 mi) south of modern Cairo.",
+      "description": "Village in Beni Suef Governorate, Egypt",
+      "coordinates": {
+        "lat": 29.38805556,
+        "lon": 31.15694444
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Meidoum03.jpg/330px-Meidoum03.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Meidoum03.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Meidum"
+    }
+  }
+}

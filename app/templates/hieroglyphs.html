@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+
+{% block title %}Hieroglyphs — Wadjet{% endblock %}
+
+{% block content %}
+<!-- Hero -->
+<section class="section relative overflow-hidden">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gold/5 rounded-full blur-[120px] pointer-events-none"></div>
+
+    <div class="container-narrow relative text-center">
+        <div class="inline-flex items-center gap-2 badge-gold mb-6">
+            <span>𓊹</span> Hieroglyphs Path
+        </div>
+        <h1 class="mb-4">Decode the <span class="text-gold-gradient">Ancient Script</span></h1>
+        <p class="text-lg text-text-muted max-w-2xl mx-auto mb-6">
+            Scan hieroglyphs from photos, translate inscriptions, browse the Gardiner
+            dictionary, and compose your own messages in the ancient script.
+        </p>
+        <div class="hieroglyph text-3xl opacity-20 select-none" aria-hidden="true">
+            𓁹 𓂋 𓏏 𓅱 𓆓 𓊹 𓋴 𓂧
+        </div>
+    </div>
+</section>
+
+<!-- Tools Grid -->
+<section class="px-4 sm:px-6 lg:px-8 pb-16 md:pb-24">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <!-- Scan -->
+        <a href="/scan" class="card-glow group">
+            <div class="w-12 h-12 rounded-lg bg-gold/10 flex items-center justify-center mb-4 group-hover:bg-gold/20 transition-colors">
+                <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+            </div>
+            <h3 class="text-lg font-semibold mb-2 group-hover:text-gold transition-colors">Scan & Identify</h3>
+            <p class="text-sm text-text-muted">
+                Upload a photo or use your camera. AI detects each hieroglyph,
+                identifies the Gardiner code, and translates the inscription.
+            </p>
+            <div class="mt-4 flex items-center gap-2 text-gold text-sm font-medium group-hover:gap-3 transition-all">
+                Open Scanner
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            </div>
+        </a>
+
+        <!-- Dictionary -->
+        <a href="/dictionary" class="card-glow group">
+            <div class="w-12 h-12 rounded-lg bg-gold/10 flex items-center justify-center mb-4 group-hover:bg-gold/20 transition-colors">
+                <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+            </div>
+            <h3 class="text-lg font-semibold mb-2 group-hover:text-gold transition-colors">Dictionary</h3>
+            <p class="text-sm text-text-muted">
+                Browse 1,000+ Gardiner signs organized by category.
+                Search by code, transliteration, or meaning.
+            </p>
+            <div class="mt-4 flex items-center gap-2 text-gold text-sm font-medium group-hover:gap-3 transition-all">
+                Browse Signs
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            </div>
+        </a>
+
+        <!-- Write -->
+        <a href="/write" class="card-glow group">
+            <div class="w-12 h-12 rounded-lg bg-gold/10 flex items-center justify-center mb-4 group-hover:bg-gold/20 transition-colors">
+                <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
+            </div>
+            <h3 class="text-lg font-semibold mb-2 group-hover:text-gold transition-colors">Write</h3>
+            <p class="text-sm text-text-muted">
+                Type text and see it converted to hieroglyphs.
+                Pick signs from the Gardiner palette to compose your own inscription.
+            </p>
+            <div class="mt-4 flex items-center gap-2 text-gold text-sm font-medium group-hover:gap-3 transition-all">
+                Start Writing
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            </div>
+        </a>
+
+    </div>
+</section>
+
+<!-- How scanning works -->
+<div class="divider"></div>
+<section class="section">
+    <div class="container-narrow">
+        <div class="text-center mb-12">
+            <h2 class="mb-4">How <span class="text-gold">scanning</span> works</h2>
+            <p class="text-text-muted">Three steps. One photo. Complete translation.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="text-center">
+                <div class="w-14 h-14 rounded-full bg-gold/10 border border-gold/20 flex items-center justify-center mx-auto mb-4">
+                    <span class="text-gold font-display font-bold text-lg">1</span>
+                </div>
+                <h4 class="text-base font-semibold mb-2">Upload or Snap</h4>
+                <p class="text-sm text-text-muted">Take a photo of hieroglyphs or upload an image.</p>
+            </div>
+            <div class="text-center">
+                <div class="w-14 h-14 rounded-full bg-gold/10 border border-gold/20 flex items-center justify-center mx-auto mb-4">
+                    <span class="text-gold font-display font-bold text-lg">2</span>
+                </div>
+                <h4 class="text-base font-semibold mb-2">Detect & Classify</h4>
+                <p class="text-sm text-text-muted">AI detects each glyph and identifies its Gardiner code.</p>
+            </div>
+            <div class="text-center">
+                <div class="w-14 h-14 rounded-full bg-gold/10 border border-gold/20 flex items-center justify-center mx-auto mb-4">
+                    <span class="text-gold font-display font-bold text-lg">3</span>
+                </div>
+                <h4 class="text-base font-semibold mb-2">Translate</h4>
+                <p class="text-sm text-text-muted">Get transliteration and translation in English or Arabic.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Bottom CTA -->
+<section class="section">
+    <div class="container-narrow">
+        <div class="card text-center py-12 px-8 relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-b from-gold/5 to-transparent pointer-events-none"></div>
+            <div class="relative">
+                <span class="text-5xl mb-6 block" aria-hidden="true">𓁹</span>
+                <h2 class="mb-4">Ready to read the past?</h2>
+                <p class="text-text-muted mb-8 max-w-md mx-auto">
+                    Point your camera at any hieroglyphic inscription and let Wadjet do the rest.
+                </p>
+                <a href="/scan" class="btn-gold btn-lg btn-shimmer">
+                    Start Scanning
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,19 @@
+{
+  "slug": "elephantine_island",
+  "category": "Pharaonic",
+  "region": "Aswan",
+  "wikipedia": {
+    "en": {
+      "title": "Elephantine",
+      "extract": "Elephantine is an island on the Nile, forming part of the city of Aswan in Upper Egypt. The archaeological digs on the island became a World Heritage Site in 1979, along with other examples of Upper Egyptian architecture, as part of the \"Nubian Monuments from Abu Simbel to Philae\".",
+      "description": "Island in the Nile",
+      "coordinates": {
+        "lat": 24.09,
+        "lon": 32.89
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Aswan%2C_Elephantine%2C_west_bank%2C_Egypt%2C_Oct_2004.jpg/330px-Aswan%2C_Elephantine%2C_west_bank%2C_Egypt%2C_Oct_2004.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Aswan%2C_Elephantine%2C_west_bank%2C_Egypt%2C_Oct_2004.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Elephantine"
+    }
+  }
+}

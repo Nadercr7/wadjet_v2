@@ -1,0 +1,67 @@
+# Environment
+.venv/
+__pycache__/
+*.pyc
+.env
+node_modules/
+
+# ML Models — ignore all, then whitelist essential uint8 ONNX + metadata
+models/**
+!models/hieroglyph/
+!models/hieroglyph/classifier/
+!models/hieroglyph/classifier/hieroglyph_classifier_uint8.onnx
+!models/hieroglyph/classifier/hieroglyph_classifier.onnx
+!models/hieroglyph/classifier/label_mapping.json
+!models/hieroglyph/classifier/model_metadata.json
+!models/hieroglyph/detector/
+!models/hieroglyph/detector/glyph_detector_uint8.onnx
+!models/hieroglyph/label_mapping.json
+!models/landmark/
+!models/landmark/landmark_classifier_uint8.onnx
+!models/landmark/landmark_label_mapping.json
+!models/landmark/model_metadata.json
+
+# Data — training datasets are too large for git
+data/hieroglyph_classification/
+data/landmark_classification/
+data/detection/
+data/reference/
+
+# TailwindCSS build output
+app/static/dist/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# Docker
+docker-compose.override.yml
+
+# Kaggle
+kaggle_logs/
+
+# Temporary
+tmp_pull_test/
+tmp_kaggle_hiero/
+tmp_kaggle_output/
+scripts/test_*.py
+scripts/dataprep-env/
+scripts/_test_*.wav
+*.bak
+
+# Large archive files (not pushed)
+archive/original-horus/last_model_bgd.keras
+archive/original-horus/HORUS AI .mp4
+archive/original-horus/*.pdf
+
+# Internal development files (not public)
+CLAUDE.md
+planning/

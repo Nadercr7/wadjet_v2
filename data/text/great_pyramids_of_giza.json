@@ -1,0 +1,22 @@
+{
+  "wikipedia": {
+    "en": {
+      "title": "Great Pyramid of Giza",
+      "extract": "The Great Pyramid of Giza is the largest Egyptian pyramid. It served as the tomb of pharaoh Khufu (\"Cheops\"), who ruled during the Fourth Dynasty of the Old Kingdom. Built c. 2600 BC over a period of about 26 years, the pyramid is the oldest of the Seven Wonders of the Ancient World, and the only wonder that has remained largely intact. It is the most famous monument of the Giza pyramid complex, which is part of the UNESCO World Heritage Site \"Memphis and its Necropolis\". It is situated at the northeastern end of the line of the three main pyramids at Giza.",
+      "description": "Largest pyramid in the Giza Necropolis, Egypt",
+      "coordinates": {
+        "lat": 29.97916667,
+        "lon": 31.13416667
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Great_Pyramid_of_Giza_-_Pyramid_of_Khufu.jpg/330px-Great_Pyramid_of_Giza_-_Pyramid_of_Khufu.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Great_Pyramid_of_Giza_-_Pyramid_of_Khufu.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Great_Pyramid_of_Giza"
+    },
+    "ar": {
+      "title": "الهرم الأكبر",
+      "extract": "الهرم الأكبر أو هرم خوفو هو الأثر الوحيد الباقي من عجائب الدنيا السبع، ويقع بمنطقة أهرام الجيزة في مصر المسجلة ضمن مواقع اليونيسكو للتراث العالمي. يعود بناء الهرم إلى نحو سنة 2560 قبل الميلاد حيث شيد كمقبرة لفرعون الأسرة الرابعة خوفو واستمر بناؤه لفترة 20 عامًا. يعد بناء الهرم الأكبر نقلة حضارية كبرى في تاريخ مصر القديم، وقد تأثر خوفو بأبيه الملك سنفرو في بناء هرمه؛ فبعد موته، أصبح خوفو الإله الحاكم على الأرض، وأصبح من الضروري أن يفكر في بناء مقبرته والتي تعد المشروع القومي الأول في مصر القديمة، الذي اشترك في بنائه عمال محترفون من جميع أنحاء مصر. وظل الهرم الأكبر بارتفاعه الأصلي الذي كان يصل إلى 146.5 متر أعلى بناء أتمه الإنسان على الأرض على مدى 3800 سنة.",
+      "description": "أكبر هرم في مقبرة الجيزة بمصر",
+      "wikipedia_url": "https://ar.wikipedia.org/wiki/%D8%A7%D9%84%D9%87%D8%B1%D9%85_%D8%A7%D9%84%D8%A3%D9%83%D8%A8%D8%B1"
+    }
+  }
+}

@@ -1,0 +1,998 @@
+[
+  {
+    "hash": "de28f753dffb1b26",
+    "original_name": "0.jpg",
+    "original_class": "Unfinished_obelisk_in_Aswan",
+    "size_bytes": 9260,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:37"
+  },
+  {
+    "hash": "a08344a548086586",
+    "original_name": "1.jpg",
+    "original_class": "Unfinished_obelisk_in_Aswan",
+    "size_bytes": 10338,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:37"
+  },
+  {
+    "hash": "5be7a0ed401ecfaa",
+    "original_name": "10.jpg",
+    "original_class": "Unfinished_obelisk_in_Aswan",
+    "size_bytes": 10676,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:37"
+  },
+  {
+    "hash": "9fa8f359a3ac7aef",
+    "original_name": "11.jpg",
+    "original_class": "Unfinished_obelisk_in_Aswan",
+    "size_bytes": 9055,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:37"
+  },
+  {
+    "hash": "f3a9e30be6ff008e",
+    "original_name": "12.jpg",
+    "original_class": "Unfinished_obelisk_in_Aswan",
+    "size_bytes": 12516,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:37"
+  },
+  {
+    "hash": "ff586f823cc1d00f",
+    "original_name": "13.jpg",
+    "original_class": "Unfinished_obelisk_in_Aswan",
+    "size_bytes": 9188,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:37"
+  },
+  {
+    "hash": "d12826650c1d46ce",
+    "original_name": "14.jpg",
+    "original_class": "Unfinished_obelisk_in_Aswan",
+    "size_bytes": 11046,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:37"
+  },
+  {
+    "hash": "e7ebf619efa1ac2c",
+    "original_name": "15.jpg",
+    "original_class": "Unfinished_obelisk_in_Aswan",
+    "size_bytes": 8808,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:37"
+  },
+  {
+    "hash": "1db824241a0e0342",
+    "original_name": "16.jpg",
+    "original_class": "Unfinished_obelisk_in_Aswan",
+    "size_bytes": 11337,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:37"
+  },
+  {
+    "hash": "e5aaaca1535dd448",
+    "original_name": "17.jpg",
+    "original_class": "Unfinished_obelisk_in_Aswan",
+    "size_bytes": 9248,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:37"
+  },
+  {
+    "hash": "cec5406ef7b7c242",
+    "original_name": "18.jpg",
+    "original_class": "Unfinished_obelisk_in_Aswan",
+    "size_bytes": 7880,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:37"
+  },
+  {
+    "hash": "2537f877f9edc228",
+    "original_name": "19.jpg",
+    "original_class": "Unfinished_obelisk_in_Aswan",
+    "size_bytes": 11494,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:37"
+  },
+  {
+    "hash": "46ee2d28e7515ec1",
+    "original_name": "2.jpg",
+    "original_class": "Unfinished_obelisk_in_Aswan",
+    "size_bytes": 11512,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:37"
+  },
+  {
+    "hash": "45891b9c900de568",
+    "original_name": "20.jpg",
+    "original_class": "Unfinished_obelisk_in_Aswan",
+    "size_bytes": 11306,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:37"
+  },
+  {
+    "hash": "fbf031e9de1ea169",
+    "original_name": "21.jpg",
+    "original_class": "Unfinished_obelisk_in_Aswan",
+    "size_bytes": 9801,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:37"
+  },
+  {
+    "hash": "09b7dab255f26247",
+    "original_name": "22.jpg",
+    "original_class": "Unfinished_obelisk_in_Aswan",
+    "size_bytes": 11950,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:37"
+  },
+  {
+    "hash": "cfa41d95c51ba4e7",
+    "original_name": "23.jpg",
+    "original_class": "Unfinished_obelisk_in_Aswan",
+    "size_bytes": 10591,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:37"
+  },
+  {
+    "hash": "c5638427b7d56f8b",
+    "original_name": "24.jpg",
+    "original_class": "Unfinished_obelisk_in_Aswan",
+    "size_bytes": 11116,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:37"
+  },
+  {
+    "hash": "0d9c8915c3948df6",
+    "original_name": "25.jpg",
+    "original_class": "Unfinished_obelisk_in_Aswan",
+    "size_bytes": 11497,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:37"
+  },
+  {
+    "hash": "7381ab3d56a7b332",
+    "original_name": "26.jpg",
+    "original_class": "Unfinished_obelisk_in_Aswan",
+    "size_bytes": 12414,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:37"
+  },
+  {
+    "hash": "5c2adf128186c29e",
+    "original_name": "27.jpg",
+    "original_class": "Unfinished_obelisk_in_Aswan",
+    "size_bytes": 12011,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:37"
+  },
+  {
+    "hash": "ca19158db80e206c",
+    "original_name": "28.jpg",
+    "original_class": "Unfinished_obelisk_in_Aswan",
+    "size_bytes": 12647,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:37"
+  },
+  {
+    "hash": "bc9fc6bf2185c27d",
+    "original_name": "29.jpg",
+    "original_class": "Unfinished_obelisk_in_Aswan",
+    "size_bytes": 11878,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:37"
+  },
+  {
+    "hash": "460ecf8e4a9d5c23",
+    "original_name": "3.jpg",
+    "original_class": "Unfinished_obelisk_in_Aswan",
+    "size_bytes": 8781,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:37"
+  },
+  {
+    "hash": "03af79461fe99989",
+    "original_name": "30.jpg",
+    "original_class": "Unfinished_obelisk_in_Aswan",
+    "size_bytes": 11349,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:37"
+  },
+  {
+    "hash": "22b794c7fbb0ee52",
+    "original_name": "31.jpg",
+    "original_class": "Unfinished_obelisk_in_Aswan",
+    "size_bytes": 9524,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:37"
+  },
+  {
+    "hash": "d49e62dd69d895e0",
+    "original_name": "32.jpg",
+    "original_class": "Unfinished_obelisk_in_Aswan",
+    "size_bytes": 11524,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:37"
+  },
+  {
+    "hash": "072905a4ca6cfe56",
+    "original_name": "33.jpg",
+    "original_class": "Unfinished_obelisk_in_Aswan",
+    "size_bytes": 10153,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:37"
+  },
+  {
+    "hash": "3363813b775df1c0",
+    "original_name": "34.jpg",
+    "original_class": "Unfinished_obelisk_in_Aswan",
+    "size_bytes": 11017,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:37"
+  },
+  {
+    "hash": "04e0704354845ca2",
+    "original_name": "35.jpg",
+    "original_class": "Unfinished_obelisk_in_Aswan",
+    "size_bytes": 11614,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:37"
+  },
+  {
+    "hash": "8c07477e7fc4115f",
+    "original_name": "36.jpg",
+    "original_class": "Unfinished_obelisk_in_Aswan",
+    "size_bytes": 11317,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:37"
+  },
+  {
+    "hash": "ccf068c2bc0d6287",
+    "original_name": "37.jpg",
+    "original_class": "Unfinished_obelisk_in_Aswan",
+    "size_bytes": 11017,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:37"
+  },
+  {
+    "hash": "612a363f7054c066",
+    "original_name": "38.jpg",
+    "original_class": "Unfinished_obelisk_in_Aswan",
+    "size_bytes": 9537,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:37"
+  },
+  {
+    "hash": "108a3519e58f0c70",
+    "original_name": "39.jpg",
+    "original_class": "Unfinished_obelisk_in_Aswan",
+    "size_bytes": 11931,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:37"
+  },
+  {
+    "hash": "7daf24813eb5120f",
+    "original_name": "4.jpg",
+    "original_class": "Unfinished_obelisk_in_Aswan",
+    "size_bytes": 7821,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:37"
+  },
+  {
+    "hash": "47647298b72f572f",
+    "original_name": "40.jpg",
+    "original_class": "Unfinished_obelisk_in_Aswan",
+    "size_bytes": 11433,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:37"
+  },
+  {
+    "hash": "345ff611bf239549",
+    "original_name": "41.jpg",
+    "original_class": "Unfinished_obelisk_in_Aswan",
+    "size_bytes": 10748,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:37"
+  },
+  {
+    "hash": "262e44df52bc20df",
+    "original_name": "42.jpg",
+    "original_class": "Unfinished_obelisk_in_Aswan",
+    "size_bytes": 10074,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:37"
+  },
+  {
+    "hash": "01797848243b315e",
+    "original_name": "43.jpg",
+    "original_class": "Unfinished_obelisk_in_Aswan",
+    "size_bytes": 8526,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:37"
+  },
+  {
+    "hash": "6a1e732a5f0048bf",
+    "original_name": "44.jpg",
+    "original_class": "Unfinished_obelisk_in_Aswan",
+    "size_bytes": 9123,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:37"
+  },
+  {
+    "hash": "f34b5c469aeeb739",
+    "original_name": "45.jpg",
+    "original_class": "Unfinished_obelisk_in_Aswan",
+    "size_bytes": 15427,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:37"
+  },
+  {
+    "hash": "ec21bf80f3f71ef1",
+    "original_name": "46.jpg",
+    "original_class": "Unfinished_obelisk_in_Aswan",
+    "size_bytes": 9348,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:37"
+  },
+  {
+    "hash": "5025c99f71425f2b",
+    "original_name": "47.jpg",
+    "original_class": "Unfinished_obelisk_in_Aswan",
+    "size_bytes": 9392,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:37"
+  },
+  {
+    "hash": "b215102b54b8c26b",
+    "original_name": "48.jpg",
+    "original_class": "Unfinished_obelisk_in_Aswan",
+    "size_bytes": 8175,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:37"
+  },
+  {
+    "hash": "dbbc8953e6672369",
+    "original_name": "49.jpg",
+    "original_class": "Unfinished_obelisk_in_Aswan",
+    "size_bytes": 8335,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:37"
+  },
+  {
+    "hash": "b8fd9c07d88fa6a3",
+    "original_name": "5.jpg",
+    "original_class": "Unfinished_obelisk_in_Aswan",
+    "size_bytes": 9243,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:37"
+  },
+  {
+    "hash": "f5c9054b8cb797e5",
+    "original_name": "50.jpg",
+    "original_class": "Unfinished_obelisk_in_Aswan",
+    "size_bytes": 9399,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:37"
+  },
+  {
+    "hash": "7b56583a22633cd8",
+    "original_name": "51.jpg",
+    "original_class": "Unfinished_obelisk_in_Aswan",
+    "size_bytes": 9749,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:37"
+  },
+  {
+    "hash": "83c643085da0c578",
+    "original_name": "52.jpg",
+    "original_class": "Unfinished_obelisk_in_Aswan",
+    "size_bytes": 9162,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:37"
+  },
+  {
+    "hash": "092a2b920ad743ee",
+    "original_name": "53.jpg",
+    "original_class": "Unfinished_obelisk_in_Aswan",
+    "size_bytes": 13128,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:37"
+  },
+  {
+    "hash": "5e98797b31de31ee",
+    "original_name": "54.jpg",
+    "original_class": "Unfinished_obelisk_in_Aswan",
+    "size_bytes": 7673,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:37"
+  },
+  {
+    "hash": "119b2197856d99af",
+    "original_name": "55.jpg",
+    "original_class": "Unfinished_obelisk_in_Aswan",
+    "size_bytes": 12334,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:37"
+  },
+  {
+    "hash": "4f02468e4ae192a4",
+    "original_name": "56.jpg",
+    "original_class": "Unfinished_obelisk_in_Aswan",
+    "size_bytes": 9186,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:37"
+  },
+  {
+    "hash": "e2eeb4d95ec4bac9",
+    "original_name": "57.jpg",
+    "original_class": "Unfinished_obelisk_in_Aswan",
+    "size_bytes": 8597,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:37"
+  },
+  {
+    "hash": "f8c9a441b6b5043e",
+    "original_name": "58.jpg",
+    "original_class": "Unfinished_obelisk_in_Aswan",
+    "size_bytes": 10582,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:37"
+  },
+  {
+    "hash": "9ec3b3495bf34b86",
+    "original_name": "59.jpg",
+    "original_class": "Unfinished_obelisk_in_Aswan",
+    "size_bytes": 10862,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:37"
+  },
+  {
+    "hash": "ba3aa675d554aa64",
+    "original_name": "6.jpg",
+    "original_class": "Unfinished_obelisk_in_Aswan",
+    "size_bytes": 11260,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:37"
+  },
+  {
+    "hash": "e0f5d78fe6400918",
+    "original_name": "7.jpg",
+    "original_class": "Unfinished_obelisk_in_Aswan",
+    "size_bytes": 9955,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:37"
+  },
+  {
+    "hash": "77480fefd0a139fd",
+    "original_name": "8.jpg",
+    "original_class": "Unfinished_obelisk_in_Aswan",
+    "size_bytes": 10272,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:37"
+  },
+  {
+    "hash": "d1c64f27ac978e6d",
+    "original_name": "9.jpg",
+    "original_class": "Unfinished_obelisk_in_Aswan",
+    "size_bytes": 11319,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:37"
+  },
+  {
+    "filename": "8640458baebe1fa0.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/39/Obelisco_inacabado%2C_Asu%C3%A1n%2C_Egipto%2C_2022-04-01%2C_DD_153.jpg",
+    "wikipedia_title": "Unfinished_obelisk",
+    "source": "wikipedia",
+    "downloaded_at": "2026-03-02T02:11:25"
+  },
+  {
+    "filename": "8bd5d8947b802262.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Obelisco_inacabado%2C_Asu%C3%A1n%2C_Egipto%2C_2022-04-01%2C_DD_153.jpg/1280px-Obelisco_inacabado%2C_Asu%C3%A1n%2C_Egipto%2C_2022-04-01%2C_DD_153.jpg",
+    "wikipedia_title": "Unfinished_obelisk",
+    "source": "wikipedia",
+    "downloaded_at": "2026-03-02T02:11:25"
+  },
+  {
+    "filename": "cb6d1e042b3fab4d.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Aswan_-_Unfinished_obelisk_-_2007.jpg/250px-Aswan_-_Unfinished_obelisk_-_2007.jpg",
+    "wikipedia_title": "Unfinished_obelisk",
+    "source": "wikipedia",
+    "downloaded_at": "2026-03-02T02:11:25"
+  },
+  {
+    "filename": "5ffe24c006f20905.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Unfinished_Obelisk_-_Aswan_-_Egypt_%284058821616%29.jpg",
+    "title": "File:Unfinished Obelisk - Aswan - Egypt (4058821616).jpg",
+    "license": "CC BY 2.0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/25897810@N00\">David Berkowitz</a> from New York, NY, USA",
+    "width": 3000,
+    "height": 4000,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:37:14"
+  },
+  {
+    "filename": "6b6c8ba3ef95bdb3.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Unfinished_Obelisk_-_Aswan_-_Egypt_%284058822336%29.jpg",
+    "title": "File:Unfinished Obelisk - Aswan - Egypt (4058822336).jpg",
+    "license": "CC BY 2.0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/25897810@N00\">David Berkowitz</a> from New York, NY, USA",
+    "width": 4000,
+    "height": 3000,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:37:14"
+  },
+  {
+    "filename": "e024b59487dd3354.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/76/Unfinished_Obelisk_-_Aswan_-_Egypt_%284058082285%29.jpg",
+    "title": "File:Unfinished Obelisk - Aswan - Egypt (4058082285).jpg",
+    "license": "CC BY 2.0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/25897810@N00\">David Berkowitz</a> from New York, NY, USA",
+    "width": 4000,
+    "height": 3000,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:37:14"
+  },
+  {
+    "filename": "e55d2383f36fcb5b.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Unfinished_Obelisk_-_Aswan_-_Egypt_%284058822838%29.jpg",
+    "title": "File:Unfinished Obelisk - Aswan - Egypt (4058822838).jpg",
+    "license": "CC BY 2.0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/25897810@N00\">David Berkowitz</a> from New York, NY, USA",
+    "width": 4000,
+    "height": 3000,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:37:14"
+  },
+  {
+    "filename": "9c24f7bc26530156.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/77/Unfinished_Obelisk_-_Aswan_-_Egypt_%284058823338%29.jpg",
+    "title": "File:Unfinished Obelisk - Aswan - Egypt (4058823338).jpg",
+    "license": "CC BY 2.0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/25897810@N00\">David Berkowitz</a> from New York, NY, USA",
+    "width": 4000,
+    "height": 3000,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:37:14"
+  },
+  {
+    "filename": "00832c61f01fff65.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/72/Unfinished_Obelisk_-_Aswan_-_Egypt_%284058823772%29.jpg",
+    "title": "File:Unfinished Obelisk - Aswan - Egypt (4058823772).jpg",
+    "license": "CC BY 2.0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/25897810@N00\">David Berkowitz</a> from New York, NY, USA",
+    "width": 4000,
+    "height": 3000,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:37:14"
+  },
+  {
+    "filename": "caf98c99fd5a59c9.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Unfinished_obelisk_in_Aswan_02.jpg",
+    "title": "File:Unfinished obelisk in Aswan 02.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:MatthiasKabel\" title=\"User:MatthiasKabel\">User:MatthiasKabel</a>",
+    "width": 2912,
+    "height": 4368,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:37:14"
+  },
+  {
+    "filename": "8977279646fb1770.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/56/By_ovedc_-_Unfinished_obelisk_in_Aswan_-_03.jpg",
+    "title": "File:By ovedc - Unfinished obelisk in Aswan - 03.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Ovedc\" title=\"User:Ovedc\">Ovedc</a>",
+    "width": 5312,
+    "height": 2988,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:37:14"
+  },
+  {
+    "filename": "24bec76a851f4df2.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/19/By_ovedc_-_Unfinished_obelisk_in_Aswan_-_01.jpg",
+    "title": "File:By ovedc - Unfinished obelisk in Aswan - 01.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Ovedc\" title=\"User:Ovedc\">Ovedc</a>",
+    "width": 2988,
+    "height": 5312,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:37:14"
+  },
+  {
+    "filename": "5fff7a6bb393b278.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/bd/By_ovedc_-_Unfinished_obelisk_in_Aswan_-_06.jpg",
+    "title": "File:By ovedc - Unfinished obelisk in Aswan - 06.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Ovedc\" title=\"User:Ovedc\">Ovedc</a>",
+    "width": 5312,
+    "height": 2988,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:37:14"
+  },
+  {
+    "filename": "04eacded071624d9.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/da/By_ovedc_-_Unfinished_obelisk_in_Aswan_-_05.jpg",
+    "title": "File:By ovedc - Unfinished obelisk in Aswan - 05.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Ovedc\" title=\"User:Ovedc\">Ovedc</a>",
+    "width": 2988,
+    "height": 5312,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:37:14"
+  },
+  {
+    "filename": "12909ea8306d0939.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/9a/By_ovedc_-_Unfinished_obelisk_in_Aswan_-_04.jpg",
+    "title": "File:By ovedc - Unfinished obelisk in Aswan - 04.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Ovedc\" title=\"User:Ovedc\">Ovedc</a>",
+    "width": 2988,
+    "height": 5312,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:37:14"
+  },
+  {
+    "filename": "b5b17edf8cbeb34f.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/34/By_ovedc_-_Unfinished_obelisk_in_Aswan_-_09.jpg",
+    "title": "File:By ovedc - Unfinished obelisk in Aswan - 09.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Ovedc\" title=\"User:Ovedc\">Ovedc</a>",
+    "width": 2988,
+    "height": 5312,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:37:14"
+  },
+  {
+    "filename": "01f7b02e6c345c29.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/3f/By_ovedc_-_Unfinished_obelisk_in_Aswan_-_10.jpg",
+    "title": "File:By ovedc - Unfinished obelisk in Aswan - 10.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Ovedc\" title=\"User:Ovedc\">Ovedc</a>",
+    "width": 2988,
+    "height": 5312,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:37:14"
+  },
+  {
+    "filename": "8af57de16cf7e624.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/8d/By_ovedc_-_Unfinished_obelisk_in_Aswan_-_12.jpg",
+    "title": "File:By ovedc - Unfinished obelisk in Aswan - 12.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Ovedc\" title=\"User:Ovedc\">Ovedc</a>",
+    "width": 5312,
+    "height": 2988,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:37:14"
+  },
+  {
+    "filename": "16a901ad8aacd9cb.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/c5/By_ovedc_-_Unfinished_obelisk_in_Aswan_-_14.jpg",
+    "title": "File:By ovedc - Unfinished obelisk in Aswan - 14.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Ovedc\" title=\"User:Ovedc\">Ovedc</a>",
+    "width": 2988,
+    "height": 5312,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:37:14"
+  },
+  {
+    "filename": "4346c4f9946fe2bb.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/01/By_ovedc_-_Unfinished_obelisk_in_Aswan_-_13.jpg",
+    "title": "File:By ovedc - Unfinished obelisk in Aswan - 13.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Ovedc\" title=\"User:Ovedc\">Ovedc</a>",
+    "width": 2988,
+    "height": 5312,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:37:14"
+  },
+  {
+    "filename": "bcb0c5dbeb9e2a36.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/a3/By_ovedc_-_Unfinished_obelisk_in_Aswan_-_16.jpg",
+    "title": "File:By ovedc - Unfinished obelisk in Aswan - 16.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Ovedc\" title=\"User:Ovedc\">Ovedc</a>",
+    "width": 5312,
+    "height": 2988,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:37:14"
+  },
+  {
+    "filename": "252a10e493de64df.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/e1/By_ovedc_-_Unfinished_obelisk_in_Aswan_-_17.jpg",
+    "title": "File:By ovedc - Unfinished obelisk in Aswan - 17.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Ovedc\" title=\"User:Ovedc\">Ovedc</a>",
+    "width": 2988,
+    "height": 5312,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:37:14"
+  },
+  {
+    "filename": "615f0d3984a83f20.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/00/By_ovedc_-_Unfinished_obelisk_in_Aswan_-_18.jpg",
+    "title": "File:By ovedc - Unfinished obelisk in Aswan - 18.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Ovedc\" title=\"User:Ovedc\">Ovedc</a>",
+    "width": 2988,
+    "height": 5312,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:37:14"
+  },
+  {
+    "filename": "98ecba74ccebb606.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Unfinished_Obelisk_in_Aswan%2C_1950%27s.tif",
+    "title": "File:Unfinished Obelisk in Aswan, 1950's.tif",
+    "license": "CC BY-SA 4.0",
+    "artist": "Zdravko Pečar",
+    "width": 2970,
+    "height": 4558,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:37:14"
+  },
+  {
+    "filename": "428bf72a2893a786.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/05/Unfinished_Obelisk_-_Aswan_-_Egypt_%284058081723%29.jpg",
+    "title": "File:Unfinished Obelisk - Aswan - Egypt (4058081723).jpg",
+    "license": "CC BY 2.0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/25897810@N00\">David Berkowitz</a> from New York, NY, USA",
+    "width": 4000,
+    "height": 3000,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:37:14"
+  },
+  {
+    "filename": "2e34833b141094de.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/23/Unfinished_Obelisk_-_Aswan_-_Egypt_%284058083713%29.jpg",
+    "title": "File:Unfinished Obelisk - Aswan - Egypt (4058083713).jpg",
+    "license": "CC BY 2.0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/25897810@N00\">David Berkowitz</a> from New York, NY, USA",
+    "width": 4000,
+    "height": 3000,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:37:14"
+  },
+  {
+    "filename": "eb84c68d6743c297.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Unfinished_Obelisk%2C_Aswan_%289797382426%29.jpg",
+    "title": "File:Unfinished Obelisk, Aswan (9797382426).jpg",
+    "license": "CC0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/101561334@N08\">Gary Todd</a> from Xinzheng, China",
+    "width": 1600,
+    "height": 1167,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:37:14"
+  },
+  {
+    "filename": "2f37ae4b21515abd.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/19/Unfinished_Obelisk%2C_Aswan_%289797463993%29.jpg",
+    "title": "File:Unfinished Obelisk, Aswan (9797463993).jpg",
+    "license": "CC0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/101561334@N08\">Gary Todd</a> from Xinzheng, China",
+    "width": 3647,
+    "height": 2449,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:37:14"
+  },
+  {
+    "filename": "644bb48b6fdc9aaf.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/80/Unfinished_Obelisk%2C_Aswan_%289797405556%29.jpg",
+    "title": "File:Unfinished Obelisk, Aswan (9797405556).jpg",
+    "license": "CC0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/101561334@N08\">Gary Todd</a> from Xinzheng, China",
+    "width": 3659,
+    "height": 2472,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:37:14"
+  },
+  {
+    "filename": "d0c90354c1819a42.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Aswan_-_Unfinished_obelisk_-_2007.jpg",
+    "title": "File:Aswan - Unfinished obelisk - 2007.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "I would appreciate <a href=\"//commons.wikimedia.org/wiki/Special:EmailUser/Bazi\" title=\"Special:EmailUser/Bazi\">being notified</a> if you use my work outside Wikimedia.\n<p>Do not copy this image illegally by ignoring the terms of the license below, as it is not in the public domain.\n</p>\nMore of my work can be found in my <a href=\"//commons.wikimedia.org/wiki/Category:Photos_by_User:Bazi\" title=\"Category:Photos by User:Bazi\">personal gallery</a>.",
+    "width": 3072,
+    "height": 1728,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:37:14"
+  },
+  {
+    "filename": "caf8f42470fbb14c.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Unfinished_Obelisk_at_Aswan.JPG",
+    "title": "File:Unfinished Obelisk at Aswan.JPG",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Glenn_Ashton&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Glenn Ashton (page does not exist)\">Glenn Ashton</a>",
+    "width": 1704,
+    "height": 2272,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:37:14"
+  },
+  {
+    "filename": "5acb59cd6150d7aa.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/26/Unfinished_obelisk_at_Aswan.JPG",
+    "title": "File:Unfinished obelisk at Aswan.JPG",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Glenn_Ashton&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Glenn Ashton (page does not exist)\">Glenn Ashton</a>",
+    "width": 2042,
+    "height": 1458,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:37:14"
+  },
+  {
+    "filename": "9c55304773b09ab0.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/7d/By_ovedc_-_Unfinished_obelisk_in_Aswan_-_08.jpg",
+    "title": "File:By ovedc - Unfinished obelisk in Aswan - 08.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Ovedc\" title=\"User:Ovedc\">Ovedc</a>",
+    "width": 2988,
+    "height": 5312,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:37:14"
+  },
+  {
+    "filename": "e24799277e7ced8b.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/70/By_ovedc_-_Unfinished_obelisk_in_Aswan_-_11.jpg",
+    "title": "File:By ovedc - Unfinished obelisk in Aswan - 11.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Ovedc\" title=\"User:Ovedc\">Ovedc</a>",
+    "width": 5312,
+    "height": 2988,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:37:14"
+  },
+  {
+    "filename": "1f3942166fc230b0.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/20/The_Unfinished_Obelisk%2C_Aswan%2C_AG%2C_EGY_%2848027227302%29.jpg",
+    "title": "File:The Unfinished Obelisk, Aswan, AG, EGY (48027227302).jpg",
+    "license": "CC0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/59081381@N03\">Warren LeMay</a> from Cullowhee, NC, United States",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:37:14"
+  },
+  {
+    "filename": "cda93658098b5c27.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f8/The_Unfinished_Obelisk%2C_Aswan%2C_AG%2C_EGY_%2848027219692%29.jpg",
+    "title": "File:The Unfinished Obelisk, Aswan, AG, EGY (48027219692).jpg",
+    "license": "CC0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/59081381@N03\">Warren LeMay</a> from Cullowhee, NC, United States",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:37:14"
+  },
+  {
+    "filename": "c42ede8825bc25e9.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/44/The_Unfinished_Obelisk%2C_Aswan%2C_AG%2C_EGY_%2848027111541%29.jpg",
+    "title": "File:The Unfinished Obelisk, Aswan, AG, EGY (48027111541).jpg",
+    "license": "CC0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/59081381@N03\">Warren LeMay</a> from Cullowhee, NC, United States",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:37:14"
+  },
+  {
+    "filename": "10e3e3ec495153cf.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/3d/The_Unfinished_Obelisk%2C_Aswan%2C_AG%2C_EGY_%2848027108926%29.jpg",
+    "title": "File:The Unfinished Obelisk, Aswan, AG, EGY (48027108926).jpg",
+    "license": "CC0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/59081381@N03\">Warren LeMay</a> from Cullowhee, NC, United States",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:37:14"
+  },
+  {
+    "filename": "49dcac7fbc45cac7.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/4e/The_Unfinished_Obelisk%2C_Aswan%2C_AG%2C_EGY_%2848027107416%29.jpg",
+    "title": "File:The Unfinished Obelisk, Aswan, AG, EGY (48027107416).jpg",
+    "license": "CC0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/59081381@N03\">Warren LeMay</a> from Cullowhee, NC, United States",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:37:14"
+  },
+  {
+    "filename": "6dea8ed78e12ecab.png",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Unfinished_obelisk_01_977.PNG",
+    "title": "File:Unfinished obelisk 01 977.PNG",
+    "license": "Public domain",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Ijanderson977\" class=\"mw-redirect\" title=\"User:Ijanderson977\">Ijanderson977</a>",
+    "width": 3072,
+    "height": 2304,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:37:14"
+  },
+  {
+    "filename": "8a990b2f174d964b.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Unfinished_Obelisk_02.jpg",
+    "title": "File:Unfinished Obelisk 02.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Ad_Meskens\" title=\"User:Ad Meskens\">Ad Meskens</a>",
+    "width": 3648,
+    "height": 2736,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:37:14"
+  },
+  {
+    "filename": "d70905406b0c1415.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/3b/The_Unfinished_Obelisk_-_panoramio.jpg",
+    "title": "File:The Unfinished Obelisk - panoramio.jpg",
+    "license": "CC BY 3.0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://web.archive.org/web/20161025222613/http://www.panoramio.com/user/5677660?with_photo_id=88907400\">The Erica Chang</a>",
+    "width": 1936,
+    "height": 2592,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:37:14"
+  },
+  {
+    "filename": "0e7f9e1a5dab935d.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/34/Unfinished_Obelisk_01.jpg",
+    "title": "File:Unfinished Obelisk 01.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Ad_Meskens\" title=\"User:Ad Meskens\">Ad Meskens</a>",
+    "width": 3648,
+    "height": 1300,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:37:14"
+  },
+  {
+    "filename": "15e53060a658f3fe.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/01/Unfinished_Obelisk_03.jpg",
+    "title": "File:Unfinished Obelisk 03.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Ad_Meskens\" title=\"User:Ad Meskens\">Ad Meskens</a>",
+    "width": 3648,
+    "height": 2736,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:37:14"
+  },
+  {
+    "filename": "fe30618b9c831c59.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Unfinished_Obelisk_04.jpg",
+    "title": "File:Unfinished Obelisk 04.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Ad_Meskens\" title=\"User:Ad Meskens\">Ad Meskens</a>",
+    "width": 2736,
+    "height": 3648,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:37:14"
+  },
+  {
+    "filename": "8c1ca4591e73d697.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/61/Unfinished_Obelisk_06.jpg",
+    "title": "File:Unfinished Obelisk 06.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Ad_Meskens\" title=\"User:Ad Meskens\">Ad Meskens</a>",
+    "width": 2736,
+    "height": 3648,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:37:14"
+  },
+  {
+    "filename": "0a991702b07a2cf3.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/99/Unfinished_Obelisk_05.jpg",
+    "title": "File:Unfinished Obelisk 05.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Ad_Meskens\" title=\"User:Ad Meskens\">Ad Meskens</a>",
+    "width": 3648,
+    "height": 2736,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:37:14"
+  },
+  {
+    "filename": "e587d328c69e9ac9.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/64/Unfinished_Obelisk_07.jpg",
+    "title": "File:Unfinished Obelisk 07.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Ad_Meskens\" title=\"User:Ad Meskens\">Ad Meskens</a>",
+    "width": 3648,
+    "height": 2736,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:37:14"
+  }
+]

@@ -1,0 +1,22 @@
+{
+  "wikipedia": {
+    "en": {
+      "title": "Dendera Temple complex",
+      "extract": "The Dendera Temple complex is located about 2.5 kilometres south-east of Dendera, Egypt. It is one of the best-preserved temple complexes of ancient Egypt. The area was used as the sixth nome of Upper Egypt, south of Abydos.",
+      "description": "Ancient Egyptian temple complex",
+      "coordinates": {
+        "lat": 26.14166667,
+        "lon": 32.67027778
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Dendera_7_977.PNG/330px-Dendera_7_977.PNG",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Dendera_7_977.PNG",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Dendera_Temple_complex"
+    },
+    "ar": {
+      "title": "مجمع معابد دندرة",
+      "extract": "مجمع معابد دندرة أو معبد دندرة وينطق بالإنجليزية (Tentyra) أو (Denderah)، هو مجمع معابد بطلمي - روماني، يقع في قرية دندرة علي بعد حوالي 5 كم شمال غرب مدينة قنا وعلى بعد 60 كم شمالاً من الأقصر. ويعتبر إحدى أشهر المعابد المحفوظة في مصر التي ما زالت محتفظة برونقها. ومنطقة دندرة كانت جزءاً من إقليم مصر السادس في صعيد مصر، جنوب أبيدوس، الذي كان يعرف باسم إقليم التمساح.",
+      "description": "معبد مصري",
+      "wikipedia_url": "https://ar.wikipedia.org/wiki/%D9%85%D8%AC%D9%85%D8%B9_%D9%85%D8%B9%D8%A7%D8%A8%D8%AF_%D8%AF%D9%86%D8%AF%D8%B1%D8%A9"
+    }
+  }
+}

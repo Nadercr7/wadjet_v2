@@ -1,0 +1,19 @@
+{
+  "slug": "tomb_of_tutankhamun",
+  "category": "Pharaonic",
+  "region": "Luxor",
+  "wikipedia": {
+    "en": {
+      "title": "Tomb of Tutankhamun",
+      "extract": "The tomb of Tutankhamun, a pharaoh of the Eighteenth Dynasty of ancient Egypt, is located in the Valley of the Kings. The tomb, also known by its tomb number KV62, consists of four chambers and an entrance staircase and corridor. It is smaller and less extensively decorated than other Egyptian royal tombs of its time, and it probably originated as a tomb for a non-royal individual that was adapted for Tutankhamun's use after his premature death. Like other pharaohs, Tutankhamun was buried with a wide variety of funerary objects and personal possessions, such as coffins, furniture, clothing and jewelry, though in the unusually limited space these goods had to be densely packed. Robbers entered the tomb twice in the years immediately following the burial, but Tutankhamun's mummy and most of the burial goods remained intact. The tomb's low position, dug into the floor of the valley, allowed its entrance to be hidden by debris deposited by flooding and tomb construction. Thus, unlike other tombs in the valley, it was not stripped of its valuables during the Third Intermediate Period.",
+      "description": "Ancient Egyptian tomb",
+      "coordinates": {
+        "lat": 25.74038889,
+        "lon": 32.60141667
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Inside_Pharaoh_Tutankhamun%27s_tomb%2C_18th_dynasty.jpg/330px-Inside_Pharaoh_Tutankhamun%27s_tomb%2C_18th_dynasty.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Inside_Pharaoh_Tutankhamun%27s_tomb%2C_18th_dynasty.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Tomb_of_Tutankhamun"
+    }
+  }
+}

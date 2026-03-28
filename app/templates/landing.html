@@ -1,0 +1,312 @@
+{% extends "base.html" %}
+
+{% block title %}Wadjet{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="section relative overflow-hidden">
+    <!-- Background glow -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gold/5 rounded-full blur-[120px] pointer-events-none"></div>
+
+    <div class="container-narrow relative">
+        <div class="text-center max-w-3xl mx-auto">
+            <!-- Badge -->
+            <div class="inline-flex items-center gap-2 badge-gold mb-8">
+                <span class="w-1.5 h-1.5 rounded-full bg-gold animate-pulse"></span>
+                AI-Powered Egyptian Heritage
+            </div>
+
+            <!-- Heading -->
+            <h1 class="mb-6">
+                Unlock the <span class="text-gold-gradient">Secrets of Egypt</span>
+            </h1>
+
+            <!-- Subheading -->
+            <p class="text-lg md:text-xl text-text-muted mb-6 max-w-2xl mx-auto leading-relaxed">
+                Two AI-powered tools in one app. Decode ancient hieroglyphs or
+                identify legendary landmarks — choose your path.
+            </p>
+
+            <!-- Hieroglyph decoration -->
+            <div class="hieroglyph text-3xl md:text-4xl opacity-20 select-none mb-16" aria-hidden="true">
+                𓁹 𓂋 𓏏 𓅱 𓆓 𓊹 𓋴 𓂧 𓏲 𓎼
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Two Paths — Choose your journey -->
+<section class="px-4 sm:px-6 lg:px-8 pb-16 md:pb-24">
+    <div class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+
+            <!-- Path 1: Hieroglyphs -->
+            <a href="/hieroglyphs" class="group relative rounded-2xl border border-border bg-surface p-8 md:p-10 transition-all duration-500 hover:border-gold/30 hover:-translate-y-1 hover:shadow-[0_0_60px_rgba(212,175,55,0.1)] overflow-hidden">
+                <!-- Gold glow top -->
+                <div class="absolute top-0 left-1/2 -translate-x-1/2 w-2/3 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                <!-- Icon -->
+                <div class="w-16 h-16 rounded-2xl bg-gold/10 border border-gold/20 flex items-center justify-center mb-6 group-hover:bg-gold/20 group-hover:border-gold/30 transition-all duration-300">
+                    <span class="text-3xl">𓊹</span>
+                </div>
+
+                <!-- Title -->
+                <h2 class="text-2xl md:text-3xl font-display font-bold mb-3 group-hover:text-gold transition-colors duration-300">
+                    Hieroglyphs
+                </h2>
+
+                <!-- Description -->
+                <p class="text-text-muted mb-8 leading-relaxed">
+                    Scan hieroglyphs from photos, translate ancient inscriptions,
+                    browse the Gardiner dictionary, and write in the ancient script.
+                </p>
+
+                <!-- Feature list -->
+                <div class="space-y-3 mb-8">
+                    <div class="flex items-center gap-3 text-sm">
+                        <div class="w-8 h-8 rounded-lg bg-gold/10 flex items-center justify-center shrink-0">
+                            <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        </div>
+                        <span class="text-text-muted"><span class="text-text font-medium">Scan & Identify</span> — detect glyphs from photos</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-sm">
+                        <div class="w-8 h-8 rounded-lg bg-gold/10 flex items-center justify-center shrink-0">
+                            <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
+                        </div>
+                        <span class="text-text-muted"><span class="text-text font-medium">Translate</span> — English & Arabic translation</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-sm">
+                        <div class="w-8 h-8 rounded-lg bg-gold/10 flex items-center justify-center shrink-0">
+                            <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        </div>
+                        <span class="text-text-muted"><span class="text-text font-medium">Dictionary</span> — 1,000+ Gardiner signs</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-sm">
+                        <div class="w-8 h-8 rounded-lg bg-gold/10 flex items-center justify-center shrink-0">
+                            <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
+                        </div>
+                        <span class="text-text-muted"><span class="text-text font-medium">Write</span> — compose in hieroglyphs</span>
+                    </div>
+                </div>
+
+                <!-- CTA -->
+                <div class="flex items-center gap-2 text-gold font-medium text-sm group-hover:gap-3 transition-all duration-300">
+                    Explore Hieroglyphs
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                </div>
+            </a>
+
+            <!-- Path 2: Landmarks -->
+            <a href="/landmarks" class="group relative rounded-2xl border border-border bg-surface p-8 md:p-10 transition-all duration-500 hover:border-gold/30 hover:-translate-y-1 hover:shadow-[0_0_60px_rgba(212,175,55,0.1)] overflow-hidden">
+                <!-- Gold glow top -->
+                <div class="absolute top-0 left-1/2 -translate-x-1/2 w-2/3 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                <!-- Icon -->
+                <div class="w-16 h-16 rounded-2xl bg-gold/10 border border-gold/20 flex items-center justify-center mb-6 group-hover:bg-gold/20 group-hover:border-gold/30 transition-all duration-300">
+                    <span class="text-3xl">𓉐</span>
+                </div>
+
+                <!-- Title -->
+                <h2 class="text-2xl md:text-3xl font-display font-bold mb-3 group-hover:text-gold transition-colors duration-300">
+                    Landmarks
+                </h2>
+
+                <!-- Description -->
+                <p class="text-text-muted mb-8 leading-relaxed">
+                    Explore 260+ Egyptian landmarks, identify monuments from photos,
+                    get AI-generated descriptions, and discover hidden gems.
+                </p>
+
+                <!-- Feature list -->
+                <div class="space-y-3 mb-8">
+                    <div class="flex items-center gap-3 text-sm">
+                        <div class="w-8 h-8 rounded-lg bg-gold/10 flex items-center justify-center shrink-0">
+                            <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <span class="text-text-muted"><span class="text-text font-medium">Explore</span> — pyramids, temples, museums</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-sm">
+                        <div class="w-8 h-8 rounded-lg bg-gold/10 flex items-center justify-center shrink-0">
+                            <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        </div>
+                        <span class="text-text-muted"><span class="text-text font-medium">Identify</span> — snap a photo, AI tells you what it is</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-sm">
+                        <div class="w-8 h-8 rounded-lg bg-gold/10 flex items-center justify-center shrink-0">
+                            <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                        </div>
+                        <span class="text-text-muted"><span class="text-text font-medium">AI Descriptions</span> — rich history for each site</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-sm">
+                        <div class="w-8 h-8 rounded-lg bg-gold/10 flex items-center justify-center shrink-0">
+                            <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
+                        </div>
+                        <span class="text-text-muted"><span class="text-text font-medium">Discover</span> — recommendations & similar sites</span>
+                    </div>
+                </div>
+
+                <!-- CTA -->
+                <div class="flex items-center gap-2 text-gold font-medium text-sm group-hover:gap-3 transition-all duration-300">
+                    Explore Landmarks
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                </div>
+            </a>
+
+        </div>
+    </div>
+</section>
+
+<!-- Divider -->
+<div class="divider"></div>
+
+<!-- Shared Features -->
+<section class="section">
+    <div class="container-wide">
+        <div class="text-center mb-12">
+            <h2 class="mb-4">Powered by <span class="text-gold">AI</span></h2>
+            <p class="text-text-muted max-w-xl mx-auto">
+                Both paths share the same powerful AI engine.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Thoth Chat -->
+            <a href="/chat" class="card-glow group text-center">
+                <div class="w-12 h-12 rounded-lg bg-gold/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-gold/20 transition-colors">
+                    <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+                </div>
+                <h3 class="text-lg font-semibold mb-2 group-hover:text-gold transition-colors">Ask Thoth</h3>
+                <p class="text-sm text-text-muted">
+                    Chat with the AI Egyptology guide about anything — hieroglyphs, pharaohs, or history.
+                </p>
+            </a>
+
+            <!-- ML Models -->
+            <div class="card text-center">
+                <div class="w-12 h-12 rounded-lg bg-gold/10 flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                </div>
+                <h3 class="text-lg font-semibold mb-2">2 ML Models</h3>
+                <p class="text-sm text-text-muted">
+                    Hieroglyph detector + classifier (171 classes) and landmark identifier (260+ sites).
+                </p>
+            </div>
+
+            <!-- Offline -->
+            <div class="card text-center">
+                <div class="w-12 h-12 rounded-lg bg-gold/10 flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636a9 9 0 010 12.728m0 0l-2.829-2.829m2.829 2.829L21 21M15.536 8.464a5 5 0 010 7.072m0 0l-2.829-2.829m-4.243 2.829a4.978 4.978 0 01-1.414-2.83m-1.414 5.658a9 9 0 01-2.167-9.238m7.824 2.167a1 1 0 111.414 1.414 1 1 0 01-1.414-1.414z"></path></svg>
+                </div>
+                <h3 class="text-lg font-semibold mb-2">Works Offline</h3>
+                <p class="text-sm text-text-muted">
+                    Core scanning runs in your browser — no internet needed after first load.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Divider -->
+<div class="divider"></div>
+
+<!-- Discover Section -->
+<section class="section" x-data="discoverApp()" x-cloak>
+    <div class="container-wide">
+        <div class="text-center mb-12">
+            <div class="inline-flex items-center gap-2 badge-gold mb-4">
+                <span class="w-1.5 h-1.5 rounded-full bg-gold animate-pulse"></span>
+                Discover
+            </div>
+            <h2 class="mb-4">Explore <span class="text-gold-gradient">More</span></h2>
+            <p class="text-text-muted max-w-xl mx-auto">
+                Test your knowledge, discover featured landmarks, and learn a new hieroglyph every day.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+            <!-- Daily Glyph -->
+            <div class="card-glow p-6 text-center">
+                <div class="w-14 h-14 rounded-xl bg-gold/10 border border-gold/20 flex items-center justify-center mx-auto mb-4">
+                    <span class="hieroglyph text-3xl" x-text="dailyGlyph.glyph">𓁹</span>
+                </div>
+                <h3 class="text-lg font-serif text-gold mb-1">Glyph of the Day</h3>
+                <p class="text-text-muted text-sm mb-3" x-text="dailyGlyph.label">Eye of Horus</p>
+                <div class="text-xs text-text-dim mb-4">
+                    <span class="text-sand" x-text="dailyGlyph.code">D10</span>
+                    &middot;
+                    <span x-text="dailyGlyph.meaning"></span>
+                </div>
+                <a href="/dictionary" class="text-gold text-sm hover:text-gold-light transition-colors">
+                    Browse Dictionary →
+                </a>
+            </div>
+
+            <!-- Quiz CTA -->
+            <a href="/quiz" class="card-glow p-6 text-center group">
+                <div class="w-14 h-14 rounded-xl bg-gold/10 border border-gold/20 flex items-center justify-center mx-auto mb-4 group-hover:bg-gold/20 transition-colors">
+                    <svg class="w-7 h-7 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                </div>
+                <h3 class="text-lg font-serif mb-2 group-hover:text-gold transition-colors">Egyptian Heritage Quiz</h3>
+                <p class="text-text-muted text-sm mb-4">
+                    Test your knowledge of pharaohs, pyramids, and ancient wonders.
+                    Quick quiz or AI-generated challenges.
+                </p>
+                <span class="btn-ghost btn-sm">Take the Quiz</span>
+            </a>
+
+            <!-- Featured Landmark -->
+            <div class="card-glow p-6 text-center">
+                <div class="w-14 h-14 rounded-xl bg-gold/10 border border-gold/20 flex items-center justify-center mx-auto mb-4">
+                    <span class="text-2xl">𓉐</span>
+                </div>
+                <h3 class="text-lg font-serif text-gold mb-1">Featured Site</h3>
+                <p class="text-text font-medium mb-1" x-text="featured.name">Great Pyramids of Giza</p>
+                <p class="text-text-muted text-sm mb-3" x-text="featured.city + ' · ' + featured.type">Giza · Pharaonic</p>
+                <p class="text-text-dim text-xs mb-4 line-clamp-2" x-text="featured.description"></p>
+                <a href="/explore" class="text-gold text-sm hover:text-gold-light transition-colors">
+                    Explore Landmarks →
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+function discoverApp() {
+    // Deterministic daily pick based on day-of-year
+    const dayOfYear = Math.floor((Date.now() - new Date(new Date().getFullYear(),0,0)) / 86400000);
+
+    const glyphs = [
+        { glyph: '𓁹', label: 'Wedjat Eye', code: 'D10', meaning: 'Eye of Horus — protection & healing' },
+        { glyph: '𓋹', label: 'Ankh', code: 'S34', meaning: 'The key of life — eternal existence' },
+        { glyph: '𓇳', label: 'Sun Disk', code: 'N5', meaning: 'Ra — the sun god' },
+        { glyph: '𓆣', label: 'Scarab', code: 'L1', meaning: 'Khepri — rebirth & transformation' },
+        { glyph: '𓊹', label: 'Was Scepter', code: 'R11', meaning: 'Power & dominion' },
+        { glyph: '𓇯', label: 'Sky', code: 'N1', meaning: 'Nut — the sky goddess' },
+        { glyph: '𓈖', label: 'Water', code: 'N35', meaning: 'Ripple of water — the letter N' },
+    ];
+
+    const landmarks = [
+        { name: 'Great Pyramids of Giza', city: 'Giza', type: 'Pharaonic', description: 'The last surviving Wonder of the Ancient World, built as royal tombs during the Old Kingdom.' },
+        { name: 'Karnak Temple', city: 'Luxor', type: 'Pharaonic', description: 'The largest ancient religious complex, with construction spanning 2,000 years from the Middle Kingdom.' },
+        { name: 'Valley of the Kings', city: 'Luxor', type: 'Pharaonic', description: 'Royal necropolis where pharaohs of the New Kingdom were buried in elaborately decorated rock-cut tombs.' },
+        { name: 'Abu Simbel', city: 'Aswan', type: 'Pharaonic', description: 'Twin temples carved from solid rock by Ramesses II, relocated to avoid flooding from the Aswan Dam.' },
+        { name: 'Egyptian Museum', city: 'Cairo', type: 'Modern', description: 'Home to over 120,000 ancient Egyptian artifacts including Tutankhamun\'s golden treasures.' },
+        { name: 'Citadel of Saladin', city: 'Cairo', type: 'Islamic', description: 'Medieval Islamic fortification on Mokattam hill, commanding a panoramic view of historic Cairo.' },
+        { name: 'Library of Alexandria', city: 'Alexandria', type: 'Modern', description: 'Modern revival of the ancient great library, a major center for culture and learning.' },
+    ];
+
+    return {
+        dailyGlyph: glyphs[dayOfYear % glyphs.length],
+        featured: landmarks[dayOfYear % landmarks.length],
+    };
+}
+</script>
+{% endblock %}

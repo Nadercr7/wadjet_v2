@@ -1,0 +1,22 @@
+{
+  "wikipedia": {
+    "en": {
+      "title": "Khan el-Khalili",
+      "extract": "Khan el-Khalili is a famous bazaar in the historic center of Cairo, Egypt. Established as a center of trade in the Mamluk era and named for one of its several historic caravanserais, the bazaar district has since become one of Cairo's main attractions for tourists and Egyptians alike. It is also home to many Egyptian artisans and workshops involved in the production of traditional crafts and souvenirs. The name Khan el-Khalili historically referred to a single building in the area; today it refers to the entire shopping district.",
+      "description": "Major souk in Cairo",
+      "coordinates": {
+        "lat": 30.0475,
+        "lon": 31.26222222
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/%D8%AE%D8%A7%D9%86_%D8%A7%D9%84%D8%AE%D9%84%D9%8A%D9%84%D9%8A_1.jpg/330px-%D8%AE%D8%A7%D9%86_%D8%A7%D9%84%D8%AE%D9%84%D9%8A%D9%84%D9%8A_1.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/7/74/%D8%AE%D8%A7%D9%86_%D8%A7%D9%84%D8%AE%D9%84%D9%8A%D9%84%D9%8A_1.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Khan_el-Khalili"
+    },
+    "ar": {
+      "title": "خان الخليلي",
+      "extract": "خان الخليلي، أحد شياخات حي وسط القاهرة بالمنطقة الغربية في محافظة القاهرة، ويتمتع بجذب سياحي كبير بالنسبة لزوار القاهرة ومصر بشكل عام. يتميز بوجود أسواق وبازارات ومحلات ومطاعم شعبية، كما يتميز بكثرة أعداد السياح واعتياد سكانه عليهم.",
+      "description": "شياخة ومركزي تجاري في القاهرة",
+      "wikipedia_url": "https://ar.wikipedia.org/wiki/%D8%AE%D8%A7%D9%86_%D8%A7%D9%84%D8%AE%D9%84%D9%8A%D9%84%D9%8A"
+    }
+  }
+}

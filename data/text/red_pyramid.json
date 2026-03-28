@@ -1,0 +1,22 @@
+{
+  "wikipedia": {
+    "en": {
+      "title": "Red Pyramid",
+      "extract": "The Red Pyramid, also called the North Pyramid, is the largest of the pyramids located at the Dahshur necropolis in Cairo, Egypt. It is the third largest Egyptian pyramid, after those of Khufu and Khafre at Giza. It is believed to be Egypt's first successful attempt at constructing a \"true\" smooth-sided pyramid.",
+      "description": "c. 2600 BC pyramid near Cairo, Egypt, built by pharaoh Sneferu",
+      "coordinates": {
+        "lat": 29.80833333,
+        "lon": 31.20583333
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Rote_Pyramide_%28Dahschur%29_04.jpg/330px-Rote_Pyramide_%28Dahschur%29_04.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Rote_Pyramide_%28Dahschur%29_04.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Red_Pyramid"
+    },
+    "ar": {
+      "title": "الهرم الأحمر",
+      "extract": " الهرم الأحمر  ، المعروف أيضًا باسم  الهرم الشمالي  ، هو أكبر هرم يقع في دهشور في الجيزة في مصر. سُمي هذا الهرم بسبب اللون الأحمر الصدئ لأحجاره الحمراء من الحجر الجيري، وهو أيضًا ثالث أكبر هرم مصري، بعد هرم خوفو وخفرع في الجيزة. ويُعتقد أيضًا أنه أول محاولة مصرية ناجحة لبناء هرم «حقيقي» أملس الجوانب. يشير السكان المحليون إلى الهرم الأحمر باسم «الهرم الوطواط».",
+      "description": "هرم مصري",
+      "wikipedia_url": "https://ar.wikipedia.org/wiki/%D8%A7%D9%84%D9%87%D8%B1%D9%85_%D8%A7%D9%84%D8%A3%D8%AD%D9%85%D8%B1"
+    }
+  }
+}

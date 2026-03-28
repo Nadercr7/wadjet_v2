@@ -1,0 +1,22 @@
+{
+  "wikipedia": {
+    "en": {
+      "title": "Ben Ezra Synagogue",
+      "extract": "The Ben Ezra Synagogue, sometimes referred to as the Geniza Synagogue, the Synagogue of the Levantines, or the Synagogue of the Jerusalemites is a former Jewish congregation and synagogue, located in the Fustat part of Old Cairo, Egypt. According to local folklore, it is located on the site where baby Moses was found.",
+      "description": "Former synagogue in Cairo, Egypt",
+      "coordinates": {
+        "lat": 30.00581,
+        "lon": 31.23097
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Ben_Ezra_Synagogue-1.jpg/330px-Ben_Ezra_Synagogue-1.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Ben_Ezra_Synagogue-1.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Ben_Ezra_Synagogue"
+    },
+    "ar": {
+      "title": "كنيس بن عزرا",
+      "extract": "كنيس بن عزرا هو أحد المعابد اليهودية المصرية. ويقع في منطقة الفسطاط. ويعد واحد من أكبرها وأهمها، وخصوصا مع تولي الحكومة المصرية له بالرعاية وترميمه، وتحويله لأثر ومزار سياحي. ونظرا لاحتواء مكتبته على نفائس الكتب والدوريات اليهودية التي تؤرخ لوجود طائفة اليهود في مصر.",
+      "description": "معبد يهودي تاريخي في القاهرة القديمة",
+      "wikipedia_url": "https://ar.wikipedia.org/wiki/%D9%83%D9%86%D9%8A%D8%B3_%D8%A8%D9%86_%D8%B9%D8%B2%D8%B1%D8%A7"
+    }
+  }
+}

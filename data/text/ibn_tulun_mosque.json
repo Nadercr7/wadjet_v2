@@ -1,0 +1,22 @@
+{
+  "wikipedia": {
+    "en": {
+      "title": "Mosque of Ibn Tulun",
+      "extract": "The Mosque of Ibn Tulun is a mosque in Islamic Cairo, Egypt. Built between 876 and 879 CE by its namesake, Ahmad ibn Tulun, it is the oldest well-preserved mosque in Egypt. Its design was inspired by the 9th-century mosques of Samarra in Iraq, the Abbasid capital at the time, making it an important representative of classical Abbasid architecture. It is one of the most significant monuments of Islamic architecture in Egypt.",
+      "description": "Mosque in Cairo, Egypt",
+      "coordinates": {
+        "lat": 30.02888889,
+        "lon": 31.24944444
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Kairo_Ibn_Tulun_Moschee_BW_4.jpg/330px-Kairo_Ibn_Tulun_Moschee_BW_4.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Kairo_Ibn_Tulun_Moschee_BW_4.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Mosque_of_Ibn_Tulun"
+    },
+    "ar": {
+      "title": "مسجد ابن طولون",
+      "extract": "مسجد ابن طولون أو مسجد أحمد بن طولون أو المسجد الطولوني هو أحد المساجد الأثريّة الشهيرة بالقاهرة. أمر ببناؤه أحمد بن طولون مؤسس الدولة الطولونية سنة 263هـ/877م بمدينته الجديدة القطائع ليصبح ثالث مسجد جامع بني في عاصمة مصر الإسلامية بعد جامع عمرو بن العاص الذي بني في الفسطاط، وجامع العسكر الذي بني في مدينة العسكر ورغم أن مسجد عمرو بن العاص لا يزال موجودًا إلا أن المسجد الطولوني يعد أقدم مساجد مصر القائمة حتى الآن لاحتفاظه بحالته الأصلية بالمقارنة مع مسجد عمرو بن العاص الذي توالت عليه الإصلاحات التي غيرت معالمه.",
+      "description": "مسجد يقع في القاهرة، مصر",
+      "wikipedia_url": "https://ar.wikipedia.org/wiki/%D9%85%D8%B3%D8%AC%D8%AF_%D8%A7%D8%A8%D9%86_%D8%B7%D9%88%D9%84%D9%88%D9%86"
+    }
+  }
+}

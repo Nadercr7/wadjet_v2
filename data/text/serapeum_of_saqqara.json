@@ -1,0 +1,19 @@
+{
+  "slug": "serapeum_of_saqqara",
+  "category": "Pharaonic",
+  "region": "Saqqara",
+  "wikipedia": {
+    "en": {
+      "title": "Serapeum of Saqqara",
+      "extract": "The Serapeum of Saqqara was the ancient Egyptian burial place for sacred bulls of the Apis cult at Memphis. It was believed that the bulls were incarnations of the god Ptah, which would become immortal after death as Osiris-Apis, a name which evolved to Serapis (Σέραπις) in the Hellenistic period, and Userhapi (ⲟⲩⲥⲉⲣϩⲁⲡⲓ) in Coptic. It is one of the animal catacombs in the Saqqara necropolis, which also contains the burial vaults of the mother cows of the Apis, the Iseum.",
+      "description": "Ancient Egyptian catacombs for Apis bulls",
+      "coordinates": {
+        "lat": 29.876,
+        "lon": 31.21
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Serapeum_gate.jpg/330px-Serapeum_gate.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/5/51/Serapeum_gate.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Serapeum_of_Saqqara"
+    }
+  }
+}

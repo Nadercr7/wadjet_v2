@@ -1,0 +1,321 @@
+{% extends "base.html" %}
+{% block title %}Write in Hieroglyphs — Wadjet{% endblock %}
+{% block description %}Type English text or Manuel de Codage transliteration and see it rendered as Egyptian hieroglyphs. Copy or share your compositions.{% endblock %}
+
+{% block content %}
+<section class="section" x-data="writeApp()" x-cloak>
+    <div class="container-narrow">
+
+        <!-- Breadcrumb -->
+        <div class="flex items-center gap-2 text-sm text-text-muted mb-8" data-animate>
+            <a href="/hieroglyphs" class="hover:text-gold transition-colors">𓊹 Hieroglyphs</a>
+            <span class="text-text-dim">/</span>
+            <span class="text-text">Write</span>
+        </div>
+
+        <!-- Heading -->
+        <div class="text-center mb-10" data-animate>
+            <h1 class="mb-4">Write in <span class="text-gold-gradient">Hieroglyphs</span></h1>
+            <p class="text-text-muted text-lg max-w-2xl mx-auto">
+                Type text and watch it transform into ancient Egyptian hieroglyphs.
+            </p>
+        </div>
+
+        <!-- ════════════════════════════════════════
+             Input Mode Toggle
+             ════════════════════════════════════════ -->
+        <div class="flex justify-center gap-2 mb-6" data-animate>
+            <button @click="mode = 'alpha'; convert()"
+                    :class="mode === 'alpha' ? 'btn-gold btn-sm' : 'btn-ghost btn-sm'">
+                ABC → 𓏞 English
+            </button>
+            <button @click="mode = 'mdc'; convert()"
+                    :class="mode === 'mdc' ? 'btn-gold btn-sm' : 'btn-ghost btn-sm'">
+                MdC Transliteration
+            </button>
+            <button @click="mode = 'smart'; convert()"
+                    :class="mode === 'smart' ? 'btn-gold btn-sm' : 'btn-ghost btn-sm'"
+                    class="flex items-center gap-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                Smart Write (AI)
+            </button>
+        </div>
+
+        <!-- Mode description -->
+        <div class="text-center mb-6">
+            <p class="text-xs text-dust" x-show="mode === 'alpha'">Type English letters → uniliteral hieroglyphs (letter-by-letter)</p>
+            <p class="text-xs text-dust" x-show="mode === 'mdc'">Type MdC notation (e.g., nfr-xpr) → hieroglyphs from transliteration</p>
+            <p class="text-xs text-dust" x-show="mode === 'smart'">Type any text — AI translates to proper Egyptian hieroglyphs</p>
+        </div>
+
+        <!-- ════════════════════════════════════════
+             Text Input
+             ════════════════════════════════════════ -->
+        <div class="card mb-6" data-animate>
+            <label class="block text-sm font-medium text-text-muted mb-2">
+                <span x-show="mode === 'alpha'">Type English text</span>
+                <span x-show="mode === 'mdc'">Type MdC transliteration (use - to separate signs)</span>
+                <span x-show="mode === 'smart'">Type any text (English or Arabic)</span>
+            </label>
+            <div class="relative">
+                <textarea x-model="inputText" @input.debounce.300ms="convert()"
+                          :placeholder="mode === 'alpha' ? 'Try: Hello Egypt' : mode === 'mdc' ? 'Try: Htp-nTr or anx-wAs-Dd' : 'Try: Life is beautiful'"
+                          class="input w-full h-24 resize-none text-lg" maxlength="500"></textarea>
+                <span class="absolute bottom-2 right-3 text-xs text-text-dim" x-text="inputText.length + '/500'"></span>
+            </div>
+
+            <!-- Quick examples -->
+            <div class="mt-3 flex flex-wrap gap-2">
+                <span class="text-xs text-text-dim">Try:</span>
+                <template x-for="ex in examples[mode]" :key="ex">
+                    <button @click="inputText = ex; convert()"
+                            class="text-xs px-2 py-0.5 rounded-full bg-surface-alt border border-border text-text-muted hover:border-gold/30 hover:text-gold transition-all cursor-pointer"
+                            x-text="ex"></button>
+                </template>
+            </div>
+        </div>
+
+        <!-- ════════════════════════════════════════
+             Hieroglyph Output
+             ════════════════════════════════════════ -->
+        <div class="card mb-6" x-show="result.hieroglyphs || result.glyphs"
+             x-transition:enter="transition ease-out duration-300"
+             x-transition:enter-start="opacity-0 translate-y-2" x-transition:enter-end="opacity-100 translate-y-0">
+
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="text-sm font-semibold text-text-muted">Output</h3>
+                <div class="flex gap-2">
+                    <!-- Copy hieroglyphs -->
+                    <button @click="copyHieroglyphs()" class="btn-ghost btn-sm" title="Copy hieroglyphs">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                        <span x-text="copyLabel"></span>
+                    </button>
+                    <!-- Share -->
+                    <button @click="shareComposition()" class="btn-ghost btn-sm"
+                            x-show="canShare" title="Share">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path></svg>
+                        Share
+                    </button>
+                </div>
+            </div>
+
+            <!-- Large hieroglyph display -->
+            <div class="bg-night rounded-lg p-6 border border-border text-center min-h-[80px] flex items-center justify-center">
+                <p class="font-hieroglyph text-5xl sm:text-6xl text-gold leading-relaxed tracking-wider select-all"
+                   x-text="result.hieroglyphs" dir="rtl"></p>
+            </div>
+
+            <!-- Glyph breakdown -->
+            <div class="mt-4 flex flex-wrap gap-2 justify-center" x-show="result.glyphs && result.glyphs.length > 0">
+                <template x-for="(g, i) in result.glyphs" :key="i">
+                    <template x-if="g.type === 'glyph'">
+                        <div class="bg-surface-alt border border-border rounded-lg px-3 py-2 text-center min-w-[60px]">
+                            <div class="font-hieroglyph text-2xl text-gold" x-text="g.unicode_char || g.code"></div>
+                            <div class="text-[10px] font-mono text-text-dim mt-1" x-text="g.code"></div>
+                            <div class="text-xs text-gold/70" x-text="g.transliteration"></div>
+                        </div>
+                    </template>
+                </template>
+            </div>
+        </div>
+
+        <!-- ════════════════════════════════════════
+             Glyph Palette (clickable sign picker)
+             ════════════════════════════════════════ -->
+        <div class="card" data-animate>
+            <div class="flex items-center justify-between mb-4 cursor-pointer" @click="paletteOpen = !paletteOpen">
+                <h3 class="text-sm font-semibold text-text-muted">Gardiner Palette</h3>
+                <svg class="w-5 h-5 text-text-dim transition-transform" :class="{'rotate-180': paletteOpen}"
+                     fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </div>
+
+            <div x-show="paletteOpen" x-collapse>
+                <!-- Palette type tabs -->
+                <div class="flex gap-2 mb-4 flex-wrap">
+                    <template x-for="tab in paletteTabs" :key="tab.key">
+                        <button @click="paletteTab = tab.key"
+                                class="px-3 py-1 rounded-full text-xs font-medium transition-all"
+                                :class="paletteTab === tab.key ? 'bg-gold text-night' : 'bg-surface-alt border border-border text-text-muted hover:border-gold/30'"
+                                x-text="tab.label + ' (' + (palette[tab.key]?.length || 0) + ')'"></button>
+                    </template>
+                </div>
+
+                <!-- Palette grid -->
+                <div class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-2 max-h-64 overflow-y-auto pr-1">
+                    <template x-for="sign in (palette[paletteTab] || [])" :key="sign.code">
+                        <button @click="insertFromPalette(sign)"
+                                class="bg-night border border-border rounded-lg p-2 text-center hover:border-gold/40 hover:bg-surface-hover transition-all group"
+                                :title="sign.code + ' — ' + sign.transliteration + ' — ' + sign.description">
+                            <div class="font-hieroglyph text-xl text-gold group-hover:scale-110 transition-transform"
+                                 x-text="sign.unicode_char || sign.code"></div>
+                            <div class="text-[10px] font-mono text-text-dim mt-0.5" x-text="sign.transliteration"></div>
+                        </button>
+                    </template>
+                </div>
+            </div>
+        </div>
+
+        <!-- ════════════════════════════════════════
+             Recent Translations (localStorage)
+             ════════════════════════════════════════ -->
+        <div x-show="writeHistory.length > 0" class="mt-8" data-animate>
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="text-sm font-semibold text-text-muted">Recent Translations</h3>
+                <button @click="writeHistory = []; WadjetHistory.clearWriteHistory()" class="text-xs text-text-muted hover:text-gold transition-colors">Clear all</button>
+            </div>
+            <div class="space-y-2">
+                <template x-for="item in writeHistory" :key="item.timestamp">
+                    <div class="card !p-3 flex items-center gap-4 group cursor-pointer" @click="inputText = item.input; mode = item.mode; convert()">
+                        <div class="font-hieroglyph text-2xl text-gold shrink-0" x-text="item.hieroglyphs.slice(0, 10)"></div>
+                        <div class="flex-1 min-w-0">
+                            <p class="text-sm text-text truncate" x-text="item.input"></p>
+                            <p class="text-[10px] text-text-dim" x-text="item.mode.toUpperCase() + ' · ' + item.numGlyphs + ' glyphs · ' + new Date(item.timestamp).toLocaleDateString()"></p>
+                        </div>
+                        <button @click.stop="WadjetHistory.removeWriteItem(item.timestamp); writeHistory = WadjetHistory.getWriteHistory()"
+                                class="w-5 h-5 rounded-full bg-surface-alt flex items-center justify-center text-text-dim hover:text-error opacity-0 group-hover:opacity-100 transition-opacity text-xs shrink-0">&times;</button>
+                    </div>
+                </template>
+            </div>
+        </div>
+
+    </div>
+</section>
+{% endblock %}
+{% block scripts %}
+<script>
+function writeApp() {
+    return {
+        // State
+        mode: 'alpha',
+        inputText: '',
+        result: {},
+        copyLabel: 'Copy',
+        canShare: !!navigator.share,
+
+        // History
+        writeHistory: WadjetHistory.getWriteHistory(),
+
+        // Palette
+        paletteOpen: false,
+        paletteTab: 'uniliteral',
+        palette: {},
+        paletteTabs: [
+            { key: 'uniliteral', label: 'Uniliteral' },
+            { key: 'biliteral', label: 'Biliteral' },
+            { key: 'triliteral', label: 'Triliteral' },
+            { key: 'logogram', label: 'Logogram' },
+        ],
+
+        // Quick example texts
+        examples: {
+            alpha: ['Hello', 'Egypt', 'Pharaoh', 'Sun God'],
+            mdc: ['Htp-nTr', 'anx-wAs-Dd', 'ra-mn-xpr', 'pr-aA'],
+            smart: ['Life is beautiful', 'The king of Egypt', 'Peace and prosperity', 'Son of Ra'],
+        },
+
+        // Init — check for ?glyph= query param and load palette
+        async init() {
+            this.loadPalette();
+
+            const params = new URLSearchParams(window.location.search);
+            const glyph = params.get('glyph');
+            if (glyph) {
+                this.mode = 'mdc';
+                this.inputText = glyph;
+                this.convert();
+            }
+        },
+
+        // ── API calls ──
+        async convert() {
+            const text = this.inputText.trim();
+            if (!text) {
+                this.result = {};
+                return;
+            }
+
+            try {
+                const resp = await fetch('/api/write', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ text: text, mode: this.mode }),
+                });
+                if (!resp.ok) {
+                    const err = await resp.json().catch(() => ({}));
+                    console.error('Write API error:', err);
+                    return;
+                }
+                this.result = await resp.json();
+                if (this.result.hieroglyphs) {
+                    WadjetHistory.addWrite(text, this.mode, this.result);
+                    this.writeHistory = WadjetHistory.getWriteHistory();
+                }
+            } catch (err) {
+                console.error('Write failed:', err);
+            }
+        },
+
+        async loadPalette() {
+            try {
+                const resp = await fetch('/api/write/palette');
+                if (resp.ok) {
+                    const data = await resp.json();
+                    this.palette = data.groups;
+                }
+            } catch (err) {
+                console.error('Failed to load palette:', err);
+            }
+        },
+
+        // ── Palette insertion ──
+        insertFromPalette(sign) {
+            if (this.mode === 'mdc') {
+                // In MdC mode, append the transliteration
+                const sep = this.inputText && !this.inputText.endsWith('-') ? '-' : '';
+                this.inputText += sep + sign.transliteration;
+            } else {
+                // In alpha mode, append the transliteration character
+                this.inputText += sign.transliteration;
+            }
+            this.convert();
+        },
+
+        // ── Copy & Share (P3.6) ──
+        async copyHieroglyphs() {
+            if (!this.result.hieroglyphs) return;
+            try {
+                await navigator.clipboard.writeText(this.result.hieroglyphs);
+                this.copyLabel = 'Copied!';
+                Alpine.store('toast').show('Hieroglyphs copied to clipboard!', 'success');
+                setTimeout(() => { this.copyLabel = 'Copy'; }, 2000);
+            } catch (err) {
+                // Fallback for older browsers
+                const ta = document.createElement('textarea');
+                ta.value = this.result.hieroglyphs;
+                ta.style.position = 'fixed';
+                ta.style.left = '-9999px';
+                document.body.appendChild(ta);
+                ta.select();
+                document.execCommand('copy');
+                document.body.removeChild(ta);
+                this.copyLabel = 'Copied!';
+                setTimeout(() => { this.copyLabel = 'Copy'; }, 2000);
+            }
+        },
+
+        async shareComposition() {
+            if (!navigator.share || !this.result.hieroglyphs) return;
+            try {
+                await navigator.share({
+                    title: 'My Hieroglyphic Text — Wadjet',
+                    text: this.result.hieroglyphs + '\n\n(' + this.inputText + ' in hieroglyphs)',
+                    url: window.location.origin + '/write',
+                });
+            } catch (err) {
+                // User cancelled or share failed — ignore
+            }
+        },
+    };
+}
+</script>
+{% endblock %}

@@ -1,0 +1,971 @@
+[
+  {
+    "hash": "bdd4865a8d1c859a",
+    "original_name": "0.jpg",
+    "original_class": "Khan_el-Khalili",
+    "size_bytes": 13318,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "c78e0ff711c3b3e0",
+    "original_name": "1.jpg",
+    "original_class": "Khan_el-Khalili",
+    "size_bytes": 13049,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "08875938e0d415da",
+    "original_name": "10.jpg",
+    "original_class": "Khan_el-Khalili",
+    "size_bytes": 14423,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "1c9c7f578809173b",
+    "original_name": "11.jpg",
+    "original_class": "Khan_el-Khalili",
+    "size_bytes": 12239,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "0381a09a0fea5b70",
+    "original_name": "12.jpg",
+    "original_class": "Khan_el-Khalili",
+    "size_bytes": 17681,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "5360e626340209fb",
+    "original_name": "13.jpg",
+    "original_class": "Khan_el-Khalili",
+    "size_bytes": 15679,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "78994ca26ca0abea",
+    "original_name": "14.jpg",
+    "original_class": "Khan_el-Khalili",
+    "size_bytes": 11420,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "d99f5e4ad4b2c725",
+    "original_name": "15.jpg",
+    "original_class": "Khan_el-Khalili",
+    "size_bytes": 11599,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "36f0a8e1f26724d7",
+    "original_name": "16.jpg",
+    "original_class": "Khan_el-Khalili",
+    "size_bytes": 19188,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "b2b578df56e2d361",
+    "original_name": "17.jpg",
+    "original_class": "Khan_el-Khalili",
+    "size_bytes": 13312,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "d13896ded1e353da",
+    "original_name": "18.jpg",
+    "original_class": "Khan_el-Khalili",
+    "size_bytes": 16291,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "59b7675a741496a2",
+    "original_name": "19.jpg",
+    "original_class": "Khan_el-Khalili",
+    "size_bytes": 12269,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "d288f69f09cd7d1c",
+    "original_name": "2.jpg",
+    "original_class": "Khan_el-Khalili",
+    "size_bytes": 12529,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "4545036914d1ca83",
+    "original_name": "20.jpg",
+    "original_class": "Khan_el-Khalili",
+    "size_bytes": 13410,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "e7ecb3ce2c47850f",
+    "original_name": "21.jpg",
+    "original_class": "Khan_el-Khalili",
+    "size_bytes": 13532,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "7ad4735cebc24c49",
+    "original_name": "22.jpg",
+    "original_class": "Khan_el-Khalili",
+    "size_bytes": 17020,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "c575dc16ff96cfa6",
+    "original_name": "23.jpg",
+    "original_class": "Khan_el-Khalili",
+    "size_bytes": 13135,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "39b09b4c961bcd27",
+    "original_name": "24.jpg",
+    "original_class": "Khan_el-Khalili",
+    "size_bytes": 14979,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "6f2ad9ce13cfb909",
+    "original_name": "25.jpg",
+    "original_class": "Khan_el-Khalili",
+    "size_bytes": 11697,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "5ef491207d8866c3",
+    "original_name": "26.jpg",
+    "original_class": "Khan_el-Khalili",
+    "size_bytes": 14021,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "9dcbdec1d5e3fca9",
+    "original_name": "27.jpg",
+    "original_class": "Khan_el-Khalili",
+    "size_bytes": 13979,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "103366d8dd29b6c8",
+    "original_name": "28.jpg",
+    "original_class": "Khan_el-Khalili",
+    "size_bytes": 17823,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "82879b56be3223ed",
+    "original_name": "29.jpg",
+    "original_class": "Khan_el-Khalili",
+    "size_bytes": 13339,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "5a5674146b54b0da",
+    "original_name": "3.jpg",
+    "original_class": "Khan_el-Khalili",
+    "size_bytes": 8944,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "17fbe6991c3facd1",
+    "original_name": "30.jpg",
+    "original_class": "Khan_el-Khalili",
+    "size_bytes": 11478,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "e53c318946683af4",
+    "original_name": "31.jpg",
+    "original_class": "Khan_el-Khalili",
+    "size_bytes": 15629,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "7b24ac4afea2d023",
+    "original_name": "32.jpg",
+    "original_class": "Khan_el-Khalili",
+    "size_bytes": 11421,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "7ea8a851a6323af3",
+    "original_name": "33.jpg",
+    "original_class": "Khan_el-Khalili",
+    "size_bytes": 10757,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "a071b2deaf28a710",
+    "original_name": "34.jpg",
+    "original_class": "Khan_el-Khalili",
+    "size_bytes": 12122,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "1d53ae73e2ad3c4a",
+    "original_name": "35.jpg",
+    "original_class": "Khan_el-Khalili",
+    "size_bytes": 13904,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "2864baec460a38bc",
+    "original_name": "36.jpg",
+    "original_class": "Khan_el-Khalili",
+    "size_bytes": 14229,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "94cf070bef8dc7e1",
+    "original_name": "37.jpg",
+    "original_class": "Khan_el-Khalili",
+    "size_bytes": 9842,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "af839e59734d5c04",
+    "original_name": "38.jpg",
+    "original_class": "Khan_el-Khalili",
+    "size_bytes": 20833,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "5b8728127c0bbbe7",
+    "original_name": "39.jpg",
+    "original_class": "Khan_el-Khalili",
+    "size_bytes": 11775,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "edb43daa7c157c66",
+    "original_name": "4.jpg",
+    "original_class": "Khan_el-Khalili",
+    "size_bytes": 14542,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "14ed46ebb6549cd5",
+    "original_name": "40.jpg",
+    "original_class": "Khan_el-Khalili",
+    "size_bytes": 14558,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "f2100371460ce8a5",
+    "original_name": "41.jpg",
+    "original_class": "Khan_el-Khalili",
+    "size_bytes": 12673,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "ddf90cad545fca6d",
+    "original_name": "42.jpg",
+    "original_class": "Khan_el-Khalili",
+    "size_bytes": 10212,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "807eaebce1994cbc",
+    "original_name": "43.jpg",
+    "original_class": "Khan_el-Khalili",
+    "size_bytes": 10068,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "b47128ea50e28a6f",
+    "original_name": "44.jpg",
+    "original_class": "Khan_el-Khalili",
+    "size_bytes": 7554,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "88dc2701f085cf2a",
+    "original_name": "45.jpg",
+    "original_class": "Khan_el-Khalili",
+    "size_bytes": 12358,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "4a3220f8e5c7c430",
+    "original_name": "46.jpg",
+    "original_class": "Khan_el-Khalili",
+    "size_bytes": 15376,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "96bf6824a3299a9a",
+    "original_name": "47.jpg",
+    "original_class": "Khan_el-Khalili",
+    "size_bytes": 12457,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "157a56e2a81ce0fe",
+    "original_name": "48.jpg",
+    "original_class": "Khan_el-Khalili",
+    "size_bytes": 14912,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "61c626870f757cd7",
+    "original_name": "49.jpg",
+    "original_class": "Khan_el-Khalili",
+    "size_bytes": 15330,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "1e3117bd99f246b1",
+    "original_name": "5.jpg",
+    "original_class": "Khan_el-Khalili",
+    "size_bytes": 15582,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "fe1ef7c947597fb6",
+    "original_name": "50.jpg",
+    "original_class": "Khan_el-Khalili",
+    "size_bytes": 17704,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "d3375495a0077db7",
+    "original_name": "51.jpg",
+    "original_class": "Khan_el-Khalili",
+    "size_bytes": 11784,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "f3acc9a4ebcf49fd",
+    "original_name": "6.jpg",
+    "original_class": "Khan_el-Khalili",
+    "size_bytes": 10533,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "c15b985b13a5799c",
+    "original_name": "7.jpg",
+    "original_class": "Khan_el-Khalili",
+    "size_bytes": 17541,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "5ccc166c7363908a",
+    "original_name": "8.jpg",
+    "original_class": "Khan_el-Khalili",
+    "size_bytes": 14315,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "hash": "5fc24ead7252881a",
+    "original_name": "9.jpg",
+    "original_class": "Khan_el-Khalili",
+    "size_bytes": 14183,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:29"
+  },
+  {
+    "filename": "a300ef15ca2325d7.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/74/%D8%AE%D8%A7%D9%86_%D8%A7%D9%84%D8%AE%D9%84%D9%8A%D9%84%D9%8A_1.jpg",
+    "wikipedia_title": "Khan_el-Khalili",
+    "source": "wikipedia",
+    "downloaded_at": "2026-03-02T02:10:31"
+  },
+  {
+    "filename": "ff51689156d91a27.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/%D8%AE%D8%A7%D9%86_%D8%A7%D9%84%D8%AE%D9%84%D9%8A%D9%84%D9%8A_1.jpg/1280px-%D8%AE%D8%A7%D9%86_%D8%A7%D9%84%D8%AE%D9%84%D9%8A%D9%84%D9%8A_1.jpg",
+    "wikipedia_title": "Khan_el-Khalili",
+    "source": "wikipedia",
+    "downloaded_at": "2026-03-02T02:10:31"
+  },
+  {
+    "filename": "040f34f5c79b8c0a.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/97/Mercado_de_Khan_el-Khalili%2C_El_Cairo%2C_Egipto3.jpg",
+    "title": "File:Mercado de Khan el-Khalili, El Cairo, Egipto3.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<bdi><a href=\"https://www.wikidata.org/wiki/Q28147777\" class=\"extiw\" title=\"d:Q28147777\"><span title=\"Spanish photographer\">Diego Delso</span></a></bdi>",
+    "width": 3888,
+    "height": 2592,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:40:00"
+  },
+  {
+    "filename": "851a8cbf3526f72a.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/06/Mercado_de_Khan_el-Khalili%2C_El_Cairo%2C_Egipto1.jpg",
+    "title": "File:Mercado de Khan el-Khalili, El Cairo, Egipto1.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<bdi><a href=\"https://www.wikidata.org/wiki/Q28147777\" class=\"extiw\" title=\"d:Q28147777\"><span title=\"Spanish photographer\">Diego Delso</span></a></bdi>",
+    "width": 3888,
+    "height": 2592,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:40:00"
+  },
+  {
+    "filename": "da0ce822c14a0491.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/40/Mercado_de_Khan_el-Khalili%2C_El_Cairo%2C_Egipto4.jpg",
+    "title": "File:Mercado de Khan el-Khalili, El Cairo, Egipto4.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<bdi><a href=\"https://www.wikidata.org/wiki/Q28147777\" class=\"extiw\" title=\"d:Q28147777\"><span title=\"Spanish photographer\">Diego Delso</span></a></bdi>",
+    "width": 3888,
+    "height": 2592,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:40:00"
+  },
+  {
+    "filename": "748e579711ca5bbe.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/37/Mercado_de_Khan_el-Khalili%2C_El_Cairo%2C_Egipto2.jpg",
+    "title": "File:Mercado de Khan el-Khalili, El Cairo, Egipto2.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<bdi><a href=\"https://www.wikidata.org/wiki/Q28147777\" class=\"extiw\" title=\"d:Q28147777\"><span title=\"Spanish photographer\">Diego Delso</span></a></bdi>",
+    "width": 3888,
+    "height": 2592,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:40:00"
+  },
+  {
+    "filename": "88f68c1896175317.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Khan_el-Khalili_2014.jpg",
+    "title": "File:Khan el-Khalili 2014.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Rahma_Sharawy_Shehata&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Rahma Sharawy Shehata (page does not exist)\">Rahma Sharawy Shehata</a>",
+    "width": 640,
+    "height": 480,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:40:00"
+  },
+  {
+    "filename": "5b91c745781263ea.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Khan_el-Khalili%2C_Cairo_Egypt_-_panoramio.jpg",
+    "title": "File:Khan el-Khalili, Cairo Egypt - panoramio.jpg",
+    "license": "CC BY 3.0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://web.archive.org/web/20161026052713/http://www.panoramio.com/user/5677660?with_photo_id=88933292\">The Erica Chang</a>",
+    "width": 1936,
+    "height": 2592,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:40:00"
+  },
+  {
+    "filename": "5f8ded0a975c2cfc.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/dc/The_Khan_el-Khalili_market_in_Cairo%2C_Egypt_%282743501345%29.jpg",
+    "title": "File:The Khan el-Khalili market in Cairo, Egypt (2743501345).jpg",
+    "license": "CC BY 2.0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/78286061@N00\">V Manninen</a> from Funland",
+    "width": 2048,
+    "height": 1536,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:40:00"
+  },
+  {
+    "filename": "82f0a09d2b413d73.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Khan_el-Khalili%2C_Old_Cairo%2C_al-Q%C4%81hirah%2C_CG%2C_EGY_%2847859570472%29.jpg",
+    "title": "File:Khan el-Khalili, Old Cairo, al-Qāhirah, CG, EGY (47859570472).jpg",
+    "license": "CC0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/59081381@N03\">Warren LeMay</a> from Cincinnati, OH, United States",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:40:00"
+  },
+  {
+    "filename": "b5c0656971b19ce4.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/23/Khan_el-Khalili%2C_Old_Cairo%2C_al-Q%C4%81hirah%2C_CG%2C_EGY_%2840944963223%29.jpg",
+    "title": "File:Khan el-Khalili, Old Cairo, al-Qāhirah, CG, EGY (40944963223).jpg",
+    "license": "CC0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/59081381@N03\">Warren LeMay</a> from Cincinnati, OH, United States",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:40:00"
+  },
+  {
+    "filename": "71bcbbf568183c38.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Khan_el-Khalili%2C_Old_Cairo%2C_al-Q%C4%81hirah%2C_CG%2C_EGY_%2847859551622%29.jpg",
+    "title": "File:Khan el-Khalili, Old Cairo, al-Qāhirah, CG, EGY (47859551622).jpg",
+    "license": "CC0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/59081381@N03\">Warren LeMay</a> from Cincinnati, OH, United States",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:40:00"
+  },
+  {
+    "filename": "89037b2fd1ce1c56.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Khan_el-Khalili%2C_Old_Cairo%2C_al-Q%C4%81hirah%2C_CG%2C_EGY_%2847911523011%29.jpg",
+    "title": "File:Khan el-Khalili, Old Cairo, al-Qāhirah, CG, EGY (47911523011).jpg",
+    "license": "CC0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/59081381@N03\">Warren LeMay</a> from Cincinnati, OH, United States",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:40:00"
+  },
+  {
+    "filename": "c157b8615b5a7e5e.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/32/Khan_el-Khalili%2C_Old_Cairo%2C_al-Q%C4%81hirah%2C_CG%2C_EGY_%2847122173924%29.jpg",
+    "title": "File:Khan el-Khalili, Old Cairo, al-Qāhirah, CG, EGY (47122173924).jpg",
+    "license": "CC0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/59081381@N03\">Warren LeMay</a> from Cincinnati, OH, United States",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:40:00"
+  },
+  {
+    "filename": "902c30c006b02bfc.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Khan_el-Khalili%2C_Old_Cairo%2C_al-Q%C4%81hirah%2C_CG%2C_EGY_%2846995553775%29.jpg",
+    "title": "File:Khan el-Khalili, Old Cairo, al-Qāhirah, CG, EGY (46995553775).jpg",
+    "license": "CC0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/59081381@N03\">Warren LeMay</a> from Cincinnati, OH, United States",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:40:00"
+  },
+  {
+    "filename": "500611ec1559cdb1.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/70/Khan_el-Khalili%2C_Old_Cairo%2C_al-Q%C4%81hirah%2C_CG%2C_EGY_%2840944891953%29.jpg",
+    "title": "File:Khan el-Khalili, Old Cairo, al-Qāhirah, CG, EGY (40944891953).jpg",
+    "license": "CC0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/59081381@N03\">Warren LeMay</a> from Cincinnati, OH, United States",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:40:00"
+  },
+  {
+    "filename": "6172ce5bb5055a62.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Khan_el-Khalili_2019.jpg",
+    "title": "File:Khan el-Khalili 2019.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:M_mousa_86\" title=\"User:M mousa 86\">Mohammed Moussa</a>",
+    "width": 4603,
+    "height": 4000,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:40:00"
+  },
+  {
+    "filename": "5fcc05da70818dd9.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/63/Khan_el-Khalili_2019_1.jpg",
+    "title": "File:Khan el-Khalili 2019 1.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:M_mousa_86\" title=\"User:M mousa 86\">Mohammed Ali Moussa</a>",
+    "width": 3954,
+    "height": 5931,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:40:00"
+  },
+  {
+    "filename": "a98aa50132654512.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/15/Khan_el-Khalili%2C_Cairo_Egypt_-_panoramio_%287%29.jpg",
+    "title": "File:Khan el-Khalili, Cairo Egypt - panoramio (7).jpg",
+    "license": "CC BY 3.0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://web.archive.org/web/20161026013229/http://www.panoramio.com/user/5677660?with_photo_id=88933408\">The Erica Chang</a>",
+    "width": 3648,
+    "height": 2736,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:40:00"
+  },
+  {
+    "filename": "d99f499df2bef97d.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Khan_el-Khalili%2C_Old_Cairo%2C_al-Q%C4%81hirah%2C_CG%2C_EGY_%2847122235604%29.jpg",
+    "title": "File:Khan el-Khalili, Old Cairo, al-Qāhirah, CG, EGY (47122235604).jpg",
+    "license": "CC0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/59081381@N03\">Warren LeMay</a> from Cincinnati, OH, United States",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:40:00"
+  },
+  {
+    "filename": "57930aa91dccddce.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Khan_el-Khalili%2C_Old_Cairo%2C_al-Q%C4%81hirah%2C_CG%2C_EGY_%2847859559902%29.jpg",
+    "title": "File:Khan el-Khalili, Old Cairo, al-Qāhirah, CG, EGY (47859559902).jpg",
+    "license": "CC0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/59081381@N03\">Warren LeMay</a> from Cincinnati, OH, United States",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:40:00"
+  },
+  {
+    "filename": "304e79797de3a2c8.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Khan_el-Khalili%2C_Old_Cairo%2C_al-Q%C4%81hirah%2C_CG%2C_EGY_%2840944947383%29.jpg",
+    "title": "File:Khan el-Khalili, Old Cairo, al-Qāhirah, CG, EGY (40944947383).jpg",
+    "license": "CC0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/59081381@N03\">Warren LeMay</a> from Cincinnati, OH, United States",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:40:00"
+  },
+  {
+    "filename": "a9b77fee0194b530.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Khan_el-Khalili%2C_Old_Cairo%2C_al-Q%C4%81hirah%2C_CG%2C_EGY_%2840944942223%29.jpg",
+    "title": "File:Khan el-Khalili, Old Cairo, al-Qāhirah, CG, EGY (40944942223).jpg",
+    "license": "CC0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/59081381@N03\">Warren LeMay</a> from Cincinnati, OH, United States",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:40:00"
+  },
+  {
+    "filename": "f7184fe5329cfa3c.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Khan_el-Khalili%2C_Old_Cairo%2C_al-Q%C4%81hirah%2C_CG%2C_EGY_%2847122203764%29.jpg",
+    "title": "File:Khan el-Khalili, Old Cairo, al-Qāhirah, CG, EGY (47122203764).jpg",
+    "license": "CC0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/59081381@N03\">Warren LeMay</a> from Cincinnati, OH, United States",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:40:00"
+  },
+  {
+    "filename": "8573035fe09fd2fb.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Khan_el-Khalili%2C_Old_Cairo%2C_al-Q%C4%81hirah%2C_CG%2C_EGY_%2847911543101%29.jpg",
+    "title": "File:Khan el-Khalili, Old Cairo, al-Qāhirah, CG, EGY (47911543101).jpg",
+    "license": "CC0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/59081381@N03\">Warren LeMay</a> from Cincinnati, OH, United States",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:40:00"
+  },
+  {
+    "filename": "35b5b262c4eccf87.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Khan_el-Khalili%2C_Old_Cairo%2C_al-Q%C4%81hirah%2C_CG%2C_EGY_%2847859542352%29.jpg",
+    "title": "File:Khan el-Khalili, Old Cairo, al-Qāhirah, CG, EGY (47859542352).jpg",
+    "license": "CC0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/59081381@N03\">Warren LeMay</a> from Cincinnati, OH, United States",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:40:00"
+  },
+  {
+    "filename": "e78be5ec5690ba5e.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Khan_el-Khalili%2C_Old_Cairo%2C_al-Q%C4%81hirah%2C_CG%2C_EGY_%2840944923413%29.jpg",
+    "title": "File:Khan el-Khalili, Old Cairo, al-Qāhirah, CG, EGY (40944923413).jpg",
+    "license": "CC0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/59081381@N03\">Warren LeMay</a> from Cincinnati, OH, United States",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:40:00"
+  },
+  {
+    "filename": "20ee6c8fc2e39d30.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/90/Khan_el-Khalili%2C_Old_Cairo%2C_al-Q%C4%81hirah%2C_CG%2C_EGY_%2847911521001%29.jpg",
+    "title": "File:Khan el-Khalili, Old Cairo, al-Qāhirah, CG, EGY (47911521001).jpg",
+    "license": "CC0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/59081381@N03\">Warren LeMay</a> from Cincinnati, OH, United States",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:40:00"
+  },
+  {
+    "filename": "c2a355112f7f00ab.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Khan_el-Khalili%2C_Old_Cairo%2C_al-Q%C4%81hirah%2C_CG%2C_EGY_%2840944920213%29.jpg",
+    "title": "File:Khan el-Khalili, Old Cairo, al-Qāhirah, CG, EGY (40944920213).jpg",
+    "license": "CC0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/59081381@N03\">Warren LeMay</a> from Cincinnati, OH, United States",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:40:00"
+  },
+  {
+    "filename": "9c9e26de41c65631.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Khan_el-Khalili%2C_Old_Cairo%2C_al-Q%C4%81hirah%2C_CG%2C_EGY_%2847122181944%29.jpg",
+    "title": "File:Khan el-Khalili, Old Cairo, al-Qāhirah, CG, EGY (47122181944).jpg",
+    "license": "CC0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/59081381@N03\">Warren LeMay</a> from Cincinnati, OH, United States",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:40:00"
+  },
+  {
+    "filename": "175657ca41fd3d93.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Khan_el-Khalili%2C_Old_Cairo%2C_al-Q%C4%81hirah%2C_CG%2C_EGY_%2846995566985%29.jpg",
+    "title": "File:Khan el-Khalili, Old Cairo, al-Qāhirah, CG, EGY (46995566985).jpg",
+    "license": "CC0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/59081381@N03\">Warren LeMay</a> from Cincinnati, OH, United States",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:40:00"
+  },
+  {
+    "filename": "db8e1073d77fb376.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/af/Khan_el-Khalili%2C_Old_Cairo%2C_al-Q%C4%81hirah%2C_CG%2C_EGY_%2846995566045%29.jpg",
+    "title": "File:Khan el-Khalili, Old Cairo, al-Qāhirah, CG, EGY (46995566045).jpg",
+    "license": "CC0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/59081381@N03\">Warren LeMay</a> from Cincinnati, OH, United States",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:40:00"
+  },
+  {
+    "filename": "c056d2bb4daefcd3.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/cb/Khan_el-Khalili%2C_Old_Cairo%2C_al-Q%C4%81hirah%2C_CG%2C_EGY_%2847911513371%29.jpg",
+    "title": "File:Khan el-Khalili, Old Cairo, al-Qāhirah, CG, EGY (47911513371).jpg",
+    "license": "CC0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/59081381@N03\">Warren LeMay</a> from Cincinnati, OH, United States",
+    "width": 2540,
+    "height": 1904,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:40:00"
+  },
+  {
+    "filename": "3306ea364fe59d43.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Khan_el-Khalili%2C_Old_Cairo%2C_al-Q%C4%81hirah%2C_CG%2C_EGY_%2846995564495%29.jpg",
+    "title": "File:Khan el-Khalili, Old Cairo, al-Qāhirah, CG, EGY (46995564495).jpg",
+    "license": "CC0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/59081381@N03\">Warren LeMay</a> from Cincinnati, OH, United States",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:40:00"
+  },
+  {
+    "filename": "2b1c7ee9bcb2b6bb.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Khan_el-Khalili%2C_Old_Cairo%2C_al-Q%C4%81hirah%2C_CG%2C_EGY_%2847859521092%29.jpg",
+    "title": "File:Khan el-Khalili, Old Cairo, al-Qāhirah, CG, EGY (47859521092).jpg",
+    "license": "CC0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/59081381@N03\">Warren LeMay</a> from Cincinnati, OH, United States",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:40:00"
+  },
+  {
+    "filename": "6f0425348858ed97.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Khan_el-Khalili%2C_Old_Cairo%2C_al-Q%C4%81hirah%2C_CG%2C_EGY_%2847911507361%29.jpg",
+    "title": "File:Khan el-Khalili, Old Cairo, al-Qāhirah, CG, EGY (47911507361).jpg",
+    "license": "CC0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/59081381@N03\">Warren LeMay</a> from Cincinnati, OH, United States",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:40:00"
+  },
+  {
+    "filename": "f48f0f892fc9efde.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Khan_el-Khalili%2C_Old_Cairo%2C_al-Q%C4%81hirah%2C_CG%2C_EGY_%2840944893543%29.jpg",
+    "title": "File:Khan el-Khalili, Old Cairo, al-Qāhirah, CG, EGY (40944893543).jpg",
+    "license": "CC0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/59081381@N03\">Warren LeMay</a> from Cincinnati, OH, United States",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:40:00"
+  },
+  {
+    "filename": "d670623676479559.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/84/Khan_el-Khalili%2C_Old_Cairo%2C_al-Q%C4%81hirah%2C_CG%2C_EGY_%2840944892443%29.jpg",
+    "title": "File:Khan el-Khalili, Old Cairo, al-Qāhirah, CG, EGY (40944892443).jpg",
+    "license": "CC0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/59081381@N03\">Warren LeMay</a> from Cincinnati, OH, United States",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:40:00"
+  },
+  {
+    "filename": "7808f0fa041fa79a.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/37/Khan_el-Khalili%2C_Old_Cairo%2C_al-Q%C4%81hirah%2C_CG%2C_EGY_%2840944961303%29.jpg",
+    "title": "File:Khan el-Khalili, Old Cairo, al-Qāhirah, CG, EGY (40944961303).jpg",
+    "license": "CC0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/59081381@N03\">Warren LeMay</a> from Cincinnati, OH, United States",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:40:00"
+  },
+  {
+    "filename": "971c2513800b6c39.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/61/Khan_el-Khalili%2C_Old_Cairo%2C_al-Q%C4%81hirah%2C_CG%2C_EGY_%2840944921493%29.jpg",
+    "title": "File:Khan el-Khalili, Old Cairo, al-Qāhirah, CG, EGY (40944921493).jpg",
+    "license": "CC0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/59081381@N03\">Warren LeMay</a> from Cincinnati, OH, United States",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:40:00"
+  },
+  {
+    "filename": "f4992eb870e20e62.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/90/Khan_el-Khalili%2C_Old_Cairo%2C_al-Q%C4%81hirah%2C_CG%2C_EGY_%2847911518941%29.jpg",
+    "title": "File:Khan el-Khalili, Old Cairo, al-Qāhirah, CG, EGY (47911518941).jpg",
+    "license": "CC0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/59081381@N03\">Warren LeMay</a> from Cincinnati, OH, United States",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:40:00"
+  },
+  {
+    "filename": "8737ca0eda9502fc.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Khan_el-Khalili%2C_Old_Cairo%2C_al-Q%C4%81hirah%2C_CG%2C_EGY_%2847911516671%29.jpg",
+    "title": "File:Khan el-Khalili, Old Cairo, al-Qāhirah, CG, EGY (47911516671).jpg",
+    "license": "CC0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/59081381@N03\">Warren LeMay</a> from Cincinnati, OH, United States",
+    "width": 4032,
+    "height": 3024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:40:00"
+  },
+  {
+    "filename": "c00aab0e4a32bcde.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/79/Khan_el-Khalili%2C_Old_Cairo%2C_al-Q%C4%81hirah%2C_CG%2C_EGY_%2847911514571%29.jpg",
+    "title": "File:Khan el-Khalili, Old Cairo, al-Qāhirah, CG, EGY (47911514571).jpg",
+    "license": "CC0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/59081381@N03\">Warren LeMay</a> from Cincinnati, OH, United States",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:40:00"
+  },
+  {
+    "filename": "08d1817ac9d5475f.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/29/Khan_el-Khalili%2C_Old_Cairo%2C_al-Q%C4%81hirah%2C_CG%2C_EGY_%2847859527172%29.jpg",
+    "title": "File:Khan el-Khalili, Old Cairo, al-Qāhirah, CG, EGY (47859527172).jpg",
+    "license": "CC0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/59081381@N03\">Warren LeMay</a> from Cincinnati, OH, United States",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:40:00"
+  },
+  {
+    "filename": "99f71215700d6480.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Khan_el-Khalili%2C_Old_Cairo%2C_al-Q%C4%81hirah%2C_CG%2C_EGY_%2847911513991%29.jpg",
+    "title": "File:Khan el-Khalili, Old Cairo, al-Qāhirah, CG, EGY (47911513991).jpg",
+    "license": "CC0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/59081381@N03\">Warren LeMay</a> from Cincinnati, OH, United States",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:40:00"
+  },
+  {
+    "filename": "3c384b2824b31589.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/40/Khan_el-Khalili%2C_Old_Cairo%2C_al-Q%C4%81hirah%2C_CG%2C_EGY_%2847911512201%29.jpg",
+    "title": "File:Khan el-Khalili, Old Cairo, al-Qāhirah, CG, EGY (47911512201).jpg",
+    "license": "CC0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/59081381@N03\">Warren LeMay</a> from Cincinnati, OH, United States",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:40:00"
+  },
+  {
+    "filename": "703af079640a95b3.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Khan_el-Khalili%2C_Old_Cairo%2C_al-Q%C4%81hirah%2C_CG%2C_EGY_%2847122174624%29.jpg",
+    "title": "File:Khan el-Khalili, Old Cairo, al-Qāhirah, CG, EGY (47122174624).jpg",
+    "license": "CC0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/59081381@N03\">Warren LeMay</a> from Cincinnati, OH, United States",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:40:00"
+  },
+  {
+    "filename": "64054e42fb344c75.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/60/Khan_el-Khalili%2C_Old_Cairo%2C_al-Q%C4%81hirah%2C_CG%2C_EGY_%2847859519812%29.jpg",
+    "title": "File:Khan el-Khalili, Old Cairo, al-Qāhirah, CG, EGY (47859519812).jpg",
+    "license": "CC0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/59081381@N03\">Warren LeMay</a> from Cincinnati, OH, United States",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:40:00"
+  },
+  {
+    "filename": "e7cf505d02d11b58.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/37/Sebah%2C_Pascal_%281823-1886%29_-_Khan_el-Khalili%2C_Cairo_-_ca._1880s.JPG",
+    "title": "File:Sebah, Pascal (1823-1886) - Khan el-Khalili, Cairo - ca. 1880s.JPG",
+    "license": "Public domain",
+    "artist": "unknown",
+    "width": 931,
+    "height": 1276,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:40:00"
+  },
+  {
+    "filename": "83c842a11e68791a.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Flickr_-_HuTect_ShOts_-_Khan_El-Khalili_Street_%D8%B4%D8%A7%D8%B1%D8%B9_%D8%AE%D8%A7%D9%86_%D8%A7%D9%84%D8%AE%D9%84%D9%8A%D9%84%D9%8A_-_Cairo_-_Egypt_-_09_04_2010.jpg",
+    "title": "File:Flickr - HuTect ShOts - Khan El-Khalili Street شارع خان الخليلي - Cairo - Egypt - 09 04 2010.jpg",
+    "license": "CC BY-SA 2.0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/49202046@N06\">Ahmed Al.Badawy</a> from Cairo, Egypt",
+    "width": 4000,
+    "height": 2238,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:40:00"
+  },
+  {
+    "filename": "dc136facf2fc55ec.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/74/Flickr_-_HuTect_ShOts_-_Khan_El-Khalili_Street_%D8%B4%D8%A7%D8%B1%D8%B9_%D8%AE%D8%A7%D9%86_%D8%A7%D9%84%D8%AE%D9%84%D9%8A%D9%84%D9%8A_-_Cairo_-_Egypt_-_09_04_2010_%281%29.jpg",
+    "title": "File:Flickr - HuTect ShOts - Khan El-Khalili Street شارع خان الخليلي - Cairo - Egypt - 09 04 2010 (1).jpg",
+    "license": "CC BY-SA 2.0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/49202046@N06\">Ahmed Al.Badawy</a> from Cairo, Egypt",
+    "width": 3648,
+    "height": 2248,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:40:00"
+  }
+]

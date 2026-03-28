@@ -1,0 +1,22 @@
+{
+  "wikipedia": {
+    "en": {
+      "title": "Abydos, Egypt",
+      "extract": "Abydos is one of the oldest cities of ancient Egypt, and also of the eighth nome in Upper Egypt. It is located about 11 kilometres west of the Nile at latitude 26° 10' N, near the modern Egyptian towns of El Araba El Madfuna and El Balyana. In the ancient Egyptian language, the city was called Abedju (Arabic Abdu عبد-و).\nThe English name Abydos comes from the Greek Ἄβυδος, a name borrowed by Greek geographers from the unrelated city of Abydos on the Hellespont.",
+      "description": "City in ancient Egypt",
+      "coordinates": {
+        "lat": 26.185,
+        "lon": 31.91888889
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/AbydosFacade.jpg/330px-AbydosFacade.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/3/33/AbydosFacade.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Abydos%2C_Egypt"
+    },
+    "ar": {
+      "title": "أبيدوس",
+      "extract": "أبيدوس مدينة بغرب البلينا سوهاج وقد كانت أحد المدن القديمة بمصر العليا. يجمع معظم علماء الآثار على أنها عاصمة مصر الأولى في نهاية عصر ما قبل الأسر والأسر الأربع الأولى، ويرجع تاريخها إلى 5 آلاف سنة. وتقع بين أسيوط والأقصر بالقرب من قنا. وحاليا يطلق عليها العرابة المدفونة بـ (البلينا) وتبعد عن النيل نحو 11 كيلومتر. ويوجد بها معبد سيتي الأول ومعبد رمسيس الثاني وهما يتميزان بالنقوش المصرية القديمة البارزة. وهذه المدينة كانت المركز الرئيسي لعبادة الإله أوزوريس. وكان يحج إليها قدماء المصريين ليبكوا الإله أوزوريس حارس الحياة الأبدية وإله الغرب. واكتشف فيها أقدم القوارب في التاريخ في المقابر القديمة إلى الغرب من معبد سيتي الأول والد رمسيس الثاني، مؤسس الأسرة المصرية التاسعة عشر والتي اشتهرت بتسمية الكثير من ملوكها حتى رمسيس 11 نسبة إلى اسم مؤسس الأسرة.",
+      "description": "مدينة في مصر القديمة",
+      "wikipedia_url": "https://ar.wikipedia.org/wiki/%D8%A3%D8%A8%D9%8A%D8%AF%D9%88%D8%B3"
+    }
+  }
+}

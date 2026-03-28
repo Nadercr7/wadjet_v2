@@ -1,0 +1,22 @@
+{
+  "wikipedia": {
+    "en": {
+      "title": "Colossi of Memnon",
+      "extract": "The Colossi of Memnon are two large stone statues of the Pharaoh Amenhotep III, which stand at the front of the ruined Mortuary Temple of Amenhotep III, the largest temple in the Theban Necropolis. They have stood since 1350 BC, and were well known to ancient Greeks and Romans, as well as early modern travelers and Egyptologists. The statues contain 107 Roman-era inscriptions in Greek and Latin, dated to between AD 20 and 250; many of these inscriptions on the northernmost statue make reference to the Greek mythological king Memnon, whom the statue was then erroneously thought to represent.",
+      "description": "Two Ancient Egyptian statues near Luxor",
+      "coordinates": {
+        "lat": 25.72055556,
+        "lon": 32.61055556
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Colossi_of_Memnon_May_2015_2.JPG/330px-Colossi_of_Memnon_May_2015_2.JPG",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/e/ee/Colossi_of_Memnon_May_2015_2.JPG",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Colossi_of_Memnon"
+    },
+    "ar": {
+      "title": "تمثالا ممنون",
+      "extract": "تمثالا ممنون، أي عملاقا ممنون، يعرفان محلياً باسم ، عبارة عن تمثالين ضخمين، شُيدا حوالي سنة 1350 ق م، هما كل ما تبقى من معبد بُنيّ تخليداً لذكرى الفرعون أمنحتب الثالث، الذي حكم مصر خلال الأسرة الثامنة عشر، يقعا في مدينة طيبة الجنائزية، الواقعة غرب نهر النيل من مدينة الأقصر الحالية.",
+      "description": "موقع أثري في مصر",
+      "wikipedia_url": "https://ar.wikipedia.org/wiki/%D8%AA%D9%85%D8%AB%D8%A7%D9%84%D8%A7_%D9%85%D9%85%D9%86%D9%88%D9%86"
+    }
+  }
+}

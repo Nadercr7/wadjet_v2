@@ -1,0 +1,19 @@
+{
+  "slug": "bahariya_oasis",
+  "category": "Nature",
+  "region": "Bahariya Oasis",
+  "wikipedia": {
+    "en": {
+      "title": "Bahariya Oasis",
+      "extract": "Bahariya Oasis is a depression and a naturally rich oasis in the Western Desert of Egypt. It is approximately 370 km away from Cairo. The roughly oval valley extends from northeast to southwest, has a length of 94 km, a maximum width of 42 km and covers an area of about 2000 km2.",
+      "description": "Place in Giza Governorate, Egypt",
+      "coordinates": {
+        "lat": 28.35148889,
+        "lon": 28.862375
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Bahariya-oasis.jpg/330px-Bahariya-oasis.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Bahariya-oasis.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Bahariya_Oasis"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "wikipedia": {
+    "en": {
+      "title": "Abu Simbel",
+      "extract": "Abu Simbel is a historic site comprising two massive rock-cut temples in the village of Abu Simbel, Aswan Governorate, Upper Egypt, near the border with Sudan. It is located on the western bank of Lake Nasser, about 230 km (140 mi) southwest of Aswan. Its latitude of 22° 20′ 13″ N is 1.0978°, which are 122 km, south of the tropic of Cancer.",
+      "description": "UNESCO World Heritage Site in southern Egypt",
+      "coordinates": {
+        "lat": 22.33694444,
+        "lon": 31.62555556
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Ramsis%2C_Aswan_Governorate%2C_Egypt_-_panoramio.jpg/330px-Ramsis%2C_Aswan_Governorate%2C_Egypt_-_panoramio.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Ramsis%2C_Aswan_Governorate%2C_Egypt_-_panoramio.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Abu_Simbel"
+    }
+  }
+}

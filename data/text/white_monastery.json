@@ -1,0 +1,19 @@
+{
+  "slug": "white_monastery",
+  "category": "Coptic",
+  "region": "Sohag",
+  "wikipedia": {
+    "en": {
+      "title": "White Monastery",
+      "extract": "The Coptic White Monastery, also The Monastery of Abba Shenouda and The Athribian Monastery is a Coptic Orthodox monastery named after Saint Shenoute. It is located near the Upper Egyptian cities of Tahta and Sohag, and about two and a half miles (4.0 km) south-east of the Red Monastery.",
+      "description": "Coptic Orthodox monastery",
+      "coordinates": {
+        "lat": 26.534761,
+        "lon": 31.645694
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/WhiteMonasteryCourtEast.jpg/330px-WhiteMonasteryCourtEast.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/6/6e/WhiteMonasteryCourtEast.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/White_Monastery"
+    }
+  }
+}

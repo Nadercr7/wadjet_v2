@@ -1,0 +1,22 @@
+{
+  "wikipedia": {
+    "en": {
+      "title": "Bibliotheca Alexandrina",
+      "extract": "The Bibliotheca Alexandrina (BA) is a major library and cultural center on the shore of the Mediterranean Sea in Alexandria, Egypt. It is a commemoration of the Library of Alexandria, once one of the largest libraries worldwide, which was lost in antiquity. The Bibliotheca Alexandrina contains books in Egyptian, classical Arabic, English, and French languages.",
+      "description": "Major library and cultural center in Alexandria, Egypt",
+      "coordinates": {
+        "lat": 31.20888889,
+        "lon": 29.90916667
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/en/thumb/5/5e/Alexandria%27s_Bibliotheca.jpg/330px-Alexandria%27s_Bibliotheca.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/en/5/5e/Alexandria%27s_Bibliotheca.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Bibliotheca_Alexandrina"
+    },
+    "ar": {
+      "title": "مكتبة الإسكندرية الجديدة",
+      "extract": "مكتبة الإسكندرية الجديدة  أو  الهيئة العامة لمكتبة الإسكندرية  هي إعادة إحياء لـمكتبة الإسكندرية القديمة أكبر مكتبات عصرها في مشروع ضخم قامت به مصر بالاشتراك مع الأمم المتحدة، حيث تم بناء المكتبة من جديد في موقع قريب من المكتبة القديمة بمنطقة الشاطبي بالمدينة. وتم افتتاح المكتبة الحديثة في 16 أكتوبر 2002 بحضور عالمي. وتتبع المكتبة رئيس الجمهورية.",
+      "description": "المكتبة الكبرى والمركز الثقافي بالإسكندرية، مصر",
+      "wikipedia_url": "https://ar.wikipedia.org/wiki/%D9%85%D9%83%D8%AA%D8%A8%D8%A9_%D8%A7%D9%84%D8%A5%D8%B3%D9%83%D9%86%D8%AF%D8%B1%D9%8A%D8%A9_%D8%A7%D9%84%D8%AC%D8%AF%D9%8A%D8%AF%D8%A9"
+    }
+  }
+}

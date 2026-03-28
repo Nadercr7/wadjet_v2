@@ -1,0 +1,866 @@
+[
+  {
+    "hash": "d7e40dff259c812b",
+    "original_name": "0.jpg",
+    "original_class": "Pompey's_Pillar,_Alexandria",
+    "size_bytes": 8311,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "cc22509b9d8b4709",
+    "original_name": "1.jpg",
+    "original_class": "Pompey's_Pillar,_Alexandria",
+    "size_bytes": 7946,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "929a3b0c1ee0e616",
+    "original_name": "10.jpg",
+    "original_class": "Pompey's_Pillar,_Alexandria",
+    "size_bytes": 8884,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "bbeb1bc0101b63eb",
+    "original_name": "11.jpg",
+    "original_class": "Pompey's_Pillar,_Alexandria",
+    "size_bytes": 5963,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "15f5c9639b9847c1",
+    "original_name": "12.jpg",
+    "original_class": "Pompey's_Pillar,_Alexandria",
+    "size_bytes": 4950,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "228bf7c96bc9c4d7",
+    "original_name": "13.jpg",
+    "original_class": "Pompey's_Pillar,_Alexandria",
+    "size_bytes": 5387,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "6d0ffb8139e3b1cb",
+    "original_name": "14.jpg",
+    "original_class": "Pompey's_Pillar,_Alexandria",
+    "size_bytes": 7743,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "ab65e9da98aa3c53",
+    "original_name": "15.jpg",
+    "original_class": "Pompey's_Pillar,_Alexandria",
+    "size_bytes": 7210,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "95bfa5d400653c1a",
+    "original_name": "16.jpg",
+    "original_class": "Pompey's_Pillar,_Alexandria",
+    "size_bytes": 6956,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "135353d9ab01c7e4",
+    "original_name": "17.jpg",
+    "original_class": "Pompey's_Pillar,_Alexandria",
+    "size_bytes": 7492,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "6d7777508740cf8a",
+    "original_name": "18.jpg",
+    "original_class": "Pompey's_Pillar,_Alexandria",
+    "size_bytes": 7127,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "126d11e03db22af4",
+    "original_name": "19.jpg",
+    "original_class": "Pompey's_Pillar,_Alexandria",
+    "size_bytes": 7492,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "7d64d07d1f524a59",
+    "original_name": "2.jpg",
+    "original_class": "Pompey's_Pillar,_Alexandria",
+    "size_bytes": 6697,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "f73e70a803193756",
+    "original_name": "20.jpg",
+    "original_class": "Pompey's_Pillar,_Alexandria",
+    "size_bytes": 4512,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "f5cafa8577ea787e",
+    "original_name": "21.jpg",
+    "original_class": "Pompey's_Pillar,_Alexandria",
+    "size_bytes": 8571,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "d24c77f59140acd8",
+    "original_name": "22.jpg",
+    "original_class": "Pompey's_Pillar,_Alexandria",
+    "size_bytes": 4927,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "cabc066b262eb04f",
+    "original_name": "23.jpg",
+    "original_class": "Pompey's_Pillar,_Alexandria",
+    "size_bytes": 7990,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "cfff639b806699b5",
+    "original_name": "24.jpg",
+    "original_class": "Pompey's_Pillar,_Alexandria",
+    "size_bytes": 5604,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "7ebd9fc544cf08a9",
+    "original_name": "25.jpg",
+    "original_class": "Pompey's_Pillar,_Alexandria",
+    "size_bytes": 5894,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "0dda6e492c66f572",
+    "original_name": "26.jpg",
+    "original_class": "Pompey's_Pillar,_Alexandria",
+    "size_bytes": 5790,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "1e85f5653d22f643",
+    "original_name": "27.jpg",
+    "original_class": "Pompey's_Pillar,_Alexandria",
+    "size_bytes": 4833,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "ef20d2693f2a9365",
+    "original_name": "28.jpg",
+    "original_class": "Pompey's_Pillar,_Alexandria",
+    "size_bytes": 6504,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "883a12bada71b44f",
+    "original_name": "29.jpg",
+    "original_class": "Pompey's_Pillar,_Alexandria",
+    "size_bytes": 6848,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "72199b09e36d1b4f",
+    "original_name": "3.jpg",
+    "original_class": "Pompey's_Pillar,_Alexandria",
+    "size_bytes": 6388,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "059349e6f1bb6ac8",
+    "original_name": "30.jpg",
+    "original_class": "Pompey's_Pillar,_Alexandria",
+    "size_bytes": 5193,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "37a40469a9c0a438",
+    "original_name": "4.jpg",
+    "original_class": "Pompey's_Pillar,_Alexandria",
+    "size_bytes": 6569,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "e4db2a7fe048dd5b",
+    "original_name": "5.jpg",
+    "original_class": "Pompey's_Pillar,_Alexandria",
+    "size_bytes": 7258,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "aaa939c3c5ba53a6",
+    "original_name": "6.jpg",
+    "original_class": "Pompey's_Pillar,_Alexandria",
+    "size_bytes": 7980,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "37f89b604827a36d",
+    "original_name": "7.jpg",
+    "original_class": "Pompey's_Pillar,_Alexandria",
+    "size_bytes": 5666,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "a9a618fce4b83c98",
+    "original_name": "8.jpg",
+    "original_class": "Pompey's_Pillar,_Alexandria",
+    "size_bytes": 5864,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "hash": "b54f801c5fd7589f",
+    "original_name": "9.jpg",
+    "original_class": "Pompey's_Pillar,_Alexandria",
+    "size_bytes": 9032,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:32"
+  },
+  {
+    "filename": "71c7cd4b03230350.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/75/Alexandria_-_Pompey%27s_Pillar_-_standing_alone.JPG",
+    "title": "File:Alexandria - Pompey's Pillar - standing alone.JPG",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Maveric149\" class=\"mw-redirect\" title=\"User:Maveric149\">Daniel Mayer</a>",
+    "width": 2448,
+    "height": 3264,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:34:59"
+  },
+  {
+    "filename": "c3ad919933b65f71.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/86/Alexandria_-_Pompey%27s_Pillar_-_view_of_ruins.JPG",
+    "title": "File:Alexandria - Pompey's Pillar - view of ruins.JPG",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Maveric149\" class=\"mw-redirect\" title=\"User:Maveric149\">Daniel Mayer</a>",
+    "width": 3264,
+    "height": 2448,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:34:59"
+  },
+  {
+    "filename": "13429eb19eb7369f.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/66/Alexandria_-_Pompey%27s_Pillar_with_sphinx.JPG",
+    "title": "File:Alexandria - Pompey's Pillar with sphinx.JPG",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Maveric149\" class=\"mw-redirect\" title=\"User:Maveric149\">Daniel Mayer</a>",
+    "width": 2448,
+    "height": 3264,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:34:59"
+  },
+  {
+    "filename": "13e3992af877da1a.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/14/Pompey%27s_Pillar_2006.jpg",
+    "title": "File:Pompey's Pillar 2006.jpg",
+    "license": "Public domain",
+    "artist": "<a href=\"https://en.wikipedia.org/wiki/User:Tentoila\" class=\"extiw\" title=\"en:User:Tentoila\">Tentoila</a> (<a href=\"https://en.wikipedia.org/wiki/User_talk:Tentoila\" class=\"extiw\" title=\"en:User talk:Tentoila\">talk</a>)",
+    "width": 800,
+    "height": 600,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:34:59"
+  },
+  {
+    "filename": "36b4c7cea6bdf732.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Pompey%27s_Pillar_area.jpg",
+    "title": "File:Pompey's Pillar area.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:KilluaDoom&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:KilluaDoom (page does not exist)\">KilluaDoom</a>",
+    "width": 720,
+    "height": 540,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:34:59"
+  },
+  {
+    "filename": "957ae87d20ca701d.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Pompey%27s_Pillar%2C_Alexandria_2016.jpg",
+    "title": "File:Pompey's Pillar, Alexandria 2016.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Aya_mahmoud_naguib_ibrahim&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Aya mahmoud naguib ibrahim (page does not exist)\">Aya Mahmoud Naguib Ibrahim</a>",
+    "width": 5264,
+    "height": 3104,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:34:59"
+  },
+  {
+    "filename": "d53686b91ecf2618.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Pompey%27s_Pillar_%28Archaeological_site_in_Alexandria_2017%29_%2C_photo_by_Hatem_moushir_2.jpg",
+    "title": "File:Pompey's Pillar (Archaeological site in Alexandria 2017) , photo by Hatem moushir 2.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Hatem_Moushir\" title=\"User:Hatem Moushir\">Hatem Moushir</a>",
+    "width": 4928,
+    "height": 3264,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:34:59"
+  },
+  {
+    "filename": "314dd624350809b2.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Pompey%27s_Pillar_%28Archaeological_site_in_Alexandria_2017%29_%2C_photo_by_Hatem_moushir_9.jpg",
+    "title": "File:Pompey's Pillar (Archaeological site in Alexandria 2017) , photo by Hatem moushir 9.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Hatem_Moushir\" title=\"User:Hatem Moushir\">Hatem Moushir</a>",
+    "width": 4928,
+    "height": 3264,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:34:59"
+  },
+  {
+    "filename": "713f92cf50453ee6.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Pompey%27s_Pillar_%28Archaeological_site_in_Alexandria_in_2017%29_%2C_photo_by_Hatem_Moushir_35.jpg",
+    "title": "File:Pompey's Pillar (Archaeological site in Alexandria in 2017) , photo by Hatem Moushir 35.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Hatem_Moushir\" title=\"User:Hatem Moushir\">Hatem Moushir</a>",
+    "width": 4928,
+    "height": 3264,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:34:59"
+  },
+  {
+    "filename": "6cd99a27db6bd9e8.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Pompey%27s_Pillar_%28Archaeological_site_in_Alexandria_in_2017%29_%2C_photo_by_Hatem_Moushir_36.jpg",
+    "title": "File:Pompey's Pillar (Archaeological site in Alexandria in 2017) , photo by Hatem Moushir 36.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Hatem_Moushir\" title=\"User:Hatem Moushir\">Hatem Moushir</a>",
+    "width": 4928,
+    "height": 3264,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:34:59"
+  },
+  {
+    "filename": "b4cd6493f1718791.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/98/Pompey%27s_Pillar_%28Archaeological_site_in_Alexandria_in_2017%29_%2C_photo_by_Hatem_Moushir_37.jpg",
+    "title": "File:Pompey's Pillar (Archaeological site in Alexandria in 2017) , photo by Hatem Moushir 37.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Hatem_Moushir\" title=\"User:Hatem Moushir\">Hatem Moushir</a>",
+    "width": 4928,
+    "height": 3264,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:34:59"
+  },
+  {
+    "filename": "0faa399abfcd3a3d.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Pompey%27s_Pillar_%28Archaeological_site_in_Alexandria_in_2017%29_%2C_photo_by_Hatem_Moushir_39.jpg",
+    "title": "File:Pompey's Pillar (Archaeological site in Alexandria in 2017) , photo by Hatem Moushir 39.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Hatem_Moushir\" title=\"User:Hatem Moushir\">Hatem Moushir</a>",
+    "width": 4118,
+    "height": 3083,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:34:59"
+  },
+  {
+    "filename": "0447338e35d84b22.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Alexandria%2C_Pompey%27s_pillar%2C_19th_century_pictures%2C_1870%2C_photo_1_of_2_-_Archivio_fotografico_Museo_Egizio%2C_Turin_Album1_050.jpg",
+    "title": "File:Alexandria, Pompey's pillar, 19th century pictures, 1870, photo 1 of 2 - Archivio fotografico Museo Egizio, Turin Album1 050.jpg",
+    "license": "CC0",
+    "artist": "<bdi><a href=\"https://www.wikidata.org/wiki/Q28791875\" class=\"extiw\" title=\"d:Q28791875\">Rodolfo Vittorio Lanzone</a></bdi>",
+    "width": 8481,
+    "height": 10970,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:34:59"
+  },
+  {
+    "filename": "932f165a4230f367.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Alexandria%2C_Pompey%27s_pillar%2C_19th_century_pictures%2C_photo_2_of_2_-_Archivio_fotografico_Museo_Egizio%2C_Turin_Album2_003.jpg",
+    "title": "File:Alexandria, Pompey's pillar, 19th century pictures, photo 2 of 2 - Archivio fotografico Museo Egizio, Turin Album2 003.jpg",
+    "license": "CC0",
+    "artist": "unknown",
+    "width": 3580,
+    "height": 4404,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:34:59"
+  },
+  {
+    "filename": "21dc27a01cb6fa1f.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/21/Alexandria_-_Pompey%27s_Pillar_with_two_sphinx.JPG",
+    "title": "File:Alexandria - Pompey's Pillar with two sphinx.JPG",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Maveric149\" class=\"mw-redirect\" title=\"User:Maveric149\">Daniel Mayer</a>",
+    "width": 3264,
+    "height": 2448,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:34:59"
+  },
+  {
+    "filename": "afc1023915dba219.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Pompey%27s_Pillar_%281878%29_-_TIMEA.jpg",
+    "title": "File:Pompey's Pillar (1878) - TIMEA.jpg",
+    "license": "CC BY-SA 2.5",
+    "artist": "Theuerkauf, Gustav",
+    "width": 708,
+    "height": 1024,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:34:59"
+  },
+  {
+    "filename": "e1ca5386b003913a.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Pompey%27s_Pillar_at_Alexandria_%281911%29_-_TIMEA.jpg",
+    "title": "File:Pompey's Pillar at Alexandria (1911) - TIMEA.jpg",
+    "license": "CC BY-SA 2.5",
+    "artist": "Sladen, Douglas",
+    "width": 744,
+    "height": 992,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:34:59"
+  },
+  {
+    "filename": "f1aa792f287e4729.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/ee/Egypt%2C_Pompey%27s_Pillar%2C_Alexandria.jpg",
+    "title": "File:Egypt, Pompey's Pillar, Alexandria.jpg",
+    "license": "No restrictions",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/83979593@N00\">Brooklyn Museum</a>",
+    "width": 2764,
+    "height": 2569,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:34:59"
+  },
+  {
+    "filename": "7398dc65ed8f6707.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Egypt%2C_Pompey%27s_Pillar%2C_Alexandria_%281%29.jpg",
+    "title": "File:Egypt, Pompey's Pillar, Alexandria (1).jpg",
+    "license": "No restrictions",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/83979593@N00\">Brooklyn Museum</a>",
+    "width": 2779,
+    "height": 2638,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:34:59"
+  },
+  {
+    "filename": "b9709fe3c4fc5d72.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Egypt%2C_Base_of_Pompey%27s_Pillar%2C_Alexandria.jpg",
+    "title": "File:Egypt, Base of Pompey's Pillar, Alexandria.jpg",
+    "license": "No restrictions",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/83979593@N00\">Brooklyn Museum</a>",
+    "width": 2775,
+    "height": 2638,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:34:59"
+  },
+  {
+    "filename": "fa89392b6e79fd3c.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/41/Pompey%27s_Pillar_%28column%29.jpg",
+    "title": "File:Pompey's Pillar (column).jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Semsema_roy&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Semsema roy (page does not exist)\">Semsema rody</a>",
+    "width": 2048,
+    "height": 1536,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:34:59"
+  },
+  {
+    "filename": "310443e4b87c5a4d.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Roman_Pompey%27s_Pillar%2C_Alexandria_-_panoramio.jpg",
+    "title": "File:Roman Pompey's Pillar, Alexandria - panoramio.jpg",
+    "license": "CC BY 3.0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://web.archive.org/web/20161023135555/http://www.panoramio.com/user/1763701?with_photo_id=50042793\">Maris Teteris</a>",
+    "width": 3299,
+    "height": 4034,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:34:59"
+  },
+  {
+    "filename": "573c23da57a28f6e.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Egyptian_views%3B_Alexandria_%28Iskanderiyeh%29._Pompey%27s_Pillar_LOC_matpc.00089.jpg",
+    "title": "File:Egyptian views; Alexandria (Iskanderiyeh). Pompey's Pillar LOC matpc.00089.jpg",
+    "license": "Public domain",
+    "artist": "Matson Collection",
+    "width": 4156,
+    "height": 5585,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:34:59"
+  },
+  {
+    "filename": "564ecd7534bc79e0.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/62/Egyptian_views%3B_Alexandria_%28Iskanderiyeh%29._Pompey%27s_Pillar_LOC_matpc.00089.tif",
+    "title": "File:Egyptian views; Alexandria (Iskanderiyeh). Pompey's Pillar LOC matpc.00089.tif",
+    "license": "Public domain",
+    "artist": "Matson Collection",
+    "width": 4156,
+    "height": 5585,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:34:59"
+  },
+  {
+    "filename": "d625edcf34a61416.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Pompey%27s_Pillar%29_-_A._Beato_LCCN92500739.jpg",
+    "title": "File:Pompey's Pillar) - A. Beato LCCN92500739.jpg",
+    "license": "Public domain",
+    "artist": "Beato, Antonio, -1903?, photographer",
+    "width": 3257,
+    "height": 4096,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:34:59"
+  },
+  {
+    "filename": "865071208ec14c68.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Pompey%27s_Pillar_Alexandria.jpg",
+    "title": "File:Pompey's Pillar Alexandria.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Ahmed_Yousry_Mahfouz&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Ahmed Yousry Mahfouz (page does not exist)\">Ahmed Yousry Mahfouz</a>",
+    "width": 2224,
+    "height": 1482,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:34:59"
+  },
+  {
+    "filename": "a5d7a3485275ff13.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/63/Pompey%27s_Pillar-2.jpg",
+    "title": "File:Pompey's Pillar-2.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Ahmed_Yousry_Mahfouz&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Ahmed Yousry Mahfouz (page does not exist)\">Ahmed Yousry Mahfouz</a>",
+    "width": 2813,
+    "height": 4220,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:34:59"
+  },
+  {
+    "filename": "5655f1b51d2d64c3.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Pompey%27s_Pillar-3.jpg",
+    "title": "File:Pompey's Pillar-3.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Ahmed_Yousry_Mahfouz&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Ahmed Yousry Mahfouz (page does not exist)\">Ahmed Yousry Mahfouz</a>",
+    "width": 3990,
+    "height": 2660,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:34:59"
+  },
+  {
+    "filename": "bad2cf0be943c70e.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/52/Pompey%27s_Pillar_with_Sphinx.jpg",
+    "title": "File:Pompey's Pillar with Sphinx.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Shivani_Singh04&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Shivani Singh04 (page does not exist)\">Shivani Singh04</a>",
+    "width": 4608,
+    "height": 2592,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:34:59"
+  },
+  {
+    "filename": "8662e52c29b9a503.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Sphinx_in_Pompey%27s_Pillar_area.jpg",
+    "title": "File:Sphinx in Pompey's Pillar area.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Ahmed_Yousry_Mahfouz&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Ahmed Yousry Mahfouz (page does not exist)\">Ahmed Yousry Mahfouz</a>",
+    "width": 4452,
+    "height": 2968,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:34:59"
+  },
+  {
+    "filename": "b4eedcb8453e4a66.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/e2/Zuil_van_Pompeius_in_het_Serapeum_van_Alexandri%C3%AB%2C_Egypte_Alexandria.-_Pompey%27s_Pillar_%28titel_op_object%29_Good%27s_Eastern_Series_%28serietitel_op_object%29%2C_RP-F-F12896.jpg",
+    "title": "File:Zuil van Pompeius in het Serapeum van Alexandrië, Egypte Alexandria.- Pompey's Pillar (titel op object) Good's Eastern Series (serietitel op object), RP-F-F12896.jpg",
+    "license": "CC0",
+    "artist": "Rijksmuseum",
+    "width": 6760,
+    "height": 3298,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:34:59"
+  },
+  {
+    "filename": "fc7d21bc50324c25.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Alexandria_Pompey%27s_Pillar.JPG",
+    "title": "File:Alexandria Pompey's Pillar.JPG",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Karimkasim00&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Karimkasim00 (page does not exist)\">Karimkasim00</a>",
+    "width": 1000,
+    "height": 1338,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:34:59"
+  },
+  {
+    "filename": "b8e54064baeb3cf5.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Pompey%27s_Pillar%2C_along_No._10%2C_Central_Montana_%2872432%29.jpg",
+    "title": "File:Pompey's Pillar, along No. 10, Central Montana (72432).jpg",
+    "license": "Public domain",
+    "artist": "The Hafstrom Co., Publishers, Belfield, N. Dak.",
+    "width": 3321,
+    "height": 2089,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:34:59"
+  },
+  {
+    "filename": "790a79fa7967f828.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Pompey%27s_Pillar_%28Archaeological_site_in_Alexandria_in_2017%29_%2C_photo_by_Hatem_Moushir_32.jpg",
+    "title": "File:Pompey's Pillar (Archaeological site in Alexandria in 2017) , photo by Hatem Moushir 32.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Hatem_Moushir\" title=\"User:Hatem Moushir\">Hatem Moushir</a>",
+    "width": 4928,
+    "height": 3264,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:34:59"
+  },
+  {
+    "filename": "2658a605bca6dd67.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/92/Pompey%27s_Pillar_%28Archaeological_site_in_Alexandria_in_2017%29_%2C_photo_by_Hatem_Moushir_33.jpg",
+    "title": "File:Pompey's Pillar (Archaeological site in Alexandria in 2017) , photo by Hatem Moushir 33.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Hatem_Moushir\" title=\"User:Hatem Moushir\">Hatem Moushir</a>",
+    "width": 4928,
+    "height": 3264,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:34:59"
+  },
+  {
+    "filename": "44b8b0e86e3e69d9.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/87/Pompey%27s_Pillar_%28Archaeological_site_in_Alexandria_in_2017%29_%2C_photo_by_Hatem_Moushir_38.jpg",
+    "title": "File:Pompey's Pillar (Archaeological site in Alexandria in 2017) , photo by Hatem Moushir 38.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Hatem_Moushir\" title=\"User:Hatem Moushir\">Hatem Moushir</a>",
+    "width": 4928,
+    "height": 3264,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:34:59"
+  },
+  {
+    "filename": "e0f89f19625a2086.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/98/Obelisk_te_Heliopolis_en_een_gezicht_op_de_Pilaar_van_Pompeius_te_Alexandri%C3%AB_The_obelisk_at_Heliopolis_and_Pompey%27s_pillar_at_Alexandria_%28titel_op_object%29%2C_RP-F-2001-7-1549-29.jpg",
+    "title": "File:Obelisk te Heliopolis en een gezicht op de Pilaar van Pompeius te Alexandrië The obelisk at Heliopolis and Pompey's pillar at Alexandria (titel op object), RP-F-2001-7-1549-29.jpg",
+    "license": "CC0",
+    "artist": "Rijksmuseum",
+    "width": 4928,
+    "height": 3900,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:34:59"
+  },
+  {
+    "filename": "8f43a4ecf62852a7.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/14/Pompey%27s_Pillar_in_Alexandria_2.jpg",
+    "title": "File:Pompey's Pillar in Alexandria 2.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Mohamed_Hesham_Askar&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Mohamed Hesham Askar (page does not exist)\">Mohamed Hesham Askar</a>",
+    "width": 2160,
+    "height": 3840,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:34:59"
+  },
+  {
+    "filename": "aad4d0d65fba7f06.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/18/Pompey%27s_Pillar%2C_AlexandriA.jpg",
+    "title": "File:Pompey's Pillar, AlexandriA.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Bilal_Detailz\" title=\"User:Bilal Detailz\">Bilal Detailz</a>",
+    "width": 2079,
+    "height": 2772,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:34:59"
+  },
+  {
+    "filename": "e42d2dbe60246dce.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Bold_Pompey%27s_Pillar%2C_Alexandria_1.jpg",
+    "title": "File:Bold Pompey's Pillar, Alexandria 1.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Bilal_Detailz\" title=\"User:Bilal Detailz\">Bilal Detailz</a>",
+    "width": 1835,
+    "height": 2473,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:34:59"
+  },
+  {
+    "filename": "e5e32e2d00fb9870.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/78/%28Bold_Pompey%27s_Pillar%2C_Alexandria_%28vintage.jpg",
+    "title": "File:(Bold Pompey's Pillar, Alexandria (vintage.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Bilal_Detailz\" title=\"User:Bilal Detailz\">Bilal Detailz</a>",
+    "width": 2766,
+    "height": 2075,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:34:59"
+  },
+  {
+    "filename": "7bc0add6b1e439aa.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Bold_Pompey%27s_Pillar%2C_Alexandria_01.jpg",
+    "title": "File:Bold Pompey's Pillar, Alexandria 01.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Bilal_Detailz\" title=\"User:Bilal Detailz\">Bilal Detailz</a>",
+    "width": 3721,
+    "height": 2791,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:34:59"
+  },
+  {
+    "filename": "36bf983870b1a8fd.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/39/Bold_Pompey%27s_Pillar%2C_Alexandria_03.jpg",
+    "title": "File:Bold Pompey's Pillar, Alexandria 03.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Bilal_Detailz\" title=\"User:Bilal Detailz\">Bilal Detailz</a>",
+    "width": 3060,
+    "height": 4080,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:34:59"
+  },
+  {
+    "filename": "49fb1601fd0fd233.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/83/Pompey%27s_Pillar%2C_Alexandria_02.jpg",
+    "title": "File:Pompey's Pillar, Alexandria 02.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Bilal_Detailz\" title=\"User:Bilal Detailz\">Bilal Detailz</a>",
+    "width": 3060,
+    "height": 4080,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:34:59"
+  },
+  {
+    "filename": "cb567db8b6a7e7b0.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Pompey%27s_Pillar%2C_Alexandria_04.jpg",
+    "title": "File:Pompey's Pillar, Alexandria 04.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Bilal_Detailz\" title=\"User:Bilal Detailz\">Bilal Detailz</a>",
+    "width": 3773,
+    "height": 2897,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:34:59"
+  },
+  {
+    "filename": "e357611ed95471d9.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/69/Bold_Pompey%27s_Pillar%2C_Alexandria_13.jpg",
+    "title": "File:Bold Pompey's Pillar, Alexandria 13.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Bilal_Detailz\" title=\"User:Bilal Detailz\">Bilal Detailz</a>",
+    "width": 3024,
+    "height": 4032,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:34:59"
+  },
+  {
+    "filename": "7dc287117f39af24.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Pompey%27s_Pillar%2C_Alexandria_i.jpg",
+    "title": "File:Pompey's Pillar, Alexandria i.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Bilal_Detailz\" title=\"User:Bilal Detailz\">Bilal Detailz</a>",
+    "width": 2682,
+    "height": 3577,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:34:59"
+  },
+  {
+    "filename": "fe29c2992be2c2e9.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Pompey%27s_Pillar_%28Archaeological_site_in_Alexandria_2017%29_%2C_photo_by_Hatem_moushir_6.jpg",
+    "title": "File:Pompey's Pillar (Archaeological site in Alexandria 2017) , photo by Hatem moushir 6.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Hatem_Moushir\" title=\"User:Hatem Moushir\">Hatem Moushir</a>",
+    "width": 4928,
+    "height": 3264,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:34:59"
+  },
+  {
+    "filename": "22f1412e785ac7ab.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/57/Pompey%27s_Pillar_%28Archaeological_site_in_Alexandria_2017%29_%2C_photo_by_Hatem_moushir_7.jpg",
+    "title": "File:Pompey's Pillar (Archaeological site in Alexandria 2017) , photo by Hatem moushir 7.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Hatem_Moushir\" title=\"User:Hatem Moushir\">Hatem Moushir</a>",
+    "width": 4928,
+    "height": 3264,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:34:59"
+  },
+  {
+    "filename": "7bd9477433e6a82e.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Pompey%27s_Pillar_%28Archaeological_site_in_Alexandria_2017%29_%2C_photo_by_Hatem_moushir_10.jpg",
+    "title": "File:Pompey's Pillar (Archaeological site in Alexandria 2017) , photo by Hatem moushir 10.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Hatem_Moushir\" title=\"User:Hatem Moushir\">Hatem Moushir</a>",
+    "width": 4928,
+    "height": 3264,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:34:59"
+  },
+  {
+    "filename": "58a2075bc3bc1c31.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Pompey%27s_Pillar_%28Archaeological_site_in_Alexandria_in_2017%29_%2C_photo_by_Hatem_Moushir_15.jpg",
+    "title": "File:Pompey's Pillar (Archaeological site in Alexandria in 2017) , photo by Hatem Moushir 15.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Hatem_Moushir\" title=\"User:Hatem Moushir\">Hatem Moushir</a>",
+    "width": 4928,
+    "height": 3264,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:34:59"
+  },
+  {
+    "filename": "8f54daf70ba6057e.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/05/Pompey%27s_Pillar_%28Archaeological_site_in_Alexandria_in_2017%29_%2C_photo_by_Hatem_Moushir_17.jpg",
+    "title": "File:Pompey's Pillar (Archaeological site in Alexandria in 2017) , photo by Hatem Moushir 17.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Hatem_Moushir\" title=\"User:Hatem Moushir\">Hatem Moushir</a>",
+    "width": 4928,
+    "height": 3264,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:34:59"
+  },
+  {
+    "filename": "991bc8e0bb3b14e6.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/72/Pompey%27s_Pillar_%28Archaeological_site_in_Alexandria_in_2017%29_%2C_photo_by_Hatem_Moushir_21.jpg",
+    "title": "File:Pompey's Pillar (Archaeological site in Alexandria in 2017) , photo by Hatem Moushir 21.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Hatem_Moushir\" title=\"User:Hatem Moushir\">Hatem Moushir</a>",
+    "width": 4928,
+    "height": 3264,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:34:59"
+  },
+  {
+    "filename": "d8aadb0f515b46e0.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Pompey%27s_Pillar_%28Archaeological_site_in_Alexandria_in_2017%29_%2C_photo_by_Hatem_Moushir_42.jpg",
+    "title": "File:Pompey's Pillar (Archaeological site in Alexandria in 2017) , photo by Hatem Moushir 42.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Hatem_Moushir\" title=\"User:Hatem Moushir\">Hatem Moushir</a>",
+    "width": 3264,
+    "height": 4928,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:34:59"
+  },
+  {
+    "filename": "07dc3606ed5a1aed.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Pompey%27s_Pillar_%28Archaeological_site_in_Alexandria_in_2017%29_%2C_photo_by_Hatem_Moushir_44.jpg",
+    "title": "File:Pompey's Pillar (Archaeological site in Alexandria in 2017) , photo by Hatem Moushir 44.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Hatem_Moushir\" title=\"User:Hatem Moushir\">Hatem Moushir</a>",
+    "width": 4928,
+    "height": 3264,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:34:59"
+  },
+  {
+    "filename": "acdd57314ce289ba.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/21/Pompey%27s_Pillar_in_Alexandria_1.jpg",
+    "title": "File:Pompey's Pillar in Alexandria 1.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Mohamed_Hesham_Askar&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Mohamed Hesham Askar (page does not exist)\">Mohamed Hesham Askar</a>",
+    "width": 2160,
+    "height": 3840,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:34:59"
+  }
+]

@@ -1,0 +1,19 @@
+{
+  "slug": "suez_canal",
+  "category": "Modern",
+  "region": "Suez",
+  "wikipedia": {
+    "en": {
+      "title": "Suez Canal",
+      "extract": "The Suez Canal is an artificial sea-level waterway in Egypt, connecting the Mediterranean Sea to the Red Sea through the Isthmus of Suez and dividing Africa and Asia. It is the border between Africa and Asia. The 193.30-kilometre-long (120.11 mi) canal is a key trade route between Europe and Asia.",
+      "description": "Artificial sea-level waterway in Egypt",
+      "coordinates": {
+        "lat": 30.705,
+        "lon": 32.34416667
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Iss016e019375.jpg/330px-Iss016e019375.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Iss016e019375.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Suez_Canal"
+    }
+  }
+}

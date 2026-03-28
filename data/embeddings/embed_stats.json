@@ -1,0 +1,10 @@
+{
+  "model": "gemini-embedding-001",
+  "dimension": 768,
+  "num_vectors": 15604,
+  "num_corpus_entries": 15604,
+  "index_type": "IndexFlatIP",
+  "normalized": true,
+  "failed_batches": 0,
+  "build_time_seconds": 882.2
+}

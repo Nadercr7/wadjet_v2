@@ -1,0 +1,22 @@
+{
+  "wikipedia": {
+    "en": {
+      "title": "Valley of the Kings",
+      "extract": "The Valley of the Kings, also known as the Valley of the Gates of the Kings, is an area in Egypt where, for a period of nearly 500 years from the Eighteenth Dynasty to the Twentieth Dynasty, rock-cut tombs were excavated for pharaohs and powerful nobles under the New Kingdom of ancient Egypt.",
+      "description": "Necropolis in ancient Egypt",
+      "coordinates": {
+        "lat": 25.74083333,
+        "lon": 32.60222222
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Luxor%2C_Tal_der_K%C3%B6nige_%281995%2C_860x605%29.jpg/330px-Luxor%2C_Tal_der_K%C3%B6nige_%281995%2C_860x605%29.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Luxor%2C_Tal_der_K%C3%B6nige_%281995%2C_860x605%29.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Valley_of_the_Kings"
+    },
+    "ar": {
+      "title": "وادي الملوك",
+      "extract": "وادي الملوك ويعرف أيضا باسم «وادي بيبان الملوك»، هو واد في مصر استخدم على مدار 500 سنة خلال الفترة ما بين القرنين السادس عشر والحادي عشر قبل الميلاد لتشييد مقابر لفراعنة ونبلاء الدولة الحديثة الممتدة خلال عصور الآسرات الثامنة عشر وحتى الأسرة العشرين بمصر القديمة، ويقع الوادي على الضفة الغربية لنهر النيل في مواجهة طيبة بقلب مدينة طيبة الجنائزية القديمة. وينقسم وادي الملوك إلى واديين؛ الوادي الشرقي والوادي الغربي.",
+      "description": "واد في مصر استخدم على مدار 500 سنة لتشييد مقابر الملوك ونبلاء الدولة الحديثة",
+      "wikipedia_url": "https://ar.wikipedia.org/wiki/%D9%88%D8%A7%D8%AF%D9%8A_%D8%A7%D9%84%D9%85%D9%84%D9%88%D9%83"
+    }
+  }
+}

@@ -1,0 +1,3525 @@
+[
+  {
+    "hash": "296054332d4a2955",
+    "original_name": "0.jpg",
+    "original_class": "Mosque_of_Ibn_Tulun",
+    "size_bytes": 7105,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:31"
+  },
+  {
+    "hash": "85383ff379c0beb1",
+    "original_name": "1.jpg",
+    "original_class": "Mosque_of_Ibn_Tulun",
+    "size_bytes": 11117,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:31"
+  },
+  {
+    "hash": "0ba2f3fde6fa30a9",
+    "original_name": "2.jpg",
+    "original_class": "Mosque_of_Ibn_Tulun",
+    "size_bytes": 11201,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:31"
+  },
+  {
+    "hash": "945ce4c4ffc4d036",
+    "original_name": "3.jpg",
+    "original_class": "Mosque_of_Ibn_Tulun",
+    "size_bytes": 11160,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:31"
+  },
+  {
+    "hash": "ca178d09326307ce",
+    "original_name": "4.jpg",
+    "original_class": "Mosque_of_Ibn_Tulun",
+    "size_bytes": 12307,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:31"
+  },
+  {
+    "hash": "c43fca5d09db5dca",
+    "original_name": "5.jpg",
+    "original_class": "Mosque_of_Ibn_Tulun",
+    "size_bytes": 8264,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:31"
+  },
+  {
+    "hash": "29367e58e536f7dd",
+    "original_name": "download (1).jpeg",
+    "original_class": "Ibn Tulun Mosque",
+    "size_bytes": 14768,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:34"
+  },
+  {
+    "hash": "abd87a01323f3727",
+    "original_name": "download (2).jpeg",
+    "original_class": "Ibn Tulun Mosque",
+    "size_bytes": 17942,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:34"
+  },
+  {
+    "hash": "8d56b036c083ceac",
+    "original_name": "download (3).jpeg",
+    "original_class": "Ibn Tulun Mosque",
+    "size_bytes": 14210,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:34"
+  },
+  {
+    "hash": "3b0ce0a289d466d2",
+    "original_name": "download (4).jpeg",
+    "original_class": "Ibn Tulun Mosque",
+    "size_bytes": 15789,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:34"
+  },
+  {
+    "hash": "ecb058ca841ef68d",
+    "original_name": "download (6).jpeg",
+    "original_class": "Ibn Tulun Mosque",
+    "size_bytes": 12154,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:34"
+  },
+  {
+    "hash": "f249faf063978dc4",
+    "original_name": "download (8).jpeg",
+    "original_class": "Ibn Tulun Mosque",
+    "size_bytes": 14607,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:34"
+  },
+  {
+    "hash": "0c35c67704688ac2",
+    "original_name": "download (9).jpeg",
+    "original_class": "Ibn Tulun Mosque",
+    "size_bytes": 12947,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:34"
+  },
+  {
+    "hash": "144997cdb223fb1f",
+    "original_name": "download.jpeg",
+    "original_class": "Ibn Tulun Mosque",
+    "size_bytes": 18104,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:34"
+  },
+  {
+    "hash": "a2f3b0ee58276113",
+    "original_name": "Ibn-Tulun (1).jpg",
+    "original_class": "Ibn Tulun Mosque",
+    "size_bytes": 101854,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:34"
+  },
+  {
+    "hash": "bcca67d49b88da1b",
+    "original_name": "images.jpg",
+    "original_class": "Ibn Tulun Mosque",
+    "size_bytes": 7582,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:34"
+  },
+  {
+    "hash": "ce12e9b8355a8be6",
+    "original_name": "Kairo_Ibn_Tulun_Moschee_BW_4.jpg",
+    "original_class": "Ibn Tulun Mosque",
+    "size_bytes": 2370192,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:34"
+  },
+  {
+    "hash": "599ee5dd2064d489",
+    "original_name": "OIP (10).jpeg",
+    "original_class": "Ibn Tulun Mosque",
+    "size_bytes": 12941,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:34"
+  },
+  {
+    "hash": "a0277ce622c613a2",
+    "original_name": "OIP (11).jpeg",
+    "original_class": "Ibn Tulun Mosque",
+    "size_bytes": 16495,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:34"
+  },
+  {
+    "hash": "23f9e43213941b88",
+    "original_name": "OIP (12).jpeg",
+    "original_class": "Ibn Tulun Mosque",
+    "size_bytes": 14181,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:34"
+  },
+  {
+    "hash": "1bdb97055ba30a98",
+    "original_name": "OIP (14).jpeg",
+    "original_class": "Ibn Tulun Mosque",
+    "size_bytes": 11437,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:34"
+  },
+  {
+    "hash": "4a2ec0b08fe0e54d",
+    "original_name": "OIP (15).jpeg",
+    "original_class": "Ibn Tulun Mosque",
+    "size_bytes": 16100,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:34"
+  },
+  {
+    "hash": "bc18197bd54dcea2",
+    "original_name": "OIP (16).jpeg",
+    "original_class": "Ibn Tulun Mosque",
+    "size_bytes": 12457,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:34"
+  },
+  {
+    "hash": "9a0d5830f48f2492",
+    "original_name": "OIP (17).jpeg",
+    "original_class": "Ibn Tulun Mosque",
+    "size_bytes": 15761,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:34"
+  },
+  {
+    "hash": "2292fb77c38de093",
+    "original_name": "OIP (18).jpeg",
+    "original_class": "Ibn Tulun Mosque",
+    "size_bytes": 12346,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:34"
+  },
+  {
+    "hash": "7c31c99aa5e9884e",
+    "original_name": "OIP (19).jpeg",
+    "original_class": "Ibn Tulun Mosque",
+    "size_bytes": 8086,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:34"
+  },
+  {
+    "hash": "1e4aed0e00184c5a",
+    "original_name": "OIP (20).jpeg",
+    "original_class": "Ibn Tulun Mosque",
+    "size_bytes": 10484,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:34"
+  },
+  {
+    "hash": "30f518d5716036dd",
+    "original_name": "OIP (21).jpeg",
+    "original_class": "Ibn Tulun Mosque",
+    "size_bytes": 13131,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:34"
+  },
+  {
+    "hash": "7ffbac1f28e1f3a1",
+    "original_name": "OIP (22).jpeg",
+    "original_class": "Ibn Tulun Mosque",
+    "size_bytes": 15168,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:34"
+  },
+  {
+    "hash": "f1e3693861e51513",
+    "original_name": "OIP (23).jpeg",
+    "original_class": "Ibn Tulun Mosque",
+    "size_bytes": 11935,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:34"
+  },
+  {
+    "hash": "89915f091237642e",
+    "original_name": "OIP (24).jpeg",
+    "original_class": "Ibn Tulun Mosque",
+    "size_bytes": 12520,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:34"
+  },
+  {
+    "hash": "9c98af24ac9434f0",
+    "original_name": "OIP (25).jpeg",
+    "original_class": "Ibn Tulun Mosque",
+    "size_bytes": 9378,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:34"
+  },
+  {
+    "hash": "c53717f9b377cb6a",
+    "original_name": "OIP (26).jpeg",
+    "original_class": "Ibn Tulun Mosque",
+    "size_bytes": 17487,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:34"
+  },
+  {
+    "hash": "109b73e599e6bc3b",
+    "original_name": "OIP (27).jpeg",
+    "original_class": "Ibn Tulun Mosque",
+    "size_bytes": 8168,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:34"
+  },
+  {
+    "hash": "f6fae92ee2ad5924",
+    "original_name": "OIP (28).jpeg",
+    "original_class": "Ibn Tulun Mosque",
+    "size_bytes": 11235,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:34"
+  },
+  {
+    "hash": "1636698f6248c464",
+    "original_name": "OIP (29).jpeg",
+    "original_class": "Ibn Tulun Mosque",
+    "size_bytes": 20817,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:34"
+  },
+  {
+    "hash": "80081abf23ea836c",
+    "original_name": "OIP (3).jpeg",
+    "original_class": "Ibn Tulun Mosque",
+    "size_bytes": 9481,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:34"
+  },
+  {
+    "hash": "a2b621f3f16be97b",
+    "original_name": "OIP (30).jpeg",
+    "original_class": "Ibn Tulun Mosque",
+    "size_bytes": 12896,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:34"
+  },
+  {
+    "hash": "e5ed53971bc0ef14",
+    "original_name": "OIP (31).jpeg",
+    "original_class": "Ibn Tulun Mosque",
+    "size_bytes": 15284,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:34"
+  },
+  {
+    "hash": "b83da356d557fddd",
+    "original_name": "OIP (32).jpeg",
+    "original_class": "Ibn Tulun Mosque",
+    "size_bytes": 11334,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:34"
+  },
+  {
+    "hash": "6253824966765b03",
+    "original_name": "OIP (33).jpeg",
+    "original_class": "Ibn Tulun Mosque",
+    "size_bytes": 12634,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:34"
+  },
+  {
+    "hash": "8ff8ee347f55326d",
+    "original_name": "OIP (34).jpeg",
+    "original_class": "Ibn Tulun Mosque",
+    "size_bytes": 13220,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:34"
+  },
+  {
+    "hash": "44c6ba6700843445",
+    "original_name": "OIP (35).jpeg",
+    "original_class": "Ibn Tulun Mosque",
+    "size_bytes": 14321,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:34"
+  },
+  {
+    "hash": "72aeb209ed7c1e9b",
+    "original_name": "OIP (36).jpeg",
+    "original_class": "Ibn Tulun Mosque",
+    "size_bytes": 11885,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:34"
+  },
+  {
+    "hash": "639493762be172f0",
+    "original_name": "OIP (37).jpeg",
+    "original_class": "Ibn Tulun Mosque",
+    "size_bytes": 10557,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:34"
+  },
+  {
+    "hash": "28dcd6bd7a03a1c8",
+    "original_name": "OIP (38).jpeg",
+    "original_class": "Ibn Tulun Mosque",
+    "size_bytes": 15512,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:34"
+  },
+  {
+    "hash": "6b5aaffd7183ec65",
+    "original_name": "OIP (39).jpeg",
+    "original_class": "Ibn Tulun Mosque",
+    "size_bytes": 10332,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:34"
+  },
+  {
+    "hash": "49739565753cf6ea",
+    "original_name": "OIP (4).jpeg",
+    "original_class": "Ibn Tulun Mosque",
+    "size_bytes": 10319,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:34"
+  },
+  {
+    "hash": "6a788bf3eafaf9db",
+    "original_name": "OIP (40).jpeg",
+    "original_class": "Ibn Tulun Mosque",
+    "size_bytes": 10737,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:34"
+  },
+  {
+    "hash": "bfa3d245500f6f62",
+    "original_name": "OIP (5).jpeg",
+    "original_class": "Ibn Tulun Mosque",
+    "size_bytes": 15005,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:34"
+  },
+  {
+    "hash": "7428f64bfdbc934e",
+    "original_name": "OIP (7).jpeg",
+    "original_class": "Ibn Tulun Mosque",
+    "size_bytes": 11236,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:34"
+  },
+  {
+    "hash": "c08a60a62d0eba7e",
+    "original_name": "OIP (9).jpeg",
+    "original_class": "Ibn Tulun Mosque",
+    "size_bytes": 17553,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:34"
+  },
+  {
+    "hash": "f3c0342cbf57ea76",
+    "original_name": "OIP.jpeg",
+    "original_class": "Ibn Tulun Mosque",
+    "size_bytes": 6804,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:34"
+  },
+  {
+    "hash": "190441d33167ec2d",
+    "original_name": "R.jpeg",
+    "original_class": "Ibn Tulun Mosque",
+    "size_bytes": 394045,
+    "source": "kaggle:mohamedessamgamal/egyptian-monuments-and-landmarks",
+    "downloaded_at": "2026-03-02T00:07:34"
+  },
+  {
+    "hash": "085c15c2f0708acb",
+    "original_name": "1.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 12959,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "ebb33144f5d3a55c",
+    "original_name": "10.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 144717,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "94a0367dbcae3081",
+    "original_name": "11.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 199106,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "f3afc5478856dd1c",
+    "original_name": "12.PNG",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8751601,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "7b9f59e65db5f89e",
+    "original_name": "13.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8756061,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "327e3d3ca59b0665",
+    "original_name": "14.PNG",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 7409399,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "bc51379377f964a5",
+    "original_name": "15.PNG",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 7445888,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "ad9994599a9280eb",
+    "original_name": "17.PNG",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8388805,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "ed193007f587a83c",
+    "original_name": "18.PNG",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 7654181,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "4151102d9948efcc",
+    "original_name": "19.PNG",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8960858,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "90451d6de8554de3",
+    "original_name": "20.PNG",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9575683,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "6e08c206714074f9",
+    "original_name": "21.PNG",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8956043,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "e2bd880ed220374a",
+    "original_name": "24.PNG",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 10784674,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "8f92e10bcfa2d4c8",
+    "original_name": "25.PNG",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 10670045,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "16d99cb15f3035b9",
+    "original_name": "26.PNG",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9817300,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "c93c891807a57be9",
+    "original_name": "28.png",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 910325,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "4d3921d773e472a3",
+    "original_name": "29.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 30600,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "f3c9439e825acb8f",
+    "original_name": "31.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 275459,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "bea9cdc029728d63",
+    "original_name": "34 copy.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 462405,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "c1e8672afdf5ab60",
+    "original_name": "36.jpeg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 6227,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "cdaaf4eb306df45c",
+    "original_name": "37 copy.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 328471,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "51319f043a02f98e",
+    "original_name": "37.JPG",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 430288,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "b4081378f5af79be",
+    "original_name": "38.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 48350,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "bf8d284ad0e43cac",
+    "original_name": "39.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 71908,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "40acf26999146c50",
+    "original_name": "4.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 302342,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "aff04d1327c19a9a",
+    "original_name": "40.png",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 503127,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "37b456163d541de0",
+    "original_name": "41.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 154630,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "2ea9e757b7aaeb80",
+    "original_name": "42.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 50218,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "8864c66d46fed077",
+    "original_name": "43.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 17233,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "f85269305ff24be2",
+    "original_name": "47.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 50249,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "dbf6c0dc75b96e30",
+    "original_name": "48.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 41351,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "454dd624ebcf2ffe",
+    "original_name": "49.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 76744,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "ff8357935cc5a9b6",
+    "original_name": "5.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 52882,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "bcba4d4ba9c57014",
+    "original_name": "50.jpeg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9022,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "4ff577d4f45a6501",
+    "original_name": "51.jpeg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9003,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "cf1b8a41c145b0bc",
+    "original_name": "52.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 365361,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "0810de6eea7cc09a",
+    "original_name": "53.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 353637,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "c66bf10e95915241",
+    "original_name": "55.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 236011,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "a4758c4a709ad99f",
+    "original_name": "56.jpeg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 27942,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "844079c1a9c328fb",
+    "original_name": "57.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 24008,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "d6046c831125ff20",
+    "original_name": "58.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 83280,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "f0b9eda92fb29413",
+    "original_name": "59.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 55572,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "08a9f12489aa4580",
+    "original_name": "60.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 177353,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "988552012fdb7ae2",
+    "original_name": "61.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 4352453,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "761839847f0ece10",
+    "original_name": "62.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 204981,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "586180df19fc25c5",
+    "original_name": "63.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 44194,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "193baf2b03b34868",
+    "original_name": "64.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 47177,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "ae59f410c0225902",
+    "original_name": "65.jpeg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 4493938,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "e6f6b11291b3ecf5",
+    "original_name": "66.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 81325,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "57ae30ffb452b699",
+    "original_name": "7.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 15269,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "d8212f626cbecb71",
+    "original_name": "70.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 104005,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "e8575307378cc3c3",
+    "original_name": "71.jpeg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 14164,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "4ccfa4ffc0651bab",
+    "original_name": "72.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 105567,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "2edc265cd628490a",
+    "original_name": "74.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 14457,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "06a1d843d07ac1d9",
+    "original_name": "75.png",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 219541,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "1f1e52514016c10d",
+    "original_name": "76.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 23596,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "44914b7d79d94eab",
+    "original_name": "77.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 238400,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "01d30c33a618a9c4",
+    "original_name": "8.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 76157,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "3be473e439bed02f",
+    "original_name": "80.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 6543069,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "9dcbcb41d2794554",
+    "original_name": "81.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9585,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "77494db9dce8bd39",
+    "original_name": "82.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 112540,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "ec2399f8907470b7",
+    "original_name": "84.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 17312,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "44f5f7cd4b8079e3",
+    "original_name": "88.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 115559,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "ba7bf196bf26d0e7",
+    "original_name": "89.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 29153,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "968076c7d0f558b5",
+    "original_name": "image_0_1052.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 14995,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "6ddf5d991cf103e8",
+    "original_name": "image_0_1081.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8667,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "dfc1fc8f305b7cdc",
+    "original_name": "image_0_1132.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 11137,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "705aa1f0b4d7bc43",
+    "original_name": "image_0_1200.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 10707,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "f2ff0d43b7475588",
+    "original_name": "image_0_1216.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8535,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "d59f5a91964c8f3b",
+    "original_name": "image_0_123.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 7586,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "3182a8f1233fb5fb",
+    "original_name": "image_0_1264.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9275,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "40499cbd4c5e4a8e",
+    "original_name": "image_0_1271.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8986,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "6f42fcf4a9c7aef5",
+    "original_name": "image_0_1275.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8285,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "de9ed02001e06cce",
+    "original_name": "image_0_1290.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8156,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "576b6b84b504f4a9",
+    "original_name": "image_0_1315.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 7972,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "5b34abd252e5cb31",
+    "original_name": "image_0_1331.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8811,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "c9034a0ad660aa6d",
+    "original_name": "image_0_143.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8828,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "c2fc6846b06874ce",
+    "original_name": "image_0_1457.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 7033,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "b74ead453cbb2083",
+    "original_name": "image_0_1471.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 11070,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "be51bcb0d4435905",
+    "original_name": "image_0_1477.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 11777,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "fafe01e59e2c9cb9",
+    "original_name": "image_0_1494.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8387,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "f9d54f18e2cc4230",
+    "original_name": "image_0_1500.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9403,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "5a020c79ee0321d6",
+    "original_name": "image_0_1507.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9185,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "9feae017d2543bd9",
+    "original_name": "image_0_1620.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9484,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "943199ab58fed8b5",
+    "original_name": "image_0_1665.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9207,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "d871a7cb9b7d2d08",
+    "original_name": "image_0_1728.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 10692,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "6f5099fa39f9c422",
+    "original_name": "image_0_1843.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8579,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "a88b8098e284e8bc",
+    "original_name": "image_0_1853.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9981,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "0f45256ccc53d051",
+    "original_name": "image_0_1869.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8036,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "4a974c61632f3ba5",
+    "original_name": "image_0_188.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 12613,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "27986f914f557009",
+    "original_name": "image_0_196.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8480,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "6811f3a088dc1380",
+    "original_name": "image_0_1979.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9124,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "bbdc0041e7706819",
+    "original_name": "image_0_200.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9620,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "7aa4260273fda2d9",
+    "original_name": "image_0_202.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 10054,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "471104ccd6708a69",
+    "original_name": "image_0_2104.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 12445,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "b200104bfe9f1f34",
+    "original_name": "image_0_2105.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8670,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "2e11e48e488e7323",
+    "original_name": "image_0_2168.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8875,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "0b356c7192c4888d",
+    "original_name": "image_0_2173.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 12991,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "bc49288f2e881ad7",
+    "original_name": "image_0_225.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 12794,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "973189488044d099",
+    "original_name": "image_0_2258.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 10658,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "a29daf38d98ad6f0",
+    "original_name": "image_0_2264.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8122,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "a951bbfa4451da0e",
+    "original_name": "image_0_2267.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8529,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "a6b0352adb5cf15d",
+    "original_name": "image_0_2271.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 7915,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "88e3c75b0818cf5b",
+    "original_name": "image_0_2290.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 10210,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "d66f38b24801715d",
+    "original_name": "image_0_231.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 12663,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "b814a2bbcdc154de",
+    "original_name": "image_0_2310.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 7987,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "0f0468f52c05ef5e",
+    "original_name": "image_0_2325.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8357,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "f082504bd3ad06b9",
+    "original_name": "image_0_2327.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8949,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "7433201165155613",
+    "original_name": "image_0_2444.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 12165,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "422d1ad0abea5415",
+    "original_name": "image_0_2465.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 13904,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "f9ced8f896189782",
+    "original_name": "image_0_2478.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8664,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "bb2e9f54b4b86556",
+    "original_name": "image_0_2480.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9558,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "e2e1e6b47873ff88",
+    "original_name": "image_0_2484.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 11510,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "e08632cb9dc2f690",
+    "original_name": "image_0_2515.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9927,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "bfdc62be78352f7d",
+    "original_name": "image_0_2529.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 12088,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "c023294cd16bece2",
+    "original_name": "image_0_2577.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 7505,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "8d41a02457230b4b",
+    "original_name": "image_0_2581.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9177,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "29e4a1dcf73b14f1",
+    "original_name": "image_0_2584.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8962,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "1199867c3c1832d8",
+    "original_name": "image_0_2585.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 15315,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "bc07bc505a7acc29",
+    "original_name": "image_0_259.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 10981,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "01d1b4e195cd9e6c",
+    "original_name": "image_0_2591.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 13892,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "915852fa1e6ac2b7",
+    "original_name": "image_0_2601.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9098,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "0aae7197ebebc059",
+    "original_name": "image_0_2625.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 10543,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "3172f831166adb75",
+    "original_name": "image_0_2650.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 14843,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "534a58ea7fc2401a",
+    "original_name": "image_0_2667.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9519,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "9547cdab9dd8cc7c",
+    "original_name": "image_0_2682.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 11144,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "5b00c9be0a8ca0bc",
+    "original_name": "image_0_2757.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8551,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "2643d8315058acda",
+    "original_name": "image_0_2778.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 10427,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "aafad7ef55b32b97",
+    "original_name": "image_0_2802.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8271,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "9c37c4c98169bbb6",
+    "original_name": "image_0_285.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9679,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "52edb431277bf5a8",
+    "original_name": "image_0_287.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 11495,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "dd2575f4ff93b132",
+    "original_name": "image_0_2912.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9357,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "f7cdc53f18aab491",
+    "original_name": "image_0_2917.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8085,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "5dda55157fbb3809",
+    "original_name": "image_0_2941.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8333,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "f067e01fdddef7ef",
+    "original_name": "image_0_2989.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9796,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "9e2c85d414e86068",
+    "original_name": "image_0_3052.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9124,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "23f6363cfa523633",
+    "original_name": "image_0_3066.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 10474,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "28b7e82f6ef75fcb",
+    "original_name": "image_0_3094.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8760,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "55dabe6e3d3925d8",
+    "original_name": "image_0_3116.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 11928,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "393754eac950a6d3",
+    "original_name": "image_0_3120.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 12085,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "66d90ab95ba28c11",
+    "original_name": "image_0_3137.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 13675,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "e05fc75d6b85a0ab",
+    "original_name": "image_0_3205.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 12885,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "d37a4e43ce669d69",
+    "original_name": "image_0_3219.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8190,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "11fcce36605ba29b",
+    "original_name": "image_0_3272.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9151,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "ee871c567ad377a9",
+    "original_name": "image_0_328.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 10723,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "48dac65cfb616273",
+    "original_name": "image_0_3283.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 12415,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "1ba2e0e9227ed42e",
+    "original_name": "image_0_3303.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9835,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "47baf025353c99df",
+    "original_name": "image_0_3310.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 11490,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "7bf67aa56c7fd488",
+    "original_name": "image_0_3340.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8881,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "ed9a23eecce49726",
+    "original_name": "image_0_3370.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9946,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "d99df8098256e0c2",
+    "original_name": "image_0_342.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 10570,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "00e9440411d815da",
+    "original_name": "image_0_3449.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8329,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "dd6b03b16ff93a1c",
+    "original_name": "image_0_3450.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8076,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "6d1e2557e17ab208",
+    "original_name": "image_0_3464.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 7882,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "f29a67209d57832e",
+    "original_name": "image_0_349.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9014,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "f331c9efadae8380",
+    "original_name": "image_0_3494.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8093,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "7b915a231581fad2",
+    "original_name": "image_0_3501.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 10988,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "832802d7fae08164",
+    "original_name": "image_0_3525.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8245,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "246d92a826028a11",
+    "original_name": "image_0_3526.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 17471,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "46db61ff6cc9fe66",
+    "original_name": "image_0_354.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8617,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "8f9ee471502b31c5",
+    "original_name": "image_0_3579.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 7786,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "cd0d3a1a2da7375e",
+    "original_name": "image_0_3588.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9432,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "191726183e3228be",
+    "original_name": "image_0_360.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 14049,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "e9132a1472e3f7af",
+    "original_name": "image_0_3620.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 12340,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "e4a1bb0c00681ced",
+    "original_name": "image_0_3659.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 17436,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "ea7497d46a9be442",
+    "original_name": "image_0_3661.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8542,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "c1f003a30f72e085",
+    "original_name": "image_0_3671.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9822,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "6b7d78f07a0000ff",
+    "original_name": "image_0_3776.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 13311,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "dcd3206f0f3e0962",
+    "original_name": "image_0_3783.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8734,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "906fc2ee4348554c",
+    "original_name": "image_0_3794.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 11496,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "14ceebaeff94153b",
+    "original_name": "image_0_3834.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 12904,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "c1f6e0aefd1176cf",
+    "original_name": "image_0_3862.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 7723,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "c5d22df7e2e2f2f7",
+    "original_name": "image_0_3880.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8271,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "2cc9170a5bebdc0b",
+    "original_name": "image_0_3886.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 10145,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "0ecdc3c99b207007",
+    "original_name": "image_0_389.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 7706,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "dd434c245d7d2628",
+    "original_name": "image_0_3893.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9984,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "9bb5c770aab9cb7c",
+    "original_name": "image_0_3895.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 7843,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "4263221fe42cc029",
+    "original_name": "image_0_39.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 11859,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "791de44eb3c7e249",
+    "original_name": "image_0_3900.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8341,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "3073bc5738977cba",
+    "original_name": "image_0_3918.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 10387,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "9e1e38470debf212",
+    "original_name": "image_0_3936.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8490,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "d58f048d0aa93e2f",
+    "original_name": "image_0_3947.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8277,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "87cac23fcec59510",
+    "original_name": "image_0_3960.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 12159,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "50c72d1124fe76a6",
+    "original_name": "image_0_3985.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 13155,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "b35947f08c70d2b7",
+    "original_name": "image_0_3992.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8448,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "70e8cf6d2584f9a5",
+    "original_name": "image_0_4021.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 10408,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "919785c98f1344d0",
+    "original_name": "image_0_4041.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8070,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "e45d07cd7f9518c6",
+    "original_name": "image_0_4055.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8765,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "346e3885d0a8530f",
+    "original_name": "image_0_4060.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 10954,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "7610b53d560b4ee0",
+    "original_name": "image_0_4061.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 10399,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "61e89cf9a62f2577",
+    "original_name": "image_0_4069.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 10157,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "0780dbc500c9928f",
+    "original_name": "image_0_4073.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8598,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "a92e9f16e814ad3a",
+    "original_name": "image_0_4159.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8579,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "7d7ed84fb4dad1b5",
+    "original_name": "image_0_4242.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9115,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "26082f8e476aea10",
+    "original_name": "image_0_4244.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 10781,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "5b6289e5e2df3132",
+    "original_name": "image_0_4254.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9016,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "6821b9d1180e3d18",
+    "original_name": "image_0_4269.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9158,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "0b0498a55f2d2863",
+    "original_name": "image_0_4283.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8477,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "ee11e05f538a950e",
+    "original_name": "image_0_4310.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 10373,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "8ad6a7d990e3c6b0",
+    "original_name": "image_0_4330.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8267,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "4ad8082edce7d7f3",
+    "original_name": "image_0_4398.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 7851,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "b70a434997363793",
+    "original_name": "image_0_4426.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 12421,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "a5c7a830d0904aae",
+    "original_name": "image_0_4439.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 12932,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "fe5bc089fa25d089",
+    "original_name": "image_0_4569.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 7756,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "75430f1f5354ba9d",
+    "original_name": "image_0_4622.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 12310,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "e23806df4603dde3",
+    "original_name": "image_0_4640.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 11671,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "41aab915239b0568",
+    "original_name": "image_0_4669.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 15526,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "6bff5ccf35578abe",
+    "original_name": "image_0_4742.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8086,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "0c762aeaf4fea6dc",
+    "original_name": "image_0_4754.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9377,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "393438d6f215d912",
+    "original_name": "image_0_4760.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9417,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "1539525df29342e5",
+    "original_name": "image_0_4768.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8711,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "bd5be81ccf96335a",
+    "original_name": "image_0_4782.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 16865,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "5b346ec31edefc87",
+    "original_name": "image_0_4793.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 11461,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "669ff2cd7202508d",
+    "original_name": "image_0_4818.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9522,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "5bc34d5507f75546",
+    "original_name": "image_0_4825.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9655,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "abe4e2fa87a9865b",
+    "original_name": "image_0_492.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8361,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "7a78e957c4dd0cd1",
+    "original_name": "image_0_4933.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8080,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "e74621c63dbad1aa",
+    "original_name": "image_0_4968.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 12354,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "012c74f33426a2fb",
+    "original_name": "image_0_4983.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 11541,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "b3a662efec54ed07",
+    "original_name": "image_0_4993.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 7005,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "e7dadd873fddf9ad",
+    "original_name": "image_0_5043.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9541,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "c813045e3b34b1eb",
+    "original_name": "image_0_5067.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 11289,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "a28fdf578ac55fa1",
+    "original_name": "image_0_5106.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9278,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "ab3eead6594a2472",
+    "original_name": "image_0_5155.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 12383,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "e40fbd10e4497512",
+    "original_name": "image_0_5160.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 10070,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "537f0ac40f4400e5",
+    "original_name": "image_0_518.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 10232,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "8ffce3f2821fb6f5",
+    "original_name": "image_0_5206.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9450,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "41d4b403ff2a450f",
+    "original_name": "image_0_5215.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 10965,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "5e34334c471fd97c",
+    "original_name": "image_0_5220.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8072,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "70971a213445ec9b",
+    "original_name": "image_0_5257.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8235,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "9bc8c6b17ba36cb9",
+    "original_name": "image_0_5350.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9886,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "26022fa270b0462d",
+    "original_name": "image_0_5362.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8864,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "d0ec4f2f272d63f2",
+    "original_name": "image_0_5369.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 12008,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "56992fa54904cf56",
+    "original_name": "image_0_5445.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8657,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "23d959c2c833807f",
+    "original_name": "image_0_5450.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8596,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "8c0d2cb89fa99ba9",
+    "original_name": "image_0_5463.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 10717,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "67fdc979350007da",
+    "original_name": "image_0_5510.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 11128,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "647332cddaffb7f9",
+    "original_name": "image_0_5549.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 10120,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "ebc809d3825ecb77",
+    "original_name": "image_0_5606.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 14596,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "28f91fc6d615e0a2",
+    "original_name": "image_0_5610.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9482,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "14250b2ee99d8da0",
+    "original_name": "image_0_5616.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 10892,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "1c7b8d283e0cb163",
+    "original_name": "image_0_5647.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 7714,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "7cad4c5847b008e3",
+    "original_name": "image_0_5697.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 12196,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "2600cdb48ca018f6",
+    "original_name": "image_0_5712.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9582,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "e044ab0c0c0e02f8",
+    "original_name": "image_0_5731.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 10965,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "3ae1a7602bb82e0f",
+    "original_name": "image_0_5779.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 10229,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "392d9205aa4a4cbc",
+    "original_name": "image_0_5813.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 11320,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "aa8f97da24cd5127",
+    "original_name": "image_0_5833.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8974,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "0e6c31674de50cc6",
+    "original_name": "image_0_5835.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8792,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "53c17056f9706436",
+    "original_name": "image_0_584.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 7933,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "5051fa0475375fe8",
+    "original_name": "image_0_5855.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 7619,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "3757772f0f430504",
+    "original_name": "image_0_5908.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9659,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "2de8595590651520",
+    "original_name": "image_0_5923.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 11606,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "7a3bf40867d9b312",
+    "original_name": "image_0_5957.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 13668,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "2a19ed4aeb3857e6",
+    "original_name": "image_0_5960.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 13985,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "a8e78cef1704fd4c",
+    "original_name": "image_0_5995.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9456,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "cf3f7c3353fbf88a",
+    "original_name": "image_0_60.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8502,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "76b2b825ed7e3302",
+    "original_name": "image_0_6002.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 12857,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "9ecddbc5ff48e9e3",
+    "original_name": "image_0_6078.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 11951,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "3acc60a546bb3c38",
+    "original_name": "image_0_6093.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 11233,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "f22b3c73194d1038",
+    "original_name": "image_0_6124.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8330,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "43cd57fd4abe14ad",
+    "original_name": "image_0_615.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9151,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "59ef0f7c1edcc653",
+    "original_name": "image_0_6173.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9385,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "1d9b76ab800859b2",
+    "original_name": "image_0_6249.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 7790,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "032590cd6666ecde",
+    "original_name": "image_0_6251.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 13196,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "ec9032d9d4edc263",
+    "original_name": "image_0_627.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 10336,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "357c52a1dfef90d3",
+    "original_name": "image_0_6350.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9035,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "ed08cbcb301c42ef",
+    "original_name": "image_0_6488.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 10099,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "565165799fb841c5",
+    "original_name": "image_0_6574.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 7618,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "46e7ab899ff4161e",
+    "original_name": "image_0_6580.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 7774,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "7ad8618b86d4a1a2",
+    "original_name": "image_0_6581.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9131,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "3a02f067d16fa9ce",
+    "original_name": "image_0_6629.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9782,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "b815d2dbc4d9783c",
+    "original_name": "image_0_6644.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8125,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "b66bd031734b38ca",
+    "original_name": "image_0_6719.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 7481,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "29195d6fc6d3e36c",
+    "original_name": "image_0_6739.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 12198,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "f477efd22efd11a5",
+    "original_name": "image_0_6751.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8803,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "d7a4e8517d3a6fd4",
+    "original_name": "image_0_6777.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8675,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "7a8cc0859b6b439a",
+    "original_name": "image_0_6780.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 10950,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "601d5c27ecedfbdb",
+    "original_name": "image_0_6805.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8961,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "2fb58f00b2db3bdb",
+    "original_name": "image_0_6858.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 14606,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "9e02760f146b1efe",
+    "original_name": "image_0_6964.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8382,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "351af6c144727507",
+    "original_name": "image_0_6978.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8228,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "3928052f58149064",
+    "original_name": "image_0_698.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 10168,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "bfed4aac633375b1",
+    "original_name": "image_0_7041.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8987,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "a58639cd20374260",
+    "original_name": "image_0_7210.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 10284,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "7b226aedc74ef8b1",
+    "original_name": "image_0_7213.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8775,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "342438da9f88bcd9",
+    "original_name": "image_0_7334.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 10323,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "b6d6765fcb3114d8",
+    "original_name": "image_0_7479.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 10863,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "db5fbe16f1c0ac6e",
+    "original_name": "image_0_7489.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9590,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "9812fd2d4ee1606c",
+    "original_name": "image_0_7502.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9128,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "521ed8ea1a5bb8cf",
+    "original_name": "image_0_7509.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8928,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "134ebff7ed5f13d1",
+    "original_name": "image_0_7534.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9083,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "1711c8d5334afe28",
+    "original_name": "image_0_7538.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8207,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "5caf60a2d6daab77",
+    "original_name": "image_0_7611.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8451,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "120dbfc6738bd9b1",
+    "original_name": "image_0_7633.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9910,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "07a6c67cf4bf3f7e",
+    "original_name": "image_0_7658.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8007,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "a0095ed13300d8cc",
+    "original_name": "image_0_7703.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8199,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "8deeea1a0f457b3c",
+    "original_name": "image_0_7733.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9215,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "e323fd9d529591ac",
+    "original_name": "image_0_7754.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 10608,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "9b713ea4c8f924a0",
+    "original_name": "image_0_7777.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8145,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "14e6fa52f887eb8a",
+    "original_name": "image_0_7780.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8487,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "a98586292ebb9b28",
+    "original_name": "image_0_7871.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9131,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "f1b6877cf08da0b7",
+    "original_name": "image_0_7879.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 12220,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "c1c136d34065f200",
+    "original_name": "image_0_7916.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9555,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "5d2ce2951e478bb1",
+    "original_name": "image_0_7929.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8782,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "fdbf07d4e08d1b12",
+    "original_name": "image_0_8099.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8473,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "6c8655868bbccac1",
+    "original_name": "image_0_8103.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 7580,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "0376a3c3088ee33e",
+    "original_name": "image_0_812.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 7848,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "862f490d3b1b45c9",
+    "original_name": "image_0_8174.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 7734,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "41c1b2a390b6acce",
+    "original_name": "image_0_818.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 11361,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "19c745696aa4f0e3",
+    "original_name": "image_0_8180.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 7373,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "9d842b8937f4c859",
+    "original_name": "image_0_8184.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 7881,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "ae8ce8ddcbd4d669",
+    "original_name": "image_0_8212.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8071,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "5fe70e86ef2522af",
+    "original_name": "image_0_8218.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 11079,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "b633467663b68307",
+    "original_name": "image_0_8234.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8738,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "ac06ed315a654c2e",
+    "original_name": "image_0_8243.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9302,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "b7e04789379c2214",
+    "original_name": "image_0_8287.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 11080,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "b111c2f314987b13",
+    "original_name": "image_0_830.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8880,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "74ff4ce24ff33dac",
+    "original_name": "image_0_8320.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 10550,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "faa88a8a5bf73559",
+    "original_name": "image_0_8329.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 12105,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "4077473b71b61e5e",
+    "original_name": "image_0_8393.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 12116,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "3afc98032c96fd97",
+    "original_name": "image_0_840.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 10142,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "30893e17f7aed444",
+    "original_name": "image_0_841.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 10799,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "a62086fe2d386acb",
+    "original_name": "image_0_8425.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8982,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "7e990902a0a455c8",
+    "original_name": "image_0_8437.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 12604,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "bb0052b54c553af8",
+    "original_name": "image_0_8471.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 11448,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "e2661b0c574e713d",
+    "original_name": "image_0_8483.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8894,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "f2cecf7971301c07",
+    "original_name": "image_0_8495.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9637,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "3373db2fb78294cb",
+    "original_name": "image_0_8511.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8971,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "b2d92007695f55d3",
+    "original_name": "image_0_8530.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8502,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "68dd3a91e90c2eed",
+    "original_name": "image_0_8541.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 6797,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "8748515d82456eb0",
+    "original_name": "image_0_8545.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 17490,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "1cb9385f5d7c640a",
+    "original_name": "image_0_856.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8383,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "752ef599c5d34d71",
+    "original_name": "image_0_8598.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9088,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "c0f097e064d7ec44",
+    "original_name": "image_0_862.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8573,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "c558de9508ecac36",
+    "original_name": "image_0_8644.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 6685,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "7d86d76729c09f0c",
+    "original_name": "image_0_8655.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 7936,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "b6c4e85f8ff4884c",
+    "original_name": "image_0_873.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8743,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "5baad916d92c22d1",
+    "original_name": "image_0_8747.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8622,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "a01f47dc0e85420b",
+    "original_name": "image_0_8753.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 12531,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "c933d2cb20043d3b",
+    "original_name": "image_0_8802.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 12483,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "3386c26b74d93df1",
+    "original_name": "image_0_8806.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 10450,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "f53556b88f8969e1",
+    "original_name": "image_0_8821.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 15002,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "f3e13368bdcc20ee",
+    "original_name": "image_0_8839.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8382,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "7bd15b17178b7290",
+    "original_name": "image_0_8867.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 12776,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "02c9d8bf9cd22037",
+    "original_name": "image_0_8890.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 12598,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "e31dbd5f0fae7181",
+    "original_name": "image_0_8912.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 7460,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "e53abbeed9653089",
+    "original_name": "image_0_8963.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 11843,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "2a40107248ac41e4",
+    "original_name": "image_0_9068.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 10796,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "de1bfb8265aeef64",
+    "original_name": "image_0_9075.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9988,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "fe5d3faf16170a17",
+    "original_name": "image_0_9099.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 10367,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "49dc4c7088ec38e5",
+    "original_name": "image_0_9100.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 10599,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "7ede84381d9ec92c",
+    "original_name": "image_0_9205.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9823,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "0ffc118edb010eee",
+    "original_name": "image_0_9211.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9129,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "e7fb2b19a49e35ef",
+    "original_name": "image_0_9236.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 7958,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "b453a78d98e6d293",
+    "original_name": "image_0_9254.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 7876,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "a6d70dff8ae06468",
+    "original_name": "image_0_9275.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9873,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "8752ed26f58da27b",
+    "original_name": "image_0_9298.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 7495,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "3985f99e9f4786cc",
+    "original_name": "image_0_9334.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 11599,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "eee3843b897b4ee8",
+    "original_name": "image_0_9348.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 7582,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "362b2993f785a722",
+    "original_name": "image_0_9363.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8890,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "524449de63891642",
+    "original_name": "image_0_9365.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 10404,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "70c8b7771ed170ae",
+    "original_name": "image_0_9372.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 7959,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "6570431f98cab5f1",
+    "original_name": "image_0_9381.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 12646,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "cbe196610702efe3",
+    "original_name": "image_0_9404.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 10354,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "f6b3f1f5df1265aa",
+    "original_name": "image_0_9408.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8074,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "6a710dc2a2fd8b4c",
+    "original_name": "image_0_9464.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8391,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "f1bd5213d29c7d55",
+    "original_name": "image_0_9498.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9564,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "84b5478b5aa0e2d2",
+    "original_name": "image_0_9562.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 11378,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "d46565f9c3d27426",
+    "original_name": "image_0_9600.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9325,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "a653a042807ff592",
+    "original_name": "image_0_9609.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9069,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "d3048b2c9e3e5757",
+    "original_name": "image_0_9617.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 13414,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "560bfcd19be8b966",
+    "original_name": "image_0_9618.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 10325,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "e3bbf0271428057d",
+    "original_name": "image_0_9634.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9448,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "0c4dd21393f9ba64",
+    "original_name": "image_0_9660.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9070,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "41e0903df83e51cd",
+    "original_name": "image_0_9755.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 9198,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "7b4f9cfdf352758d",
+    "original_name": "image_0_9770.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8243,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "6379069066c3bcc4",
+    "original_name": "image_0_9844.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 7494,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "1f9d3d872e973724",
+    "original_name": "image_0_9848.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 10090,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "88420ccf8e30374b",
+    "original_name": "image_0_9921.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8098,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "9f9ac62bb80045c0",
+    "original_name": "image_0_9974.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 8266,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "hash": "c9c481edf6e9470d",
+    "original_name": "image_0_9986.jpg",
+    "original_class": "Amr ibn Al-Aas Mosque",
+    "size_bytes": 7790,
+    "source": "kaggle:daliayasser/egyptian-monuments",
+    "downloaded_at": "2026-03-02T00:53:51"
+  },
+  {
+    "filename": "f4714c5b278b2cbf.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Kairo_Ibn_Tulun_Moschee_BW_4.jpg/1280px-Kairo_Ibn_Tulun_Moschee_BW_4.jpg",
+    "wikipedia_title": "Mosque_of_Ibn_Tulun",
+    "source": "wikipedia",
+    "downloaded_at": "2026-03-02T02:11:29"
+  },
+  {
+    "filename": "9bc469b7356cdbfb.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Aerial_view_of_the_Mosque_of_Ibn_Tulun.jpg/500px-Aerial_view_of_the_Mosque_of_Ibn_Tulun.jpg",
+    "wikipedia_title": "Mosque_of_Ibn_Tulun",
+    "source": "wikipedia",
+    "downloaded_at": "2026-03-02T02:11:29"
+  },
+  {
+    "filename": "a5ac191c73a22d8d.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Arches_of_the_Ibn_Tulun_Mosque_in_Cairo.jpg/500px-Arches_of_the_Ibn_Tulun_Mosque_in_Cairo.jpg",
+    "wikipedia_title": "Mosque_of_Ibn_Tulun",
+    "source": "wikipedia",
+    "downloaded_at": "2026-03-02T02:11:29"
+  },
+  {
+    "filename": "f063acbc3fe421f0.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Ibn_Tulun_Mosque_panel_above_mihrab_DSCF3795.jpg/250px-Ibn_Tulun_Mosque_panel_above_mihrab_DSCF3795.jpg",
+    "wikipedia_title": "Mosque_of_Ibn_Tulun",
+    "source": "wikipedia",
+    "downloaded_at": "2026-03-02T02:11:29"
+  },
+  {
+    "filename": "e538640e75ebbaf8.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Ibn_Tulun_Mosque_smaller_mihrab_DSCF6275.jpg/250px-Ibn_Tulun_Mosque_smaller_mihrab_DSCF6275.jpg",
+    "wikipedia_title": "Mosque_of_Ibn_Tulun",
+    "source": "wikipedia",
+    "downloaded_at": "2026-03-02T02:11:29"
+  }
+]

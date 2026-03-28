@@ -1,0 +1,1591 @@
+[
+  {
+    "hash": "d8791fcac2ed4c4c",
+    "original_name": "0.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 9065,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "9fc3ad90a2bfd139",
+    "original_name": "1.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 11257,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "6167fc133a23a898",
+    "original_name": "10.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 6098,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "a980c2ce15866982",
+    "original_name": "100.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 12118,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "239dc315f87cdfa3",
+    "original_name": "101.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 16406,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "45bd453a4e1f840a",
+    "original_name": "102.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 10776,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "8b15fef05db22ecd",
+    "original_name": "103.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 8640,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "d2f0526dab94f379",
+    "original_name": "104.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 7185,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "40e70136a135fffe",
+    "original_name": "105.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 11375,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "424ce3561415eb93",
+    "original_name": "106.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 12070,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "7f51907f9cd31d4e",
+    "original_name": "107.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 13139,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "d8c5b83c426c33c1",
+    "original_name": "108.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 5607,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "16fd51b2e8d60332",
+    "original_name": "109.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 12041,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "88f8bd80664a6aef",
+    "original_name": "11.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 9221,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "d221c64f38e395de",
+    "original_name": "110.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 9853,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "de1a26fab4c40a6c",
+    "original_name": "111.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 7596,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "0bbd7197d68e1e11",
+    "original_name": "112.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 10397,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "9a507d1d8618df90",
+    "original_name": "113.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 6308,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "fb668b4b7fce5aa8",
+    "original_name": "114.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 10101,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "b81200410884c364",
+    "original_name": "115.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 5056,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "ce3889700319fd90",
+    "original_name": "116.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 7620,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "bf14c9d3bcbd648f",
+    "original_name": "117.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 10391,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "9f132ca6fdc2ac11",
+    "original_name": "118.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 9082,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "72c382de05cc78ec",
+    "original_name": "119.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 21698,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "d987eae105ee015e",
+    "original_name": "12.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 4445,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "3e4e587fe2490336",
+    "original_name": "120.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 8829,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "b207c32be632cdcc",
+    "original_name": "121.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 11165,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "68f14aea39b145bc",
+    "original_name": "122.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 7111,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "626b63190b534808",
+    "original_name": "123.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 10408,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "e40b7d089620e54e",
+    "original_name": "124.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 6381,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "87c4ce5fc8cbd75f",
+    "original_name": "125.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 9626,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "b3ee8acf8ee53e95",
+    "original_name": "126.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 10163,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "ed6cc94e5f636d23",
+    "original_name": "127.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 10114,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "d1e1f53396013ed2",
+    "original_name": "128.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 8718,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "6fb04a735e99b7f2",
+    "original_name": "129.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 8502,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "5b4b1b622d4c6fa4",
+    "original_name": "13.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 5272,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "6de74b03c0db0750",
+    "original_name": "130.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 8811,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "af9fc748aa78bc22",
+    "original_name": "131.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 15200,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "29b45c2a4d526159",
+    "original_name": "132.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 10844,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "319e8b80b08d2b96",
+    "original_name": "133.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 13083,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "51b5dc16d8159b42",
+    "original_name": "14.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 12153,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "ee3c7faf9eadb196",
+    "original_name": "15.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 7839,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "bdd82620338d8fed",
+    "original_name": "16.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 3806,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "a10b73efe0eb81a7",
+    "original_name": "17.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 9350,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "e33a6a26a4ce5936",
+    "original_name": "18.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 11382,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "7465c3c0cdb183c8",
+    "original_name": "19.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 4700,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "1d0b60c279aeef6e",
+    "original_name": "2.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 12961,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "18e05fb6871b00a9",
+    "original_name": "20.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 11840,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "383c83eb404c577c",
+    "original_name": "21.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 3020,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "2dc469d9cb308cb2",
+    "original_name": "22.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 8893,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "e27a4faecfc95d8d",
+    "original_name": "23.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 8986,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "e8ed09d5c5f3454b",
+    "original_name": "24.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 6844,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "4d6909854dda9182",
+    "original_name": "25.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 11933,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "de22c073401d6027",
+    "original_name": "26.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 8576,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "6c4155e637caeb6a",
+    "original_name": "27.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 11207,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "944ae3866cdeb613",
+    "original_name": "28.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 6517,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "5dbd265fcb07c4a6",
+    "original_name": "29.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 7476,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "eb4088f0e96135b8",
+    "original_name": "3.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 11850,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "c3d1dd414f1afa82",
+    "original_name": "30.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 15568,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "84f39da63a7fa749",
+    "original_name": "31.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 21834,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "2ae53951a4acc589",
+    "original_name": "32.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 8551,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "8235847d8ba4560f",
+    "original_name": "33.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 10908,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "a03581e6c2fef9d0",
+    "original_name": "34.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 6007,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "cc83b9a8fbd90c43",
+    "original_name": "35.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 12391,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "7b3611756e538352",
+    "original_name": "36.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 6044,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "42381a1a1c570f98",
+    "original_name": "37.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 5802,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "7ed216bed0ddbc60",
+    "original_name": "38.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 5583,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "4c3bc7bb8a0e9b83",
+    "original_name": "39.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 8753,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "d148f112d424f294",
+    "original_name": "4.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 13880,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "331ade813dce045c",
+    "original_name": "40.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 17607,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "1027aba596b13c68",
+    "original_name": "41.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 14868,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "d1196856fc7019ce",
+    "original_name": "42.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 4353,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "90c6885c1165b113",
+    "original_name": "43.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 11027,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "3c5e5733891f909c",
+    "original_name": "44.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 7979,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "2a5c4ce96d48cc78",
+    "original_name": "45.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 7157,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "9be4e348c19d9236",
+    "original_name": "46.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 14103,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "0120da4e8548302d",
+    "original_name": "47.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 4094,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "2a0dc579947dc05a",
+    "original_name": "48.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 9749,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "8660ee09efeabff3",
+    "original_name": "49.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 7772,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "2a431f29aa34668e",
+    "original_name": "5.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 10213,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "16ffe2da2267d0e2",
+    "original_name": "50.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 10131,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "39c91cbdc7fd06f0",
+    "original_name": "51.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 4469,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "f9da993d1444afca",
+    "original_name": "52.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 8541,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "d8bb194cd37f46b2",
+    "original_name": "53.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 14275,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "e33b07e0b71b7283",
+    "original_name": "54.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 12718,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "dc6ae17402da9290",
+    "original_name": "55.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 7966,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "31446dabe08e5336",
+    "original_name": "56.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 16324,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "4858a034d9948054",
+    "original_name": "57.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 6869,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "d1cc7d7c545504fc",
+    "original_name": "58.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 8864,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "5d589103929faa27",
+    "original_name": "59.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 3995,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "6690f055e450e74f",
+    "original_name": "6.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 15044,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "2d642bc396d6789a",
+    "original_name": "60.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 7097,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "dc33aea6dcf17641",
+    "original_name": "61.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 7571,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "541540ec2313c37f",
+    "original_name": "62.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 5223,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "6066506bbdc8c17e",
+    "original_name": "63.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 13561,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "bb76bb73cc8436bb",
+    "original_name": "64.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 6776,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "5cedd5864740f21c",
+    "original_name": "65.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 15338,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "50690af171dc22e8",
+    "original_name": "66.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 10686,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "6027c5cc8f30b186",
+    "original_name": "67.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 10223,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "3e682e792c10d487",
+    "original_name": "68.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 8826,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "8487856796cadf76",
+    "original_name": "69.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 5779,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "24bfe68e7b738266",
+    "original_name": "7.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 18589,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "55dcf6a848794550",
+    "original_name": "70.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 3803,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "d301abdca832b3fc",
+    "original_name": "71.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 15405,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "9f4b0c10468c4076",
+    "original_name": "72.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 4398,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "a54901a31a35d5f8",
+    "original_name": "73.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 16645,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "3ad8555efb3c3577",
+    "original_name": "74.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 3568,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "497ec20b4d44a85c",
+    "original_name": "75.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 14290,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "d99f247069b750ef",
+    "original_name": "76.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 7324,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "964e492af0416b0a",
+    "original_name": "77.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 17149,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "6e555bda1d029865",
+    "original_name": "78.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 11024,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "8cd462455a292819",
+    "original_name": "79.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 4963,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "4f435909c6edaadd",
+    "original_name": "8.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 15531,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "7cc4fea18d1d9a41",
+    "original_name": "80.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 10671,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "1fe6d5640857c7aa",
+    "original_name": "81.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 10082,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "58083b31c793713b",
+    "original_name": "82.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 4676,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "a7020019863e28f8",
+    "original_name": "83.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 15772,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "d6593f81fea198d1",
+    "original_name": "84.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 11356,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "a9d868bec86d7d8e",
+    "original_name": "85.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 16057,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "64f7fcf2b36eb391",
+    "original_name": "86.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 13338,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "d2d6e9a3fd1bead0",
+    "original_name": "87.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 11854,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "d2d3cc8ba436cdc2",
+    "original_name": "88.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 7877,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "069e15d06bf16c23",
+    "original_name": "89.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 10032,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "1cf39a0a2c496399",
+    "original_name": "9.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 10796,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "e9081c3b057e88dc",
+    "original_name": "90.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 10326,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "4b70ed6974b2965a",
+    "original_name": "91.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 8937,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "732a08aad53574f6",
+    "original_name": "92.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 7438,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "c451aa59b58c443c",
+    "original_name": "93.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 6454,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "10d8a0793152029d",
+    "original_name": "94.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 11637,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "b1b8cd02062e3ecc",
+    "original_name": "95.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 6516,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "90035a6cb21bb09f",
+    "original_name": "96.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 7702,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "2d6804218fa7257e",
+    "original_name": "97.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 15084,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "e54dfd6261df6e55",
+    "original_name": "98.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 13248,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "hash": "bf02e0d5288c11c0",
+    "original_name": "99.jpg",
+    "original_class": "Siwa",
+    "size_bytes": 5428,
+    "source": "kaggle:aymanmostafa11/eg-landmarks",
+    "downloaded_at": "2026-03-02T00:01:35"
+  },
+  {
+    "filename": "8b0a5616910069fa.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/af/%D9%8A%D9%88%D9%85_%D8%AC%D8%AF%D9%8A%D8%AF.jpg",
+    "wikipedia_title": "Siwa_Oasis",
+    "source": "wikipedia",
+    "downloaded_at": "2026-03-02T02:12:01"
+  },
+  {
+    "filename": "34451d69575e9215.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/%D9%8A%D9%88%D9%85_%D8%AC%D8%AF%D9%8A%D8%AF.jpg/1280px-%D9%8A%D9%88%D9%85_%D8%AC%D8%AF%D9%8A%D8%AF.jpg",
+    "wikipedia_title": "Siwa_Oasis",
+    "source": "wikipedia",
+    "downloaded_at": "2026-03-02T02:12:01"
+  },
+  {
+    "filename": "0b646f3b838e5219.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Siwa_oasis_-_Egypt.jpg/1280px-Siwa_oasis_-_Egypt.jpg",
+    "wikipedia_title": "Siwa_Oasis",
+    "source": "wikipedia",
+    "downloaded_at": "2026-03-02T02:12:01"
+  },
+  {
+    "filename": "67c8101e00cb0705.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Siwa_Oasis%2C_Western_Desert%2C_Egypt.jpg/1280px-Siwa_Oasis%2C_Western_Desert%2C_Egypt.jpg",
+    "wikipedia_title": "Siwa_Oasis",
+    "source": "wikipedia",
+    "downloaded_at": "2026-03-02T02:12:01"
+  },
+  {
+    "filename": "8e457ea6cde5b162.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Alexander_called_the_son_of_Jupiter-Ammon_by_the_priest_at_the_oracle_in_the_Siwa_oasis_%281696%29.jpg/500px-Alexander_called_the_son_of_Jupiter-Ammon_by_the_priest_at_the_oracle_in_the_Siwa_oasis_%281696%29.jpg",
+    "wikipedia_title": "Siwa_Oasis",
+    "source": "wikipedia",
+    "downloaded_at": "2026-03-02T02:12:01"
+  },
+  {
+    "filename": "7a7df4c54a370e5b.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Girl_wearing_the_traditional_dress_of_Siwa_Oasis_grinding_salt.jpg/500px-Girl_wearing_the_traditional_dress_of_Siwa_Oasis_grinding_salt.jpg",
+    "wikipedia_title": "Siwa_Oasis",
+    "source": "wikipedia",
+    "downloaded_at": "2026-03-02T02:12:01"
+  },
+  {
+    "filename": "af7cf573d19d21fc.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Siwa_Oasis%2C_Qesm_Siwah%2C_Matrouh_Governorate%2C_Egypt_-_panoramio_%287%29.jpg/250px-Siwa_Oasis%2C_Qesm_Siwah%2C_Matrouh_Governorate%2C_Egypt_-_panoramio_%287%29.jpg",
+    "wikipedia_title": "Siwa_Oasis",
+    "source": "wikipedia",
+    "downloaded_at": "2026-03-02T02:12:01"
+  },
+  {
+    "filename": "09469d35bbe45b70.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Siwa_Oasis%2C_Temple_of_the_Oracle_of_Amun%2C_Egypt.jpg/250px-Siwa_Oasis%2C_Temple_of_the_Oracle_of_Amun%2C_Egypt.jpg",
+    "wikipedia_title": "Siwa_Oasis",
+    "source": "wikipedia",
+    "downloaded_at": "2026-03-02T02:12:01"
+  },
+  {
+    "filename": "ae54403905d95c19.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Siwa_Oasis2009b.jpg/250px-Siwa_Oasis2009b.jpg",
+    "wikipedia_title": "Siwa_Oasis",
+    "source": "wikipedia",
+    "downloaded_at": "2026-03-02T02:12:01"
+  },
+  {
+    "filename": "ce6c537098f9fd8a.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Siwa_Oasis%2C_Cleopatra%27s_Bath%2C_Egypt.jpg/250px-Siwa_Oasis%2C_Cleopatra%27s_Bath%2C_Egypt.jpg",
+    "wikipedia_title": "Siwa_Oasis",
+    "source": "wikipedia",
+    "downloaded_at": "2026-03-02T02:12:01"
+  },
+  {
+    "filename": "4f0ba722b6c62573.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Mosque_in_Siwa_Oasis_%282007%29.jpg/250px-Mosque_in_Siwa_Oasis_%282007%29.jpg",
+    "wikipedia_title": "Siwa_Oasis",
+    "source": "wikipedia",
+    "downloaded_at": "2026-03-02T02:12:01"
+  },
+  {
+    "filename": "006917735fb32b97.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Siwa_Oasis_homes_%28May_2007%29.jpg",
+    "title": "File:Siwa Oasis homes (May 2007).jpg",
+    "license": "CC BY 2.0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"http://www.vascoplanet.com/world/egypt/\">VascoPlanet Egypt</a>",
+    "width": 2048,
+    "height": 1365,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:26:23"
+  },
+  {
+    "filename": "a1c8e30484d3d5f7.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Siwa_Oasis%2C_Qesm_Siwah%2C_Matrouh_Governorate%2C_Egypt_-_panoramio_%287%29.jpg",
+    "title": "File:Siwa Oasis, Qesm Siwah, Matrouh Governorate, Egypt - panoramio (7).jpg",
+    "license": "CC BY 3.0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://web.archive.org/web/20161025221420/http://www.panoramio.com/user/5171986?with_photo_id=77603909\">mykola.rykov</a>",
+    "width": 2816,
+    "height": 2112,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:26:23"
+  },
+  {
+    "filename": "d53489ade3349511.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/0b/The_way_to_siwa_oasis.jpg",
+    "title": "File:The way to siwa oasis.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Ahmed_Emad_H\" title=\"User:Ahmed Emad H\">Ahmed Emad H</a>",
+    "width": 5933,
+    "height": 2357,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:26:23"
+  },
+  {
+    "filename": "e610caac32fa3e8c.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/74/Siwa_Oasis%2C_Temple_of_the_Oracle_of_Amun%2C_Egypt.jpg",
+    "title": "File:Siwa Oasis, Temple of the Oracle of Amun, Egypt.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Argenberg\" title=\"User:Argenberg\">Vyacheslav Argenberg</a>",
+    "width": 3072,
+    "height": 2048,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:26:23"
+  },
+  {
+    "filename": "49c2c005f18378e3.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/65/Siwa_Oasis%2C_Western_Desert%2C_Egypt.jpg",
+    "title": "File:Siwa Oasis, Western Desert, Egypt.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Argenberg\" title=\"User:Argenberg\">Vyacheslav Argenberg</a>",
+    "width": 3072,
+    "height": 2048,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:26:23"
+  },
+  {
+    "filename": "6e132ce52051538e.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/63/Siwa_Oasis%2C_Sahara_Desert%2C_Egypt.jpg",
+    "title": "File:Siwa Oasis, Sahara Desert, Egypt.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Argenberg\" title=\"User:Argenberg\">Vyacheslav Argenberg</a>",
+    "width": 3072,
+    "height": 2048,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:26:23"
+  },
+  {
+    "filename": "e1bfc02ba68da86a.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/16/Siwa_Oasis%2C_Temple_of_the_Oracle_of_Amun_2%2C_Egypt.jpg",
+    "title": "File:Siwa Oasis, Temple of the Oracle of Amun 2, Egypt.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Argenberg\" title=\"User:Argenberg\">Vyacheslav Argenberg</a>",
+    "width": 3072,
+    "height": 2048,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:26:23"
+  },
+  {
+    "filename": "98daca1f98efff7b.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/c4/Siwa_Oasis%2C_Cleopatra%27s_Bath%2C_Egypt.jpg",
+    "title": "File:Siwa Oasis, Cleopatra's Bath, Egypt.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Argenberg\" title=\"User:Argenberg\">Vyacheslav Argenberg</a>",
+    "width": 3072,
+    "height": 2048,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:26:23"
+  },
+  {
+    "filename": "8f2b145f3111def7.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/a6/Siwa_Oasis%2C_Remote_houses%2C_Sahara_Desert%2C_Egypt.jpg",
+    "title": "File:Siwa Oasis, Remote houses, Sahara Desert, Egypt.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Argenberg\" title=\"User:Argenberg\">Vyacheslav Argenberg</a>",
+    "width": 3072,
+    "height": 2048,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:26:23"
+  },
+  {
+    "filename": "a9438a00f3065cf8.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Siwa_Oasis%2C_Outskirts%2C_Libyan_Desert%2C_Egypt.jpg",
+    "title": "File:Siwa Oasis, Outskirts, Libyan Desert, Egypt.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Argenberg\" title=\"User:Argenberg\">Vyacheslav Argenberg</a>",
+    "width": 3072,
+    "height": 2048,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:26:23"
+  },
+  {
+    "filename": "afb24320de08ee72.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/18/Siwa_Oasis%2C_Village_houses%2C_Sahara_Desert%2C_Egypt.jpg",
+    "title": "File:Siwa Oasis, Village houses, Sahara Desert, Egypt.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Argenberg\" title=\"User:Argenberg\">Vyacheslav Argenberg</a>",
+    "width": 3072,
+    "height": 2048,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:26:23"
+  },
+  {
+    "filename": "2d552c8495f15fd0.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Siwa_Oasis%2C_Sahara_Desert%2C_Libyan_Desert%2C_Egypt.jpg",
+    "title": "File:Siwa Oasis, Sahara Desert, Libyan Desert, Egypt.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Argenberg\" title=\"User:Argenberg\">Vyacheslav Argenberg</a>",
+    "width": 3072,
+    "height": 2048,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:26:23"
+  },
+  {
+    "filename": "98106dc1b64cf1e1.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Siwa_Oasis%2C_Houses_in_the_desert%2C_Egypt.jpg",
+    "title": "File:Siwa Oasis, Houses in the desert, Egypt.jpg",
+    "license": "CC BY 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Argenberg\" title=\"User:Argenberg\">Vyacheslav Argenberg</a>",
+    "width": 3072,
+    "height": 2048,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:26:23"
+  },
+  {
+    "filename": "8d7c4b1ec3c0ecd0.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Siwa_Oasis_butte.jpg",
+    "title": "File:Siwa Oasis butte.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:3family6&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:3family6 (page does not exist)\">3family6</a>",
+    "width": 2400,
+    "height": 688,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:26:23"
+  },
+  {
+    "filename": "992feac11fad15fe.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Siwa_Oasis_Hill_and_Cloudy_Sky.jpg",
+    "title": "File:Siwa Oasis Hill and Cloudy Sky.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Phoenixima82&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Phoenixima82 (page does not exist)\">Maaly Saeed</a>",
+    "width": 6000,
+    "height": 4000,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:26:23"
+  },
+  {
+    "filename": "00add369735cc900.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/44/Siwa_Oasis%2C_Aftans_Lake.jpg",
+    "title": "File:Siwa Oasis, Aftans Lake.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Phoenixima82&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Phoenixima82 (page does not exist)\">Maaly Saeed</a>",
+    "width": 6000,
+    "height": 4000,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:26:23"
+  },
+  {
+    "filename": "0d89b8372c86c72f.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Mosque_in_Siwa_Oasis_%282007%29.jpg",
+    "title": "File:Mosque in Siwa Oasis (2007).jpg",
+    "license": "CC BY 2.0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"http://www.vascoplanet.com/\">Vyacheslav Argenberg, VascoPlanet Photography</a>",
+    "width": 2048,
+    "height": 1365,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:26:23"
+  },
+  {
+    "filename": "00d8faab60cf2f3a.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Siwa_oasis_%282007-05-097%29_%28870484450%29.jpg",
+    "title": "File:Siwa oasis (2007-05-097) (870484450).jpg",
+    "license": "CC BY 2.0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/97189870@N00\">Vyacheslav Argenberg</a> from Seattle, WA, USA",
+    "width": 2048,
+    "height": 1365,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:26:23"
+  },
+  {
+    "filename": "77f213275eca5933.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/41/Siwa_oasis_in_Egypt_%282007-05-095%29_%28869634463%29.jpg",
+    "title": "File:Siwa oasis in Egypt (2007-05-095) (869634463).jpg",
+    "license": "CC BY 2.0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/97189870@N00\">Vyacheslav Argenberg</a> from Seattle, WA, USA",
+    "width": 3072,
+    "height": 2048,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:26:23"
+  },
+  {
+    "filename": "830b326a2f8b51fc.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/31/Ziziphus_jujuba_in_Siwa_Oasis_02.jpg",
+    "title": "File:Ziziphus jujuba in Siwa Oasis 02.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:MJEHermann\" title=\"User:MJEHermann\">Michael Hermann</a>",
+    "width": 3056,
+    "height": 4592,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:26:23"
+  },
+  {
+    "filename": "6f13048cdec69c8d.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Ziziphus_jujuba_in_Siwa_Oasis_01.jpg",
+    "title": "File:Ziziphus jujuba in Siwa Oasis 01.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:MJEHermann\" title=\"User:MJEHermann\">Michael Hermann</a>",
+    "width": 3056,
+    "height": 4592,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:26:23"
+  },
+  {
+    "filename": "17cac04bd5690bdf.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/c1/Siwa_oasis_and_its_heritage.jpg",
+    "title": "File:Siwa oasis and its heritage.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Eimy_Eldeeb&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Eimy Eldeeb (page does not exist)\">Eimy Eldeeb</a>",
+    "width": 4608,
+    "height": 3456,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:26:23"
+  },
+  {
+    "filename": "988c6818402d65d7.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Siwa_Oasis_Sunset_Egypt_Travelaesia.jpg",
+    "title": "File:Siwa Oasis Sunset Egypt Travelaesia.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Travelaesia\" title=\"User:Travelaesia\">Travelaesia</a>",
+    "width": 853,
+    "height": 1280,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:26:23"
+  },
+  {
+    "filename": "a13bf0a0ee7b1690.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Siwa_oasis_-_Egypt.jpg",
+    "title": "File:Siwa oasis - Egypt.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:M_mousa_86\" title=\"User:M mousa 86\">Mohammed Moussa</a>",
+    "width": 4498,
+    "height": 2979,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:26:23"
+  },
+  {
+    "filename": "1eac9ce2dcfbe646.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/44/Matrouh_-_Siwa_Oasis_%2832%29.jpg",
+    "title": "File:Matrouh - Siwa Oasis (32).jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Eslam_M._Chalabi&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Eslam M. Chalabi (page does not exist)\">Eslam M. Chalabi</a>",
+    "width": 720,
+    "height": 960,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:26:23"
+  },
+  {
+    "filename": "18a36f6d51093d0d.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/08/Girl_wearing_the_traditional_dress_of_Siwa_Oasis_grinding_salt.jpg",
+    "title": "File:Girl wearing the traditional dress of Siwa Oasis grinding salt.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Ahmedtahrir\" title=\"User:Ahmedtahrir\">Ahmed Hamed Ahmed</a>",
+    "width": 1024,
+    "height": 683,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:26:23"
+  },
+  {
+    "filename": "4b1db73a2850b1d1.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Siwa_Oasis_dunes.jpg",
+    "title": "File:Siwa Oasis dunes.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:K.e.elsayed&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:K.e.elsayed (page does not exist)\">Khaled E. Ahmed</a>",
+    "width": 5312,
+    "height": 2988,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:26:23"
+  },
+  {
+    "filename": "607b73c32bb5a58e.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/55/Siwa_Oasis_Hill.jpg",
+    "title": "File:Siwa Oasis Hill.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Unlikelymustard&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Unlikelymustard (page does not exist)\">Unlikelymustard</a>",
+    "width": 3264,
+    "height": 2448,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:26:23"
+  },
+  {
+    "filename": "7e51b0ac1d05416d.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Siwa_Oasis%2C_sunset_on_Maraqi_%28Egypt%29.jpg",
+    "title": "File:Siwa Oasis, sunset on Maraqi (Egypt).jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Vincent_Battesti\" title=\"User:Vincent Battesti\">Vincent Battesti</a>",
+    "width": 2000,
+    "height": 1126,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:26:23"
+  },
+  {
+    "filename": "1fc8eb6481824c3a.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/36/Siwa_oasis%2C_Egypt_%282007-05-121%29_%28870499126%29.jpg",
+    "title": "File:Siwa oasis, Egypt (2007-05-121) (870499126).jpg",
+    "license": "CC BY 2.0",
+    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/97189870@N00\">Vyacheslav Argenberg</a> from Seattle, WA, USA",
+    "width": 2048,
+    "height": 1365,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:26:23"
+  },
+  {
+    "filename": "24e38ee2fe7ce64b.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Siwa_Oasis-Egypt_2.jpg",
+    "title": "File:Siwa Oasis-Egypt 2.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Wael.saad111&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Wael.saad111 (page does not exist)\">Wael Saad</a>",
+    "width": 2048,
+    "height": 1536,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:26:23"
+  },
+  {
+    "filename": "5f26eb185d6598c1.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Siwa_Oasis-Egypt_1.jpg",
+    "title": "File:Siwa Oasis-Egypt 1.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Wael.saad111&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Wael.saad111 (page does not exist)\">Wael Saad</a>",
+    "width": 960,
+    "height": 720,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:26:23"
+  },
+  {
+    "filename": "3d4ee66a0255455b.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/62/Siwa_Oasis-Egypt_3.jpg",
+    "title": "File:Siwa Oasis-Egypt 3.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Wael.saad111&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Wael.saad111 (page does not exist)\">Wael Saad</a>",
+    "width": 2048,
+    "height": 1536,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:26:23"
+  },
+  {
+    "filename": "981c9f3f41379316.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/13/Siwa_Oasis-Egypt_4.jpg",
+    "title": "File:Siwa Oasis-Egypt 4.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Wael.saad111&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Wael.saad111 (page does not exist)\">Wael Saad</a>",
+    "width": 2048,
+    "height": 1536,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:26:23"
+  },
+  {
+    "filename": "baa15c7786af8b4a.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Siwa_Oasis-Egypt_5.jpg",
+    "title": "File:Siwa Oasis-Egypt 5.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Wael.saad111&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Wael.saad111 (page does not exist)\">Wael Saad</a>",
+    "width": 1536,
+    "height": 2048,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:26:23"
+  },
+  {
+    "filename": "5a42dc07c251f166.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/08/Siwa_Oasis-Egypt_10.jpg",
+    "title": "File:Siwa Oasis-Egypt 10.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Wael.saad111&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Wael.saad111 (page does not exist)\">Wael Saad</a>",
+    "width": 2048,
+    "height": 1536,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:26:23"
+  },
+  {
+    "filename": "3e6d14370b716967.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Siwa_Oasis-Egypt_11.jpg",
+    "title": "File:Siwa Oasis-Egypt 11.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Wael.saad111&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Wael.saad111 (page does not exist)\">Wael Saad</a>",
+    "width": 2048,
+    "height": 1536,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:26:23"
+  },
+  {
+    "filename": "8257f68de2f56332.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/33/Siwa_Oasis-Egypt_12.jpg",
+    "title": "File:Siwa Oasis-Egypt 12.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Wael.saad111&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Wael.saad111 (page does not exist)\">Wael Saad</a>",
+    "width": 2048,
+    "height": 1536,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:26:23"
+  },
+  {
+    "filename": "ebe88ee41f67fb9a.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Siwa_Oasis-Egypt_13.jpg",
+    "title": "File:Siwa Oasis-Egypt 13.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Wael.saad111&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Wael.saad111 (page does not exist)\">Wael Saad</a>",
+    "width": 1154,
+    "height": 2048,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:26:23"
+  },
+  {
+    "filename": "691e2470d2593e18.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Siwa_Oasis-Egypt_14.jpg",
+    "title": "File:Siwa Oasis-Egypt 14.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Wael.saad111&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Wael.saad111 (page does not exist)\">Wael Saad</a>",
+    "width": 2048,
+    "height": 1536,
+    "source": "wikimedia_commons",
+    "downloaded_at": "2026-03-03T00:26:23"
+  }
+]

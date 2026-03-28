@@ -1,0 +1,19 @@
+{
+  "slug": "catacombs_kom_el_shoqafa",
+  "category": "Greco-Roman",
+  "region": "Alexandria",
+  "wikipedia": {
+    "en": {
+      "title": "Catacombs of Kom El Shoqafa",
+      "extract": "The catacombs of Kom El Shoqafa are an historical archaeological site located in Alexandria, Egypt, and are considered one of the Seven Wonders of the Middle Ages.",
+      "description": "Archaeological site in Egypt",
+      "coordinates": {
+        "lat": 31.178558,
+        "lon": 29.892954
+      },
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/...Catacombsa.jpg/330px-...Catacombsa.jpg",
+      "original_image": "https://upload.wikimedia.org/wikipedia/commons/7/72/...Catacombsa.jpg",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Catacombs_of_Kom_El_Shoqafa"
+    }
+  }
+}
