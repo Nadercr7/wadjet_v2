@@ -5,7 +5,7 @@
     "cover_glyph": "𓅃",
     "difficulty": "intermediate",
     "estimated_minutes": 14,
-    "glyphs_taught": ["G5", "S42", "S34", "D4", "N35", "V28", "R4"],
+    "glyphs_taught": ["G5", "S42", "D4", "V28", "S34"],
     "chapters": [
         {
             "index": 0,

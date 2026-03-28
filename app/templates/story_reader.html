@@ -285,17 +285,17 @@ function storyReader(storyId, lang) {
         },
 
         renderParagraph(para) {
+            const esc = (s) => (s||'').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
             let text = para.text?.[this.lang] || para.text?.en || '';
             // Highlight annotated words with gold glow
             for (const ann of (para.glyph_annotations || [])) {
                 const word = ann.word?.[this.lang] || ann.word?.en || '';
                 if (word && text.includes(word)) {
-                    text = text.replace(
-                        word,
+                    const highlighted =
                         '<span class="text-gold font-semibold cursor-help border-b border-gold/30"' +
-                        ' title="' + (ann.glyph || '') + ' (' + (ann.gardiner_code || '') + ') — ' + (ann.transliteration || '') + '">' +
-                        word + ' <span class="font-hieroglyph text-gold/70">' + (ann.glyph || '') + '</span></span>'
-                    );
+                        ' title="' + esc(ann.glyph) + ' (' + esc(ann.gardiner_code) + ') — ' + esc(ann.transliteration) + '">' +
+                        esc(word) + ' <span class="font-hieroglyph text-gold/70">' + esc(ann.glyph) + '</span></span>';
+                    text = text.split(word).join(highlighted);
                 }
             }
             return text;
@@ -449,6 +449,7 @@ function storyNarration() {
         blobUrl: null,
 
         async toggleNarration() {
+            if (this.loading) return;
             if (this.playing) {
                 this.stop();
                 return;
@@ -509,6 +510,7 @@ function storyNarration() {
                 speechSynthesis.cancel();
             }
             this.playing = false;
+            this.loading = false;
             this.cleanup();
         },
 

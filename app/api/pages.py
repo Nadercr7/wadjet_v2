@@ -1,8 +1,12 @@
-from fastapi import APIRouter, Request
+import re
+
+from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import HTMLResponse, PlainTextResponse, Response
 
 from app.config import settings
 from app.i18n import get_lang
+
+_STORY_ID_RE = re.compile(r"^[a-z0-9\-]{1,50}$")
 
 router = APIRouter()
 
@@ -79,6 +83,8 @@ async def stories(request: Request):
 
 @router.get("/stories/{story_id}", response_class=HTMLResponse)
 async def story_reader(request: Request, story_id: str):
+    if not _STORY_ID_RE.match(story_id):
+        raise HTTPException(status_code=404, detail="Story not found")
     templates = request.app.state.templates
     lang = get_lang(request)
     return templates.TemplateResponse(request, "story_reader.html", {"story_id": story_id, "lang": lang})

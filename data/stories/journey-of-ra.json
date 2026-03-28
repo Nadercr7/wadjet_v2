@@ -5,7 +5,7 @@
     "cover_glyph": "𓇳",
     "difficulty": "beginner",
     "estimated_minutes": 12,
-    "glyphs_taught": ["N5", "N1", "D21", "M17", "G5", "I9"],
+    "glyphs_taught": ["N5", "N1", "D21", "M17", "G5"],
     "chapters": [
         {
             "index": 0,

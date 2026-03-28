@@ -6,8 +6,6 @@ image generation, and progress tracking.
 
 from __future__ import annotations
 
-import hashlib
-import hmac
 import logging
 import re
 
@@ -15,7 +13,6 @@ from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel, Field
 
-from app.config import settings
 from app.core.stories_engine import get_chapter, get_story_ids, load_all_stories, load_story
 from app.rate_limit import limiter
 
@@ -69,13 +66,6 @@ async def get_story_chapter(request: Request, story_id: str, index: int):
 
 
 # ── Interaction Checking ──────────────────────────────────────────────────
-
-def _sign_answer(story_id: str, chapter_idx: int, interaction_idx: int, answer: str) -> str:
-    """Generate HMAC signature for an interaction answer."""
-    secret = (settings.csrf_secret or "fallback-secret").encode()
-    msg = f"{story_id}:{chapter_idx}:{interaction_idx}:{answer}".encode()
-    return hmac.new(secret, msg, hashlib.sha256).hexdigest()
-
 
 class InteractionSubmit(BaseModel):
     chapter_index: int = Field(ge=0)

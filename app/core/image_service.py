@@ -82,7 +82,8 @@ async def _try_cloudflare(model: str, prompt: str, num_steps: int = 4) -> bytes 
                 headers={"Authorization": f"Bearer {settings.cloudflare_api_token}"},
                 json={"prompt": prompt, "num_steps": num_steps},
             )
-            if resp.status_code == 200 and len(resp.content) > 1000:
+            ct = resp.headers.get("content-type", "")
+            if resp.status_code == 200 and len(resp.content) > 1000 and ct.startswith("image/"):
                 return resp.content
             logger.warning("Cloudflare %s returned status=%d len=%d", model, resp.status_code, len(resp.content))
     except Exception as e:
