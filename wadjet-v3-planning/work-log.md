@@ -260,3 +260,18 @@
 - ✅ T8: Health endpoint returns ok
 - ✅ T9: Landing, scan pages load with 200 status
 - ✅ T10: No Python/JS errors in any modified file
+
+### Phase 5 Audit — 9 Issues Found & Fixed
+**Commit**: `f0f1d08` — `[Phase 5] Audit fixes — search debounce, totalCount split, loadMore retry guard, async cache I/O, slug normalization`
+
+| # | Severity | Issue | Fix |
+|---|----------|-------|-----|
+| 1 | HIGH | `@input="fetchLandmarks()"` bypasses `x-model.debounce.300ms` — search lags one character | Changed to `x-model` + `@input.debounce.300ms="fetchLandmarks()"` |
+| 2 | HIGH | `fetchLandmarks()` overwrites `totalCount` with filtered count — "All" pill shows wrong number | Added separate `filteredCount` for "Showing X of Y" |
+| 3 | MEDIUM | `loadMore()` catch retries infinitely via IntersectionObserver | After 3 consecutive failures, set `hasMore = false` |
+| 4 | MEDIUM | `openDetail()` closes modal silently on error | Set error object instead of null |
+| 5 | MEDIUM | `_normalize_slug` elif sets `best_match = normalized` not `cls` | Changed to `best_match = cls` |
+| 6 | MEDIUM | `_EnrichmentCache._save()` blocks event loop | Added `save_async()` via `asyncio.to_thread()` + atomic write |
+| 7 | MEDIUM | `list_landmarks` and `list_categories` unrate-limited | Added `@limiter.limit("60/minute")` |
+| 8 | LOW | `scan.html loadFile()` leaks previous object URL | Added `revokeObjectURL` before overwrite |
+| 9 | LOW | `sw.js MODEL_PATHS` dead code + "v2" comment | Removed dead array, updated to "v3" |
