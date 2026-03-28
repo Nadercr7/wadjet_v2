@@ -13,6 +13,7 @@ from app.auth.password import hash_password, verify_password
 from app.db.crud import (
     create_user,
     delete_refresh_token,
+    delete_user_refresh_tokens,
     get_user_by_email,
     store_refresh_token,
     validate_refresh_token,
@@ -79,6 +80,9 @@ async def login(body: LoginRequest, request: Request, db: AsyncSession = Depends
     user = await get_user_by_email(db, body.email)
     if not user or not verify_password(body.password, user.password_hash):
         raise HTTPException(status_code=401, detail="Invalid email or password")
+
+    # Clean up old refresh tokens for this user before issuing a new one
+    await delete_user_refresh_tokens(db, user.id)
 
     access_token = create_access_token(user.id)
     refresh_token, expires_at = create_refresh_token(user.id)
