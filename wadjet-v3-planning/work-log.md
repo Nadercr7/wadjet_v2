@@ -78,3 +78,35 @@
 - ✅ 35 scan requests → 429 triggered at request #28
 - ✅ 10 quiz requests → 10 unique questions (non-deterministic)
 - ✅ All error responses return generic message, server logs full traceback
+
+---
+
+## 2026-03-28 — Phase 2: Self-Host CDN Scripts + Offline Fix
+
+**Bugs Fixed:**
+- **C1**: 6 CDN scripts not cached → downloaded Alpine.js, HTMX, GSAP, ScrollTrigger, Lenis, Atropos to `app/static/vendor/`; all pages now load fully offline
+- **M8**: HTMX script lacked `defer` → all 6 vendor scripts now have `defer` attribute
+- **M11**: No SRI on CDN scripts → solved by self-hosting (no external origin = no SRI needed)
+- **M12**: `tts.js` not in service worker pre-cache → added to `STATIC_ASSETS` array
+- **M18**: Cache invalidation wiped model cache on version bump → `MODEL_CACHE` is now version-independent (`wadjet-models`), persists across SW updates
+- **H8**: Models used network-first strategy → switched to cache-first (models only change on explicit version bump)
+
+**Folder Created:**
+- `app/static/vendor/` — 6 self-hosted JS files (237 KB total)
+  - `alpine.min.js` (44.7 KB), `htmx.min.js` (50.9 KB), `gsap.min.js` (72.8 KB)
+  - `scrolltrigger.min.js` (44.2 KB), `lenis.min.js` (17.7 KB), `atropos.min.js` (6.9 KB)
+
+**Files Modified:**
+- `app/templates/base.html` — replaced 6 CDN `<script>` tags with local `/static/vendor/` paths, all with `defer`; removed CDN DNS prefetch for jsdelivr and unpkg (kept Google Fonts)
+- `app/static/sw.js` — bumped `CACHE_VERSION` to `wadjet-v20`; added 7 entries to `STATIC_ASSETS` (6 vendor + tts.js); `MODEL_CACHE` now version-independent; models switched from `networkFirst` to `cacheFirst`
+
+**Test Results (all pass):**
+- ✅ All 6 vendor scripts served locally (200, correct sizes)
+- ✅ No CDN references in page HTML for the 6 vendor scripts
+- ✅ All 6 vendor script tags have `defer` attribute
+- ✅ `tts.js` present in HTML and SW pre-cache list
+- ✅ Service worker v20 with all vendor scripts in pre-cache
+- ✅ CDN DNS prefetch removed, Google Fonts prefetch kept
+- ✅ All 8 pages load with 200 status
+- ✅ `MODEL_CACHE` is version-independent, `STATIC_CACHE` is versioned
+- ✅ Models use cache-first strategy

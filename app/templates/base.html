@@ -8,9 +8,7 @@
     <meta name="view-transition" content="same-origin">
     <link rel="icon" href="/favicon.ico" type="image/svg+xml">
 
-    <!-- DNS prefetch for CDN resources -->
-    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
-    <link rel="dns-prefetch" href="https://unpkg.com">
+    <!-- DNS prefetch for Google Fonts -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
 
     <!-- Fonts -->
@@ -70,21 +68,13 @@
         </div>
     </div>
 
-    <!-- Atropos 3D Parallax -->
-    <script src="https://cdn.jsdelivr.net/npm/atropos@2/atropos.min.js" defer></script>
-
-    <!-- GSAP + ScrollTrigger (for scroll animations) -->
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js" defer></script>
-
-    <!-- Lenis Smooth Scroll -->
-    <script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js" defer></script>
-
-    <!-- Alpine.js -->
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
-
-    <!-- HTMX -->
-    <script src="https://unpkg.com/htmx.org@2.0.4" integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" crossorigin="anonymous"></script>
+    <!-- Vendor scripts (self-hosted for offline support) -->
+    <script src="/static/vendor/atropos.min.js" defer></script>
+    <script src="/static/vendor/gsap.min.js" defer></script>
+    <script src="/static/vendor/scrolltrigger.min.js" defer></script>
+    <script src="/static/vendor/lenis.min.js" defer></script>
+    <script src="/static/vendor/alpine.min.js" defer></script>
+    <script src="/static/vendor/htmx.min.js" defer></script>
 
     <!-- App JS -->
     <script src="/static/js/tts.js?v=1"></script>

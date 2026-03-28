@@ -3,9 +3,9 @@
  * Caches static assets and ML models for offline scanning.
  */
 
-const CACHE_VERSION = 'wadjet-v19';
+const CACHE_VERSION = 'wadjet-v20';
 const STATIC_CACHE = CACHE_VERSION + '-static';
-const MODEL_CACHE = CACHE_VERSION + '-models';
+const MODEL_CACHE = 'wadjet-models';  // version-independent: models persist across updates
 
 // Static assets to pre-cache on install
 const STATIC_ASSETS = [
@@ -20,7 +20,14 @@ const STATIC_ASSETS = [
     '/static/dist/styles.css',
     '/static/css/atropos.css',
     '/static/js/app.js',
+    '/static/js/tts.js',
     '/static/js/hieroglyph-pipeline.js',
+    '/static/vendor/alpine.min.js',
+    '/static/vendor/htmx.min.js',
+    '/static/vendor/gsap.min.js',
+    '/static/vendor/scrolltrigger.min.js',
+    '/static/vendor/lenis.min.js',
+    '/static/vendor/atropos.min.js',
 ];
 
 // ML model files — cached on first use (too large to pre-cache)
@@ -66,18 +73,17 @@ self.addEventListener('fetch', (event) => {
     // API endpoints: network-only (except health)
     if (url.pathname.startsWith('/api/')) return;
 
-    // ML models: network-first for all model files.
-    // Weight shards are large but change when the model is re-converted,
-    // so we always fetch from network first and cache for offline use.
+    // ML models: cache-first (they only change on version bump)
     const isModel = url.pathname.startsWith('/models/');
     if (isModel) {
-        event.respondWith(networkFirst(event.request, MODEL_CACHE));
+        event.respondWith(cacheFirst(event.request, MODEL_CACHE));
         return;
     }
 
-    // Static assets: stale-while-revalidate
+    // Static assets: stale-while-revalidate (strip ?v= for cache matching)
     if (url.pathname.startsWith('/static/')) {
-        event.respondWith(staleWhileRevalidate(event.request, STATIC_CACHE));
+        const cacheUrl = new Request(url.origin + url.pathname);
+        event.respondWith(staleWhileRevalidate(event.request, cacheUrl, STATIC_CACHE));
         return;
     }
 
@@ -121,12 +127,12 @@ async function networkFirst(request, cacheName) {
     }
 }
 
-async function staleWhileRevalidate(request, cacheName) {
+async function staleWhileRevalidate(request, cacheKey, cacheName) {
     const cache = await caches.open(cacheName);
-    const cached = await cache.match(request);
+    const cached = await cache.match(cacheKey);
     const fetchPromise = fetch(request).then(response => {
-        if (response.ok) cache.put(request, response.clone());
+        if (response.ok) cache.put(cacheKey, response.clone());
         return response;
-    }).catch(() => cached);
+    }).catch(() => cached || new Response('Offline', { status: 503, headers: { 'Content-Type': 'text/plain' } }));
     return cached || fetchPromise;
 }
