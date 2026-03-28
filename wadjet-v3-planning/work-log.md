@@ -492,3 +492,64 @@
 - ✅ 20/20 endpoints return 200 (10 EN pages, 8 AR pages, health, robots, sitemap, 5 lessons)
 - ✅ Server logs clean — no errors, warnings, or tracebacks
 - ✅ App factory imports validated
+
+---
+
+## Phase 8 — Stories of the Nile (Quiz Replacement)
+
+**Commit**: `46a7376` — `[Phase 8] Stories of the Nile — 5 stories, AI illustrations (FLUX), narrative TTS (Gemini), Ken Burns animations`
+
+### What Was Built
+Interactive Egyptian mythology storytelling experience replacing Quiz in the nav. 5 bilingual stories (EN/AR) with AI-generated illustrations, narrative TTS, Ken Burns animations, and 3 interaction types teaching hieroglyphs.
+
+### 5 Stories Created
+| Story | Chapters | Glyphs | Difficulty | Minutes |
+|-------|----------|--------|------------|---------|
+| osiris-myth | 4 | 7 (Q1,N5,S34,G14,R8,S42,D4) | beginner | 15 |
+| journey-of-ra | 3 | 6 (N5,N1,D21,M17,G5,I9) | beginner | 12 |
+| creation-from-nun | 2 | 6 (N35,N5,G1,X1,O1,P5) | beginner | 10 |
+| eye-of-ra | 2 | 6 (D4,W15,E23,S34,D36,G14) | intermediate | 12 |
+| contendings-horus-set | 3 | 7 (G5,S42,S34,D4,N35,V28,R4) | intermediate | 14 |
+
+### New Files (7)
+| File | Purpose |
+|------|---------|
+| `data/stories/*.json` (5) | Story data — bilingual content, glyph annotations, scene prompts, interactions |
+| `app/core/stories_engine.py` | Story loader with mtime-based caching |
+| `app/core/image_service.py` | Cloudflare FLUX.1 → SDXL fallback, async disk caching |
+| `app/api/stories.py` | 5 API endpoints (list, detail, chapter, interact, image gen) |
+| `app/templates/stories.html` | Listing page — difficulty filter, story cards grid |
+| `app/templates/story_reader.html` | Reader — progress bar, chapters, interactions, narration |
+
+### Modified Files (8)
+| File | Change |
+|------|--------|
+| `app/api/pages.py` | Added /stories and /stories/{id} page routes + sitemap |
+| `app/main.py` | Registered stories router |
+| `app/templates/partials/nav.html` | Quiz → Stories (desktop + mobile) |
+| `app/templates/base.html` | CSS cache bust v22 → v23 |
+| `app/static/css/input.css` | Ken Burns animation + .story-hero-image class |
+| `app/static/sw.js` | Added /stories to STATIC_ASSETS, bumped wadjet-v22 → v23 |
+| `app/i18n/en.json` | nav.stories + 30 stories.* keys |
+| `app/i18n/ar.json` | nav.stories + 30 stories.* keys (Arabic) |
+
+### Interaction Types
+- **glyph_discovery**: Tap hieroglyphs to learn their meaning (auto-learn)
+- **choose_glyph**: 2×2 grid quiz, pick the correct glyph (server-verified via HMAC)
+- **write_word**: Text input to type the hieroglyph (server-verified)
+
+### Key Design Decisions
+- Quiz page preserved (accessible via direct URL) — only nav link changed
+- Interaction answers verified server-side (HMAC signed, never in client)
+- AI images generated on-demand via POST (respects CSRF), cached to disk
+- localStorage progress persistence (no auth dependency)
+- Browser SpeechSynthesis fallback when Gemini TTS unavailable
+
+### Testing Results
+- ✅ 9/9 core pages return 200 (/, hieroglyphs, landmarks, scan, dictionary, write, explore, chat, stories)
+- ✅ 5/5 story reader pages return 200
+- ✅ 6/6 API endpoints return 200 (health, stories list, story detail, 3 chapter endpoints)
+- ✅ POST /interact returns 403 without CSRF (correct — middleware working)
+- ✅ Arabic i18n renders حكايات, RTL active
+- ✅ Nav shows "Stories" not "Quiz"
+- ✅ /api/stories returns all 5 stories with correct metadata
