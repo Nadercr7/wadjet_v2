@@ -172,6 +172,17 @@
             </template>
         </div>
 
+        <!-- Infinite scroll trigger -->
+        <div x-show="hasMore" x-intersect:enter.margin.200px="loadMore()"
+             class="flex items-center justify-center py-8">
+            <template x-if="loadingMore">
+                <div class="flex items-center gap-3 text-text-dim text-sm">
+                    <div class="w-5 h-5 border-2 border-gold border-t-transparent rounded-full animate-spin"></div>
+                    Loading more landmarks...
+                </div>
+            </template>
+        </div>
+
         <!-- Result count -->
         <div class="mt-6 text-center text-sm text-text-dim" x-show="!loading && landmarks.length > 0">
             Showing <span class="text-text-muted" x-text="landmarks.length"></span>
@@ -577,6 +588,9 @@ function exploreApp() {
         cityFilter: '',
         searchQuery: '',
         loading: true,
+        currentPage: 1,
+        hasMore: false,
+        loadingMore: false,
         detailLandmark: null,
         detailLoading: false,
 
@@ -610,21 +624,53 @@ function exploreApp() {
 
         async fetchLandmarks() {
             this.loading = true;
+            this.currentPage = 1;
+            this.hasMore = false;
             try {
                 const params = new URLSearchParams();
                 if (this.activeType) params.set('category', this.activeType);
                 if (this.activeSubcategory) params.set('subcategory', this.activeSubcategory);
                 if (this.cityFilter) params.set('city', this.cityFilter);
                 if (this.searchQuery) params.set('search', this.searchQuery);
+                params.set('page', '1');
+                params.set('per_page', '24');
 
-                const url = '/api/landmarks' + (params.toString() ? '?' + params : '');
+                const url = '/api/landmarks?' + params;
                 const resp = await fetch(url);
                 const data = await resp.json();
                 this.landmarks = data.landmarks;
+                this.totalCount = data.total;
+                this.hasMore = data.has_more;
+                this.currentPage = 1;
             } catch (err) {
                 console.error('Failed to load landmarks:', err);
             } finally {
                 this.loading = false;
+            }
+        },
+
+        async loadMore() {
+            if (this.loadingMore || !this.hasMore) return;
+            this.loadingMore = true;
+            try {
+                const params = new URLSearchParams();
+                if (this.activeType) params.set('category', this.activeType);
+                if (this.activeSubcategory) params.set('subcategory', this.activeSubcategory);
+                if (this.cityFilter) params.set('city', this.cityFilter);
+                if (this.searchQuery) params.set('search', this.searchQuery);
+                params.set('page', String(this.currentPage + 1));
+                params.set('per_page', '24');
+
+                const url = '/api/landmarks?' + params;
+                const resp = await fetch(url);
+                const data = await resp.json();
+                this.landmarks = [...this.landmarks, ...data.landmarks];
+                this.hasMore = data.has_more;
+                this.currentPage++;
+            } catch (err) {
+                console.error('Failed to load more landmarks:', err);
+            } finally {
+                this.loadingMore = false;
             }
         },
 

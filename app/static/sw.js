@@ -3,7 +3,7 @@
  * Caches static assets and ML models for offline scanning.
  */
 
-const CACHE_VERSION = 'wadjet-v20';
+const CACHE_VERSION = 'wadjet-v21';
 const STATIC_CACHE = CACHE_VERSION + '-static';
 const MODEL_CACHE = 'wadjet-models';  // version-independent: models persist across updates
 
@@ -23,6 +23,7 @@ const STATIC_ASSETS = [
     '/static/js/tts.js',
     '/static/js/hieroglyph-pipeline.js',
     '/static/vendor/alpine.min.js',
+    '/static/vendor/alpine-intersect.min.js',
     '/static/vendor/htmx.min.js',
     '/static/vendor/gsap.min.js',
     '/static/vendor/scrolltrigger.min.js',

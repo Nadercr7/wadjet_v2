@@ -480,7 +480,7 @@
                     <div class="card !p-3 group cursor-default relative">
                         <button @click="WadjetHistory.removeScanItem(item.timestamp); scanHistory = WadjetHistory.getScanHistory()"
                                 class="absolute top-1.5 right-1.5 w-5 h-5 rounded-full bg-surface-alt flex items-center justify-center text-text-dim hover:text-error opacity-0 group-hover:opacity-100 transition-opacity text-xs">&times;</button>
-                        <img x-show="item.thumb" :src="item.thumb" class="w-full h-16 object-cover rounded mb-2 bg-surface-alt" alt="Scan thumbnail">
+                        <img x-show="item.thumb" :src="item.thumb" class="w-full h-16 object-cover rounded mb-2 bg-surface-alt" alt="Scan thumbnail" loading="lazy">
                         <div x-show="!item.thumb" class="w-full h-16 rounded mb-2 bg-surface-alt flex items-center justify-center text-2xl opacity-30">𓊹</div>
                         <p class="text-xs text-gold font-medium" x-text="item.numGlyphs + ' glyph' + (item.numGlyphs !== 1 ? 's' : '')"></p>
                         <p class="text-xs text-text-muted truncate" x-text="item.transliteration || item.gardiner || '—'"></p>

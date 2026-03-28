@@ -748,6 +748,8 @@ async def list_landmarks(
     search: str | None = Query(None, description="Search in name/description"),
     parent: str | None = Query(None, description="Show children of this parent slug"),
     include_children: bool = Query(False, description="Include child sub-sites in the list"),
+    page: int = Query(1, ge=1, description="Page number (1-based)"),
+    per_page: int = Query(24, ge=1, le=100, description="Items per page"),
 ):
     """List landmarks with optional filters. By default hides child sub-sites."""
     landmarks = list(_get_all_landmarks())
@@ -782,7 +784,20 @@ async def list_landmarks(
     # Sort: featured first, then by popularity desc, then name
     landmarks.sort(key=lambda lm: (not lm.get("featured", False), -lm.get("popularity", 5), lm["name"]))
 
-    return JSONResponse(content={"landmarks": landmarks, "count": len(landmarks)})
+    # Paginate
+    total = len(landmarks)
+    start = (page - 1) * per_page
+    end = start + per_page
+    page_landmarks = landmarks[start:end]
+    has_more = end < total
+
+    return JSONResponse(content={
+        "landmarks": page_landmarks,
+        "count": len(page_landmarks),
+        "total": total,
+        "page": page,
+        "has_more": has_more,
+    })
 
 
 # ══════════════════════════════════════════════════════════════
