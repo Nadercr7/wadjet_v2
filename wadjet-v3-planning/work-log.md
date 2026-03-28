@@ -275,3 +275,60 @@
 | 7 | MEDIUM | `list_landmarks` and `list_categories` unrate-limited | Added `@limiter.limit("60/minute")` |
 | 8 | LOW | `scan.html loadFile()` leaks previous object URL | Added `revokeObjectURL` before overwrite |
 | 9 | LOW | `sw.js MODEL_PATHS` dead code + "v2" comment | Removed dead array, updated to "v3" |
+
+---
+
+## Phase 6 — Arabic i18n
+**Date**: 2026-03-28
+**Commit**: `f333481` — `[Phase 6] Arabic i18n — RTL layout, bilingual UI, language toggle, Cairo font, Arabic data rendering`
+
+### Changes (20 files, 1448 insertions, 402 deletions)
+
+**i18n Infrastructure:**
+- Created `app/i18n/__init__.py` — `t(key, lang)` function (dot-key resolver, supports string + array returns), `get_lang(request)` (query param → cookie → Accept-Language → 'en'), `@lru_cache` JSON loader
+- Created `app/i18n/en.json` — ~300+ English keys across 15 sections (app, common, nav, auth, footer, landing, hieroglyphs_hub, landmarks_hub, scan, dictionary, write, explore, chat, quiz)
+- Created `app/i18n/ar.json` — Full Arabic MSA translations mirroring all English keys
+
+**Backend Wiring:**
+- `app/main.py` — registered `t()` as Jinja2 global via `templates.env.globals["t"]`
+- `app/api/pages.py` — added `get_lang(request)` import, `lang` context variable passed to all 10 route handlers
+
+**RTL + Cairo Font:**
+- `app/templates/base.html` — `<html lang="{{ lang }}" dir="{{ 'rtl' if lang == 'ar' else 'ltr' }}">`, Cairo font added to Google Fonts preload/link, auth modals translated, `rtl:` close button positioning
+- `app/static/css/input.css` — `font-arabic` class (Cairo font family), `[dir="rtl"] body` font override, RTL CSS overrides for chat blockquote borders, list indents, scrollbar, page loader, sweep/underline animation origins
+
+**Language Toggle:**
+- `app/templates/partials/nav.html` — toggle button (desktop + mobile) showing `عربي`/`EN`, `toggleLang()` JS function sets `wadjet_lang` cookie (1-year expiry, SameSite=Lax) + page reload, `ps-8` logical padding for RTL mobile nav
+
+**Template Bilingualization (11 templates):**
+- `partials/nav.html` — all nav link text uses `{{ t('nav.xxx', lang) }}`
+- `partials/footer.html` — all footer text translated
+- `landing.html` — hero, two paths, shared features, discover section
+- `hieroglyphs.html` — badge, hero, scan/dict/write cards, how-it-works, steps, CTA
+- `landmarks.html` — badge, hero, explore/identify cards, count section, categories, CTA
+- `scan.html` — meta, breadcrumb, heading, tabs, upload, camera, scan, voice, steps, translation, AI notes
+- `dictionary.html` — step labels, lesson names/descriptions in JS
+- `write.html` — title, breadcrumb, mode buttons, hints, labels, placeholders, output, palette, recent
+- `explore.html` — meta, breadcrumb, heading, tabs, search, filter, empty state, badges, identify, detail
+- `chat.html` — title, heading, welcome, Thoth label, TTS, placeholder, voice, clear, history
+- `quiz.html` — title, heading, quick/AI cards, settings, categories, difficulty, generate, results
+- `lesson_page.html` — title block, back link, signs heading
+
+**Version Bumps:**
+- CSS `?v=21` → `?v=22`, JS `?v=21` → `?v=22`, SW `wadjet-v21` → `wadjet-v22`
+
+**Bugs Resolved:**
+- **M1**: Zero RTL CSS → full `[dir="rtl"]` overrides + Tailwind `rtl:` prefix utilities
+- **M2**: Arabic names not rendered → all UI strings now use `t()` with Arabic translations
+- **M3**: Write English-only examples → Arabic examples added via `t('write.ex_smart_ar', lang)`
+- **M4**: No Arabic translations → complete bilingual coverage (300+ keys)
+
+### Testing Results (all pass)
+- ✅ All 9 pages return 200 in English (default)
+- ✅ All 9 pages return 200 in Arabic (`?lang=ar`)
+- ✅ Arabic pages have `dir="rtl"` and `lang="ar"` on `<html>`
+- ✅ English pages have `dir="ltr"` and `lang="en"` on `<html>`
+- ✅ Cairo font referenced in Arabic HTML
+- ✅ `toggleLang()` function present in nav
+- ✅ Arabic heading text (مسح) present on scan page
+- ✅ `common.signs` key exists in both en.json and ar.json

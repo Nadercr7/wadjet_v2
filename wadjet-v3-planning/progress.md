@@ -10,7 +10,7 @@
 | 3 | ✅ DONE | 2026-03-28 | 2026-03-28 | — | Database & auth |
 | 4 | ✅ DONE | 2026-03-28 | 2026-03-28 | — | UX, accessibility & TTS |
 | 5 | ✅ DONE | 2026-03-28 | 2026-03-28 | — | Performance |
-| 6 | ⬜ TODO | — | — | — | Arabic i18n |
+| 6 | ✅ DONE | 2026-03-28 | 2026-03-28 | — | Arabic i18n |
 | 7 | ⬜ TODO | — | — | — | SEO & social |
 | 8 | ⬜ TODO | — | — | — | Stories of the Nile |
 | 9 | ⬜ TODO | — | — | — | SaaS dashboard |
@@ -37,10 +37,10 @@
 - [x] H8: Model cache network-first (Phase 5) ✅
 
 ### Medium (18)
-- [ ] M1: Zero RTL CSS (Phase 6)
-- [ ] M2: Arabic names not rendered (Phase 6)
-- [ ] M3: Write English-only examples (Phase 6)
-- [ ] M4: No Arabic translations (Phase 6)
+- [x] M1: Zero RTL CSS (Phase 6) ✅
+- [x] M2: Arabic names not rendered (Phase 6) ✅
+- [x] M3: Write English-only examples (Phase 6) ✅
+- [x] M4: No Arabic translations (Phase 6) ✅
 - [ ] M5: No OG/Twitter tags (Phase 7)
 - [ ] M6: No robots.txt/sitemap (Phase 7)
 - [x] M7: No lazy loading (Phase 5)
