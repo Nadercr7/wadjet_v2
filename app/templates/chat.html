@@ -1,6 +1,6 @@
 {% extends "base.html" %}
-{% block title %}Ask Thoth{% endblock %}
-{% block description %}Chat with Thoth, AI god of wisdom. Ask about hieroglyphs, pharaohs, temples, and Egyptian history.{% endblock %}
+{% block title %}{{ t('chat.title', lang) }} {{ t('chat.title_gold', lang) }}{% endblock %}
+{% block description %}{{ t('chat.meta_desc', lang) }}{% endblock %}
 
 {% block content %}
 <section class="section !pb-4" x-data="chatApp()" x-cloak>
@@ -8,8 +8,8 @@
 
         <!-- Header -->
         <div class="text-center mb-6 shrink-0" data-animate>
-            <h1 class="mb-2 text-2xl md:text-3xl">Ask <span class="text-gold-gradient">Thoth</span></h1>
-            <p class="text-text-muted text-sm">God of wisdom, writing &amp; knowledge — your AI Egyptology guide</p>
+            <h1 class="mb-2 text-2xl md:text-3xl">{{ t('chat.title', lang) }} <span class="text-gold-gradient">{{ t('chat.title_gold', lang) }}</span></h1>
+            <p class="text-text-muted text-sm">{{ t('chat.subtitle', lang) }}</p>
         </div>
 
         <!-- Chat Messages Area -->
@@ -22,10 +22,9 @@
             <template x-if="messages.length === 0 && !isLoading">
                 <div class="flex flex-col items-center justify-center h-full text-center py-8">
                     <span class="text-5xl mb-4 block">𓁟</span>
-                    <h2 class="text-lg font-serif text-gold mb-2">Greetings, seeker of knowledge</h2>
+                    <h2 class="text-lg font-serif text-gold mb-2">{{ t('chat.welcome_title', lang) }}</h2>
                     <p class="text-text-muted text-sm mb-8 max-w-md">
-                        I am Thoth, keeper of ancient wisdom. Ask me about hieroglyphs,
-                        pharaohs, temples, mythology, or the daily life of ancient Egypt.
+                        {{ t('chat.welcome_body', lang) }}
                     </p>
 
                     <!-- Conversation starters -->
@@ -49,12 +48,12 @@
                         <!-- Thoth avatar + listen -->
                         <div x-show="msg.role === 'assistant'" class="flex items-center gap-2 mb-2">
                             <span class="text-lg">𓁟</span>
-                            <span class="text-xs font-medium text-gold">Thoth</span>
+                            <span class="text-xs font-medium text-gold">{{ t('chat.thoth_label', lang) }}</span>
                             <button @click="speakMessage(msg.content.replace(/[#*`>|\-]/g,''), 'msg-'+idx)"
                                     x-show="typeof WadjetTTS !== 'undefined' && WadjetTTS.isSupported()"
                                     class="ml-auto p-1 rounded-md text-text-dim hover:text-gold hover:bg-gold/10 transition-all"
                                     :class="{'!text-gold': ttsState !== 'idle' && ttsActiveId === 'msg-'+idx}"
-                                    :aria-label="ttsActiveId === 'msg-'+idx && ttsState === 'playing' ? 'Pause' : 'Listen'">
+                                    :aria-label="ttsActiveId === 'msg-'+idx && ttsState === 'playing' ? '{{ t('chat.pause', lang) }}' : '{{ t('chat.listen', lang) }}'">
                                 <svg x-show="!(ttsActiveId === 'msg-'+idx && ttsState === 'playing')" class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
                                 <svg x-show="ttsActiveId === 'msg-'+idx && ttsState === 'playing'" class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                             </button>
@@ -71,7 +70,7 @@
                     <div class="bg-surface border border-border rounded-2xl rounded-bl-sm max-w-[85%] px-4 py-3">
                         <div class="flex items-center gap-2 mb-2">
                             <span class="text-lg">𓁟</span>
-                            <span class="text-xs font-medium text-gold">Thoth</span>
+                            <span class="text-xs font-medium text-gold">{{ t('chat.thoth_label', lang) }}</span>
                         </div>
                         <div x-show="streamingText" class="text-sm leading-relaxed whitespace-pre-wrap chat-content"
                              x-html="renderMarkdown(streamingText)"></div>
@@ -112,7 +111,7 @@
                        x-model="input"
                        :disabled="isLoading || recording || transcribing"
                        @keydown.enter.prevent="sendMessage()"
-                       placeholder="Ask about ancient Egypt..."
+                       placeholder="{{ t('chat.placeholder', lang) }}"
                        class="input flex-1 !py-3 text-sm"
                        maxlength="2000"
                        autocomplete="off">
@@ -122,8 +121,8 @@
                         class="btn-ghost !px-3 !py-3 shrink-0 transition-all"
                         :class="{'!border-red-500 !text-red-400': recording}"
                         :disabled="isLoading || transcribing"
-                        :title="recording ? 'Stop recording' : 'Voice input'"
-                        aria-label="Voice input">
+                        :title="recording ? '{{ t('chat.voice_stop', lang) }}' : '{{ t('chat.voice_aria', lang) }}'"
+                        aria-label="{{ t('chat.voice_aria', lang) }}">
                     <!-- Mic icon -->
                     <svg x-show="!recording && !transcribing" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-14 0m7 7v4m-4 0h8M12 1a3 3 0 00-3 3v7a3 3 0 006 0V4a3 3 0 00-3-3z"></path></svg>
                     <!-- Recording pulse -->
@@ -147,11 +146,11 @@
             <div class="flex items-center justify-between mt-2 text-xs text-text-dim">
                 <div class="flex items-center gap-3">
                     <span x-show="messages.length > 0">
-                        <button @click="saveAndClearChat()" class="hover:text-gold transition-colors">Clear conversation</button>
+                        <button @click="saveAndClearChat()" class="hover:text-gold transition-colors">{{ t('chat.clear_convo', lang) }}</button>
                     </span>
                     <span x-show="messages.length === 0">
                         <button @click="chatHistoryOpen = !chatHistoryOpen" class="hover:text-gold transition-colors">
-                            <span x-text="chatHistoryOpen ? 'Hide history' : 'Past conversations (' + chatHistory.length + ')'"></span>
+                            <span x-text="chatHistoryOpen ? '{{ t('chat.hide_history', lang) }}' : '{{ t('chat.past_convos_pre', lang) }}' + chatHistory.length + '{{ t('chat.past_convos_suf', lang) }}'"></span>
                         </button>
                     </span>
                 </div>
@@ -162,7 +161,7 @@
             <div x-show="chatHistoryOpen && messages.length === 0 && chatHistory.length > 0"
                  x-transition class="mt-3 card !p-3 max-h-48 overflow-y-auto space-y-2">
                 <div class="flex items-center justify-between mb-1">
-                    <span class="text-xs font-medium text-text-muted">Past Conversations</span>
+                    <span class="text-xs font-medium text-text-muted">{{ t('chat.past_convos_title', lang) }}</span>
                     <button @click="chatHistory = []; WadjetHistory.clearChatHistory()" class="text-[10px] text-text-dim hover:text-gold">Clear all</button>
                 </div>
                 <template x-for="item in chatHistory" :key="item.timestamp">
@@ -171,7 +170,7 @@
                         <span class="text-lg">𓁟</span>
                         <div class="flex-1 min-w-0">
                             <p class="text-xs text-text truncate" x-text="item.preview"></p>
-                            <p class="text-[10px] text-text-dim" x-text="item.messageCount + ' messages · ' + new Date(item.timestamp).toLocaleDateString()"></p>
+                            <p class="text-[10px] text-text-dim" x-text="item.messageCount + '{{ t('chat.messages_dot', lang) }}' + new Date(item.timestamp).toLocaleDateString()"></p>
                         </div>
                         <button @click.stop="WadjetHistory.removeChatItem(item.timestamp); chatHistory = WadjetHistory.getChatHistory()"
                                 class="w-5 h-5 rounded-full bg-surface-alt flex items-center justify-center text-text-dim hover:text-error opacity-0 group-hover:opacity-100 transition-opacity text-xs shrink-0">&times;</button>

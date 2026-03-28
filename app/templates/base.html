@@ -1,24 +1,24 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="{{ lang|default('en') }}" dir="{{ 'rtl' if lang == 'ar' else 'ltr' }}" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Wadjet{% endblock %} — Egyptian Heritage AI</title>
-    <meta name="description" content="{% block description %}AI-powered Egyptian heritage app — scan hieroglyphs, translate inscriptions, explore landmarks{% endblock %}">
+    <title>{% block title %}{{ t('app.name', lang) }}{% endblock %} — {{ t('app.tagline', lang) }}</title>
+    <meta name="description" content="{% block description %}{{ t('app.site_desc', lang) }}{% endblock %}">
     <meta name="view-transition" content="same-origin">
     <link rel="icon" href="/static/images/favicon.svg" type="image/svg+xml">
 
     <!-- DNS prefetch for Google Fonts -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
 
-    <!-- Fonts -->
+    <!-- Fonts (includes Cairo for Arabic) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" as="style">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&family=Cairo:wght@400;600;700&display=swap" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 
     <!-- Styles (critical) -->
-    <link rel="stylesheet" href="/static/dist/styles.css?v=21" fetchpriority="high">
+    <link rel="stylesheet" href="/static/dist/styles.css?v=22" fetchpriority="high">
     <link rel="stylesheet" href="/static/css/atropos.css">
 
     {% block head %}{% endblock %}
@@ -26,7 +26,7 @@
 <body class="min-h-screen flex flex-col" x-data="{ mobileMenu: false }" {% block body_attrs %}{% endblock %}>
 
     <!-- Skip to content (accessibility) -->
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[10000] focus:bg-gold focus:text-night focus:px-4 focus:py-2 focus:rounded-lg focus:text-sm focus:font-medium">Skip to content</a>
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[10000] focus:bg-gold focus:text-night focus:px-4 focus:py-2 focus:rounded-lg focus:text-sm focus:font-medium">{{ t('common.skip_to_content', lang) }}</a>
 
     <!-- Page loading progress bar -->
     <div id="page-loader" class="fixed top-0 left-0 w-0 h-0.5 bg-gold z-[9999] transition-all duration-300"
@@ -55,21 +55,21 @@
         <div class="absolute inset-0 bg-night/80 backdrop-blur-sm" @click="$store.auth.showLogin = false"></div>
         <div class="relative bg-surface border border-border rounded-2xl shadow-2xl w-full max-w-md p-6"
              x-transition>
-            <button @click="$store.auth.showLogin = false" class="absolute top-4 right-4 text-text-dim hover:text-text">&times;</button>
-            <h2 class="font-display text-xl font-bold text-gold mb-1">Welcome Back</h2>
-            <p class="text-sm text-text-muted mb-5">Sign in to save your progress</p>
+            <button @click="$store.auth.showLogin = false" class="absolute top-4 right-4 text-text-dim hover:text-text rtl:right-auto rtl:left-4">&times;</button>
+            <h2 class="font-display text-xl font-bold text-gold mb-1">{{ t('auth.welcome_back', lang) }}</h2>
+            <p class="text-sm text-text-muted mb-5">{{ t('auth.sign_in_subtitle', lang) }}</p>
             <div x-show="$store.auth.error" class="mb-3 p-2.5 rounded-lg bg-error/10 border border-error/20 text-error text-sm" x-text="$store.auth.error"></div>
             <form @submit.prevent="$store.auth.login(email, password)" class="flex flex-col gap-3">
-                <input x-model="email" type="email" placeholder="Email" required autocomplete="email" class="input">
-                <input x-model="password" type="password" placeholder="Password" required minlength="8" autocomplete="current-password" class="input">
+                <input x-model="email" type="email" placeholder="{{ t('auth.email', lang) }}" required autocomplete="email" class="input">
+                <input x-model="password" type="password" placeholder="{{ t('auth.password', lang) }}" required minlength="8" autocomplete="current-password" class="input">
                 <button type="submit" class="btn-gold w-full" :disabled="$store.auth.loading">
-                    <span x-show="!$store.auth.loading">Sign In</span>
-                    <span x-show="$store.auth.loading" x-cloak>Signing in…</span>
+                    <span x-show="!$store.auth.loading">{{ t('auth.sign_in_btn', lang) }}</span>
+                    <span x-show="$store.auth.loading" x-cloak>{{ t('auth.signing_in', lang) }}</span>
                 </button>
             </form>
             <p class="mt-4 text-center text-sm text-text-muted">
-                Don't have an account?
-                <button @click="$store.auth.showLogin = false; $store.auth.showSignup = true; $store.auth.error = ''" class="text-gold hover:text-gold-light">Sign Up</button>
+                {{ t('auth.no_account', lang) }}
+                <button @click="$store.auth.showLogin = false; $store.auth.showSignup = true; $store.auth.error = ''" class="text-gold hover:text-gold-light">{{ t('nav.sign_up', lang) }}</button>
             </p>
         </div>
     </div>
@@ -82,22 +82,22 @@
         <div class="absolute inset-0 bg-night/80 backdrop-blur-sm" @click="$store.auth.showSignup = false"></div>
         <div class="relative bg-surface border border-border rounded-2xl shadow-2xl w-full max-w-md p-6"
              x-transition>
-            <button @click="$store.auth.showSignup = false" class="absolute top-4 right-4 text-text-dim hover:text-text">&times;</button>
-            <h2 class="font-display text-xl font-bold text-gold mb-1">Join Wadjet</h2>
-            <p class="text-sm text-text-muted mb-5">Create an account to track your discoveries</p>
+            <button @click="$store.auth.showSignup = false" class="absolute top-4 right-4 text-text-dim hover:text-text rtl:right-auto rtl:left-4">&times;</button>
+            <h2 class="font-display text-xl font-bold text-gold mb-1">{{ t('auth.join', lang) }}</h2>
+            <p class="text-sm text-text-muted mb-5">{{ t('auth.signup_subtitle', lang) }}</p>
             <div x-show="$store.auth.error" class="mb-3 p-2.5 rounded-lg bg-error/10 border border-error/20 text-error text-sm" x-text="$store.auth.error"></div>
             <form @submit.prevent="$store.auth.register(email, password, displayName)" class="flex flex-col gap-3">
-                <input x-model="displayName" type="text" placeholder="Display Name (optional)" maxlength="100" autocomplete="name" class="input">
-                <input x-model="email" type="email" placeholder="Email" required autocomplete="email" class="input">
-                <input x-model="password" type="password" placeholder="Password (8+ characters)" required minlength="8" autocomplete="new-password" class="input">
+                <input x-model="displayName" type="text" placeholder="{{ t('auth.display_name', lang) }}" maxlength="100" autocomplete="name" class="input">
+                <input x-model="email" type="email" placeholder="{{ t('auth.email', lang) }}" required autocomplete="email" class="input">
+                <input x-model="password" type="password" placeholder="{{ t('auth.password_hint', lang) }}" required minlength="8" autocomplete="new-password" class="input">
                 <button type="submit" class="btn-gold w-full" :disabled="$store.auth.loading">
-                    <span x-show="!$store.auth.loading">Create Account</span>
-                    <span x-show="$store.auth.loading" x-cloak>Creating…</span>
+                    <span x-show="!$store.auth.loading">{{ t('auth.create_account', lang) }}</span>
+                    <span x-show="$store.auth.loading" x-cloak>{{ t('auth.creating', lang) }}</span>
                 </button>
             </form>
             <p class="mt-4 text-center text-sm text-text-muted">
-                Already have an account?
-                <button @click="$store.auth.showSignup = false; $store.auth.showLogin = true; $store.auth.error = ''" class="text-gold hover:text-gold-light">Sign In</button>
+                {{ t('auth.have_account', lang) }}
+                <button @click="$store.auth.showSignup = false; $store.auth.showLogin = true; $store.auth.error = ''" class="text-gold hover:text-gold-light">{{ t('nav.sign_in', lang) }}</button>
             </p>
         </div>
     </div>
@@ -139,7 +139,7 @@
 
     <!-- App JS -->
     <script src="/static/js/tts.js?v=1"></script>
-    <script src="/static/js/app.js?v=21"></script>
+    <script src="/static/js/app.js?v=22"></script>
 
     {% block scripts %}{% endblock %}
 </body>

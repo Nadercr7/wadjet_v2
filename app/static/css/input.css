@@ -627,3 +627,53 @@
 .hvr-grow:hover, .hvr-grow:focus {
   transform: scale(1.05);
 }
+
+/* ========================================
+   RTL / Arabic support
+   ======================================== */
+
+/* Cairo font for Arabic text */
+.font-arabic {
+  font-family: "Cairo", "Inter", system-ui, sans-serif;
+}
+
+/* When html[dir=rtl], override body font to Cairo */
+[dir="rtl"] body {
+  font-family: "Cairo", "Inter", system-ui, sans-serif;
+}
+
+/* RTL chat blockquote: border on the right instead of left */
+[dir="rtl"] .chat-content .chat-blockquote {
+  border-left: none;
+  border-right: 4px solid rgba(212, 175, 55, 0.4);
+  border-radius: 0.375rem 0 0 0.375rem;
+}
+
+/* RTL chat list indent */
+[dir="rtl"] .chat-content .chat-ul,
+[dir="rtl"] .chat-content .chat-ol {
+  margin-left: 0;
+  margin-right: 1.25rem;
+}
+
+/* RTL scrollbar on left side */
+[dir="rtl"] ::-webkit-scrollbar {
+  direction: rtl;
+}
+
+/* RTL page loader from right */
+[dir="rtl"] #page-loader {
+  left: auto;
+  right: 0;
+}
+
+/* RTL sweep animation origin */
+[dir="rtl"] .hvr-sweep-gold::before {
+  transform-origin: 100% 50%;
+}
+
+/* RTL underline animation */
+[dir="rtl"] .hvr-underline-gold::before {
+  left: 51%;
+  right: 51%;
+}

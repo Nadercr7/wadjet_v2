@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block body_attrs %}data-narration-context="dictionary"{% endblock %}
-{% block title %}Gardiner Dictionary — Wadjet{% endblock %}
-{% block description %}Browse 1000+ hieroglyphic signs from the Gardiner Sign List — organized by category, searchable, with transliteration and meanings.{% endblock %}
+{% block title %}{{ t('dictionary.breadcrumb', lang) }} — {{ t('app.name', lang) }}{% endblock %}
+{% block description %}{{ t('dictionary.meta_desc', lang) }}{% endblock %}
 
 {% block content %}
 <section class="section" x-data="dictionaryApp()" x-cloak>
@@ -9,16 +9,16 @@
 
         <!-- Breadcrumb -->
         <div class="flex items-center gap-2 text-sm text-text-muted mb-8" data-animate>
-            <a href="/hieroglyphs" class="hover:text-gold transition-colors">𓊹 Hieroglyphs</a>
+            <a href="/hieroglyphs" class="hover:text-gold transition-colors">𓊹 {{ t('dictionary.breadcrumb_parent', lang) }}</a>
             <span class="text-text-dim">/</span>
-            <span class="text-text">Dictionary</span>
+            <span class="text-text">{{ t('dictionary.breadcrumb', lang) }}</span>
         </div>
 
         <!-- Heading -->
         <div class="text-center mb-10" data-animate>
-            <h1 class="mb-4">Gardiner <span class="text-gold-gradient">Dictionary</span></h1>
+            <h1 class="mb-4">{{ t('dictionary.title', lang) }} <span class="text-gold-gradient">{{ t('dictionary.title_gold', lang) }}</span></h1>
             <p class="text-text-muted text-lg max-w-2xl mx-auto">
-                Explore <span class="text-gold font-medium" x-text="totalSigns"></span> hieroglyphic signs — or start learning from the alphabet up.
+                {{ t('dictionary.subtitle_pre', lang) }} <span class="text-gold font-medium" x-text="totalSigns"></span> {{ t('dictionary.subtitle_post', lang) }}
             </p>
         </div>
 
@@ -29,12 +29,12 @@
             <button @click="tab = 'browse'" class="px-5 py-3 text-sm font-medium transition-all border-b-2 -mb-px"
                     :class="tab === 'browse' ? 'border-gold text-gold' : 'border-transparent text-text-muted hover:text-text'">
                 <svg class="w-4 h-4 inline -mt-0.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path></svg>
-                Browse All
+                {{ t('dictionary.tab_browse', lang) }}
             </button>
             <button @click="tab = 'learn'" class="px-5 py-3 text-sm font-medium transition-all border-b-2 -mb-px"
                     :class="tab === 'learn' ? 'border-gold text-gold' : 'border-transparent text-text-muted hover:text-text'">
                 <svg class="w-4 h-4 inline -mt-0.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-                Learn Hieroglyphs
+                {{ t('dictionary.tab_learn', lang) }}
             </button>
         </div>
 
@@ -47,19 +47,19 @@
             <div class="mb-6 flex flex-col sm:flex-row gap-3" data-animate>
                 <div class="flex-1 relative">
                     <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-text-dim" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-                    <label for="dict-search" class="sr-only">Search hieroglyphs</label>
+                    <label for="dict-search" class="sr-only">{{ t('dictionary.search_aria', lang) }}</label>
                     <input id="dict-search" type="text" x-model.debounce.300ms="searchQuery" @input="currentPage = 1; fetchSigns()"
-                           placeholder="Search by code, transliteration, or description..."
+                           placeholder="{{ t('dictionary.search_placeholder', lang) }}"
                            class="input pl-10 w-full">
                 </div>
                 <select x-model="typeFilter" @change="currentPage = 1; fetchSigns()"
                         class="input w-full sm:w-48 cursor-pointer">
-                    <option value="">All Types</option>
-                    <option value="uniliteral">Uniliteral (alphabet)</option>
-                    <option value="biliteral">Biliteral (2 sounds)</option>
-                    <option value="triliteral">Triliteral (3 sounds)</option>
-                    <option value="logogram">Logogram (whole word)</option>
-                    <option value="determinative">Determinative (silent)</option>
+                    <option value="">{{ t('dictionary.all_types', lang) }}</option>
+                    <option value="uniliteral">{{ t('dictionary.type_uniliteral', lang) }}</option>
+                    <option value="biliteral">{{ t('dictionary.type_biliteral', lang) }}</option>
+                    <option value="triliteral">{{ t('dictionary.type_triliteral', lang) }}</option>
+                    <option value="logogram">{{ t('dictionary.type_logogram', lang) }}</option>
+                    <option value="determinative">{{ t('dictionary.type_determinative', lang) }}</option>
                 </select>
             </div>
 
@@ -98,8 +98,8 @@
             <!-- Empty state -->
             <div x-show="!loading && signs.length === 0" class="card text-center py-16" x-transition>
                 <span class="text-5xl mb-4 block opacity-30">𓊹</span>
-                <p class="text-text-muted mb-3">No signs match your search.</p>
-                <p class="text-sm text-text-dim">Try browsing by category: <button @click="selectCategory('D')" class="text-gold hover:underline">D · Body</button>, <button @click="selectCategory('G')" class="text-gold hover:underline">G · Birds</button>, or <button @click="selectCategory('N')" class="text-gold hover:underline">N · Sky</button></p>
+                <p class="text-text-muted mb-3">{{ t('dictionary.no_results', lang) }}</p>
+                <p class="text-sm text-text-dim">{{ t('dictionary.no_results_hint', lang) }} <button @click="selectCategory('D')" class="text-gold hover:underline">{{ t('dictionary.hint_body', lang) }}</button>, <button @click="selectCategory('G')" class="text-gold hover:underline">{{ t('dictionary.hint_birds', lang) }}</button>, <button @click="selectCategory('N')" class="text-gold hover:underline">{{ t('dictionary.hint_sky', lang) }}</button></p>
             </div>
 
             <!-- Signs grid — type-aware cards with size variation -->
@@ -123,12 +123,12 @@
                                   :class="typeClass(sign.type)"
                                   x-text="sign.type"></span>
                             <button x-show="sign.speech_text" @click.stop="speakSign(sign.speech_text)"
-                                    class="p-0.5 rounded-full text-gold/40 hover:text-gold hover:bg-gold/10 transition-colors" aria-label="Listen">
+                                    class="p-0.5 rounded-full text-gold/40 hover:text-gold hover:bg-gold/10 transition-colors" aria-label="{{ t('dictionary.listen', lang) }}">
                                 <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
                             </button>
                             <span x-show="!sign.speech_text && sign.type === 'determinative'" class="inline-flex items-center gap-0.5 text-[9px] text-text-dim/60">
                                 <svg class="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"></path></svg>
-                                silent
+                                {{ t('dictionary.silent', lang) }}
                             </span>
                         </div>
                     </button>
@@ -139,7 +139,7 @@
             <div x-show="!loading && totalPages > 1" class="mt-8 flex items-center justify-center gap-2">
                 <button @click="goPage(currentPage - 1)" :disabled="currentPage <= 1"
                         class="px-3 py-2 rounded-lg text-sm bg-surface border border-border text-text-muted hover:border-gold/30 disabled:opacity-30 disabled:cursor-not-allowed transition-all">
-                    ← Prev
+                    ← {{ t('dictionary.prev', lang) }}
                 </button>
                 <template x-for="p in pageNumbers()" :key="'p'+p">
                     <button @click="typeof p === 'number' && goPage(p)"
@@ -149,7 +149,7 @@
                 </template>
                 <button @click="goPage(currentPage + 1)" :disabled="currentPage >= totalPages"
                         class="px-3 py-2 rounded-lg text-sm bg-surface border border-border text-text-muted hover:border-gold/30 disabled:opacity-30 disabled:cursor-not-allowed transition-all">
-                    Next →
+                    {{ t('dictionary.next', lang) }} →
                 </button>
             </div>
 
@@ -165,8 +165,8 @@
              ════════════════════════════════════════════════ -->
         <div x-show="tab === 'learn'">
             <div class="text-center mb-8">
-                <h2 class="text-2xl font-semibold mb-2">Learn Hieroglyphs <span class="text-gold">Step by Step</span></h2>
-                <p class="text-text-muted max-w-xl mx-auto">A complete beginner's journey through the ancient Egyptian writing system — from the alphabet to reading real inscriptions.</p>
+                <h2 class="text-2xl font-semibold mb-2">{{ t('dictionary.learn_title', lang) }} <span class="text-gold">{{ t('dictionary.learn_gold', lang) }}</span></h2>
+                <p class="text-text-muted max-w-xl mx-auto">{{ t('dictionary.learn_sub', lang) }}</p>
             </div>
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
                 <template x-for="lv in [1,2,3,4,5]" :key="lv">
@@ -174,12 +174,12 @@
                        class="bg-surface border border-border rounded-xl p-6 text-left hover:border-gold/40 hover:bg-surface-hover hover:shadow-[0_0_20px_rgba(212,175,55,0.06)] transition-all group cursor-pointer block">
                         <div class="flex items-center gap-3 mb-3">
                             <span class="w-8 h-8 rounded-full bg-gold/15 text-gold flex items-center justify-center text-sm font-bold" x-text="lv"></span>
-                            <span class="text-sm text-text-dim" x-text="'Step ' + lv + ' of 5'"></span>
+                            <span class="text-sm text-text-dim" x-text="'{{ t('dictionary.step_label', lang) }} ' + lv + ' {{ t('dictionary.of_5', lang) }}'"></span>
                         </div>
                         <h3 class="font-semibold text-text group-hover:text-gold transition-colors mb-1" x-text="lessonNames[lv-1]"></h3>
                         <p class="text-sm text-text-dim" x-text="lessonDescs[lv-1]"></p>
                         <div class="mt-4 flex items-center gap-1 text-gold text-sm opacity-0 group-hover:opacity-100 transition-opacity">
-                            Start lesson
+                            {{ t('dictionary.start_lesson', lang) }}
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                         </div>
                     </a>
@@ -229,7 +229,7 @@
                                 <div class="flex items-center justify-center gap-3 mb-1">
                                     <span class="text-gold text-3xl font-bold tracking-wide" x-text="detailSign.transliteration"></span>
                                     <button x-show="detailSign.speech_text" @click="speakSign(detailSign.speech_text)"
-                                            class="p-1.5 rounded-full bg-gold/10 hover:bg-gold/20 text-gold transition-colors" aria-label="Listen to pronunciation">
+                                            class="p-1.5 rounded-full bg-gold/10 hover:bg-gold/20 text-gold transition-colors" aria-label="{{ t('dictionary.listen_pronunciation', lang) }}">
                                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
                                     </button>
                                 </div>
@@ -240,13 +240,13 @@
 
                             <!-- Logograms: meaning front and center -->
                             <div x-show="detailSign.type === 'logogram' && detailSign.logographic_value" class="text-center">
-                                <p class="text-xs text-text-dim uppercase tracking-wider mb-1">Means</p>
+                                <p class="text-xs text-text-dim uppercase tracking-wider mb-1">{{ t('dictionary.means', lang) }}</p>
                                 <p class="text-green-400 text-2xl font-semibold" x-text="detailSign.logographic_value"></p>
                                 <div x-show="detailSign.transliteration" class="mt-2 flex items-center justify-center gap-2">
-                                    <span class="text-text-muted text-sm">Also reads as</span>
+                                    <span class="text-text-muted text-sm">{{ t('dictionary.also_reads', lang) }}</span>
                                     <span class="text-gold font-medium" x-text="detailSign.transliteration"></span>
                                     <button x-show="detailSign.speech_text" @click="speakSign(detailSign.speech_text)"
-                                            class="p-1 rounded-full bg-gold/10 hover:bg-gold/20 text-gold transition-colors" aria-label="Listen to pronunciation">
+                                            class="p-1 rounded-full bg-gold/10 hover:bg-gold/20 text-gold transition-colors" aria-label="{{ t('dictionary.listen_pronunciation', lang) }}">
                                         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
                                     </button>
                                 </div>
@@ -257,9 +257,9 @@
                                  class="bg-orange-500/10 border border-orange-500/20 rounded-xl p-4 text-center">
                                 <div class="flex items-center justify-center gap-1.5 mb-2">
                                     <svg class="w-4 h-4 text-orange-400/70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"></path></svg>
-                                    <p class="text-xs text-orange-400/70 uppercase tracking-wider font-medium">Silent Sign</p>
+                                    <p class="text-xs text-orange-400/70 uppercase tracking-wider font-medium">{{ t('dictionary.silent_sign', lang) }}</p>
                                 </div>
-                                <p class="text-sm text-text-muted leading-relaxed mb-2">This sign isn't pronounced — it's placed after a word to show its <span class="text-orange-400">meaning category</span>.</p>
+                                <p class="text-sm text-text-muted leading-relaxed mb-2">{{ t('dictionary.silent_desc', lang)|safe }}</p>
                                 <p x-show="detailSign.determinative_class" class="text-orange-400 text-lg font-semibold" x-text="detailSign.determinative_class"></p>
                             </div>
 
@@ -267,23 +267,23 @@
                             <div class="grid grid-cols-2 gap-3">
                                 <!-- Type -->
                                 <div class="bg-night/50 border border-border rounded-lg p-3">
-                                    <p class="text-[11px] text-text-dim uppercase tracking-wider mb-1">Type</p>
+                                    <p class="text-[11px] text-text-dim uppercase tracking-wider mb-1">{{ t('dictionary.type_label', lang) }}</p>
                                     <span class="inline-block px-2 py-0.5 text-xs rounded-full font-medium" :class="typeClass(detailSign.type)" x-text="detailSign.type"></span>
                                 </div>
                                 <!-- Category -->
                                 <div class="bg-night/50 border border-border rounded-lg p-3">
-                                    <p class="text-[11px] text-text-dim uppercase tracking-wider mb-1">Category</p>
+                                    <p class="text-[11px] text-text-dim uppercase tracking-wider mb-1">{{ t('dictionary.category_label', lang) }}</p>
                                     <p class="text-sm"><span class="text-gold font-medium" x-text="detailSign.category"></span> <span class="text-text-muted" x-text="'\u00B7 ' + detailSign.category_name"></span></p>
                                 </div>
                                 <!-- Depicts -->
                                 <div class="bg-night/50 border border-border rounded-lg p-3 col-span-2">
-                                    <p class="text-[11px] text-text-dim uppercase tracking-wider mb-1">Depicts</p>
+                                    <p class="text-[11px] text-text-dim uppercase tracking-wider mb-1">{{ t('dictionary.depicts', lang) }}</p>
                                     <p class="text-sm text-text leading-relaxed" x-text="detailSign.description"></p>
                                 </div>
                                 <!-- Also means (for non-logograms that have logographic value) -->
                                 <template x-if="detailSign.type !== 'logogram' && detailSign.logographic_value">
                                     <div class="bg-night/50 border border-border rounded-lg p-3 col-span-2">
-                                        <p class="text-[11px] text-text-dim uppercase tracking-wider mb-1">Also Means</p>
+                                        <p class="text-[11px] text-text-dim uppercase tracking-wider mb-1">{{ t('dictionary.also_means', lang) }}</p>
                                         <p class="text-sm text-text" x-text="detailSign.logographic_value"></p>
                                     </div>
                                 </template>
@@ -302,7 +302,7 @@
                             <div x-show="detailSign.example_usages && detailSign.example_usages.length > 0">
                                 <p class="text-[11px] text-text-dim uppercase tracking-wider mb-2 flex items-center gap-1.5">
                                     <svg class="w-3.5 h-3.5 text-gold/60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-                                    Used in
+                                    {{ t('dictionary.used_in', lang) }}
                                 </p>
                                 <div class="space-y-2">
                                     <template x-for="usage in detailSign.example_usages" :key="usage.transliteration">
@@ -321,7 +321,7 @@
                             <div x-show="detailSign.related_signs && detailSign.related_signs.length > 0">
                                 <p class="text-[11px] text-text-dim uppercase tracking-wider mb-2 flex items-center gap-1.5">
                                     <svg class="w-3.5 h-3.5 text-gold/60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
-                                    See also
+                                    {{ t('dictionary.see_also', lang) }}
                                 </p>
                                 <div class="flex flex-wrap gap-2">
                                     <template x-for="rel in detailSign.related_signs" :key="rel.code">
@@ -341,12 +341,12 @@
                             <div class="flex items-center justify-center gap-3 pt-1">
                                 <a x-show="detailSign.is_phonetic" :href="'/write?glyph=' + detailSign.code" class="btn-ghost btn-sm flex items-center gap-1.5">
                                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
-                                    Use in Write
+                                    {{ t('dictionary.use_in_write', lang) }}
                                 </a>
                                 <button @click="selectCategory(detailSign.category); detailSign = null; tab = 'browse'"
                                         class="btn-ghost btn-sm flex items-center gap-1.5">
                                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
-                                    Browse Category
+                                    {{ t('dictionary.browse_category', lang) }}
                                 </button>
                             </div>
                         </div>
@@ -386,18 +386,18 @@ function dictionaryApp() {
 
         // Learn tab — names/descriptions for lesson cards
         lessonNames: [
-            'The Egyptian Alphabet',
-            'Common Biliterals',
-            'Common Triliterals',
-            'Logograms',
-            'Determinatives'
+            '{{ t('dictionary.lesson_1', lang) }}',
+            '{{ t('dictionary.lesson_2', lang) }}',
+            '{{ t('dictionary.lesson_3', lang) }}',
+            '{{ t('dictionary.lesson_4', lang) }}',
+            '{{ t('dictionary.lesson_5', lang) }}'
         ],
         lessonDescs: [
-            '25 single-consonant signs — the building blocks of all Egyptian words',
-            'Two-consonant signs that make writing faster and more elegant',
-            'Three-consonant powerhouses — one sign, three sounds',
-            'Signs that ARE the word — the picture is the meaning',
-            'Silent classifiers that tell you what category a word belongs to'
+            '{{ t('dictionary.lesson_1_d', lang) }}',
+            '{{ t('dictionary.lesson_2_d', lang) }}',
+            '{{ t('dictionary.lesson_3_d', lang) }}',
+            '{{ t('dictionary.lesson_4_d', lang) }}',
+            '{{ t('dictionary.lesson_5_d', lang) }}'
         ],
 
         // Categories where most signs are determinatives

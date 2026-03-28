@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block body_attrs %}data-narration-context="landing"{% endblock %}
-{% block title %}Wadjet{% endblock %}
+{% block title %}{{ t('app.name', lang) }}{% endblock %}
 
 {% block content %}
 <!-- Hero Section -->
@@ -14,18 +14,17 @@
             <!-- Badge -->
             <div class="inline-flex items-center gap-2 badge-gold mb-8">
                 <span class="w-1.5 h-1.5 rounded-full bg-gold animate-pulse"></span>
-                AI-Powered Egyptian Heritage
+                {{ t('landing.badge', lang) }}
             </div>
 
             <!-- Heading -->
             <h1 class="mb-6">
-                Unlock the <span class="text-gold-gradient">Secrets of Egypt</span>
+                {{ t('landing.hero_1', lang) }} <span class="text-gold-gradient">{{ t('landing.hero_2', lang) }}</span>
             </h1>
 
             <!-- Subheading -->
             <p class="text-lg md:text-xl text-text-muted mb-6 max-w-2xl mx-auto leading-relaxed">
-                Two AI-powered tools in one app. Decode ancient hieroglyphs or
-                identify legendary landmarks — choose your path.
+                {{ t('landing.hero_sub', lang) }}
             </p>
 
             <!-- Hieroglyph decoration -->
@@ -53,13 +52,12 @@
 
                 <!-- Title -->
                 <h2 class="text-2xl md:text-3xl font-display font-bold mb-3 group-hover:text-gold transition-colors duration-300">
-                    Hieroglyphs
+                    {{ t('landing.path_hiero_title', lang) }}
                 </h2>
 
                 <!-- Description -->
                 <p class="text-text-muted mb-8 leading-relaxed">
-                    Scan hieroglyphs from photos, translate ancient inscriptions,
-                    browse the Gardiner dictionary, and write in the ancient script.
+                    {{ t('landing.path_hiero_desc', lang) }}
                 </p>
 
                 <!-- Feature list -->
@@ -68,31 +66,31 @@
                         <div class="w-8 h-8 rounded-lg bg-gold/10 flex items-center justify-center shrink-0">
                             <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                         </div>
-                        <span class="text-text-muted"><span class="text-text font-medium">Scan & Identify</span> — detect glyphs from photos</span>
+                        <span class="text-text-muted"><span class="text-text font-medium">{{ t('landing.feat_scan', lang) }}</span> {{ t('landing.feat_scan_d', lang) }}</span>
                     </div>
                     <div class="flex items-center gap-3 text-sm">
                         <div class="w-8 h-8 rounded-lg bg-gold/10 flex items-center justify-center shrink-0">
                             <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
                         </div>
-                        <span class="text-text-muted"><span class="text-text font-medium">Translate</span> — English & Arabic translation</span>
+                        <span class="text-text-muted"><span class="text-text font-medium">{{ t('landing.feat_translate', lang) }}</span> {{ t('landing.feat_translate_d', lang) }}</span>
                     </div>
                     <div class="flex items-center gap-3 text-sm">
                         <div class="w-8 h-8 rounded-lg bg-gold/10 flex items-center justify-center shrink-0">
                             <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
                         </div>
-                        <span class="text-text-muted"><span class="text-text font-medium">Dictionary</span> — 1,000+ Gardiner signs</span>
+                        <span class="text-text-muted"><span class="text-text font-medium">{{ t('landing.feat_dict', lang) }}</span> {{ t('landing.feat_dict_d', lang) }}</span>
                     </div>
                     <div class="flex items-center gap-3 text-sm">
                         <div class="w-8 h-8 rounded-lg bg-gold/10 flex items-center justify-center shrink-0">
                             <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
                         </div>
-                        <span class="text-text-muted"><span class="text-text font-medium">Write</span> — compose in hieroglyphs</span>
+                        <span class="text-text-muted"><span class="text-text font-medium">{{ t('landing.feat_write', lang) }}</span> {{ t('landing.feat_write_d', lang) }}</span>
                     </div>
                 </div>
 
                 <!-- CTA -->
                 <div class="flex items-center gap-2 text-gold font-medium text-sm group-hover:gap-3 transition-all duration-300">
-                    Explore Hieroglyphs
+                    {{ t('landing.cta_hieroglyphs', lang) }}
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                 </div>
             </a>
@@ -109,13 +107,12 @@
 
                 <!-- Title -->
                 <h2 class="text-2xl md:text-3xl font-display font-bold mb-3 group-hover:text-gold transition-colors duration-300">
-                    Landmarks
+                    {{ t('landing.path_land_title', lang) }}
                 </h2>
 
                 <!-- Description -->
                 <p class="text-text-muted mb-8 leading-relaxed">
-                    Explore 260+ Egyptian landmarks, identify monuments from photos,
-                    get AI-generated descriptions, and discover hidden gems.
+                    {{ t('landing.path_land_desc', lang) }}
                 </p>
 
                 <!-- Feature list -->
@@ -124,31 +121,31 @@
                         <div class="w-8 h-8 rounded-lg bg-gold/10 flex items-center justify-center shrink-0">
                             <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                         </div>
-                        <span class="text-text-muted"><span class="text-text font-medium">Explore</span> — pyramids, temples, museums</span>
+                        <span class="text-text-muted"><span class="text-text font-medium">{{ t('landing.feat_explore', lang) }}</span> {{ t('landing.feat_explore_d', lang) }}</span>
                     </div>
                     <div class="flex items-center gap-3 text-sm">
                         <div class="w-8 h-8 rounded-lg bg-gold/10 flex items-center justify-center shrink-0">
                             <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                         </div>
-                        <span class="text-text-muted"><span class="text-text font-medium">Identify</span> — snap a photo, AI tells you what it is</span>
+                        <span class="text-text-muted"><span class="text-text font-medium">{{ t('landing.feat_identify', lang) }}</span> {{ t('landing.feat_identify_d', lang) }}</span>
                     </div>
                     <div class="flex items-center gap-3 text-sm">
                         <div class="w-8 h-8 rounded-lg bg-gold/10 flex items-center justify-center shrink-0">
                             <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
                         </div>
-                        <span class="text-text-muted"><span class="text-text font-medium">AI Descriptions</span> — rich history for each site</span>
+                        <span class="text-text-muted"><span class="text-text font-medium">{{ t('landing.feat_ai_desc', lang) }}</span> {{ t('landing.feat_ai_desc_d', lang) }}</span>
                     </div>
                     <div class="flex items-center gap-3 text-sm">
                         <div class="w-8 h-8 rounded-lg bg-gold/10 flex items-center justify-center shrink-0">
                             <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
                         </div>
-                        <span class="text-text-muted"><span class="text-text font-medium">Discover</span> — recommendations & similar sites</span>
+                        <span class="text-text-muted"><span class="text-text font-medium">{{ t('landing.feat_discover', lang) }}</span> {{ t('landing.feat_discover_d', lang) }}</span>
                     </div>
                 </div>
 
                 <!-- CTA -->
                 <div class="flex items-center gap-2 text-gold font-medium text-sm group-hover:gap-3 transition-all duration-300">
-                    Explore Landmarks
+                    {{ t('landing.cta_landmarks', lang) }}
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                 </div>
             </a>
@@ -164,9 +161,9 @@
 <section class="section">
     <div class="container-wide">
         <div class="text-center mb-12">
-            <h2 class="mb-4">Powered by <span class="text-gold">AI</span></h2>
+            <h2 class="mb-4">{{ t('landing.powered_by', lang) }} <span class="text-gold">{{ t('landing.powered_ai', lang) }}</span></h2>
             <p class="text-text-muted max-w-xl mx-auto">
-                Both paths share the same powerful AI engine.
+                {{ t('landing.powered_sub', lang) }}
             </p>
         </div>
 
@@ -176,9 +173,9 @@
                 <div class="w-12 h-12 rounded-lg bg-gold/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-gold/20 transition-colors">
                     <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
                 </div>
-                <h3 class="text-lg font-semibold mb-2 group-hover:text-gold transition-colors">Ask Thoth</h3>
+                <h3 class="text-lg font-semibold mb-2 group-hover:text-gold transition-colors">{{ t('landing.ask_thoth', lang) }}</h3>
                 <p class="text-sm text-text-muted">
-                    Chat with the AI Egyptology guide about anything — hieroglyphs, pharaohs, or history.
+                    {{ t('landing.ask_thoth_d', lang) }}
                 </p>
             </a>
 
@@ -187,9 +184,9 @@
                 <div class="w-12 h-12 rounded-lg bg-gold/10 flex items-center justify-center mx-auto mb-4">
                     <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                 </div>
-                <h3 class="text-lg font-semibold mb-2">2 ML Models</h3>
+                <h3 class="text-lg font-semibold mb-2">{{ t('landing.ml_models', lang) }}</h3>
                 <p class="text-sm text-text-muted">
-                    Hieroglyph detector + classifier (171 classes) and landmark identifier (260+ sites).
+                    {{ t('landing.ml_models_d', lang) }}
                 </p>
             </div>
 
@@ -198,9 +195,9 @@
                 <div class="w-12 h-12 rounded-lg bg-gold/10 flex items-center justify-center mx-auto mb-4">
                     <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636a9 9 0 010 12.728m0 0l-2.829-2.829m2.829 2.829L21 21M15.536 8.464a5 5 0 010 7.072m0 0l-2.829-2.829m-4.243 2.829a4.978 4.978 0 01-1.414-2.83m-1.414 5.658a9 9 0 01-2.167-9.238m7.824 2.167a1 1 0 111.414 1.414 1 1 0 01-1.414-1.414z"></path></svg>
                 </div>
-                <h3 class="text-lg font-semibold mb-2">Works Offline</h3>
+                <h3 class="text-lg font-semibold mb-2">{{ t('landing.works_offline', lang) }}</h3>
                 <p class="text-sm text-text-muted">
-                    Core scanning runs in your browser — no internet needed after first load.
+                    {{ t('landing.works_offline_d', lang) }}
                 </p>
             </div>
         </div>
@@ -216,11 +213,11 @@
         <div class="text-center mb-12">
             <div class="inline-flex items-center gap-2 badge-gold mb-4">
                 <span class="w-1.5 h-1.5 rounded-full bg-gold animate-pulse"></span>
-                Discover
+                {{ t('landing.discover_badge', lang) }}
             </div>
-            <h2 class="mb-4">Explore <span class="text-gold-gradient">More</span></h2>
+            <h2 class="mb-4">{{ t('landing.discover_title', lang) }} <span class="text-gold-gradient">{{ t('landing.discover_more', lang) }}</span></h2>
             <p class="text-text-muted max-w-xl mx-auto">
-                Test your knowledge, discover featured landmarks, and learn a new hieroglyph every day.
+                {{ t('landing.discover_sub', lang) }}
             </p>
         </div>
 
@@ -231,7 +228,7 @@
                 <div class="w-14 h-14 rounded-xl bg-gold/10 border border-gold/20 flex items-center justify-center mx-auto mb-4">
                     <span class="hieroglyph text-3xl" x-text="dailyGlyph.glyph">𓁹</span>
                 </div>
-                <h3 class="text-lg font-serif text-gold mb-1">Glyph of the Day</h3>
+                <h3 class="text-lg font-serif text-gold mb-1">{{ t('landing.glyph_day', lang) }}</h3>
                 <p class="text-text-muted text-sm mb-3" x-text="dailyGlyph.label">Eye of Horus</p>
                 <div class="text-xs text-text-dim mb-4">
                     <span class="text-sand" x-text="dailyGlyph.code">D10</span>
@@ -239,7 +236,7 @@
                     <span x-text="dailyGlyph.meaning"></span>
                 </div>
                 <a href="/dictionary" class="text-gold text-sm hover:text-gold-light transition-colors">
-                    Browse Dictionary →
+                    {{ t('landing.browse_dict', lang) }}
                 </a>
             </div>
 
@@ -251,12 +248,11 @@
                               d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
                     </svg>
                 </div>
-                <h3 class="text-lg font-serif mb-2 group-hover:text-gold transition-colors">Egyptian Heritage Quiz</h3>
+                <h3 class="text-lg font-serif mb-2 group-hover:text-gold transition-colors">{{ t('landing.quiz_title', lang) }}</h3>
                 <p class="text-text-muted text-sm mb-4">
-                    Test your knowledge of pharaohs, pyramids, and ancient wonders.
-                    Quick quiz or AI-generated challenges.
+                    {{ t('landing.quiz_desc', lang) }}
                 </p>
-                <span class="btn-ghost btn-sm">Take the Quiz</span>
+                <span class="btn-ghost btn-sm">{{ t('landing.take_quiz', lang) }}</span>
             </a>
 
             <!-- Featured Landmark -->
@@ -264,12 +260,12 @@
                 <div class="w-14 h-14 rounded-xl bg-gold/10 border border-gold/20 flex items-center justify-center mx-auto mb-4">
                     <span class="text-2xl">𓉐</span>
                 </div>
-                <h3 class="text-lg font-serif text-gold mb-1">Featured Site</h3>
+                <h3 class="text-lg font-serif text-gold mb-1">{{ t('landing.featured_site', lang) }}</h3>
                 <p class="text-text font-medium mb-1" x-text="featured.name">Great Pyramids of Giza</p>
                 <p class="text-text-muted text-sm mb-3" x-text="featured.city + ' · ' + featured.type">Giza · Pharaonic</p>
                 <p class="text-text-dim text-xs mb-4 line-clamp-2" x-text="featured.description"></p>
                 <a href="/explore" class="text-gold text-sm hover:text-gold-light transition-colors">
-                    Explore Landmarks →
+                    {{ t('landing.cta_landmarks', lang) }} →
                 </a>
             </div>
 

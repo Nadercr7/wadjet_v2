@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Lesson {{ level }} — Gardiner Dictionary — Wadjet{% endblock %}
+{% block title %}{{ t('dictionary.step_label', lang) }} {{ level }} — {{ t('dictionary.title_gold', lang) }} — {{ t('app.name', lang) }}{% endblock %}
 {% block description %}Learn hieroglyphic signs step by step — interactive lessons with audio pronunciation, example words, and practice exercises.{% endblock %}
 
 {% block content %}
@@ -21,7 +21,7 @@
                     <div class="text-left mb-6">
                         <a href="/dictionary" class="text-sm text-text-muted hover:text-gold transition-colors inline-flex items-center gap-1">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-                            Back to Dictionary
+                            {{ t('common.back', lang) }}
                         </a>
                     </div>
 
@@ -73,7 +73,7 @@
                      ═══════════════════════════════════════ -->
                 <div class="mb-12">
                     <div class="flex items-center gap-3 mb-6" data-animate>
-                        <h2 class="text-xl font-semibold"><span class="text-gold" x-text="lesson.count"></span> Signs to Learn</h2>
+                        <h2 class="text-xl font-semibold"><span class="text-gold" x-text="lesson.count"></span> {{ t('common.signs', lang) }}</h2>
                     </div>
 
                     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">

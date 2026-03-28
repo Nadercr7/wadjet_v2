@@ -1,32 +1,36 @@
 <!-- Navigation Bar -->
-<nav class="fixed top-0 left-0 right-0 z-50 bg-night/80 backdrop-blur-xl border-b border-border" role="navigation" aria-label="Main navigation">
+<nav class="fixed top-0 left-0 right-0 z-50 bg-night/80 backdrop-blur-xl border-b border-border" role="navigation" aria-label="{{ t('nav.aria_main', lang) }}">
     <div class="container-wide mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
             <!-- Logo -->
-            <a href="/" class="flex items-center gap-2.5 group" aria-label="Wadjet home">
+            <a href="/" class="flex items-center gap-2.5 group" aria-label="{{ t('nav.aria_home', lang) }}">
                 <span class="text-2xl" aria-hidden="true">𓂀</span>
-                <span class="font-display font-bold text-lg text-gold-gradient">Wadjet</span>
+                <span class="font-display font-bold text-lg text-gold-gradient">{{ t('nav.logo', lang) }}</span>
             </a>
 
             <!-- Desktop Nav -->
             <div class="hidden md:flex items-center gap-1">
-                <a href="/hieroglyphs" class="px-4 py-2 rounded-lg text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-all duration-200">Hieroglyphs</a>
-                <a href="/scan" class="px-4 py-2 rounded-lg text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-all duration-200">Scan</a>
-                <a href="/dictionary" class="px-4 py-2 rounded-lg text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-all duration-200">Dictionary</a>
-                <a href="/landmarks" class="px-4 py-2 rounded-lg text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-all duration-200">Landmarks</a>
-                <a href="/explore" class="px-4 py-2 rounded-lg text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-all duration-200">Explore</a>
-                <a href="/write" class="px-4 py-2 rounded-lg text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-all duration-200">Write</a>
-                <a href="/quiz" class="px-4 py-2 rounded-lg text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-all duration-200">Quiz</a>
-                <a href="/chat" class="px-4 py-2 rounded-lg text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-all duration-200">Thoth</a>
+                <a href="/hieroglyphs" class="px-4 py-2 rounded-lg text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-all duration-200">{{ t('nav.hieroglyphs', lang) }}</a>
+                <a href="/scan" class="px-4 py-2 rounded-lg text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-all duration-200">{{ t('nav.scan', lang) }}</a>
+                <a href="/dictionary" class="px-4 py-2 rounded-lg text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-all duration-200">{{ t('nav.dictionary', lang) }}</a>
+                <a href="/landmarks" class="px-4 py-2 rounded-lg text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-all duration-200">{{ t('nav.landmarks_link', lang) }}</a>
+                <a href="/explore" class="px-4 py-2 rounded-lg text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-all duration-200">{{ t('nav.explore', lang) }}</a>
+                <a href="/write" class="px-4 py-2 rounded-lg text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-all duration-200">{{ t('nav.write', lang) }}</a>
+                <a href="/quiz" class="px-4 py-2 rounded-lg text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-all duration-200">{{ t('nav.quiz', lang) }}</a>
+                <a href="/chat" class="px-4 py-2 rounded-lg text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-all duration-200">{{ t('nav.thoth', lang) }}</a>
             </div>
 
-            <!-- CTA + Auth -->
+            <!-- CTA + Auth + Lang Toggle -->
             <div class="hidden md:flex items-center gap-2">
+                <!-- Language Toggle -->
+                <button onclick="toggleLang()" class="px-3 py-1.5 rounded-lg text-sm text-text-muted hover:text-gold hover:bg-surface-alt transition-all duration-200" aria-label="Switch language">
+                    🌐 {{ 'عربي' if lang != 'ar' else 'EN' }}
+                </button>
                 <!-- Auth: shown when NOT logged in -->
                 <template x-if="!$store.auth.user">
                     <div class="flex items-center gap-2">
-                        <button @click="$store.auth.showLogin = true" class="px-3 py-1.5 rounded-lg text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-all duration-200">Sign In</button>
-                        <button @click="$store.auth.showSignup = true" class="btn-gold btn-sm">Sign Up</button>
+                        <button @click="$store.auth.showLogin = true" class="px-3 py-1.5 rounded-lg text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-all duration-200">{{ t('nav.sign_in', lang) }}</button>
+                        <button @click="$store.auth.showSignup = true" class="btn-gold btn-sm">{{ t('nav.sign_up', lang) }}</button>
                     </div>
                 </template>
                 <!-- Auth: shown when logged in -->
@@ -34,7 +38,7 @@
                     <div class="flex items-center gap-2" x-data="{ userMenu: false }">
                         <a href="/scan" class="btn-gold btn-sm">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                            Scan
+                            {{ t('nav.scan', lang) }}
                         </a>
                         <div class="relative">
                             <button @click="userMenu = !userMenu" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-all">
@@ -42,8 +46,8 @@
                                 <span x-text="$store.auth.user.display_name || $store.auth.user.email.split('@')[0]" class="max-w-[100px] truncate"></span>
                             </button>
                             <div x-show="userMenu" @click.outside="userMenu = false" x-cloak
-                                 x-transition class="absolute right-0 mt-1 w-40 bg-surface border border-border rounded-lg shadow-lg overflow-hidden z-50">
-                                <button @click="$store.auth.logout(); userMenu = false" class="w-full text-left px-4 py-2.5 text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-colors">Sign Out</button>
+                                 x-transition class="absolute right-0 mt-1 w-40 bg-surface border border-border rounded-lg shadow-lg overflow-hidden z-50 rtl:right-auto rtl:left-0">
+                                <button @click="$store.auth.logout(); userMenu = false" class="w-full text-left rtl:text-right px-4 py-2.5 text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-colors">{{ t('nav.sign_out', lang) }}</button>
                             </div>
                         </div>
                     </div>
@@ -51,16 +55,22 @@
             </div>
 
             <!-- Mobile menu button -->
-            <button
-                @click="mobileMenu = !mobileMenu"
-                class="md:hidden p-2 rounded-lg text-text-muted hover:text-text hover:bg-surface-alt transition-colors"
-                aria-label="Toggle menu"
-                :aria-expanded="mobileMenu"
-                aria-controls="mobile-menu"
-            >
-                <svg x-show="!mobileMenu" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-                <svg x-show="mobileMenu" x-cloak class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-            </button>
+            <div class="flex md:hidden items-center gap-1">
+                <!-- Mobile Lang Toggle -->
+                <button onclick="toggleLang()" class="p-2 rounded-lg text-text-muted hover:text-gold hover:bg-surface-alt transition-colors" aria-label="Switch language">
+                    🌐
+                </button>
+                <button
+                    @click="mobileMenu = !mobileMenu"
+                    class="p-2 rounded-lg text-text-muted hover:text-text hover:bg-surface-alt transition-colors"
+                    aria-label="{{ t('nav.toggle_menu', lang) }}"
+                    :aria-expanded="mobileMenu"
+                    aria-controls="mobile-menu"
+                >
+                    <svg x-show="!mobileMenu" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    <svg x-show="mobileMenu" x-cloak class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
         </div>
 
         <!-- Mobile menu -->
@@ -78,25 +88,25 @@
             role="menu"
         >
             <div class="flex flex-col gap-1">
-                <a href="/hieroglyphs" class="px-4 py-3 rounded-lg text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-all">Hieroglyphs</a>
-                <a href="/scan" class="px-4 py-3 rounded-lg text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-all pl-8">↳ Scan</a>
-                <a href="/dictionary" class="px-4 py-3 rounded-lg text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-all pl-8">↳ Dictionary</a>
-                <a href="/landmarks" class="px-4 py-3 rounded-lg text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-all">Landmarks</a>
-                <a href="/explore" class="px-4 py-3 rounded-lg text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-all pl-8">↳ Explore</a>
-                <a href="/write" class="px-4 py-3 rounded-lg text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-all pl-8">↳ Write</a>
-                <a href="/quiz" class="px-4 py-3 rounded-lg text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-all">Quiz</a>
-                <a href="/chat" class="px-4 py-3 rounded-lg text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-all">Thoth</a>
+                <a href="/hieroglyphs" class="px-4 py-3 rounded-lg text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-all">{{ t('nav.hieroglyphs', lang) }}</a>
+                <a href="/scan" class="px-4 py-3 rounded-lg text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-all ps-8">{{ t('nav.sub_scan', lang) }}</a>
+                <a href="/dictionary" class="px-4 py-3 rounded-lg text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-all ps-8">{{ t('nav.sub_dictionary', lang) }}</a>
+                <a href="/landmarks" class="px-4 py-3 rounded-lg text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-all">{{ t('nav.landmarks_link', lang) }}</a>
+                <a href="/explore" class="px-4 py-3 rounded-lg text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-all ps-8">{{ t('nav.sub_explore', lang) }}</a>
+                <a href="/write" class="px-4 py-3 rounded-lg text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-all ps-8">{{ t('nav.sub_write', lang) }}</a>
+                <a href="/quiz" class="px-4 py-3 rounded-lg text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-all">{{ t('nav.quiz', lang) }}</a>
+                <a href="/chat" class="px-4 py-3 rounded-lg text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-all">{{ t('nav.thoth', lang) }}</a>
                 <div class="pt-2 flex flex-col gap-2">
                     <template x-if="!$store.auth.user">
                         <div class="flex flex-col gap-2">
-                            <button @click="$store.auth.showLogin = true; mobileMenu = false" class="btn-ghost w-full text-center">Sign In</button>
-                            <button @click="$store.auth.showSignup = true; mobileMenu = false" class="btn-gold w-full text-center">Sign Up</button>
+                            <button @click="$store.auth.showLogin = true; mobileMenu = false" class="btn-ghost w-full text-center">{{ t('nav.sign_in', lang) }}</button>
+                            <button @click="$store.auth.showSignup = true; mobileMenu = false" class="btn-gold w-full text-center">{{ t('nav.sign_up', lang) }}</button>
                         </div>
                     </template>
                     <template x-if="$store.auth.user">
                         <div class="flex flex-col gap-2">
-                            <a href="/scan" class="btn-gold w-full text-center">Scan Now</a>
-                            <button @click="$store.auth.logout(); mobileMenu = false" class="btn-ghost w-full text-center">Sign Out</button>
+                            <a href="/scan" class="btn-gold w-full text-center">{{ t('nav.scan_now', lang) }}</a>
+                            <button @click="$store.auth.logout(); mobileMenu = false" class="btn-ghost w-full text-center">{{ t('nav.sign_out', lang) }}</button>
                         </div>
                     </template>
                 </div>
@@ -107,6 +117,16 @@
 
 <!-- Spacer for fixed nav -->
 <div class="h-16"></div>
+
+<script>
+function toggleLang() {
+    var current = document.documentElement.lang || 'en';
+    var next = current === 'ar' ? 'en' : 'ar';
+    document.cookie = 'wadjet_lang=' + next + ';path=/;max-age=31536000;SameSite=Lax';
+    // Preserve current URL, just reload with new cookie
+    window.location.reload();
+}
+</script>
 
 <style>
     [x-cloak] { display: none !important; }

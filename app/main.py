@@ -171,6 +171,10 @@ def create_app() -> FastAPI:
     templates = Jinja2Templates(directory=BASE_DIR / "templates")
     app.state.templates = templates
 
+    # i18n — register t() as Jinja2 global for all templates
+    from app.i18n import t as _translate
+    templates.env.globals["t"] = _translate
+
     # Routes
     app.include_router(pages.router)
     app.include_router(scan.router)

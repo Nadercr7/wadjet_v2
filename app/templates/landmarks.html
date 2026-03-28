@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Landmarks — Wadjet{% endblock %}
+{% block title %}{{ t('nav.landmarks_link', lang) }} — {{ t('app.name', lang) }}{% endblock %}
 
 {% block content %}
 <!-- Hero -->
@@ -9,12 +9,11 @@
 
     <div class="container-narrow relative text-center">
         <div class="inline-flex items-center gap-2 badge-gold mb-6">
-            <span>𓉐</span> Landmarks Path
+            <span>𓉐</span> {{ t('landmarks_hub.badge', lang) }}
         </div>
-        <h1 class="mb-4">Discover <span class="text-gold-gradient">Egyptian Wonders</span></h1>
+        <h1 class="mb-4">{{ t('landmarks_hub.hero_1', lang) }} <span class="text-gold-gradient">{{ t('landmarks_hub.hero_2', lang) }}</span></h1>
         <p class="text-lg text-text-muted max-w-2xl mx-auto mb-6">
-            Explore 260+ legendary landmarks — pyramids, temples, and museums.
-            Snap a photo and let AI identify the site and tell you its story.
+            {{ t('landmarks_hub.hero_sub', lang) }}
         </p>
         <div class="hieroglyph text-3xl opacity-20 select-none" aria-hidden="true">
             𓉐 𓊖 𓏏 𓊹 𓂝 𓏤 𓉻 𓊃
@@ -31,13 +30,12 @@
             <div class="w-12 h-12 rounded-lg bg-gold/10 flex items-center justify-center mb-4 group-hover:bg-gold/20 transition-colors">
                 <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
             </div>
-            <h3 class="text-lg font-semibold mb-2 group-hover:text-gold transition-colors">Explore All Sites</h3>
+            <h3 class="text-lg font-semibold mb-2 group-hover:text-gold transition-colors">{{ t('landmarks_hub.explore_title', lang) }}</h3>
             <p class="text-sm text-text-muted">
-                Browse all 260+ Egyptian landmarks — pyramids, temples, tombs, and museums.
-                Filter by era, type, or location. Each site includes rich AI-generated descriptions.
+                {{ t('landmarks_hub.explore_desc', lang) }}
             </p>
             <div class="mt-4 flex items-center gap-2 text-gold text-sm font-medium group-hover:gap-3 transition-all">
-                Browse Landmarks
+                {{ t('landmarks_hub.explore_cta', lang) }}
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
             </div>
         </a>
@@ -47,13 +45,12 @@
             <div class="w-12 h-12 rounded-lg bg-gold/10 flex items-center justify-center mb-4 group-hover:bg-gold/20 transition-colors">
                 <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
             </div>
-            <h3 class="text-lg font-semibold mb-2 group-hover:text-gold transition-colors">Identify from Photo</h3>
+            <h3 class="text-lg font-semibold mb-2 group-hover:text-gold transition-colors">{{ t('landmarks_hub.identify_title', lang) }}</h3>
             <p class="text-sm text-text-muted">
-                Upload or snap a photo of any Egyptian landmark. The AI identifies which
-                monument it is and tells you its history, significance, and fun facts.
+                {{ t('landmarks_hub.identify_desc', lang) }}
             </p>
             <div class="mt-4 flex items-center gap-2 text-gold text-sm font-medium group-hover:gap-3 transition-all">
-                Identify Now
+                {{ t('landmarks_hub.identify_cta', lang) }}
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
             </div>
         </a>
@@ -66,32 +63,32 @@
 <section class="section">
     <div class="container-wide">
         <div class="text-center mb-12">
-            <h2 class="mb-4"><span class="text-gold">260+</span> Landmarks to Discover</h2>
+            <h2 class="mb-4"><span class="text-gold">{{ t('landmarks_hub.count', lang) }}</span> {{ t('landmarks_hub.count_title', lang) }}</h2>
             <p class="text-text-muted max-w-xl mx-auto">
-                From the Great Pyramids to the temples of Luxor — every site awaits.
+                {{ t('landmarks_hub.count_sub', lang) }}
             </p>
         </div>
 
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div class="card text-center py-6">
                 <span class="text-3xl block mb-2">🏛️</span>
-                <span class="text-sm font-medium">Temples</span>
-                <span class="text-xs text-text-muted block">Karnak, Luxor, Abu Simbel…</span>
+                <span class="text-sm font-medium">{{ t('landmarks_hub.cat_temples', lang) }}</span>
+                <span class="text-xs text-text-muted block">{{ t('landmarks_hub.cat_temples_d', lang) }}</span>
             </div>
             <div class="card text-center py-6">
                 <span class="text-3xl block mb-2">🔺</span>
-                <span class="text-sm font-medium">Pyramids</span>
-                <span class="text-xs text-text-muted block">Giza, Saqqara, Dahshur…</span>
+                <span class="text-sm font-medium">{{ t('landmarks_hub.cat_pyramids', lang) }}</span>
+                <span class="text-xs text-text-muted block">{{ t('landmarks_hub.cat_pyramids_d', lang) }}</span>
             </div>
             <div class="card text-center py-6">
                 <span class="text-3xl block mb-2">🏺</span>
-                <span class="text-sm font-medium">Museums</span>
-                <span class="text-xs text-text-muted block">Egyptian Museum, GEM…</span>
+                <span class="text-sm font-medium">{{ t('landmarks_hub.cat_museums', lang) }}</span>
+                <span class="text-xs text-text-muted block">{{ t('landmarks_hub.cat_museums_d', lang) }}</span>
             </div>
             <div class="card text-center py-6">
                 <span class="text-3xl block mb-2">⚱️</span>
-                <span class="text-sm font-medium">Tombs</span>
-                <span class="text-xs text-text-muted block">Valley of the Kings…</span>
+                <span class="text-sm font-medium">{{ t('landmarks_hub.cat_tombs', lang) }}</span>
+                <span class="text-xs text-text-muted block">{{ t('landmarks_hub.cat_tombs_d', lang) }}</span>
             </div>
         </div>
     </div>
@@ -104,12 +101,12 @@
             <div class="absolute inset-0 bg-gradient-to-b from-gold/5 to-transparent pointer-events-none"></div>
             <div class="relative">
                 <span class="text-5xl mb-6 block" aria-hidden="true">𓉐</span>
-                <h2 class="mb-4">Know your landmarks</h2>
+                <h2 class="mb-4">{{ t('landmarks_hub.cta_title', lang) }}</h2>
                 <p class="text-text-muted mb-8 max-w-md mx-auto">
-                    Snap a photo of any Egyptian monument and let Wadjet identify it instantly.
+                    {{ t('landmarks_hub.cta_desc', lang) }}
                 </p>
                 <a href="/explore" class="btn-gold btn-lg btn-shimmer">
-                    Start Exploring
+                    {{ t('landmarks_hub.cta_btn', lang) }}
                 </a>
             </div>
         </div>
