@@ -85,10 +85,10 @@ async def robots_txt():
         "Allow: /\n"
         "Disallow: /api/\n"
         "\n"
+        f"Sitemap: {base}/sitemap.xml\n"
+        "\n"
         "User-agent: GPTBot\n"
         "Disallow: /\n"
-        "\n"
-        f"Sitemap: {base}/sitemap.xml\n"
     )
 
 
@@ -106,6 +106,9 @@ async def sitemap_xml():
         "/chat",
         "/quiz",
     ]
+    # Add lesson pages (5 levels)
+    for level in range(1, 6):
+        pages.append(f"/dictionary/lesson/{level}")
     urls = ""
     for page in pages:
         urls += (

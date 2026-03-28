@@ -15,6 +15,8 @@
 <meta property="og:title" content="{{ og_title | default(t('app.name', lang) + ' — ' + t('app.tagline', lang)) }}">
 <meta property="og:description" content="{{ og_description | default(t('app.site_desc', lang)) }}">
 <meta property="og:image" content="{{ og_image | default(base_url + '/static/images/og-default.png') }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:locale" content="{{ 'ar_EG' if lang == 'ar' else 'en_US' }}">
 <meta property="og:site_name" content="{{ t('app.name', lang) }}">
 
@@ -30,8 +32,8 @@
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "Wadjet",
-    "description": "{{ t('app.site_desc', 'en') }}",
-    "url": "{{ base_url }}",
+    "description": {{ t('app.site_desc', lang) | tojson }},
+    "url": {{ base_url | tojson }},
     "applicationCategory": "EducationalApplication",
     "operatingSystem": "Web",
     "inLanguage": ["en", "ar"],
