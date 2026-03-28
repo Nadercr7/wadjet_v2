@@ -439,3 +439,56 @@
 - ✅ Arabic pages: `og:locale` is `ar_EG`
 - ✅ No duplicate title/description tags (1 each)
 - ✅ JSON-LD WebApplication structured data present with correct schema
+
+### Phase 7 Audit — 5 Issues Found & Fixed
+**Commit**: `5fd91d7` — `[Phase 7] SEO audit fixes — JSON-LD escaping, sitemap lessons, og:image dimensions, description i18n`
+
+| # | Severity | Issue | Fix |
+|---|----------|-------|-----|
+| M1 | MEDIUM | Jinja2 autoescaping corrupts JSON-LD quotes | Used `\| tojson` for all JSON-LD string values |
+| M2 | MEDIUM | 5 lesson pages missing from sitemap | Added `/dictionary/lesson/{1-5}` to sitemap generator |
+| M3 | MEDIUM | og:image missing width/height meta tags | Added `og:image:width=1200`, `og:image:height=630` |
+| L2 | LOW | Sitemap directive after GPTBot block in robots.txt | Moved `Sitemap:` line before GPTBot section |
+| L3 | LOW | JSON-LD description hardcoded to English | Changed to use `lang` variable |
+
+---
+
+## Cross-Phase Audit (Phases 1–7)
+**Date**: 2026-03-28
+**Commit**: `b1882c3` — `[Phases 1-7] Cross-phase audit fixes`
+
+### 14 Files Modified
+
+| File | Fixes Applied |
+|------|--------------|
+| `app/api/audio.py` | Rate limits: `/tts` 20/min, `/stt` 10/min |
+| `app/api/auth.py` | Secure cookie flag tied to `settings.environment`, `/logout` rate limit 10/min |
+| `app/api/quiz.py` | Rate limit `/question` 60/min, removed `correct_answer` from wrong submissions |
+| `app/rate_limit.py` | Proxy-aware IP via `X-Forwarded-For` header |
+| `app/main.py` | CSRF secret propagation fix (stable HMAC for quiz) |
+| `app/core/tts_service.py` | Randomized key selection, fixed `last_error` declaration |
+| `app/templates/scan.html` | Confidence threshold 0.3→0.4 to match text labels |
+| `app/templates/chat.html` | TTS button shows if online OR browser TTS available |
+| `app/templates/partials/narration_button.html` | i18n aria-labels via data attributes |
+| `app/templates/explore.html` | sr-only label for city filter select |
+| `app/templates/dictionary.html` | sr-only label for type filter select |
+| `app/templates/base.html` | `tts.js?v=1` → `tts.js?v=22` |
+| `app/i18n/en.json` | Added: play_narration, pause_narration, filter_type, filter_city |
+| `app/i18n/ar.json` | Arabic translations + fixed sub-nav arrows `←` → `↳` |
+
+### Issues Addressed (by severity)
+
+**Critical (1):** Audio endpoints unrate-limited → added limits
+**High (3):** Secure cookie hardcoded to False, quiz endpoint unrate-limited, correct answer exposed on wrong submissions
+**Medium (4):** Proxy IP for rate limiting, quiz HMAC instability, confidence threshold mismatch, TTS key distribution bias
+**Low (4):** Logout unrate-limited, tts.js cache bust stale, narration aria-labels English-only, Arabic sub-nav arrows
+
+### Deferred (acceptable)
+- JWT in localStorage (architectural, too invasive — defer to Phase 10)
+- Narration button on scan/write/quiz pages (scan has per-sign TTS; add to write/quiz in Phase 10)
+- SW cache.addAll atomic failure (low risk)
+
+### Testing Results
+- ✅ 20/20 endpoints return 200 (10 EN pages, 8 AR pages, health, robots, sitemap, 5 lessons)
+- ✅ Server logs clean — no errors, warnings, or tracebacks
+- ✅ App factory imports validated

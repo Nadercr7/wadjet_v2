@@ -11,7 +11,7 @@
 | 4 | ✅ DONE | 2026-03-28 | 2026-03-28 | — | UX, accessibility & TTS |
 | 5 | ✅ DONE | 2026-03-28 | 2026-03-28 | — | Performance |
 | 6 | ✅ DONE | 2026-03-28 | 2026-03-28 | — | Arabic i18n |
-| 7 | ✅ DONE | 2026-03-28 | 2026-03-28 | — | SEO & social |
+| 7 | ✅ DONE | 2026-03-28 | 2026-03-28 | — | SEO & social + cross-phase audit |
 | 8 | ⬜ TODO | — | — | — | Stories of the Nile |
 | 9 | ⬜ TODO | — | — | — | SaaS dashboard |
 | 10 | ⬜ TODO | — | — | — | Beta finalize |
