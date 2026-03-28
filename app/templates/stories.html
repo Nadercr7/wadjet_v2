@@ -1,0 +1,140 @@
+{% extends "base.html" %}
+{% block body_attrs %}data-narration-context="story_narration"{% endblock %}
+{% block title %}{{ t('stories.title', lang) }} {{ t('stories.title_gold', lang) }} — {{ t('app.name', lang) }}{% endblock %}
+{% block description %}{{ t('stories.meta_desc', lang) }}{% endblock %}
+{% block seo %}
+{% set og_title = t('stories.title', lang) + ' ' + t('stories.title_gold', lang) + ' — ' + t('app.name', lang) %}
+{% set og_description = t('stories.meta_desc', lang) %}
+{% set canonical_url = base_url + '/stories' %}
+{% include "partials/seo.html" %}
+{% endblock %}
+
+{% block content %}
+<section class="section" x-data="storiesApp()" x-init="init()" x-cloak>
+    <div class="container-narrow">
+
+        <!-- Header -->
+        <div class="text-center mb-10" data-animate>
+            <div class="inline-flex items-center gap-2 badge-gold mb-6">
+                <span class="w-1.5 h-1.5 rounded-full bg-gold animate-pulse"></span>
+                {{ t('stories.badge', lang) }}
+            </div>
+            <h1 class="mb-3">{{ t('stories.title', lang) }} <span class="text-gold-gradient">{{ t('stories.title_gold', lang) }}</span></h1>
+            <p class="text-text-muted text-lg max-w-2xl mx-auto">
+                {{ t('stories.subtitle', lang) }}
+            </p>
+        </div>
+
+        <!-- Difficulty Filter -->
+        <div class="flex items-center justify-center gap-2 mb-8" data-animate>
+            <button @click="filter = 'all'"
+                    :class="filter === 'all' ? 'bg-gold/20 text-gold border-gold/50' : 'bg-surface text-text-muted border-border hover:text-text hover:border-border-light'"
+                    class="px-4 py-2 rounded-lg text-sm border transition-all">
+                {{ t('stories.filter_all', lang) }}
+            </button>
+            <button @click="filter = 'beginner'"
+                    :class="filter === 'beginner' ? 'bg-gold/20 text-gold border-gold/50' : 'bg-surface text-text-muted border-border hover:text-text hover:border-border-light'"
+                    class="px-4 py-2 rounded-lg text-sm border transition-all">
+                {{ t('stories.filter_beginner', lang) }}
+            </button>
+            <button @click="filter = 'intermediate'"
+                    :class="filter === 'intermediate' ? 'bg-gold/20 text-gold border-gold/50' : 'bg-surface text-text-muted border-border hover:text-text hover:border-border-light'"
+                    class="px-4 py-2 rounded-lg text-sm border transition-all">
+                {{ t('stories.filter_intermediate', lang) }}
+            </button>
+        </div>
+
+        <!-- Loading -->
+        <template x-if="loading">
+            <div class="flex justify-center py-12">
+                <div class="w-8 h-8 border-2 border-gold/30 border-t-gold rounded-full animate-spin"></div>
+            </div>
+        </template>
+
+        <!-- Story Cards Grid -->
+        <template x-if="!loading">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <template x-for="story in filteredStories" :key="story.id">
+                    <a :href="'/stories/' + story.id + '?lang={{ lang }}'"
+                       class="card-glow group block p-6 rounded-2xl transition-all hover:scale-[1.02]">
+                        <!-- Cover Glyph -->
+                        <div class="text-6xl text-center mb-4 font-hieroglyph opacity-80 group-hover:opacity-100 transition-opacity"
+                             x-text="story.cover_glyph"></div>
+
+                        <!-- Title -->
+                        <h2 class="text-lg font-display font-semibold text-text mb-1 text-center"
+                            x-text="story.title['{{ lang }}'] || story.title.en"></h2>
+
+                        <!-- Subtitle -->
+                        <p class="text-sm text-text-muted text-center mb-4"
+                           x-text="story.subtitle['{{ lang }}'] || story.subtitle.en"></p>
+
+                        <!-- Meta Row -->
+                        <div class="flex items-center justify-between text-xs text-text-dim">
+                            <span class="inline-flex items-center gap-1">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2"/><circle cx="12" cy="12" r="10"/></svg>
+                                <span x-text="story.estimated_minutes + ' {{ t('stories.minutes', lang) }}'"></span>
+                            </span>
+                            <span class="inline-flex items-center gap-1">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                                <span x-text="story.chapter_count + ' {{ t('stories.chapters', lang) }}'"></span>
+                            </span>
+                        </div>
+
+                        <!-- Difficulty Badge -->
+                        <div class="mt-3 text-center">
+                            <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs border"
+                                  :class="story.difficulty === 'beginner' ? 'border-green-500/30 text-green-400 bg-green-500/10' : story.difficulty === 'intermediate' ? 'border-gold/30 text-gold bg-gold/10' : 'border-red-500/30 text-red-400 bg-red-500/10'"
+                                  x-text="story.difficulty === 'beginner' ? '{{ t('stories.beginner', lang) }}' : story.difficulty === 'intermediate' ? '{{ t('stories.intermediate', lang) }}' : '{{ t('stories.advanced', lang) }}'">
+                            </span>
+                        </div>
+
+                        <!-- Glyphs Taught Preview -->
+                        <div class="mt-3 flex items-center justify-center gap-1 text-text-dim">
+                            <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                            <span class="text-xs" x-text="story.glyphs_taught.length + ' {{ t('stories.glyphs_to_learn', lang) }}'"></span>
+                        </div>
+                    </a>
+                </template>
+            </div>
+        </template>
+
+        <!-- Empty State -->
+        <template x-if="!loading && filteredStories.length === 0">
+            <div class="text-center py-12 text-text-muted">
+                <p>{{ t('stories.no_stories', lang) }}</p>
+            </div>
+        </template>
+
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+function storiesApp() {
+    return {
+        stories: [],
+        filter: 'all',
+        loading: true,
+
+        async init() {
+            try {
+                const resp = await fetch('/api/stories');
+                const data = await resp.json();
+                this.stories = data.stories || [];
+            } catch (e) {
+                console.error('Failed to load stories:', e);
+            } finally {
+                this.loading = false;
+            }
+        },
+
+        get filteredStories() {
+            if (this.filter === 'all') return this.stories;
+            return this.stories.filter(s => s.difficulty === this.filter);
+        }
+    };
+}
+</script>
+{% endblock %}

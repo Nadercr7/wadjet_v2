@@ -453,6 +453,16 @@
   100% { background-position: 0% 0%; }
 }
 
+/* Ken Burns — slow zoom/pan for story hero images */
+@keyframes ken-burns {
+  0%   { transform: scale(1) translate(0, 0); }
+  100% { transform: scale(1.1) translate(-2%, -1%); }
+}
+.story-hero-image {
+  animation: ken-burns 20s ease-in-out infinite alternate;
+  object-fit: cover;
+}
+
 /* ========================================
    Button effects
    ======================================== */

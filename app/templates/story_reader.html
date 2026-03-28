@@ -1,0 +1,525 @@
+{% extends "base.html" %}
+{% block body_attrs %}data-narration-context="story_narration"{% endblock %}
+{% block title %}{{ t('stories.reader_title', lang) }} — {{ t('app.name', lang) }}{% endblock %}
+{% block description %}{{ t('stories.meta_desc', lang) }}{% endblock %}
+{% block seo %}
+{% set og_title = t('stories.reader_title', lang) + ' — ' + t('app.name', lang) %}
+{% set og_description = t('stories.meta_desc', lang) %}
+{% set canonical_url = base_url + '/stories/' + story_id %}
+{% include "partials/seo.html" %}
+{% endblock %}
+
+{% block content %}
+<section class="section min-h-screen" x-data="storyReader('{{ story_id }}', '{{ lang }}')" x-init="init()" x-cloak>
+    <div class="container-narrow max-w-3xl">
+
+        <!-- Loading -->
+        <template x-if="loading">
+            <div class="flex flex-col items-center justify-center py-24 gap-4">
+                <div class="w-10 h-10 border-2 border-gold/30 border-t-gold rounded-full animate-spin"></div>
+                <p class="text-text-muted text-sm">{{ t('stories.loading', lang) }}</p>
+            </div>
+        </template>
+
+        <!-- Error -->
+        <template x-if="error">
+            <div class="text-center py-24">
+                <p class="text-red-400 mb-4" x-text="error"></p>
+                <a href="/stories?lang={{ lang }}" class="btn-ghost">{{ t('stories.back_to_stories', lang) }}</a>
+            </div>
+        </template>
+
+        <!-- Reader -->
+        <template x-if="!loading && !error && story">
+            <div>
+                <!-- Back link + Progress Bar -->
+                <div class="mb-6">
+                    <a href="/stories?lang={{ lang }}" class="text-text-muted hover:text-gold text-sm inline-flex items-center gap-1 mb-4 transition-colors">
+                        <svg class="w-4 h-4 rtl:rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+                        {{ t('stories.back_to_stories', lang) }}
+                    </a>
+                    <!-- Progress bar -->
+                    <div class="w-full h-1.5 bg-surface-alt rounded-full overflow-hidden">
+                        <div class="h-full bg-gold rounded-full transition-all duration-500"
+                             :style="'width: ' + progressPercent + '%'"></div>
+                    </div>
+                    <div class="flex justify-between mt-1 text-xs text-text-dim">
+                        <span x-text="'{{ t('stories.chapter', lang) }} ' + (chapterIdx + 1) + ' / ' + story.chapters.length"></span>
+                        <span x-text="glyphsLearned.length + ' {{ t('stories.glyphs_learned', lang) }}'"></span>
+                    </div>
+                </div>
+
+                <!-- Story Title (first chapter only) -->
+                <template x-if="chapterIdx === 0">
+                    <div class="text-center mb-8">
+                        <div class="text-5xl mb-3 font-hieroglyph" x-text="story.cover_glyph"></div>
+                        <h1 class="text-2xl md:text-3xl font-display font-bold mb-2"
+                            x-text="story.title[lang] || story.title.en"></h1>
+                        <p class="text-text-muted" x-text="story.subtitle[lang] || story.subtitle.en"></p>
+                    </div>
+                </template>
+
+                <!-- Chapter Content -->
+                <div class="mb-8">
+                    <!-- Chapter Title -->
+                    <h2 class="text-xl font-display font-semibold text-gold mb-6"
+                        x-text="currentChapter.title[lang] || currentChapter.title.en"></h2>
+
+                    <!-- Hero Image (AI-generated or placeholder) -->
+                    <div class="relative mb-8 rounded-xl overflow-hidden bg-surface-alt aspect-[16/9]">
+                        <template x-if="chapterImage">
+                            <img :src="chapterImage" :alt="currentChapter.title[lang] || currentChapter.title.en"
+                                 class="w-full h-full object-cover story-hero-image"
+                                 loading="lazy">
+                        </template>
+                        <template x-if="!chapterImage && imageLoading">
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <div class="text-center">
+                                    <div class="w-8 h-8 border-2 border-gold/30 border-t-gold rounded-full animate-spin mx-auto mb-2"></div>
+                                    <p class="text-text-dim text-xs">{{ t('stories.generating_image', lang) }}</p>
+                                </div>
+                            </div>
+                        </template>
+                        <template x-if="!chapterImage && !imageLoading">
+                            <div class="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-surface to-surface-alt">
+                                <div class="text-center">
+                                    <span class="text-6xl font-hieroglyph opacity-30" x-text="story.cover_glyph"></span>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+
+                    <!-- Paragraphs + Interactions -->
+                    <div class="space-y-6">
+                        <template x-for="(para, pIdx) in currentChapter.paragraphs" :key="pIdx">
+                            <div>
+                                <!-- Paragraph Text -->
+                                <p class="text-text text-lg leading-relaxed font-body"
+                                   x-html="renderParagraph(para)"></p>
+
+                                <!-- Interactions after this paragraph -->
+                                <template x-for="(interaction, iIdx) in getInteractionsAfter(pIdx)" :key="'i-' + pIdx + '-' + iIdx">
+                                    <div class="my-6">
+                                        <!-- Glyph Discovery -->
+                                        <template x-if="interaction.type === 'glyph_discovery'">
+                                            <div class="card border border-gold/20 p-5 rounded-xl text-center"
+                                                 :class="isGlyphLearned(interaction.glyph) ? 'border-green-500/30 bg-green-500/5' : ''">
+                                                <p class="text-sm text-gold mb-3" x-text="interaction.prompt[lang] || interaction.prompt.en"></p>
+                                                <button @click="discoverGlyph(interaction)"
+                                                        class="inline-flex flex-col items-center gap-2 p-4 rounded-xl border border-gold/30 bg-gold/5 hover:bg-gold/10 transition-all cursor-pointer group">
+                                                    <span class="text-5xl font-hieroglyph group-hover:scale-110 transition-transform" x-text="interaction.unicode"></span>
+                                                    <span class="text-xs text-text-muted" x-text="interaction.glyph"></span>
+                                                </button>
+                                                <template x-if="isGlyphLearned(interaction.glyph)">
+                                                    <div class="mt-3 space-y-1">
+                                                        <p class="text-sm text-text" x-text="interaction.meaning[lang] || interaction.meaning.en"></p>
+                                                        <p class="text-xs text-text-dim italic" x-text="interaction.transliteration"></p>
+                                                        <span class="inline-flex items-center gap-1 text-green-400 text-xs mt-1">
+                                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                                                            {{ t('stories.glyph_learned', lang) }}
+                                                        </span>
+                                                    </div>
+                                                </template>
+                                            </div>
+                                        </template>
+
+                                        <!-- Choose the Glyph -->
+                                        <template x-if="interaction.type === 'choose_glyph'">
+                                            <div class="card border border-gold/20 p-5 rounded-xl">
+                                                <p class="text-sm text-gold mb-4 font-medium" x-text="interaction.question[lang] || interaction.question.en"></p>
+                                                <div class="grid grid-cols-2 gap-3">
+                                                    <template x-for="(opt, optIdx) in interaction.options" :key="opt.code">
+                                                        <button @click="submitChooseGlyph(interaction, opt.code, pIdx, iIdx)"
+                                                                class="p-4 rounded-xl border text-center transition-all"
+                                                                :class="getChoiceClass(interaction, opt.code)"
+                                                                :disabled="isInteractionDone(interaction)">
+                                                            <span class="text-3xl font-hieroglyph block mb-1" x-text="opt.glyph"></span>
+                                                            <span class="text-xs text-text-dim" x-text="opt.code"></span>
+                                                        </button>
+                                                    </template>
+                                                </div>
+                                                <template x-if="getInteractionResult(interaction)">
+                                                    <div class="mt-3 p-3 rounded-lg text-sm"
+                                                         :class="getInteractionResult(interaction).correct ? 'bg-green-500/10 text-green-400' : 'bg-red-500/10 text-red-400'">
+                                                        <p x-text="(getInteractionResult(interaction).explanation || {})[lang] || (getInteractionResult(interaction).explanation || {}).en || ''"></p>
+                                                    </div>
+                                                </template>
+                                            </div>
+                                        </template>
+
+                                        <!-- Write the Word -->
+                                        <template x-if="interaction.type === 'write_word'">
+                                            <div class="card border border-gold/20 p-5 rounded-xl">
+                                                <p class="text-sm text-gold mb-2 font-medium">
+                                                    {{ t('stories.write_prompt', lang) }}
+                                                    <span class="text-text font-semibold" x-text="interaction.target_word[lang] || interaction.target_word.en"></span>
+                                                </p>
+                                                <p class="text-xs text-text-dim mb-3" x-text="interaction.hint[lang] || interaction.hint.en"></p>
+                                                <div class="flex gap-2">
+                                                    <input type="text"
+                                                           class="input flex-1"
+                                                           :placeholder="'{{ t('stories.write_placeholder', lang) }}'"
+                                                           x-model="writeInputs[interaction.gardiner_code]"
+                                                           @keydown.enter="submitWriteWord(interaction, pIdx, iIdx)"
+                                                           :disabled="isInteractionDone(interaction)">
+                                                    <button @click="submitWriteWord(interaction, pIdx, iIdx)"
+                                                            class="btn-gold px-4"
+                                                            :disabled="isInteractionDone(interaction)">
+                                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                                                    </button>
+                                                </div>
+                                                <template x-if="getInteractionResult(interaction)">
+                                                    <div class="mt-3 p-3 rounded-lg text-sm"
+                                                         :class="getInteractionResult(interaction).correct ? 'bg-green-500/10 text-green-400' : 'bg-red-500/10 text-red-400'">
+                                                        <template x-if="getInteractionResult(interaction).correct">
+                                                            <p>{{ t('stories.correct', lang) }} <span class="font-hieroglyph text-lg" x-text="interaction.target_glyph"></span></p>
+                                                        </template>
+                                                        <template x-if="!getInteractionResult(interaction).correct">
+                                                            <p>{{ t('stories.try_again', lang) }}</p>
+                                                        </template>
+                                                    </div>
+                                                </template>
+                                            </div>
+                                        </template>
+                                    </div>
+                                </template>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+
+                <!-- Chapter Navigation -->
+                <div class="flex items-center justify-between pt-6 border-t border-border">
+                    <button @click="prevChapter()"
+                            :disabled="chapterIdx === 0"
+                            class="btn-ghost inline-flex items-center gap-2"
+                            :class="chapterIdx === 0 ? 'opacity-30 cursor-not-allowed' : ''">
+                        <svg class="w-4 h-4 rtl:rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+                        {{ t('stories.prev_chapter', lang) }}
+                    </button>
+
+                    <template x-if="chapterIdx < story.chapters.length - 1">
+                        <button @click="nextChapter()" class="btn-gold inline-flex items-center gap-2">
+                            {{ t('stories.next_chapter', lang) }}
+                            <svg class="w-4 h-4 rtl:rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                        </button>
+                    </template>
+                    <template x-if="chapterIdx >= story.chapters.length - 1">
+                        <a href="/stories?lang={{ lang }}" class="btn-gold inline-flex items-center gap-2">
+                            {{ t('stories.finish', lang) }}
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                        </a>
+                    </template>
+                </div>
+            </div>
+        </template>
+
+    </div>
+</section>
+
+<!-- Floating Narration Button -->
+<div class="fixed bottom-6 end-6 z-50" x-data="storyNarration()" x-cloak>
+    <button @click="toggleNarration()"
+            class="w-14 h-14 rounded-full bg-gold/20 border border-gold/50 backdrop-blur-xl flex items-center justify-center shadow-lg hover:bg-gold/30 transition-all group"
+            :aria-label="playing ? '{{ t('common.pause_narration', lang) }}' : '{{ t('common.play_narration', lang) }}'">
+        <template x-if="!playing && !loading">
+            <svg class="w-6 h-6 text-gold group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 010 7.07M19.07 4.93a10 10 0 010 14.14"/></svg>
+        </template>
+        <template x-if="playing">
+            <svg class="w-6 h-6 text-gold group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+        </template>
+        <template x-if="loading">
+            <div class="w-5 h-5 border-2 border-gold/30 border-t-gold rounded-full animate-spin"></div>
+        </template>
+    </button>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+function storyReader(storyId, lang) {
+    return {
+        storyId,
+        lang,
+        story: null,
+        chapterIdx: 0,
+        loading: true,
+        error: null,
+        glyphsLearned: [],
+        interactionResults: {},
+        writeInputs: {},
+        chapterImage: null,
+        imageLoading: false,
+
+        async init() {
+            try {
+                const resp = await fetch('/api/stories/' + this.storyId);
+                if (!resp.ok) throw new Error('Story not found');
+                this.story = await resp.json();
+
+                // Restore progress from localStorage
+                const saved = localStorage.getItem('wadjet_story_' + this.storyId);
+                if (saved) {
+                    try {
+                        const data = JSON.parse(saved);
+                        this.chapterIdx = data.chapterIdx || 0;
+                        this.glyphsLearned = data.glyphsLearned || [];
+                    } catch {}
+                }
+
+                this.loadChapterImage();
+            } catch (e) {
+                this.error = e.message;
+            } finally {
+                this.loading = false;
+            }
+        },
+
+        get currentChapter() {
+            return this.story?.chapters?.[this.chapterIdx] || {};
+        },
+
+        get progressPercent() {
+            if (!this.story) return 0;
+            return Math.round(((this.chapterIdx + 1) / this.story.chapters.length) * 100);
+        },
+
+        renderParagraph(para) {
+            let text = para.text?.[this.lang] || para.text?.en || '';
+            // Highlight annotated words with gold glow
+            for (const ann of (para.glyph_annotations || [])) {
+                const word = ann.word?.[this.lang] || ann.word?.en || '';
+                if (word && text.includes(word)) {
+                    text = text.replace(
+                        word,
+                        '<span class="text-gold font-semibold cursor-help border-b border-gold/30"' +
+                        ' title="' + (ann.glyph || '') + ' (' + (ann.gardiner_code || '') + ') — ' + (ann.transliteration || '') + '">' +
+                        word + ' <span class="font-hieroglyph text-gold/70">' + (ann.glyph || '') + '</span></span>'
+                    );
+                }
+            }
+            return text;
+        },
+
+        getInteractionsAfter(paragraphIdx) {
+            const interactions = this.currentChapter.interactions || [];
+            return interactions.filter(i => i.after_paragraph === paragraphIdx);
+        },
+
+        isGlyphLearned(code) {
+            return this.glyphsLearned.includes(code);
+        },
+
+        discoverGlyph(interaction) {
+            if (!this.glyphsLearned.includes(interaction.glyph)) {
+                this.glyphsLearned.push(interaction.glyph);
+                this.saveProgress();
+            }
+        },
+
+        interactionKey(interaction) {
+            return this.chapterIdx + '-' + interaction.type + '-' + (interaction.glyph || interaction.correct || interaction.gardiner_code || '');
+        },
+
+        isInteractionDone(interaction) {
+            const key = this.interactionKey(interaction);
+            const result = this.interactionResults[key];
+            return result && result.correct;
+        },
+
+        getInteractionResult(interaction) {
+            return this.interactionResults[this.interactionKey(interaction)] || null;
+        },
+
+        getChoiceClass(interaction, code) {
+            const result = this.getInteractionResult(interaction);
+            if (!result) return 'border-border hover:border-gold/50 bg-surface hover:bg-surface-alt';
+            if (code === interaction.correct) return 'border-green-500/50 bg-green-500/10';
+            if (result.selectedCode === code) return 'border-red-500/50 bg-red-500/10';
+            return 'border-border bg-surface opacity-50';
+        },
+
+        async submitChooseGlyph(interaction, code, pIdx, iIdx) {
+            if (this.isInteractionDone(interaction)) return;
+            try {
+                const csrf = document.cookie.match(/csrftoken=([^;]+)/)?.[1] || '';
+                const resp = await fetch('/api/stories/' + this.storyId + '/interact', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'x-csrftoken': csrf },
+                    body: JSON.stringify({
+                        chapter_index: this.chapterIdx,
+                        interaction_index: this.currentChapter.interactions.indexOf(interaction),
+                        answer: code
+                    })
+                });
+                const result = await resp.json();
+                result.selectedCode = code;
+                this.interactionResults[this.interactionKey(interaction)] = result;
+                if (result.correct && !this.glyphsLearned.includes(interaction.correct)) {
+                    this.glyphsLearned.push(interaction.correct);
+                }
+                this.saveProgress();
+            } catch (e) {
+                console.error('Interaction check failed:', e);
+            }
+        },
+
+        async submitWriteWord(interaction, pIdx, iIdx) {
+            if (this.isInteractionDone(interaction)) return;
+            const answer = (this.writeInputs[interaction.gardiner_code] || '').trim();
+            if (!answer) return;
+            try {
+                const csrf = document.cookie.match(/csrftoken=([^;]+)/)?.[1] || '';
+                const resp = await fetch('/api/stories/' + this.storyId + '/interact', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'x-csrftoken': csrf },
+                    body: JSON.stringify({
+                        chapter_index: this.chapterIdx,
+                        interaction_index: this.currentChapter.interactions.indexOf(interaction),
+                        answer: answer
+                    })
+                });
+                const result = await resp.json();
+                this.interactionResults[this.interactionKey(interaction)] = result;
+                if (result.correct && !this.glyphsLearned.includes(interaction.gardiner_code)) {
+                    this.glyphsLearned.push(interaction.gardiner_code);
+                }
+                this.saveProgress();
+            } catch (e) {
+                console.error('Write word check failed:', e);
+            }
+        },
+
+        nextChapter() {
+            if (this.chapterIdx < this.story.chapters.length - 1) {
+                this.chapterIdx++;
+                this.interactionResults = {};
+                this.writeInputs = {};
+                this.chapterImage = null;
+                this.loadChapterImage();
+                this.saveProgress();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        },
+
+        prevChapter() {
+            if (this.chapterIdx > 0) {
+                this.chapterIdx--;
+                this.interactionResults = {};
+                this.writeInputs = {};
+                this.chapterImage = null;
+                this.loadChapterImage();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        },
+
+        async loadChapterImage() {
+            this.imageLoading = true;
+            try {
+                const csrf = document.cookie.match(/csrftoken=([^;]+)/)?.[1] || '';
+                const resp = await fetch('/api/stories/' + this.storyId + '/chapters/' + this.chapterIdx + '/image', {
+                    method: 'POST',
+                    headers: { 'x-csrftoken': csrf }
+                });
+                const data = await resp.json();
+                if (data.image_url) {
+                    this.chapterImage = data.image_url;
+                }
+            } catch (e) {
+                console.log('Image generation skipped:', e.message);
+            } finally {
+                this.imageLoading = false;
+            }
+        },
+
+        saveProgress() {
+            localStorage.setItem('wadjet_story_' + this.storyId, JSON.stringify({
+                chapterIdx: this.chapterIdx,
+                glyphsLearned: this.glyphsLearned
+            }));
+        }
+    };
+}
+
+function storyNarration() {
+    return {
+        playing: false,
+        loading: false,
+        audio: null,
+        blobUrl: null,
+
+        async toggleNarration() {
+            if (this.playing) {
+                this.stop();
+                return;
+            }
+
+            // Get the reader component's current chapter text
+            const readerEl = document.querySelector('[x-data*="storyReader"]');
+            if (!readerEl) return;
+            const reader = Alpine.$data(readerEl);
+            if (!reader || !reader.currentChapter) return;
+
+            const paragraphs = reader.currentChapter.paragraphs || [];
+            const lang = reader.lang || 'en';
+            const text = paragraphs.map(p => p.text?.[lang] || p.text?.en || '').join(' ');
+            if (!text.trim()) return;
+
+            this.loading = true;
+
+            // Try server TTS first
+            try {
+                const csrf = document.cookie.match(/csrftoken=([^;]+)/)?.[1] || '';
+                const resp = await fetch('/api/audio/speak', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'x-csrftoken': csrf },
+                    body: JSON.stringify({ text: text.slice(0, 5000), context: 'story_narration', lang: lang })
+                });
+                if (resp.ok) {
+                    const blob = await resp.blob();
+                    this.cleanup();
+                    this.blobUrl = URL.createObjectURL(blob);
+                    this.audio = new Audio(this.blobUrl);
+                    this.audio.onended = () => { this.stop(); };
+                    this.audio.play();
+                    this.playing = true;
+                    this.loading = false;
+                    return;
+                }
+            } catch {}
+
+            // Fallback to browser TTS
+            if ('speechSynthesis' in window) {
+                const utter = new SpeechSynthesisUtterance(text.slice(0, 3000));
+                utter.lang = lang === 'ar' ? 'ar-EG' : 'en-US';
+                utter.rate = 0.9;
+                utter.onend = () => { this.playing = false; };
+                speechSynthesis.speak(utter);
+                this.playing = true;
+            }
+            this.loading = false;
+        },
+
+        stop() {
+            if (this.audio) {
+                this.audio.pause();
+                this.audio.currentTime = 0;
+            }
+            if ('speechSynthesis' in window) {
+                speechSynthesis.cancel();
+            }
+            this.playing = false;
+            this.cleanup();
+        },
+
+        cleanup() {
+            if (this.blobUrl) {
+                URL.revokeObjectURL(this.blobUrl);
+                this.blobUrl = null;
+            }
+            this.audio = null;
+        }
+    };
+}
+</script>
+{% endblock %}

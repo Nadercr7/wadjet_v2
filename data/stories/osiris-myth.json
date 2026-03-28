@@ -1,0 +1,277 @@
+{
+    "id": "osiris-myth",
+    "title": { "en": "The Osiris Myth", "ar": "أسطورة أوزيريس" },
+    "subtitle": { "en": "Death, resurrection, and the throne of Egypt", "ar": "الموت والبعث وعرش مصر" },
+    "cover_glyph": "𓊨",
+    "difficulty": "beginner",
+    "estimated_minutes": 15,
+    "glyphs_taught": ["Q1", "N5", "S34", "G14", "R8", "S42", "D4"],
+    "chapters": [
+        {
+            "index": 0,
+            "title": { "en": "The Golden Age", "ar": "العصر الذهبي" },
+            "scene_image_prompt": "Ancient Egyptian golden throne room with Osiris seated as pharaoh, lush Nile valley visible through columns, hieroglyphs on walls, warm dramatic lighting, oil painting style",
+            "tts_voice": "Aoede",
+            "tts_style": "Narrate as an ancient Egyptian storyteller, slow pace, mysterious and reverent tone",
+            "paragraphs": [
+                {
+                    "text": {
+                        "en": "In the time before memory, when the world was young and the Nile flowed with sacred waters, Osiris sat upon the throne of Egypt. He was the first pharaoh — beloved of gods and men alike.",
+                        "ar": "في زمن ما قبل الذاكرة، حين كان العالم فتيًا والنيل يجري بمياه مقدسة، جلس أوزيريس على عرش مصر. كان أول فرعون — محبوبًا من الآلهة والبشر على حدٍّ سواء."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "Osiris", "ar": "أوزيريس" },
+                            "gardiner_code": "Q1",
+                            "glyph": "𓊨",
+                            "meaning": { "en": "Seat/throne — the hieroglyph in Osiris's name", "ar": "العرش — الهيروغليفية في اسم أوزيريس" },
+                            "transliteration": "st"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "Osiris taught his people the arts of civilization. He showed them how to cultivate grain along the fertile banks, how to brew beer from barley, and how to worship the gods with proper rites.",
+                        "ar": "علّم أوزيريس شعبه فنون الحضارة. أراهم كيف يزرعون الحبوب على الضفاف الخصبة، وكيف يصنعون الجعة من الشعير، وكيف يعبدون الآلهة بالطقوس الصحيحة."
+                    },
+                    "glyph_annotations": []
+                },
+                {
+                    "text": {
+                        "en": "By his side stood Isis, his queen and sister, whose wisdom rivaled the sun god Ra himself. Together they brought Ma'at — truth, justice, and cosmic order — to all the lands of Kemet.",
+                        "ar": "إلى جانبه وقفت إيزيس، ملكته وأخته، التي نافست حكمتها إله الشمس رع نفسه. معًا جلبا ماعت — الحقيقة والعدالة والنظام الكوني — إلى جميع أراضي كِمِت."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "Ra", "ar": "رع" },
+                            "gardiner_code": "N5",
+                            "glyph": "𓇳",
+                            "meaning": { "en": "Sun disk — the hieroglyph for the sun god Ra", "ar": "قرص الشمس — هيروغليفية إله الشمس رع" },
+                            "transliteration": "rꜥ"
+                        }
+                    ]
+                }
+            ],
+            "interactions": [
+                {
+                    "type": "glyph_discovery",
+                    "after_paragraph": 0,
+                    "glyph": "Q1",
+                    "unicode": "𓊨",
+                    "prompt": { "en": "You just met Osiris! Tap his hieroglyph to learn it.", "ar": "قابلت أوزيريس! اضغط على الهيروغليفية لتتعلمها." },
+                    "meaning": { "en": "Seat/throne — used in writing Osiris's name", "ar": "العرش — يُستخدم في كتابة اسم أوزيريس" },
+                    "transliteration": "st"
+                },
+                {
+                    "type": "choose_glyph",
+                    "after_paragraph": 2,
+                    "question": { "en": "Which hieroglyph represents the sun god Ra?", "ar": "أي هيروغليفية تمثل إله الشمس رع؟" },
+                    "options": [
+                        { "code": "N5", "glyph": "𓇳" },
+                        { "code": "S34", "glyph": "𓋹" },
+                        { "code": "G14", "glyph": "𓅃" },
+                        { "code": "M17", "glyph": "𓇋" }
+                    ],
+                    "correct": "N5",
+                    "explanation": { "en": "The sun disk (N5) 𓇳 represents Ra, the supreme solar deity.", "ar": "قرص الشمس (N5) 𓇳 يمثل رع، إله الشمس الأعلى." }
+                }
+            ]
+        },
+        {
+            "index": 1,
+            "title": { "en": "The Jealousy of Set", "ar": "غيرة ست" },
+            "scene_image_prompt": "Ancient Egyptian banquet hall at night, Set standing menacingly beside a beautiful golden coffin chest, torchlight casting dramatic shadows on hieroglyph-covered walls, dark tension, oil painting style",
+            "tts_voice": "Aoede",
+            "tts_style": "Build tension slowly, dramatic pauses before the betrayal",
+            "paragraphs": [
+                {
+                    "text": {
+                        "en": "But not all hearts rejoiced in the golden age. Set, brother of Osiris, burned with jealousy. Where Osiris brought life, Set craved chaos. Where Osiris inspired love, Set nursed hatred.",
+                        "ar": "لكن ليست كل القلوب ابتهجت بالعصر الذهبي. ست، شقيق أوزيريس، اشتعل بالغيرة. حيث جلب أوزيريس الحياة، اشتهى ست الفوضى. وحيث ألهم أوزيريس الحب، غذّى ست الكراهية."
+                    },
+                    "glyph_annotations": []
+                },
+                {
+                    "text": {
+                        "en": "Set devised a cunning plan. He commissioned a magnificent chest of cedar and gold, crafted to Osiris's exact measurements. At a grand feast, he announced: \"Whoever fits perfectly inside this chest shall have it as a gift!\"",
+                        "ar": "دبّر ست خطة ماكرة. أمر بصنع صندوق فاخر من الأرز والذهب، صُنع بمقاسات أوزيريس بالضبط. وفي مأدبة كبرى، أعلن: \"من يناسب هذا الصندوق تمامًا سيكون له هدية!\""
+                    },
+                    "glyph_annotations": []
+                },
+                {
+                    "text": {
+                        "en": "When Osiris lay inside, the chest fit him perfectly. In that instant, Set slammed the lid shut and sealed it with molten lead. The chest was cast into the Nile, and the great king was no more.",
+                        "ar": "حين استلقى أوزيريس بداخله، ناسبه الصندوق تمامًا. في تلك اللحظة، أغلق ست الغطاء بقوة وختمه بالرصاص المنصهر. أُلقي الصندوق في النيل، ولم يعد الملك العظيم."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "life", "ar": "حياة" },
+                            "gardiner_code": "S34",
+                            "glyph": "𓋹",
+                            "meaning": { "en": "The ankh — symbol of life, now lost to Osiris", "ar": "العنخ — رمز الحياة، المفقود الآن لأوزيريس" },
+                            "transliteration": "ꜥnḫ"
+                        }
+                    ]
+                }
+            ],
+            "interactions": [
+                {
+                    "type": "glyph_discovery",
+                    "after_paragraph": 2,
+                    "glyph": "S34",
+                    "unicode": "𓋹",
+                    "prompt": { "en": "The ankh — symbol of life. As Osiris lost his, learn this vital glyph.", "ar": "العنخ — رمز الحياة. فيما فقد أوزيريس حياته، تعلم هذه الهيروغليفية المهمة." },
+                    "meaning": { "en": "Life — the most iconic Egyptian symbol", "ar": "الحياة — أشهر رمز مصري على الإطلاق" },
+                    "transliteration": "ꜥnḫ"
+                },
+                {
+                    "type": "write_word",
+                    "after_paragraph": 2,
+                    "target_word": { "en": "life", "ar": "حياة" },
+                    "target_glyph": "𓋹",
+                    "gardiner_code": "S34",
+                    "hint": { "en": "The cross with a loop at the top — the most famous Egyptian symbol", "ar": "الصليب ذو الحلقة في أعلاه — أشهر رمز مصري" }
+                }
+            ]
+        },
+        {
+            "index": 2,
+            "title": { "en": "The Search of Isis", "ar": "بحث إيزيس" },
+            "scene_image_prompt": "Isis with outstretched wings searching along the Nile riverbank at dawn, papyrus reeds, golden light reflecting on water, hieroglyphs floating in the mist, emotional and ethereal, oil painting style",
+            "tts_voice": "Aoede",
+            "tts_style": "Sorrowful yet determined, the voice of a queen who will not yield",
+            "paragraphs": [
+                {
+                    "text": {
+                        "en": "When Isis learned of her husband's fate, her grief shook the heavens. But Isis was no ordinary queen. With wings of a kite, she flew across the Two Lands searching for Osiris.",
+                        "ar": "حين علمت إيزيس بمصير زوجها، هزّ حزنها السماوات. لكن إيزيس لم تكن ملكة عادية. بأجنحة طائر الحدأة، طارت عبر الأرضين بحثًا عن أوزيريس."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "Isis", "ar": "إيزيس" },
+                            "gardiner_code": "Q1",
+                            "glyph": "𓊨",
+                            "meaning": { "en": "Throne — the same seat glyph that appears in Isis's name (Aset)", "ar": "العرش — نفس هيروغليفية المقعد التي تظهر في اسم إيزيس (أسِت)" },
+                            "transliteration": "st"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "She found the chest embedded in a great tamarisk tree in Byblos. With the help of the local queen, she recovered the body and brought it back to Egypt, hiding it in the marshes of the Delta.",
+                        "ar": "وجدت الصندوق مغروسًا في شجرة طرفاء عظيمة في جبيل. بمساعدة الملكة المحلية، استعادت الجسد وأعادته إلى مصر، مخفيةً إياه في مستنقعات الدلتا."
+                    },
+                    "glyph_annotations": []
+                },
+                {
+                    "text": {
+                        "en": "But Set discovered the hiding place. In his rage, he tore the body into fourteen pieces and scattered them across the length of Egypt, from the Delta to Aswan.",
+                        "ar": "لكن ست اكتشف مكان الاختباء. في غضبه، مزّق الجسد إلى أربع عشرة قطعة ونثرها عبر طول مصر، من الدلتا إلى أسوان."
+                    },
+                    "glyph_annotations": []
+                },
+                {
+                    "text": {
+                        "en": "Undaunted, Isis set out once more. With her sister Nephthys, she gathered the scattered pieces one by one. At each place a piece was found, a temple was built — and the Eye of Horus watched over them all.",
+                        "ar": "دون أن تيأس، انطلقت إيزيس مرة أخرى. مع أختها نفتيس، جمعت القطع المتناثرة واحدة تلو الأخرى. في كل مكان وُجدت فيه قطعة، بُني معبد — وعين حورس تحرسهم جميعًا."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "Eye of Horus", "ar": "عين حورس" },
+                            "gardiner_code": "D4",
+                            "glyph": "𓂀",
+                            "meaning": { "en": "The Wedjat eye — symbol of protection and healing", "ar": "عين الوجات — رمز الحماية والشفاء" },
+                            "transliteration": "wḏꜣt"
+                        }
+                    ]
+                }
+            ],
+            "interactions": [
+                {
+                    "type": "choose_glyph",
+                    "after_paragraph": 1,
+                    "question": { "en": "Which bird is sacred to Isis?", "ar": "أي طائر مقدس لإيزيس؟" },
+                    "options": [
+                        { "code": "G14", "glyph": "𓅃" },
+                        { "code": "G4", "glyph": "𓅀" },
+                        { "code": "G39", "glyph": "𓅫" },
+                        { "code": "G1", "glyph": "𓄿" }
+                    ],
+                    "correct": "G4",
+                    "explanation": { "en": "The vulture (G4) 𓅀 is associated with motherhood and Isis's protective nature.", "ar": "النسر (G4) 𓅀 مرتبط بالأمومة وطبيعة إيزيس الحامية." }
+                },
+                {
+                    "type": "glyph_discovery",
+                    "after_paragraph": 3,
+                    "glyph": "D4",
+                    "unicode": "𓂀",
+                    "prompt": { "en": "The Eye of Horus — Wadjet! This is our app's namesake symbol.", "ar": "عين حورس — وجات! هذا هو الرمز الذي سُمّي تطبيقنا باسمه." },
+                    "meaning": { "en": "Wedjat eye — protection, healing, and royal power", "ar": "عين الوجات — الحماية والشفاء والسلطة الملكية" },
+                    "transliteration": "wḏꜣt"
+                }
+            ]
+        },
+        {
+            "index": 3,
+            "title": { "en": "The Resurrection", "ar": "البعث" },
+            "scene_image_prompt": "Osiris wrapped in white linen as a mummy on a golden bier, Isis with wings spread over him performing magical rites, Anubis standing guard, starlit temple interior, mystical golden glow, oil painting style",
+            "tts_voice": "Aoede",
+            "tts_style": "Awe and wonder, the moment of divine miracle, slow and reverent",
+            "paragraphs": [
+                {
+                    "text": {
+                        "en": "Isis reassembled the body of Osiris and wrapped him in fine linen — performing the first mummification in history. She spoke words of power, the great hekau spells that could bend the fabric of creation.",
+                        "ar": "أعادت إيزيس تجميع جسد أوزيريس ولفّته بالكتان الناعم — فأجرت أول تحنيط في التاريخ. نطقت بكلمات القوة، تعويذات الحكاو العظيمة التي يمكنها ثني نسيج الخلق."
+                    },
+                    "glyph_annotations": []
+                },
+                {
+                    "text": {
+                        "en": "Anubis, the jackal-headed god, assisted in the sacred rites. He weighed the heart, anointed the body with sacred oils, and placed the protective amulets. Among them, the djed pillar — the backbone of Osiris, symbol of stability eternal.",
+                        "ar": "ساعد أنوبيس، الإله ذو رأس ابن آوى، في الطقوس المقدسة. وزن القلب، ومسح الجسد بالزيوت المقدسة، ووضع التمائم الواقية. من بينها عمود الجد — العمود الفقري لأوزيريس، رمز الاستقرار الأبدي."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "djed pillar", "ar": "عمود الجد" },
+                            "gardiner_code": "R8",
+                            "glyph": "𓊿",
+                            "meaning": { "en": "Djed — stability, endurance, the backbone of Osiris", "ar": "الجد — الاستقرار والصمود، العمود الفقري لأوزيريس" },
+                            "transliteration": "ḏd"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "And then the miracle occurred. Through the power of Isis's magic and the will of the gods, Osiris stirred. He breathed once more — not to walk the living world again, but to reign as King of the Duat, the realm of the dead.",
+                        "ar": "وعندها حدثت المعجزة. بقوة سحر إيزيس وإرادة الآلهة، تحرك أوزيريس. تنفّس مرة أخرى — ليس ليسير في عالم الأحياء مجددًا، بل ليحكم كملك الدوات، عالم الموتى."
+                    },
+                    "glyph_annotations": []
+                }
+            ],
+            "interactions": [
+                {
+                    "type": "glyph_discovery",
+                    "after_paragraph": 1,
+                    "glyph": "R8",
+                    "unicode": "𓊿",
+                    "prompt": { "en": "The Djed pillar — backbone of Osiris. A symbol of eternal stability.", "ar": "عمود الجد — العمود الفقري لأوزيريس. رمز الاستقرار الأبدي." },
+                    "meaning": { "en": "Stability, endurance — the backbone of Osiris", "ar": "الاستقرار والصمود — العمود الفقري لأوزيريس" },
+                    "transliteration": "ḏd"
+                },
+                {
+                    "type": "choose_glyph",
+                    "after_paragraph": 2,
+                    "question": { "en": "Which glyph symbolizes 'life' — the force that brought Osiris back?", "ar": "أي هيروغليفية ترمز إلى 'الحياة' — القوة التي أعادت أوزيريس؟" },
+                    "options": [
+                        { "code": "S34", "glyph": "𓋹" },
+                        { "code": "R8", "glyph": "𓊿" },
+                        { "code": "N5", "glyph": "𓇳" },
+                        { "code": "Q1", "glyph": "𓊨" }
+                    ],
+                    "correct": "S34",
+                    "explanation": { "en": "The ankh (S34) 𓋹 is the hieroglyph for 'life' — the divine force that resurrected Osiris.", "ar": "العنخ (S34) 𓋹 هو هيروغليفية 'الحياة' — القوة الإلهية التي بعثت أوزيريس." }
+                }
+            ]
+        }
+    ]
+}

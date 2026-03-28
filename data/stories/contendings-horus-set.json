@@ -1,0 +1,223 @@
+{
+    "id": "contendings-horus-set",
+    "title": { "en": "The Contendings of Horus and Set", "ar": "صراع حورس وست" },
+    "subtitle": { "en": "An epic battle for the throne of Egypt", "ar": "معركة ملحمية على عرش مصر" },
+    "cover_glyph": "𓅃",
+    "difficulty": "intermediate",
+    "estimated_minutes": 14,
+    "glyphs_taught": ["G5", "S42", "S34", "D4", "N35", "V28", "R4"],
+    "chapters": [
+        {
+            "index": 0,
+            "title": { "en": "The Claim to the Throne", "ar": "المطالبة بالعرش" },
+            "scene_image_prompt": "Divine courtroom of the Ennead gods, Horus the falcon-headed youth standing opposite Set the chaos beast, both before a golden throne, other gods as judges, tense dramatic lighting, oil painting style",
+            "tts_voice": "Aoede",
+            "tts_style": "Tense courtroom drama, measured and weighty, the fate of Egypt hangs in balance",
+            "paragraphs": [
+                {
+                    "text": {
+                        "en": "After Osiris descended to rule the Duat, a question shook the halls of heaven: who would sit upon the throne of Egypt? Horus, the falcon-headed son of Osiris, claimed it was his birthright.",
+                        "ar": "بعد أن نزل أوزيريس ليحكم الدوات، سؤال هزّ قاعات السماء: من سيجلس على عرش مصر؟ حورس، ابن أوزيريس ذو رأس الصقر، ادّعى أنه حقه بالميلاد."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "Horus", "ar": "حورس" },
+                            "gardiner_code": "G5",
+                            "glyph": "𓅃",
+                            "meaning": { "en": "Falcon — Horus the sky god, rightful heir of Osiris", "ar": "الصقر — حورس إله السماء، الوريث الشرعي لأوزيريس" },
+                            "transliteration": "ḥr"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "But Set, slayer of Osiris, refused to yield. \"I am the strongest of the gods!\" he thundered. \"Only my strength can defeat Apophis each night. The throne belongs to power, not to a boy!\"",
+                        "ar": "لكن ست، قاتل أوزيريس، رفض التنازل. \"أنا أقوى الآلهة!\" هدر. \"قوتي وحدها تهزم أبوفيس كل ليلة. العرش للقوة، لا لصبي!\""
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "was-scepter", "ar": "صولجان الواس" },
+                            "gardiner_code": "S42",
+                            "glyph": "𓌂",
+                            "meaning": { "en": "Was-scepter — symbol of divine power and dominion", "ar": "صولجان الواس — رمز القوة الإلهية والسيادة" },
+                            "transliteration": "wꜣs"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "The Ennead — the council of nine great gods — was divided. Ra favored Set for his strength. Most others supported Horus for his rightful claim. The debate raged for eighty years.",
+                        "ar": "التاسوع — مجلس الآلهة التسعة العظام — كان منقسمًا. فضّل رع ست لقوته. أيّد معظم الآخرين حورس لحقه الشرعي. استمر الجدل ثمانين عامًا."
+                    },
+                    "glyph_annotations": []
+                }
+            ],
+            "interactions": [
+                {
+                    "type": "glyph_discovery",
+                    "after_paragraph": 0,
+                    "glyph": "G5",
+                    "unicode": "𓅃",
+                    "prompt": { "en": "The falcon of Horus — every pharaoh was the living Horus on Earth.", "ar": "صقر حورس — كل فرعون كان حورس الحيّ على الأرض." },
+                    "meaning": { "en": "Falcon — Horus, kingship, the living pharaoh", "ar": "الصقر — حورس، الملكية، الفرعون الحيّ" },
+                    "transliteration": "ḥr"
+                },
+                {
+                    "type": "glyph_discovery",
+                    "after_paragraph": 1,
+                    "glyph": "S42",
+                    "unicode": "𓌂",
+                    "prompt": { "en": "The was-scepter — symbol of divine power. Both Horus and Set claim this authority.", "ar": "صولجان الواس — رمز القوة الإلهية. كلا حورس وست يدّعيان هذه السلطة." },
+                    "meaning": { "en": "Was-scepter — divine power and dominion", "ar": "صولجان الواس — القوة الإلهية والسيادة" },
+                    "transliteration": "wꜣs"
+                }
+            ]
+        },
+        {
+            "index": 1,
+            "title": { "en": "The Trials", "ar": "الاختبارات" },
+            "scene_image_prompt": "Horus and Set in a boat race on the Nile, Set's stone boat sinking while Horus wooden boat disguised with plaster sails ahead, gods watching from the riverbank, competitive and dramatic, oil painting style",
+            "tts_voice": "Aoede",
+            "tts_style": "Playful for the tricks, intense for the battles, engaging storytelling",
+            "paragraphs": [
+                {
+                    "text": {
+                        "en": "The gods devised contests to settle the dispute. In one trial, both had to race boats made of stone. Set carved a boat from solid granite, but clever Horus built his from cedar wood, plastering it to look like stone. When the race began, Set sank immediately.",
+                        "ar": "ابتكرت الآلهة مسابقات لحسم النزاع. في اختبار، كان على كليهما التسابق بقوارب من حجر. نحت ست قاربًا من الجرانيت الصلب، لكن حورس الذكي بنى قاربه من خشب الأرز، وطلاه ليبدو كالحجر. حين بدأ السباق، غرق ست فورًا."
+                    },
+                    "glyph_annotations": []
+                },
+                {
+                    "text": {
+                        "en": "In another contest, they transformed into hippopotami and dove to the bottom of the Nile. Whoever surfaced first would lose. Isis, worried for her son, cast a copper harpoon — but accidentally struck Horus first! She quickly released him and cast again, this time catching Set.",
+                        "ar": "في مسابقة أخرى، تحولا إلى فرسي نهر وغطسا إلى قاع النيل. من يظهر أولًا يخسر. إيزيس، قلقة على ابنها، رمت حربة نحاسية — لكنها أصابت حورس أولًا بالخطأ! أطلقته سريعًا ورمت مرة أخرى، هذه المرة اصطادت ست."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "water", "ar": "ماء" },
+                            "gardiner_code": "N35",
+                            "glyph": "𓈖",
+                            "meaning": { "en": "Water ripple — the Nile where the contest took place", "ar": "موجة ماء — النيل حيث جرت المسابقة" },
+                            "transliteration": "n"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "But Set played foul. In the darkness, he attacked Horus and tore out his left eye — the sacred Wedjat eye. Horus was blinded, and the Eye was shattered into six pieces scattered across the desert.",
+                        "ar": "لكن ست لعب بغش. في الظلام، هاجم حورس واقتلع عينه اليسرى — عين الوجات المقدسة. أُعمي حورس، وتحطمت العين إلى ست قطع تناثرت عبر الصحراء."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "Eye of Horus", "ar": "عين حورس" },
+                            "gardiner_code": "D4",
+                            "glyph": "𓂀",
+                            "meaning": { "en": "Wedjat eye — torn out by Set, later restored by Thoth", "ar": "عين الوجات — اقتلعها ست، ورممها تحوت لاحقًا" },
+                            "transliteration": "wḏꜣt"
+                        }
+                    ]
+                }
+            ],
+            "interactions": [
+                {
+                    "type": "choose_glyph",
+                    "after_paragraph": 2,
+                    "question": { "en": "Which sacred symbol was torn from Horus's face?", "ar": "أي رمز مقدس اقتُلع من وجه حورس؟" },
+                    "options": [
+                        { "code": "D4", "glyph": "𓂀" },
+                        { "code": "S34", "glyph": "𓋹" },
+                        { "code": "S42", "glyph": "𓌂" },
+                        { "code": "R4", "glyph": "𓊃" }
+                    ],
+                    "correct": "D4",
+                    "explanation": { "en": "The Wedjat eye (D4) 𓂀 — Set tore out Horus's left eye. Thoth later restored it, making it a symbol of healing.", "ar": "عين الوجات (D4) 𓂀 — اقتلع ست عين حورس اليسرى. رممها تحوت لاحقًا، فأصبحت رمزًا للشفاء." }
+                },
+                {
+                    "type": "write_word",
+                    "after_paragraph": 2,
+                    "target_word": { "en": "Horus", "ar": "حورس" },
+                    "target_glyph": "𓅃",
+                    "gardiner_code": "G5",
+                    "hint": { "en": "The bird of prey that rules the sky — Horus's own symbol", "ar": "الطائر الجارح الذي يحكم السماء — رمز حورس نفسه" }
+                }
+            ]
+        },
+        {
+            "index": 2,
+            "title": { "en": "The Verdict", "ar": "الحكم" },
+            "scene_image_prompt": "Horus crowned as pharaoh of Egypt wearing the double crown, receiving the crook and flail from Osiris in spirit form, all gods bowing in the golden throne room, Set kneeling in submission, triumphant and majestic, oil painting style",
+            "tts_voice": "Aoede",
+            "tts_style": "Building to a triumphant conclusion, justice served, the rightful king crowned",
+            "paragraphs": [
+                {
+                    "text": {
+                        "en": "Thoth, god of wisdom and writing, gathered the six pieces of the Eye and restored it to wholeness. The healed Wedjat eye became the most powerful protective symbol in all of Egypt — a reminder that what is broken can be made whole again.",
+                        "ar": "تحوت، إله الحكمة والكتابة، جمع القطع الست للعين وأعادها كاملة. أصبحت عين الوجات المرممة أقوى رمز حماية في كل مصر — تذكير بأن ما يُكسر يمكن أن يُجبر مرة أخرى."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "wick/thread", "ar": "فتيل/خيط" },
+                            "gardiner_code": "V28",
+                            "glyph": "𓎛",
+                            "meaning": { "en": "Wick — the phonetic 'h' sound, used in words of healing (heka)", "ar": "الفتيل — الصوت 'ح'، يُستخدم في كلمات الشفاء (حِكا)" },
+                            "transliteration": "ḥ"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "Finally, Osiris himself sent a message from the Duat. He threatened that if Horus was not crowned, he would send the demons of the underworld to seize every god who opposed justice. The Ennead could argue no more.",
+                        "ar": "أخيرًا، أرسل أوزيريس نفسه رسالة من الدوات. هدد بأنه إذا لم يُتوَّج حورس، سيرسل شياطين العالم السفلي لتقبض على كل إله عارض العدالة. لم يعد بإمكان التاسوع الجدال."
+                    },
+                    "glyph_annotations": []
+                },
+                {
+                    "text": {
+                        "en": "Horus was crowned pharaoh of all Egypt. He received the double crown — the red crown of Lower Egypt and the white crown of Upper Egypt united as one. The ankh of life was placed in his hand, and Ma'at was restored.",
+                        "ar": "تُوّج حورس فرعونًا لكل مصر. تلقى التاج المزدوج — التاج الأحمر لمصر السفلى والتاج الأبيض لمصر العليا متحدين كواحد. وُضع عنخ الحياة في يده، وأُعيدت ماعت."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "life/ankh", "ar": "حياة/عنخ" },
+                            "gardiner_code": "S34",
+                            "glyph": "𓋹",
+                            "meaning": { "en": "Ankh — life, placed in Horus's hand as he takes the throne", "ar": "العنخ — الحياة، وُضع في يد حورس حين تولى العرش" },
+                            "transliteration": "ꜥnḫ"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "And Set? He was not destroyed, but given a new role — guardian of Ra's barque, forever battling Apophis in the darkness. Even the god of chaos found his place in the order of Ma'at.",
+                        "ar": "وست؟ لم يُدمَّر، بل أُعطي دورًا جديدًا — حارس مركب رع، يحارب أبوفيس في الظلام إلى الأبد. حتى إله الفوضى وجد مكانه في نظام ماعت."
+                    },
+                    "glyph_annotations": []
+                }
+            ],
+            "interactions": [
+                {
+                    "type": "glyph_discovery",
+                    "after_paragraph": 0,
+                    "glyph": "V28",
+                    "unicode": "𓎛",
+                    "prompt": { "en": "The wick — sound 'h'. Found in heka (magic) and words of healing power.", "ar": "الفتيل — صوت 'ح'. يوجد في حِكا (السحر) وكلمات قوة الشفاء." },
+                    "meaning": { "en": "Wick — the 'h' sound, healing magic", "ar": "الفتيل — صوت 'ح'، سحر الشفاء" },
+                    "transliteration": "ḥ"
+                },
+                {
+                    "type": "choose_glyph",
+                    "after_paragraph": 2,
+                    "question": { "en": "What was placed in Horus's hand when he was crowned?", "ar": "ماذا وُضع في يد حورس حين تُوّج؟" },
+                    "options": [
+                        { "code": "S34", "glyph": "𓋹" },
+                        { "code": "S42", "glyph": "𓌂" },
+                        { "code": "D4", "glyph": "𓂀" },
+                        { "code": "G5", "glyph": "𓅃" }
+                    ],
+                    "correct": "S34",
+                    "explanation": { "en": "The ankh (S34) 𓋹 — symbol of life, placed in the new pharaoh's hand at coronation.", "ar": "العنخ (S34) 𓋹 — رمز الحياة، يُوضع في يد الفرعون الجديد عند التتويج." }
+                }
+            ]
+        }
+    ]
+}

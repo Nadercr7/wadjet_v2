@@ -12,7 +12,7 @@ from fastapi.templating import Jinja2Templates
 from slowapi import _rate_limit_exceeded_handler
 from slowapi.errors import RateLimitExceeded
 
-from app.api import audio, auth, chat, dictionary, explore, health, pages, quiz, scan, translate, user, write
+from app.api import audio, auth, chat, dictionary, explore, health, pages, quiz, scan, stories, translate, user, write
 from app.config import settings
 from app.rate_limit import limiter
 
@@ -188,6 +188,7 @@ def create_app() -> FastAPI:
     app.include_router(explore.identify_router)
     app.include_router(chat.router)
     app.include_router(quiz.router)
+    app.include_router(stories.router)
     app.include_router(auth.router)
     app.include_router(user.router)
     app.include_router(audio.router)

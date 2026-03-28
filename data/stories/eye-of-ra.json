@@ -1,0 +1,153 @@
+{
+    "id": "eye-of-ra",
+    "title": { "en": "The Eye of Ra", "ar": "عين رع" },
+    "subtitle": { "en": "When the sun god's fury nearly destroyed humanity", "ar": "حين كاد غضب إله الشمس يدمر البشرية" },
+    "cover_glyph": "𓂀",
+    "difficulty": "intermediate",
+    "estimated_minutes": 12,
+    "glyphs_taught": ["D4", "W15", "E23", "S34", "D36", "G14"],
+    "chapters": [
+        {
+            "index": 0,
+            "title": { "en": "The Wrath of the Eye", "ar": "غضب العين" },
+            "scene_image_prompt": "The fierce Eye of Ra as a blazing golden eye in the sky transforming into the lioness goddess Sekhmet, fire raining down on terrified humans below, desert landscape, apocalyptic and dramatic, oil painting style",
+            "tts_voice": "Aoede",
+            "tts_style": "Fierce and urgent at first, the rage of a betrayed deity, intense and fiery",
+            "paragraphs": [
+                {
+                    "text": {
+                        "en": "When Ra grew old in his role as pharaoh of the gods, humanity began to plot against him. They whispered in secret, planning rebellion. But Ra saw all — for the Eye of Ra misses nothing.",
+                        "ar": "حين شاخ رع في دوره كفرعون الآلهة، بدأت البشرية تتآمر ضده. همسوا في السر، يخططون للتمرد. لكن رع رأى كل شيء — فعين رع لا يفوتها شيء."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "Eye", "ar": "عين" },
+                            "gardiner_code": "D4",
+                            "glyph": "𓂀",
+                            "meaning": { "en": "The sacred eye — the Eye of Ra/Horus, symbol of divine sight and protection", "ar": "العين المقدسة — عين رع/حورس، رمز البصيرة الإلهية والحماية" },
+                            "transliteration": "wḏꜣt"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "In his fury, Ra plucked his own Eye from the heavens and sent it forth as Sekhmet — the lioness goddess, whose name means \"She Who Is Powerful.\" Sekhmet descended upon Egypt like a storm of fire and fang.",
+                        "ar": "في غضبه، انتزع رع عينه من السماوات وأرسلها كسخمت — إلهة اللبؤة، التي يعني اسمها \"تلك القوية\". نزلت سخمت على مصر كعاصفة من نار وأنياب."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "lion", "ar": "أسد" },
+                            "gardiner_code": "E23",
+                            "glyph": "𓃭",
+                            "meaning": { "en": "Recumbent lion — Sekhmet's sacred animal, power and ferocity", "ar": "الأسد الرابض — حيوان سخمت المقدس، القوة والشراسة" },
+                            "transliteration": "rw"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "She slaughtered the rebels without mercy. The Nile ran red with blood. But Sekhmet's bloodlust could not be sated — even after the rebels were defeated, she continued her rampage, threatening to destroy all of humanity.",
+                        "ar": "ذبحت المتمردين بلا رحمة. جرى النيل أحمر بالدماء. لكن تعطش سخمت للدماء لم يُشبَع — حتى بعد هزيمة المتمردين، واصلت هياجها، مهددةً بتدمير البشرية جمعاء."
+                    },
+                    "glyph_annotations": []
+                }
+            ],
+            "interactions": [
+                {
+                    "type": "glyph_discovery",
+                    "after_paragraph": 0,
+                    "glyph": "D4",
+                    "unicode": "𓂀",
+                    "prompt": { "en": "The Eye of Ra — all-seeing, all-powerful. This is also the Wadjet eye!", "ar": "عين رع — الرائية لكل شيء، القادرة على كل شيء. هذه أيضًا عين وجات!" },
+                    "meaning": { "en": "The sacred eye — divine sight, protection, and vengeance", "ar": "العين المقدسة — البصيرة الإلهية والحماية والانتقام" },
+                    "transliteration": "wḏꜣt"
+                },
+                {
+                    "type": "choose_glyph",
+                    "after_paragraph": 1,
+                    "question": { "en": "Which animal was sacred to the fierce goddess Sekhmet?", "ar": "أي حيوان كان مقدسًا للإلهة الشرسة سخمت؟" },
+                    "options": [
+                        { "code": "E23", "glyph": "𓃭" },
+                        { "code": "E1", "glyph": "𓃒" },
+                        { "code": "G14", "glyph": "𓅃" },
+                        { "code": "I9", "glyph": "𓆑" }
+                    ],
+                    "correct": "E23",
+                    "explanation": { "en": "The lion (E23) 𓃭 — Sekhmet is the lioness, a goddess of war and healing.", "ar": "الأسد (E23) 𓃭 — سخمت هي اللبؤة، إلهة الحرب والشفاء." }
+                }
+            ]
+        },
+        {
+            "index": 1,
+            "title": { "en": "The Trick of Red Beer", "ar": "خدعة الجعة الحمراء" },
+            "scene_image_prompt": "Egyptian workers pouring thousands of jars of red-dyed beer across moonlit fields, the beer flooding like blood in the moonlight, Sekhmet approaching in the distance, clever plan unfolding, oil painting style",
+            "tts_voice": "Aoede",
+            "tts_style": "Clever and conspiratorial at first, then relieved, ending with warmth as the plan succeeds",
+            "paragraphs": [
+                {
+                    "text": {
+                        "en": "Ra regretted his wrath. He loved his children — even the rebellious ones — and could not bear to see all humanity destroyed. But how to stop Sekhmet? She was drunk on blood and beyond reason.",
+                        "ar": "ندم رع على غضبه. أحبّ أبناءه — حتى المتمردين منهم — ولم يحتمل رؤية البشرية كلها تُدمَّر. لكن كيف يوقف سخمت؟ كانت ثملة بالدماء وفوق كل عقل."
+                    },
+                    "glyph_annotations": []
+                },
+                {
+                    "text": {
+                        "en": "The wise god Thoth devised a plan. He ordered seven thousand jars of beer brewed and mixed with red ochre and pomegranate juice until it looked exactly like blood. This sea of red beer was poured across the fields where Sekhmet would hunt at dawn.",
+                        "ar": "دبّر الإله الحكيم تحوت خطة. أمر بتخمير سبعة آلاف جرة جعة ومزجها بالمغرة الحمراء وعصير الرمان حتى بدت تمامًا كالدماء. أُريق بحر الجعة الحمراء عبر الحقول حيث ستصطاد سخمت عند الفجر."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "jar/water pot", "ar": "جرة/إناء ماء" },
+                            "gardiner_code": "W15",
+                            "glyph": "𓏊",
+                            "meaning": { "en": "Water pot — used in words for liquid and offerings", "ar": "إناء الماء — يُستخدم في كلمات السوائل والقرابين" },
+                            "transliteration": "ḥs"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "When Sekhmet arrived, she saw the red liquid and believed it was blood. She drank deeply — and the beer took hold. The mighty lioness swayed, stumbled, and finally collapsed into a peaceful sleep. When she awoke, her rage was gone.",
+                        "ar": "حين وصلت سخمت، رأت السائل الأحمر وظنته دمًا. شربت بعمق — وسيطرت الجعة عليها. ترنحت اللبؤة الجبارة، وتعثرت، وأخيرًا انهارت في نوم هادئ. حين استيقظت، كان غضبها قد زال."
+                    },
+                    "glyph_annotations": []
+                },
+                {
+                    "text": {
+                        "en": "Sekhmet transformed into Hathor, the gentle cow goddess of love, music, and joy. From that day, the Egyptians celebrated the Festival of Drunkenness each year — pouring red beer in honor of the day humanity was saved by a hangover.",
+                        "ar": "تحولت سخمت إلى حتحور، إلهة البقرة اللطيفة للحب والموسيقى والفرح. من ذلك اليوم، احتفل المصريون بعيد السُّكر كل عام — يسكبون الجعة الحمراء تكريمًا لليوم الذي أُنقذت فيه البشرية بصداع."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "arm/hand", "ar": "ذراع/يد" },
+                            "gardiner_code": "D36",
+                            "glyph": "𓂝",
+                            "meaning": { "en": "Arm — the phonetic 'a' sound, reaching out in offering or prayer", "ar": "الذراع — الصوت 'ع'، ممتدة في تقديم القرابين أو الصلاة" },
+                            "transliteration": "ꜥ"
+                        }
+                    ]
+                }
+            ],
+            "interactions": [
+                {
+                    "type": "glyph_discovery",
+                    "after_paragraph": 1,
+                    "glyph": "W15",
+                    "unicode": "𓏊",
+                    "prompt": { "en": "The water pot — essential for the trick! Vessels and offerings in one glyph.", "ar": "إناء الماء — ضروري للخدعة! الأواني والقرابين في هيروغليفية واحدة." },
+                    "meaning": { "en": "Water pot — liquids and offerings", "ar": "إناء الماء — السوائل والقرابين" },
+                    "transliteration": "ḥs"
+                },
+                {
+                    "type": "write_word",
+                    "after_paragraph": 3,
+                    "target_word": { "en": "life", "ar": "حياة" },
+                    "target_glyph": "𓋹",
+                    "gardiner_code": "S34",
+                    "hint": { "en": "Humanity was given life once more — write the ankh!", "ar": "مُنحت البشرية الحياة مرة أخرى — اكتب العنخ!" }
+                }
+            ]
+        }
+    ]
+}

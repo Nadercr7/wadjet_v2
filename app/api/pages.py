@@ -70,6 +70,20 @@ async def quiz(request: Request):
     return templates.TemplateResponse(request, "quiz.html", {"lang": lang})
 
 
+@router.get("/stories", response_class=HTMLResponse)
+async def stories(request: Request):
+    templates = request.app.state.templates
+    lang = get_lang(request)
+    return templates.TemplateResponse(request, "stories.html", {"lang": lang})
+
+
+@router.get("/stories/{story_id}", response_class=HTMLResponse)
+async def story_reader(request: Request, story_id: str):
+    templates = request.app.state.templates
+    lang = get_lang(request)
+    return templates.TemplateResponse(request, "story_reader.html", {"story_id": story_id, "lang": lang})
+
+
 @router.get("/dictionary/lesson/{level}", response_class=HTMLResponse)
 async def dictionary_lesson_page(request: Request, level: int):
     templates = request.app.state.templates
@@ -105,6 +119,7 @@ async def sitemap_xml():
         "/explore",
         "/chat",
         "/quiz",
+        "/stories",
     ]
     # Add lesson pages (5 levels)
     for level in range(1, 6):

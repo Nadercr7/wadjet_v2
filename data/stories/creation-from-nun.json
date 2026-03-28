@@ -1,0 +1,155 @@
+{
+    "id": "creation-from-nun",
+    "title": { "en": "Creation from Nun", "ar": "الخلق من نون" },
+    "subtitle": { "en": "How the world emerged from the primordial waters", "ar": "كيف خرج العالم من المياه الأزلية" },
+    "cover_glyph": "𓈖",
+    "difficulty": "beginner",
+    "estimated_minutes": 10,
+    "glyphs_taught": ["N35", "N5", "G1", "X1", "O1", "P5"],
+    "chapters": [
+        {
+            "index": 0,
+            "title": { "en": "The Primordial Waters", "ar": "المياه الأزلية" },
+            "scene_image_prompt": "Vast dark primordial ocean of Nun stretching to infinity, a single glowing mound of earth emerging from black waters, faint golden light beginning to appear, cosmic and primordial, oil painting style",
+            "tts_voice": "Aoede",
+            "tts_style": "Deep, primordial, as if speaking from the void before creation, awe-inspiring",
+            "paragraphs": [
+                {
+                    "text": {
+                        "en": "Before the sky, before the earth, before the gods themselves — there was only Nun. The dark, infinite, primordial ocean stretched in every direction, without surface and without bottom. It was the nothingness before all things.",
+                        "ar": "قبل السماء، قبل الأرض، قبل الآلهة أنفسهم — لم يكن هناك سوى نون. المحيط الأزلي المظلم اللامتناهي امتد في كل اتجاه، بلا سطح وبلا قاع. كان العدم قبل كل شيء."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "water", "ar": "ماء" },
+                            "gardiner_code": "N35",
+                            "glyph": "𓈖",
+                            "meaning": { "en": "Water ripple — the phonetic 'n', representing the primordial waters of Nun", "ar": "موجة ماء — الصوت 'ن'، تمثل المياه الأزلية لنون" },
+                            "transliteration": "n"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "Then, from within the depths of Nun, a thought stirred. Atum — the Complete One — willed himself into existence. Through the sheer force of his divine imagination, the first god came to be.",
+                        "ar": "ثم، من أعماق نون، تحركت فكرة. أتوم — الكامل — أراد نفسه إلى الوجود. بمجرد قوة خياله الإلهي، وُجد أول إله."
+                    },
+                    "glyph_annotations": []
+                },
+                {
+                    "text": {
+                        "en": "Atum spoke the first word, and with it came the Benben — the primordial mound that rose from the waters. This sacred hill was the first piece of dry land, and upon it Atum stood to begin the work of creation.",
+                        "ar": "نطق أتوم الكلمة الأولى، ومعها جاء البنبن — التل الأزلي الذي ارتفع من المياه. هذا التل المقدس كان أول قطعة أرض جافة، وعليه وقف أتوم ليبدأ عمل الخلق."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "house/land", "ar": "بيت/أرض" },
+                            "gardiner_code": "O1",
+                            "glyph": "𓉐",
+                            "meaning": { "en": "House — the first structure, land emerging from water", "ar": "البيت — أول بنية، الأرض تخرج من الماء" },
+                            "transliteration": "pr"
+                        }
+                    ]
+                }
+            ],
+            "interactions": [
+                {
+                    "type": "glyph_discovery",
+                    "after_paragraph": 0,
+                    "glyph": "N35",
+                    "unicode": "𓈖",
+                    "prompt": { "en": "The water ripple — Nun's domain. One of the most common hieroglyphs you'll encounter!", "ar": "موجة الماء — عالم نون. من أكثر الهيروغليفيات التي ستقابلها!" },
+                    "meaning": { "en": "Water — the phonetic 'n' sound", "ar": "الماء — الصوت 'ن'" },
+                    "transliteration": "n"
+                },
+                {
+                    "type": "choose_glyph",
+                    "after_paragraph": 2,
+                    "question": { "en": "What emerged when Atum spoke the first word?", "ar": "ماذا ظهر حين نطق أتوم الكلمة الأولى؟" },
+                    "options": [
+                        { "code": "O1", "glyph": "𓉐" },
+                        { "code": "N5", "glyph": "𓇳" },
+                        { "code": "N35", "glyph": "𓈖" },
+                        { "code": "G1", "glyph": "𓄿" }
+                    ],
+                    "correct": "O1",
+                    "explanation": { "en": "The house/land glyph (O1) 𓉐 — land (the Benben mound) rose from the primordial waters.", "ar": "هيروغليفية البيت/الأرض (O1) 𓉐 — الأرض (تل البنبن) ارتفعت من المياه الأزلية." }
+                }
+            ]
+        },
+        {
+            "index": 1,
+            "title": { "en": "The First Gods", "ar": "الآلهة الأولى" },
+            "scene_image_prompt": "Atum standing atop the Benben stone creating Shu god of air and Tefnut goddess of moisture from his breath, golden divine light emanating outward, cosmic creation scene with stars forming, oil painting style",
+            "tts_voice": "Aoede",
+            "tts_style": "Growing in power and wonder as creation unfolds, cosmic grandeur",
+            "paragraphs": [
+                {
+                    "text": {
+                        "en": "Standing upon the Benben, Atum created the first pair of gods. From his breath came Shu, the god of air and light. From his moisture came Tefnut, the goddess of rain and dew. The void was no longer empty.",
+                        "ar": "واقفًا على البنبن، خلق أتوم أول زوج من الآلهة. من نفَسه جاء شو، إله الهواء والنور. من رطوبته جاءت تفنوت، إلهة المطر والندى. لم يعد الفراغ خاليًا."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "vulture/breath", "ar": "نسر/نفس" },
+                            "gardiner_code": "G1",
+                            "glyph": "𓄿",
+                            "meaning": { "en": "Egyptian vulture — the phonetic 'a' sound, breath of creation", "ar": "النسر المصري — الصوت 'أ'، نفس الخلق" },
+                            "transliteration": "ꜣ"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "Shu and Tefnut gave birth to Geb, the earth, and Nut, the sky. Geb lay flat as the ground beneath our feet, while Nut arched her star-studded body over him, holding up the heavens.",
+                        "ar": "أنجب شو وتفنوت جب، الأرض، ونوت، السماء. استلقى جب مسطحًا كالأرض تحت أقدامنا، بينما قوّست نوت جسدها المرصّع بالنجوم فوقه، حاملةً السماوات."
+                    },
+                    "glyph_annotations": []
+                },
+                {
+                    "text": {
+                        "en": "From Geb and Nut came four children: Osiris, Isis, Set, and Nephthys. And thus the Ennead — the nine great gods of Heliopolis — was complete. From nothing, a family of the divine was born.",
+                        "ar": "من جب ونوت جاء أربعة أبناء: أوزيريس وإيزيس وست ونفتيس. وهكذا اكتملت التاسوع — الآلهة التسعة العظام لهليوبوليس. من العدم، وُلدت عائلة إلهية."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "bread/offering", "ar": "خبز/قربان" },
+                            "gardiner_code": "X1",
+                            "glyph": "𓏏",
+                            "meaning": { "en": "Bread loaf — the phonetic 't', used in feminine names like Nut and Nephthys", "ar": "رغيف خبز — الصوت 'ت'، يُستخدم في أسماء المؤنث مثل نوت ونفتيس" },
+                            "transliteration": "t"
+                        }
+                    ]
+                }
+            ],
+            "interactions": [
+                {
+                    "type": "glyph_discovery",
+                    "after_paragraph": 0,
+                    "glyph": "G1",
+                    "unicode": "𓄿",
+                    "prompt": { "en": "The Egyptian vulture — sound 'a'. You'll see this glyph everywhere in hieroglyphic texts.", "ar": "النسر المصري — صوت 'أ'. ستراه في كل مكان في النصوص الهيروغليفية." },
+                    "meaning": { "en": "Vulture — the glottal stop 'a' sound", "ar": "النسر — صوت الهمزة 'أ'" },
+                    "transliteration": "ꜣ"
+                },
+                {
+                    "type": "write_word",
+                    "after_paragraph": 2,
+                    "target_word": { "en": "sun (Ra)", "ar": "الشمس (رع)" },
+                    "target_glyph": "𓇳",
+                    "gardiner_code": "N5",
+                    "hint": { "en": "The circle that represents the sun — Ra, the creator's other form", "ar": "الدائرة التي تمثل الشمس — رع، الشكل الآخر للخالق" }
+                },
+                {
+                    "type": "glyph_discovery",
+                    "after_paragraph": 2,
+                    "glyph": "X1",
+                    "unicode": "𓏏",
+                    "prompt": { "en": "The bread loaf — sound 't'. This tiny glyph marks feminine words and names.", "ar": "رغيف الخبز — صوت 'ت'. هذه الهيروغليفية الصغيرة تميّز الكلمات والأسماء المؤنثة." },
+                    "meaning": { "en": "Bread — the 't' sound, feminine marker", "ar": "الخبز — صوت 'ت'، علامة المؤنث" },
+                    "transliteration": "t"
+                }
+            ]
+        }
+    ]
+}
