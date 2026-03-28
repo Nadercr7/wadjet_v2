@@ -110,3 +110,44 @@
 - ✅ All 8 pages load with 200 status
 - ✅ `MODEL_CACHE` is version-independent, `STATIC_CACHE` is versioned
 - ✅ Models use cache-first strategy
+
+---
+
+## 2026-03-28 — Phase 3: Database & Auth Foundation
+
+**Bug Fixed:**
+- **M16**: In-memory sessions → replaced with SQLite + SQLAlchemy async + JWT auth
+
+**Packages Added:**
+- `sqlalchemy[asyncio]>=2.0`, `aiosqlite>=0.20.0`, `alembic>=1.14`, `python-jose[cryptography]>=3.3`, `bcrypt>=4.0`, `pydantic[email]>=2.0`
+
+**Modules Created:**
+- `app/db/` — database.py (async engine + session factory + init_db), models.py (5 ORM models: User, ScanHistory, StoryProgress, Favorite, RefreshToken), schemas.py (Pydantic v2 request/response), crud.py (all CRUD operations with SHA-256 token hashing)
+- `app/auth/` — password.py (bcrypt 12 rounds), jwt.py (HS256 access 30min + refresh 7d with jti), dependencies.py (get_current_user + get_optional_user)
+- `app/api/auth.py` — 4 endpoints: POST register (201, 5/min), POST login (200, 10/min), POST refresh (200, httpOnly cookie, 10/min), POST logout (200)
+- `app/api/user.py` — 3 endpoints: GET profile, GET history, GET favorites (all require auth)
+
+**Files Modified:**
+- `requirements.txt` — 6 new dependencies
+- `app/config.py` — added jwt_secret + database_url settings
+- `app/main.py` — DB init in lifespan, auth routers, CSRF exemption for /api/auth/, auto-gen jwt_secret
+- `app/templates/partials/nav.html` — Sign In/Sign Up buttons (desktop + mobile) with Alpine.js conditional rendering
+- `app/templates/base.html` — Login + Signup modals with form validation and error display
+- `app/static/js/app.js` — Alpine.store('auth') with register, login, logout, refreshToken, localStorage persistence
+- `.gitignore` — added *.db
+
+**Test Results (all 14 pass):**
+- ✅ T1: SQLite DB auto-created with 5 tables
+- ✅ T2: Register returns 201 + token + user data
+- ✅ T3: Duplicate email returns 409
+- ✅ T4: Weak password returns 422
+- ✅ T5: Login returns 200 + new token
+- ✅ T6: Wrong password returns 401
+- ✅ T7: Profile with valid token returns user data
+- ✅ T8: Profile with bad token returns 401
+- ✅ T9: Refresh token rotation works
+- ✅ T10: Logout invalidates refresh token
+- ✅ T11: All 8 pages work without auth (guest mode preserved)
+- ✅ T12: Password stored as bcrypt hash ($2b$12$...)
+- ✅ T13: JWT contains only sub + exp + jti (no sensitive data)
+- ✅ T14: User data persists in SQLite file

@@ -7,7 +7,7 @@
 | 0 | ✅ DONE | 2026-03-28 | 2026-03-28 | v2-baseline | Copy + git init |
 | 1 | ✅ DONE | 2026-03-28 | 2026-03-28 | — | Security hardening |
 | 2 | ✅ DONE | 2026-03-28 | 2026-03-28 | — | CDN self-host + offline |
-| 3 | ⬜ TODO | — | — | — | Database & auth |
+| 3 | ✅ DONE | 2026-03-28 | 2026-03-28 | — | Database & auth |
 | 4 | ⬜ TODO | — | — | — | UX & accessibility |
 | 5 | ⬜ TODO | — | — | — | Performance |
 | 6 | ⬜ TODO | — | — | — | Arabic i18n |
@@ -52,6 +52,6 @@
 - [ ] M13: Noto Sans font declared not loaded (Phase 4)
 - [x] M14: Deterministic quiz seed (Phase 1)
 - [ ] M15: Favicon MIME mismatch (Phase 4)
-- [ ] M16: In-memory sessions (Phase 3)
+- [x] M16: In-memory sessions (Phase 3)
 - [ ] M17: No confidence shown (Phase 4)
 - [x] M18: Cache wipes everything (Phase 2)
