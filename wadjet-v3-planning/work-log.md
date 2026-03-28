@@ -600,3 +600,70 @@ Full user dashboard, account settings, favorites system, scan history tracking, 
 - Scan history saved as fire-and-forget (non-critical — errors logged but don't affect scan response)
 - Story progress synced bidirectionally: save on chapter change, restore from server on init (falls back to localStorage for guests)
 - Settings page auto-reloads if language preference changes (applies cookie + reload)
+
+---
+
+## Phase 9 Audit — Cross-Phase Fixes
+**Date**: 2026-03-28
+**Commit**: `570169b` — `[Audit] Cross-phase fixes — i18n chat starters, RTL bubbles, a11y, security headers, error sanitization`
+
+### 9 Issues Fixed (9 files, +42/-24 lines)
+
+| # | Issue | Fix |
+|---|-------|-----|
+| 1 | Chat starters hardcoded English (user reported) | Replaced with `t('chat.starters', lang) \| tojson` — Arabic shows Arabic suggestions |
+| 2 | STT lang hardcoded `'en'` | Changed to `document.documentElement.lang \|\| 'en'` |
+| 3 | Chat RTL bubble corners wrong | Added `rtl:rounded-*` variants for message bubbles |
+| 4 | Chat missing accessibility labels | Added aria-labels to send button, chat input, dismiss button |
+| 5 | New i18n keys | Added `chat.send` + `chat.dismiss` in en.json + ar.json |
+| 6 | Dead `/quiz` route | Changed to 301 redirect to `/stories` |
+| 7 | `/quiz` in sitemap | Removed, replaced with `/stories` |
+| 8 | GPTBot `Disallow: /` blocking everything | Changed to `Disallow: /api/` |
+| 9 | Security response headers missing | Added middleware: X-Content-Type-Options, X-Frame-Options, Referrer-Policy, Permissions-Policy |
+| 10 | scan.py exception not logged | Added `logger.exception()` before raising in ONNX fallback |
+| 11 | write.py no error sanitization | Wrapped convert_text with try/except + generic error message |
+
+### Deferred (acceptable for beta)
+- ONNX on CDN (2.7MB, risky to vendor without testing)
+- Story offline caching (major SW rewrite)
+- Cairo font self-hosting (needs font download)
+- Multi-worker CSRF/JWT (env var config, not code)
+
+---
+
+## Phase 10 — v3.0.0-beta Finalization
+**Date**: 2026-03-28
+
+### Changes (12 files)
+
+**Beta Badge:**
+- `app/templates/partials/nav.html` — gold-bordered "BETA" pill badge next to logo text
+
+**Version Bumps:**
+- `pyproject.toml`: `wadjet-v2` 2.0.0 → `wadjet` 3.0.0-beta
+- `package.json`: `wadjet-v2` 1.0.0 → `wadjet` 3.0.0-beta
+- `app/main.py`: FastAPI version 2.0.0 → 3.0.0-beta
+- `app/api/health.py`: Health endpoint version 2.0.0 → 3.0.0-beta
+- `app/static/sw.js`: `wadjet-v25` → `wadjet-v30-beta`
+- `app/templates/base.html`: `styles.css?v=25` → `styles.css?v=30`
+- `app/static/js/app.js`: Comment updated v2 → v3
+
+**Documentation:**
+- Created `CHANGELOG.md` — comprehensive v2 → v3 changelog (security, offline, auth, UX, performance, i18n, SEO, stories, SaaS, finalization)
+- Updated `README.md` — v3 Beta branding, 6-column feature table (added Stories), "What's New in v3" section, tech stack table, bilingual mention
+- Updated `CLAUDE.md` — v3 Beta identity, expanded tech stack (AI providers, TTS, image gen, DB, auth), full route table (15 routes), complete project structure
+
+**Version Replacement Script:**
+- Created `wadjet-v3-planning/scripts/replace-version.ps1` — PowerShell script to archive v2 and promote v3-beta to main folder (with safety checks and confirmation prompt)
+
+### Smoke Test Results (37/37 pass)
+- ✅ Health endpoint returns version 3.0.0-beta
+- ✅ 13 English pages return 200 (including lessons)
+- ✅ 6 Arabic pages return 200 with RTL
+- ✅ Beta badge visible in English and Arabic
+- ✅ CSS version v30, SW version wadjet-v30-beta
+- ✅ Robots.txt, sitemap.xml, OG tags, JSON-LD all correct
+- ✅ Security headers present (X-Content-Type-Options, X-Frame-Options, Referrer-Policy)
+- ✅ Stories API, Explore API, Dictionary API respond correctly
+- ✅ /quiz redirects 301 to /stories
+- ✅ Service worker serves wadjet-v30-beta

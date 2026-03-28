@@ -1,5 +1,5 @@
 /**
- * Wadjet v2 — App JS
+ * Wadjet v3 — App JS
  * Global Alpine.js components, HTMX config, Atropos, GSAP, Lenis
  */
 

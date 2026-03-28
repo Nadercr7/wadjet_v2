@@ -3,7 +3,7 @@
  * Caches static assets and ML models for offline scanning.
  */
 
-const CACHE_VERSION = 'wadjet-v25';
+const CACHE_VERSION = 'wadjet-v30-beta';
 const STATIC_CACHE = CACHE_VERSION + '-static';
 const MODEL_CACHE = 'wadjet-models';  // version-independent: models persist across updates
 

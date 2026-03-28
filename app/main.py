@@ -129,7 +129,7 @@ def create_app() -> FastAPI:
     app = FastAPI(
         title="Wadjet",
         description="AI-powered Egyptian heritage app",
-        version="2.0.0",
+        version="3.0.0-beta",
         lifespan=lifespan,
     )
 

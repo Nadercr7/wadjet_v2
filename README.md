@@ -1,5 +1,5 @@
 ---
-title: Wadjet v2
+title: Wadjet v3 Beta
 emoji: 🏛️
 colorFrom: yellow
 colorTo: gray
@@ -11,12 +11,12 @@ pinned: true
 <div align="center">
 
 <!-- Header Banner -->
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0A0A0A,50:D4AF37,100:0A0A0A&height=220&section=header&text=𓂀%20WADJET&fontSize=72&fontColor=D4AF37&fontAlignY=35&desc=Egyptian%20Heritage%20Platform&descSize=18&descColor=C4A265&descAlignY=55&animation=fadeIn" width="100%" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0A0A0A,50:D4AF37,100:0A0A0A&height=220&section=header&text=𓂀%20WADJET&fontSize=72&fontColor=D4AF37&fontAlignY=35&desc=Egyptian%20Heritage%20Platform%20%E2%80%94%20v3%20Beta&descSize=18&descColor=C4A265&descAlignY=55&animation=fadeIn" width="100%" />
 
 <br/>
 
 <p>
-<strong>Scan hieroglyphs · Translate inscriptions · Explore 260+ landmarks · Learn from Thoth</strong>
+<strong>Scan hieroglyphs · Translate inscriptions · Explore 260+ landmarks · Learn from Thoth · Read interactive Egyptian stories</strong>
 </p>
 
 <br/>
@@ -45,33 +45,84 @@ pinned: true
 
 <table align="center">
 <tr>
-<td align="center" width="19%">
+<td align="center" width="16%">
 <h3>𓂀</h3>
 <strong>Scan</strong><br/>
-<sub>Photograph hieroglyphic inscriptions and get instant glyph-by-glyph translation to English</sub>
+<sub>Photograph hieroglyphic inscriptions and get instant glyph-by-glyph translation</sub>
 </td>
-<td align="center" width="19%">
+<td align="center" width="16%">
 <h3>𓏛</h3>
 <strong>Dictionary</strong><br/>
-<sub>Browse 1,000+ Gardiner signs across all 26 categories with phonetic values and meanings</sub>
+<sub>Browse 1,000+ Gardiner signs with phonetic values, meanings, and lessons</sub>
 </td>
-<td align="center" width="19%">
+<td align="center" width="16%">
 <h3>𓆣</h3>
 <strong>Write</strong><br/>
-<sub>Type in English and see it rendered in authentic hieroglyphic sequences</sub>
+<sub>Type in English or Arabic and see it rendered in hieroglyphic sequences</sub>
 </td>
-<td align="center" width="19%">
+<td align="center" width="16%">
 <h3>🏛️</h3>
 <strong>Explore</strong><br/>
-<sub>260+ Egyptian landmarks — temples, tombs, pyramids — with rich descriptions and history</sub>
+<sub>260+ Egyptian landmarks with rich descriptions, infinite scroll, and favorites</sub>
 </td>
-<td align="center" width="19%">
+<td align="center" width="16%">
+<h3>📖</h3>
+<strong>Stories</strong><br/>
+<sub>5 interactive mythology tales with AI illustrations, narration, and hieroglyph learning</sub>
+</td>
+<td align="center" width="16%">
 <h3>𓅃</h3>
 <strong>Thoth</strong><br/>
-<sub>Ask anything about Ancient Egypt — Thoth answers with the depth of a master Egyptologist</sub>
+<sub>Ask anything about Ancient Egypt — with voice TTS in English and Arabic</sub>
 </td>
 </tr>
 </table>
+
+<br/>
+
+---
+
+<br/>
+
+## 🆕 What's New in v3 Beta
+
+<table align="center">
+<tr><td colspan="2" align="center"><strong>v2 → v3 Beta Highlights</strong></td></tr>
+<tr>
+<td>🔒 <strong>Security</strong></td>
+<td>CSRF protection, rate limiting, magic byte validation, HMAC-signed quiz answers, JWT auth</td>
+</tr>
+<tr>
+<td>🌐 <strong>Offline</strong></td>
+<td>All vendor scripts self-hosted, rewritten service worker, cache-first ML models</td>
+</tr>
+<tr>
+<td>🌍 <strong>Arabic</strong></td>
+<td>Full RTL layout, 300+ bilingual strings, Cairo font, Arabic chat starters & TTS</td>
+</tr>
+<tr>
+<td>🔊 <strong>AI TTS</strong></td>
+<td>Gemini 2.5 Flash voices (30 voices, Arabic), Groq Orpheus fallback, browser SpeechSynthesis</td>
+</tr>
+<tr>
+<td>📖 <strong>Stories</strong></td>
+<td>5 interactive mythology tales with AI illustrations (Cloudflare FLUX), Ken Burns animations</td>
+</tr>
+<tr>
+<td>👤 <strong>Accounts</strong></td>
+<td>User registration, dashboard with stats, scan history, favorites, story progress sync</td>
+</tr>
+<tr>
+<td>📊 <strong>SEO</strong></td>
+<td>Open Graph, Twitter Cards, JSON-LD, dynamic sitemap, canonical URLs, hreflang</td>
+</tr>
+<tr>
+<td>⚡ <strong>Performance</strong></td>
+<td>Infinite scroll pagination, lazy loading, search debounce, font preloading</td>
+</tr>
+</table>
+
+> Full changelog: [`CHANGELOG.md`](CHANGELOG.md)
 
 <br/>
 
@@ -132,7 +183,34 @@ pinned: true
 
 - **Fully dark UI** with custom gold animations and effects
 - **Responsive** — works on desktop, tablet, and mobile
+- **Bilingual** — English + Arabic with full RTL support
 - **Egyptian typography** — serif headings with hieroglyphic font support
+
+<br/>
+
+---
+
+<br/>
+
+<div align="center">
+
+## 🛠️ Tech Stack
+
+</div>
+
+<table align="center">
+<tr><th>Layer</th><th>Technology</th></tr>
+<tr><td>Backend</td><td>FastAPI + Python 3.13</td></tr>
+<tr><td>Templates</td><td>Jinja2 (layout inheritance)</td></tr>
+<tr><td>CSS</td><td>TailwindCSS v4.2.2</td></tr>
+<tr><td>Interactivity</td><td>Alpine.js 3.14 + HTMX 2.0.4</td></tr>
+<tr><td>Client ML</td><td>ONNX Runtime Web</td></tr>
+<tr><td>AI</td><td>Gemini (17-key rotation) + Grok + Groq + Cloudflare Workers AI</td></tr>
+<tr><td>TTS</td><td>Gemini 2.5 Flash → Groq Orpheus → Browser</td></tr>
+<tr><td>Image Gen</td><td>Cloudflare FLUX.1 schnell → SDXL</td></tr>
+<tr><td>Database</td><td>SQLAlchemy async + SQLite (PostgreSQL-ready)</td></tr>
+<tr><td>Auth</td><td>JWT (HS256) + bcrypt</td></tr>
+</table>
 
 <br/>
 

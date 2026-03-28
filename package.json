@@ -1,6 +1,6 @@
 {
-  "name": "wadjet-v2",
-  "version": "1.0.0",
+  "name": "wadjet",
+  "version": "3.0.0-beta",
   "description": "> **AI-powered Egyptian heritage app** — scan hieroglyphs, translate inscriptions, explore landmarks, and learn from Thoth.",
   "main": "index.js",
   "scripts": {
