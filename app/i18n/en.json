@@ -42,6 +42,7 @@
         "sign_up": "Sign Up",
         "sign_out": "Sign Out",
         "scan_now": "Scan Now",
+        "toggle_lang": "Switch language",
         "toggle_menu": "Toggle menu",
         "sub_scan": "↳ Scan",
         "sub_dictionary": "↳ Dictionary",
@@ -197,6 +198,7 @@
         "upload_click": "Click to upload",
         "upload_drag": "or drag and drop",
         "upload_formats": "JPEG, PNG, or WebP — max 10 MB",
+        "preview_alt": "Preview",
         "camera_start": "Start Camera",
         "camera_hint": "Requires camera permission",
         "camera_capture": "Capture",
@@ -453,5 +455,18 @@
         "explore_hiero": "Explore Hieroglyphs",
         "verify_fail": "Could not verify answer. Please try again.",
         "gen_fail": "Generation failed"
+    },
+    "lesson_page": {
+        "meta_desc": "Learn hieroglyphic signs step by step — interactive lessons with audio pronunciation, example words, and practice exercises.",
+        "see_in_action": "See It in Action",
+        "see_in_action_desc": "Real Egyptian words that use signs from this lesson. Signs you just learned are highlighted in gold.",
+        "can_you_read": "Can You Read This?",
+        "can_you_read_desc": "Try to read these words using the signs you just learned. Click to reveal the answer.",
+        "reveal_answer": "Reveal Answer",
+        "prev_lesson": "Previous Lesson",
+        "next_lesson": "Next Lesson",
+        "browse_dict": "Browse Full Dictionary",
+        "silent_adds": "silent — adds meaning",
+        "listen_label": "listen"
     }
 }

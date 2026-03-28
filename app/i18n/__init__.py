@@ -7,19 +7,25 @@ Usage in Python:     from app.i18n import t; t('nav.scan', 'ar')
 from __future__ import annotations
 
 import json
-from functools import lru_cache
 from pathlib import Path
 
 I18N_DIR = Path(__file__).parent
 SUPPORTED_LANGS = ("en", "ar")
 
+_cache: dict[str, tuple[float, dict]] = {}
 
-@lru_cache(maxsize=4)
+
 def _load(lang: str) -> dict:
     path = I18N_DIR / f"{lang}.json"
     if not path.exists():
         path = I18N_DIR / "en.json"
-    return json.loads(path.read_text(encoding="utf-8"))
+    mtime = path.stat().st_mtime
+    cached = _cache.get(lang)
+    if cached and cached[0] == mtime:
+        return cached[1]
+    data = json.loads(path.read_text(encoding="utf-8"))
+    _cache[lang] = (mtime, data)
+    return data
 
 
 def t(key: str, lang: str = "en"):

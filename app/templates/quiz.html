@@ -82,7 +82,7 @@
                                     {{ t('quiz.generating', lang) }}
                                 </span>
                             </button>
-                            <button @click="showAiSetup = false" class="btn-ghost btn-sm">Cancel</button>
+                            <button @click="showAiSetup = false" class="btn-ghost btn-sm">{{ t('common.cancel', lang) }}</button>
                         </div>
                     </div>
                 </template>
@@ -95,7 +95,7 @@
                 <!-- Progress bar -->
                 <div class="mb-6">
                     <div class="flex justify-between text-sm text-text-muted mb-2">
-                        <span x-text="'Question ' + (currentIndex + 1) + ' of ' + questions.length"></span>
+                        <span x-text="'{{ t('quiz.question_label', lang) }} ' + (currentIndex + 1) + ' {{ t('common.of', lang) }} ' + questions.length"></span>
                         <span>
                             <span class="text-green-400" x-text="score"></span>/<span x-text="answered"></span> {{ t('quiz.correct_label', lang) }}
                         </span>
@@ -169,7 +169,7 @@
                         </button>
                         <button x-show="checked" @click="nextQuestion($data)"
                                 class="btn-gold btn-sm">
-                            <span x-text="currentIndex < questions.length - 1 ? 'Next Question →' : 'See Results'"></span>
+                            <span x-text="currentIndex < questions.length - 1 ? '{{ t('quiz.next_question', lang) }}' : '{{ t('quiz.see_results', lang) }}'"></span>
                         </button>
                         <span></span>
                     </div>

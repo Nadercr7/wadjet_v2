@@ -162,7 +162,7 @@
                  x-transition class="mt-3 card !p-3 max-h-48 overflow-y-auto space-y-2">
                 <div class="flex items-center justify-between mb-1">
                     <span class="text-xs font-medium text-text-muted">{{ t('chat.past_convos_title', lang) }}</span>
-                    <button @click="chatHistory = []; WadjetHistory.clearChatHistory()" class="text-[10px] text-text-dim hover:text-gold">Clear all</button>
+                    <button @click="chatHistory = []; WadjetHistory.clearChatHistory()" class="text-[10px] text-text-dim hover:text-gold">{{ t('common.clear_all', lang) }}</button>
                 </div>
                 <template x-for="item in chatHistory" :key="item.timestamp">
                     <div class="flex items-center gap-3 p-2 rounded-lg bg-night border border-border hover:border-gold/20 cursor-pointer group transition-all"

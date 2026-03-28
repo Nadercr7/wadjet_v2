@@ -119,7 +119,7 @@
 
                     <template x-if="previewUrl">
                         <div>
-                            <img :src="previewUrl" alt="Preview" class="max-h-80 mx-auto rounded-lg mb-4 border border-border">
+                            <img :src="previewUrl" alt="{{ t('scan.preview_alt', lang) }}" class="max-h-80 mx-auto rounded-lg mb-4 border border-border">
                             <p class="text-text-muted text-sm" x-text="fileName"></p>
                         </div>
                     </template>
@@ -248,7 +248,7 @@
                         <span class="text-[10px] px-2 py-0.5 rounded-full bg-gold/10 text-gold/70"
                               x-show="result.detection_source"
                               x-text="result.detection_source?.replace('ai_vision', 'AI Vision').replace('onnx', 'ONNX').replace('onnx_fallback', 'ONNX Fallback')"></span>
-                        <span class="badge-gold" x-text="result.num_detections + ' glyphs found'"></span>
+                        <span class="badge-gold" x-text="result.num_detections + ' {{ t('scan.glyphs_found', lang) }}'"></span>
                     </div>
                 </div>
                 <div class="relative inline-block w-full">
@@ -264,7 +264,7 @@
                     <h3 class="text-lg font-semibold">
                         <span class="text-gold">{{ t('scan.step2_label', lang) }}</span> {{ t('scan.step2_title', lang) }}
                     </h3>
-                    <span class="badge-muted" x-text="result.glyphs?.length + ' identified'"></span>
+                    <span class="badge-muted" x-text="result.glyphs?.length + ' {{ t('scan.identified', lang) }}'"></span>
                 </div>
                 <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
                     <template x-for="(glyph, i) in (result.glyphs || [])" :key="i">
@@ -282,7 +282,7 @@
                                 </div>
                                 <span class="text-[10px]"
                                       :class="glyph.class_confidence > 0.7 ? 'text-success' : glyph.class_confidence > 0.4 ? 'text-gold' : 'text-error'"
-                                      x-text="Math.round(glyph.class_confidence * 100) + '% confidence'"></span>
+                                      x-text="Math.round(glyph.class_confidence * 100) + '% {{ t('scan.confidence', lang) }}'"></span>
                             </div>
                         </div>
                     </template>
@@ -308,7 +308,7 @@
                             x-show="WadjetTTS.isSupported()"
                             class="btn-ghost btn-sm shrink-0 !px-2 !py-1.5"
                             :class="{'!border-gold !text-gold': ttsState !== 'idle' && ttsActiveId === 'translit'}"
-                            :aria-label="ttsActiveId === 'translit' && ttsState === 'playing' ? 'Pause' : 'Listen to transliteration'">
+                            :aria-label="ttsActiveId === 'translit' && ttsState === 'playing' ? '{{ t('scan.pause', lang) }}' : '{{ t('scan.listen_translit', lang) }}'">
                         <!-- Speaker icon (idle/paused) -->
                         <svg x-show="!(ttsActiveId === 'translit' && ttsState === 'playing')" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
                         <!-- Pause icon (playing) -->
@@ -316,7 +316,7 @@
                     </button>
                 </div>
                 <div class="mt-3 flex items-center gap-4 text-sm text-text-dim">
-                    <span x-text="'Gardiner: ' + result.gardiner_sequence"></span>
+                    <span x-text="'{{ t('scan.gardiner', lang) }} ' + result.gardiner_sequence"></span>
                 </div>
             </div>
 
@@ -336,7 +336,7 @@
                                 x-show="WadjetTTS.isSupported()"
                                 class="btn-ghost btn-sm !px-2 !py-1.5"
                                 :class="{'!border-gold !text-gold': ttsState !== 'idle' && ttsActiveId === 'en'}"
-                                :aria-label="ttsActiveId === 'en' && ttsState === 'playing' ? 'Pause' : 'Listen in English'">
+                                :aria-label="ttsActiveId === 'en' && ttsState === 'playing' ? '{{ t('scan.pause', lang) }}' : '{{ t('scan.listen_english', lang) }}'">
                             <svg x-show="!(ttsActiveId === 'en' && ttsState === 'playing')" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
                             <svg x-show="ttsActiveId === 'en' && ttsState === 'playing'" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                         </button>
@@ -352,7 +352,7 @@
                                 x-show="WadjetTTS.isSupported()"
                                 class="btn-ghost btn-sm !px-2 !py-1.5"
                                 :class="{'!border-gold !text-gold': ttsState !== 'idle' && ttsActiveId === 'ar'}"
-                                :aria-label="ttsActiveId === 'ar' && ttsState === 'playing' ? 'Pause' : 'Listen in Arabic'">
+                                :aria-label="ttsActiveId === 'ar' && ttsState === 'playing' ? '{{ t('scan.pause', lang) }}' : '{{ t('scan.listen_arabic', lang) }}'">
                             <svg x-show="!(ttsActiveId === 'ar' && ttsState === 'playing')" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
                             <svg x-show="ttsActiveId === 'ar' && ttsState === 'playing'" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                         </button>
@@ -420,7 +420,7 @@
                 </button>
                 <button x-show="!!navigator.share" @click="shareResultPNG()" class="btn-ghost">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path></svg>
-                    Share
+                    {{ t('common.share', lang) }}
                 </button>
                 <button @click="resetScan()" class="btn-ghost">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
@@ -473,16 +473,16 @@
         <div x-show="scanHistory.length > 0 && step === 'upload'" class="mt-12" data-animate>
             <div class="flex items-center justify-between mb-4">
                 <h3 class="text-lg font-semibold">{{ t('scan.recent_scans', lang) }}</h3>
-                <button @click="scanHistory = []; WadjetHistory.clearScanHistory()" class="text-xs text-text-muted hover:text-gold transition-colors">Clear all</button>
+                <button @click="scanHistory = []; WadjetHistory.clearScanHistory()" class="text-xs text-text-muted hover:text-gold transition-colors">{{ t('common.clear_all', lang) }}</button>
             </div>
             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
                 <template x-for="item in scanHistory" :key="item.timestamp">
                     <div class="card !p-3 group cursor-default relative">
                         <button @click="WadjetHistory.removeScanItem(item.timestamp); scanHistory = WadjetHistory.getScanHistory()"
                                 class="absolute top-1.5 right-1.5 w-5 h-5 rounded-full bg-surface-alt flex items-center justify-center text-text-dim hover:text-error opacity-0 group-hover:opacity-100 transition-opacity text-xs">&times;</button>
-                        <img x-show="item.thumb" :src="item.thumb" class="w-full h-16 object-cover rounded mb-2 bg-surface-alt" alt="Scan thumbnail" loading="lazy">
+                        <img x-show="item.thumb" :src="item.thumb" class="w-full h-16 object-cover rounded mb-2 bg-surface-alt" alt="{{ t('scan.preview_alt', lang) }}" loading="lazy">
                         <div x-show="!item.thumb" class="w-full h-16 rounded mb-2 bg-surface-alt flex items-center justify-center text-2xl opacity-30">𓊹</div>
-                        <p class="text-xs text-gold font-medium" x-text="item.numGlyphs + ' glyph' + (item.numGlyphs !== 1 ? 's' : '')"></p>
+                        <p class="text-xs text-gold font-medium" x-text="item.numGlyphs + ' {{ t('scan.glyph_singular', lang) }}' + (item.numGlyphs !== 1 ? '' : '')"></p>
                         <p class="text-xs text-text-muted truncate" x-text="item.transliteration || item.gardiner || '—'"></p>
                         <p class="text-[10px] text-text-dim mt-1" x-text="new Date(item.timestamp).toLocaleDateString()"></p>
                     </div>

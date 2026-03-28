@@ -23,7 +23,7 @@
             <!-- CTA + Auth + Lang Toggle -->
             <div class="hidden md:flex items-center gap-2">
                 <!-- Language Toggle -->
-                <button onclick="toggleLang()" class="px-3 py-1.5 rounded-lg text-sm text-text-muted hover:text-gold hover:bg-surface-alt transition-all duration-200" aria-label="Switch language">
+                <button onclick="toggleLang()" class="px-3 py-1.5 rounded-lg text-sm text-text-muted hover:text-gold hover:bg-surface-alt transition-all duration-200" aria-label="{{ t('nav.toggle_lang', lang) }}">
                     🌐 {{ 'عربي' if lang != 'ar' else 'EN' }}
                 </button>
                 <!-- Auth: shown when NOT logged in -->
@@ -57,7 +57,7 @@
             <!-- Mobile menu button -->
             <div class="flex md:hidden items-center gap-1">
                 <!-- Mobile Lang Toggle -->
-                <button onclick="toggleLang()" class="p-2 rounded-lg text-text-muted hover:text-gold hover:bg-surface-alt transition-colors" aria-label="Switch language">
+                <button onclick="toggleLang()" class="p-2 rounded-lg text-text-muted hover:text-gold hover:bg-surface-alt transition-colors" aria-label="{{ t('nav.toggle_lang', lang) }}">
                     🌐
                 </button>
                 <button
