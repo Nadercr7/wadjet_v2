@@ -9,7 +9,7 @@
 | 2 | ✅ DONE | 2026-03-28 | 2026-03-28 | — | CDN self-host + offline |
 | 3 | ✅ DONE | 2026-03-28 | 2026-03-28 | — | Database & auth |
 | 4 | ✅ DONE | 2026-03-28 | 2026-03-28 | — | UX, accessibility & TTS |
-| 5 | ⬜ TODO | — | — | — | Performance |
+| 5 | ✅ DONE | 2026-03-28 | 2026-03-28 | — | Performance |
 | 6 | ⬜ TODO | — | — | — | Arabic i18n |
 | 7 | ⬜ TODO | — | — | — | SEO & social |
 | 8 | ⬜ TODO | — | — | — | Stories of the Nile |
@@ -34,7 +34,7 @@
 - [x] H5: text-dim WCAG contrast (Phase 4)
 - [x] H6: No rate limiting (Phase 1)
 - [x] H7: Glyph of Day only 7 entries (Phase 4)
-- [x] H8: Model cache network-first (Phase 5)
+- [x] H8: Model cache network-first (Phase 5) ✅
 
 ### Medium (18)
 - [ ] M1: Zero RTL CSS (Phase 6)
@@ -43,9 +43,9 @@
 - [ ] M4: No Arabic translations (Phase 6)
 - [ ] M5: No OG/Twitter tags (Phase 7)
 - [ ] M6: No robots.txt/sitemap (Phase 7)
-- [ ] M7: No lazy loading (Phase 5)
+- [x] M7: No lazy loading (Phase 5)
 - [x] M8: HTMX no defer (Phase 2)
-- [ ] M9: 260 cards load at once (Phase 5)
+- [x] M9: 260 cards load at once (Phase 5)
 - [x] M10: Missing form labels (Phase 4)
 - [x] M11: No SRI on CDN (Phase 2)
 - [x] M12: tts.js not in SW cache (Phase 2)

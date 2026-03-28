@@ -210,3 +210,53 @@
 | 12 | LOW | `hasContent` always `true` | Added `init()` with `getText().length > 10` check |
 | 13 | LOW | N35+A1 entries merged on one line | Split to separate lines |
 | 14 | LOW | `--color-gold-light`/`dark` drift from CLAUDE.md | Noted, not changed (functional) |
+
+---
+
+## Phase 5 — Performance Optimization
+**Date**: 2026-03-28
+**Commit**: `0001680` — `[Phase 5] Performance — cache-first models, lazy loading, HTMX infinite scroll pagination`
+
+### Changes (6 files, 69 insertions)
+
+**H8 — Model cache strategy**: Verified `sw.js` already uses `cacheFirst()` for `/models/*` with version-independent `wadjet-models` cache. No change needed (fixed in Phase 2).
+
+**M7 — Lazy loading images**:
+- Audited all templates: `landing.html`, `landmarks.html`, `dictionary.html` have zero `<img>` tags (all Unicode/SVG/emoji)
+- `explore.html` card images already had `loading="lazy"` and `aspect-[4/3]` wrapper
+- `scan.html` history thumbnails were missing `loading="lazy"` → added
+
+**M9 — Explore infinite scroll pagination**:
+- `app/api/explore.py` — added `page` (default 1, ge=1) and `per_page` (default 24, ge=1, le=100) query params to `list_landmarks()`. Response now includes `total`, `page`, `has_more` fields alongside `landmarks` and `count`
+- `app/templates/explore.html` — added Alpine.js infinite scroll:
+  - New state: `currentPage`, `hasMore`, `loadingMore`
+  - `fetchLandmarks()` rewritten to send `page=1&per_page=24`, reset pagination state
+  - New `loadMore()` method: fetches next page, appends results via spread operator
+  - Infinite scroll trigger: `x-intersect:enter.margin.200px="loadMore()"` with loading spinner
+- Downloaded Alpine Intersect plugin (`alpine-intersect.min.js`, 897 bytes) to `app/static/vendor/`
+- Added Intersect plugin script to `base.html` before `alpine.min.js` (plugins must load before core)
+- Added `alpine-intersect.min.js` to SW pre-cache list, bumped `CACHE_VERSION` to `wadjet-v21`
+
+**Font preload**: Added `<link rel="preload" ... as="style">` for Google Fonts CSS in `base.html`
+
+### Files Modified
+- `app/api/explore.py` — pagination params + slice logic + response fields
+- `app/templates/explore.html` — Alpine infinite scroll + loadMore() + trigger div
+- `app/templates/scan.html` — `loading="lazy"` on history thumbnail
+- `app/templates/base.html` — Alpine Intersect plugin script + font preload
+- `app/static/sw.js` — cache version v21, Alpine Intersect in pre-cache
+
+### Files Created
+- `app/static/vendor/alpine-intersect.min.js` — Alpine Intersect plugin (897 bytes)
+
+### Testing Results (all pass)
+- ✅ T1: Page 1 returns 24 landmarks, total=163, has_more=true
+- ✅ T2: Page 7 (last) returns 19 landmarks, has_more=false
+- ✅ T3: 6×24 + 19 = 163 total (math checks out)
+- ✅ T4: Search "pyramid" returns 19 results, all fit in page 1, has_more=false
+- ✅ T5: Explore page HTML contains `x-intersect`, `loadMore`, `alpine-intersect`
+- ✅ T6: `loading="lazy"` present in scan.html (1) and explore.html (2)
+- ✅ T7: Font `<link rel="preload">` present in served HTML
+- ✅ T8: Health endpoint returns ok
+- ✅ T9: Landing, scan pages load with 200 status
+- ✅ T10: No Python/JS errors in any modified file
