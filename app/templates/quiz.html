@@ -180,10 +180,10 @@
         <!-- Results -->
         <template x-if="finished">
             <div class="card p-8 text-center" data-animate>
-                <span class="text-5xl block mb-4">
-                    <span x-show="percentage >= 80">🏆</span>
-                    <span x-show="percentage >= 50 && percentage < 80">⭐</span>
-                    <span x-show="percentage < 50">📚</span>
+                <span class="text-gold block mb-4">
+                    <span x-show="percentage >= 80"><svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18h-9a1.5 1.5 0 010-3h9a1.5 1.5 0 010 3zM6.5 4.5L8 9h8l1.5-4.5M8 9l-3.5 6h15L16 9M12 9v9"/></svg></span>
+                    <span x-show="percentage >= 50 && percentage < 80"><svg class="w-12 h-12 mx-auto" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg></span>
+                    <span x-show="percentage < 50"><svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/></svg></span>
                 </span>
                 <h2 class="text-2xl font-serif text-gold mb-2">{{ t('quiz.complete', lang) }}</h2>
                 <p class="text-text-muted mb-6">

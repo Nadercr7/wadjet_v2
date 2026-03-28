@@ -138,10 +138,10 @@
                         <!-- Badges top row -->
                         <div class="absolute top-2 right-2 flex gap-1">
                             <template x-if="lm.featured">
-                                <span class="text-[10px] px-1.5 py-0.5 rounded-full bg-gold/90 text-night font-semibold">★ {{ t('explore.badge_featured', lang) }}</span>
+                                <span class="text-[10px] px-1.5 py-0.5 rounded-full bg-gold/90 text-night font-semibold">{{ t('explore.badge_featured', lang) }}</span>
                             </template>
                             <template x-if="lm.source === 'curated' && !lm.featured">
-                                <span class="text-[10px] px-1.5 py-0.5 rounded-full bg-gold/90 text-night">★ {{ t('explore.badge_curated', lang) }}</span>
+                                <span class="text-[10px] px-1.5 py-0.5 rounded-full bg-gold/90 text-night">{{ t('explore.badge_curated', lang) }}</span>
                             </template>
                         </div>
                         <!-- Children count bottom row -->
@@ -495,7 +495,7 @@
                                                     <p class="text-[10px] text-sand/50 font-arabic line-clamp-1" x-show="child.name_ar" x-text="child.name_ar"></p>
                                                     <p class="text-[11px] text-text-dim line-clamp-2 mt-1" x-text="child.description"></p>
                                                     <template x-if="child.featured">
-                                                        <span class="inline-block text-[9px] mt-1 px-1.5 py-0.5 rounded-full bg-gold/20 text-gold-light">★ {{ t('explore.badge_featured', lang) }}</span>
+                                                        <span class="inline-block text-[9px] mt-1 px-1.5 py-0.5 rounded-full bg-gold/20 text-gold-light">{{ t('explore.badge_featured', lang) }}</span>
                                                     </template>
                                                 </div>
                                             </div>

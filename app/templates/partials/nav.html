@@ -23,8 +23,9 @@
             <!-- CTA + Auth + Lang Toggle -->
             <div class="hidden md:flex items-center gap-2">
                 <!-- Language Toggle -->
-                <button onclick="toggleLang()" class="px-3 py-1.5 rounded-lg text-sm text-text-muted hover:text-gold hover:bg-surface-alt transition-all duration-200" aria-label="{{ t('nav.toggle_lang', lang) }}">
-                    🌐 {{ 'عربي' if lang != 'ar' else 'EN' }}
+                <button onclick="toggleLang()" class="px-3 py-1.5 rounded-lg text-sm text-text-muted hover:text-gold hover:bg-surface-alt transition-all duration-200 flex items-center gap-1" aria-label="{{ t('nav.toggle_lang', lang) }}">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10A15.3 15.3 0 0112 2z"/></svg>
+                    {{ 'عربي' if lang != 'ar' else 'EN' }}
                 </button>
                 <!-- Auth: shown when NOT logged in -->
                 <template x-if="!$store.auth.user">
@@ -58,7 +59,7 @@
             <div class="flex md:hidden items-center gap-1">
                 <!-- Mobile Lang Toggle -->
                 <button onclick="toggleLang()" class="p-2 rounded-lg text-text-muted hover:text-gold hover:bg-surface-alt transition-colors" aria-label="{{ t('nav.toggle_lang', lang) }}">
-                    🌐
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10A15.3 15.3 0 0112 2z"/></svg>
                 </button>
                 <button
                     @click="mobileMenu = !mobileMenu"
