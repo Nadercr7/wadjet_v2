@@ -60,14 +60,14 @@
 - [x] Git commit: `[WADJET] Phase 2 complete: Security High`
 
 ### Phase 3 — Bug Fixes
-- [ ] GET /api/user/stats → 200 (authenticated)
-- [ ] `docker build -t wadjet . && docker run -p 8000:8000 wadjet` → app at localhost:8000
-- [ ] GET /stories/nonexistent → 404
-- [ ] GET /stories/isis-and-osiris → 200
-- [ ] GET /dictionary/lesson/0 → 404
-- [ ] GET /dictionary/lesson/3 → 200
-- [ ] render.yaml service name is `wadjet-v3`
-- [ ] Git commit: `[WADJET] Phase 3 complete: Bug Fixes`
+- [x] GET /api/user/stats → 200 (authenticated)
+- [x] `docker build -t wadjet . && docker run -p 8000:8000 wadjet` → app at localhost:8000
+- [x] GET /stories/nonexistent → 404
+- [x] GET /stories/osiris-myth → 200
+- [x] GET /dictionary/lesson/0 → 404
+- [x] GET /dictionary/lesson/3 → 200
+- [x] render.yaml service name is `wadjet-v3`
+- [x] Git commit: `[WADJET] Phase 3 complete: Bug Fixes`
 
 ### Phase 4 — Database
 - [ ] `alembic upgrade head` succeeds
