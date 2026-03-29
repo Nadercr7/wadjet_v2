@@ -116,6 +116,7 @@ async def chat_stream(
         except Exception:
             logger.exception("Stream error")
             yield f"data: {json.dumps({'error': 'Generation failed'})}\n\n"
+            return
 
     return StreamingResponse(
         event_generator(),

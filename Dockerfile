@@ -37,6 +37,6 @@ COPY models/ models/
 # Runtime data (embeddings, metadata, text, translation; .dockerignore excludes training datasets)
 COPY data/ data/
 
-EXPOSE 7860
+EXPOSE 8000
 
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "7860"]
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]

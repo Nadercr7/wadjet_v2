@@ -4,6 +4,7 @@ from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import HTMLResponse, PlainTextResponse, RedirectResponse, Response
 
 from app.config import settings
+from app.core.stories_engine import load_story
 from app.i18n import get_lang
 
 _STORY_ID_RE = re.compile(r"^[a-z0-9\-]{1,50}$")
@@ -83,6 +84,8 @@ async def stories(request: Request):
 async def story_reader(request: Request, story_id: str):
     if not _STORY_ID_RE.match(story_id):
         raise HTTPException(status_code=404, detail="Story not found")
+    if load_story(story_id) is None:
+        raise HTTPException(status_code=404, detail="Story not found")
     templates = request.app.state.templates
     lang = get_lang(request)
     return templates.TemplateResponse(request, "story_reader.html", {"story_id": story_id, "lang": lang})
@@ -90,6 +93,8 @@ async def story_reader(request: Request, story_id: str):
 
 @router.get("/dictionary/lesson/{level}", response_class=HTMLResponse)
 async def dictionary_lesson_page(request: Request, level: int):
+    if level < 1 or level > 5:
+        raise HTTPException(status_code=404, detail="Lesson not found")
     templates = request.app.state.templates
     lang = get_lang(request)
     return templates.TemplateResponse(request, "lesson_page.html", {"level": level, "lang": lang})

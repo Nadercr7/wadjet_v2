@@ -201,7 +201,8 @@ async def get_user_stats(db: AsyncSession, user_id: str) -> dict:
         select(func.coalesce(func.sum(ScanHistory.glyph_count), 0)).where(ScanHistory.user_id == user_id)
     )
     # Today's scans (for free tier limit display)
-    today_start = datetime.now(timezone.utc).replace(hour=0, minute=0, second=0, microsecond=0)
+    # Use naive UTC to match SQLAlchemy func.now() which stores naive datetimes
+    today_start = datetime.utcnow().replace(hour=0, minute=0, second=0, microsecond=0)
     scans_today = await db.execute(
         select(func.count()).select_from(ScanHistory).where(
             ScanHistory.user_id == user_id,

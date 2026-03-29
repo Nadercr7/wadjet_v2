@@ -1,9 +1,9 @@
 services:
   - type: web
-    name: wadjet-v2
+    name: wadjet-v3
     runtime: python
     plan: free
-    buildCommand: pip install -r requirements.txt && npx @tailwindcss/cli -i app/static/css/input.css -o app/static/dist/styles.css --minify
+    buildCommand: npm install && npx @tailwindcss/cli -i app/static/css/input.css -o app/static/dist/styles.css --minify && pip install -r requirements.txt
     startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: PYTHON_VERSION
@@ -12,7 +12,19 @@ services:
         value: "22"
       - key: ENVIRONMENT
         value: production
+      - key: JWT_SECRET
+        sync: false
+      - key: CSRF_SECRET
+        sync: false
       - key: GEMINI_API_KEYS
+        sync: false
+      - key: GROK_API_KEYS
+        sync: false
+      - key: GROQ_API_KEYS
+        sync: false
+      - key: CLOUDFLARE_ACCOUNT_ID
+        sync: false
+      - key: CLOUDFLARE_API_TOKEN
         sync: false
     healthCheckPath: /api/health
     autoDeploy: false
