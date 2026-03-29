@@ -58,6 +58,14 @@ tmp_kaggle_hiero/
 tmp_kaggle_output/
 scripts/test_*.py
 scripts/dataprep-env/
+
+# Archived planning (per-date snapshots)
+wadjet-v3-planning-ARCHIVED-*
+
+# Test / Coverage
+htmlcov/
+.coverage
+.pytest_cache/
 scripts/_test_*.wav
 *.bak
 
