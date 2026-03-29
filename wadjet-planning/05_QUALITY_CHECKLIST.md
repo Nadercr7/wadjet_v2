@@ -30,11 +30,11 @@
 ## Phase-Specific Gates
 
 ### Phase 0 — Setup
-- [ ] `pytest` exits 0 (even with 0 tests)
-- [ ] `requirements-dev.txt` installs cleanly
-- [ ] `requirements.txt` uses `~=` pinning
-- [ ] `.gitignore` updated
-- [ ] Git commit: `[WADJET] Phase 0 complete`
+- [x] `pytest` exits 0 (1 smoke test passes)
+- [x] `requirements-dev.txt` installs cleanly
+- [x] `requirements.txt` uses `~=` pinning
+- [x] `.gitignore` updated
+- [x] Git commit: `[WADJET] Phase 0 complete`
 
 ### Phase 1 — Security Critical
 - [ ] CSRF rejects unprotected POST to /api/user/favorites → 403
