@@ -70,13 +70,13 @@
 - [x] Git commit: `[WADJET] Phase 3 complete: Bug Fixes`
 
 ### Phase 4 — Database
-- [ ] `alembic upgrade head` succeeds
-- [ ] `alembic downgrade -1` succeeds
-- [ ] `alembic upgrade head` again succeeds (roundtrip)
-- [ ] Backup of wadjet.db exists before migration
-- [ ] User deletion cascades to all child tables
-- [ ] Story progress upsert works under concurrency
-- [ ] Git commit: `[WADJET] Phase 4 complete: Database`
+- [x] `alembic upgrade head` succeeds
+- [x] `alembic downgrade -1` succeeds
+- [x] `alembic upgrade head` again succeeds (roundtrip)
+- [x] Backup of wadjet.db exists before migration
+- [x] User deletion cascades to all child tables
+- [x] Story progress upsert works under concurrency
+- [x] Git commit: `[WADJET] Phase 4 complete: Database`
 
 ### Phase 5 — Architecture
 - [ ] No circular imports
