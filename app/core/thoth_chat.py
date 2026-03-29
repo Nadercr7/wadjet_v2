@@ -26,6 +26,7 @@ logger = logging.getLogger(__name__)
 _MAX_HISTORY = 10  # message pairs
 _MAX_SESSIONS = 500
 _SESSION_TTL = 3600  # seconds (1 hour)
+_MAX_MESSAGE_LENGTH = 2000  # chars — defensive cap at service level
 _TEMPERATURE = 0.7
 _MAX_TOKENS = 2048
 
@@ -309,6 +310,7 @@ async def chat(
     grok: GrokService | None = None,
     groq: GroqService | None = None,
 ) -> ChatResult:
+    message = message[:_MAX_MESSAGE_LENGTH]
     prompt = _build_prompt(message, session_id, landmark)
     sources = []
     if landmark:
@@ -336,6 +338,7 @@ async def chat_stream(
     grok: GrokService | None = None,
     groq: GroqService | None = None,
 ) -> AsyncIterator[str]:
+    message = message[:_MAX_MESSAGE_LENGTH]
     prompt = _build_prompt(message, session_id, landmark)
     collected: list[str] = []
     first = True

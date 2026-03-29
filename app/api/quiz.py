@@ -66,8 +66,8 @@ class AiAnswerRequest(BaseModel):
 
 
 class GenerateRequest(BaseModel):
-    difficulty: str = Field(default="medium")
-    category: str = Field(default="monuments")
+    difficulty: str = Field(default="medium", max_length=20)
+    category: str = Field(default="monuments", max_length=50)
     count: int = Field(default=5, ge=1, le=10)
 
 

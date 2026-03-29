@@ -9,7 +9,7 @@ import logging
 
 from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import JSONResponse
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 from app.rate_limit import limiter
 
@@ -19,8 +19,8 @@ router = APIRouter(prefix="/api", tags=["translate"])
 
 
 class TranslateRequest(BaseModel):
-    transliteration: str
-    gardiner_sequence: str = ""
+    transliteration: str = Field(..., max_length=2000)
+    gardiner_sequence: str = Field("", max_length=2000)
 
 
 @router.post("/translate")

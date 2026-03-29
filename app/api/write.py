@@ -262,7 +262,11 @@ class WriteRequest(BaseModel):
 
 def _build_smart_prompt(text: str) -> tuple[str, str]:
     """Build system instruction and prompt for smart mode AI call."""
-    examples = _find_few_shot_examples(text)
+    # Sanitize user text: strip control chars and escape quotes
+    sanitized = re.sub(r'[\x00-\x1f\x7f]', '', text)
+    sanitized = sanitized.replace('"', '\\"')
+
+    examples = _find_few_shot_examples(sanitized)
     examples_block = ""
     if examples:
         lines = []
@@ -297,7 +301,7 @@ def _build_smart_prompt(text: str) -> tuple[str, str]:
 
     prompt = (
         f'{examples_block}'
-        f'Translate this English text into Egyptian hieroglyphs (MdC transliteration): "{text}"\n\n'
+        f'Translate this English text into Egyptian hieroglyphs (MdC transliteration): "{sanitized}"\n\n'
         f'For each word/sign group in the translation, provide the MdC transliteration.\n'
         f'Return JSON:\n'
         f'{{\n'

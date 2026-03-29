@@ -960,14 +960,14 @@ async def identify_landmark(request: Request, file: UploadFile = File(...)):
         raise HTTPException(status_code=413, detail="File too large (max 10MB)")
 
     # Validate magic bytes (not just content-type header)
-    valid = False
+    detected_mime = ""
     for magic, _mime in MAGIC_BYTES.items():
         if data[:len(magic)] == magic:
             if magic == b'RIFF' and data[8:12] != b'WEBP':
                 continue
-            valid = True
+            detected_mime = _mime
             break
-    if not valid:
+    if not detected_mime:
         raise HTTPException(status_code=422, detail="Unsupported file type. Use JPEG, PNG, or WebP.")
 
     arr = np.frombuffer(data, np.uint8)
@@ -979,7 +979,7 @@ async def identify_landmark(request: Request, file: UploadFile = File(...)):
     grok = _get_grok(request)
     groq = _get_groq(request)
     cloudflare = _get_cloudflare(request)
-    mime = file.content_type or "image/jpeg"
+    mime = detected_mime
 
     # ── Step 1: ONNX + Gemini in parallel ──
     onnx_task = asyncio.create_task(_run_onnx(image))

@@ -46,8 +46,8 @@ def _get_pipeline():
     return get_pipeline()
 
 
-async def _read_image_bytes(file: UploadFile) -> tuple[bytes, np.ndarray]:
-    """Read an uploaded file into raw bytes + BGR numpy array."""
+async def _read_image_bytes(file: UploadFile) -> tuple[bytes, np.ndarray, str]:
+    """Read an uploaded file into raw bytes + BGR numpy array + detected MIME type."""
     data = await file.read()
     if len(data) == 0:
         raise HTTPException(status_code=400, detail="Empty file uploaded.")
@@ -55,14 +55,14 @@ async def _read_image_bytes(file: UploadFile) -> tuple[bytes, np.ndarray]:
         raise HTTPException(status_code=400, detail="File too large. Maximum 10 MB.")
 
     # Validate magic bytes (not just content-type header which can be spoofed)
-    valid = False
+    detected_mime = ""
     for magic, mime in MAGIC_BYTES.items():
         if data[:len(magic)] == magic:
             if magic == b'RIFF' and data[8:12] != b'WEBP':
                 continue  # RIFF but not WebP
-            valid = True
+            detected_mime = mime
             break
-    if not valid:
+    if not detected_mime:
         raise HTTPException(
             status_code=400,
             detail="Unsupported file type. Use JPEG, PNG, or WebP.",
@@ -72,7 +72,7 @@ async def _read_image_bytes(file: UploadFile) -> tuple[bytes, np.ndarray]:
     image = cv2.imdecode(arr, cv2.IMREAD_COLOR)
     if image is None:
         raise HTTPException(status_code=400, detail="Could not decode image.")
-    return data, image
+    return data, image, detected_mime
 
 
 # ── Visual annotation helpers ──
@@ -581,9 +581,8 @@ async def scan_image(
     3. If AI succeeds → use AI reading + ONNX bboxes
     4. If AI fails → fall back to full ONNX pipeline
     """
-    raw_bytes, image = await _read_image_bytes(file)
+    raw_bytes, image, mime = await _read_image_bytes(file)
     pipeline = _get_pipeline()
-    mime = file.content_type or "image/jpeg"
     loop = asyncio.get_running_loop()
 
     # Normalize mode
@@ -988,7 +987,7 @@ def _retransliterate_and_translate(pipeline, result, translate):
 @limiter.limit("30/minute")
 async def detect_glyphs(request: Request, file: UploadFile = File(...)):
     """Detection only — returns bounding boxes without classification."""
-    _, image = await _read_image_bytes(file)
+    _, image, _mime = await _read_image_bytes(file)
     pipeline = _get_pipeline()
 
     def _run_detection():
@@ -1019,8 +1018,7 @@ async def read_inscription(request: Request, file: UploadFile = File(...)):
     Used by client-side JS pipeline for AI reading after local detection.
     Returns the AI reading result as JSON.
     """
-    raw_bytes, _ = await _read_image_bytes(file)
-    mime = file.content_type or "image/jpeg"
+    raw_bytes, _, mime = await _read_image_bytes(file)
 
     ai_reader = getattr(request.app.state, "ai_reader", None)
     if not ai_reader or not ai_reader.available:

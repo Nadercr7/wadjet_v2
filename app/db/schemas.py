@@ -2,9 +2,22 @@
 
 from __future__ import annotations
 
+import re
 from datetime import datetime
+from typing import Literal
 
-from pydantic import BaseModel, EmailStr, Field
+from pydantic import BaseModel, EmailStr, Field, field_validator
+
+
+def _validate_password_complexity(password: str) -> str:
+    """Enforce password complexity: 8+ chars, 1 upper, 1 lower, 1 digit."""
+    if not re.search(r"[A-Z]", password):
+        raise ValueError("Password must contain at least one uppercase letter")
+    if not re.search(r"[a-z]", password):
+        raise ValueError("Password must contain at least one lowercase letter")
+    if not re.search(r"\d", password):
+        raise ValueError("Password must contain at least one digit")
+    return password
 
 
 # ── Auth ──
@@ -14,10 +27,15 @@ class RegisterRequest(BaseModel):
     password: str = Field(min_length=8, max_length=128)
     display_name: str | None = Field(default=None, max_length=100)
 
+    @field_validator("password")
+    @classmethod
+    def password_complexity(cls, v: str) -> str:
+        return _validate_password_complexity(v)
+
 
 class LoginRequest(BaseModel):
     email: EmailStr
-    password: str
+    password: str = Field(max_length=128)
 
 
 class TokenResponse(BaseModel):
@@ -40,12 +58,17 @@ class UserResponse(BaseModel):
 
 class UpdateProfileRequest(BaseModel):
     display_name: str | None = Field(default=None, max_length=100)
-    preferred_lang: str | None = Field(default=None, pattern=r"^(en|ar)$")
+    preferred_lang: Literal["en", "ar"] | None = None
 
 
 class ChangePasswordRequest(BaseModel):
-    current_password: str
+    current_password: str = Field(max_length=128)
     new_password: str = Field(min_length=8, max_length=128)
+
+    @field_validator("new_password")
+    @classmethod
+    def password_complexity(cls, v: str) -> str:
+        return _validate_password_complexity(v)
 
 
 class FavoriteRequest(BaseModel):
@@ -56,6 +79,6 @@ class FavoriteRequest(BaseModel):
 class StoryProgressRequest(BaseModel):
     story_id: str = Field(min_length=1, max_length=50)
     chapter_index: int = Field(ge=0)
-    glyphs_learned: str = "[]"
+    glyphs_learned: str = Field("[]", max_length=5000)
     score: int = Field(default=0, ge=0)
     completed: bool = False

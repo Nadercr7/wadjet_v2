@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from fastapi import APIRouter, Depends, HTTPException
 from fastapi.responses import JSONResponse
+from sqlalchemy.exc import IntegrityError
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.auth.dependencies import get_current_user
@@ -110,7 +111,7 @@ async def add_fav(
     """Add a favorite item."""
     try:
         fav = await add_favorite(db, user.id, body.item_type, body.item_id)
-    except Exception:
+    except IntegrityError:
         raise HTTPException(status_code=409, detail="Already favorited")
     return JSONResponse(content={"id": fav.id, "item_type": fav.item_type, "item_id": fav.item_id}, status_code=201)
 
