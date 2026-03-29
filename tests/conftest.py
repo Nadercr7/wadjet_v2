@@ -21,6 +21,14 @@ from app.config import Settings
 from app.db.database import Base, get_db
 from app.db.models import User
 from app.main import create_app
+from app.rate_limit import limiter
+
+
+@pytest.fixture(autouse=True)
+def _reset_rate_limiter():
+    """Reset the rate limiter storage before each test to avoid 429s."""
+    limiter.reset()
+    yield
 
 
 @pytest.fixture()
@@ -96,6 +104,11 @@ async def authenticated_client(
         base_url="http://testserver",
         headers={"Authorization": f"Bearer {token}"},
     ) as client:
+        # Fetch a page to get the CSRF cookie, then set it as header for all future requests
+        await client.get("/api/health")
+        csrf_token = client.cookies.get("csrftoken")
+        if csrf_token:
+            client.headers["x-csrftoken"] = csrf_token
         yield client
 
     app.dependency_overrides.clear()

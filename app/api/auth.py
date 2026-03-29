@@ -31,7 +31,7 @@ REFRESH_COOKIE = "wadjet_refresh"
 REFRESH_MAX_AGE = 7 * 24 * 60 * 60  # 7 days in seconds
 
 # Dummy bcrypt hash used when user doesn't exist — constant-time defence against timing oracle
-_DUMMY_HASH = "$2b$12$LJ3m4ys3Lp0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+_DUMMY_HASH = "$2b$12$OWl8stzx0kGvRTE254mf.ulqxl8uBqWVaGhAVb6bfXqq3Z2iF2Fay"
 
 
 def _set_refresh_cookie(response: Response, token: str) -> None:
