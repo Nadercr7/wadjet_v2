@@ -5,7 +5,7 @@ from __future__ import annotations
 import hashlib
 from datetime import datetime, timezone
 
-from sqlalchemy import func, select, delete
+from sqlalchemy import case, func, select, delete
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -198,37 +198,36 @@ async def update_user_password(db: AsyncSession, user_id: str, new_password_hash
 # ── Stats ──
 
 async def get_user_stats(db: AsyncSession, user_id: str) -> dict:
-    scan_count = await db.execute(
-        select(func.count()).select_from(ScanHistory).where(ScanHistory.user_id == user_id)
+    # Combined query 1: scan stats (count, total glyphs, today's scans) — 1 round trip
+    today_start = datetime.utcnow().replace(hour=0, minute=0, second=0, microsecond=0)
+    scan_row = await db.execute(
+        select(
+            func.count().label("scan_count"),
+            func.coalesce(func.sum(ScanHistory.glyph_count), 0).label("total_glyphs"),
+            func.coalesce(func.sum(case((ScanHistory.created_at >= today_start, 1), else_=0)), 0).label("scans_today"),
+        ).where(ScanHistory.user_id == user_id)
     )
+    s = scan_row.one()
+
+    # Combined query 2: favorites count — 1 round trip
     fav_count = await db.execute(
         select(func.count()).select_from(Favorite).where(Favorite.user_id == user_id)
     )
-    story_count = await db.execute(
-        select(func.count()).select_from(StoryProgress).where(StoryProgress.user_id == user_id)
+
+    # Combined query 3: story stats (started + completed) — 1 round trip
+    story_row = await db.execute(
+        select(
+            func.count().label("story_count"),
+            func.coalesce(func.sum(case((StoryProgress.completed == True, 1), else_=0)), 0).label("completed_count"),  # noqa: E712
+        ).where(StoryProgress.user_id == user_id)
     )
-    completed_count = await db.execute(
-        select(func.count()).select_from(StoryProgress).where(
-            StoryProgress.user_id == user_id, StoryProgress.completed == True  # noqa: E712
-        )
-    )
-    total_glyphs = await db.execute(
-        select(func.coalesce(func.sum(ScanHistory.glyph_count), 0)).where(ScanHistory.user_id == user_id)
-    )
-    # Today's scans (for free tier limit display)
-    # Use naive UTC to match SQLAlchemy func.now() which stores naive datetimes
-    today_start = datetime.utcnow().replace(hour=0, minute=0, second=0, microsecond=0)
-    scans_today = await db.execute(
-        select(func.count()).select_from(ScanHistory).where(
-            ScanHistory.user_id == user_id,
-            ScanHistory.created_at >= today_start,
-        )
-    )
+    st = story_row.one()
+
     return {
-        "scans": scan_count.scalar() or 0,
+        "scans": s.scan_count or 0,
         "favorites": fav_count.scalar() or 0,
-        "stories_started": story_count.scalar() or 0,
-        "stories_completed": completed_count.scalar() or 0,
-        "total_glyphs_scanned": total_glyphs.scalar() or 0,
-        "scans_today": scans_today.scalar() or 0,
+        "stories_started": st.story_count or 0,
+        "stories_completed": st.completed_count or 0,
+        "total_glyphs_scanned": s.total_glyphs or 0,
+        "scans_today": s.scans_today or 0,
     }

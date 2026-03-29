@@ -9,6 +9,7 @@ from __future__ import annotations
 import json
 import logging
 import re
+import threading
 from pathlib import Path
 
 from fastapi import APIRouter, HTTPException, Request
@@ -30,18 +31,22 @@ router = APIRouter(prefix="/api/write", tags=["write"])
 # ── Write corpus for few-shot examples ──
 _WRITE_CORPUS: list[dict] = []
 _CORPUS_PATH = Path(__file__).resolve().parent.parent.parent / "data" / "translation" / "write_corpus.jsonl"
+_write_lock = threading.Lock()
 
 
 def _load_write_corpus():
     """Load EN→MdC corpus for few-shot prompting."""
     if _WRITE_CORPUS:
         return
-    if not _CORPUS_PATH.exists():
-        logger.warning("write_corpus.jsonl not found at %s", _CORPUS_PATH)
-        return
-    for line in _CORPUS_PATH.read_text(encoding="utf-8").splitlines():
-        if line.strip():
-            _WRITE_CORPUS.append(json.loads(line))
+    with _write_lock:
+        if _WRITE_CORPUS:
+            return
+        if not _CORPUS_PATH.exists():
+            logger.warning("write_corpus.jsonl not found at %s", _CORPUS_PATH)
+            return
+        for line in _CORPUS_PATH.read_text(encoding="utf-8").splitlines():
+            if line.strip():
+                _WRITE_CORPUS.append(json.loads(line))
 
 
 # ── Known phrase shortcuts — bypass AI entirely ──
@@ -164,59 +169,62 @@ def _build_reverse_map():
     """Build transliteration → sign lookup, sorted by length (longest first)."""
     if _TRANSLIT_TO_SIGN:
         return
+    with _write_lock:
+        if _TRANSLIT_TO_SIGN:
+            return
 
-    seen: set[str] = set()
-    # Pass 1: exact-case entries (these always win)
-    for sign in GARDINER_TRANSLITERATION.values():
-        if sign.sign_type == SignType.DETERMINATIVE:
-            continue
-        pv = sign.phonetic_value
-        if pv and pv not in seen:
-            _TRANSLIT_TO_SIGN.append((pv, sign))
-            seen.add(pv)
-        tl = sign.transliteration
-        if tl and tl not in seen:
-            _TRANSLIT_TO_SIGN.append((tl, sign))
-            seen.add(tl)
-    # Pass 2: lowercase fallbacks only for unclaimed keys
-    for sign in GARDINER_TRANSLITERATION.values():
-        if sign.sign_type == SignType.DETERMINATIVE:
-            continue
-        for val in (sign.phonetic_value, sign.transliteration):
-            if not val:
+        seen: set[str] = set()
+        # Pass 1: exact-case entries (these always win)
+        for sign in GARDINER_TRANSLITERATION.values():
+            if sign.sign_type == SignType.DETERMINATIVE:
                 continue
-            lc = val.lower()
-            if lc != val and lc not in seen:
-                _TRANSLIT_TO_SIGN.append((lc, sign))
-                seen.add(lc)
+            pv = sign.phonetic_value
+            if pv and pv not in seen:
+                _TRANSLIT_TO_SIGN.append((pv, sign))
+                seen.add(pv)
+            tl = sign.transliteration
+            if tl and tl not in seen:
+                _TRANSLIT_TO_SIGN.append((tl, sign))
+                seen.add(tl)
+        # Pass 2: lowercase fallbacks only for unclaimed keys
+        for sign in GARDINER_TRANSLITERATION.values():
+            if sign.sign_type == SignType.DETERMINATIVE:
+                continue
+            for val in (sign.phonetic_value, sign.transliteration):
+                if not val:
+                    continue
+                lc = val.lower()
+                if lc != val and lc not in seen:
+                    _TRANSLIT_TO_SIGN.append((lc, sign))
+                    seen.add(lc)
 
-    # Pass 3: MdC aliases — j↔i and z→s
-    # In MdC, 'j' and 'i' represent the same consonant (reed, M17).
-    # Many texts use 'j' form; add aliases so both resolve.
-    aliases: list[tuple[str, str]] = []
-    for key in list(seen):
-        if key.startswith("i"):
-            j_key = "j" + key[1:]
-            if j_key not in seen:
-                aliases.append((j_key, key))
-        elif key.startswith("j"):
-            i_key = "i" + key[1:]
-            if i_key not in seen:
-                aliases.append((i_key, key))
-    # 'z' and 's' merged in Middle Egyptian — add z→s aliases
-    for key in list(seen):
-        if key.startswith("s") and not key.startswith("sA"):
-            z_key = "z" + key[1:]
-            if z_key not in seen:
-                aliases.append((z_key, key))
-    for alias_key, orig_key in aliases:
-        orig_sign = next((s for t, s in _TRANSLIT_TO_SIGN if t == orig_key), None)
-        if orig_sign and alias_key not in seen:
-            _TRANSLIT_TO_SIGN.append((alias_key, orig_sign))
-            seen.add(alias_key)
+        # Pass 3: MdC aliases — j↔i and z→s
+        # In MdC, 'j' and 'i' represent the same consonant (reed, M17).
+        # Many texts use 'j' form; add aliases so both resolve.
+        aliases: list[tuple[str, str]] = []
+        for key in list(seen):
+            if key.startswith("i"):
+                j_key = "j" + key[1:]
+                if j_key not in seen:
+                    aliases.append((j_key, key))
+            elif key.startswith("j"):
+                i_key = "i" + key[1:]
+                if i_key not in seen:
+                    aliases.append((i_key, key))
+        # 'z' and 's' merged in Middle Egyptian — add z→s aliases
+        for key in list(seen):
+            if key.startswith("s") and not key.startswith("sA"):
+                z_key = "z" + key[1:]
+                if z_key not in seen:
+                    aliases.append((z_key, key))
+        for alias_key, orig_key in aliases:
+            orig_sign = next((s for t, s in _TRANSLIT_TO_SIGN if t == orig_key), None)
+            if orig_sign and alias_key not in seen:
+                _TRANSLIT_TO_SIGN.append((alias_key, orig_sign))
+                seen.add(alias_key)
 
-    # Sort longest first for greedy matching
-    _TRANSLIT_TO_SIGN.sort(key=lambda x: -len(x[0]))
+        # Sort longest first for greedy matching
+        _TRANSLIT_TO_SIGN.sort(key=lambda x: -len(x[0]))
 
 
 # ── Simple letter → uniliteral mapping for alphabetic input ──
@@ -227,32 +235,35 @@ def _build_alpha_map():
     """Map English alphabet letters to closest uniliteral signs."""
     if _ALPHA_TO_SIGN:
         return
+    with _write_lock:
+        if _ALPHA_TO_SIGN:
+            return
 
-    # Direct transliteration matches (case-insensitive)
-    for sign in GARDINER_TRANSLITERATION.values():
-        if sign.sign_type == SignType.UNILITERAL:
-            key = sign.transliteration.lower()
-            if len(key) == 1 and key not in _ALPHA_TO_SIGN:
-                _ALPHA_TO_SIGN[key] = sign
+        # Direct transliteration matches (case-insensitive)
+        for sign in GARDINER_TRANSLITERATION.values():
+            if sign.sign_type == SignType.UNILITERAL:
+                key = sign.transliteration.lower()
+                if len(key) == 1 and key not in _ALPHA_TO_SIGN:
+                    _ALPHA_TO_SIGN[key] = sign
 
-    # Common English letter approximations for letters without direct match
-    approx = {
-        'c': 'V31',   # k (basket) — C often = K
-        'e': 'M17',   # i (reed) — E approximated as i
-        'j': 'I10',   # D (cobra) — J approximated as D
-        'l': 'D21',   # r (mouth) — L mapped to r (no L in Egyptian)
-        'o': 'G43',   # w (quail chick) — O approximated as w
-        'u': 'G43',   # w (quail chick) — U approximated as w
-        'v': 'I9',    # f (viper) — V mapped to f
-        'x': 'Aa1',   # x (placenta)
-        'y': 'M17',   # i (reed) — Y approximated as i
-        'z': 'S29',   # s (cloth) — Z mapped to s
-    }
-    for letter, code in approx.items():
-        if letter not in _ALPHA_TO_SIGN:
-            sign = GARDINER_TRANSLITERATION.get(code)
-            if sign:
-                _ALPHA_TO_SIGN[letter] = sign
+        # Common English letter approximations for letters without direct match
+        approx = {
+            'c': 'V31',   # k (basket) — C often = K
+            'e': 'M17',   # i (reed) — E approximated as i
+            'j': 'I10',   # D (cobra) — J approximated as D
+            'l': 'D21',   # r (mouth) — L mapped to r (no L in Egyptian)
+            'o': 'G43',   # w (quail chick) — O approximated as w
+            'u': 'G43',   # w (quail chick) — U approximated as w
+            'v': 'I9',    # f (viper) — V mapped to f
+            'x': 'Aa1',   # x (placenta)
+            'y': 'M17',   # i (reed) — Y approximated as i
+            'z': 'S29',   # s (cloth) — Z mapped to s
+        }
+        for letter, code in approx.items():
+            if letter not in _ALPHA_TO_SIGN:
+                sign = GARDINER_TRANSLITERATION.get(code)
+                if sign:
+                    _ALPHA_TO_SIGN[letter] = sign
 
 
 class WriteRequest(BaseModel):

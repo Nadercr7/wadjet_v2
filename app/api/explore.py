@@ -12,6 +12,7 @@ from __future__ import annotations
 import asyncio
 import json
 import logging
+import threading
 from collections import OrderedDict
 from functools import lru_cache
 from pathlib import Path
@@ -828,14 +829,17 @@ MAGIC_BYTES = {
 }
 
 _landmark_pipeline = None
+_pipeline_lock = threading.Lock()
 
 
 def _get_landmark_pipeline():
     """Lazy-load singleton LandmarkPipeline."""
     global _landmark_pipeline
     if _landmark_pipeline is None:
-        from app.core.landmark_pipeline import LandmarkPipeline
-        _landmark_pipeline = LandmarkPipeline()
+        with _pipeline_lock:
+            if _landmark_pipeline is None:
+                from app.core.landmark_pipeline import LandmarkPipeline
+                _landmark_pipeline = LandmarkPipeline()
     return _landmark_pipeline
 
 
@@ -867,7 +871,7 @@ async def _run_onnx(image) -> dict | None:
             return None
         import asyncio
         from functools import partial
-        loop = asyncio.get_event_loop()
+        loop = asyncio.get_running_loop()
         return await loop.run_in_executor(
             None, partial(pipeline.predict, image, top_k=3)
         )

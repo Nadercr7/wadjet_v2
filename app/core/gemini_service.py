@@ -142,12 +142,29 @@ class GeminiService:
             temperature=temperature,
             max_output_tokens=max_output_tokens,
         )
-        stream = await self._client.aio.models.generate_content_stream(
-            model=model or self.default_model, contents=prompt, config=config,
-        )
-        async for chunk in stream:
-            if chunk.text:
-                yield chunk.text
+        last_error: Exception | None = None
+        for attempt in range(_MAX_RETRIES):
+            try:
+                stream = await self._client.aio.models.generate_content_stream(
+                    model=model or self.default_model, contents=prompt, config=config,
+                )
+                async for chunk in stream:
+                    if chunk.text:
+                        yield chunk.text
+                return
+            except genai_errors.ClientError as exc:
+                exc_str = str(exc)
+                if "429" in exc_str or "RESOURCE_EXHAUSTED" in exc_str:
+                    self._rotate_key()
+                    last_error = exc
+                    await asyncio.sleep(_BASE_BACKOFF_S * (2 ** attempt))
+                    continue
+                raise
+            except genai_errors.ServerError as exc:
+                last_error = exc
+                await asyncio.sleep(_BASE_BACKOFF_S * (2 ** attempt))
+                continue
+        raise RuntimeError("Gemini streaming unavailable after retries") from last_error
 
     # ── Landmark identification (Gemini Vision) ────────────────────
 

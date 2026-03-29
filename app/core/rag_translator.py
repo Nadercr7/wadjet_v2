@@ -14,8 +14,10 @@ from __future__ import annotations
 
 import asyncio
 import hashlib
+import itertools
 import json
 import logging
+import threading
 import time
 from collections import OrderedDict
 from pathlib import Path
@@ -58,30 +60,35 @@ class GeminiEmbedder:
 
     def __init__(self, gemini: GeminiService | None = None) -> None:
         self._gemini = gemini
-        self._client = None
+        self._clients: list | None = None
+        self._client_cycle = None
+        self._lock = threading.Lock()
 
     def _get_client(self):
-        """Get a genai client for direct embedding calls."""
-        if self._client is None:
-            from google import genai
-            from google.genai.types import HttpOptions
+        """Get a genai client for embedding, rotating through all available keys."""
+        if self._clients is None:
+            with self._lock:
+                if self._clients is None:
+                    from google import genai
+                    from google.genai.types import HttpOptions
 
-            # Use first available key from GeminiService or env
-            if self._gemini and self._gemini.api_keys:
-                key = self._gemini.api_keys[0]
-            else:
-                import os
-
-                keys = os.environ.get("GEMINI_API_KEYS", "")
-                key_list = [k.strip() for k in keys.split(",") if k.strip()]
-                if not key_list:
-                    raise RuntimeError("No Gemini API keys for embedding")
-                key = key_list[0]
-            self._client = genai.Client(
-                api_key=key,
-                http_options=HttpOptions(timeout=30_000, api_version="v1beta"),
-            )
-        return self._client
+                    if self._gemini and self._gemini.api_keys:
+                        keys = self._gemini.api_keys
+                    else:
+                        import os
+                        raw = os.environ.get("GEMINI_API_KEYS", "")
+                        keys = [k.strip() for k in raw.split(",") if k.strip()]
+                        if not keys:
+                            raise RuntimeError("No Gemini API keys for embedding")
+                    self._clients = [
+                        genai.Client(
+                            api_key=k,
+                            http_options=HttpOptions(timeout=30_000, api_version="v1beta"),
+                        )
+                        for k in keys
+                    ]
+                    self._client_cycle = itertools.cycle(self._clients)
+        return next(self._client_cycle)
 
     def embed(self, texts: list[str]) -> np.ndarray:
         """Embed a batch of texts synchronously. Returns (N, 768) float32 array."""
