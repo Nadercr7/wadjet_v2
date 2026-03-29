@@ -79,12 +79,12 @@
 - [x] Git commit: `[WADJET] Phase 4 complete: Database`
 
 ### Phase 5 — Architecture
-- [ ] No circular imports
-- [ ] No private method access across modules
-- [ ] Dead code removed (quiz_engine if deprecated)
-- [ ] All caches have size limits (LRU maxsize or TTL)
-- [ ] All existing tests pass (regression)
-- [ ] Git commit: `[WADJET] Phase 5 complete: Architecture`
+- [x] No circular imports
+- [x] No private method access across modules
+- [x] Dead code removed (quiz_engine if deprecated)
+- [x] All caches have size limits (LRU maxsize or TTL)
+- [x] All existing tests pass (regression)
+- [x] Git commit: `[WADJET] Phase 5 complete: Architecture`
 
 ### Phase 6 — Input Validation
 - [ ] All string inputs have max_length
