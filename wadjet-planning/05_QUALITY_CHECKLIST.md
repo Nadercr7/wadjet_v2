@@ -48,16 +48,16 @@
 - [x] Git commit: `[WADJET] Phase 1 complete: Security Critical`
 
 ### Phase 2 — Security High
-- [ ] Response headers include Content-Security-Policy
-- [ ] CSP doesn't break any page (check console on /, /scan, /chat, /stories, /explore)
-- [ ] GET /docs → 404 with ENVIRONMENT=production
-- [ ] GET /api/chat/stream → 405
-- [ ] POST /api/chat/stream with JSON body → works (SSE stream)
-- [ ] Chat page works end-to-end in browser
-- [ ] Login timing: <50ms variance between valid and invalid emails (test 10x each)
-- [ ] POST audio >25MB → 413
-- [ ] All added rate limits work (test with burst requests)
-- [ ] Git commit: `[WADJET] Phase 2 complete: Security High`
+- [x] Response headers include Content-Security-Policy
+- [x] CSP doesn't break any page (check console on /, /scan, /chat, /stories, /explore)
+- [x] GET /docs → 404 with ENVIRONMENT=production
+- [x] GET /api/chat/stream → 405
+- [x] POST /api/chat/stream with JSON body → works (SSE stream)
+- [x] Chat page works end-to-end in browser
+- [x] Login timing: <50ms variance between valid and invalid emails (test 10x each)
+- [x] POST audio >25MB → 413
+- [x] All added rate limits work (test with burst requests)
+- [x] Git commit: `[WADJET] Phase 2 complete: Security High`
 
 ### Phase 3 — Bug Fixes
 - [ ] GET /api/user/stats → 200 (authenticated)
