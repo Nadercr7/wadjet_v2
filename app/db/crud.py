@@ -6,6 +6,7 @@ import hashlib
 from datetime import datetime, timezone
 
 from sqlalchemy import func, select, delete
+from sqlalchemy.exc import IntegrityError
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.db.models import Favorite, RefreshToken, ScanHistory, StoryProgress, User
@@ -150,7 +151,21 @@ async def upsert_story_progress(
         score=score,
         completed=completed,
     )
-    db.add(sp)
+    try:
+        db.add(sp)
+        await db.flush()
+    except IntegrityError:
+        await db.rollback()
+        # Race condition: another request inserted first — update instead
+        existing = await get_story_progress(db, user_id, story_id)
+        if existing:
+            existing.chapter_index = chapter_index
+            existing.glyphs_learned = glyphs_learned
+            existing.score = score
+            existing.completed = completed
+            await db.commit()
+            await db.refresh(existing)
+            return existing
     await db.commit()
     await db.refresh(sp)
     return sp

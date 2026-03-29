@@ -27,7 +27,7 @@ class ScanHistory(Base):
     __tablename__ = "scan_history"
 
     id = Column(Integer, primary_key=True, autoincrement=True)
-    user_id = Column(String, ForeignKey("users.id"), nullable=False, index=True)
+    user_id = Column(String, ForeignKey("users.id", ondelete="CASCADE"), nullable=False, index=True)
     results_json = Column(Text)
     confidence_avg = Column(Float)
     glyph_count = Column(Integer)
@@ -38,7 +38,7 @@ class StoryProgress(Base):
     __tablename__ = "story_progress"
 
     id = Column(Integer, primary_key=True, autoincrement=True)
-    user_id = Column(String, ForeignKey("users.id"), nullable=False)
+    user_id = Column(String, ForeignKey("users.id", ondelete="CASCADE"), nullable=False, index=True)
     story_id = Column(String, nullable=False)
     chapter_index = Column(Integer, default=0)
     glyphs_learned = Column(Text, default="[]")
@@ -53,7 +53,7 @@ class Favorite(Base):
     __tablename__ = "favorites"
 
     id = Column(Integer, primary_key=True, autoincrement=True)
-    user_id = Column(String, ForeignKey("users.id"), nullable=False)
+    user_id = Column(String, ForeignKey("users.id", ondelete="CASCADE"), nullable=False, index=True)
     item_type = Column(String, nullable=False)  # 'landmark', 'glyph', 'story'
     item_id = Column(String, nullable=False)
     created_at = Column(DateTime, server_default=func.now())
@@ -65,7 +65,7 @@ class RefreshToken(Base):
     __tablename__ = "refresh_tokens"
 
     id = Column(Integer, primary_key=True, autoincrement=True)
-    user_id = Column(String, ForeignKey("users.id"), nullable=False)
+    user_id = Column(String, ForeignKey("users.id", ondelete="CASCADE"), nullable=False, index=True)
     token_hash = Column(String, unique=True, nullable=False)
     expires_at = Column(DateTime, nullable=False)
     created_at = Column(DateTime, server_default=func.now())
