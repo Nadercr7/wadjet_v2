@@ -129,7 +129,9 @@
 function toggleLang() {
     var current = document.documentElement.lang || 'en';
     var next = current === 'ar' ? 'en' : 'ar';
-    document.cookie = 'wadjet_lang=' + next + ';path=/;max-age=31536000;SameSite=Lax';
+    var cookie = 'wadjet_lang=' + next + ';path=/;max-age=31536000;SameSite=Lax';
+    if (location.protocol === 'https:') cookie += ';Secure';
+    document.cookie = cookie;
     // Preserve current URL, just reload with new cookie
     window.location.reload();
 }

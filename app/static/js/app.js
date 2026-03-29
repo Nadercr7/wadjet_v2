@@ -10,7 +10,9 @@ function _getCsrfToken() {
 }
 
 // Patch global fetch to auto-include CSRF token on mutating requests
+// and auto-refresh auth token on 401 responses
 const _originalFetch = window.fetch;
+let _refreshingToken = null;
 window.fetch = function(input, init) {
     init = init || {};
     const method = (init.method || 'GET').toUpperCase();
@@ -27,7 +29,37 @@ window.fetch = function(input, init) {
             }
         }
     }
-    return _originalFetch.call(this, input, init);
+    return _originalFetch.call(this, input, init).then(function(response) {
+        // Auto-refresh token on 401 (except for auth endpoints themselves)
+        const url = typeof input === 'string' ? input : (input && input.url) || '';
+        if (response.status === 401 && !url.includes('/api/auth/')) {
+            if (!_refreshingToken) {
+                _refreshingToken = _originalFetch.call(window, '/api/auth/refresh', { method: 'POST' })
+                    .then(function(r) {
+                        if (r.ok) return r.json();
+                        throw new Error('refresh failed');
+                    })
+                    .then(function(data) {
+                        if (typeof Alpine !== 'undefined' && Alpine.store('auth')) {
+                            Alpine.store('auth').token = data.access_token;
+                            Alpine.store('auth')._save();
+                        }
+                        _refreshingToken = null;
+                        // Retry the original request
+                        return _originalFetch.call(window, input, init);
+                    })
+                    .catch(function() {
+                        _refreshingToken = null;
+                        if (typeof Alpine !== 'undefined' && Alpine.store('auth')) {
+                            Alpine.store('auth').logout();
+                        }
+                        return response;
+                    });
+            }
+            return _refreshingToken;
+        }
+        return response;
+    });
 };
 
 // HTMX: include CSRF token on every request
@@ -331,6 +363,8 @@ document.addEventListener('alpine:init', () => {
 // ── TTS for hieroglyphic pronunciation ──
 // Uses the smart TTS chain: Gemini (multi-key, disk cache) → Groq → browser.
 const _ttsAudioCache = {};
+const _ttsCacheKeys = []; // track insertion order for eviction
+const _TTS_CACHE_MAX = 50;
 let _ttsCurrentAudio = null;
 
 function speakSign(text) {
@@ -359,7 +393,16 @@ function speakSign(text) {
         return r.blob();
     }).then(blob => {
         const audioUrl = URL.createObjectURL(blob);
+        // Evict oldest blob URLs when cache exceeds limit
+        if (_ttsCacheKeys.length >= _TTS_CACHE_MAX) {
+            const oldest = _ttsCacheKeys.shift();
+            if (_ttsAudioCache[oldest]) {
+                URL.revokeObjectURL(_ttsAudioCache[oldest]);
+                delete _ttsAudioCache[oldest];
+            }
+        }
         _ttsAudioCache[cacheKey] = audioUrl;
+        _ttsCacheKeys.push(cacheKey);
         _playAudio(audioUrl, text);
     }).catch(() => {
         // Last resort: browser SpeechSynthesis (voice-selected, slow for clarity)

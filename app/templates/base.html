@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{{ t('app.name', lang) }}{% endblock %} — {{ t('app.tagline', lang) }}</title>
     <meta name="description" content="{% block description %}{{ t('app.site_desc', lang) }}{% endblock %}">
+    <meta name="robots" content="index, follow">
     <meta name="view-transition" content="same-origin">
     <link rel="icon" href="/static/images/favicon.svg" type="image/svg+xml">
 
@@ -21,7 +22,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
     <!-- Styles (critical) -->
-    <link rel="stylesheet" href="/static/dist/styles.css?v=31" fetchpriority="high">
+    <link rel="stylesheet" href="/static/dist/styles.css?v=32" fetchpriority="high">
     <link rel="stylesheet" href="/static/css/atropos.css">
 
     {% block head %}{% endblock %}
@@ -141,8 +142,8 @@
     <script src="/static/vendor/htmx.min.js" defer></script>
 
     <!-- App JS -->
-    <script src="/static/js/tts.js?v=31"></script>
-    <script src="/static/js/app.js?v=31"></script>
+    <script src="/static/js/tts.js?v=32"></script>
+    <script src="/static/js/app.js?v=32"></script>
 
     {% block scripts %}{% endblock %}
 </body>

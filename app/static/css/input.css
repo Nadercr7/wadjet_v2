@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 /* ========================================
-   WADJET v2 — Design System
+   WADJET v3 — Design System
    Black & Gold Egyptian Heritage Theme
    ======================================== */
 
 @theme {
   /* Gold palette */
   --color-gold: #D4AF37;
-  --color-gold-light: #E8C547;
-  --color-gold-dark: #B8941F;
+  --color-gold-light: #E5C76B;
+  --color-gold-dark: #B8962E;
   --color-gold-muted: #A08520;
   --color-gold-glow: oklch(0.75 0.15 85 / 0.12);
 
@@ -27,6 +27,9 @@
   --color-text: #F0F0F0;
   --color-text-muted: #8A8A8A;
   --color-text-dim: #7E7E7E;
+  --color-ivory: #F5F0E8;
+  --color-sand: #C4A265;
+  --color-dust: #8B7355;
 
   /* Semantic */
   --color-success: #4CAF50;

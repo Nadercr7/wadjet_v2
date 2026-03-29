@@ -5,6 +5,7 @@
 
 <!-- Language alternates -->
 {% set _path = canonical_url | default(base_url) | replace(base_url, '') %}
+{% if not _path %}{% set _path = '/' %}{% endif %}
 <link rel="alternate" hreflang="en" href="{{ base_url }}{{ _path }}">
 <link rel="alternate" hreflang="ar" href="{{ base_url }}{{ _path }}{{ '&' if '?' in _path else '?' }}lang=ar">
 <link rel="alternate" hreflang="x-default" href="{{ base_url }}{{ _path }}">

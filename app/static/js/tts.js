@@ -253,7 +253,11 @@
     /* ── Internals ───────────────────────────────────── */
 
     function _getCurrentLang() {
-        try { return localStorage.getItem('wadjet-lang') || 'en'; } catch (e) { return 'en'; }
+        // Read from wadjet_lang cookie (set by nav.html toggleLang)
+        try {
+            var m = document.cookie.match(/(?:^|;\s*)wadjet_lang=([^;]*)/);
+            return m ? decodeURIComponent(m[1]) : (document.documentElement.lang || 'en');
+        } catch (e) { return 'en'; }
     }
 
     function _getSavedRate() {
