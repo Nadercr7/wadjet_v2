@@ -30,6 +30,9 @@ router = APIRouter(prefix="/api/auth", tags=["auth"])
 REFRESH_COOKIE = "wadjet_refresh"
 REFRESH_MAX_AGE = 7 * 24 * 60 * 60  # 7 days in seconds
 
+# Dummy bcrypt hash used when user doesn't exist — constant-time defence against timing oracle
+_DUMMY_HASH = "$2b$12$LJ3m4ys3Lp0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+
 
 def _set_refresh_cookie(response: Response, token: str) -> None:
     response.set_cookie(
@@ -79,7 +82,10 @@ async def register(body: RegisterRequest, request: Request, db: AsyncSession = D
 async def login(body: LoginRequest, request: Request, db: AsyncSession = Depends(get_db)):
     """Log in with email and password, receive tokens."""
     user = await get_user_by_email(db, body.email)
-    if not user or not verify_password(body.password, user.password_hash):
+    # Always run verify_password to prevent timing oracle (constant-time regardless of user existence)
+    pw_hash = user.password_hash if user else _DUMMY_HASH
+    password_ok = verify_password(body.password, pw_hash)
+    if not user or not password_ok:
         raise HTTPException(status_code=401, detail="Invalid email or password")
 
     # Clean up old refresh tokens for this user before issuing a new one

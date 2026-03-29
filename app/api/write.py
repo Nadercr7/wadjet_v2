@@ -534,7 +534,8 @@ async def _convert_text_inner(req: WriteRequest, request: Request):
 
 
 @router.get("/palette")
-async def get_palette():
+@limiter.limit("60/minute")
+async def get_palette(request: Request):
     """Get palette signs grouped by type for the sign picker."""
     groups: dict[str, list[dict]] = {
         "uniliteral": [],

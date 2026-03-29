@@ -303,6 +303,56 @@ class GroqService:
                 continue
         raise RuntimeError("Groq stream unavailable after retries") from last_error
 
+    async def tts(
+        self,
+        text: str,
+        *,
+        model: str = "playai-tts",
+        voice: str = "Fritz-PlayAI",
+        response_format: str = "wav",
+        timeout: float = 30.0,
+    ) -> bytes:
+        """Generate speech audio via Groq TTS. Returns raw audio bytes."""
+        resp = await self._client.post(
+            "/audio/speech",
+            headers=self._headers(),
+            json={
+                "model": model,
+                "input": text,
+                "voice": voice,
+                "response_format": response_format,
+            },
+            timeout=timeout,
+        )
+        resp.raise_for_status()
+        return resp.content
+
+    async def stt(
+        self,
+        audio_data: bytes,
+        filename: str,
+        mime_type: str,
+        *,
+        model: str = "whisper-large-v3-turbo",
+        language: str = "en",
+        timeout: float = 60.0,
+    ) -> dict:
+        """Transcribe audio via Groq Whisper. Returns JSON result."""
+        auth_header = {"Authorization": f"Bearer {self._current_key()}"}
+        resp = await self._client.post(
+            "/audio/transcriptions",
+            headers=auth_header,
+            files={"file": (filename, audio_data, mime_type)},
+            data={
+                "model": model,
+                "language": language[:2],
+                "response_format": "json",
+            },
+            timeout=timeout,
+        )
+        resp.raise_for_status()
+        return resp.json()
+
     async def close(self) -> None:
         await self._client.aclose()
 

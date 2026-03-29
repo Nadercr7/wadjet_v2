@@ -498,7 +498,8 @@ async def list_categories(request: Request):
 
 
 @router.get("/{slug}/children")
-async def get_landmark_children(slug: str):
+@limiter.limit("60/minute")
+async def get_landmark_children(slug: str, request: Request):
     """Get child sub-sites for a parent landmark."""
     normalized = _normalize_slug(slug.lower().strip())
     resolved = _resolve_slug(normalized)
@@ -518,6 +519,7 @@ async def get_landmark_children(slug: str):
 
 
 @router.get("/{slug}")
+@limiter.limit("60/minute")
 async def get_landmark(slug: str, request: Request):
     """Get full detail for a single landmark by slug."""
     # Normalize slug — try both hyphen and underscore variants

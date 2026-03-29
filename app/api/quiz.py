@@ -174,7 +174,8 @@ async def check_ai_answer(body: AiAnswerRequest, request: Request):
 
 
 @router.get("/info")
-async def quiz_info():
+@limiter.limit("60/minute")
+async def quiz_info(request: Request):
     """Return quiz pool info."""
     return JSONResponse(content={
         "pool_size": get_pool_size(),

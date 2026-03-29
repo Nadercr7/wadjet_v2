@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import logging
 import time
+import uuid
 from collections import OrderedDict
 from dataclasses import dataclass, field
 from typing import TYPE_CHECKING
@@ -97,6 +98,11 @@ class _SessionStore:
 session_store = _SessionStore()
 
 
+def new_session_id() -> str:
+    """Generate a server-assigned UUID for a new chat session."""
+    return str(uuid.uuid4())
+
+
 # ── Context enrichment ──
 
 def _landmark_context(name: str | None) -> str:
@@ -120,20 +126,34 @@ def _build_prompt(
     message: str,
     session_id: str,
     landmark: str | None = None,
-) -> str:
-    history = session_store.get(session_id)
-    parts: list[str] = []
-    if history:
-        parts.append("Previous conversation:")
-        for turn in history:
-            label = "User" if turn["role"] == "user" else "Thoth"
-            parts.append(f"{label}: {turn['content']}")
-        parts.append("")
+) -> list[dict[str, str]]:
+    """Build a structured messages list for the AI provider.
+
+    Returns a list of dicts with 'role' and 'content' keys.
+    Using structured messages prevents prompt injection via user text.
+    """
+    messages: list[dict[str, str]] = [{"role": "system", "content": SYSTEM_PROMPT}]
+
     ctx = _landmark_context(landmark)
     if ctx:
-        parts.append(ctx)
-        parts.append("")
-    parts.append(f"User: {message}")
+        messages.append({"role": "system", "content": ctx.strip()})
+
+    history = session_store.get(session_id)
+    for turn in history:
+        messages.append({"role": turn["role"], "content": turn["content"]})
+
+    messages.append({"role": "user", "content": message})
+    return messages
+
+
+def _messages_to_text(messages: list[dict[str, str]]) -> str:
+    """Flatten structured messages to a text prompt for providers that need it."""
+    parts: list[str] = []
+    for msg in messages:
+        if msg["role"] == "system":
+            continue  # system instruction is passed separately
+        label = "User" if msg["role"] == "user" else "Thoth"
+        parts.append(f"{label}: {msg['content']}")
     parts.append("Thoth:")
     return "\n".join(parts)
 
@@ -151,11 +171,12 @@ class ChatResult:
 async def _generate_with_fallback(
     gemini: GeminiService,
     grok: GrokService | None,
-    prompt: str,
+    messages: list[dict[str, str]],
     *,
     groq: GroqService | None = None,
 ) -> str:
     """Try Gemini first; fall back to Groq then Grok on failure."""
+    prompt = _messages_to_text(messages)
     try:
         reply = await gemini.generate_text(
             prompt,
@@ -200,7 +221,7 @@ async def _generate_with_fallback(
 async def _stream_with_fallback(
     gemini: GeminiService,
     grok: GrokService | None,
-    prompt: str,
+    messages: list[dict[str, str]],
     *,
     groq: GroqService | None = None,
 ) -> AsyncIterator[str]:
@@ -210,6 +231,7 @@ async def _stream_with_fallback(
     Gemini and stream directly.  If it fails before any data, switch
     to Groq, then Grok so the user never sees garbled partial output.
     """
+    prompt = _messages_to_text(messages)
     try:
         gemini_stream = gemini.generate_text_stream(
             prompt,

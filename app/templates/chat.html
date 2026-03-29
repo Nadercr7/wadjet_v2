@@ -340,11 +340,14 @@ function chatApp() {
             this.$nextTick(() => this.scrollToBottom());
 
             try {
-                const params = new URLSearchParams({
-                    message: msg,
-                    session_id: this.sessionId,
+                const response = await fetch('/api/chat/stream', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        message: msg,
+                        session_id: this.sessionId,
+                    }),
                 });
-                const response = await fetch('/api/chat/stream?' + params.toString());
 
                 if (!response.ok) {
                     throw new Error('Server error: ' + response.status);

@@ -17,6 +17,8 @@ from functools import lru_cache
 from fastapi import APIRouter, HTTPException, Query, Request
 from fastapi.responses import JSONResponse, Response
 
+from app.rate_limit import limiter
+
 from app.core.gardiner import (
     GARDINER_TRANSLITERATION,
     GardinerSign,
@@ -743,6 +745,7 @@ _tts_cache: dict[str, bytes] = {}
 
 
 @router.get("/speak")
+@limiter.limit("30/minute")
 async def speak(request: Request, text: str = Query(..., min_length=1, max_length=100)):
     """Generate natural TTS audio for a pronunciation string.
 

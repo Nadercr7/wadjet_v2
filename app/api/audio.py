@@ -15,18 +15,37 @@ logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/api", tags=["audio"])
 
-# ── Groq TTS ──────────────────────────────────────────────────────────────
-# Model: playai-tts (PlayAI voices) — free tier on Groq
-# Endpoint: POST https://api.groq.com/openai/v1/audio/speech
-# Returns: audio/wav
+# ── Constants ─────────────────────────────────────────────────────────────
+_MAX_AUDIO_BYTES = 25 * 1024 * 1024  # 25 MB (Groq limit)
+
+# Magic bytes for audio format validation
+_AUDIO_MAGIC: dict[str, list[bytes]] = {
+    "audio/wav": [b"RIFF"],
+    "audio/mpeg": [b"ID3", b"\xff\xfb", b"\xff\xf3", b"\xff\xf2"],
+    "audio/ogg": [b"OggS"],
+    "audio/flac": [b"fLaC"],
+    "audio/webm": [b"\x1a\x45\xdf\xa3"],
+    "video/webm": [b"\x1a\x45\xdf\xa3"],
+    "audio/mp4": [b"\x00\x00\x00"],  # ftyp box (variable offset)
+    "audio/x-m4a": [b"\x00\x00\x00"],
+}
 
 # Voice mapping per language
 _VOICE_MAP = {
-    "en": "Fritz-PlayAI",       # English male — clear, natural
-    "ar": "Arista-PlayAI",      # Arabic-friendly female voice
+    "en": "Fritz-PlayAI",
+    "ar": "Arista-PlayAI",
 }
 
 _TTS_MODEL = "playai-tts"
+_STT_MODEL = "whisper-large-v3-turbo"
+
+
+def _validate_audio_magic(data: bytes, mime_type: str) -> bool:
+    """Check if audio data starts with expected magic bytes for the MIME type."""
+    magic_options = _AUDIO_MAGIC.get(mime_type)
+    if not magic_options:
+        return True  # unknown type — skip check
+    return any(data[:len(m)] == m for m in magic_options)
 
 
 @router.post("/tts")
@@ -47,21 +66,14 @@ async def text_to_speech(
     voice = _VOICE_MAP.get(lang, _VOICE_MAP["en"])
 
     try:
-        resp = await groq._client.post(
-            "/audio/speech",
-            headers=groq._headers(),
-            json={
-                "model": _TTS_MODEL,
-                "input": text[:2000],
-                "voice": voice,
-                "response_format": "wav",
-            },
-            timeout=30.0,
+        audio_bytes = await groq.tts(
+            text[:2000],
+            model=_TTS_MODEL,
+            voice=voice,
+            response_format="wav",
         )
-        resp.raise_for_status()
-
         return Response(
-            content=resp.content,
+            content=audio_bytes,
             media_type="audio/wav",
             headers={"Cache-Control": "public, max-age=3600"},
         )
@@ -104,28 +116,28 @@ async def speech_to_text(
             detail=f"Unsupported audio format: {content_type}",
         )
 
-    # Read file (limit 25MB — Groq's limit)
+    # Pre-check Content-Length before reading full file
+    cl = request.headers.get("content-length")
+    if cl and int(cl) > _MAX_AUDIO_BYTES:
+        raise HTTPException(status_code=413, detail="File too large (max 25 MB)")
+
+    # Read file
     data = await file.read()
-    if len(data) > 25 * 1024 * 1024:
-        raise HTTPException(status_code=400, detail="Audio file too large (max 25 MB)")
+    if len(data) > _MAX_AUDIO_BYTES:
+        raise HTTPException(status_code=413, detail="Audio file too large (max 25 MB)")
+
+    # Validate magic bytes
+    if not _validate_audio_magic(data, base_type):
+        raise HTTPException(status_code=400, detail="File content does not match declared audio format")
 
     try:
-        # Use only Authorization header — httpx needs to set multipart Content-Type
-        auth_header = {"Authorization": f"Bearer {groq._current_key()}"}
-        resp = await groq._client.post(
-            "/audio/transcriptions",
-            headers=auth_header,
-            files={"file": (file.filename or "audio.wav", data, base_type)},
-            data={
-                "model": _STT_MODEL,
-                "language": lang[:2],
-                "response_format": "json",
-            },
-            timeout=60.0,
+        result = await groq.stt(
+            data,
+            file.filename or "audio.wav",
+            base_type,
+            model=_STT_MODEL,
+            language=lang,
         )
-        resp.raise_for_status()
-        result = resp.json()
-
         return {
             "text": result.get("text", ""),
             "language": lang,
@@ -169,20 +181,14 @@ async def speak(request: Request, body: SpeakRequest):
     if groq:
         voice = _VOICE_MAP.get(body.lang, _VOICE_MAP["en"])
         try:
-            resp = await groq._client.post(
-                "/audio/speech",
-                headers=groq._headers(),
-                json={
-                    "model": _TTS_MODEL,
-                    "input": body.text[:2000],
-                    "voice": voice,
-                    "response_format": "wav",
-                },
-                timeout=30.0,
+            audio_bytes = await groq.tts(
+                body.text[:2000],
+                model=_TTS_MODEL,
+                voice=voice,
+                response_format="wav",
             )
-            resp.raise_for_status()
             return Response(
-                content=resp.content,
+                content=audio_bytes,
                 media_type="audio/wav",
                 headers={"Cache-Control": "public, max-age=3600"},
             )

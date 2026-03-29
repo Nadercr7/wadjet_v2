@@ -1,7 +1,7 @@
 """Chat API — Thoth AI chatbot endpoints.
 
 POST /api/chat          — Send message, get JSON reply
-GET  /api/chat/stream   — SSE streaming response
+POST /api/chat/stream   — SSE streaming response (POST for CSRF compat)
 POST /api/chat/clear    — Clear conversation session
 """
 
@@ -9,19 +9,32 @@ from __future__ import annotations
 
 import json
 import logging
+import re
 
-from fastapi import APIRouter, HTTPException, Request
+from fastapi import APIRouter, Depends, HTTPException, Request
 from fastapi.responses import JSONResponse, StreamingResponse
 from pydantic import BaseModel, Field
+from sqlalchemy.ext.asyncio import AsyncSession
 
+from app.auth.dependencies import get_optional_user
+from app.db.database import get_db
+from app.db.models import User
 from app.rate_limit import limiter
 
 logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/api/chat", tags=["chat"])
 
+_UUID_RE = re.compile(r"^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$", re.IGNORECASE)
+
 
 class ChatRequest(BaseModel):
+    message: str = Field(..., min_length=1, max_length=2000)
+    session_id: str = Field(..., min_length=1, max_length=128)
+    landmark: str | None = Field(default=None, max_length=200)
+
+
+class StreamRequest(BaseModel):
     message: str = Field(..., min_length=1, max_length=2000)
     session_id: str = Field(..., min_length=1, max_length=128)
     landmark: str | None = Field(default=None, max_length=200)
@@ -76,23 +89,14 @@ async def chat_message(body: ChatRequest, request: Request):
         raise HTTPException(status_code=500, detail="Failed to generate response")
 
 
-@router.get("/stream")
+@router.post("/stream")
 @limiter.limit("30/minute")
 async def chat_stream(
-    message: str,
-    session_id: str,
+    body: StreamRequest,
     request: Request,
-    landmark: str | None = None,
 ):
     """SSE streaming chat — sends text chunks as Server-Sent Events."""
     from app.core.thoth_chat import chat_stream as _chat_stream
-
-    if not message or len(message) > 2000:
-        raise HTTPException(status_code=400, detail="Invalid message")
-    if not session_id or len(session_id) > 128:
-        raise HTTPException(status_code=400, detail="Invalid session_id")
-    if landmark and len(landmark) > 200:
-        raise HTTPException(status_code=400, detail="Invalid landmark")
 
     gemini = _get_gemini(request)
     grok = _get_grok(request)
@@ -102,9 +106,9 @@ async def chat_stream(
         try:
             async for chunk in _chat_stream(
                 gemini,
-                message,
-                session_id=session_id,
-                landmark=landmark,
+                body.message,
+                session_id=body.session_id,
+                landmark=body.landmark,
                 grok=grok,
                 groq=groq,
             ):
@@ -126,8 +130,17 @@ async def chat_stream(
 
 
 @router.post("/clear")
-async def clear_session(body: ClearRequest):
+@limiter.limit("10/minute")
+async def clear_session(
+    body: ClearRequest,
+    request: Request,
+    user: User | None = Depends(get_optional_user),
+):
     """Clear conversation history for a session."""
+    # If no auth, require session_id to be a valid UUID
+    if user is None and not _UUID_RE.match(body.session_id):
+        raise HTTPException(status_code=400, detail="Invalid session_id format")
+
     from app.core.thoth_chat import session_store
 
     session_store.clear(body.session_id)
