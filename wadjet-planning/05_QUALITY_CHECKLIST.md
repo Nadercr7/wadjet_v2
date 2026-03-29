@@ -37,15 +37,15 @@
 - [x] Git commit: `[WADJET] Phase 0 complete`
 
 ### Phase 1 — Security Critical
-- [ ] CSRF rejects unprotected POST to /api/user/favorites → 403
-- [ ] CSRF allows POST to /api/auth/login → 401 (not 403)
-- [ ] Rate limit holds with forged X-Forwarded-For
-- [ ] `ENVIRONMENT=production JWT_SECRET="" python -c "from app.config import settings"` → ValueError
-- [ ] `ENVIRONMENT=development JWT_SECRET="" python -c "from app.config import settings"` → OK
-- [ ] `get_settings()` returns the SAME object as `config.settings`
-- [ ] load_story("../../etc/passwd") → None
-- [ ] .env.example has JWT_SECRET, CSRF_SECRET, TRUSTED_PROXY_DEPTH
-- [ ] Git commit: `[WADJET] Phase 1 complete: Security Critical`
+- [x] CSRF rejects unprotected POST to /api/user/favorites → 403
+- [x] CSRF allows POST to /api/auth/login → 401 (not 403)
+- [x] Rate limit holds with forged X-Forwarded-For (depth=1 behind proxy; depth=0 for direct)
+- [x] `ENVIRONMENT=production JWT_SECRET="" python -c "from app.config import settings"` → ValueError
+- [x] `ENVIRONMENT=development JWT_SECRET="" python -c "from app.config import settings"` → OK
+- [x] `get_settings()` returns the SAME object as `config.settings`
+- [x] load_story("../../etc/passwd") → None
+- [x] .env.example has JWT_SECRET, CSRF_SECRET, TRUSTED_PROXY_DEPTH
+- [x] Git commit: `[WADJET] Phase 1 complete: Security Critical`
 
 ### Phase 2 — Security High
 - [ ] Response headers include Content-Security-Policy
