@@ -66,7 +66,7 @@ class GrokService:
             "Content-Type": "application/json",
         }
 
-    async def _chat_completion(
+    async def chat_completion(
         self,
         messages: list[dict[str, Any]],
         *,
@@ -116,7 +116,7 @@ class GrokService:
                 continue
         raise RuntimeError("Grok unavailable after retries") from last_error
 
-    def _extract_text(self, response: dict) -> str:
+    def extract_text(self, response: dict) -> str:
         """Extract text from chat completion response."""
         choices = response.get("choices", [])
         if not choices:
@@ -177,13 +177,13 @@ class GrokService:
             *self._image_message(image_bytes, mime_type, prompt),
         ]
         try:
-            resp = await self._chat_completion(
+            resp = await self.chat_completion(
                 messages,
                 temperature=0.2,
                 max_tokens=512,
                 response_format={"type": "json_object"},
             )
-            text = self._extract_text(resp)
+            text = self.extract_text(resp)
             return json.loads(text) if text else {}
         except Exception:
             logger.exception("Grok identify_landmark failed")
@@ -226,13 +226,13 @@ class GrokService:
             *self._image_message(image_bytes, mime_type, prompt),
         ]
         try:
-            resp = await self._chat_completion(
+            resp = await self.chat_completion(
                 messages,
                 temperature=0.1,
                 max_tokens=256,
                 response_format={"type": "json_object"},
             )
-            text = self._extract_text(resp)
+            text = self.extract_text(resp)
             return json.loads(text) if text else {}
         except Exception:
             logger.exception("Grok classify_hieroglyph failed")
@@ -254,10 +254,10 @@ class GrokService:
             messages.append({"role": "system", "content": system_instruction})
         messages.append({"role": "user", "content": prompt})
         try:
-            resp = await self._chat_completion(
+            resp = await self.chat_completion(
                 messages, temperature=temperature, max_tokens=max_tokens,
             )
-            return self._extract_text(resp)
+            return self.extract_text(resp)
         except Exception:
             logger.exception("Grok generate_text failed")
             return ""

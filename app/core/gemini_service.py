@@ -47,6 +47,11 @@ class GeminiService:
         return len(self._api_keys) > 0
 
     @property
+    def api_keys(self) -> list[str]:
+        """Public read-only access to API keys (for embedding clients etc.)."""
+        return self._api_keys
+
+    @property
     def _client(self) -> genai.Client:
         return self._clients[self._current_key_idx]
 

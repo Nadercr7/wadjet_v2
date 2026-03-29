@@ -19,12 +19,13 @@ if TYPE_CHECKING:
     from collections.abc import AsyncIterator
     from app.core.gemini_service import GeminiService
     from app.core.grok_service import GrokService
-    from app.core.ai_service import GroqService
+    from app.core.groq_service import GroqService
 
 logger = logging.getLogger(__name__)
 
 _MAX_HISTORY = 10  # message pairs
 _MAX_SESSIONS = 500
+_SESSION_TTL = 3600  # seconds (1 hour)
 _TEMPERATURE = 0.7
 _MAX_TOKENS = 2048
 
@@ -68,21 +69,35 @@ CONVERSATION_STARTERS = [
 # ── Session store ──
 
 class _SessionStore:
-    def __init__(self, max_sessions: int = _MAX_SESSIONS) -> None:
+    def __init__(self, max_sessions: int = _MAX_SESSIONS, ttl: int = _SESSION_TTL) -> None:
         self._store: OrderedDict[str, list[dict[str, str]]] = OrderedDict()
+        self._timestamps: dict[str, float] = {}
         self._max = max_sessions
+        self._ttl = ttl
+
+    def _evict_expired(self) -> None:
+        """Remove sessions that have been idle longer than TTL."""
+        now = time.monotonic()
+        expired = [sid for sid, ts in self._timestamps.items() if now - ts > self._ttl]
+        for sid in expired:
+            self._store.pop(sid, None)
+            self._timestamps.pop(sid, None)
 
     def get(self, sid: str) -> list[dict[str, str]]:
+        self._evict_expired()
         if sid in self._store:
             self._store.move_to_end(sid)
+            self._timestamps[sid] = time.monotonic()
             return self._store[sid]
         return []
 
     def append(self, sid: str, user_msg: str, assistant_msg: str) -> None:
+        self._evict_expired()
         if sid not in self._store:
             self._store[sid] = []
             while len(self._store) > self._max:
-                self._store.popitem(last=False)
+                evicted_sid, _ = self._store.popitem(last=False)
+                self._timestamps.pop(evicted_sid, None)
         history = self._store[sid]
         history.append({"role": "user", "content": user_msg})
         history.append({"role": "assistant", "content": assistant_msg})
@@ -90,9 +105,11 @@ class _SessionStore:
         if len(history) > max_items:
             del history[: len(history) - max_items]
         self._store.move_to_end(sid)
+        self._timestamps[sid] = time.monotonic()
 
     def clear(self, sid: str) -> None:
         self._store.pop(sid, None)
+        self._timestamps.pop(sid, None)
 
 
 session_store = _SessionStore()

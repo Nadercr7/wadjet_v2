@@ -545,11 +545,11 @@ async def _verify_glyphs_grok(
     ]
 
     try:
-        resp = await grok._chat_completion(
+        resp = await grok.chat_completion(
             messages, temperature=0.1, max_tokens=512,
             response_format={"type": "json_object"},
         )
-        text = grok._extract_text(resp)
+        text = grok.extract_text(resp)
         data = json.loads(text) if text else {}
         return {
             int(k): v for k, v in data.get("votes", {}).items()

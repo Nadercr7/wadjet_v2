@@ -12,6 +12,7 @@ from __future__ import annotations
 import io
 import re
 import struct
+from collections import OrderedDict
 from functools import lru_cache
 
 from fastapi import APIRouter, HTTPException, Query, Request
@@ -740,8 +741,9 @@ def _cached_speech_text(text: str) -> str:
     return text.strip().lower()
 
 
-# In-memory cache for generated audio (text -> WAV bytes)
-_tts_cache: dict[str, bytes] = {}
+# In-memory bounded LRU cache for generated audio (text -> WAV bytes)
+_TTS_CACHE_MAXSIZE = 500
+_tts_cache: OrderedDict[str, bytes] = OrderedDict()
 
 
 @router.get("/speak")
@@ -756,6 +758,7 @@ async def speak(request: Request, text: str = Query(..., min_length=1, max_lengt
 
     # Return cached audio immediately
     if cache_key in _tts_cache:
+        _tts_cache.move_to_end(cache_key)
         return Response(
             content=_tts_cache[cache_key],
             media_type="audio/wav",
@@ -773,6 +776,9 @@ async def speak(request: Request, text: str = Query(..., min_length=1, max_lengt
 
     wav_data = _pcm_to_wav(pcm_data)
     _tts_cache[cache_key] = wav_data
+    _tts_cache.move_to_end(cache_key)
+    while len(_tts_cache) > _TTS_CACHE_MAXSIZE:
+        _tts_cache.popitem(last=False)
 
     return Response(
         content=wav_data,

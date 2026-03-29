@@ -24,7 +24,8 @@ from typing import TYPE_CHECKING
 import numpy as np
 
 if TYPE_CHECKING:
-    from app.core.ai_service import AIService, GroqService
+    from app.core.ai_service import AIService
+    from app.core.groq_service import GroqService
     from app.core.gemini_service import GeminiService
 
 try:
@@ -66,8 +67,8 @@ class GeminiEmbedder:
             from google.genai.types import HttpOptions
 
             # Use first available key from GeminiService or env
-            if self._gemini and self._gemini._api_keys:
-                key = self._gemini._api_keys[0]
+            if self._gemini and self._gemini.api_keys:
+                key = self._gemini.api_keys[0]
             else:
                 import os
 
@@ -404,7 +405,7 @@ class RAGTranslator:
         if not self._ai_service:
             return None
 
-        groq = getattr(self._ai_service, "_groq", None)
+        groq = getattr(self._ai_service, "groq", None)
         if not groq or not groq.available:
             return None
 
@@ -417,13 +418,13 @@ class RAGTranslator:
                 {"role": "system", "content": system},
                 {"role": "user", "content": prompt},
             ]
-            resp = await groq._chat_completion(
+            resp = await groq.chat_completion(
                 messages,
                 temperature=0.2,
                 max_tokens=1024,
                 response_format={"type": "json_object"},
             )
-            text = groq._extract_text(resp)
+            text = groq.extract_text(resp)
             if text:
                 data = self._parse_json(text)
                 if data and (data.get("translation_en") or data.get("translation_ar")):
@@ -443,7 +444,7 @@ class RAGTranslator:
         if not self._ai_service:
             return None
 
-        grok = getattr(self._ai_service, "_grok", None)
+        grok = getattr(self._ai_service, "grok", None)
         if not grok or not grok.available:
             return None
 
@@ -456,13 +457,13 @@ class RAGTranslator:
                 {"role": "system", "content": system},
                 {"role": "user", "content": prompt},
             ]
-            resp = await grok._chat_completion(
+            resp = await grok.chat_completion(
                 messages,
                 temperature=0.2,
                 max_tokens=1024,
                 response_format={"type": "json_object"},
             )
-            text = grok._extract_text(resp)
+            text = grok.extract_text(resp)
             if text:
                 data = self._parse_json(text)
                 if data and (data.get("translation_en") or data.get("translation_ar")):

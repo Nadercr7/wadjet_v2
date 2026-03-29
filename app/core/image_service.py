@@ -29,6 +29,25 @@ EGYPTIAN_STYLE_SUFFIX = (
     "dramatic warm lighting, detailed oil painting, museum quality"
 )
 
+# Shared HTTP client — reused across all image generation calls
+_http_client: httpx.AsyncClient | None = None
+
+
+def _get_client() -> httpx.AsyncClient:
+    """Get or create the shared httpx client."""
+    global _http_client
+    if _http_client is None or _http_client.is_closed:
+        _http_client = httpx.AsyncClient(timeout=60.0)
+    return _http_client
+
+
+async def close_image_client() -> None:
+    """Close the shared HTTP client (call during app shutdown)."""
+    global _http_client
+    if _http_client is not None and not _http_client.is_closed:
+        await _http_client.aclose()
+        _http_client = None
+
 
 def _cache_key(story_id: str, chapter_idx: int, prompt: str) -> str:
     """Generate a deterministic filename from story + chapter + prompt."""
@@ -82,31 +101,31 @@ async def _try_cloudflare(model: str, prompt: str, num_steps: int = 4) -> bytes 
     """Attempt image generation via Cloudflare Workers AI."""
     url = f"{_CF_API_BASE}/{settings.cloudflare_account_id}/ai/run/{model}"
     try:
-        async with httpx.AsyncClient(timeout=60.0) as client:
-            resp = await client.post(
-                url,
-                headers={"Authorization": f"Bearer {settings.cloudflare_api_token}"},
-                json={"prompt": prompt, "num_steps": num_steps},
-            )
-            if resp.status_code != 200:
-                logger.warning("Cloudflare %s returned status=%d: %s", model, resp.status_code, resp.text[:200])
-                return None
+        client = _get_client()
+        resp = await client.post(
+            url,
+            headers={"Authorization": f"Bearer {settings.cloudflare_api_token}"},
+            json={"prompt": prompt, "num_steps": num_steps},
+        )
+        if resp.status_code != 200:
+            logger.warning("Cloudflare %s returned status=%d: %s", model, resp.status_code, resp.text[:200])
+            return None
 
-            ct = resp.headers.get("content-type", "")
-            # FLUX returns JSON {"result": {"image": "<base64>"}}
-            if "json" in ct:
-                data = resp.json()
-                b64 = (data.get("result") or {}).get("image") or data.get("image")
-                if b64:
-                    return base64.b64decode(b64)
-                logger.warning("Cloudflare %s JSON response missing image key", model)
-                return None
+        ct = resp.headers.get("content-type", "")
+        # FLUX returns JSON {"result": {"image": "<base64>"}}
+        if "json" in ct:
+            data = resp.json()
+            b64 = (data.get("result") or {}).get("image") or data.get("image")
+            if b64:
+                return base64.b64decode(b64)
+            logger.warning("Cloudflare %s JSON response missing image key", model)
+            return None
 
-            # SDXL returns raw image bytes
-            if ct.startswith("image/") and len(resp.content) > 1000:
-                return resp.content
+        # SDXL returns raw image bytes
+        if ct.startswith("image/") and len(resp.content) > 1000:
+            return resp.content
 
-            logger.warning("Cloudflare %s unexpected content-type=%s len=%d", model, ct, len(resp.content))
+        logger.warning("Cloudflare %s unexpected content-type=%s len=%d", model, ct, len(resp.content))
     except Exception as e:
         logger.warning("Cloudflare image gen (%s) failed: %s", model, e)
     return None

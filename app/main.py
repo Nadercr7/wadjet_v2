@@ -47,7 +47,7 @@ async def lifespan(app: FastAPI):
     # Initialize Groq
     groq_keys = settings.groq_keys_list
     if groq_keys:
-        from app.core.ai_service import GroqService
+        from app.core.groq_service import GroqService
         app.state.groq = GroqService(
             groq_keys,
             vision_model=settings.groq_vision_model,
@@ -123,6 +123,9 @@ async def lifespan(app: FastAPI):
     if hasattr(app.state, "tla") and app.state.tla:
         await app.state.tla.close()
     app.state.tla = None
+    # Close shared image generation HTTP client
+    from app.core.image_service import close_image_client
+    await close_image_client()
 
 
 def create_app() -> FastAPI:

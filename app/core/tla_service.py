@@ -7,6 +7,7 @@ No authentication required. 90,000+ ancient Egyptian lemmas.
 from __future__ import annotations
 
 import logging
+from collections import OrderedDict
 from functools import lru_cache
 from typing import Any
 
@@ -17,6 +18,7 @@ logger = logging.getLogger(__name__)
 _TLA_BASE = "https://aaew.bbaw.de/tla/servlet/GetWcnDetails"
 _TLA_SEARCH = "https://aaew.bbaw.de/tla/servlet/s0"
 _TIMEOUT = 5.0
+_CACHE_MAXSIZE = 256
 
 
 class TLAService:
@@ -26,12 +28,19 @@ class TLAService:
         self._client = httpx.AsyncClient(
             timeout=httpx.Timeout(_TIMEOUT, connect=3.0),
         )
-        self._cache: dict[str, Any] = {}
+        self._cache: OrderedDict[str, Any] = OrderedDict()
         logger.info("TLAService init")
 
     @property
     def available(self) -> bool:
         return True
+
+    def _cache_put(self, key: str, value: Any) -> None:
+        """Insert into bounded LRU cache."""
+        self._cache[key] = value
+        self._cache.move_to_end(key)
+        while len(self._cache) > _CACHE_MAXSIZE:
+            self._cache.popitem(last=False)
 
     async def search_lemma(self, term: str, limit: int = 5) -> list[dict]:
         """Search for Egyptian lemmas by transliteration or translation.
@@ -40,6 +49,7 @@ class TLAService:
         """
         cache_key = f"search:{term}:{limit}"
         if cache_key in self._cache:
+            self._cache.move_to_end(cache_key)
             return self._cache[cache_key]
 
         try:
@@ -57,7 +67,7 @@ class TLAService:
             resp.raise_for_status()
             # TLA returns HTML — parse basic results
             results = self._parse_search_html(resp.text, limit)
-            self._cache[cache_key] = results
+            self._cache_put(cache_key, results)
             return results
         except Exception:
             logger.debug("TLA search failed for '%s'", term, exc_info=True)
@@ -70,6 +80,7 @@ class TLAService:
         """
         cache_key = f"lemma:{lemma_id}"
         if cache_key in self._cache:
+            self._cache.move_to_end(cache_key)
             return self._cache[cache_key]
 
         try:
@@ -80,7 +91,7 @@ class TLAService:
             resp.raise_for_status()
             result = self._parse_lemma_html(resp.text, lemma_id)
             if result:
-                self._cache[cache_key] = result
+                self._cache_put(cache_key, result)
             return result
         except Exception:
             logger.debug("TLA lemma lookup failed for '%s'", lemma_id, exc_info=True)
