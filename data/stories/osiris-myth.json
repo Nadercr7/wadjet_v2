@@ -131,6 +131,28 @@
                     "target_glyph": "𓋹",
                     "gardiner_code": "S34",
                     "hint": { "en": "The cross with a loop at the top — the most famous Egyptian symbol", "ar": "الصليب ذو الحلقة في أعلاه — أشهر رمز مصري" }
+                },
+                {
+                    "type": "story_decision",
+                    "after_paragraph": 2,
+                    "prompt": { "en": "You witness Set's treachery. What would you do?", "ar": "أنت تشهد خيانة ست. ماذا كنت لتفعل؟" },
+                    "choices": [
+                        {
+                            "id": "warn_osiris",
+                            "text": { "en": "Rush to warn Osiris before he enters the chest", "ar": "أسرع لتحذير أوزيريس قبل أن يدخل الصندوق" },
+                            "outcome": { "en": "A noble instinct! But the myth teaches us that even the greatest kings face betrayal — it is the response to tragedy, not its prevention, that defines a legacy.", "ar": "غريزة نبيلة! لكن الأسطورة تعلمنا أنه حتى أعظم الملوك يواجهون الخيانة — إنها الاستجابة للمأساة، وليس منعها، هي التي تحدد الإرث." }
+                        },
+                        {
+                            "id": "observe_fate",
+                            "text": { "en": "Watch in silence — the gods have woven this fate", "ar": "شاهد في صمت — الآلهة نسجت هذا القدر" },
+                            "outcome": { "en": "The ancient Egyptians believed in Ma'at — cosmic order. Even tragedy was part of the divine plan, and from Osiris's death came the promise of resurrection for all.", "ar": "آمن المصريون القدماء بالماعت — النظام الكوني. حتى المأساة كانت جزءًا من الخطة الإلهية، ومن موت أوزيريس جاء وعد البعث للجميع." }
+                        },
+                        {
+                            "id": "confront_set",
+                            "text": { "en": "Confront Set and demand justice before the gods", "ar": "واجه ست واطلب العدالة أمام الآلهة" },
+                            "outcome": { "en": "This is exactly what Horus will do! In the next chapters, the son of Osiris will challenge Set before the divine tribunal — a trial that shapes Egyptian mythology forever.", "ar": "هذا بالضبط ما سيفعله حورس! في الفصول القادمة، سيتحدى ابن أوزيريس ست أمام المحكمة الإلهية — محاكمة شكّلت الأساطير المصرية إلى الأبد." }
+                        }
+                    ]
                 }
             ]
         },

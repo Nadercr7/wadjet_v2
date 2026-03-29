@@ -1,6 +1,6 @@
 """
-Wadjet v2 — Audio API (TTS + STT via Groq)
-Optional server-side high-quality TTS and speech-to-text.
+Wadjet v3 — Audio API (TTS + STT)
+Server-side TTS (Gemini → Groq fallback) and speech-to-text.
 """
 
 import logging

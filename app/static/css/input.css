@@ -55,6 +55,32 @@
   font-display: swap;
 }
 
+/* Cairo font — self-hosted for offline Arabic support */
+@font-face {
+  font-family: 'Cairo';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('/static/fonts/Cairo-arabic.woff2') format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+FB50-FDFF, U+FE70-FEFC;
+}
+@font-face {
+  font-family: 'Cairo';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('/static/fonts/Cairo-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1D00-1DBF, U+1E00-1E9F;
+}
+@font-face {
+  font-family: 'Cairo';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('/static/fonts/Cairo-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+FEFF, U+FFFD;
+}
+
 @layer base {
   body {
     @apply bg-night text-text font-body antialiased;
@@ -453,15 +479,31 @@
   100% { background-position: 0% 0%; }
 }
 
-/* Ken Burns — slow zoom/pan for story hero images */
-@keyframes ken-burns {
+/* Ken Burns — slow zoom/pan for story hero images (4 directions) */
+@keyframes ken-burns-nw {
   0%   { transform: scale(1) translate(0, 0); }
   100% { transform: scale(1.1) translate(-2%, -1%); }
 }
+@keyframes ken-burns-ne {
+  0%   { transform: scale(1) translate(0, 0); }
+  100% { transform: scale(1.1) translate(2%, -1%); }
+}
+@keyframes ken-burns-sw {
+  0%   { transform: scale(1) translate(0, 0); }
+  100% { transform: scale(1.1) translate(-2%, 1%); }
+}
+@keyframes ken-burns-se {
+  0%   { transform: scale(1) translate(0, 0); }
+  100% { transform: scale(1.1) translate(2%, 1%); }
+}
 .story-hero-image {
-  animation: ken-burns 20s ease-in-out infinite alternate;
+  animation: ken-burns-nw 20s ease-in-out infinite alternate;
   object-fit: cover;
 }
+.story-hero-image:nth-child(4n+1) { animation-name: ken-burns-nw; }
+.story-hero-image:nth-child(4n+2) { animation-name: ken-burns-ne; }
+.story-hero-image:nth-child(4n+3) { animation-name: ken-burns-sw; }
+.story-hero-image:nth-child(4n)   { animation-name: ken-burns-se; }
 
 /* ========================================
    Button effects

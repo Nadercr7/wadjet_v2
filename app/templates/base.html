@@ -11,17 +11,17 @@
     <!-- SEO: OG, Twitter Cards, JSON-LD, canonical, hreflang -->
     {% block seo %}{% include "partials/seo.html" %}{% endblock %}
 
-    <!-- DNS prefetch for Google Fonts -->
+    <!-- DNS prefetch for Google Fonts (Playfair + Inter only — Cairo is self-hosted) -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
 
-    <!-- Fonts (includes Cairo for Arabic) -->
+    <!-- Fonts: Playfair + Inter from Google, Cairo self-hosted in /static/fonts/ -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&family=Cairo:wght@400;600;700&display=swap" as="style">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
     <!-- Styles (critical) -->
-    <link rel="stylesheet" href="/static/dist/styles.css?v=30" fetchpriority="high">
+    <link rel="stylesheet" href="/static/dist/styles.css?v=31" fetchpriority="high">
     <link rel="stylesheet" href="/static/css/atropos.css">
 
     {% block head %}{% endblock %}
@@ -141,8 +141,8 @@
     <script src="/static/vendor/htmx.min.js" defer></script>
 
     <!-- App JS -->
-    <script src="/static/js/tts.js?v=22"></script>
-    <script src="/static/js/app.js?v=22"></script>
+    <script src="/static/js/tts.js?v=31"></script>
+    <script src="/static/js/app.js?v=31"></script>
 
     {% block scripts %}{% endblock %}
 </body>

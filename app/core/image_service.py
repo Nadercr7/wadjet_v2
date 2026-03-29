@@ -7,6 +7,7 @@ Images are cached to disk by content hash for instant reload.
 from __future__ import annotations
 
 import asyncio
+import base64
 import hashlib
 import logging
 from pathlib import Path
@@ -20,7 +21,7 @@ logger = logging.getLogger(__name__)
 CACHE_DIR = Path(__file__).parent.parent / "static" / "cache" / "images"
 
 _CF_API_BASE = "https://api.cloudflare.com/client/v4/accounts"
-_FLUX_MODEL = "@cf/black-forest-labs/FLUX-1-schnell"
+_FLUX_MODEL = "@cf/black-forest-labs/flux-1-schnell"
 _SDXL_MODEL = "@cf/stabilityai/stable-diffusion-xl-base-1.0"
 
 EGYPTIAN_STYLE_SUFFIX = (
@@ -42,6 +43,7 @@ async def generate_story_image(
 ) -> str | None:
     """Generate scene image for a story chapter. Returns static URL path or None."""
     if not settings.cloudflare_api_token or not settings.cloudflare_account_id:
+        logger.warning("Image generation skipped: CLOUDFLARE_API_TOKEN or CLOUDFLARE_ACCOUNT_ID not set in .env")
         return None
 
     await asyncio.to_thread(CACHE_DIR.mkdir, parents=True, exist_ok=True)
@@ -62,10 +64,14 @@ async def generate_story_image(
         image_bytes = await _try_cloudflare(_SDXL_MODEL, full_prompt, num_steps=20)
 
     if image_bytes:
-        # Atomic write: .tmp → rename
+        # Atomic write: .tmp → rename (handle concurrent race)
         tmp_path = cache_path.with_suffix(".tmp")
         await asyncio.to_thread(tmp_path.write_bytes, image_bytes)
-        await asyncio.to_thread(tmp_path.rename, cache_path)
+        try:
+            await asyncio.to_thread(tmp_path.rename, cache_path)
+        except OSError:
+            # Another request already renamed — clean up our temp file
+            await asyncio.to_thread(lambda: tmp_path.unlink(missing_ok=True))
         logger.info("Image cached: %s (%d bytes)", cache_path.name, len(image_bytes))
         return f"/static/cache/images/{key}.png"
 
@@ -82,10 +88,25 @@ async def _try_cloudflare(model: str, prompt: str, num_steps: int = 4) -> bytes 
                 headers={"Authorization": f"Bearer {settings.cloudflare_api_token}"},
                 json={"prompt": prompt, "num_steps": num_steps},
             )
+            if resp.status_code != 200:
+                logger.warning("Cloudflare %s returned status=%d: %s", model, resp.status_code, resp.text[:200])
+                return None
+
             ct = resp.headers.get("content-type", "")
-            if resp.status_code == 200 and len(resp.content) > 1000 and ct.startswith("image/"):
+            # FLUX returns JSON {"result": {"image": "<base64>"}}
+            if "json" in ct:
+                data = resp.json()
+                b64 = (data.get("result") or {}).get("image") or data.get("image")
+                if b64:
+                    return base64.b64decode(b64)
+                logger.warning("Cloudflare %s JSON response missing image key", model)
+                return None
+
+            # SDXL returns raw image bytes
+            if ct.startswith("image/") and len(resp.content) > 1000:
                 return resp.content
-            logger.warning("Cloudflare %s returned status=%d len=%d", model, resp.status_code, len(resp.content))
+
+            logger.warning("Cloudflare %s unexpected content-type=%s len=%d", model, ct, len(resp.content))
     except Exception as e:
         logger.warning("Cloudflare image gen (%s) failed: %s", model, e)
     return None

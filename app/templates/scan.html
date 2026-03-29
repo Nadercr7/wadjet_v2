@@ -310,8 +310,8 @@
                 </div>
                 <div class="bg-night rounded-lg p-4 border border-border flex items-center justify-between gap-3">
                     <p class="font-mono text-lg text-gold leading-relaxed" x-text="result.transliteration"></p>
-                    <button @click="ttsActiveId = 'translit'; ttsState = WadjetTTS.speakToggle(result.transliteration, {lang: 'en', rate: 0.8, id: 'translit'})"
-                            x-show="WadjetTTS.isSupported()"
+                    <button @click="speakText(result.transliteration, 'translit', 'en', 'scan_pronunciation')"
+                            x-show="navigator.onLine || (typeof WadjetTTS !== 'undefined' && WadjetTTS.isSupported())"
                             class="btn-ghost btn-sm shrink-0 !px-2 !py-1.5"
                             :class="{'!border-gold !text-gold': ttsState !== 'idle' && ttsActiveId === 'translit'}"
                             :aria-label="ttsActiveId === 'translit' && ttsState === 'playing' ? '{{ t('scan.pause', lang) }}' : '{{ t('scan.listen_translit', lang) }}'">
@@ -338,8 +338,8 @@
                 <div class="bg-night rounded-lg p-4 border border-border mb-3" x-show="result.translation_en">
                     <div class="flex items-center justify-between mb-2">
                         <span class="badge-gold inline-block">{{ t('scan.english', lang) }}</span>
-                        <button @click="ttsActiveId = 'en'; ttsState = WadjetTTS.speakToggle(result.translation_en, {lang: 'en', id: 'en'})"
-                                x-show="WadjetTTS.isSupported()"
+                        <button @click="speakText(result.translation_en, 'en', 'en')"
+                                x-show="navigator.onLine || (typeof WadjetTTS !== 'undefined' && WadjetTTS.isSupported())"
                                 class="btn-ghost btn-sm !px-2 !py-1.5"
                                 :class="{'!border-gold !text-gold': ttsState !== 'idle' && ttsActiveId === 'en'}"
                                 :aria-label="ttsActiveId === 'en' && ttsState === 'playing' ? '{{ t('scan.pause', lang) }}' : '{{ t('scan.listen_english', lang) }}'">
@@ -354,8 +354,8 @@
                 <div class="bg-night rounded-lg p-4 border border-border" x-show="result.translation_ar" dir="rtl">
                     <div class="flex items-center justify-between mb-2" dir="ltr">
                         <span class="badge-gold inline-block">{{ t('scan.arabic', lang) }}</span>
-                        <button @click="ttsActiveId = 'ar'; ttsState = WadjetTTS.speakToggle(result.translation_ar, {lang: 'ar', id: 'ar'})"
-                                x-show="WadjetTTS.isSupported()"
+                        <button @click="speakText(result.translation_ar, 'ar', 'ar')"
+                                x-show="navigator.onLine || (typeof WadjetTTS !== 'undefined' && WadjetTTS.isSupported())"
                                 class="btn-ghost btn-sm !px-2 !py-1.5"
                                 :class="{'!border-gold !text-gold': ttsState !== 'idle' && ttsActiveId === 'ar'}"
                                 :aria-label="ttsActiveId === 'ar' && ttsState === 'playing' ? '{{ t('scan.pause', lang) }}' : '{{ t('scan.listen_arabic', lang) }}'">
@@ -552,16 +552,82 @@ function scanApp() {
         // History
         scanHistory: WadjetHistory.getScanHistory(),
 
-        // TTS state poller — sync Alpine state with Web Speech API state
+        // TTS state poller — sync Alpine state with Web Speech API / server audio
         _ttsPoller: null,
+        _scanAudio: null,
+        _scanAudioUrl: null,
+
         init() {
             this._ttsPoller = setInterval(() => {
+                // Check server audio state first
+                if (this._scanAudio) {
+                    if (this._scanAudio.paused && !this._scanAudio.ended) {
+                        // paused
+                    } else if (!this._scanAudio.paused && !this._scanAudio.ended) {
+                        this.ttsState = 'playing';
+                        return;
+                    }
+                }
                 if (typeof WadjetTTS !== 'undefined') {
                     const s = WadjetTTS.getState();
                     if (s !== this.ttsState) this.ttsState = s;
-                    if (s === 'idle') this.ttsActiveId = null;
+                    if (s === 'idle' && !this._scanAudio) this.ttsActiveId = null;
                 }
             }, 250);
+        },
+
+        destroy() {
+            if (this._ttsPoller) clearInterval(this._ttsPoller);
+            this._cleanupAudio();
+            if (typeof WadjetTTS !== 'undefined') WadjetTTS.stop();
+        },
+
+        _cleanupAudio() {
+            if (this._scanAudio) { this._scanAudio.pause(); this._scanAudio = null; }
+            if (this._scanAudioUrl) { URL.revokeObjectURL(this._scanAudioUrl); this._scanAudioUrl = null; }
+        },
+
+        async speakText(text, id, lang, context) {
+            lang = lang || 'en';
+            context = context || 'scan';
+            // Toggle off if same button
+            if (this.ttsActiveId === id && (this.ttsState === 'playing' || this._scanAudio)) {
+                this._cleanupAudio();
+                if (typeof WadjetTTS !== 'undefined') WadjetTTS.stop();
+                this.ttsState = 'idle';
+                this.ttsActiveId = null;
+                return;
+            }
+            // Stop any previous
+            this._cleanupAudio();
+            if (typeof WadjetTTS !== 'undefined') WadjetTTS.stop();
+            this.ttsActiveId = id;
+            this.ttsState = 'playing';
+            // Try server TTS (Gemini natural voice)
+            if (navigator.onLine) {
+                try {
+                    const resp = await fetch('/api/audio/speak', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ text: text.slice(0, 5000), lang, context: context })
+                    });
+                    if (resp.ok && resp.status !== 204) {
+                        const blob = await resp.blob();
+                        this._scanAudioUrl = URL.createObjectURL(blob);
+                        this._scanAudio = new Audio(this._scanAudioUrl);
+                        this._scanAudio.onended = () => { this.ttsState = 'idle'; this.ttsActiveId = null; this._cleanupAudio(); };
+                        this._scanAudio.play();
+                        return;
+                    }
+                } catch (e) { /* fall through */ }
+            }
+            // Fallback: browser TTS
+            if (typeof WadjetTTS !== 'undefined' && WadjetTTS.isSupported()) {
+                this.ttsState = WadjetTTS.speakToggle(text, { lang, rate: lang === 'en' ? 0.8 : 1.0, id });
+            } else {
+                this.ttsState = 'idle';
+                this.ttsActiveId = null;
+            }
         },
 
         // Gardiner code → Unicode character map (common signs)

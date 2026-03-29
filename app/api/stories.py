@@ -121,6 +121,22 @@ async def check_interaction(request: Request, story_id: str, body: InteractionSu
         # Discovery is always "correct" — just marking as seen
         return {"correct": True, "type": itype}
 
+    elif itype == "story_decision":
+        # Branching narrative — all choices are valid (educational, not wrong)
+        choices = interaction.get("choices", [])
+        selected = next((c for c in choices if c["id"] == body.answer), None)
+        if not selected:
+            raise HTTPException(status_code=400, detail="Invalid choice")
+        return {
+            "correct": True,
+            "type": itype,
+            "choice_id": selected["id"],
+            "outcome": {
+                "en": selected.get("outcome", {}).get("en", ""),
+                "ar": selected.get("outcome", {}).get("ar", ""),
+            },
+        }
+
     raise HTTPException(status_code=400, detail="Unknown interaction type")
 
 

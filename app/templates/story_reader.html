@@ -181,6 +181,28 @@
                                                 </template>
                                             </div>
                                         </template>
+
+                                        <!-- Story Decision (branching narrative) -->
+                                        <template x-if="interaction.type === 'story_decision'">
+                                            <div class="card border border-gold/20 p-5 rounded-xl">
+                                                <p class="text-sm text-gold mb-4 font-medium" x-text="interaction.prompt[lang] || interaction.prompt.en"></p>
+                                                <div class="space-y-3">
+                                                    <template x-for="choice in interaction.choices" :key="choice.id">
+                                                        <button @click="submitDecision(interaction, choice.id)"
+                                                                class="w-full text-start p-4 rounded-xl border transition-all"
+                                                                :class="getDecisionClass(interaction, choice.id)"
+                                                                :disabled="isInteractionDone(interaction)">
+                                                            <span class="font-medium text-sm" x-text="choice.text[lang] || choice.text.en"></span>
+                                                        </button>
+                                                    </template>
+                                                </div>
+                                                <template x-if="getInteractionResult(interaction)">
+                                                    <div class="mt-3 p-3 rounded-lg text-sm bg-gold/10 text-gold border border-gold/20">
+                                                        <p x-text="(getInteractionResult(interaction).outcome || {})[lang] || (getInteractionResult(interaction).outcome || {}).en || ''"></p>
+                                                    </div>
+                                                </template>
+                                            </div>
+                                        </template>
                                     </div>
                                 </template>
                             </div>
@@ -359,10 +381,9 @@ function storyReader(storyId, lang) {
         async submitChooseGlyph(interaction, code, pIdx, iIdx) {
             if (this.isInteractionDone(interaction)) return;
             try {
-                const csrf = document.cookie.match(/csrftoken=([^;]+)/)?.[1] || '';
                 const resp = await fetch('/api/stories/' + this.storyId + '/interact', {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json', 'x-csrftoken': csrf },
+                    headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
                         chapter_index: this.chapterIdx,
                         interaction_index: this.currentChapter.interactions.indexOf(interaction),
@@ -386,10 +407,9 @@ function storyReader(storyId, lang) {
             const answer = (this.writeInputs[interaction.gardiner_code] || '').trim();
             if (!answer) return;
             try {
-                const csrf = document.cookie.match(/csrftoken=([^;]+)/)?.[1] || '';
                 const resp = await fetch('/api/stories/' + this.storyId + '/interact', {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json', 'x-csrftoken': csrf },
+                    headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
                         chapter_index: this.chapterIdx,
                         interaction_index: this.currentChapter.interactions.indexOf(interaction),
@@ -405,6 +425,34 @@ function storyReader(storyId, lang) {
             } catch (e) {
                 console.error('Write word check failed:', e);
             }
+        },
+
+        async submitDecision(interaction, choiceId) {
+            if (this.isInteractionDone(interaction)) return;
+            try {
+                const resp = await fetch('/api/stories/' + this.storyId + '/interact', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        chapter_index: this.chapterIdx,
+                        interaction_index: this.currentChapter.interactions.indexOf(interaction),
+                        answer: choiceId
+                    })
+                });
+                const result = await resp.json();
+                result.selectedId = choiceId;
+                this.interactionResults[this.interactionKey(interaction)] = result;
+                this.saveProgress();
+            } catch (e) {
+                console.error('Decision submit failed:', e);
+            }
+        },
+
+        getDecisionClass(interaction, choiceId) {
+            const result = this.getInteractionResult(interaction);
+            if (!result) return 'border-border hover:border-gold/50 bg-surface hover:bg-surface-alt';
+            if (result.selectedId === choiceId) return 'border-gold/50 bg-gold/10';
+            return 'border-border bg-surface opacity-50';
         },
 
         nextChapter() {
@@ -434,11 +482,14 @@ function storyReader(storyId, lang) {
         async loadChapterImage() {
             this.imageLoading = true;
             try {
-                const csrf = document.cookie.match(/csrftoken=([^;]+)/)?.[1] || '';
                 const resp = await fetch('/api/stories/' + this.storyId + '/chapters/' + this.chapterIdx + '/image', {
                     method: 'POST',
-                    headers: { 'x-csrftoken': csrf }
+                    credentials: 'same-origin',
                 });
+                if (!resp.ok) {
+                    console.warn('Image gen response:', resp.status);
+                    return;
+                }
                 const data = await resp.json();
                 if (data.image_url) {
                     this.chapterImage = data.image_url;
@@ -503,10 +554,9 @@ function storyNarration() {
 
             // Try server TTS first
             try {
-                const csrf = document.cookie.match(/csrftoken=([^;]+)/)?.[1] || '';
                 const resp = await fetch('/api/audio/speak', {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json', 'x-csrftoken': csrf },
+                    headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ text: text.slice(0, 5000), context: 'story_narration', lang: lang })
                 });
                 if (resp.ok) {
@@ -522,13 +572,14 @@ function storyNarration() {
                 }
             } catch {}
 
-            // Fallback to browser TTS
-            if ('speechSynthesis' in window) {
-                const utter = new SpeechSynthesisUtterance(text.slice(0, 3000));
-                utter.lang = lang === 'ar' ? 'ar-EG' : 'en-US';
-                utter.rate = 0.9;
-                utter.onend = () => { this.playing = false; };
-                speechSynthesis.speak(utter);
+            // Fallback to browser TTS (with neural voice selection + Chromium fix)
+            if (typeof WadjetTTS !== 'undefined' && WadjetTTS.isSupported()) {
+                const self = this;
+                WadjetTTS.speak(text.slice(0, 3000), {
+                    lang: lang,
+                    rate: 0.9,
+                    onEnd: function() { self.playing = false; }
+                });
                 this.playing = true;
             }
             this.loading = false;
@@ -539,7 +590,9 @@ function storyNarration() {
                 this.audio.pause();
                 this.audio.currentTime = 0;
             }
-            if ('speechSynthesis' in window) {
+            if (typeof WadjetTTS !== 'undefined') {
+                WadjetTTS.stop();
+            } else if ('speechSynthesis' in window) {
                 speechSynthesis.cancel();
             }
             this.playing = false;

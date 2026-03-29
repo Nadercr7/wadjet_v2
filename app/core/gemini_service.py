@@ -230,12 +230,14 @@ class GeminiService:
                 speech_config=genai_types.SpeechConfig(
                     voice_config=genai_types.VoiceConfig(
                         prebuilt_voice_config=genai_types.PrebuiltVoiceConfig(
-                            voice_name="Kore",
+                            voice_name="Rasalgethi",
                         ),
                     ),
                 ),
             )
             prompt = (
+                "You are an Egyptology professor teaching hieroglyphic pronunciation. "
+                "Speak clearly and precisely, with academic authority. "
                 f"Pronounce this ancient Egyptian sound slowly and clearly: {text}"
             )
             response = await self._generate_with_retry(

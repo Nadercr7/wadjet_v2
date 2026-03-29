@@ -6,7 +6,7 @@ from pathlib import Path
 
 from fastapi import FastAPI, Request
 from fastapi.middleware.gzip import GZipMiddleware
-from fastapi.responses import FileResponse, HTMLResponse
+from fastapi.responses import FileResponse, HTMLResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from slowapi import _rate_limit_exceeded_handler
@@ -153,10 +153,27 @@ def create_app() -> FastAPI:
         exempt_urls=[
             re.compile(r"^/api/health$"),
             re.compile(r"^/api/auth/"),
+            re.compile(r"^/api/stories/"),
+            re.compile(r"^/api/audio/"),
+            re.compile(r"^/api/user/"),
+            re.compile(r"^/api/write"),
+            re.compile(r"^/api/chat/"),
+            re.compile(r"^/api/scan"),
+            re.compile(r"^/api/translate"),
+            re.compile(r"^/api/dictionary/"),
+            re.compile(r"^/api/landmarks"),
+            re.compile(r"^/api/tts$"),
+            re.compile(r"^/api/stt$"),
             re.compile(r"^/docs"),
             re.compile(r"^/openapi\.json$"),
         ],
     )
+
+    # Global 500 handler — never leak internals to clients
+    @app.exception_handler(Exception)
+    async def global_exception_handler(request: Request, exc: Exception):
+        logger.error("Unhandled error on %s %s: %s", request.method, request.url.path, exc, exc_info=True)
+        return JSONResponse(status_code=500, content={"detail": "An internal error occurred. Please try again later."})
 
     # GZip compression for responses > 500 bytes
     app.add_middleware(GZipMiddleware, minimum_size=500)

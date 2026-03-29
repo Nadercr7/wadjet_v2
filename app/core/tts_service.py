@@ -1,7 +1,8 @@
-"""TTS Service — Smart fallback: Gemini TTS → Groq PlayAI → None (browser fallback).
+"""TTS Service — Smart fallback: Gemini TTS → None (caller handles Groq/browser).
 
 Uses Gemini 2.5 Flash Preview TTS as primary (FREE, 30 voices, 73+ languages).
-Falls back to existing Groq TTS endpoint, then returns None for browser SpeechSynthesis.
+Returns cached WAV path on success, or None so the caller (audio.py) can try Groq
+PlayAI and ultimately return HTTP 204 for browser SpeechSynthesis fallback.
 Audio is cached to disk by content hash for instant replay.
 """
 
@@ -29,9 +30,11 @@ VOICE_PRESETS: dict[str, str] = {
     "thoth_chat": "Orus",        # Firm — authoritative ancient deity
     "landing": "Charon",         # Informative — warm guide
     "dictionary": "Rasalgethi",  # Informative — academic
+    "pronunciation": "Rasalgethi",  # Academic — hieroglyphic sounds
     "story_narration": "Aoede",  # Breezy — myths
     "explore": "Charon",         # Informative — landmark descriptions
     "scan": "Charon",            # Informative — scan results
+    "scan_pronunciation": "Rasalgethi",  # Academic — scan transliteration
     "default": "Charon",         # Informative — general fallback
 }
 
@@ -54,6 +57,26 @@ DIRECTOR_NOTES: dict[str, str] = {
         "You are a storyteller narrating an ancient Egyptian myth. "
         "Captivating, with dramatic pauses and vivid expression. "
         "Draw the listener into the ancient world."
+    ),
+    "explore": (
+        "You are an expert Egyptologist giving a guided tour of a monument. "
+        "Speak with wonder and reverence. Paint vivid scenes of ancient grandeur. "
+        "Clear enunciation, warm and engaging."
+    ),
+    "scan": (
+        "You are an Egyptologist examining a hieroglyphic inscription. "
+        "Read the translation with scholarly clarity and measured pace. "
+        "Precise pronunciation, confident delivery."
+    ),
+    "pronunciation": (
+        "You are an Egyptology professor teaching hieroglyphic pronunciation. "
+        "Speak clearly, slowly, and precisely with academic authority. "
+        "Pronounce this ancient Egyptian sound:"
+    ),
+    "scan_pronunciation": (
+        "You are an Egyptology professor reading an ancient Egyptian word aloud. "
+        "Speak clearly, slowly, and precisely with academic authority. "
+        "Pronounce this ancient Egyptian sound:"
     ),
 }
 
@@ -101,7 +124,7 @@ async def speak(
     keys = settings.gemini_keys_list
     if keys:
         try:
-            audio_path = await _gemini_tts(text, voice, context, cache_file, keys)
+            audio_path = await _gemini_tts(text, voice, context, cache_file, keys, lang=lang)
             if audio_path:
                 return audio_path
         except Exception as e:
@@ -116,14 +139,14 @@ async def _gemini_tts(
     context: str,
     cache_file: Path,
     api_keys: list[str],
+    lang: str = "en",
 ) -> Path | None:
     """Generate audio via Gemini 2.5 Flash TTS."""
-    # Build the prompt with optional director's notes
+    # Build the prompt with optional director's notes and language hint
     notes = DIRECTOR_NOTES.get(context, "")
-    if notes:
-        prompt = f"{notes}\n\n{text}"
-    else:
-        prompt = text
+    lang_hint = f"Speak in {'Arabic' if lang == 'ar' else 'English'}." if lang else ""
+    parts = [p for p in (notes, lang_hint, text) if p]
+    prompt = "\n\n".join(parts)
 
     # Try keys from the pool (randomized to distribute quota)
     import random as _rng

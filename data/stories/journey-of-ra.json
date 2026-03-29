@@ -139,6 +139,23 @@
                     "target_glyph": "𓇳",
                     "gardiner_code": "N5",
                     "hint": { "en": "The circle representing the sun god — you learned it in the first chapter!", "ar": "الدائرة التي تمثل إله الشمس — تعلمتها في الفصل الأول!" }
+                },
+                {
+                    "type": "story_decision",
+                    "after_paragraph": 2,
+                    "prompt": { "en": "Ra's barque approaches the darkest hour. How should the crew prepare?", "ar": "مركب رع يقترب من أحلك ساعة. كيف يجب أن يستعد الطاقم؟" },
+                    "choices": [
+                        {
+                            "id": "recite_spells",
+                            "text": { "en": "Recite the protective spells inscribed on the barque", "ar": "اقرأ التعويذات الواقية المنقوشة على المركب" },
+                            "outcome": { "en": "Wise choice! The ancient Egyptians believed that spoken words held magical power — 'hekau.' The Book of the Dead was filled with protective spells for exactly this journey.", "ar": "اختيار حكيم! آمن المصريون القدماء بأن الكلمات المنطوقة تحمل قوة سحرية — 'حكاو.' كتاب الموتى كان مليئًا بتعويذات وقائية لهذه الرحلة بالذات." }
+                        },
+                        {
+                            "id": "call_set",
+                            "text": { "en": "Call upon Set — only chaos can defeat chaos", "ar": "استدعِ ست — الفوضى وحدها تهزم الفوضى" },
+                            "outcome": { "en": "Exactly right! In one of mythology's great ironies, the murderer of Osiris is also the sun's champion. Set's chaotic strength is the only force that can overpower Apophis each night.", "ar": "صحيح تمامًا! في واحدة من مفارقات الأساطير العظيمة، قاتل أوزيريس هو أيضًا بطل الشمس. قوة ست الفوضوية هي القوة الوحيدة القادرة على قهر أبوفيس كل ليلة." }
+                        }
+                    ]
                 }
             ]
         },

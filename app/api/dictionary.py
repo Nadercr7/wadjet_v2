@@ -145,39 +145,46 @@ _FUN_FACTS: dict[str, str] = {
 # ═══════════════════════════════════════════════════════════════
 
 # Character-level mapping for auto-generating speech from any transliteration
+# Each Egyptian consonant must have a DISTINCT sound for TTS differentiation
 _PHONEME_MAP: dict[str, str] = {
-    "A": "ah", "i": "ee", "y": "yah", "a": "ah", "w": "woo",
+    "A": "ah", "i": "ee", "y": "yah", "a": "aah", "w": "woo",
     "b": "bah", "p": "pah", "f": "fah", "m": "mah", "n": "nah",
-    "r": "rah", "h": "hah", "H": "hah", "x": "khah", "X": "khah",
-    "z": "zah", "s": "sah", "S": "shah", "q": "kah", "k": "kah",
+    "r": "rah", "h": "hah", "H": "hhah", "x": "khah", "X": "kheh",
+    "z": "zah", "s": "sah", "S": "shah", "q": "qah", "k": "kah",
     "g": "gah", "t": "tah", "T": "chah", "d": "dah", "D": "jah",
 }
 
 # Hand-curated overrides for common multi-consonant signs (better quality)
+# Differentiate: H=emphatic h, x=velar kh, X=palatal kh, q=deep k, a=ayin, A=aleph
 _SPEECH_MAP: dict[str, str] = {
-    "ir": "ear", "mn": "men", "pr": "per", "wr": "wer",
+    "ir": "eer", "mn": "men", "pr": "per", "wr": "wer",
     "Htp": "hotep", "nfr": "nefer", "anx": "ankh",
-    "wAs": "wahs", "nTr": "netcher", "xpr": "kheper",
+    "wAs": "waas", "nTr": "netcher", "xpr": "kheper",
     "mAat": "mah-aht", "rnp": "renep", "snTr": "sentcher",
-    "wAst": "wahst", "DHwty": "jehuti", "aA": "ah-ah",
+    "wAst": "waast", "DHwty": "jehuti", "aA": "aah-ah",
     "nb": "neb", "Dd": "djed", "mr": "mer", "kA": "kah",
-    "bA": "bah", "ms": "mes", "sA": "sah", "wDAt": "wedjat",
-    "stp": "setep", "Hr": "hor", "sw": "soo",
+    "bA": "baa", "ms": "mes", "sA": "saa", "wDAt": "wedjat",
+    "stp": "setep", "Hr": "her", "sw": "soo",
     "km": "kem", "tp": "tep", "wn": "wen", "Sd": "shed",
     "sk": "sek", "xn": "khen", "xnt": "khent", "Ab": "ahb",
     "ix": "eekh", "im": "eem", "in": "een", "iw": "ee-oo",
     "ib": "eeb", "ip": "eep", "it": "eet", "is": "ees",
-    "aH": "ah-hah", "ai": "ah-ee", "wa": "wah", "wi": "wee",
-    "wr": "wer", "wn": "wen", "wp": "wep", "wD": "wedj",
-    "bH": "beh", "pA": "pah", "pH": "peh", "pD": "pedj",
-    "mH": "meh", "mi": "mee", "mw": "moo", "nw": "noo",
+    "aH": "aah-hha", "ai": "aah-ee", "wa": "wah", "wi": "wee",
+    "wp": "wep", "wD": "wedj",
+    "bH": "beh-hha", "pA": "pah", "pH": "peh-hha", "pD": "pedj",
+    "mH": "meh-hha", "mi": "mee", "mw": "moo", "nw": "noo",
     "nn": "nen", "ni": "nee", "rw": "roo", "rd": "red",
-    "hA": "hah", "Hm": "hem", "HH": "heh", "Hw": "hoo",
-    "xA": "khah", "Xn": "khen", "zA": "zah", "zS": "zesh",
+    "hA": "hah", "Hm": "hhem", "HH": "hheh", "Hw": "hhoo",
+    "xA": "khah", "Xn": "kheh-n", "zA": "zah", "zS": "zesh",
     "sn": "sen", "st": "set", "Sw": "shoo", "Sm": "shem",
-    "qd": "ked", "gs": "ges", "gm": "gem", "gb": "geb",
+    "qd": "qed", "gs": "ges", "gm": "gem", "gb": "geb",
     "tA": "tah", "ti": "tee", "tm": "tem", "Tn": "chen",
-    "di": "dee", "dw": "doo", "DA": "jah", "Db": "jeb",
+    "di": "dee", "dw": "doo", "DA": "jaa", "Db": "jeb",
+    # Lesson words (multi-consonant words students encounter)
+    "prt": "peret", "iwf": "ee-oo-ef", "stt": "setet",
+    "mnw": "menoo", "mntw": "montoo", "pri": "peree",
+    "sx": "sekh", "nfrt": "neferet", "anxw": "ankh-oo",
+    "nb tAwy": "neb tawy", "xpri": "khepree",
     # Common logograms
     "ra": "rah", "niwt": "nee-oot", "rxyt": "rekh-eet",
 }

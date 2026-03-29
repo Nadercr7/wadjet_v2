@@ -139,6 +139,23 @@
                     "target_glyph": "𓅃",
                     "gardiner_code": "G5",
                     "hint": { "en": "The bird of prey that rules the sky — Horus's own symbol", "ar": "الطائر الجارح الذي يحكم السماء — رمز حورس نفسه" }
+                },
+                {
+                    "type": "story_decision",
+                    "after_paragraph": 2,
+                    "prompt": { "en": "Horus has lost his eye. What should he do next?", "ar": "خسر حورس عينه. ماذا يجب أن يفعل بعد ذلك؟" },
+                    "choices": [
+                        {
+                            "id": "seek_thoth",
+                            "text": { "en": "Seek Thoth, the god of wisdom, to heal the eye", "ar": "ابحث عن تحوت، إله الحكمة، ليشفي العين" },
+                            "outcome": { "en": "That's what happened! Thoth restored the shattered eye, making it whole again. The 'Wedjat' (restored eye) became Egypt's most powerful symbol of healing and protection — and the namesake of this app!", "ar": "هذا ما حدث! رمم تحوت العين المحطمة وأعادها كاملة. أصبحت 'الوجات' (العين المرممة) أقوى رمز للشفاء والحماية في مصر — والاسم الذي سُمّي به هذا التطبيق!" }
+                        },
+                        {
+                            "id": "challenge_again",
+                            "text": { "en": "Challenge Set to another contest immediately", "ar": "تحدَّ ست في مسابقة أخرى فورًا" },
+                            "outcome": { "en": "Horus's determination is admirable! He did continue to challenge Set in many more contests. But first, Thoth healed his eye — patience and wisdom before action is a core lesson of Ma'at.", "ar": "عزيمة حورس مثيرة للإعجاب! لقد استمر في تحدي ست في مسابقات عديدة أخرى. لكن أولاً، شفى تحوت عينه — الصبر والحكمة قبل الفعل درس جوهري من ماعت." }
+                        }
+                    ]
                 }
             ]
         },

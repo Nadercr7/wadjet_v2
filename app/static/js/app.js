@@ -329,7 +329,7 @@ document.addEventListener('alpine:init', () => {
 });
 
 // ── TTS for hieroglyphic pronunciation ──
-// Delegates to WadjetTTS module (tts.js), with server audio fallback for dictionary.
+// Uses the smart TTS chain: Gemini (multi-key, disk cache) → Groq → browser.
 const _ttsAudioCache = {};
 let _ttsCurrentAudio = null;
 
@@ -342,23 +342,27 @@ function speakSign(text) {
     }
     if (typeof WadjetTTS !== 'undefined') WadjetTTS.stop();
 
-    // Try server TTS (Gemini natural voice) for dictionary pronunciation
+    // Try in-memory JS cache first (instant replay)
     const cacheKey = text.trim().toLowerCase();
     if (_ttsAudioCache[cacheKey]) {
         _playAudio(_ttsAudioCache[cacheKey], text);
         return;
     }
 
-    const url = '/api/dictionary/speak?text=' + encodeURIComponent(text);
-    fetch(url).then(r => {
-        if (!r.ok) throw new Error('TTS unavailable');
+    // Smart TTS chain: Gemini (multi-key pool, disk cached) → Groq → 204
+    fetch('/api/audio/speak', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text, lang: 'en', context: 'pronunciation' })
+    }).then(r => {
+        if (!r.ok || r.status === 204) throw new Error('TTS unavailable');
         return r.blob();
     }).then(blob => {
         const audioUrl = URL.createObjectURL(blob);
         _ttsAudioCache[cacheKey] = audioUrl;
         _playAudio(audioUrl, text);
     }).catch(() => {
-        // Fallback: WadjetTTS module (Web Speech API)
+        // Last resort: browser SpeechSynthesis (voice-selected, slow for clarity)
         if (typeof WadjetTTS !== 'undefined' && WadjetTTS.isSupported()) {
             WadjetTTS.speak(text, { lang: 'en', rate: 0.75 });
         }

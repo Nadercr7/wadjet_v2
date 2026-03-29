@@ -1,7 +1,7 @@
 /**
- * Wadjet v2 — TTS Module
+ * Wadjet v3 — TTS Module
  * Browser Web Speech API (SpeechSynthesis) — free, offline-capable.
- * Ported from V1, modernized for Alpine.js integration.
+ * Fallback for server TTS (Gemini → Groq). Used by Alpine.js integration.
  *
  * Usage:
  *   WadjetTTS.speak(text, { lang: 'en', rate: 1.0, onEnd })
