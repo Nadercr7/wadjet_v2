@@ -5,10 +5,10 @@ from functools import lru_cache
 from app.config import Settings
 
 
-@lru_cache
 def get_settings() -> Settings:
-    """Return cached application settings."""
-    return Settings()
+    """Return the application settings singleton from config module."""
+    from app.config import settings
+    return settings
 
 
 @lru_cache

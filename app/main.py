@@ -151,19 +151,15 @@ def create_app() -> FastAPI:
         CSRFMiddleware,
         secret=csrf_secret,
         exempt_urls=[
+            # GET-only endpoint — no state mutation
             re.compile(r"^/api/health$"),
-            re.compile(r"^/api/auth/"),
-            re.compile(r"^/api/stories/"),
-            re.compile(r"^/api/audio/"),
-            re.compile(r"^/api/user/"),
-            re.compile(r"^/api/write"),
-            re.compile(r"^/api/chat/"),
-            re.compile(r"^/api/scan"),
-            re.compile(r"^/api/translate"),
-            re.compile(r"^/api/dictionary/"),
-            re.compile(r"^/api/landmarks"),
-            re.compile(r"^/api/tts$"),
-            re.compile(r"^/api/stt$"),
+            # Auth bootstrap — no session/cookie exists yet to carry CSRF token
+            re.compile(r"^/api/auth/login$"),
+            re.compile(r"^/api/auth/register$"),
+            re.compile(r"^/api/auth/refresh$"),
+            # Logout — destroys session, safe to exempt
+            re.compile(r"^/api/auth/logout$"),
+            # Read-only documentation (disabled in production via Phase 2)
             re.compile(r"^/docs"),
             re.compile(r"^/openapi\.json$"),
         ],

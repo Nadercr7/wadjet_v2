@@ -1,5 +1,6 @@
 from pathlib import Path
 
+from pydantic import model_validator
 from pydantic_settings import BaseSettings
 
 
@@ -13,6 +14,7 @@ class Settings(BaseSettings):
     # Security
     csrf_secret: str = ""  # Auto-generated if empty (see main.py)
     jwt_secret: str = ""  # Auto-generated if empty (see main.py)
+    trusted_proxy_depth: int = 1  # 0=direct, 1=one reverse proxy (Render)
     base_url: str = "https://wadjet.onrender.com"  # Override in .env for custom domain
 
     # Database
@@ -53,6 +55,22 @@ class Settings(BaseSettings):
     detection_confidence_threshold: float = 0.15
 
     model_config = {"env_file": ".env", "env_file_encoding": "utf-8"}
+
+    @model_validator(mode="after")
+    def _enforce_production_secrets(self) -> "Settings":
+        """Refuse to start in production without real secrets."""
+        if self.environment != "development":
+            if not self.jwt_secret:
+                raise ValueError(
+                    "JWT_SECRET is required when ENVIRONMENT != 'development'. "
+                    "Generate one with: python -c \"import secrets; print(secrets.token_hex(32))\""
+                )
+            if not self.csrf_secret:
+                raise ValueError(
+                    "CSRF_SECRET is required when ENVIRONMENT != 'development'. "
+                    "Generate one with: python -c \"import secrets; print(secrets.token_hex(32))\""
+                )
+        return self
 
     @property
     def is_production(self) -> bool:

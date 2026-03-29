@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import json
 import logging
+import re
 from pathlib import Path
 
 logger = logging.getLogger(__name__)
@@ -64,12 +65,18 @@ def load_all_stories() -> list[dict]:
 
 def load_story(story_id: str) -> dict | None:
     """Load full story with all chapters."""
+    if not re.match(r"^[a-z0-9_-]+$", story_id):
+        return None
     path = STORIES_DIR / f"{story_id}.json"
+    if not path.resolve().is_relative_to(STORIES_DIR.resolve()):
+        return None
     return _load_json(path)
 
 
 def get_chapter(story_id: str, chapter_index: int) -> dict | None:
     """Load a specific chapter from a story."""
+    if not re.match(r"^[a-z0-9_-]+$", story_id):
+        return None
     story = load_story(story_id)
     if not story:
         return None
