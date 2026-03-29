@@ -234,6 +234,98 @@ The full story is in [`JOURNEY.md`](JOURNEY.md).
 
 <br/>
 
+## 🚀 Getting Started
+
+### Prerequisites
+
+- **Python 3.13+**
+- **Node.js 22+** (for TailwindCSS build)
+- **Git**
+
+### 1. Clone & Install
+
+```bash
+git clone https://github.com/youruser/wadjet.git
+cd wadjet
+
+# Python dependencies
+python -m venv .venv
+.venv/Scripts/activate          # Windows
+# source .venv/bin/activate     # macOS/Linux
+pip install -r requirements.txt
+
+# Node dependencies (TailwindCSS)
+npm install
+```
+
+### 2. Configure Environment
+
+```bash
+cp .env.example .env
+# Edit .env — add your API keys (Gemini, Grok, Groq, Cloudflare)
+# JWT_SECRET and CSRF_SECRET are auto-generated in development mode
+```
+
+See [`.env.example`](.env.example) for all available variables and descriptions.
+
+### 3. Build CSS & Start
+
+```bash
+# Build TailwindCSS (one-time)
+npm run build
+
+# Start the development server
+uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+```
+
+Open [http://localhost:8000](http://localhost:8000) in your browser.
+
+### 4. Development Workflow
+
+```bash
+# Watch mode for CSS changes
+npm run watch
+
+# Run tests
+pytest tests/ -v
+
+# Lint
+ruff check app/
+```
+
+### Docker
+
+```bash
+docker build -t wadjet .
+docker-compose up
+# App available at http://localhost:8000
+```
+
+### Environment Variables
+
+| Variable | Required | Description |
+|----------|----------|-------------|
+| `ENVIRONMENT` | No | `development` (default) or `production` |
+| `JWT_SECRET` | Prod | JWT signing secret (auto-generated in dev) |
+| `CSRF_SECRET` | Prod | CSRF token secret (auto-generated in dev) |
+| `GEMINI_API_KEYS` | Yes | Comma-separated Gemini API keys |
+| `GROK_API_KEYS` | No | Comma-separated Grok/xAI keys (fallback) |
+| `GROQ_API_KEYS` | No | Comma-separated Groq keys (TTS/STT fallback) |
+| `CLOUDFLARE_API_TOKEN` | No | Cloudflare Workers AI token (image gen) |
+| `CLOUDFLARE_ACCOUNT_ID` | No | Cloudflare account ID |
+| `DATABASE_URL` | No | Default: `sqlite+aiosqlite:///data/wadjet.db` |
+
+### Deployment (Render)
+
+The project includes a [`render.yaml`](render.yaml) for one-click deploy to Render.com.
+Set your secrets in the Render dashboard (marked `sync: false` in the config).
+
+<br/>
+
+---
+
+<br/>
+
 <div align="center">
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0A0A0A,50:D4AF37,100:0A0A0A&height=120&section=footer" width="100%" />

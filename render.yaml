@@ -16,6 +16,10 @@ services:
         sync: false
       - key: CSRF_SECRET
         sync: false
+      - key: DATABASE_URL
+        sync: false
+      - key: TRUSTED_PROXY_DEPTH
+        value: "1"
       - key: GEMINI_API_KEYS
         sync: false
       - key: GROK_API_KEYS
@@ -26,5 +30,7 @@ services:
         sync: false
       - key: CLOUDFLARE_API_TOKEN
         sync: false
+      - key: BASE_URL
+        value: "https://wadjet-v3.onrender.com"
     healthCheckPath: /api/health
     autoDeploy: false

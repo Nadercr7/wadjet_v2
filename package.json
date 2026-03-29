@@ -1,16 +1,15 @@
 {
   "name": "wadjet",
   "version": "3.0.0-beta",
-  "description": "> **AI-powered Egyptian heritage app** — scan hieroglyphs, translate inscriptions, explore landmarks, and learn from Thoth.",
-  "main": "index.js",
+  "description": "AI-powered Egyptian heritage app — scan hieroglyphs, translate inscriptions, explore landmarks, and learn from Thoth.",
+  "private": true,
   "scripts": {
     "build": "npx @tailwindcss/cli -i app/static/css/input.css -o app/static/dist/styles.css --minify",
-    "watch": "npx @tailwindcss/cli -i app/static/css/input.css -o app/static/dist/styles.css --watch",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch": "npx @tailwindcss/cli -i app/static/css/input.css -o app/static/dist/styles.css --watch"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Nader El-Akany",
+  "license": "MIT",
   "dependencies": {
     "@tailwindcss/cli": "^4.2.2",
     "tailwindcss": "^4.2.2"

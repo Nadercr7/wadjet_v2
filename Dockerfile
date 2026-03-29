@@ -13,8 +13,11 @@ WORKDIR /app
 
 # System deps
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    libgl1 libglib2.0-0 && \
+    libgl1 libglib2.0-0 curl && \
     rm -rf /var/lib/apt/lists/*
+
+# Create non-root user
+RUN groupadd -r wadjet && useradd -r -g wadjet -d /app -s /sbin/nologin wadjet
 
 # Python deps
 COPY requirements.txt .
@@ -37,6 +40,15 @@ COPY models/ models/
 # Runtime data (embeddings, metadata, text, translation; .dockerignore excludes training datasets)
 COPY data/ data/
 
+# Ensure cache directories are writable by non-root user
+RUN mkdir -p app/static/cache/audio app/static/cache/images data \
+    && chown -R wadjet:wadjet app/static/cache data
+
+USER wadjet
+
 EXPOSE 8000
+
+HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
+    CMD curl -f http://localhost:8000/api/health || exit 1
 
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]

@@ -13,8 +13,10 @@ async def test_health_check(test_client: AsyncClient):
     resp = await test_client.get("/api/health")
     assert resp.status_code == 200
     body = resp.json()
-    assert body["status"] == "ok"
+    assert body["status"] in ("ok", "degraded")
     assert "version" in body
+    assert "database" in body
+    assert "services" in body
 
 
 # ── Page Routes ──
