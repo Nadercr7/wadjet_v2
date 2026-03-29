@@ -84,10 +84,6 @@ async def text_to_speech(
 
 
 # ── Groq STT ──────────────────────────────────────────────────────────────
-# Model: whisper-large-v3-turbo — free tier on Groq
-# Endpoint: POST https://api.groq.com/openai/v1/audio/transcriptions
-
-_STT_MODEL = "whisper-large-v3-turbo"
 
 
 @router.post("/stt")

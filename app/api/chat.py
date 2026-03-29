@@ -14,10 +14,8 @@ import re
 from fastapi import APIRouter, Depends, HTTPException, Request
 from fastapi.responses import JSONResponse, StreamingResponse
 from pydantic import BaseModel, Field
-from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.auth.dependencies import get_optional_user
-from app.db.database import get_db
 from app.db.models import User
 from app.rate_limit import limiter
 
