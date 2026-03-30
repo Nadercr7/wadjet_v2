@@ -203,7 +203,7 @@ def create_app() -> FastAPI:
     async def security_headers(request: Request, call_next):
         response = await call_next(request)
         response.headers["X-Content-Type-Options"] = "nosniff"
-        response.headers["X-Frame-Options"] = "DENY"
+        response.headers["X-Frame-Options"] = "ALLOWALL"
         response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
         response.headers["Permissions-Policy"] = "camera=(self), microphone=(self), geolocation=()"
         response.headers["Content-Security-Policy"] = (
@@ -215,7 +215,7 @@ def create_app() -> FastAPI:
             "connect-src 'self' blob: https://accounts.google.com; "
             "font-src 'self' https://fonts.gstatic.com; "
             "frame-src https://accounts.google.com; "
-            "frame-ancestors 'none'; "
+            "frame-ancestors 'self' https://huggingface.co https://*.hf.space; "
             "base-uri 'self'; "
             "form-action 'self'"
         )
