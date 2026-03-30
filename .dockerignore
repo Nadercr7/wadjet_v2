@@ -22,10 +22,7 @@ node_modules/
 # TailwindCSS build output (built in Docker stage)
 app/static/dist/
 
-# Full-precision models (only need uint8)
-models/hieroglyph/classifier/hieroglyph_classifier.onnx
-models/hieroglyph/classifier/group1-shard*
-models/hieroglyph/classifier/model.json
+# Full-precision models (only need uint8 — v2 TF.js shards already deleted)
 models/landmark/landmark_classifier.onnx
 models/landmark/saved_model/
 models/landmark/tfjs*/

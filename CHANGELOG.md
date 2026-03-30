@@ -1,5 +1,43 @@
 # Changelog
 
+## v3.1.0 (2026-03-31)
+
+Post-launch polish. Final quality pass: cleanup, performance, accessibility, brand consistency.
+
+### 🎨 Brand & Logo
+- AI-generated Wadjet cobra-W logo (PNG) replaces old SVG placeholder
+- Full favicon set: 16/32/180/192/512px + dark/ivory variants
+- OG images regenerated with new logo
+- Replaced all 18 old `𓂀` hieroglyph brand marks with logo.png across 11 templates
+
+### ✨ Animated Loading Screen
+- Full-page loading overlay: logo scale-in (ease-out-expo 600ms) + gold shimmer ring + "WADJET" text fade-up + progress bar
+- Smart dismiss: min 1.8s display, `is-leaving` transition (opacity + scale 300ms), 5s absolute fallback
+- Branded section loaders on all content pages (scan, explore, dashboard, stories, dictionary, lessons)
+- Scan page: `scan-step` CSS classes (is-active/is-pending/is-done) for 4-step progress
+- `prefers-reduced-motion: reduce` support — all animations skip to instant
+- `<noscript>` hides loader immediately
+
+### 🧹 Cleanup
+- Removed 8 orphaned v2 model files: TF.js descriptor (`model.json`), 5 weight shards (`.bin`), 2 unused ONNX variants
+- Cleaned `.dockerignore` of now-deleted file references
+- Added `ADMIN_EMAIL` to `.env.example`
+
+### ♿ Accessibility (Verified)
+- All images have alt text (meaningful or decorative `alt=""`)
+- All icon-only buttons have `aria-label`
+- All below-fold images use `loading="lazy"`
+- WCAG AA color contrast (gold #D4AF37 on dark #0A0A0A = 7.5:1)
+- Skip-to-content link for keyboard navigation
+
+### ⚡ Performance (Verified)
+- TailwindCSS v4 purge active — only used utilities in compiled CSS
+- No render-blocking scripts (vendor scripts `defer`, app scripts sync at end-of-body)
+- Zero `console.log` calls in production JS
+- Zero `TODO`/`FIXME`/`HACK` comments in codebase
+
+---
+
 ## v3.0.0 (2026-07-12)
 
 Production release. Promoted from v3.0.0-beta with additional features and deployment fixes.
