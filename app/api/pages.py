@@ -23,6 +23,8 @@ def _require_session(request: Request):
 
 @router.get("/", response_class=HTMLResponse)
 async def landing(request: Request):
+    if not request.cookies.get("wadjet_session"):
+        return RedirectResponse("/welcome", status_code=302)
     templates = request.app.state.templates
     lang = get_lang(request)
     return templates.TemplateResponse(request, "landing.html", {"lang": lang, "page_name": "home"})

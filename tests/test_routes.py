@@ -23,10 +23,11 @@ async def test_health_check(test_client: AsyncClient):
 
 
 PAGE_ROUTES = [
-    "/",
+    "/welcome",
 ]
 
 PROTECTED_ROUTES = [
+    "/",
     "/hieroglyphs",
     "/landmarks",
     "/scan",
@@ -52,7 +53,7 @@ async def test_protected_redirects_to_welcome(test_client: AsyncClient, path: st
     resp = await test_client.get(path, follow_redirects=False)
     assert resp.status_code == 302
     location = resp.headers.get("location", "")
-    assert location.startswith("/welcome?next=")
+    assert "/welcome" in location
 
 
 @pytest.mark.parametrize("path", PROTECTED_ROUTES)

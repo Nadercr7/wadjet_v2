@@ -9,9 +9,9 @@ def check(desc, ok, detail=""):
     status = "PASS" if ok else "FAIL"
     results.append(f"  [{status}] {desc}" + (f" -- {detail}" if detail else ""))
 
-# 5a: / is public (landing page)
+# 5a: / redirects to /welcome when unauthenticated
 r = client.get(f"{base}/", follow_redirects=False)
-check("/ is public (200)", r.status_code == 200, f"{r.status_code}")
+check("/ redirects to /welcome (302)", r.status_code == 302 and "/welcome" in r.headers.get("location", ""), f"{r.status_code} -> {r.headers.get('location', '')}")
 
 # 5b: /welcome -> 200 with sections
 r = httpx.get(f"{base}/welcome", follow_redirects=True)
