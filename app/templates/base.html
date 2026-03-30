@@ -64,115 +64,29 @@
     {% block narration %}{% endblock %}
 
     <!-- Auth Modals -->
-    <!-- Login Modal -->
-    <div x-data="{ email: '', password: '', _trap: null, _prev: null }"
-         x-show="$store.auth.showLogin" x-cloak
-         x-effect="if ($store.auth.showLogin) { _prev = document.activeElement; $nextTick(() => { _trap = window.createFocusTrap($el.querySelector('[role=dialog]')); _trap.activate(); $el.querySelector('input')?.focus(); }); } else if (_trap) { _trap.deactivate(); _trap = null; if (_prev) { _prev.focus(); _prev = null; } }"
-         @keydown.escape.window="$store.auth.showLogin = false"
+    <!-- Google Sign-In Modal -->
+    <div x-data="{ _trap: null, _prev: null }"
+         x-show="$store.auth.showLogin || $store.auth.showSignup" x-cloak
+         x-effect="if ($store.auth.showLogin || $store.auth.showSignup) { _prev = document.activeElement; $nextTick(() => { _trap = window.createFocusTrap($el.querySelector('[role=dialog]')); _trap.activate(); }); } else if (_trap) { _trap.deactivate(); _trap = null; if (_prev) { _prev.focus(); _prev = null; } }"
+         @keydown.escape.window="$store.auth.showLogin = false; $store.auth.showSignup = false"
          class="fixed inset-0 z-[9999] flex items-center justify-center p-4">
-        <div class="absolute inset-0 bg-night/80 backdrop-blur-sm" @click="$store.auth.showLogin = false"></div>
-        <div class="relative bg-surface border border-border rounded-2xl shadow-2xl w-full max-w-md p-6"
-             role="dialog" aria-modal="true" aria-labelledby="login-title"
+        <div class="absolute inset-0 bg-night/80 backdrop-blur-sm" @click="$store.auth.showLogin = false; $store.auth.showSignup = false"></div>
+        <div class="relative bg-surface border border-border rounded-2xl shadow-2xl w-full max-w-sm p-8 text-center"
+             role="dialog" aria-modal="true" aria-labelledby="auth-title"
              x-transition>
-            <button @click="$store.auth.showLogin = false" class="absolute top-4 right-4 text-text-dim hover:text-text rtl:right-auto rtl:left-4" aria-label="{{ t('common.close', lang) }}">&times;</button>
-            <h2 id="login-title" class="font-display text-xl font-bold text-gold mb-1">{{ t('auth.welcome_back', lang) }}</h2>
-            <p class="text-sm text-text-muted mb-5">{{ t('auth.sign_in_subtitle', lang) }}</p>
-            <div x-show="$store.auth.error" class="mb-3 p-2.5 rounded-lg bg-error/10 border border-error/20 text-error text-sm" x-text="$store.auth.error"></div>
-            <form @submit.prevent="$store.auth.login(email, password)" class="flex flex-col gap-3">
-                <input x-model="email" type="email" placeholder="{{ t('auth.email', lang) }}" required autocomplete="email" class="input">
-                <input x-model="password" type="password" placeholder="{{ t('auth.password', lang) }}" required minlength="8" autocomplete="current-password" class="input">
-                <button type="submit" class="btn-gold w-full" :disabled="$store.auth.loading">
-                    <span x-show="!$store.auth.loading">{{ t('auth.sign_in_btn', lang) }}</span>
-                    <span x-show="$store.auth.loading" x-cloak>{{ t('auth.signing_in', lang) }}</span>
-                </button>
-            </form>
+            <button @click="$store.auth.showLogin = false; $store.auth.showSignup = false" class="absolute top-4 right-4 text-text-dim hover:text-text rtl:right-auto rtl:left-4" aria-label="{{ t('common.close', lang) }}">&times;</button>
+            <div class="text-4xl mb-3" aria-hidden="true">𓂀</div>
+            <h2 id="auth-title" class="font-display text-xl font-bold text-gold mb-2">{{ t('auth.welcome_back', lang) }}</h2>
+            <p class="text-sm text-text-muted mb-6">{{ t('auth.sign_in_subtitle', lang) }}</p>
+            <div x-show="$store.auth.error" class="mb-4 p-2.5 rounded-lg bg-error/10 border border-error/20 text-error text-sm" x-text="$store.auth.error"></div>
             {% if google_client_id %}
-            <div class="relative my-4">
-                <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-border"></div></div>
-                <div class="relative flex justify-center text-xs"><span class="bg-surface px-2 text-text-dim">or</span></div>
-            </div>
-            <button @click="$store.auth.googleSignIn()" class="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg border border-border text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-colors" :disabled="$store.auth.loading">
+            <button @click="$store.auth.googleSignIn()" class="w-full flex items-center justify-center gap-3 px-4 py-3 rounded-xl border border-border text-sm font-medium text-text hover:bg-surface-alt transition-colors" :disabled="$store.auth.loading">
                 <svg class="w-5 h-5" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
-                Continue with Google
+                <span x-show="!$store.auth.loading">Continue with Google</span>
+                <span x-show="$store.auth.loading" x-cloak>Signing in...</span>
             </button>
             {% endif %}
-            <p class="mt-4 text-center text-sm text-text-muted">
-                <button @click="$store.auth.showLogin = false; $store.auth.showForgotPassword = true; $store.auth.error = ''" class="text-gold/70 hover:text-gold-light text-xs">Forgot password?</button>
-            </p>
-            <p class="mt-4 text-center text-sm text-text-muted">
-                {{ t('auth.no_account', lang) }}
-                <button @click="$store.auth.showLogin = false; $store.auth.showSignup = true; $store.auth.error = ''" class="text-gold hover:text-gold-light">{{ t('nav.sign_up', lang) }}</button>
-            </p>
-        </div>
-    </div>
-
-    <!-- Signup Modal -->
-    <div x-data="{ email: '', password: '', displayName: '', _trap: null, _prev: null }"
-         x-show="$store.auth.showSignup" x-cloak
-         x-effect="if ($store.auth.showSignup) { _prev = document.activeElement; $nextTick(() => { _trap = window.createFocusTrap($el.querySelector('[role=dialog]')); _trap.activate(); $el.querySelector('input')?.focus(); }); } else if (_trap) { _trap.deactivate(); _trap = null; if (_prev) { _prev.focus(); _prev = null; } }"
-         @keydown.escape.window="$store.auth.showSignup = false"
-         class="fixed inset-0 z-[9999] flex items-center justify-center p-4">
-        <div class="absolute inset-0 bg-night/80 backdrop-blur-sm" @click="$store.auth.showSignup = false"></div>
-        <div class="relative bg-surface border border-border rounded-2xl shadow-2xl w-full max-w-md p-6"
-             role="dialog" aria-modal="true" aria-labelledby="signup-title"
-             x-transition>
-            <button @click="$store.auth.showSignup = false" class="absolute top-4 right-4 text-text-dim hover:text-text rtl:right-auto rtl:left-4" aria-label="{{ t('common.close', lang) }}">&times;</button>
-            <h2 id="signup-title" class="font-display text-xl font-bold text-gold mb-1">{{ t('auth.join', lang) }}</h2>
-            <p class="text-sm text-text-muted mb-5">{{ t('auth.signup_subtitle', lang) }}</p>
-            <div x-show="$store.auth.error" class="mb-3 p-2.5 rounded-lg bg-error/10 border border-error/20 text-error text-sm" x-text="$store.auth.error"></div>
-            <form @submit.prevent="$store.auth.register(email, password, displayName)" class="flex flex-col gap-3">
-                <input x-model="displayName" type="text" placeholder="{{ t('auth.display_name', lang) }}" maxlength="100" autocomplete="name" class="input">
-                <input x-model="email" type="email" placeholder="{{ t('auth.email', lang) }}" required autocomplete="email" class="input">
-                <input x-model="password" type="password" placeholder="{{ t('auth.password_hint', lang) }}" required minlength="8" autocomplete="new-password" class="input">
-                <button type="submit" class="btn-gold w-full" :disabled="$store.auth.loading">
-                    <span x-show="!$store.auth.loading">{{ t('auth.create_account', lang) }}</span>
-                    <span x-show="$store.auth.loading" x-cloak>{{ t('auth.creating', lang) }}</span>
-                </button>
-            </form>
-            {% if google_client_id %}
-            <div class="relative my-4">
-                <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-border"></div></div>
-                <div class="relative flex justify-center text-xs"><span class="bg-surface px-2 text-text-dim">or</span></div>
-            </div>
-            <button @click="$store.auth.googleSignIn()" class="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg border border-border text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-colors" :disabled="$store.auth.loading">
-                <svg class="w-5 h-5" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
-                Continue with Google
-            </button>
-            {% endif %}
-            <p class="mt-4 text-center text-sm text-text-muted">
-                {{ t('auth.have_account', lang) }}
-                <button @click="$store.auth.showSignup = false; $store.auth.showLogin = true; $store.auth.error = ''" class="text-gold hover:text-gold-light">{{ t('nav.sign_in', lang) }}</button>
-            </p>
-        </div>
-    </div>
-
-    <!-- Forgot Password Modal -->
-    <div x-data="{ email: '', sent: false, _trap: null, _prev: null }"
-         x-show="$store.auth.showForgotPassword" x-cloak
-         x-effect="if ($store.auth.showForgotPassword) { sent = false; _prev = document.activeElement; $nextTick(() => { _trap = window.createFocusTrap($el.querySelector('[role=dialog]')); _trap.activate(); $el.querySelector('input')?.focus(); }); } else if (_trap) { _trap.deactivate(); _trap = null; if (_prev) { _prev.focus(); _prev = null; } }"
-         @keydown.escape.window="$store.auth.showForgotPassword = false"
-         class="fixed inset-0 z-[9999] flex items-center justify-center p-4">
-        <div class="absolute inset-0 bg-night/80 backdrop-blur-sm" @click="$store.auth.showForgotPassword = false"></div>
-        <div class="relative bg-surface border border-border rounded-2xl shadow-2xl w-full max-w-md p-6"
-             role="dialog" aria-modal="true" aria-labelledby="forgot-title"
-             x-transition>
-            <button @click="$store.auth.showForgotPassword = false" class="absolute top-4 right-4 text-text-dim hover:text-text rtl:right-auto rtl:left-4" aria-label="{{ t('common.close', lang) }}">&times;</button>
-            <h2 id="forgot-title" class="font-display text-xl font-bold text-gold mb-1">Reset password</h2>
-            <p class="text-sm text-text-muted mb-5">Enter your email and we'll send you a reset link.</p>
-            <div x-show="$store.auth.error" class="mb-3 p-2.5 rounded-lg bg-error/10 border border-error/20 text-error text-sm" x-text="$store.auth.error"></div>
-            <div x-show="sent" class="mb-3 p-2.5 rounded-lg bg-success/10 border border-success/20 text-success text-sm">
-                If an account exists with that email, a reset link has been sent. Check your inbox.
-            </div>
-            <form x-show="!sent" @submit.prevent="$store.auth.forgotPassword(email).then(() => { sent = true; })" class="flex flex-col gap-3">
-                <input x-model="email" type="email" placeholder="{{ t('auth.email', lang) }}" required autocomplete="email" class="input">
-                <button type="submit" class="btn-gold w-full" :disabled="$store.auth.loading">
-                    <span x-show="!$store.auth.loading">Send reset link</span>
-                    <span x-show="$store.auth.loading" x-cloak>Sending...</span>
-                </button>
-            </form>
-            <p class="mt-4 text-center text-sm text-text-muted">
-                <button @click="$store.auth.showForgotPassword = false; $store.auth.showLogin = true; $store.auth.error = ''" class="text-gold hover:text-gold-light">Back to sign in</button>
-            </p>
+            <p class="mt-5 text-xs text-text-dim">{{ t('auth.google_only_note', lang) }}</p>
         </div>
     </div>
 

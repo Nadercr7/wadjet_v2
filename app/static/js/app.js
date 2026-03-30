@@ -305,69 +305,7 @@ document.addEventListener('alpine:init', () => {
             return '/';
         },
 
-        async register(email, password, displayName) {
-            this.loading = true;
-            this.error = '';
-            try {
-                const r = await fetch('/api/auth/register', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ email, password, display_name: displayName || null }),
-                });
-                const data = await r.json();
-                if (!r.ok) {
-                    if (Array.isArray(data.detail)) {
-                        this.error = data.detail.map(e => (e.msg || '').replace(/^Value error, /i, '')).join('. ');
-                    } else {
-                        this.error = data.detail || (window.__i18n && window.__i18n.auth_register_fail) || 'Registration failed';
-                    }
-                    return false;
-                }
-                this.user = data.user;
-                this.token = data.access_token;
-                this._save();
-                document.cookie = 'wadjet_session=1;path=/;SameSite=Lax;max-age=' + (60*60*24*30) + (location.protocol === 'https:' ? ';Secure' : '');
-                this.showSignup = false;
-                Alpine.store('toast').show((window.__i18n && window.__i18n.auth_welcome) || 'Welcome to Wadjet!', 'success');
-                const next = this._getNextUrl();
-                window.location.href = next;
-                return true;
-            } catch { this.error = (window.__i18n && window.__i18n.auth_network) || 'Network error'; return false; }
-            finally { this.loading = false; }
-        },
-
-        async login(email, password) {
-            this.loading = true;
-            this.error = '';
-            try {
-                const r = await fetch('/api/auth/login', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ email, password }),
-                });
-                const data = await r.json();
-                if (!r.ok) {
-                    if (Array.isArray(data.detail)) {
-                        this.error = data.detail.map(e => (e.msg || '').replace(/^Value error, /i, '')).join('. ');
-                    } else {
-                        this.error = data.detail || (window.__i18n && window.__i18n.auth_login_fail) || 'Login failed';
-                    }
-                    return false;
-                }
-                this.user = data.user;
-                this.token = data.access_token;
-                this._save();
-                document.cookie = 'wadjet_session=1;path=/;SameSite=Lax;max-age=' + (60*60*24*30) + (location.protocol === 'https:' ? ';Secure' : '');
-                this.showLogin = false;
-                Alpine.store('toast').show((window.__i18n && window.__i18n.auth_welcome_back) || 'Welcome back!', 'success');
-                const next = this._getNextUrl();
-                window.location.href = next;
-                return true;
-            } catch { this.error = (window.__i18n && window.__i18n.auth_network) || 'Network error'; return false; }
-            finally { this.loading = false; }
-        },
-
-        async logout() {
+        async googleSignIn() {
             try { await fetch('/api/auth/logout', { method: 'POST' }); } catch { /* best-effort */ }
             this.user = null;
             this.token = null;
@@ -427,22 +365,6 @@ document.addEventListener('alpine:init', () => {
             finally { this.loading = false; }
         },
 
-        async forgotPassword(email) {
-            this.loading = true;
-            this.error = '';
-            try {
-                const r = await fetch('/api/auth/forgot-password', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ email }),
-                });
-                if (!r.ok) {
-                    const data = await r.json();
-                    this.error = data.detail || 'Something went wrong';
-                }
-            } catch { this.error = (window.__i18n && window.__i18n.auth_network) || 'Network error'; }
-            finally { this.loading = false; }
-        },
     });
 });
 

@@ -81,7 +81,8 @@
         "toast_signed_out": "تم تسجيل الخروج",
         "toast_login_failed": "فشل تسجيل الدخول",
         "toast_register_failed": "فشل إنشاء الحساب",
-        "toast_network_error": "خطأ في الشبكة"
+        "toast_network_error": "خطأ في الشبكة",
+        "google_only_note": "سجّل دخولك بأمان باستخدام حسابك في جوجل. بدون كلمات مرور."
     },
     "footer": {
         "aria": "تذييل الموقع",
