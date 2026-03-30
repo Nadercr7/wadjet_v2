@@ -305,23 +305,38 @@ document.addEventListener('alpine:init', () => {
             return '/';
         },
 
-        async googleSignIn() {
+        async logout() {
             try { await fetch('/api/auth/logout', { method: 'POST' }); } catch { /* best-effort */ }
             this.user = null;
             this.token = null;
             this._save();
             document.cookie = 'wadjet_session=;path=/;max-age=0';
             Alpine.store('toast').show((window.__i18n && window.__i18n.auth_signed_out) || 'Signed out', 'info');
+            window.location.href = '/welcome';
         },
 
         async refreshToken() {
             try {
                 const r = await fetch('/api/auth/refresh', { method: 'POST' });
-                if (!r.ok) { this.logout(); return; }
+                if (!r.ok) { this.logout(); return null; }
                 const data = await r.json();
                 this.token = data.access_token;
                 this._save();
-            } catch { this.logout(); }
+                return this.token;
+            } catch { this.logout(); return null; }
+        },
+
+        async _authFetch(url, options) {
+            const headers = { ...(options?.headers || {}), 'Authorization': 'Bearer ' + this.token };
+            let res = await fetch(url, { ...options, headers });
+            if (res.status === 401) {
+                const newToken = await this.refreshToken();
+                if (newToken) {
+                    headers['Authorization'] = 'Bearer ' + newToken;
+                    res = await fetch(url, { ...options, headers });
+                }
+            }
+            return res;
         },
 
         async googleSignIn() {

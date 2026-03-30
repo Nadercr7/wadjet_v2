@@ -256,14 +256,13 @@ function dashboardApp() {
 
         async init() {
             if (!Alpine.store('auth').user) return;
-            const token = Alpine.store('auth').token;
-            const headers = { 'Authorization': 'Bearer ' + token };
+            const auth = Alpine.store('auth');
             const results = await Promise.allSettled([
-                fetch('/api/user/stats', { headers }),
-                fetch('/api/user/history', { headers }),
-                fetch('/api/user/progress', { headers }),
-                fetch('/api/user/favorites', { headers }),
-                fetch('/api/user/limits', { headers }),
+                auth._authFetch('/api/user/stats'),
+                auth._authFetch('/api/user/history'),
+                auth._authFetch('/api/user/progress'),
+                auth._authFetch('/api/user/favorites'),
+                auth._authFetch('/api/user/limits'),
             ]);
             try { if (results[0].status === 'fulfilled' && results[0].value.ok) this.stats = await results[0].value.json(); } catch {}
             try {
@@ -284,9 +283,8 @@ function dashboardApp() {
 
         async retryScans() {
             this.errorScans = '';
-            const token = Alpine.store('auth').token;
             try {
-                const res = await fetch('/api/user/history', { headers: { 'Authorization': 'Bearer ' + token } });
+                const res = await Alpine.store('auth')._authFetch('/api/user/history');
                 if (res.ok) this.history = await res.json();
                 else this.errorScans = '{{ t("common.error", lang) }}';
             } catch { this.errorScans = '{{ t("common.error", lang) }}'; }
@@ -294,9 +292,8 @@ function dashboardApp() {
 
         async retryStories() {
             this.errorStories = '';
-            const token = Alpine.store('auth').token;
             try {
-                const res = await fetch('/api/user/progress', { headers: { 'Authorization': 'Bearer ' + token } });
+                const res = await Alpine.store('auth')._authFetch('/api/user/progress');
                 if (res.ok) this.storyProgress = await res.json();
                 else this.errorStories = '{{ t("common.error", lang) }}';
             } catch { this.errorStories = '{{ t("common.error", lang) }}'; }
@@ -304,9 +301,8 @@ function dashboardApp() {
 
         async retryFavs() {
             this.errorFavs = '';
-            const token = Alpine.store('auth').token;
             try {
-                const res = await fetch('/api/user/favorites', { headers: { 'Authorization': 'Bearer ' + token } });
+                const res = await Alpine.store('auth')._authFetch('/api/user/favorites');
                 if (res.ok) this.favs = await res.json();
                 else this.errorFavs = '{{ t("common.error", lang) }}';
             } catch { this.errorFavs = '{{ t("common.error", lang) }}'; }
@@ -317,11 +313,9 @@ function dashboardApp() {
         },
 
         async removeFavorite(itemType, itemId, favId) {
-            const token = Alpine.store('auth').token;
             try {
-                const res = await fetch(`/api/user/favorites/${itemType}/${encodeURIComponent(itemId)}`, {
+                const res = await Alpine.store('auth')._authFetch(`/api/user/favorites/${itemType}/${encodeURIComponent(itemId)}`, {
                     method: 'DELETE',
-                    headers: { 'Authorization': 'Bearer ' + token },
                 });
                 if (res.ok) {
                     this.favs = this.favs.filter(f => f.id !== favId);
