@@ -697,6 +697,8 @@
         "email_placeholder": "your@email.com",
         "submit": "ابعت الملاحظة",
         "sending": "بيتبعت...",
+        "pick_category": "اختار نوع الملاحظة عشان تكمل",
+        "min_chars": "لازم 10 حروف على الأقل",
         "thanks": "شكراً ليك!",
         "thanks_sub": "ملاحظتك بتساعدنا نحسّن واجت."
     },

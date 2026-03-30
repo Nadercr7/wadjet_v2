@@ -697,6 +697,8 @@
         "email_placeholder": "your@email.com",
         "submit": "Send Feedback",
         "sending": "Sending...",
+        "pick_category": "Please pick a category to continue",
+        "min_chars": "At least 10 characters required",
         "thanks": "Thank you!",
         "thanks_sub": "Your feedback helps us make Wadjet better."
     },
