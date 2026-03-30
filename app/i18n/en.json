@@ -82,6 +82,7 @@
         "toast_login_failed": "Login failed",
         "toast_register_failed": "Registration failed",
         "toast_network_error": "Network error",
+        "continue_with_google": "Continue with Google",
         "google_only_note": "Sign in securely with your Google account. No passwords needed."
     },
     "footer": {

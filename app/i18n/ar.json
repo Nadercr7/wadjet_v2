@@ -82,6 +82,7 @@
         "toast_login_failed": "فشل تسجيل الدخول",
         "toast_register_failed": "فشل إنشاء الحساب",
         "toast_network_error": "خطأ في الشبكة",
+        "continue_with_google": "المتابعة بحساب جوجل",
         "google_only_note": "سجّل دخولك بأمان باستخدام حسابك في جوجل. بدون كلمات مرور."
     },
     "footer": {
