@@ -9,7 +9,7 @@ from sqlalchemy import case, func, select, delete
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.db.models import Favorite, RefreshToken, ScanHistory, StoryProgress, User
+from app.db.models import EmailToken, Favorite, RefreshToken, ScanHistory, StoryProgress, User
 
 
 # ── Users ──
@@ -24,8 +24,30 @@ async def get_user_by_id(db: AsyncSession, user_id: str) -> User | None:
     return result.scalar_one_or_none()
 
 
-async def create_user(db: AsyncSession, email: str, password_hash: str, display_name: str | None = None) -> User:
-    user = User(email=email, password_hash=password_hash, display_name=display_name)
+async def get_user_by_google_id(db: AsyncSession, google_id: str) -> User | None:
+    result = await db.execute(select(User).where(User.google_id == google_id))
+    return result.scalar_one_or_none()
+
+
+async def create_user(
+    db: AsyncSession,
+    email: str,
+    password_hash: str | None = None,
+    display_name: str | None = None,
+    google_id: str | None = None,
+    auth_provider: str = "email",
+    email_verified: bool = False,
+    avatar_url: str | None = None,
+) -> User:
+    user = User(
+        email=email,
+        password_hash=password_hash,
+        display_name=display_name,
+        google_id=google_id,
+        auth_provider=auth_provider,
+        email_verified=email_verified,
+        avatar_url=avatar_url,
+    )
     db.add(user)
     await db.commit()
     await db.refresh(user)
@@ -193,6 +215,56 @@ async def update_user_password(db: AsyncSession, user_id: str, new_password_hash
     user.password_hash = new_password_hash
     await db.commit()
     return True
+
+
+async def link_google_account(db: AsyncSession, user: User, google_id: str, avatar_url: str | None = None) -> User:
+    """Link a Google account to an existing email user (becomes 'both' provider)."""
+    user.google_id = google_id
+    user.auth_provider = "both"
+    user.email_verified = True
+    if avatar_url and not user.avatar_url:
+        user.avatar_url = avatar_url
+    await db.commit()
+    await db.refresh(user)
+    return user
+
+
+async def verify_user_email(db: AsyncSession, user_id: str) -> bool:
+    user = await get_user_by_id(db, user_id)
+    if not user:
+        return False
+    user.email_verified = True
+    await db.commit()
+    return True
+
+
+# ── Email Tokens ──
+
+async def create_email_token(db: AsyncSession, user_id: str, token_hash: str, token_type: str, expires_at: datetime) -> EmailToken:
+    # Delete existing tokens of the same type for this user
+    await db.execute(
+        delete(EmailToken).where(EmailToken.user_id == user_id, EmailToken.token_type == token_type)
+    )
+    et = EmailToken(user_id=user_id, token_hash=token_hash, token_type=token_type, expires_at=expires_at)
+    db.add(et)
+    await db.commit()
+    return et
+
+
+async def validate_email_token(db: AsyncSession, token_hash: str, token_type: str) -> EmailToken | None:
+    result = await db.execute(
+        select(EmailToken).where(
+            EmailToken.token_hash == token_hash,
+            EmailToken.token_type == token_type,
+            EmailToken.expires_at > datetime.now(timezone.utc),
+        )
+    )
+    return result.scalar_one_or_none()
+
+
+async def delete_email_token(db: AsyncSession, token_id: int) -> None:
+    await db.execute(delete(EmailToken).where(EmailToken.id == token_id))
+    await db.commit()
 
 
 # ── Stats ──

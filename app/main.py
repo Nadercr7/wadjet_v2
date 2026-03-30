@@ -165,6 +165,12 @@ def create_app() -> FastAPI:
             re.compile(r"^/api/auth/refresh$"),
             # Logout — destroys session, safe to exempt
             re.compile(r"^/api/auth/logout$"),
+            # OAuth + email flows — no CSRF cookie on first request
+            re.compile(r"^/api/auth/google$"),
+            re.compile(r"^/api/auth/verify-email$"),
+            re.compile(r"^/api/auth/forgot-password$"),
+            re.compile(r"^/api/auth/reset-password$"),
+            re.compile(r"^/api/auth/send-verification$"),
             # AJAX-only API endpoints — protected by CORS same-origin, no cookie mutation
             re.compile(r"^/api/audio/"),
             re.compile(r"^/api/scan$"),
@@ -202,12 +208,13 @@ def create_app() -> FastAPI:
         response.headers["Permissions-Policy"] = "camera=(self), microphone=(self), geolocation=()"
         response.headers["Content-Security-Policy"] = (
             "default-src 'self'; "
-            "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net; "
-            "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; "
+            "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://accounts.google.com; "
+            "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://accounts.google.com; "
             "img-src 'self' data: blob: https:; "
             "media-src 'self' blob:; "
-            "connect-src 'self' blob:; "
+            "connect-src 'self' blob: https://accounts.google.com; "
             "font-src 'self' https://fonts.gstatic.com; "
+            "frame-src https://accounts.google.com; "
             "frame-ancestors 'none'; "
             "base-uri 'self'; "
             "form-action 'self'"
@@ -242,6 +249,7 @@ def create_app() -> FastAPI:
     from app.i18n import t as _translate
     templates.env.globals["t"] = _translate
     templates.env.globals["base_url"] = settings.base_url.rstrip("/")
+    templates.env.globals["google_client_id"] = settings.google_client_id
 
     # Routes
     app.include_router(pages.router)

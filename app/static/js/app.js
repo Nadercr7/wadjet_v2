@@ -33,6 +33,7 @@ window.fetch = function(input, init) {
         // Auto-refresh token on 401 (except for auth endpoints themselves)
         const url = typeof input === 'string' ? input : (input && input.url) || '';
         if (response.status === 401 && !url.includes('/api/auth/')) {
+            // Single refresh request shared across all concurrent 401s
             if (!_refreshingToken) {
                 _refreshingToken = _originalFetch.call(window, '/api/auth/refresh', { method: 'POST' })
                     .then(function(r) {
@@ -44,19 +45,23 @@ window.fetch = function(input, init) {
                             Alpine.store('auth').token = data.access_token;
                             Alpine.store('auth')._save();
                         }
-                        _refreshingToken = null;
-                        // Retry the original request
-                        return _originalFetch.call(window, input, init);
                     })
                     .catch(function() {
-                        _refreshingToken = null;
                         if (typeof Alpine !== 'undefined' && Alpine.store('auth')) {
                             Alpine.store('auth').logout();
                         }
-                        return response;
+                        throw new Error('refresh failed');
+                    })
+                    .finally(function() {
+                        _refreshingToken = null;
                     });
             }
-            return _refreshingToken;
+            // Each caller waits for refresh, then retries its own request
+            return _refreshingToken.then(function() {
+                return _originalFetch.call(window, input, init);
+            }).catch(function() {
+                return response;
+            });
         }
         return response;
     });
@@ -267,6 +272,7 @@ document.addEventListener('alpine:init', () => {
         token: null,
         showLogin: false,
         showSignup: false,
+        showForgotPassword: false,
         loading: false,
         error: '',
 
@@ -378,6 +384,64 @@ document.addEventListener('alpine:init', () => {
                 this.token = data.access_token;
                 this._save();
             } catch { this.logout(); }
+        },
+
+        async googleSignIn() {
+            if (typeof google === 'undefined' || !google.accounts) {
+                this.error = 'Google Sign-In not available';
+                return;
+            }
+            const self = this;
+            google.accounts.id.initialize({
+                client_id: document.querySelector('meta[name="google-client-id"]')?.content || '',
+                callback: function(response) {
+                    self._handleGoogleCredential(response.credential);
+                },
+            });
+            google.accounts.id.prompt();
+        },
+
+        async _handleGoogleCredential(credential) {
+            this.loading = true;
+            this.error = '';
+            try {
+                const r = await fetch('/api/auth/google', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ credential }),
+                });
+                const data = await r.json();
+                if (!r.ok) {
+                    this.error = data.detail || 'Google sign-in failed';
+                    return;
+                }
+                this.user = data.user;
+                this.token = data.access_token;
+                this._save();
+                document.cookie = 'wadjet_session=1;path=/;SameSite=Lax;max-age=' + (60*60*24*30) + (location.protocol === 'https:' ? ';Secure' : '');
+                this.showLogin = false;
+                this.showSignup = false;
+                Alpine.store('toast').show((window.__i18n && window.__i18n.auth_welcome_back) || 'Welcome!', 'success');
+                window.location.href = this._getNextUrl();
+            } catch { this.error = (window.__i18n && window.__i18n.auth_network) || 'Network error'; }
+            finally { this.loading = false; }
+        },
+
+        async forgotPassword(email) {
+            this.loading = true;
+            this.error = '';
+            try {
+                const r = await fetch('/api/auth/forgot-password', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email }),
+                });
+                if (!r.ok) {
+                    const data = await r.json();
+                    this.error = data.detail || 'Something went wrong';
+                }
+            } catch { this.error = (window.__i18n && window.__i18n.auth_network) || 'Network error'; }
+            finally { this.loading = false; }
         },
     });
 });

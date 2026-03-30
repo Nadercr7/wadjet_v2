@@ -32,7 +32,7 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent  # Wadjet-v2/
 
 # Default model paths (relative to project root)
 DEFAULT_DETECTOR_PATH = PROJECT_ROOT / "models" / "hieroglyph" / "detector" / "glyph_detector_uint8.onnx"
-DEFAULT_CLASSIFIER_PATH = PROJECT_ROOT / "models" / "hieroglyph" / "classifier" / "hieroglyph_classifier.onnx"
+DEFAULT_CLASSIFIER_PATH = PROJECT_ROOT / "models" / "hieroglyph" / "classifier" / "hieroglyph_classifier_uint8.onnx"
 DEFAULT_LABEL_MAPPING_PATH = PROJECT_ROOT / "models" / "hieroglyph" / "classifier" / "label_mapping.json"
 
 # Classification confidence below this is flagged as uncertain

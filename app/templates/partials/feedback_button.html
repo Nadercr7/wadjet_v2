@@ -3,7 +3,7 @@
   <!-- Floating Action Button -->
   <button @click="open = true"
           class="fixed bottom-6 left-6 rtl:left-auto rtl:right-6 z-[9990] w-12 h-12 rounded-full bg-gold text-night shadow-lg hover:bg-gold-light transition-colors flex items-center justify-center group"
-          :aria-label="t('feedback.title', '{{ lang }}')"
+          :aria-label="'{{ t('feedback.title', lang) }}'"
           x-show="!open">
     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
@@ -57,7 +57,7 @@
         <div>
           <label for="fb-message" class="text-sm text-text-muted mb-1 block">{{ t('feedback.message_label', lang) }} *</label>
           <textarea id="fb-message" x-model="message" required minlength="10" maxlength="1000" rows="4"
-                    class="input w-full resize-none" :placeholder="t('feedback.message_placeholder', '{{ lang }}')"></textarea>
+                    class="input w-full resize-none" :placeholder="'{{ t('feedback.message_placeholder', lang) }}'"></textarea>
           <p class="text-xs text-text-dim mt-1 text-end" x-text="message.length + '/1000'"></p>
         </div>
 

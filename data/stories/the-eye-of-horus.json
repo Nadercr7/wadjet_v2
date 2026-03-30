@@ -1,0 +1,436 @@
+{
+    "id": "the-eye-of-horus",
+    "title": { "en": "The Eye of Horus", "ar": "عين حورس" },
+    "subtitle": { "en": "The sacred Wedjat — healing, protection, and cosmic justice", "ar": "الوجات المقدسة — الشفاء والحماية والعدالة الكونية" },
+    "cover_glyph": "𓂀",
+    "difficulty": "intermediate",
+    "estimated_minutes": 18,
+    "glyphs_taught": ["D10", "G5", "Q1", "S34", "N5", "S42", "R8", "D4", "V30", "C3", "M17", "D21"],
+    "source": "Contendings of Horus and Set (Papyrus Chester Beatty I, ~1150 BCE), Temple of Edfu",
+    "period": "New Kingdom, ~1150 BCE",
+    "chapters": [
+        {
+            "index": 0,
+            "title": { "en": "The Murder of Osiris", "ar": "مقتل أوزيريس" },
+            "scene_image_prompt": "Ancient Egyptian banquet hall at night, the god Set standing menacingly beside an ornate golden coffin chest, Osiris about to lie inside, other gods watching in horror, torches casting dramatic shadows on hieroglyph-covered walls",
+            "tts_voice": "Aoede",
+            "tts_style": "Begin with authority and warmth for the golden age, then shift to dark foreboding as Set's treachery unfolds. Dramatic pauses before the betrayal.",
+            "paragraphs": [
+                {
+                    "text": {
+                        "en": "In the age when gods walked upon the black earth of Kemet, Osiris ruled as the first pharaoh. He taught humanity to cultivate emmer wheat along the fertile banks of the Nile, to brew beer from barley, and to worship the gods with proper rites. His queen was Isis, whose wisdom surpassed even that of Ra.",
+                        "ar": "في العصر الذي مشت فيه الآلهة على الأرض السوداء لكِمِت، حكم أوزيريس كأول فرعون. علّم البشرية زراعة قمح الإيمر على ضفاف النيل الخصبة، وصناعة الجعة من الشعير، وعبادة الآلهة بالطقوس الصحيحة. كانت ملكته إيزيس، التي فاقت حكمتها حكمة رع نفسه."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "Osiris", "ar": "أوزيريس" },
+                            "gardiner_code": "Q1",
+                            "glyph": "𓊨",
+                            "meaning": { "en": "Throne/seat — the hieroglyph that appears in Osiris's name (Wsir). The throne symbolizes his kingship.", "ar": "العرش/المقعد — الهيروغليفية التي تظهر في اسم أوزيريس (وسير). يرمز العرش لملكيته." },
+                            "transliteration": "st"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "But Set, brother of Osiris and lord of the red desert, burned with jealousy. According to the Pyramid Texts — the oldest religious writings in the world, carved inside the pyramids of Saqqara around 2400 BCE — Set devised a treacherous plan. He commissioned a magnificent chest of cedar and gold, crafted to the exact measurements of Osiris's body.",
+                        "ar": "لكن ست، شقيق أوزيريس وسيد الصحراء الحمراء، اشتعل بالغيرة. وفقًا لنصوص الأهرام — أقدم كتابات دينية في العالم، نُقشت داخل أهرامات سقارة حوالي 2400 ق.م — دبّر ست خطة غادرة. أمر بصنع صندوق فاخر من خشب الأرز والذهب، على مقاسات جسد أوزيريس بالضبط."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "life", "ar": "حياة" },
+                            "gardiner_code": "S34",
+                            "glyph": "𓋹",
+                            "meaning": { "en": "The ankh — the most famous Egyptian symbol, meaning 'life'. Osiris's life is about to be taken.", "ar": "العنخ — أشهر رمز مصري، يعني 'الحياة'. حياة أوزيريس على وشك أن تُسلب." },
+                            "transliteration": "ꜥnḫ"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "At a great feast, Set announced that whoever fit perfectly inside the chest would receive it as a gift. When Osiris lay inside, the lid slammed shut. Set sealed it with molten lead and cast the coffin into the Nile. The first pharaoh was no more — but from his death, the promise of resurrection would be born.",
+                        "ar": "في مأدبة كبرى، أعلن ست أن من يناسبه الصندوق تمامًا سيحصل عليه هدية. حين استلقى أوزيريس بداخله، أُغلق الغطاء بقوة. ختمه ست بالرصاص المنصهر وألقى بالتابوت في النيل. لم يعد الفرعون الأول — لكن من موته سيولد وعد البعث."
+                    },
+                    "glyph_annotations": []
+                }
+            ],
+            "interactions": [
+                {
+                    "type": "glyph_discovery",
+                    "after_paragraph": 0,
+                    "glyph": "Q1",
+                    "unicode": "𓊨",
+                    "prompt": { "en": "The throne of Osiris — this glyph appears in both Osiris's and Isis's names.", "ar": "عرش أوزيريس — هذه الهيروغليفية تظهر في اسمي أوزيريس وإيزيس." },
+                    "meaning": { "en": "Throne/seat — kingship and divine authority", "ar": "العرش/المقعد — الملكية والسلطة الإلهية" },
+                    "transliteration": "st"
+                },
+                {
+                    "type": "story_decision",
+                    "after_paragraph": 2,
+                    "prompt": { "en": "You witness Set's treachery. What would you do?", "ar": "أنت تشهد خيانة ست. ماذا كنت لتفعل؟" },
+                    "choices": [
+                        {
+                            "id": "warn_osiris",
+                            "text": { "en": "Rush to warn Osiris before he enters the chest", "ar": "أسرع لتحذير أوزيريس قبل أن يدخل الصندوق" },
+                            "outcome": { "en": "A noble instinct! But the myth teaches that even the greatest kings face betrayal. The Pyramid Texts tell us: 'O Osiris, you have gone, but you shall return.' From tragedy comes resurrection.", "ar": "غريزة نبيلة! لكن الأسطورة تعلمنا أن حتى أعظم الملوك يواجهون الخيانة. تقول نصوص الأهرام: 'يا أوزيريس، لقد ذهبت، لكنك ستعود.' من المأساة يأتي البعث." }
+                        },
+                        {
+                            "id": "observe_fate",
+                            "text": { "en": "Watch in silence — the gods have woven this fate", "ar": "شاهد في صمت — الآلهة نسجت هذا القدر" },
+                            "outcome": { "en": "The ancient Egyptians believed in Ma'at — cosmic order. Even tragedy was part of the divine plan. From Osiris's death came the promise of resurrection for all of humanity — the foundation of Egyptian afterlife beliefs.", "ar": "آمن المصريون القدماء بالماعت — النظام الكوني. حتى المأساة كانت جزءًا من الخطة الإلهية. من موت أوزيريس جاء وعد البعث لكل البشرية — أساس معتقدات الحياة الآخرة المصرية." }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "index": 1,
+            "title": { "en": "The Birth of Horus", "ar": "ميلاد حورس" },
+            "scene_image_prompt": "Isis hiding with infant Horus in dense papyrus marshes of Khemmis in the Nile Delta, protective cobra goddess watching over them, moonlight filtering through tall papyrus reeds, mother and divine child in sanctuary",
+            "tts_voice": "Aoede",
+            "tts_style": "Tender and protective, like a mother whispering to her child. Build to determination as Isis raises Horus for vengeance.",
+            "paragraphs": [
+                {
+                    "text": {
+                        "en": "Isis, great of magic — Weret Hekau — would not accept her husband's fate. With her sister Nephthys, she searched the length of Egypt. She found the coffin embedded in a great tamarisk tree in the port city of Byblos, in what is now Lebanon. But Set discovered the body and in his fury tore it into fourteen pieces, scattering them across the land.",
+                        "ar": "إيزيس، عظيمة السحر — ورت حكاو — لم تقبل مصير زوجها. مع أختها نفتيس، بحثت في طول مصر. وجدت التابوت مغروسًا في شجرة طرفاء عظيمة في مدينة جبيل الساحلية، فيما هو الآن لبنان. لكن ست اكتشف الجسد وفي غضبه مزّقه إلى أربع عشرة قطعة، ونثرها عبر الأرض."
+                    },
+                    "glyph_annotations": []
+                },
+                {
+                    "text": {
+                        "en": "Undaunted, Isis gathered every piece. Using her extraordinary magical power, she reassembled Osiris and conceived a son — Horus, whose name Hor means 'the distant one,' referring to the falcon soaring high in the sky. The Metternich Stela (circa 380 BCE) records that Isis hid the infant in the papyrus marshes of Khemmis in the Nile Delta.",
+                        "ar": "دون يأس، جمعت إيزيس كل قطعة. باستخدام قوتها السحرية الاستثنائية، أعادت تجميع أوزيريس وحملت بابن — حورس، الذي يعني اسمه حور 'البعيد'، في إشارة إلى الصقر المحلّق عاليًا في السماء. تسجل لوحة مترنيخ (حوالي 380 ق.م) أن إيزيس أخفت الرضيع في مستنقعات البردي في خميس بدلتا النيل."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "Horus", "ar": "حورس" },
+                            "gardiner_code": "G5",
+                            "glyph": "𓅃",
+                            "meaning": { "en": "The falcon — Horus, god of the sky, the rightful heir. Every pharaoh was considered the living Horus on Earth.", "ar": "الصقر — حورس، إله السماء، الوريث الشرعي. كل فرعون كان يُعتبر حورس الحيّ على الأرض." },
+                            "transliteration": "ḥr"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "Isis protected the young Horus from scorpions, snakes, and the agents of Set. She taught him the arts of war and the ways of kingship. When Horus came of age, he set forth to claim what was rightfully his — the throne of Egypt.",
+                        "ar": "حمت إيزيس حورس الصغير من العقارب والثعابين وعملاء ست. علّمته فنون الحرب وطرق الملكية. وحين بلغ حورس سن الرشد، انطلق للمطالبة بما هو حقه — عرش مصر."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "Ra", "ar": "رع" },
+                            "gardiner_code": "N5",
+                            "glyph": "𓇳",
+                            "meaning": { "en": "The sun disk — Ra, the supreme god who must judge between Horus and Set.", "ar": "قرص الشمس — رع، الإله الأعلى الذي يجب أن يحكم بين حورس وست." },
+                            "transliteration": "rꜥ"
+                        }
+                    ]
+                }
+            ],
+            "interactions": [
+                {
+                    "type": "glyph_discovery",
+                    "after_paragraph": 1,
+                    "glyph": "G5",
+                    "unicode": "𓅃",
+                    "prompt": { "en": "The falcon of Horus! Every pharaoh was Horus incarnate on Earth.", "ar": "صقر حورس! كل فرعون كان تجسيد حورس على الأرض." },
+                    "meaning": { "en": "Falcon — Horus, kingship, the living pharaoh", "ar": "الصقر — حورس، الملكية، الفرعون الحيّ" },
+                    "transliteration": "ḥr"
+                },
+                {
+                    "type": "choose_glyph",
+                    "after_paragraph": 2,
+                    "question": { "en": "Which glyph represents the sun god Ra, who must judge the dispute?", "ar": "أي هيروغليفية تمثل إله الشمس رع، الذي يجب أن يحكم في النزاع؟" },
+                    "options": [
+                        { "code": "N5", "glyph": "𓇳" },
+                        { "code": "G5", "glyph": "𓅃" },
+                        { "code": "S34", "glyph": "𓋹" },
+                        { "code": "Q1", "glyph": "𓊨" }
+                    ],
+                    "correct": "N5",
+                    "explanation": { "en": "The sun disk (N5) 𓇳 represents Ra, the supreme solar deity and head of the divine tribunal.", "ar": "قرص الشمس (N5) 𓇳 يمثل رع، الإله الشمسي الأعلى ورئيس المحكمة الإلهية." }
+                }
+            ]
+        },
+        {
+            "index": 2,
+            "title": { "en": "The Contendings Before the Ennead", "ar": "المنازعات أمام التاسوع" },
+            "scene_image_prompt": "Grand divine courtroom of the Ennead with nine enthroned gods, young falcon-headed Horus debating the beast-headed Set before the judgment seat of Ra, golden scales visible, tense atmosphere",
+            "tts_voice": "Aoede",
+            "tts_style": "Courtroom drama — measured, weighty, building tension. The fate of Egypt hangs in balance for eighty years.",
+            "paragraphs": [
+                {
+                    "text": {
+                        "en": "The Contendings of Horus and Set — preserved on Papyrus Chester Beatty I, dated to the reign of Ramesses V (circa 1150 BCE) — describes the most dramatic legal dispute in Egyptian mythology. For eighty years, the Ennead of Heliopolis debated who should inherit the throne.",
+                        "ar": "صراع حورس وست — المحفوظ على بردية تشستر بيتي الأولى، المؤرخة لعهد رمسيس الخامس (حوالي 1150 ق.م) — يصف أكثر نزاع قانوني دراماتيكي في الأساطير المصرية. لثمانين عامًا، ناقش تاسوع هليوبوليس من يجب أن يرث العرش."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "power", "ar": "قوة" },
+                            "gardiner_code": "S42",
+                            "glyph": "𓌂",
+                            "meaning": { "en": "The was-scepter — symbol of divine power and dominion. Both Horus and Set claim this authority.", "ar": "صولجان الواس — رمز القوة الإلهية والسيادة. كلا حورس وست يدّعيان هذه السلطة." },
+                            "transliteration": "wꜣs"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "The gods devised contests to settle the dispute. In one trial, both had to race boats made of stone. Set carved his from solid granite, but clever Horus built his from cedar wood plastered to look like stone. When the race began, Set's boat sank immediately. In another contest, they transformed into hippopotami and dove to the Nile's bottom — whoever surfaced first would lose.",
+                        "ar": "ابتكرت الآلهة مسابقات لحسم النزاع. في اختبار، كان على كليهما التسابق بقوارب من حجر. نحت ست قاربه من الجرانيت الصلب، لكن حورس الذكي بنى قاربه من خشب الأرز المطلي ليبدو كالحجر. حين بدأ السباق، غرق قارب ست فورًا. في مسابقة أخرى، تحولا إلى أفراس نهر وغطسا إلى قاع النيل — من يظهر أولًا يخسر."
+                    },
+                    "glyph_annotations": []
+                },
+                {
+                    "text": {
+                        "en": "Ra, the head of the tribunal, initially favored Set for his strength — Set was the only god powerful enough to fight the serpent Apophis each night. But Thoth, god of wisdom and writing, argued for justice. He wrote a letter to Osiris in the underworld asking his opinion. Osiris replied with righteous fury: 'Why should my son be cheated? Is it not I who makes the grain grow?'",
+                        "ar": "رع، رئيس المحكمة، فضّل ست في البداية لقوته — كان ست الإله الوحيد القوي بما يكفي لمحاربة الثعبان أبوفيس كل ليلة. لكن تحوت، إله الحكمة والكتابة، دافع عن العدالة. كتب رسالة إلى أوزيريس في العالم السفلي يسأل رأيه. رد أوزيريس بغضب بارّ: 'لماذا يُخدع ابني؟ أليست أنا الذي يُنبت الحبوب؟'"
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "Thoth", "ar": "تحوت" },
+                            "gardiner_code": "C3",
+                            "glyph": "𓁟",
+                            "meaning": { "en": "Thoth — the ibis-headed god of wisdom, writing, and the moon. Keeper of cosmic records.", "ar": "تحوت — الإله ذو رأس طائر أبو منجل، إله الحكمة والكتابة والقمر. حارس السجلات الكونية." },
+                            "transliteration": "ḏḥwty"
+                        }
+                    ]
+                }
+            ],
+            "interactions": [
+                {
+                    "type": "glyph_discovery",
+                    "after_paragraph": 0,
+                    "glyph": "S42",
+                    "unicode": "𓌂",
+                    "prompt": { "en": "The was-scepter — symbol of divine power that Horus and Set both seek.", "ar": "صولجان الواس — رمز القوة الإلهية التي يسعى إليها حورس وست." },
+                    "meaning": { "en": "Was-scepter — divine power and dominion", "ar": "صولجان الواس — القوة الإلهية والسيادة" },
+                    "transliteration": "wꜣs"
+                },
+                {
+                    "type": "choose_glyph",
+                    "after_paragraph": 2,
+                    "question": { "en": "Which glyph represents the wise god Thoth who advocated for justice?", "ar": "أي هيروغليفية تمثل الإله الحكيم تحوت الذي دافع عن العدالة؟" },
+                    "options": [
+                        { "code": "G5", "glyph": "𓅃" },
+                        { "code": "C3", "glyph": "𓁟" },
+                        { "code": "N5", "glyph": "𓇳" },
+                        { "code": "S42", "glyph": "𓌂" }
+                    ],
+                    "correct": "C3",
+                    "explanation": { "en": "Thoth (C3) 𓁟 — the ibis-headed god who invented writing and maintained cosmic order through wisdom.", "ar": "تحوت (C3) 𓁟 — الإله ذو رأس أبو منجل الذي اخترع الكتابة وحافظ على النظام الكوني بالحكمة." }
+                }
+            ]
+        },
+        {
+            "index": 3,
+            "title": { "en": "The Eye is Lost", "ar": "فقدان العين" },
+            "scene_image_prompt": "Fierce battle between falcon-headed Horus and beast-headed Set in the starlit desert, Set tearing out the glowing Wedjat eye while Horus strikes back, cosmic energy swirling around them, blood and divine light",
+            "tts_voice": "Aoede",
+            "tts_style": "Intense, violent, painful. The moment of cosmic injury. Then shift to sorrow as the sacred eye is lost.",
+            "paragraphs": [
+                {
+                    "text": {
+                        "en": "The contests escalated into outright war. In their fiercest battle, fought under the stars of the desert, Set committed the act that would echo through all of Egyptian religion. He tore out Horus's left eye — the lunar eye, the eye of night. According to the Temple of Edfu inscriptions, Set ripped it into six pieces and scattered them across the desert.",
+                        "ar": "تصاعدت المنافسات إلى حرب صريحة. في أشرس معاركهما، التي دارت تحت نجوم الصحراء، ارتكب ست الفعل الذي سيتردد صداه في كل الديانة المصرية. انتزع عين حورس اليسرى — العين القمرية، عين الليل. وفقًا لنقوش معبد إدفو، مزّق ست العين إلى ست قطع ونثرها عبر الصحراء."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "the Eye", "ar": "العين" },
+                            "gardiner_code": "D10",
+                            "glyph": "𓂀",
+                            "meaning": { "en": "The Wedjat eye — the restored Eye of Horus. In mathematics, its six parts represent fractions: 1/2, 1/4, 1/8, 1/16, 1/32, 1/64.", "ar": "عين الوجات — عين حورس المُستعادة. في الرياضيات، تمثل أجزاؤها الستة كسورًا: 1/2، 1/4، 1/8، 1/16، 1/32، 1/64." },
+                            "transliteration": "wḏꜣt"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "But Horus was no helpless victim. In the same battle, he struck back with terrible force, wounding Set's testicles — a symbolic destruction of Set's ability to produce an heir. The violence was cosmic in scale: the sky cracked, the desert shook, and the other gods withdrew in horror.",
+                        "ar": "لكن حورس لم يكن ضحية عاجزة. في نفس المعركة، ردّ بقوة مروعة، جارحًا خصيتي ست — تدمير رمزي لقدرة ست على إنتاج وريث. كان العنف كونيًا في حجمه: تشقق السماء، اهتزت الصحراء، وانسحبت الآلهة الأخرى في رعب."
+                    },
+                    "glyph_annotations": []
+                },
+                {
+                    "text": {
+                        "en": "The six pieces of the Wedjat eye became the basis of Egyptian fraction mathematics. Each piece represented a fraction: the eyebrow was 1/8, the pupil was 1/4, the teardrop was 1/32. Together they sum to 63/64 — the missing 1/64 was said to be supplied by Thoth's magic during the restoration.",
+                        "ar": "أصبحت القطع الست لعين الوجات أساس رياضيات الكسور المصرية. كل قطعة مثّلت كسرًا: الحاجب كان 1/8، البؤبؤ كان 1/4، الدمعة كانت 1/32. مجموعها 63/64 — الجزء المفقود 1/64 كان يُقال إن سحر تحوت أكمله أثناء الاستعادة."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "eye", "ar": "عين" },
+                            "gardiner_code": "D4",
+                            "glyph": "𓂀",
+                            "meaning": { "en": "The basic eye glyph — foundation of the Wedjat. Used in writing 'to see,' 'to do,' and 'to make.'", "ar": "هيروغليفية العين الأساسية — أساس الوجات. تُستخدم في كتابة 'يرى' و'يفعل' و'يصنع'." },
+                            "transliteration": "ir"
+                        }
+                    ]
+                }
+            ],
+            "interactions": [
+                {
+                    "type": "glyph_discovery",
+                    "after_paragraph": 0,
+                    "glyph": "D10",
+                    "unicode": "𓂀",
+                    "prompt": { "en": "The sacred Wedjat! Its six parts encode Egyptian fractions — mathematics hidden in mythology.", "ar": "الوجات المقدسة! أجزاؤها الستة ترمز للكسور المصرية — رياضيات مخبأة في الأساطير." },
+                    "meaning": { "en": "Wedjat eye — healing, protection, and mathematical fractions", "ar": "عين الوجات — الشفاء والحماية والكسور الرياضية" },
+                    "transliteration": "wḏꜣt"
+                },
+                {
+                    "type": "write_word",
+                    "after_paragraph": 2,
+                    "target_word": { "en": "eye", "ar": "عين" },
+                    "target_glyph": "𓂀",
+                    "gardiner_code": "D4",
+                    "hint": { "en": "The almond-shaped eye with decorative markings below — perhaps the most recognized Egyptian symbol", "ar": "العين اللوزية الشكل مع علامات زخرفية أسفلها — ربما أكثر رمز مصري معروف" }
+                }
+            ]
+        },
+        {
+            "index": 4,
+            "title": { "en": "The Restoration by Thoth", "ar": "استعادة تحوت للعين" },
+            "scene_image_prompt": "Ibis-headed Thoth carefully reassembling the glowing pieces of the Wedjat eye in a moonlit temple laboratory, magical light emanating from the reassembled eye, hieroglyphic scrolls and instruments of knowledge surrounding him",
+            "tts_voice": "Aoede",
+            "tts_style": "Reverent and magical. The moment of healing. Wonder and awe as the Eye is made whole again.",
+            "paragraphs": [
+                {
+                    "text": {
+                        "en": "Thoth, the ibis-headed god of wisdom, gathered the six scattered fragments of the Eye beneath the light of the moon — his celestial domain. The Temple of Dendera, built in the Ptolemaic period, contains the most detailed account of the restoration. Thoth used heka — divine magic — to reassemble the fractured Eye piece by piece.",
+                        "ar": "جمع تحوت، الإله ذو رأس أبو منجل إله الحكمة، القطع الست المتناثرة من العين تحت ضوء القمر — مملكته السماوية. يحتوي معبد دندرة، المبني في العصر البطلمي، على أكثر رواية تفصيلية للاستعادة. استخدم تحوت حِكا — السحر الإلهي — لإعادة تجميع العين المكسورة قطعة قطعة."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "scroll", "ar": "لفافة" },
+                            "gardiner_code": "M17",
+                            "glyph": "𓇋",
+                            "meaning": { "en": "The reed — used in writing Thoth's wisdom and sacred spells. Reed and brush were the tools of scribes.", "ar": "القصبة — تُستخدم في كتابة حكمة تحوت والتعاويذ المقدسة. القصبة والفرشاة كانتا أدوات الكتّاب." },
+                            "transliteration": "i"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "The restored Eye — now called Wedjat, meaning 'the whole one' — shone brighter than before. It became the supreme symbol of healing and restoration in Egyptian medicine. Physicians wore Wedjat amulets, and the symbol was painted on coffins to protect the dead on their eternal journey.",
+                        "ar": "العين المُستعادة — المسمّاة الآن وجات، بمعنى 'الكاملة' — أشرقت أكثر من ذي قبل. أصبحت الرمز الأسمى للشفاء والاستعادة في الطب المصري. ارتدى الأطباء تمائم الوجات، ورُسم الرمز على التوابيت لحماية الموتى في رحلتهم الأبدية."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "good", "ar": "جميل" },
+                            "gardiner_code": "R8",
+                            "glyph": "𓄤",
+                            "meaning": { "en": "Nefer — 'beautiful, perfect, good.' The restored Eye was nefer — made whole and perfect again.", "ar": "نفر — 'جميل، كامل، طيّب.' العين المُستعادة كانت نفر — أُعيدت كاملة ومثالية." },
+                            "transliteration": "nfr"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "Horus then made the most selfless act in Egyptian mythology: instead of keeping the restored Eye for himself, he offered it to his dead father Osiris. This act — recorded in Pyramid Text Utterance 373 — gave Osiris the power to rule the afterlife. The offering of the Eye became the model for all Egyptian temple offerings ever after.",
+                        "ar": "ثم قام حورس بأكثر فعل إيثار في الأساطير المصرية: بدلًا من الاحتفاظ بالعين المُستعادة لنفسه، قدّمها لأبيه الميت أوزيريس. هذا الفعل — المسجل في نصوص الأهرام، النطق 373 — منح أوزيريس القوة لحكم الحياة الآخرة. أصبح تقديم العين نموذجًا لكل قرابين المعابد المصرية بعد ذلك."
+                    },
+                    "glyph_annotations": []
+                }
+            ],
+            "interactions": [
+                {
+                    "type": "glyph_discovery",
+                    "after_paragraph": 1,
+                    "glyph": "R8",
+                    "unicode": "𓄤",
+                    "prompt": { "en": "Nefer — 'perfect, beautiful.' The Eye was made nefer through Thoth's magic.", "ar": "نفر — 'كامل، جميل.' أُعيدت العين كاملة بسحر تحوت." },
+                    "meaning": { "en": "Nefer — perfection, beauty, goodness", "ar": "نفر — الكمال، الجمال، الخير" },
+                    "transliteration": "nfr"
+                },
+                {
+                    "type": "choose_glyph",
+                    "after_paragraph": 2,
+                    "question": { "en": "What does the ankh symbol represent — the gift Osiris received through the Eye?", "ar": "ماذا يمثل رمز العنخ — الهبة التي تلقاها أوزيريس من خلال العين؟" },
+                    "options": [
+                        { "code": "S34", "glyph": "𓋹" },
+                        { "code": "R8", "glyph": "𓄤" },
+                        { "code": "D10", "glyph": "𓂀" },
+                        { "code": "S42", "glyph": "𓌂" }
+                    ],
+                    "correct": "S34",
+                    "explanation": { "en": "The ankh (S34) 𓋹 represents 'life' — the ultimate gift the Eye bestowed upon Osiris, granting him eternal life as ruler of the dead.", "ar": "العنخ (S34) 𓋹 يمثل 'الحياة' — الهبة العظمى التي منحتها العين لأوزيريس، مانحةً إياه حياة أبدية كحاكم للموتى." }
+                }
+            ]
+        },
+        {
+            "index": 5,
+            "title": { "en": "The Judgment — Horus Ascends", "ar": "الحكم — صعود حورس" },
+            "scene_image_prompt": "Horus crowned as King of Egypt receiving the double crown from the assembled gods, Set bound and kneeling, Osiris watching approvingly from the underworld below, rays of divine light, throne room of the gods",
+            "tts_voice": "Aoede",
+            "tts_style": "Triumphant and majestic. Justice is served. End with cosmic peace and the eternal cycle.",
+            "paragraphs": [
+                {
+                    "text": {
+                        "en": "At last, the Ennead rendered its verdict. Guided by Thoth's wisdom and Osiris's letter from the underworld, they declared Horus 'maa-kheru' — 'true of voice,' meaning justified. Horus received the Pschent, the Double Crown of Upper and Lower Egypt, and ascended to the throne of the living.",
+                        "ar": "أخيرًا، أصدر التاسوع حكمه. بإرشاد حكمة تحوت ورسالة أوزيريس من العالم السفلي، أعلنوا حورس 'ماع خرو' — 'صادق الصوت'، أي مُبرَّأ. تلقى حورس بشنت، التاج المزدوج للوجه القبلي والبحري، وصعد إلى عرش الأحياء."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "mouth", "ar": "فم" },
+                            "gardiner_code": "D21",
+                            "glyph": "𓂋",
+                            "meaning": { "en": "The mouth — used in 'maa-kheru' (true of voice). To be 'maa-kheru' meant your words were proven true before the gods.", "ar": "الفم — يُستخدم في 'ماع خرو' (صادق الصوت). أن تكون 'ماع خرو' يعني أن كلماتك ثبتت صدقها أمام الآلهة." },
+                            "transliteration": "r"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "Set was not destroyed — a remarkable feature of Egyptian theology. Instead, he was given dominion over the desert and foreign lands, and his most important role: standing at the prow of Ra's solar barque each night to fight the chaos serpent Apophis. Set's strength, which had been destructive, became protective.",
+                        "ar": "لم يُدمَّر ست — سمة مميزة في اللاهوت المصري. بدلًا من ذلك، مُنح السيادة على الصحراء والأراضي الأجنبية، ودوره الأهم: الوقوف عند مقدمة مركب رع الشمسي كل ليلة لمحاربة ثعبان الفوضى أبوفيس. قوة ست، التي كانت مدمرة، أصبحت حامية."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "basket", "ar": "سلة" },
+                            "gardiner_code": "V30",
+                            "glyph": "𓎡",
+                            "meaning": { "en": "The basket — used for 'lord' (nb). Both Horus and Set are now 'nb' — lords of their respective domains.", "ar": "السلة — تُستخدم لكلمة 'سيد' (نب). كلا حورس وست الآن 'نب' — سيدان لمملكتَيهما." },
+                            "transliteration": "nb"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "And so the cosmic order was restored. Horus ruled the living, Osiris ruled the dead, and Set guarded the night. The Wedjat eye became Egypt's most powerful protective symbol — painted on amulets, coffins, and the prows of ships. Every time you see the Eye of Horus, remember: it tells of sacrifice, healing, and the triumph of justice over chaos.",
+                        "ar": "وهكذا أُعيد النظام الكوني. حكم حورس الأحياء، وحكم أوزيريس الموتى، وحرس ست الليل. أصبحت عين الوجات أقوى رمز حماية في مصر — رُسمت على التمائم والتوابيت ومقدمات السفن. في كل مرة ترى عين حورس، تذكّر: إنها تحكي عن التضحية والشفاء وانتصار العدالة على الفوضى."
+                    },
+                    "glyph_annotations": []
+                }
+            ],
+            "interactions": [
+                {
+                    "type": "glyph_discovery",
+                    "after_paragraph": 0,
+                    "glyph": "D21",
+                    "unicode": "𓂋",
+                    "prompt": { "en": "The mouth glyph — to be 'true of voice' was the highest honor for any Egyptian.", "ar": "هيروغليفية الفم — أن تكون 'صادق الصوت' كان أعلى شرف لأي مصري." },
+                    "meaning": { "en": "Mouth — speech, 'true of voice,' justified", "ar": "الفم — الكلام، 'صادق الصوت'، مُبرَّأ" },
+                    "transliteration": "r"
+                },
+                {
+                    "type": "story_decision",
+                    "after_paragraph": 1,
+                    "prompt": { "en": "Set is spared and given the desert. Was this just?", "ar": "نجا ست ومُنح الصحراء. هل كان هذا عدلًا؟" },
+                    "choices": [
+                        {
+                            "id": "justice_served",
+                            "text": { "en": "Yes — even chaos has a role in the cosmic order", "ar": "نعم — حتى الفوضى لها دور في النظام الكوني" },
+                            "outcome": { "en": "This is the Egyptian concept of Ma'at at its deepest. Good and chaos are not opposites to be destroyed — they are forces to be balanced. Set's power protects Ra's barque each night. Without him, Apophis would swallow the sun.", "ar": "هذا مفهوم الماعت المصري في أعمق أشكاله. الخير والفوضى ليسا نقيضين يجب تدميرهما — بل قوى يجب موازنتها. قوة ست تحمي مركب رع كل ليلة. بدونه، لابتلع أبوفيس الشمس." }
+                        },
+                        {
+                            "id": "too_lenient",
+                            "text": { "en": "No — Set murdered Osiris and should face greater punishment", "ar": "لا — ست قتل أوزيريس ويجب أن يواجه عقابًا أكبر" },
+                            "outcome": { "en": "Many people feel this way! In later periods of Egyptian history, Set was indeed demonized and his monuments defaced. But in the New Kingdom, he was still respected as a necessary force — the god who kept the sun safe from chaos every single night.", "ar": "كثيرون يشعرون بهذا! في فترات لاحقة من التاريخ المصري، شُيطن ست بالفعل وشُوّهت آثاره. لكن في المملكة الحديثة، ظل محترمًا كقوة ضرورية — الإله الذي أبقى الشمس آمنة من الفوضى كل ليلة." }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

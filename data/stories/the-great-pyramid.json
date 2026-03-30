@@ -1,0 +1,300 @@
+{
+    "id": "the-great-pyramid",
+    "title": { "en": "The Building of the Great Pyramid", "ar": "بناء الهرم الأكبر" },
+    "subtitle": { "en": "How 20,000 workers built a mountain for eternity", "ar": "كيف بنى 20,000 عامل جبلًا للأبدية" },
+    "cover_glyph": "𓉴",
+    "difficulty": "beginner",
+    "estimated_minutes": 15,
+    "glyphs_taught": ["O24", "N5", "S1", "M23", "D21", "O1", "S34", "G43", "N35", "Z1"],
+    "source": "Archaeological evidence from Giza Plateau, Wadi al-Jarf papyri (oldest known papyri, ~2560 BCE), Herodotus Histories II.124-126, Mark Lehner's excavations at Workers' Village",
+    "period": "Old Kingdom, 4th Dynasty (~2580–2560 BCE)",
+    "chapters": [
+        {
+            "index": 0,
+            "title": { "en": "Khufu's Vision", "ar": "رؤية خوفو" },
+            "scene_image_prompt": "Pharaoh Khufu on a throne overlooking the Giza plateau receiving architectural plans from his vizier Hemiunu, a wooden model of the pyramid before them, court officials and scribes recording, dawn light illuminating limestone cliffs",
+            "tts_voice": "Aoede",
+            "tts_style": "Grand and visionary. The voice of a pharaoh dreaming of eternity. Authority mixed with cosmic ambition.",
+            "paragraphs": [
+                {
+                    "text": {
+                        "en": "Around 2580 BCE, Pharaoh Khufu — known to the Greeks as Cheops — made a decision that would echo through all of human history. He would build the largest structure the world had ever seen: a tomb so vast, so precise, and so enduring that it would guarantee his eternal life among the stars. This was the Great Pyramid of Giza.",
+                        "ar": "حوالي 2580 قبل الميلاد، اتخذ الفرعون خوفو — المعروف عند الإغريق باسم خيوبس — قرارًا سيتردد صداه عبر تاريخ البشرية كله. سيبني أكبر بناء شهده العالم: مقبرة ضخمة جدًا، دقيقة جدًا، ومتينة جدًا لدرجة أنها ستضمن حياته الأبدية بين النجوم. هذا كان الهرم الأكبر في الجيزة."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "pyramid", "ar": "هرم" },
+                            "gardiner_code": "O24",
+                            "glyph": "𓉴",
+                            "meaning": { "en": "The pyramid — called 'mer' in Egyptian. The word may derive from a root meaning 'place of ascension' — the pharaoh's staircase to the sky.", "ar": "الهرم — يُسمى 'مر' بالمصرية. ربما اشتُقت الكلمة من جذر يعني 'مكان الصعود' — سلّم الفرعون إلى السماء." },
+                            "transliteration": "mr"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "The pyramid was not merely a tomb — it was a cosmic machine. The ancient Egyptians believed that the pharaoh's soul needed to ascend to the circumpolar stars — the 'imperishable ones' that never set below the horizon. The pyramid's shape mimicked the rays of the sun breaking through clouds, and its internal shafts pointed directly at the stars of Orion (associated with Osiris) and Thuban (the pole star of that era).",
+                        "ar": "لم يكن الهرم مجرد مقبرة — كان آلة كونية. آمن المصريون القدماء بأن روح الفرعون تحتاج للصعود إلى نجوم القطب — 'الخالدات' التي لا تغيب أبدًا تحت الأفق. شكل الهرم حاكى أشعة الشمس تخترق الغيوم، وممراته الداخلية أشارت مباشرة إلى نجوم الجبار (المرتبطة بأوزيريس) وثوبان (نجم القطب في تلك الحقبة)."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "sun", "ar": "شمس" },
+                            "gardiner_code": "N5",
+                            "glyph": "𓇳",
+                            "meaning": { "en": "The sun — the shape of the pyramid may represent petrified sunbeams. The benben stone atop each pyramid was gilded to catch the first rays of dawn.", "ar": "الشمس — قد يمثل شكل الهرم أشعة شمس متحجرة. حجر البنبن فوق كل هرم كان مُذهَّبًا ليلتقط أولى أشعة الفجر." },
+                            "transliteration": "rꜥ"
+                        }
+                    ]
+                }
+            ],
+            "interactions": [
+                {
+                    "type": "glyph_discovery",
+                    "after_paragraph": 0,
+                    "glyph": "O24",
+                    "unicode": "𓉴",
+                    "prompt": { "en": "The pyramid — 'mer' in Egyptian. A staircase to the stars, a beacon for eternity.", "ar": "الهرم — 'مر' بالمصرية. سلّم إلى النجوم، منارة للأبدية." },
+                    "meaning": { "en": "Pyramid — place of ascension, royal tomb", "ar": "الهرم — مكان الصعود، المقبرة الملكية" },
+                    "transliteration": "mr"
+                }
+            ]
+        },
+        {
+            "index": 1,
+            "title": { "en": "The Workers — Not Slaves", "ar": "العمال — ليسوا عبيدًا" },
+            "scene_image_prompt": "Egyptian workers' village at Giza with organized barracks, bakeries producing bread, breweries making beer, a supervisor distributing linen garments, workers eating together, bustling organized community, not slaves but skilled laborers",
+            "tts_voice": "Aoede",
+            "tts_style": "Corrective and proud. Debunking the slavery myth with pride in Egyptian achievement. Workers as honored citizens.",
+            "paragraphs": [
+                {
+                    "text": {
+                        "en": "For centuries, people believed the pyramids were built by slaves — a myth spread by Herodotus and reinforced by Hollywood. But modern archaeology has proved this completely wrong. In 1990, Mark Lehner and Zahi Hawass discovered the Workers' Village at Giza: a planned community with barracks, bakeries, breweries, a hospital, and even a cemetery where workers were buried with honor.",
+                        "ar": "لقرون، آمن الناس بأن الأهرامات بناها عبيد — أسطورة نشرها هيرودوت وعززتها هوليوود. لكن علم الآثار الحديث أثبت أن هذا خاطئ تمامًا. في 1990، اكتشف مارك لينر وزاهي حواس قرية العمال في الجيزة: مجتمع مخطط بأماكن إقامة ومخابز ومصانع بيرة ومستشفى وحتى مقبرة حيث دُفن العمال بشرف."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "house", "ar": "بيت" },
+                            "gardiner_code": "O1",
+                            "glyph": "𓉐",
+                            "meaning": { "en": "The house — the Workers' Village had stone and mudbrick houses arranged in organized rows, with communal facilities.", "ar": "البيت — كانت قرية العمال تحتوي على منازل من الحجر واللبن مرتبة في صفوف منظمة، بمرافق مشتركة." },
+                            "transliteration": "pr"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "Around 20,000 workers built the Great Pyramid in roughly 20 years. They were organized into crews with names like 'Friends of Khufu' and 'Drunkards of Menkaure.' These were skilled laborers — stonemasons, surveyors, ramp builders, water carriers — plus seasonal farmers who worked during the Nile flood when farmland was underwater. They were fed 21 cattle and 23 sheep per day.",
+                        "ar": "حوالي 20,000 عامل بنوا الهرم الأكبر في نحو 20 سنة. نُظموا في فرق بأسماء مثل 'أصدقاء خوفو' و'سكيري منكاورع.' كانوا عمالًا مهرة — بنائي حجر، مساحين، بنائي منحدرات، حاملي ماء — بالإضافة إلى مزارعين موسميين عملوا أثناء فيضان النيل حين كانت الأراضي الزراعية تحت الماء. أُطعموا 21 بقرة و23 خروفًا يوميًا."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "king", "ar": "ملك" },
+                            "gardiner_code": "M23",
+                            "glyph": "𓇓",
+                            "meaning": { "en": "The sedge plant — 'King of Upper Egypt.' Khufu's full title included this glyph, marking him as ruler of the entire Nile Valley.", "ar": "نبات السوسن — 'ملك مصر العليا.' لقب خوفو الكامل تضمن هذه الهيروغليفية، مميزًا إياه كحاكم لوادي النيل بأكمله." },
+                            "transliteration": "sw"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "The 2013 discovery of the Wadi al-Jarf papyri gave us the first eyewitness account: Inspector Merer's logbook records his crew transporting limestone blocks from Tura quarries across the Nile to Giza. These are the oldest known papyri in existence — a 4,500-year-old work diary, complete with daily entries and ration lists.",
+                        "ar": "اكتشاف بردي وادي الجرف عام 2013 أعطانا أول شهادة عيان: سجل المفتش مرر يوثق نقل فرقته كتل الحجر الجيري من محاجر طرة عبر النيل إلى الجيزة. هذه أقدم برديات معروفة في الوجود — مذكرة عمل عمرها 4,500 سنة، كاملة بإدخالات يومية وقوائم حصص."
+                    },
+                    "glyph_annotations": []
+                }
+            ],
+            "interactions": [
+                {
+                    "type": "glyph_discovery",
+                    "after_paragraph": 1,
+                    "glyph": "M23",
+                    "unicode": "𓇓",
+                    "prompt": { "en": "The sedge — symbol of Upper Egypt and kingship. Khufu ruled a unified Egypt capable of this enormous project.", "ar": "السوسن — رمز مصر العليا والملكية. حكم خوفو مصر موحدة قادرة على هذا المشروع الضخم." },
+                    "meaning": { "en": "Sedge — Upper Egypt, kingship", "ar": "السوسن — مصر العليا، الملكية" },
+                    "transliteration": "sw"
+                },
+                {
+                    "type": "story_decision",
+                    "after_paragraph": 2,
+                    "prompt": { "en": "The truth about pyramid builders is very different from the Hollywood version. What surprises you most?", "ar": "حقيقة بناة الأهرامات مختلفة جدًا عن نسخة هوليوود. ما الذي يفاجئك أكثر؟" },
+                    "choices": [
+                        {
+                            "id": "organization",
+                            "text": { "en": "The incredible organization — crew names, rations, logbooks", "ar": "التنظيم المذهل — أسماء الفرق، الحصص، السجلات" },
+                            "outcome": { "en": "Egypt was perhaps the first true bureaucracy in history. They kept records of everything: rations, attendance, injuries, even worker complaints. The Wadi al-Jarf papyri show us that Inspector Merer tracked his crew's daily activities with the precision of a modern project manager. 4,500 years ago!", "ar": "ربما كانت مصر أول بيروقراطية حقيقية في التاريخ. سجلوا كل شيء: الحصص، الحضور، الإصابات، حتى شكاوى العمال. بردي وادي الجرف يُظهر لنا أن المفتش مرر تتبع أنشطة فرقته اليومية بدقة مدير مشروع حديث. قبل 4,500 سنة!" }
+                        },
+                        {
+                            "id": "not_slaves",
+                            "text": { "en": "That they weren't slaves — they were fed, housed, and honored", "ar": "أنهم لم يكونوا عبيدًا — أُطعموا وأُسكنوا وأُكرموا" },
+                            "outcome": { "en": "Workers who died during construction were buried in tombs near the pyramid itself — a great honor that no slave would receive. Some had healed bones showing they received medical care. Graffiti on blocks shows team pride: 'We are the ones who built the horizon of Khufu!' Building the pyramid was a national duty and an honor, like serving in the army.", "ar": "العمال الذين ماتوا أثناء البناء دُفنوا في مقابر قرب الهرم ذاته — شرف عظيم لن يناله عبد. بعضهم كان لديه عظام ملتئمة تُظهر أنهم تلقوا رعاية طبية. كتابات على الكتل تُظهر فخر الفرق: 'نحن من بنينا أفق خوفو!' بناء الهرم كان واجبًا وطنيًا وشرفًا، كالخدمة في الجيش." }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "index": 2,
+            "title": { "en": "Engineering the Impossible", "ar": "هندسة المستحيل" },
+            "scene_image_prompt": "Cross-section view of the Great Pyramid showing the Grand Gallery the King's Chamber and Queen's Chamber, workers hauling limestone blocks up ramps, internal passages illuminated by copper mirrors reflecting sunlight, engineering marvel",
+            "tts_voice": "Aoede",
+            "tts_style": "Amazed and technical. Let the numbers speak for themselves. Every fact should make the listener's jaw drop.",
+            "paragraphs": [
+                {
+                    "text": {
+                        "en": "The numbers are staggering. The Great Pyramid contains 2.3 million stone blocks, each averaging 2.5 tons. The base covers 13 acres — large enough to fit 10 football fields. It rises 481 feet (146 meters), and was the tallest structure on Earth for nearly 4,000 years until Lincoln Cathedral in 1311 CE. The base is level to within 2.1 centimeters across its entire 756-foot span.",
+                        "ar": "الأرقام مذهلة. يحتوي الهرم الأكبر على 2.3 مليون كتلة حجرية، متوسط وزن كل منها 2.5 طن. القاعدة تغطي 53,000 متر مربع — كبيرة بما يكفي لتسع 10 ملاعب كرة قدم. يرتفع 146 مترًا، وكان أطول بناء على الأرض لنحو 4,000 سنة حتى كاتدرائية لينكولن عام 1311 ميلادي. القاعدة مستوية في حدود 2.1 سنتيمتر عبر امتدادها الكامل البالغ 230 مترًا."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "one", "ar": "واحد" },
+                            "gardiner_code": "Z1",
+                            "glyph": "𓏤",
+                            "meaning": { "en": "The stroke — number one. Each of the 2.3 million blocks had to be cut, transported, and placed with incredible precision. One block at a time.", "ar": "الشرطة — الرقم واحد. كل كتلة من 2.3 مليون كتلة يجب أن تُقطع وتُنقل وتُوضع بدقة مذهلة. كتلة واحدة في كل مرة." },
+                            "transliteration": "1"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "Inside, the Grand Gallery is an architectural marvel: a corbelled corridor 47 meters long and 8.6 meters high, leading to the King's Chamber. The King's Chamber contains granite beams, each weighing 25–80 tons, transported from Aswan — 580 miles south. Above the chamber are five stress-relieving chambers designed to distribute the weight of the pyramid above. This is engineering genius without modern mathematics.",
+                        "ar": "بالداخل، الرواق الكبير تحفة معمارية: ممر مكربل بطول 47 مترًا وارتفاع 8.6 أمتار، يقود إلى غرفة الملك. غرفة الملك تحتوي على عوارض جرانيتية، كل منها يزن 25-80 طنًا، نُقلت من أسوان — على بعد 930 كيلومترًا جنوبًا. فوق الغرفة خمس غرف لتخفيف الضغط مصممة لتوزيع وزن الهرم فوقها. هذا عبقرية هندسية بدون الرياضيات الحديثة."
+                    },
+                    "glyph_annotations": []
+                }
+            ],
+            "interactions": [
+                {
+                    "type": "choose_glyph",
+                    "after_paragraph": 0,
+                    "question": { "en": "Which glyph represents the crown worn by the pharaoh who commissioned this wonder?", "ar": "أي هيروغليفية تمثل التاج الذي ارتداه الفرعون الذي أمر ببناء هذه الأعجوبة؟" },
+                    "options": [
+                        { "code": "S1", "glyph": "𓋑" },
+                        { "code": "N5", "glyph": "𓇳" },
+                        { "code": "O24", "glyph": "𓉴" },
+                        { "code": "S34", "glyph": "𓋹" }
+                    ],
+                    "correct": "S1",
+                    "explanation": { "en": "The White Crown (S1) 𓋑 — hedjet, the crown of Upper Egypt. The pharaoh wore this tall conical crown to represent his rule over the Nile Valley.", "ar": "التاج الأبيض (S1) 𓋑 — الحجت، تاج مصر العليا. ارتدى الفرعون هذا التاج المخروطي الطويل ليمثل حكمه على وادي النيل." }
+                },
+                {
+                    "type": "glyph_discovery",
+                    "after_paragraph": 0,
+                    "glyph": "S1",
+                    "unicode": "𓋑",
+                    "prompt": { "en": "The White Crown — the hedjet of Upper Egypt. A symbol of royal authority since before the pyramids.", "ar": "التاج الأبيض — حجت مصر العليا. رمز السلطة الملكية منذ ما قبل الأهرامات." },
+                    "meaning": { "en": "White Crown — hedjet, Upper Egypt, royal authority", "ar": "التاج الأبيض — الحجت، مصر العليا، السلطة الملكية" },
+                    "transliteration": "ḥḏt"
+                }
+            ]
+        },
+        {
+            "index": 3,
+            "title": { "en": "The Techniques", "ar": "التقنيات" },
+            "scene_image_prompt": "Workers using copper tools to quarry limestone blocks, teams pouring water on sand to drag stone blocks on wooden sleds, ramp system spiraling around the growing pyramid, copper chisels and measuring cords, practical ancient engineering",
+            "tts_voice": "Aoede",
+            "tts_style": "Practical and explanatory. Every technique should feel elegant in its simplicity. Human ingenuity over brute force.",
+            "paragraphs": [
+                {
+                    "text": {
+                        "en": "How did they do it with only copper tools and no iron? The core blocks were limestone quarried on-site — the Giza plateau itself is limestone. Workers used copper chisels, wooden wedges soaked in water (which expanded and split rock), and dolerite pounders. A team of skilled quarrymen could extract one 2.5-ton block every few minutes once a rhythm was established.",
+                        "ar": "كيف فعلوا ذلك بأدوات نحاسية فقط وبدون حديد؟ كتل اللب كانت حجرًا جيريًا مقطوعًا في الموقع — هضبة الجيزة ذاتها من الحجر الجيري. استخدم العمال أزاميل نحاسية، وأوتاد خشبية مبللة بالماء (التي تتمدد وتشق الصخر)، ومدقات الدوليريت. فريق من عمال المحاجر المهرة يستطيع استخراج كتلة وزنها 2.5 طن كل عدة دقائق بمجرد ضبط الإيقاع."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "mouth", "ar": "فم" },
+                            "gardiner_code": "D21",
+                            "glyph": "𓂋",
+                            "meaning": { "en": "The mouth — also the word for 'opening' and 'entrance.' The pyramid builders created entrances, passages, and ventilation shafts with precise openings.", "ar": "الفم — أيضًا كلمة 'فتحة' و'مدخل.' بنائو الهرم خلقوا مداخل وممرات ومنافذ تهوية بفتحات دقيقة." },
+                            "transliteration": "r"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "For transport, Egyptian teams placed blocks on wooden sleds and poured water on the sand ahead — a technique depicted in the tomb of Djehutihotep and recently confirmed by physicists at the University of Amsterdam. The water reduced friction by 50%, making it possible for a team of 20 men to drag a multi-ton block. For the ramps, the most likely theory is an internal spiraling ramp built into the pyramid itself.",
+                        "ar": "للنقل، وضعت الفرق المصرية الكتل على زلاجات خشبية وصبت الماء على الرمل أمامها — تقنية مصورة في مقبرة جحوتي حتب وأكدها مؤخرًا فيزيائيون في جامعة أمستردام. قلّل الماء الاحتكاك بنسبة 50%، مما مكّن فريقًا من 20 رجلًا من سحب كتلة متعددة الأطنان. بالنسبة للمنحدرات، النظرية الأكثر ترجيحًا هي منحدر لولبي داخلي مبني في الهرم ذاته."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "water", "ar": "ماء" },
+                            "gardiner_code": "N35",
+                            "glyph": "𓈖",
+                            "meaning": { "en": "Water — the secret to moving pyramid blocks. A simple technique with profound results.", "ar": "الماء — سر نقل كتل الهرم. تقنية بسيطة بنتائج عميقة." },
+                            "transliteration": "n"
+                        }
+                    ]
+                }
+            ],
+            "interactions": [
+                {
+                    "type": "write_word",
+                    "after_paragraph": 0,
+                    "target_word": { "en": "quail chick", "ar": "فرخ السمان" },
+                    "target_glyph": "𓅱",
+                    "gardiner_code": "G43",
+                    "hint": { "en": "One of the most common hieroglyphs — the quail chick. Found in words like 'wꜣt' (road) — the pyramid builders created roads and ramps across the desert.", "ar": "أحد أكثر الهيروغليفيات شيوعًا — فرخ السمان. يوجد في كلمات مثل 'وات' (طريق) — بنّاء الهرم أنشأوا طرقًا ومنحدرات عبر الصحراء." }
+                },
+                {
+                    "type": "glyph_discovery",
+                    "after_paragraph": 1,
+                    "glyph": "N35",
+                    "unicode": "𓈖",
+                    "prompt": { "en": "Water — the pyramid builders' secret weapon. Pouring water on sand halved the friction for dragging blocks.", "ar": "الماء — السلاح السري لبناة الهرم. صب الماء على الرمل قلل الاحتكاك لسحب الكتل للنصف." },
+                    "meaning": { "en": "Water — life, lubrication, the Nile", "ar": "الماء — الحياة، التزليق، النيل" },
+                    "transliteration": "n"
+                }
+            ]
+        },
+        {
+            "index": 4,
+            "title": { "en": "Eternity Achieved", "ar": "الأبدية تحققت" },
+            "scene_image_prompt": "The completed Great Pyramid of Giza gleaming with white Tura limestone casing and a golden capstone reflecting the sun, the pyramid complex with mortuary temple causeway and valley temple, Nile in the background, the wonder of the ancient world in its glory",
+            "tts_voice": "Aoede",
+            "tts_style": "Triumphant wonder. The completed pyramid as a statement of human capability. End with reflection on what endures.",
+            "paragraphs": [
+                {
+                    "text": {
+                        "en": "When completed, the Great Pyramid was sheathed in fine white Tura limestone, polished until it gleamed like a mirror. At its apex sat the pyramidion — a golden or electrum capstone called the benben, named after the primordial mound of creation. At dawn, the golden tip would catch the sun's first rays while the rest of the world was still in shadow. The Egyptians called it 'Akhet Khufu' — the Horizon of Khufu.",
+                        "ar": "حين اكتمل، كان الهرم الأكبر مكسوًا بالحجر الجيري الأبيض الناعم من طرة، مصقولًا حتى لمع كالمرآة. في قمته جلس الهُرَيم — قمة ذهبية أو إلكترومية تُسمى البنبن، سُميت تيمنًا بالتل البدائي للخلق. عند الفجر، كانت القمة الذهبية تلتقط أولى أشعة الشمس بينما بقية العالم لا يزال في الظل. سمّاه المصريون 'أخت خوفو' — أفق خوفو."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "life", "ar": "حياة" },
+                            "gardiner_code": "S34",
+                            "glyph": "𓋹",
+                            "meaning": { "en": "The ankh — eternal life. The Great Pyramid was built to ensure Khufu's immortality. In a way, it succeeded — his name has endured for 4,500 years.", "ar": "العنخ — الحياة الأبدية. بُني الهرم الأكبر لضمان خلود خوفو. بطريقة ما، نجح — اسمه صمد لـ4,500 سنة." },
+                            "transliteration": "ꜥnḫ"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "The Great Pyramid stands today as the last surviving Wonder of the Ancient World. The Hanging Gardens, the Colossus, the Lighthouse — all gone. But Khufu's mountain of stone endures. It survived 4,500 years of earthquakes, invasions, stone theft, and the slow erosion of time. It is a monument not to slavery or tyranny, but to human organization, engineering genius, and the eternal question that drives all civilization: what will survive us?",
+                        "ar": "يقف الهرم الأكبر اليوم كآخر عجائب الدنيا القديمة الباقية. الحدائق المعلقة، التمثال العملاق، المنارة — كلها ذهبت. لكن جبل خوفو الحجري صمد. نجا من 4,500 سنة من الزلازل والغزوات وسرقة الحجر والتآكل البطيء للزمن. إنه نصب تذكاري ليس للعبودية أو الطغيان، بل للتنظيم البشري والعبقرية الهندسية والسؤال الأبدي الذي يدفع كل حضارة: ما الذي سيبقى بعدنا؟"
+                    },
+                    "glyph_annotations": []
+                }
+            ],
+            "interactions": [
+                {
+                    "type": "story_decision",
+                    "after_paragraph": 1,
+                    "prompt": { "en": "The Great Pyramid is 4,500 years old and still standing. What will our civilization leave behind?", "ar": "الهرم الأكبر عمره 4,500 سنة ولا يزال قائمًا. ماذا ستترك حضارتنا وراءها؟" },
+                    "choices": [
+                        {
+                            "id": "digital",
+                            "text": { "en": "Our digital records — the internet is our pyramid", "ar": "سجلاتنا الرقمية — الإنترنت هو هرمنا" },
+                            "outcome": { "en": "An interesting thought — but digital data is fragile. Hard drives last decades, not millennia. The Voyager Golden Record may outlast every webpage. The Egyptians chose stone for a reason: it endures. Perhaps the true lesson of the pyramids is that physical permanence matters in ways we've forgotten.", "ar": "فكرة مثيرة — لكن البيانات الرقمية هشة. الأقراص الصلبة تدوم عقودًا، لا آلاف السنين. قرص فوياجر الذهبي قد يصمد أكثر من كل صفحة إنترنت. اختار المصريون الحجر لسبب: إنه يدوم. ربما الدرس الحقيقي للأهرامات هو أن الديمومة المادية مهمة بطرق نسيناها." }
+                        },
+                        {
+                            "id": "nothing",
+                            "text": { "en": "Honestly? I'm not sure anything we build will last that long", "ar": "بصراحة؟ لست متأكدًا أن أي شيء نبنيه سيدوم هذه المدة" },
+                            "outcome": { "en": "This humility would resonate with the Egyptians. They knew that even pyramids could crumble — which is why they also invested in magic, ritual, and memory. Perhaps what truly endures is not stone or data, but the stories we tell. You're reading about Khufu right now, 4,500 years later. His story survived.", "ar": "هذا التواضع سيتردد صداه مع المصريين. عرفوا أن حتى الأهرامات يمكن أن تنهار — لهذا استثمروا أيضًا في السحر والطقوس والذاكرة. ربما ما يدوم حقًا ليس الحجر أو البيانات، بل القصص التي نرويها. أنت تقرأ عن خوفو الآن، بعد 4,500 سنة. قصته نجت." }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

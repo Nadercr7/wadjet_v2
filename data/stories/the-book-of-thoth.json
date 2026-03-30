@@ -1,0 +1,400 @@
+{
+    "id": "the-book-of-thoth",
+    "title": { "en": "The Book of Thoth", "ar": "كتاب تحوت" },
+    "subtitle": { "en": "Forbidden knowledge and the price of divine wisdom", "ar": "المعرفة المحرّمة وثمن الحكمة الإلهية" },
+    "cover_glyph": "𓏛",
+    "difficulty": "intermediate",
+    "estimated_minutes": 16,
+    "glyphs_taught": ["C3", "Y1", "I9", "S34", "D21", "G43", "M17", "Q1", "N35", "Z1", "V28"],
+    "source": "Setne Khamwas cycle (Demotic, Cairo Museum Papyrus 30646, ~300 BCE, based on older New Kingdom traditions)",
+    "period": "Ptolemaic period, based on New Kingdom originals (~1250 BCE)",
+    "chapters": [
+        {
+            "index": 0,
+            "title": { "en": "The Scholar Prince", "ar": "الأمير العالِم" },
+            "scene_image_prompt": "Egyptian prince Setne Khamwas studying ancient scrolls by lamplight in the great library of Memphis, surrounded by papyrus rolls and hieratic texts, a golden book glowing in his imagination, scholarly dedication",
+            "tts_voice": "Aoede",
+            "tts_style": "Scholarly fascination, building obsession. The voice of a man consumed by the pursuit of forbidden knowledge.",
+            "paragraphs": [
+                {
+                    "text": {
+                        "en": "Prince Khaemwaset — known to the Greeks as Setne Khamwas — was the fourth son of Ramesses II, the greatest builder pharaoh. But Khaemwaset cared nothing for conquest. He was a scholar, the high priest of Ptah at Memphis, and the first known archaeologist in history. He restored ancient monuments and studied the writings of the ancestors.",
+                        "ar": "الأمير خعم واست — المعروف عند الإغريق باسم ستنا خاموس — كان الابن الرابع لرمسيس الثاني، أعظم فرعون بنّاء. لكن خعم واست لم يهتم بالفتوحات. كان عالمًا، الكاهن الأكبر لبتاح في ممفيس، وأول عالم آثار معروف في التاريخ. رمّم آثارًا قديمة ودرس كتابات الأجداد."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "Thoth", "ar": "تحوت" },
+                            "gardiner_code": "C3",
+                            "glyph": "𓁟",
+                            "meaning": { "en": "Thoth — god of wisdom and writing. He wrote two spells in his sacred book that granted power over heaven and earth.", "ar": "تحوت — إله الحكمة والكتابة. كتب تعويذتين في كتابه المقدس تمنحان السلطة على السماء والأرض." },
+                            "transliteration": "ḏḥwty"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "One day, Khaemwaset learned of a legendary book written by the god Thoth himself — containing two spells of unimaginable power. The first spell would let you understand the speech of birds, beasts, and serpents. The second would let you perceive the gods themselves, hidden in their celestial forms.",
+                        "ar": "ذات يوم، علم خعم واست بكتاب أسطوري كتبه الإله تحوت بنفسه — يحتوي على تعويذتين بقوة لا تُتخيَّل. التعويذة الأولى تتيح فهم كلام الطيور والحيوانات والثعابين. والثانية تتيح رؤية الآلهة أنفسهم، المختبئين في أشكالهم السماوية."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "book", "ar": "كتاب" },
+                            "gardiner_code": "Y1",
+                            "glyph": "𓏛",
+                            "meaning": { "en": "The papyrus roll — determinative for 'book,' 'writing,' and 'abstract concept.' All Egyptian knowledge was recorded on such scrolls.", "ar": "لفافة البردي — محدد لـ'كتاب' و'كتابة' و'مفهوم مجرد'. كل المعرفة المصرية سُجلت على لفائف كهذه." },
+                            "transliteration": "mḏꜣt"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "The book was hidden in the tomb of Prince Neferkaptah at the necropolis of Coptos, sealed in a series of nested boxes — an iron box inside a bronze box inside a sycamore box inside an ivory box inside an ebony box — all submerged in the depths of the Nile, guarded by an immortal serpent.",
+                        "ar": "كان الكتاب مخبأً في مقبرة الأمير نفركابتاح في مدافن قفط، مختومًا في سلسلة من الصناديق المتداخلة — صندوق حديد داخل صندوق برونز داخل صندوق جميز داخل صندوق عاج داخل صندوق أبنوس — كلها مغمورة في أعماق النيل، يحرسها ثعبان خالد."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "serpent", "ar": "ثعبان" },
+                            "gardiner_code": "I9",
+                            "glyph": "𓆑",
+                            "meaning": { "en": "The horned viper — used for the sound 'f.' Serpents in Egyptian mythology could be protectors or destroyers.", "ar": "الأفعى ذات القرون — تُستخدم للصوت 'ف'. الثعابين في الأساطير المصرية يمكن أن تكون حامية أو مدمرة." },
+                            "transliteration": "f"
+                        }
+                    ]
+                }
+            ],
+            "interactions": [
+                {
+                    "type": "glyph_discovery",
+                    "after_paragraph": 1,
+                    "glyph": "Y1",
+                    "unicode": "𓏛",
+                    "prompt": { "en": "The papyrus scroll — the medium of all Egyptian wisdom. Would you dare read a book of the gods?", "ar": "لفافة البردي — وسيلة كل الحكمة المصرية. هل تجرؤ على قراءة كتاب الآلهة؟" },
+                    "meaning": { "en": "Papyrus roll — book, writing, abstract knowledge", "ar": "لفافة البردي — كتاب، كتابة، معرفة مجردة" },
+                    "transliteration": "mḏꜣt"
+                },
+                {
+                    "type": "story_decision",
+                    "after_paragraph": 2,
+                    "prompt": { "en": "A book of divine power lies protected. Should Khaemwaset seek it?", "ar": "كتاب بقوة إلهية يكمن محميًا. هل يجب أن يبحث عنه خعم واست؟" },
+                    "choices": [
+                        {
+                            "id": "seek_knowledge",
+                            "text": { "en": "Yes — knowledge should not be hidden from those who seek it", "ar": "نعم — لا ينبغي إخفاء المعرفة عمن يبحث عنها" },
+                            "outcome": { "en": "The ancient Egyptians had a complex relationship with forbidden knowledge. Scribes were an elite class, and certain texts were restricted to priests. But Khaemwaset's pursuit shows the eternal human desire to understand the divine — even at great cost.", "ar": "كان للمصريين القدماء علاقة معقدة مع المعرفة المحرّمة. كان الكتّاب طبقة نخبة، وكانت نصوص معينة مقتصرة على الكهنة. لكن سعي خعم واست يُظهر الرغبة البشرية الأبدية في فهم الإلهي — حتى بتكلفة عظيمة." }
+                        },
+                        {
+                            "id": "respect_gods",
+                            "text": { "en": "No — some knowledge belongs to the gods alone", "ar": "لا — بعض المعرفة ملك للآلهة وحدها" },
+                            "outcome": { "en": "This is precisely the warning the story delivers. The Egyptians believed that divine knowledge carried divine responsibility. Taking power without permission from the gods always led to consequences — a lesson found across many ancient cultures.", "ar": "هذا بالضبط التحذير الذي تقدمه القصة. آمن المصريون بأن المعرفة الإلهية تحمل مسؤولية إلهية. أخذ القوة دون إذن الآلهة يؤدي دائمًا إلى عواقب — درس موجود في ثقافات قديمة كثيرة." }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "index": 1,
+            "title": { "en": "The Warning of Neferkaptah", "ar": "تحذير نفركابتاح" },
+            "scene_image_prompt": "Ghostly translucent figure of Prince Neferkaptah sitting beside his sarcophagus in a dark tomb, warning a living prince, hieroglyphic texts glowing on the walls, supernatural blue light, eerie and solemn",
+            "tts_voice": "Aoede",
+            "tts_style": "Haunting and mournful. A ghost tells his tragic tale. Growing despair as the curse unfolds.",
+            "paragraphs": [
+                {
+                    "text": {
+                        "en": "Khaemwaset journeyed to the necropolis of Coptos and found Neferkaptah's tomb. But when he entered, the ghost of Neferkaptah was waiting — seated beside his own sarcophagus, the golden Book of Thoth glowing in his spectral hands. 'Turn back,' the ghost warned. 'I paid the ultimate price for this book.'",
+                        "ar": "سافر خعم واست إلى مدافن قفط ووجد مقبرة نفركابتاح. لكن حين دخل، كان شبح نفركابتاح ينتظره — جالسًا بجوار تابوته، وكتاب تحوت الذهبي يتوهج في يديه الشبحيتين. 'ارجع،' حذّر الشبح. 'دفعت الثمن الأقصى لهذا الكتاب.'"
+                    },
+                    "glyph_annotations": []
+                },
+                {
+                    "text": {
+                        "en": "Neferkaptah told his story: He too had sought the book. He killed the immortal serpent, endured its revival three times, and finally read the sacred spells. He gained the power to understand every creature and see the gods themselves. But Thoth discovered the theft and brought his fury upon Neferkaptah's family.",
+                        "ar": "روى نفركابتاح قصته: هو أيضًا سعى وراء الكتاب. قتل الثعبان الخالد، وتحمّل إحياءه ثلاث مرات، وأخيرًا قرأ التعاويذ المقدسة. اكتسب القدرة على فهم كل مخلوق ورؤية الآلهة أنفسهم. لكن تحوت اكتشف السرقة وصبّ غضبه على عائلة نفركابتاح."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "life", "ar": "حياة" },
+                            "gardiner_code": "S34",
+                            "glyph": "𓋹",
+                            "meaning": { "en": "The ankh — 'life.' Neferkaptah gained forbidden knowledge but lost the lives of those he loved.", "ar": "العنخ — 'الحياة.' اكتسب نفركابتاح معرفة محرّمة لكنه فقد حياة من أحبهم." },
+                            "transliteration": "ꜥnḫ"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "First, Neferkaptah's son drowned in the Nile. Then his wife cast herself into the river in grief. Finally, Neferkaptah himself was found dead, the book still clutched to his chest. 'The knowledge is real,' the ghost said, 'but so is the curse. I beg you — leave this place.'",
+                        "ar": "أولًا، غرق ابن نفركابتاح في النيل. ثم ألقت زوجته نفسها في النهر حزنًا. أخيرًا، وُجد نفركابتاح نفسه ميتًا، والكتاب لا يزال مضمومًا إلى صدره. 'المعرفة حقيقية،' قال الشبح، 'لكن اللعنة كذلك. أتوسل إليك — غادر هذا المكان.'"
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "water", "ar": "ماء" },
+                            "gardiner_code": "N35",
+                            "glyph": "𓈖",
+                            "meaning": { "en": "Water ripple — the Nile that both gives life and takes it. Water is both blessing and judgment in Egyptian thought.", "ar": "موجة الماء — النيل الذي يمنح الحياة ويأخذها. الماء بركة وحكم في الفكر المصري." },
+                            "transliteration": "n"
+                        }
+                    ]
+                }
+            ],
+            "interactions": [
+                {
+                    "type": "glyph_discovery",
+                    "after_paragraph": 2,
+                    "glyph": "N35",
+                    "unicode": "𓈖",
+                    "prompt": { "en": "The water ripple — the Nile claimed the lives of Neferkaptah's family as Thoth's punishment.", "ar": "موجة الماء — أخذ النيل حياة عائلة نفركابتاح كعقاب من تحوت." },
+                    "meaning": { "en": "Water — life, death, the sacred Nile", "ar": "الماء — الحياة، الموت، النيل المقدس" },
+                    "transliteration": "n"
+                },
+                {
+                    "type": "choose_glyph",
+                    "after_paragraph": 2,
+                    "question": { "en": "Which glyph represents the divine book that Neferkaptah stole?", "ar": "أي هيروغليفية تمثل الكتاب الإلهي الذي سرقه نفركابتاح؟" },
+                    "options": [
+                        { "code": "Y1", "glyph": "𓏛" },
+                        { "code": "S34", "glyph": "𓋹" },
+                        { "code": "C3", "glyph": "𓁟" },
+                        { "code": "I9", "glyph": "𓆑" }
+                    ],
+                    "correct": "Y1",
+                    "explanation": { "en": "The papyrus roll (Y1) 𓏛 — the sacred medium of knowledge. Thoth himself wrote on papyrus, making the scribe's craft a divine act.", "ar": "لفافة البردي (Y1) 𓏛 — الوسيلة المقدسة للمعرفة. كتب تحوت نفسه على البردي، مما جعل حرفة الكاتب فعلًا إلهيًا." }
+                }
+            ]
+        },
+        {
+            "index": 2,
+            "title": { "en": "The Temptation", "ar": "الإغراء" },
+            "scene_image_prompt": "Khaemwaset reaching for the glowing golden Book of Thoth while the ghost watches helplessly, magical light illuminating the hieroglyphic tomb walls, moral crossroads moment, tension between wisdom and hubris",
+            "tts_voice": "Aoede",
+            "tts_style": "Conflicted, torn. Build the internal struggle, then the fateful decision to take the book.",
+            "paragraphs": [
+                {
+                    "text": {
+                        "en": "Despite the warning, Khaemwaset could not resist. He was, after all, a priest of Ptah — the god of craftsmen and creation — and a scholar whose entire life was devoted to understanding the mysteries of the past. He challenged Neferkaptah's ghost to a game of senet, the ancient board game of fate.",
+                        "ar": "رغم التحذير، لم يستطع خعم واست المقاومة. كان، في النهاية، كاهن بتاح — إله الحرفيين والخلق — وعالمًا كرّس حياته كلها لفهم أسرار الماضي. تحدى شبح نفركابتاح في لعبة سنت، لعبة اللوح القديمة للقدر."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "mouth", "ar": "فم" },
+                            "gardiner_code": "D21",
+                            "glyph": "𓂋",
+                            "meaning": { "en": "The mouth — used in spells and incantations. Speaking was an act of creation in Egyptian theology.", "ar": "الفم — يُستخدم في التعاويذ والترتيلات. الكلام كان فعل خلق في اللاهوت المصري." },
+                            "transliteration": "r"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "Three times they played, and three times the ghost won by trickery — sinking Khaemwaset into the earth up to his knees, then his waist, then his chest. But Khaemwaset called upon his adopted brother Inaros, who placed a magical amulet upon his head. With this protection, he seized the Book and fled the tomb.",
+                        "ar": "لعبا ثلاث مرات، وفي كل مرة فاز الشبح بالحيلة — غارسًا خعم واست في الأرض حتى ركبتيه، ثم خصره، ثم صدره. لكن خعم واست استدعى أخاه بالتبني إيناروس، الذي وضع تميمة سحرية على رأسه. بهذه الحماية، خطف الكتاب وهرب من المقبرة."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "quail chick", "ar": "فرخ السمان" },
+                            "gardiner_code": "G43",
+                            "glyph": "𓅱",
+                            "meaning": { "en": "The quail chick — one of the most common hieroglyphs, used for the sound 'w' in many words including 'one' and 'great.'", "ar": "فرخ السمان — أحد أكثر الهيروغليفيات شيوعًا، يُستخدم للصوت 'و' في كلمات كثيرة منها 'واحد' و'عظيم'." },
+                            "transliteration": "w"
+                        }
+                    ]
+                }
+            ],
+            "interactions": [
+                {
+                    "type": "glyph_discovery",
+                    "after_paragraph": 0,
+                    "glyph": "D21",
+                    "unicode": "𓂋",
+                    "prompt": { "en": "The mouth — in Egyptian magic, speaking a spell aloud made it real. Words had the power of creation.", "ar": "الفم — في السحر المصري، نطق التعويذة بصوت عالٍ جعلها حقيقية. الكلمات كانت تملك قوة الخلق." },
+                    "meaning": { "en": "Mouth — speech, magic spells, the power of words", "ar": "الفم — الكلام، التعاويذ السحرية، قوة الكلمات" },
+                    "transliteration": "r"
+                },
+                {
+                    "type": "write_word",
+                    "after_paragraph": 1,
+                    "target_word": { "en": "reed", "ar": "قصبة" },
+                    "target_glyph": "𓇋",
+                    "gardiner_code": "M17",
+                    "hint": { "en": "A single tall reed — the tool of scribes and one of the most common hieroglyphs (the sound 'i')", "ar": "قصبة واحدة طويلة — أداة الكتّاب وأحد أكثر الهيروغليفيات شيوعًا (الصوت 'ي')" }
+                }
+            ]
+        },
+        {
+            "index": 3,
+            "title": { "en": "The Power and the Price", "ar": "القوة والثمن" },
+            "scene_image_prompt": "Khaemwaset reading the Book of Thoth atop a Memphis temple at night, golden magical energy radiating outward, birds and animals gathering as he understands their speech, stars responding to his words, intoxicating power",
+            "tts_voice": "Aoede",
+            "tts_style": "Ecstatic wonder as the spells work, then creeping dread as reality warps. The voice of a man losing his grip.",
+            "paragraphs": [
+                {
+                    "text": {
+                        "en": "Khaemwaset read the first spell. Instantly, the world transformed. He could hear the ibis discussing the rising of the Nile, the jackals whispering of travellers in the desert, the fish in the river debating the currents. Every creature spoke, and he understood them all.",
+                        "ar": "قرأ خعم واست التعويذة الأولى. على الفور، تحوّل العالم. استطاع سماع طائر أبو منجل يناقش فيضان النيل، وابن آوى يهمس عن المسافرين في الصحراء، والسمك في النهر يتناقش حول التيارات. كل مخلوق تكلم، وفهمهم جميعًا."
+                    },
+                    "glyph_annotations": []
+                },
+                {
+                    "text": {
+                        "en": "He read the second spell. The heavens opened before his eyes. He saw Ra sailing in his solar barque. He perceived the thirty-six decan stars marking the hours of the night. He gazed upon the hidden forms of the gods — Ptah shaping creation on his potter's wheel, Hathor dancing among the star fields, Osiris enthroned in the hall of judgment.",
+                        "ar": "قرأ التعويذة الثانية. انفتحت السماوات أمام عينيه. رأى رع يبحر في مركبه الشمسي. أدرك النجوم ال36 التي تعلّم ساعات الليل. نظر إلى الأشكال الخفية للآلهة — بتاح يُشكّل الخلق على عجلته الفخارية، وحتحور ترقص بين حقول النجوم، وأوزيريس متربعًا في قاعة الحكم."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "wick", "ar": "فتيلة" },
+                            "gardiner_code": "V28",
+                            "glyph": "𓎛",
+                            "meaning": { "en": "The wick — used for the sound 'ḥ.' Found in words like 'ḥeka' (magic) — the very force Khaemwaset now wielded.", "ar": "الفتيلة — تُستخدم للصوت 'ح'. توجد في كلمات مثل 'حِكا' (سحر) — القوة ذاتها التي يمتلكها خعم واست الآن." },
+                            "transliteration": "ḥ"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "But divine knowledge came at a divine price. Thoth, lord of the moon and keeper of the cosmic ledger, was aware of the theft. He sent visions that blurred the line between reality and illusion. Khaemwaset began to see a beautiful woman named Tabubu who promised him everything he desired — if only he would sign over his children's inheritance.",
+                        "ar": "لكن المعرفة الإلهية جاءت بثمن إلهي. تحوت، سيد القمر وحارس السجل الكوني، كان مدركًا للسرقة. أرسل رؤى طمست الخط بين الواقع والوهم. بدأ خعم واست يرى امرأة جميلة اسمها تابوبو وعدته بكل ما يشتهي — لو فقط وقّع على تنازل عن ميراث أبنائه."
+                    },
+                    "glyph_annotations": []
+                }
+            ],
+            "interactions": [
+                {
+                    "type": "glyph_discovery",
+                    "after_paragraph": 1,
+                    "glyph": "V28",
+                    "unicode": "𓎛",
+                    "prompt": { "en": "The wick — found in 'heka' (magic). Egyptian magic was not superstition but a cosmic force.", "ar": "الفتيلة — توجد في 'حِكا' (سحر). السحر المصري لم يكن خرافة بل قوة كونية." },
+                    "meaning": { "en": "Wick/twisted flax — the sound 'ḥ,' found in heka (magic)", "ar": "الفتيلة/الكتان الملتوي — الصوت 'ح'، الموجود في حِكا (سحر)" },
+                    "transliteration": "ḥ"
+                },
+                {
+                    "type": "choose_glyph",
+                    "after_paragraph": 2,
+                    "question": { "en": "Which glyph represents the throne — the seat of divine authority that Thoth holds over all knowledge?", "ar": "أي هيروغليفية تمثل العرش — مقعد السلطة الإلهية التي يملكها تحوت على كل المعرفة؟" },
+                    "options": [
+                        { "code": "Y1", "glyph": "𓏛" },
+                        { "code": "Q1", "glyph": "𓊨" },
+                        { "code": "V28", "glyph": "𓎛" },
+                        { "code": "N35", "glyph": "𓈖" }
+                    ],
+                    "correct": "Q1",
+                    "explanation": { "en": "The throne (Q1) 𓊨 — symbol of divine authority. Thoth sits as judge over all who steal from the gods.", "ar": "العرش (Q1) 𓊨 — رمز السلطة الإلهية. يجلس تحوت كقاضٍ على كل من يسرق من الآلهة." }
+                }
+            ]
+        },
+        {
+            "index": 4,
+            "title": { "en": "The Illusion Shatters", "ar": "تحطم الوهم" },
+            "scene_image_prompt": "Khaemwaset waking from a nightmare in the middle of a Memphis street, naked and confused, the beautiful illusion dissolving around him like gold turning to sand, onlookers shocked, pharaoh approaching on a palanquin",
+            "tts_voice": "Aoede",
+            "tts_style": "Nightmarish escalation, then shattering clarity. The voice of a man jolted awake from madness into shame.",
+            "paragraphs": [
+                {
+                    "text": {
+                        "en": "Blinded by desire, Khaemwaset agreed to Tabubu's demands. He signed away his children's inheritance. He then watched — or believed he watched — as his own children were thrown to dogs and cats in the street. But as the horror reached its peak, the vision shattered. Khaemwaset awoke in the middle of a Memphis street, naked and disgraced.",
+                        "ar": "مُعمى بالرغبة، وافق خعم واست على مطالب تابوبو. وقّع على تنازل عن ميراث أبنائه. ثم شاهد — أو ظنّ أنه شاهد — أبناءه يُلقَون للكلاب والقطط في الشارع. لكن حين بلغ الرعب ذروته، تحطمت الرؤيا. استيقظ خعم واست وسط شارع في ممفيس، عاريًا ومُهانًا."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "one", "ar": "واحد" },
+                            "gardiner_code": "Z1",
+                            "glyph": "𓏤",
+                            "meaning": { "en": "The single stroke — the number one. Khaemwaset is now alone, stripped of everything by Thoth's punishment.", "ar": "الشرطة الواحدة — الرقم واحد. خعم واست الآن وحيد، مُجرَّد من كل شيء بعقاب تحوت." },
+                            "transliteration": "1"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "It was all an illusion — a heka, a magical working sent by Thoth. Tabubu never existed. His children were alive and well. But the message was devastatingly clear: the Book's power was real, but so was the god's authority over those who would steal it. No mortal could claim divine knowledge without consequences.",
+                        "ar": "كان كل شيء وهمًا — حِكا، عمل سحري أرسله تحوت. تابوبو لم تكن موجودة أبدًا. أبناؤه أحياء وبخير. لكن الرسالة كانت واضحة بشكل مدمر: قوة الكتاب حقيقية، لكن كذلك سلطة الإله على من يسرقه. لا يمكن لفانٍ أن يدّعي معرفة إلهية دون عواقب."
+                    },
+                    "glyph_annotations": []
+                },
+                {
+                    "text": {
+                        "en": "The pharaoh Ramesses II himself appeared and spoke to his son: 'Have I not warned you? The writings of Thoth are not for mortals. Return the book to the dead, or face consequences no father can prevent.' This scene reflects the Egyptian belief that even a prince must answer to the gods.",
+                        "ar": "ظهر الفرعون رمسيس الثاني نفسه وتحدث لابنه: 'ألم أحذرك؟ كتابات تحوت ليست للفانين. أعِد الكتاب للموتى، أو واجه عواقب لا يمكن لأب أن يمنعها.' يعكس هذا المشهد الاعتقاد المصري بأنه حتى الأمير يجب أن يجيب أمام الآلهة."
+                    },
+                    "glyph_annotations": []
+                }
+            ],
+            "interactions": [
+                {
+                    "type": "glyph_discovery",
+                    "after_paragraph": 0,
+                    "glyph": "Z1",
+                    "unicode": "𓏤",
+                    "prompt": { "en": "A single stroke — the number one. The simplest hieroglyph represents the loneliness of hubris.", "ar": "شرطة واحدة — الرقم واحد. أبسط هيروغليفية تمثل وحدة الغطرسة." },
+                    "meaning": { "en": "One stroke — the number 1, singularity, alone", "ar": "شرطة واحدة — الرقم 1، الوحدة، وحيد" },
+                    "transliteration": "1"
+                }
+            ]
+        },
+        {
+            "index": 5,
+            "title": { "en": "The Return", "ar": "الإعادة" },
+            "scene_image_prompt": "Khaemwaset solemnly returning the golden Book of Thoth to Neferkaptah's tomb, ghost watching with relief, the book settling back into its nested boxes, peace restored, sacred ritual of return",
+            "tts_voice": "Aoede",
+            "tts_style": "Humbled and reverent. The voice of wisdom gained through suffering. End with the peace of acceptance.",
+            "paragraphs": [
+                {
+                    "text": {
+                        "en": "Humbled and shaken, Khaemwaset returned to the tomb of Neferkaptah. He placed the Book of Thoth back in the dead prince's hands, where it belonged. The ghost smiled: 'Now you understand. I warned you, but you had to learn for yourself — as all seekers must.'",
+                        "ar": "مُتواضعًا ومهتزًا، عاد خعم واست إلى مقبرة نفركابتاح. وضع كتاب تحوت في يدي الأمير الميت، حيث ينتمي. ابتسم الشبح: 'الآن تفهم. حذّرتك، لكن كان عليك أن تتعلم بنفسك — كما يجب على كل الباحثين.'"
+                    },
+                    "glyph_annotations": []
+                },
+                {
+                    "text": {
+                        "en": "The historical Khaemwaset is buried at Saqqara, near the Step Pyramid he loved to study. He is remembered as one of the wisest princes of ancient Egypt — not because he possessed the Book of Thoth, but because he had the wisdom to give it back. True knowledge, the Egyptians believed, comes from respecting the boundaries between mortal and divine.",
+                        "ar": "خعم واست التاريخي مدفون في سقارة، بالقرب من الهرم المدرج الذي أحب دراسته. يُذكر كأحد أحكم أمراء مصر القديمة — ليس لأنه امتلك كتاب تحوت، بل لأنه امتلك الحكمة لإعادته. المعرفة الحقيقية، كما آمن المصريون، تأتي من احترام الحدود بين الفاني والإلهي."
+                    },
+                    "glyph_annotations": []
+                },
+                {
+                    "text": {
+                        "en": "But the story also tells us something the Egyptians valued deeply: the pursuit of knowledge itself — hesy, the Egyptian word for praised — is noble, even when it leads us astray. Khaemwaset's quest made him wiser not through what he gained, but through what he learned to let go. The Book of Thoth remains hidden, waiting for one who is worthy.",
+                        "ar": "لكن القصة تخبرنا أيضًا بشيء قدّره المصريون عميقًا: السعي وراء المعرفة ذاته — حسي، الكلمة المصرية للمُمدوح — نبيل، حتى حين يضلّنا. جعلت رحلة خعم واست أحكم لا من خلال ما اكتسبه، بل من خلال ما تعلّم أن يتركه. كتاب تحوت لا يزال مخفيًا، ينتظر من هو جدير."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "reed", "ar": "قصبة" },
+                            "gardiner_code": "M17",
+                            "glyph": "𓇋",
+                            "meaning": { "en": "The reed — tool and symbol of the scribe. Khaemwaset was, above all, a scribe — a seeker of written truth.", "ar": "القصبة — أداة ورمز الكاتب. كان خعم واست، فوق كل شيء، كاتبًا — باحثًا عن الحقيقة المكتوبة." },
+                            "transliteration": "i"
+                        }
+                    ]
+                }
+            ],
+            "interactions": [
+                {
+                    "type": "glyph_discovery",
+                    "after_paragraph": 0,
+                    "glyph": "G43",
+                    "unicode": "𓅱",
+                    "prompt": { "en": "The quail chick — one of the most common hieroglyphs. Even the smallest signs carry deep meaning.", "ar": "فرخ السمان — أحد أكثر الهيروغليفيات شيوعًا. حتى أصغر العلامات تحمل معنى عميقًا." },
+                    "meaning": { "en": "Quail chick — the sound 'w', found in countless Egyptian words", "ar": "فرخ السمان — الصوت 'و'، الموجود في كلمات مصرية لا تُحصى" },
+                    "transliteration": "w"
+                },
+                {
+                    "type": "story_decision",
+                    "after_paragraph": 2,
+                    "prompt": { "en": "If you found the Book of Thoth today, what would you do?", "ar": "لو وجدت كتاب تحوت اليوم، ماذا كنت ستفعل؟" },
+                    "choices": [
+                        {
+                            "id": "read_it",
+                            "text": { "en": "Read it — knowledge is meant to be shared", "ar": "أقرأه — المعرفة مُلك للجميع" },
+                            "outcome": { "en": "The modern world has largely embraced this view — open libraries, free education, the internet. But the Egyptians would caution: knowledge without wisdom is dangerous. Are you ready for what you might learn?", "ar": "تبنّى العالم الحديث هذا الرأي إلى حد كبير — المكتبات المفتوحة، التعليم المجاني، الإنترنت. لكن المصريين سيحذرون: المعرفة بدون حكمة خطيرة. هل أنت مستعد لما قد تتعلمه؟" }
+                        },
+                        {
+                            "id": "return_it",
+                            "text": { "en": "Return it — some knowledge belongs in sacred keeping", "ar": "أعيده — بعض المعرفة يجب أن تبقى في عهدة مقدسة" },
+                            "outcome": { "en": "Khaemwaset would approve. The Egyptian concept of 'sesheta' (secrets) acknowledged that certain knowledge requires certain preparation. Not all truths are meant for all people at all times — and recognizing this is itself a form of wisdom.", "ar": "سيوافق خعم واست. مفهوم 'سشتا' المصري (الأسرار) اعترف بأن بعض المعرفة تتطلب تحضيرًا معينًا. ليست كل الحقائق مُعدّة لكل الناس في كل الأوقات — وإدراك هذا هو بحد ذاته شكل من الحكمة." }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

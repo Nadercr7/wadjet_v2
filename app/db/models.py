@@ -15,10 +15,15 @@ class User(Base):
 
     id = Column(String, primary_key=True, default=lambda: uuid.uuid4().hex)
     email = Column(String, unique=True, nullable=False, index=True)
-    password_hash = Column(String, nullable=False)
+    password_hash = Column(String, nullable=True)  # Nullable for Google-only users
     display_name = Column(String, nullable=True)
     preferred_lang = Column(String, default="en")
     tier = Column(String, default="free")
+    # OAuth / verification fields
+    google_id = Column(String, unique=True, nullable=True, index=True)
+    auth_provider = Column(String, default="email")  # "email", "google", "both"
+    email_verified = Column(Boolean, default=False)
+    avatar_url = Column(String, nullable=True)
     created_at = Column(DateTime, server_default=func.now())
     updated_at = Column(DateTime, server_default=func.now(), onupdate=func.now())
 
@@ -81,4 +86,15 @@ class Feedback(Base):
     name = Column(String, nullable=True)
     email = Column(String, nullable=True)
     user_agent = Column(String, nullable=True)
+    created_at = Column(DateTime, server_default=func.now())
+
+
+class EmailToken(Base):
+    __tablename__ = "email_tokens"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    user_id = Column(String, ForeignKey("users.id", ondelete="CASCADE"), nullable=False, index=True)
+    token_hash = Column(String, unique=True, nullable=False)
+    token_type = Column(String, nullable=False)  # "verify" or "reset"
+    expires_at = Column(DateTime, nullable=False)
     created_at = Column(DateTime, server_default=func.now())

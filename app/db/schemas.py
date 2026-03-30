@@ -43,12 +43,37 @@ class TokenResponse(BaseModel):
     token_type: str = "bearer"
 
 
+class GoogleAuthRequest(BaseModel):
+    credential: str = Field(min_length=1, max_length=4096)
+
+
+class ForgotPasswordRequest(BaseModel):
+    email: EmailStr
+
+
+class ResetPasswordRequest(BaseModel):
+    token: str = Field(min_length=1, max_length=200)
+    new_password: str = Field(min_length=8, max_length=128)
+
+    @field_validator("new_password")
+    @classmethod
+    def password_complexity(cls, v: str) -> str:
+        return _validate_password_complexity(v)
+
+
+class VerifyEmailRequest(BaseModel):
+    token: str = Field(min_length=1, max_length=200)
+
+
 class UserResponse(BaseModel):
     id: str
     email: str
     display_name: str | None
     preferred_lang: str
     tier: str
+    auth_provider: str = "email"
+    email_verified: bool = False
+    avatar_url: str | None = None
     created_at: datetime
 
     model_config = {"from_attributes": True}

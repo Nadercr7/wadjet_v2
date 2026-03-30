@@ -1,0 +1,332 @@
+{
+    "id": "cleopatras-last-stand",
+    "title": { "en": "Cleopatra's Last Stand", "ar": "موقف كليوباترا الأخير" },
+    "subtitle": { "en": "The last pharaoh, the fall of Egypt, and the end of an ancient world", "ar": "آخر فرعون، سقوط مصر، ونهاية عالم قديم" },
+    "cover_glyph": "𓆗",
+    "difficulty": "advanced",
+    "estimated_minutes": 17,
+    "glyphs_taught": ["I10", "S34", "M23", "N5", "Q1", "S42", "G5", "D4", "M17", "V30", "R8"],
+    "source": "Plutarch's Life of Antony, Cassius Dio's Roman History, Horace's Odes 1.37, Temple of Hathor at Dendera (Cleopatra VII relief), archaeological evidence from Alexandria",
+    "period": "Ptolemaic period, end of pharaonic Egypt (~69–30 BCE)",
+    "chapters": [
+        {
+            "index": 0,
+            "title": { "en": "The Last Pharaoh", "ar": "آخر فرعون" },
+            "scene_image_prompt": "Cleopatra VII enthroned in the palace of Alexandria, wearing the double crown of Egypt and the triple uraeus, surrounded by Greek scrolls and Egyptian artifacts, the great lighthouse visible through the window, a queen between two worlds",
+            "tts_voice": "Aoede",
+            "tts_style": "Regal and commanding. Introduce a brilliant political mind, not a Hollywood caricature. Intelligence and cunning above all.",
+            "paragraphs": [
+                {
+                    "text": {
+                        "en": "Forget everything Hollywood taught you about Cleopatra. She was not primarily a seductress — she was a political genius, a polyglot who spoke nine languages, a naval commander, an economist who reformed Egypt's currency, and the last independent ruler of the most ancient civilization on Earth. When she took the throne in 51 BCE, Egypt had endured for three thousand years. Within two decades, it would be gone.",
+                        "ar": "انسَ كل ما علّمتك هوليوود عن كليوباترا. لم تكن بالأساس مغوية — كانت عبقرية سياسية، متعددة اللغات تتحدث تسع لغات، قائدة بحرية، اقتصادية أصلحت عملة مصر، وآخر حاكمة مستقلة لأقدم حضارة على الأرض. حين تولت العرش عام 51 قبل الميلاد، كانت مصر صمدت ثلاثة آلاف سنة. في غضون عقدين، سينتهي كل شيء."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "cobra", "ar": "كوبرا" },
+                            "gardiner_code": "I10",
+                            "glyph": "𓆗",
+                            "meaning": { "en": "The cobra — the uraeus, symbol of pharaonic authority worn on the crown. Cleopatra was the first Ptolemaic ruler to learn the Egyptian language and fully embrace the role of pharaoh.", "ar": "الكوبرا — اليوريوس، رمز السلطة الفرعونية على التاج. كانت كليوباترا أول حاكمة بطلمية تتعلم اللغة المصرية وتتبنى دور الفرعون بالكامل." },
+                            "transliteration": "iꜥrt"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "Cleopatra VII was Macedonian Greek by blood — descended from Ptolemy I, one of Alexander the Great's generals who claimed Egypt after Alexander's death in 323 BCE. For three centuries, the Ptolemies ruled Egypt as Greek-speaking foreigners. But Cleopatra was different. She learned Egyptian — the first Ptolemy to do so. She presented herself at the temple of Hathor at Dendera as Isis incarnate, wearing the traditional double crown.",
+                        "ar": "كانت كليوباترا السابعة مقدونية يونانية بالدم — سليلة بطليموس الأول، أحد قادة الإسكندر الأكبر الذي ادعى مصر بعد وفاة الإسكندر عام 323 قبل الميلاد. لثلاثة قرون، حكم البطالمة مصر كأجانب يتحدثون اليونانية. لكن كليوباترا كانت مختلفة. تعلمت المصرية — أول بطلمية تفعل ذلك. قدّمت نفسها في معبد حتحور في دندرة كإيزيس المتجسدة، مرتدية التاج المزدوج التقليدي."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "throne", "ar": "عرش" },
+                            "gardiner_code": "Q1",
+                            "glyph": "𓊨",
+                            "meaning": { "en": "The throne — Cleopatra claimed the seat of the pharaohs through both political cunning and genuine devotion to Egyptian culture.", "ar": "العرش — ادعت كليوباترا مقعد الفراعنة من خلال الدهاء السياسي والإخلاص الحقيقي للثقافة المصرية معًا." },
+                            "transliteration": "st"
+                        }
+                    ]
+                }
+            ],
+            "interactions": [
+                {
+                    "type": "glyph_discovery",
+                    "after_paragraph": 0,
+                    "glyph": "I10",
+                    "unicode": "𓆗",
+                    "prompt": { "en": "The cobra — the uraeus on the pharaoh's forehead. Cleopatra wore this symbol until the very end. It is fitting that a cobra may have been her final companion.", "ar": "الكوبرا — اليوريوس على جبين الفرعون. ارتدت كليوباترا هذا الرمز حتى النهاية. من المناسب أن كوبرا ربما كانت رفيقتها الأخيرة." },
+                    "meaning": { "en": "Cobra — royal authority, the uraeus, divine protection", "ar": "الكوبرا — السلطة الملكية، اليوريوس، الحماية الإلهية" },
+                    "transliteration": "iꜥrt"
+                }
+            ]
+        },
+        {
+            "index": 1,
+            "title": { "en": "The Roman Gamble", "ar": "الرهان الروماني" },
+            "scene_image_prompt": "Cleopatra arriving on a golden barge to meet Mark Antony at Tarsus, purple sails and silver oars, dressed as Aphrodite-Isis, perfume wafting across the river, Roman soldiers watching in amazement, political theater as high art",
+            "tts_voice": "Aoede",
+            "tts_style": "Strategic and dazzling. Every romantic gesture was calculated politics. Admiration for a woman playing the most dangerous game in the ancient world.",
+            "paragraphs": [
+                {
+                    "text": {
+                        "en": "Egypt in 51 BCE was caught between two powers: its own fading glory and the unstoppable expansion of Rome. Cleopatra understood that Egypt could not defeat Rome militarily. Instead, she chose to make Egypt indispensable to Rome's most powerful men. First, she allied with Julius Caesar — presenting herself rolled in a carpet to gain access to him — and bore him a son, Caesarion.",
+                        "ar": "مصر في 51 قبل الميلاد كانت محاصرة بين قوتين: مجدها المتلاشي والتوسع الذي لا يُوقف لروما. فهمت كليوباترا أن مصر لا تستطيع هزيمة روما عسكريًا. بدلًا من ذلك، اختارت أن تجعل مصر لا غنى عنها لأقوى رجال روما. أولًا، تحالفت مع يوليوس قيصر — مقدمة نفسها ملفوفة في سجادة للوصول إليه — وأنجبت منه ابنًا، قيصرون."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "sun", "ar": "شمس" },
+                            "gardiner_code": "N5",
+                            "glyph": "𓇳",
+                            "meaning": { "en": "The sun — Caesarion was declared 'Son of Ra' in Egyptian tradition and 'Son of God' in Roman tradition, making him heir to both civilizations.", "ar": "الشمس — أُعلن قيصرون 'ابن رع' في التقليد المصري و'ابن الإله' في التقليد الروماني، مما جعله وريثًا لكلتا الحضارتين." },
+                            "transliteration": "rꜥ"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "After Caesar's assassination in 44 BCE, Cleopatra turned to Mark Antony, the most powerful man in the eastern Roman world. Her arrival at Tarsus is legendary: she sailed up the Cydnus River on a golden barge with purple sails and silver oars, dressed as Aphrodite (whom the Egyptians equated with Isis). Plutarch wrote: 'The perfume spread along the riverbank, and people ran to see her from every direction.'",
+                        "ar": "بعد اغتيال قيصر عام 44 قبل الميلاد، توجهت كليوباترا إلى مارك أنطونيو، أقوى رجل في الشرق الروماني. وصولها إلى طرسوس أسطوري: أبحرت في نهر كيدنوس على مركب ذهبي بأشرعة أرجوانية ومجاذيف فضية، متنكرة كأفروديت (التي ساواها المصريون بإيزيس). كتب بلوتارخ: 'انتشر العطر على طول ضفة النهر، وركض الناس لرؤيتها من كل اتجاه.'"
+                    },
+                    "glyph_annotations": []
+                }
+            ],
+            "interactions": [
+                {
+                    "type": "story_decision",
+                    "after_paragraph": 1,
+                    "prompt": { "en": "Cleopatra used spectacle and charm as political tools. Was this genius or desperation?", "ar": "استخدمت كليوباترا الاستعراض والسحر كأدوات سياسية. هل كان هذا عبقرية أم يأسًا؟" },
+                    "choices": [
+                        {
+                            "id": "genius",
+                            "text": { "en": "Genius — she used every tool available to protect her kingdom", "ar": "عبقرية — استخدمت كل أداة متاحة لحماية مملكتها" },
+                            "outcome": { "en": "Cleopatra was playing an impossible hand brilliantly. Egypt's army could not match Rome's legions. But Egypt had something Rome needed desperately: grain. Egypt fed Rome. By making herself personally indispensable to Rome's leaders, Cleopatra kept Egypt independent for 20 years longer than it should have survived.", "ar": "كانت كليوباترا تلعب يدًا مستحيلة ببراعة. جيش مصر لم يستطع مواجهة فيالق روما. لكن مصر امتلكت شيئًا احتاجته روما بشدة: الحبوب. مصر أطعمت روما. بجعل نفسها شخصيًا لا غنى عنها لقادة روما، أبقت كليوباترا مصر مستقلة لعشرين سنة أطول مما كان يجب أن تصمد." }
+                        },
+                        {
+                            "id": "desperation",
+                            "text": { "en": "Both — even geniuses can be pushed to desperate measures", "ar": "كلاهما — حتى العباقرة يمكن دفعهم لتدابير يائسة" },
+                            "outcome": { "en": "There's truth in this. Cleopatra was brilliant, but she was also trapped. Every alliance carried enormous risk. Caesar was murdered. Antony's power depended on Roman politics she couldn't fully control. She was a queen playing chess while the board was being shaken. That she played so well for so long is itself remarkable.", "ar": "هناك حقيقة في هذا. كانت كليوباترا عبقرية، لكنها كانت أيضًا محاصرة. كل تحالف حمل مخاطر هائلة. قيصر اغتيل. قوة أنطونيو اعتمدت على السياسة الرومانية التي لم تستطع التحكم فيها بالكامل. كانت ملكة تلعب الشطرنج بينما اللوحة تُهتز. أنها لعبت بهذه البراعة لهذه المدة هو بحد ذاته ملحوظ." }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "index": 2,
+            "title": { "en": "The Battle of Actium", "ar": "معركة أكتيوم" },
+            "scene_image_prompt": "The naval Battle of Actium in 31 BCE, Egyptian and Roman warships clashing, Cleopatra's flagship with purple sails retreating through the chaos, fire ships burning, Octavian's fleet surrounding, dramatic Mediterranean sea battle at sunset",
+            "tts_voice": "Aoede",
+            "tts_style": "Dramatic and urgent. The decisive battle of the ancient world — and the moment everything was lost.",
+            "paragraphs": [
+                {
+                    "text": {
+                        "en": "By 31 BCE, the alliance between Cleopatra and Mark Antony had become the greatest threat to Octavian — Caesar's adopted heir and future Emperor Augustus. Octavian declared war not on Antony (a fellow Roman) but on Cleopatra (a foreign queen), framing the conflict as Rome versus Egypt. The two fleets met at Actium, off the western coast of Greece.",
+                        "ar": "بحلول 31 قبل الميلاد، أصبح تحالف كليوباترا ومارك أنطونيو أكبر تهديد لأوكتافيان — الوريث بالتبني لقيصر والإمبراطور المستقبلي أغسطس. أعلن أوكتافيان الحرب ليس على أنطونيو (روماني مثله) بل على كليوباترا (ملكة أجنبية)، مصوّرًا الصراع كروما ضد مصر. التقى الأسطولان عند أكتيوم، قبالة الساحل الغربي لليونان."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "was-scepter", "ar": "صولجان واس" },
+                            "gardiner_code": "S42",
+                            "glyph": "𓌂",
+                            "meaning": { "en": "The was-scepter — symbol of power. At Actium, two visions of power clashed: the ancient divine authority of Egypt versus the military pragmatism of Rome.", "ar": "صولجان واس — رمز القوة. في أكتيوم، تصادمت رؤيتان للسلطة: السلطة الإلهية القديمة لمصر ضد البراغماتية العسكرية لروما." },
+                            "transliteration": "wꜣs"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "The battle was a disaster. Outmaneuvered by Octavian's admiral Agrippa, Antony's fleet was trapped. Cleopatra, commanding sixty Egyptian warships in the rear, broke through the enemy line with the treasury aboard her flagship and sailed for Alexandria. Antony abandoned his fleet and followed her. Roman propaganda painted this as cowardice; modern historians suggest it was a planned escape to fight another day.",
+                        "ar": "كانت المعركة كارثة. محاصرًا بمناورات أغريبا، أميرال أوكتافيان، عُلق أسطول أنطونيو. كليوباترا، التي قادت ستين سفينة حربية مصرية في المؤخرة، اخترقت خط العدو بالخزينة على متن سفينتها وأبحرت إلى الإسكندرية. تخلى أنطونيو عن أسطوله وتبعها. الدعاية الرومانية صوّرت هذا كجبن؛ المؤرخون الحديثون يقترحون أنه كان هروبًا مخططًا للقتال يومًا آخر."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "falcon", "ar": "صقر" },
+                            "gardiner_code": "G5",
+                            "glyph": "𓅃",
+                            "meaning": { "en": "The falcon — Horus, protector of the pharaoh. But at Actium, no divine falcon could save Egypt from the might of Rome.", "ar": "الصقر — حورس، حامي الفرعون. لكن في أكتيوم، لا صقر إلهي يستطيع إنقاذ مصر من جبروت روما." },
+                            "transliteration": "ḥr"
+                        }
+                    ]
+                }
+            ],
+            "interactions": [
+                {
+                    "type": "glyph_discovery",
+                    "after_paragraph": 1,
+                    "glyph": "G5",
+                    "unicode": "𓅃",
+                    "prompt": { "en": "The Horus falcon — every pharaoh was Horus's living incarnation. Cleopatra was the last to carry this divine mantle.", "ar": "صقر حورس — كل فرعون كان التجسيد الحي لحورس. كانت كليوباترا آخر من حملت هذا الوشاح الإلهي." },
+                    "meaning": { "en": "Horus falcon — pharaonic protection, divine kingship", "ar": "صقر حورس — حماية فرعونية، ملكية إلهية" },
+                    "transliteration": "ḥr"
+                },
+                {
+                    "type": "choose_glyph",
+                    "after_paragraph": 1,
+                    "question": { "en": "Which glyph represents the royal authority that Cleopatra defended at Actium?", "ar": "أي هيروغليفية تمثل السلطة الملكية التي دافعت عنها كليوباترا في أكتيوم؟" },
+                    "options": [
+                        { "code": "S42", "glyph": "𓌂" },
+                        { "code": "N5", "glyph": "𓇳" },
+                        { "code": "S34", "glyph": "𓋹" },
+                        { "code": "M23", "glyph": "𓇓" }
+                    ],
+                    "correct": "S42",
+                    "explanation": { "en": "The was-scepter (S42) 𓌂 — divine authority and dominion. At Actium, 3,000 years of pharaonic authority faced the future of the world — and lost.", "ar": "صولجان واس (S42) 𓌂 — السلطة الإلهية والسيادة. في أكتيوم، واجهت 3,000 سنة من السلطة الفرعونية مستقبل العالم — وخسرت." }
+                }
+            ]
+        },
+        {
+            "index": 3,
+            "title": { "en": "The End of an Ancient World", "ar": "نهاية عالم قديم" },
+            "scene_image_prompt": "Cleopatra in her mausoleum in Alexandria, dressed in full pharaonic regalia, the cobra (asp) nearby, choosing death over Roman captivity, golden light and shadows, dignity in the face of defeat, the last rays of Egyptian independence",
+            "tts_voice": "Aoede",
+            "tts_style": "Dignified and tragic. Not melodrama but the quiet, fierce pride of a queen who chose death over submission. End with the weight of history.",
+            "paragraphs": [
+                {
+                    "text": {
+                        "en": "Octavian's army entered Alexandria on August 1, 30 BCE. Antony, upon false news that Cleopatra was dead, fell on his sword. He was carried to her mausoleum, where he died in her arms. Cleopatra attempted to negotiate with Octavian, but he wanted only one thing: to parade her in chains through Rome as a trophy of his triumph.",
+                        "ar": "دخل جيش أوكتافيان الإسكندرية في 1 أغسطس 30 قبل الميلاد. أنطونيو، عند خبر كاذب بأن كليوباترا ماتت، سقط على سيفه. حُمل إلى ضريحها، حيث مات بين ذراعيها. حاولت كليوباترا التفاوض مع أوكتافيان، لكنه أراد شيئًا واحدًا فقط: أن يستعرضها مقيدة بالسلاسل في روما كغنيمة لنصره."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "eye", "ar": "عين" },
+                            "gardiner_code": "D4",
+                            "glyph": "𓂀",
+                            "meaning": { "en": "The eye — the last thing Cleopatra saw. She chose to die as a pharaoh, not live as a prisoner. Even in death, she kept her eyes open.", "ar": "العين — آخر ما رأته كليوباترا. اختارت أن تموت كفرعون، لا أن تعيش كأسيرة. حتى في الموت، أبقت عينيها مفتوحتين." },
+                            "transliteration": "ir"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "Cleopatra refused. On August 12, 30 BCE, she dressed in her full pharaonic regalia, took her place on a golden couch, and died. Ancient sources say she was bitten by an asp — the Egyptian cobra, the uraeus, the very symbol of pharaonic power. Whether this is literally true or poetic symbolism, the message is clear: she died not as Octavian's captive but as Isis incarnate, the last pharaoh of Egypt.",
+                        "ar": "رفضت كليوباترا. في 12 أغسطس 30 قبل الميلاد، ارتدت زيها الفرعوني الكامل، جلست على أريكة ذهبية، وماتت. المصادر القديمة تقول أنها لُدغت بأفعى — الكوبرا المصرية، اليوريوس، الرمز ذاته للسلطة الفرعونية. سواء كان هذا حرفيًا أو رمزيًا شعريًا، الرسالة واضحة: ماتت ليس كأسيرة أوكتافيان بل كإيزيس المتجسدة، آخر فراعنة مصر."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "life", "ar": "حياة" },
+                            "gardiner_code": "S34",
+                            "glyph": "𓋹",
+                            "meaning": { "en": "The ankh — eternal life. By dying on her own terms, Cleopatra entered the afterlife as a pharaoh, not a prisoner. In Egyptian belief, this was the ultimate victory.", "ar": "العنخ — الحياة الأبدية. بموتها بشروطها، دخلت كليوباترا الحياة الآخرة كفرعون، لا كأسيرة. في المعتقد المصري، كان هذا النصر الأقصى." },
+                            "transliteration": "ꜥnḫ"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "With Cleopatra's death, three thousand years of pharaonic rule ended. Egypt became a Roman province — the personal property of the emperor. The temples continued for a time; the last hieroglyphic inscription was carved at the Temple of Isis at Philae in 394 CE. Then, even the writing system that had recorded one of humanity's greatest civilizations fell silent.",
+                        "ar": "بموت كليوباترا، انتهت ثلاثة آلاف سنة من الحكم الفرعوني. أصبحت مصر ولاية رومانية — ملكية شخصية للإمبراطور. استمرت المعابد لفترة؛ آخر نقش هيروغليفي نُحت في معبد إيزيس في فيلة عام 394 ميلادي. ثم، حتى نظام الكتابة الذي سجّل واحدة من أعظم حضارات البشرية صمت."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "reed", "ar": "قصبة" },
+                            "gardiner_code": "M17",
+                            "glyph": "𓇋",
+                            "meaning": { "en": "The reed — the scribe's tool, and this hieroglyph, would not be read again for 1,400 years until Jean-François Champollion deciphered the Rosetta Stone in 1822.", "ar": "القصبة — أداة الكاتب، وهذه الهيروغليفية، لن تُقرأ مجددًا لـ1,400 سنة حتى فكّ جان فرانسوا شامبليون شفرة حجر رشيد عام 1822." },
+                            "transliteration": "i"
+                        }
+                    ]
+                }
+            ],
+            "interactions": [
+                {
+                    "type": "glyph_discovery",
+                    "after_paragraph": 2,
+                    "glyph": "M17",
+                    "unicode": "𓇋",
+                    "prompt": { "en": "The reed — the last hieroglyphs were carved in 394 CE. For 1,400 years, no one could read them. Now you can.", "ar": "القصبة — آخر الهيروغليفيات نُحتت عام 394 ميلادي. لـ1,400 سنة، لم يستطع أحد قراءتها. الآن تستطيع أنت." },
+                    "meaning": { "en": "Reed — the scribe's tool, the voice of ancient Egypt", "ar": "القصبة — أداة الكاتب، صوت مصر القديمة" },
+                    "transliteration": "i"
+                },
+                {
+                    "type": "story_decision",
+                    "after_paragraph": 2,
+                    "prompt": { "en": "Egyptian civilization lasted 3,000 years. What is its greatest legacy?", "ar": "الحضارة المصرية استمرت 3,000 سنة. ما أعظم إرثها؟" },
+                    "choices": [
+                        {
+                            "id": "writing",
+                            "text": { "en": "The writing — hieroglyphs preserved their knowledge for us", "ar": "الكتابة — الهيروغليفيات حفظت معرفتهم لنا" },
+                            "outcome": { "en": "Without writing, everything else would be lost. The pyramids would be mysterious shapes; the gods would be nameless faces; the stories would be silence. Hieroglyphs are the voice of a civilization speaking to us across millennia. Every glyph you've learned in these stories is a bridge between your mind and the mind of someone who lived 4,000 years ago. That bridge is made of reed pens and papyrus and the determination to be remembered.", "ar": "بدون الكتابة، كل شيء آخر كان سيضيع. الأهرامات ستكون أشكالًا غامضة؛ الآلهة ستكون وجوهًا بلا أسماء؛ القصص ستكون صمتًا. الهيروغليفيات هي صوت حضارة تتحدث إلينا عبر الألفيات. كل هيروغليفية تعلمتها في هذه القصص هي جسر بين عقلك وعقل شخص عاش قبل 4,000 سنة. ذلك الجسر مصنوع من أقلام القصب والبردي والإصرار على أن يُتذكَّر." }
+                        },
+                        {
+                            "id": "ideas",
+                            "text": { "en": "The ideas — Ma'at, the afterlife, the weighing of the heart", "ar": "الأفكار — ماعت، الحياة الآخرة، وزن القلب" },
+                            "outcome": { "en": "Egyptian ideas shaped the entire ancient world and echo in ours. The concept of absolute moral accountability (the Weighing of the Heart), the belief in resurrection (Osiris), the power of spoken truth (heka), and the idea that a nation should be governed by cosmic justice (Ma'at) — all of these influenced Judaism, Christianity, Islam, and Western philosophy. Three thousand years of thinking about life, death, and truth left a mark that will never fully fade.", "ar": "أفكار مصر شكّلت العالم القديم بأكمله وتتردد صداها في عالمنا. مفهوم المساءلة الأخلاقية المطلقة (وزن القلب)، الإيمان بالقيامة (أوزيريس)، قوة الحقيقة المنطوقة (حِكا)، وفكرة أن الأمة يجب أن تُحكم بالعدالة الكونية (ماعت) — كل هذه أثرت في اليهودية والمسيحية والإسلام والفلسفة الغربية. ثلاثة آلاف سنة من التفكير في الحياة والموت والحقيقة تركت أثرًا لن يتلاشى أبدًا بالكامل." }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "index": 4,
+            "title": { "en": "The Glyphs Endure", "ar": "الهيروغليفيات تدوم" },
+            "scene_image_prompt": "A montage showing the Rosetta Stone being discovered in 1799, Champollion's eureka moment in 1822, and modern visitors reading hieroglyphs in an Egyptian temple, the chain of knowledge restored, hieroglyphs alive again after centuries of silence",
+            "tts_voice": "Aoede",
+            "tts_style": "Hopeful and celebratory. The language was dead, but it rose again — just like Osiris. End with direct address to the learner.",
+            "paragraphs": [
+                {
+                    "text": {
+                        "en": "For fourteen centuries, the hieroglyphs were silent. No one on Earth could read them. The knowledge of the pharaohs, the prayers of the priests, the stories of the gods — all locked behind a wall of beautiful, incomprehensible symbols. And then, in 1799, Napoleon's soldiers found a stone in the town of Rosetta with the same text in three scripts: hieroglyphic, Demotic, and Greek.",
+                        "ar": "لأربعة عشر قرنًا، صمتت الهيروغليفيات. لم يستطع أحد على الأرض قراءتها. معرفة الفراعنة، صلوات الكهنة، قصص الآلهة — كلها مغلقة خلف جدار من رموز جميلة غير مفهومة. وبعدها، في 1799، وجد جنود نابليون حجرًا في مدينة رشيد عليه نفس النص بثلاثة خطوط: هيروغليفي، ديموطيقي، ويوناني."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "basket", "ar": "سلة" },
+                            "gardiner_code": "V30",
+                            "glyph": "𓎡",
+                            "meaning": { "en": "The basket — the sound 'k.' Found in the word 'ka' — the life force that the Egyptians believed survived death. The ka of their civilization survived too.", "ar": "السلة — الصوت 'ك.' توجد في كلمة 'كا' — قوة الحياة التي آمن المصريون بأنها تنجو من الموت. كا حضارتهم نجت أيضًا." },
+                            "transliteration": "k"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "In 1822, the young Frenchman Jean-François Champollion cracked the code, comparing the hieroglyphic signs to the Greek text. At the moment of breakthrough, he reportedly ran to his brother's office and cried 'Je tiens l'affaire!' — 'I've got it!' — before collapsing in exhaustion. The voice of ancient Egypt could speak again.",
+                        "ar": "في 1822، فكّ الفرنسي الشاب جان فرانسوا شامبليون الشفرة، مقارنًا العلامات الهيروغليفية بالنص اليوناني. في لحظة الاكتشاف، يُقال أنه ركض إلى مكتب أخيه وصرخ 'أمسكتها!' قبل أن ينهار من الإرهاق. صوت مصر القديمة يستطيع التحدث مجددًا."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "good", "ar": "جيد" },
+                            "gardiner_code": "R8",
+                            "glyph": "𓄤",
+                            "meaning": { "en": "Nefer — 'perfect, beautiful, good.' This word describes what Champollion achieved: restoring the perfect voice of a civilization silenced for fourteen centuries.", "ar": "نفر — 'ممتاز، جميل، جيد.' هذه الكلمة تصف ما حققه شامبليون: استعادة الصوت الممتاز لحضارة أُسكتت لأربعة عشر قرنًا." },
+                            "transliteration": "nfr"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "And now, you. Every hieroglyph you have learned in these stories connects you to a chain of knowledge that stretches back to the reed-cutters of Memphis, the scribes of Thebes, and the priests of Heliopolis. You can read the sun 𓇳, the eye 𓂀, the scarab 𓆣, the ankh 𓋹, the throne 𓊨. You carry the voice of ancient Egypt in your mind. The pharaohs built in stone to be remembered. The scribes wrote on papyrus to be heard. And you — you are listening.",
+                        "ar": "والآن، أنت. كل هيروغليفية تعلمتها في هذه القصص تربطك بسلسلة معرفة تمتد إلى قاطعي القصب في ممفيس، وكتّاب طيبة، وكهنة عين شمس. تستطيع قراءة الشمس 𓇳، والعين 𓂀، والجعران 𓆣، والعنخ 𓋹، والعرش 𓊨. أنت تحمل صوت مصر القديمة في عقلك. الفراعنة بنوا بالحجر ليُتذكروا. الكتّاب كتبوا على البردي ليُسمعوا. وأنت — أنت تستمع."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "sedge", "ar": "سوسن" },
+                            "gardiner_code": "M23",
+                            "glyph": "𓇓",
+                            "meaning": { "en": "The sedge — Upper Egypt. This glyph has been written for over 5,000 years. By recognizing it now, you are part of its ongoing story.", "ar": "السوسن — مصر العليا. كُتبت هذه الهيروغليفية لأكثر من 5,000 سنة. بالتعرف عليها الآن، أنت جزء من قصتها المستمرة." },
+                            "transliteration": "sw"
+                        }
+                    ]
+                }
+            ],
+            "interactions": [
+                {
+                    "type": "glyph_discovery",
+                    "after_paragraph": 0,
+                    "glyph": "V30",
+                    "unicode": "𓎡",
+                    "prompt": { "en": "The basket — the 'ka,' the life force. Egyptian civilization's ka survived death, just as they believed a person's ka would.", "ar": "السلة — 'الكا'، قوة الحياة. كا الحضارة المصرية نجت من الموت، تمامًا كما آمنوا بأن كا الشخص ستنجو." },
+                    "meaning": { "en": "Basket — the sound 'k,' found in 'ka' (life force)", "ar": "السلة — الصوت 'ك'، الموجود في 'كا' (قوة الحياة)" },
+                    "transliteration": "k"
+                },
+                {
+                    "type": "glyph_discovery",
+                    "after_paragraph": 1,
+                    "glyph": "R8",
+                    "unicode": "𓄤",
+                    "prompt": { "en": "Nefer — beautiful, perfect, good. May your journey through these stories be nefer.", "ar": "نفر — جميل، ممتاز، جيد. لتكن رحلتك عبر هذه القصص نفر." },
+                    "meaning": { "en": "Nefer — good, beautiful, perfect", "ar": "نفر — جيد، جميل، ممتاز" },
+                    "transliteration": "nfr"
+                }
+            ]
+        }
+    ]
+}

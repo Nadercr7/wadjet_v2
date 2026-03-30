@@ -1,0 +1,375 @@
+{
+    "id": "the-weighing-of-the-heart",
+    "title": { "en": "The Weighing of the Heart", "ar": "وزن القلب" },
+    "subtitle": { "en": "The final judgment — where truth is measured against a feather", "ar": "الحكم النهائي — حيث تُوزن الحقيقة مقابل ريشة" },
+    "cover_glyph": "𓄣",
+    "difficulty": "intermediate",
+    "estimated_minutes": 17,
+    "glyphs_taught": ["F34", "H6", "C6", "C3", "R4", "S34", "D4", "Q1", "R8", "G5", "Y1"],
+    "source": "Book of the Dead, Spell 125 (Papyrus of Ani, BM EA 10470, ~1250 BCE), Papyrus of Hunefer (BM EA 9901)",
+    "period": "New Kingdom, 19th Dynasty (~1292–1189 BCE)",
+    "chapters": [
+        {
+            "index": 0,
+            "title": { "en": "The Hall of Two Truths", "ar": "قاعة الحقيقتين" },
+            "scene_image_prompt": "The great Hall of Two Truths in the Egyptian afterlife, two rows of 42 divine judges seated on thrones, massive hall with papyrus columns, a deceased person entering nervously holding a papyrus scroll, Ma'at feathers decorating the ceiling",
+            "tts_voice": "Aoede",
+            "tts_style": "Awe-inspiring, grand, a touch of fear. The voice of entering the most important room in the afterlife.",
+            "paragraphs": [
+                {
+                    "text": {
+                        "en": "After death, the ancient Egyptian's journey did not end — it continued into the Hall of Two Truths, the Maaty. This was the supreme court of the afterlife, where every act of a person's life was weighed. Here sat forty-two divine judges, each representing a nome (province) of Egypt, each responsible for judging a specific category of sin.",
+                        "ar": "بعد الموت، لم تنتهِ رحلة المصري القديم — بل استمرت إلى قاعة الحقيقتين، الماعتي. كانت هذه المحكمة العليا للحياة الآخرة، حيث وُزن كل فعل في حياة الشخص. هنا جلس اثنان وأربعون قاضيًا إلهيًا، كل منهم يمثل إقليمًا من أقاليم مصر، وكل منهم مسؤول عن الحكم في فئة معينة من الذنوب."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "heart", "ar": "قلب" },
+                            "gardiner_code": "F34",
+                            "glyph": "𓄣",
+                            "meaning": { "en": "The heart — the Egyptians believed the heart was the seat of the soul, mind, memory, and moral character. It was never removed during mummification.", "ar": "القلب — آمن المصريون بأن القلب هو مقر الروح والعقل والذاكرة والشخصية الأخلاقية. لم يُزل أبدًا أثناء التحنيط." },
+                            "transliteration": "ib"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "The dead person — let us call him Ani, after the famous scribe whose papyrus survives in the British Museum — entered the hall clutching the Book of the Dead, a scroll of spells purchased during his lifetime to guide him through this very moment. He was accompanied by his ba (soul-bird) and his shadow.",
+                        "ar": "دخل الميت — لنسمِّه عاني، تيمنًا بالكاتب الشهير الذي بقيت بردية في المتحف البريطاني — القاعة ممسكًا بكتاب الموتى، لفافة تعاويذ اشتراها في حياته لترشده في هذه اللحظة بالذات. رافقه الـ'با' (طائر الروح) وظلّه."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "book", "ar": "كتاب" },
+                            "gardiner_code": "Y1",
+                            "glyph": "𓏛",
+                            "meaning": { "en": "The papyrus roll — the Book of the Dead was not a single text but a customizable collection of spells. Wealthy Egyptians commissioned luxurious illustrated versions.", "ar": "لفافة البردي — كتاب الموتى لم يكن نصًا واحدًا بل مجموعة تعاويذ قابلة للتخصيص. كلّف المصريون الأثرياء بإنتاج نسخ مصورة فاخرة." },
+                            "transliteration": "mḏꜣt"
+                        }
+                    ]
+                }
+            ],
+            "interactions": [
+                {
+                    "type": "glyph_discovery",
+                    "after_paragraph": 0,
+                    "glyph": "F34",
+                    "unicode": "𓄣",
+                    "prompt": { "en": "The heart — unlike today, the Egyptians believed you think and feel with your heart, not your brain. The brain was discarded during mummification!", "ar": "القلب — على عكس اليوم، آمن المصريون بأنك تفكر وتشعر بقلبك، لا بدماغك. كان الدماغ يُتخلَّص منه أثناء التحنيط!" },
+                    "meaning": { "en": "Heart — consciousness, moral character, identity", "ar": "القلب — الوعي، الشخصية الأخلاقية، الهوية" },
+                    "transliteration": "ib"
+                }
+            ]
+        },
+        {
+            "index": 1,
+            "title": { "en": "The Negative Confession", "ar": "الاعتراف السلبي" },
+            "scene_image_prompt": "Deceased Ani standing before the forty-two judges reciting the Negative Confession, each judge with a different animal head, hieroglyphic speech scrolls flowing from Ani's mouth, dramatic spotlight on the confessor",
+            "tts_voice": "Aoede",
+            "tts_style": "Formal and ritualistic. Each denial is a solemn oath. Build rhythm like a sacred litany.",
+            "paragraphs": [
+                {
+                    "text": {
+                        "en": "Before the weighing could begin, Ani had to recite the Negative Confession — forty-two declarations of innocence, one for each judge. 'I have not committed sin. I have not committed robbery. I have not slain people. I have not stolen grain. I have not told lies. I have not uttered curses.' Each denial addressed a specific judge by name.",
+                        "ar": "قبل أن يبدأ الوزن، كان على عاني أن يتلو الاعتراف السلبي — اثنان وأربعون إعلان براءة، واحد لكل قاضٍ. 'لم أرتكب ذنبًا. لم أسرق. لم أقتل أناسًا. لم أسرق حبوبًا. لم أكذب. لم ألعن.' كل إنكار خاطب قاضيًا محددًا باسمه."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "truth", "ar": "الحقيقة" },
+                            "gardiner_code": "R4",
+                            "glyph": "𓁦",
+                            "meaning": { "en": "Ma'at — truth, order, and cosmic justice. This concept was the foundation of all Egyptian ethics and law.", "ar": "ماعت — الحقيقة والنظام والعدالة الكونية. هذا المفهوم كان أساس كل الأخلاق والقانون المصري." },
+                            "transliteration": "mꜣꜥt"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "The confession was not just about major crimes. It covered everyday ethics: 'I have not waded in water' (a reference to polluting sacred canals), 'I have not been angry without cause,' 'I have not terrorized anyone,' 'I have not increased my wealth except through my own property.' These 42 sins paint a remarkably complete picture of Egyptian moral values.",
+                        "ar": "لم يكن الاعتراف عن الجرائم الكبرى فقط. غطّى أخلاق الحياة اليومية: 'لم أخض في الماء' (إشارة لتلويث القنوات المقدسة)، 'لم أغضب بدون سبب'، 'لم أُرهب أحدًا'، 'لم أزد ثروتي إلا من ممتلكاتي الخاصة.' هذه الذنوب ال42 ترسم صورة كاملة بشكل ملحوظ للقيم الأخلاقية المصرية."
+                    },
+                    "glyph_annotations": []
+                },
+                {
+                    "text": {
+                        "en": "But here is the crucial detail the Egyptians understood: words alone were not enough. You could recite the entire confession perfectly, but if your heart knew the truth, it would betray you on the scales. The Negative Confession was a statement of intent — but the scales were the proof.",
+                        "ar": "لكن هنا التفصيل الحاسم الذي فهمه المصريون: الكلمات وحدها لم تكن كافية. تستطيع تلاوة الاعتراف كاملًا بإتقان، لكن لو كان قلبك يعرف الحقيقة، سيخونك على الميزان. الاعتراف السلبي كان إعلان نوايا — لكن الميزان كان الدليل."
+                    },
+                    "glyph_annotations": []
+                }
+            ],
+            "interactions": [
+                {
+                    "type": "glyph_discovery",
+                    "after_paragraph": 0,
+                    "glyph": "R4",
+                    "unicode": "𓁦",
+                    "prompt": { "en": "Ma'at — the feather of truth. The entire Egyptian civilization was built on this single concept: cosmic order, justice, and truth.", "ar": "ماعت — ريشة الحقيقة. الحضارة المصرية بأكملها بُنيت على هذا المفهوم الواحد: النظام الكوني، العدالة، والحقيقة." },
+                    "meaning": { "en": "Ma'at — truth, order, justice, cosmic balance", "ar": "ماعت — الحقيقة، النظام، العدالة، التوازن الكوني" },
+                    "transliteration": "mꜣꜥt"
+                },
+                {
+                    "type": "story_decision",
+                    "after_paragraph": 2,
+                    "prompt": { "en": "If your heart could testify against you, would you want the chance to face the scales?", "ar": "لو كان قلبك يستطيع الشهادة ضدك، هل تريد فرصة مواجهة الميزان؟" },
+                    "choices": [
+                        {
+                            "id": "face_judgment",
+                            "text": { "en": "Yes — everyone deserves to be measured fairly", "ar": "نعم — الجميع يستحق أن يُقاس بعدل" },
+                            "outcome": { "en": "The Egyptians would agree. They believed that Ma'at — cosmic justice — was ultimately fair. A person who lived well had nothing to fear. The scales didn't measure perfection; they measured the balance of a life. Even the Negative Confession allowed for human imperfection.", "ar": "سيوافق المصريون. آمنوا بأن ماعت — العدالة الكونية — كانت عادلة في النهاية. الشخص الذي عاش حياة جيدة لا يخاف. الميزان لم يقس الكمال؛ قاس توازن الحياة. حتى الاعتراف السلبي سمح بعدم الكمال البشري." }
+                        },
+                        {
+                            "id": "avoid_judgment",
+                            "text": { "en": "No — the idea of total accountability is terrifying", "ar": "لا — فكرة المساءلة الكاملة مرعبة" },
+                            "outcome": { "en": "Many Egyptians felt the same way! That's why the Book of the Dead existed — it was essentially an instruction manual with magical backup plans. Some spells even addressed the heart directly: 'O my heart, do not stand as a witness against me!' The Egyptians prepared for judgment the way we prepare for exams.", "ar": "شعر كثير من المصريين بنفس الشعور! لهذا وُجد كتاب الموتى — كان في الأساس دليل تعليمات بخطط سحرية احتياطية. بعض التعاويذ خاطبت القلب مباشرة: 'يا قلبي، لا تقف شاهدًا ضدي!' حضّر المصريون لليوم الآخر كما نحضّر للامتحانات." }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "index": 2,
+            "title": { "en": "The Scales of Anubis", "ar": "ميزان أنوبيس" },
+            "scene_image_prompt": "Anubis the jackal-headed god carefully placing a human heart on one side of a golden balance scale and the feather of Ma'at on the other, Thoth the ibis recording the result, Ammit the devourer crouching below, incredibly tense moment",
+            "tts_voice": "Aoede",
+            "tts_style": "Unbearable tension. Each word should feel weighted. The most important moment in any Egyptian's existence.",
+            "paragraphs": [
+                {
+                    "text": {
+                        "en": "Now came the moment that every Egyptian spent their entire life preparing for. Anubis, the jackal-headed god of embalming and the dead, stepped forward. With infinite care, he placed Ani's heart on one side of a great golden balance. On the other side, he placed the feather of Ma'at — a single ostrich feather representing cosmic truth.",
+                        "ar": "الآن جاءت اللحظة التي قضى كل مصري حياته كلها يحضّر لها. تقدم أنوبيس، الإله ذو رأس ابن آوى إله التحنيط والموتى. بعناية لا محدودة، وضع قلب عاني على جانب من ميزان ذهبي عظيم. على الجانب الآخر، وضع ريشة ماعت — ريشة نعام واحدة تمثل الحقيقة الكونية."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "Anubis", "ar": "أنوبيس" },
+                            "gardiner_code": "C6",
+                            "glyph": "𓁢",
+                            "meaning": { "en": "Anubis — the jackal-headed god who guided the dead and oversaw embalming. He was the impartial judge of the scales, showing neither mercy nor cruelty.", "ar": "أنوبيس — الإله ذو رأس ابن آوى الذي أرشد الموتى وأشرف على التحنيط. كان القاضي المحايد للميزان، لا يُظهر رحمة ولا قسوة." },
+                            "transliteration": "inpw"
+                        },
+                        {
+                            "word": { "en": "feather", "ar": "ريشة" },
+                            "gardiner_code": "H6",
+                            "glyph": "𓆄",
+                            "meaning": { "en": "The feather of Ma'at — truth weighs almost nothing. An innocent heart should be as light as a feather.", "ar": "ريشة ماعت — الحقيقة تزن شبه لا شيء. القلب البريء يجب أن يكون خفيفًا كالريشة." },
+                            "transliteration": "šw"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "If the heart was lighter than or equal in weight to the feather, Ani had lived a life of truth. He would be declared 'true of voice' — ma'a kheru — and admitted to the eternal paradise. But if the heart was heavy with sin, weighed down by lies, cruelty, and injustice, the scales would tip, and a terrible fate awaited.",
+                        "ar": "لو كان القلب أخف من الريشة أو مساويًا لها وزنًا، فقد عاش عاني حياة حقيقة. سيُعلن 'صادق الصوت' — ماع خرو — ويُقبل في الفردوس الأبدي. لكن لو كان القلب ثقيلًا بالذنوب، موثقلًا بالأكاذيب والقسوة والظلم، سيميل الميزان، ومصير مرعب ينتظر."
+                    },
+                    "glyph_annotations": []
+                }
+            ],
+            "interactions": [
+                {
+                    "type": "glyph_discovery",
+                    "after_paragraph": 0,
+                    "glyph": "H6",
+                    "unicode": "𓆄",
+                    "prompt": { "en": "The feather — truth is light. Sin literally made the heart heavier in Egyptian belief.", "ar": "الريشة — الحقيقة خفيفة. الذنب حرفيًا جعل القلب أثقل في المعتقد المصري." },
+                    "meaning": { "en": "Feather — truth, lightness, Ma'at", "ar": "الريشة — الحقيقة، الخفة، ماعت" },
+                    "transliteration": "šw"
+                },
+                {
+                    "type": "choose_glyph",
+                    "after_paragraph": 0,
+                    "question": { "en": "Which glyph represents Anubis, the guardian of the scales?", "ar": "أي هيروغليفية تمثل أنوبيس، حارس الميزان؟" },
+                    "options": [
+                        { "code": "C6", "glyph": "𓁢" },
+                        { "code": "C3", "glyph": "𓁟" },
+                        { "code": "G5", "glyph": "𓅃" },
+                        { "code": "F34", "glyph": "𓄣" }
+                    ],
+                    "correct": "C6",
+                    "explanation": { "en": "Anubis (C6) 𓁢 — the jackal god. He guided souls through the underworld and operated the scales with perfect impartiality. Real jackals roamed the desert cemeteries, inspiring this divine association.", "ar": "أنوبيس (C6) 𓁢 — إله ابن آوى. أرشد الأرواح عبر العالم السفلي وشغّل الميزان بحياد تام. بنات آوى الحقيقية تجولت في مقابر الصحراء، ملهمةً هذا الارتباط الإلهي." }
+                }
+            ]
+        },
+        {
+            "index": 3,
+            "title": { "en": "Thoth Records — Ammit Waits", "ar": "تحوت يسجل — عميت تنتظر" },
+            "scene_image_prompt": "Thoth the ibis-headed god writing the judgment result on papyrus while Ammit the devourer crouches eagerly by the scales — a fearsome creature with crocodile head lion body and hippo hindquarters, golden scales tipping, dramatic underworld lighting",
+            "tts_voice": "Aoede",
+            "tts_style": "Suspenseful. Thoth is calm and precise; Ammit is a lurking horror. The contrast between bureaucratic order and primal dread.",
+            "paragraphs": [
+                {
+                    "text": {
+                        "en": "Standing beside the scales, Thoth — the ibis-headed god of wisdom, writing, and record-keeping — watched the balance with mathematical precision. In his hands he held a palette and reed pen, ready to record the verdict. Thoth was the divine scribe, and his record was final. There was no appeal.",
+                        "ar": "واقفًا بجانب الميزان، تحوت — الإله ذو رأس أبو منجل إله الحكمة والكتابة والتسجيل — راقب الميزان بدقة رياضية. في يديه لوح ألوان وقلم قصب، مستعدًا لتسجيل الحكم. كان تحوت الكاتب الإلهي، وسجله نهائي. لا استئناف."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "Thoth", "ar": "تحوت" },
+                            "gardiner_code": "C3",
+                            "glyph": "𓁟",
+                            "meaning": { "en": "Thoth — inventor of writing, keeper of divine records. His judgment was absolute because it was based on truth, not opinion.", "ar": "تحوت — مخترع الكتابة، حارس السجلات الإلهية. حكمه كان مطلقًا لأنه مبني على الحقيقة، لا الرأي." },
+                            "transliteration": "ḏḥwty"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "But crouching beneath the scales — waiting, always waiting — was Ammit, the Devourer. She was part crocodile, part lion, and part hippopotamus — the three deadliest animals known to the Egyptians. If the heart was heavy with sin, Ammit would leap forward and devour it. The soul would then be condemned to restless, eternal nonexistence — not hell, but something the Egyptians considered far worse: the total erasure of the self.",
+                        "ar": "لكن رابضة تحت الميزان — تنتظر، دائمًا تنتظر — كانت عميت، الفاغرة. كانت جزءًا تمساح، جزءًا أسد، وجزءًا فرس نهر — أخطر ثلاثة حيوانات عرفها المصريون. لو كان القلب ثقيلًا بالذنوب، ستقفز عميت وتلتهمه. ستُحكم الروح عندها بعدم وجود أبدي مضطرب — ليس جحيمًا، بل شيء اعتبره المصريون أسوأ بكثير: المحو الكامل للذات."
+                    },
+                    "glyph_annotations": []
+                },
+                {
+                    "text": {
+                        "en": "The Egyptian concept of 'second death' is remarkable in world religion. They did not believe in eternal punishment — they believed in eternal destruction. Your name would be erased. Your memory would fade. Your ba and ka would have nowhere to return. You would simply cease to exist, as if you had never lived. This was the ultimate horror for a culture obsessed with eternal preservation.",
+                        "ar": "مفهوم 'الموت الثاني' المصري ملحوظ في الدين العالمي. لم يؤمنوا بالعقاب الأبدي — آمنوا بالدمار الأبدي. سيُمحى اسمك. ستتلاشى ذاكرتك. الـ'با' والـ'كا' لن يكون لهما مكان للعودة. ستتوقف ببساطة عن الوجود، كأنك لم تعش أبدًا. كان هذا الرعب الأقصى لحضارة مهووسة بالحفظ الأبدي."
+                    },
+                    "glyph_annotations": []
+                }
+            ],
+            "interactions": [
+                {
+                    "type": "glyph_discovery",
+                    "after_paragraph": 0,
+                    "glyph": "C3",
+                    "unicode": "𓁟",
+                    "prompt": { "en": "Thoth — the divine scribe. Every hieroglyph you learn honors the god who invented writing itself.", "ar": "تحوت — الكاتب الإلهي. كل هيروغليفية تتعلمها تُكرم الإله الذي اخترع الكتابة ذاتها." },
+                    "meaning": { "en": "Thoth — writing, wisdom, knowledge, judgment", "ar": "تحوت — الكتابة، الحكمة، المعرفة، الحكم" },
+                    "transliteration": "ḏḥwty"
+                },
+                {
+                    "type": "write_word",
+                    "after_paragraph": 1,
+                    "target_word": { "en": "eye", "ar": "عين" },
+                    "target_glyph": "𓂀",
+                    "gardiner_code": "D4",
+                    "hint": { "en": "The Eye of Horus — protective symbol. In the judgment scene, many eyes watch: the 42 judges, Thoth, and the all-seeing eye of the gods.", "ar": "عين حورس — رمز الحماية. في مشهد الحكم، عيون كثيرة تراقب: القضاة ال42، تحوت، وعين الآلهة التي ترى كل شيء." }
+                }
+            ]
+        },
+        {
+            "index": 4,
+            "title": { "en": "The Verdict — True of Voice", "ar": "الحكم — صادق الصوت" },
+            "scene_image_prompt": "Ani's heart balanced perfectly against the feather of Ma'at on golden scales, Thoth writing 'true of voice' on papyrus, Anubis smiling, Ammit retreating disappointed, divine judges applauding, rays of golden light",
+            "tts_voice": "Aoede",
+            "tts_style": "Relief and joy building to celebration. The weight has been lifted — literally. A lifetime of righteousness rewarded.",
+            "paragraphs": [
+                {
+                    "text": {
+                        "en": "In the Papyrus of Ani — the most famous illustrated Book of the Dead — the heart balances perfectly against the feather. Thoth announces to the assembled gods: 'Ani's heart has been weighed and found true. He has not sinned against any god. He is true of voice.' Ammit retreats. The forty-two judges nod. Osiris himself, enthroned at the far end of the hall, extends his crook and flail in welcome.",
+                        "ar": "في بردية عاني — أشهر كتاب موتى مصوّر — يتوازن القلب تمامًا مع الريشة. يعلن تحوت للآلهة المجتمعين: 'وُزن قلب عاني ووُجد صادقًا. لم يُذنب ضد أي إله. هو صادق الصوت.' تتراجع عميت. يومئ القضاة ال42. أوزيريس نفسه، متربعًا في أقصى القاعة، يمد صولجانه ومذبته ترحيبًا."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "good", "ar": "جيد" },
+                            "gardiner_code": "R8",
+                            "glyph": "𓄤",
+                            "meaning": { "en": "Nefer — 'beautiful,' 'good,' 'perfect.' The highest praise in the Egyptian language. To be declared nefer in the afterlife was the ultimate achievement.", "ar": "نفر — 'جميل'، 'جيد'، 'ممتاز'. أعلى مدح في اللغة المصرية. أن تُعلن نفر في الحياة الآخرة كان الإنجاز الأسمى." },
+                            "transliteration": "nfr"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "Horus, the falcon-headed god, now took Ani by the hand and led him before the throne of Osiris. 'Father, I bring you Ani, whose heart is true, whose voice is righteous. Let him join the blessed dead in the Field of Reeds.' Osiris raised the ankh — the sign of life — and granted Ani immortality.",
+                        "ar": "حورس، الإله صقري الرأس، أخذ عاني الآن بيده وقاده أمام عرش أوزيريس. 'أبي، أحضر لك عاني، الذي قلبه صادق، وصوته بار. دعه ينضم للموتى المباركين في حقل القصب.' رفع أوزيريس العنخ — رمز الحياة — ومنح عاني الخلود."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "falcon", "ar": "صقر" },
+                            "gardiner_code": "G5",
+                            "glyph": "𓅃",
+                            "meaning": { "en": "The Horus falcon — divine protector of the justified dead. Horus himself escorts the worthy into paradise.", "ar": "صقر حورس — الحامي الإلهي للموتى المبررين. حورس نفسه يرافق الجديرين إلى الفردوس." },
+                            "transliteration": "ḥr"
+                        },
+                        {
+                            "word": { "en": "throne", "ar": "عرش" },
+                            "gardiner_code": "Q1",
+                            "glyph": "𓊨",
+                            "meaning": { "en": "The throne — seat of Osiris as lord of the dead. Also the hieroglyph in the name of Isis (Aset = throne-goddess).", "ar": "العرش — مقعد أوزيريس كسيد الموتى. أيضًا الهيروغليفية في اسم إيزيس (أست = إلهة العرش)." },
+                            "transliteration": "st"
+                        }
+                    ]
+                }
+            ],
+            "interactions": [
+                {
+                    "type": "glyph_discovery",
+                    "after_paragraph": 0,
+                    "glyph": "R8",
+                    "unicode": "𓄤",
+                    "prompt": { "en": "Nefer — beautiful, good, perfect. The most positive word in the Egyptian language. May your heart always be nefer.", "ar": "نفر — جميل، جيد، ممتاز. الكلمة الأكثر إيجابية في اللغة المصرية. ليكن قلبك دائمًا نفر." },
+                    "meaning": { "en": "Nefer — beautiful, good, perfect", "ar": "نفر — جميل، جيد، ممتاز" },
+                    "transliteration": "nfr"
+                },
+                {
+                    "type": "choose_glyph",
+                    "after_paragraph": 1,
+                    "question": { "en": "Which glyph represents the life that Osiris grants to those who pass the judgment?", "ar": "أي هيروغليفية تمثل الحياة التي يمنحها أوزيريس لمن يجتازون الحكم؟" },
+                    "options": [
+                        { "code": "S34", "glyph": "𓋹" },
+                        { "code": "F34", "glyph": "𓄣" },
+                        { "code": "H6", "glyph": "𓆄" },
+                        { "code": "R8", "glyph": "𓄤" }
+                    ],
+                    "correct": "S34",
+                    "explanation": { "en": "The ankh (S34) 𓋹 — eternal life. Osiris raises the ankh to grant immortality to the justified dead. No other hieroglyph is more recognizable in the modern world.", "ar": "العنخ (S34) 𓋹 — الحياة الأبدية. يرفع أوزيريس العنخ ليمنح الخلود للموتى المبررين. لا هيروغليفية أخرى أكثر معرفة في العالم الحديث." }
+                }
+            ]
+        },
+        {
+            "index": 5,
+            "title": { "en": "The Field of Reeds — Paradise", "ar": "حقل القصب — الفردوس" },
+            "scene_image_prompt": "The eternal Field of Reeds paradise — an ideal Egyptian landscape with golden wheat fields, a shining Nile branch, palm trees, Ani and his wife farming together in white linen, their ba-birds flying overhead, eternal sunset golden light, peace and abundance",
+            "tts_voice": "Aoede",
+            "tts_style": "Serene, warm, and peaceful. The voice of eternity — a place where suffering ends and all good things endure forever.",
+            "paragraphs": [
+                {
+                    "text": {
+                        "en": "Ani passed through the final doors and entered the Sekhet Aaru — the Field of Reeds. Here was the Egyptian paradise: an idealized version of Egypt itself. The Nile flowed perfectly. The harvests were always abundant. The weather was always pleasant. There was no suffering, no hunger, no injustice. Ani and his wife would live here together for eternity.",
+                        "ar": "مرّ عاني عبر الأبواب الأخيرة ودخل سخت عارو — حقل القصب. هنا كان الفردوس المصري: نسخة مثالية من مصر ذاتها. النيل يتدفق بإتقان. المحاصيل وفيرة دائمًا. الطقس لطيف دائمًا. لا معاناة، لا جوع، لا ظلم. عاني وزوجته سيعيشان هنا معًا للأبد."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "life", "ar": "حياة" },
+                            "gardiner_code": "S34",
+                            "glyph": "𓋹",
+                            "meaning": { "en": "The ankh — eternal life. The Field of Reeds is where the ankh's promise is finally fulfilled.", "ar": "العنخ — الحياة الأبدية. حقل القصب هو حيث يتحقق وعد العنخ أخيرًا." },
+                            "transliteration": "ꜥnḫ"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "The wealthy were buried with ushabti figurines — little servant statues that would magically come to life in the afterlife to do the manual labor, so the deceased could enjoy an eternal vacation. Some tombs contained hundreds of ushabtis, one for every day of the year. Even in paradise, the Egyptians were practical.",
+                        "ar": "دُفن الأثرياء مع تماثيل الأوشبتي — تماثيل خدم صغيرة ستنبض بالحياة سحريًا في الآخرة لتقوم بالعمل اليدوي، حتى يتمتع المتوفى بعطلة أبدية. بعض المقابر احتوت مئات الأوشبتي، واحد لكل يوم في السنة. حتى في الفردوس، كان المصريون عمليين."
+                    },
+                    "glyph_annotations": []
+                },
+                {
+                    "text": {
+                        "en": "The Weighing of the Heart remains one of humanity's most powerful moral stories. It tells us that a civilization over three thousand years ago believed that character matters more than wealth, that truth is lighter than lies, and that every person — pharaoh or peasant — faces the same final test. The feather does not care about your title. The scales cannot be bribed. Only the heart knows the truth.",
+                        "ar": "يبقى وزن القلب واحدًا من أقوى القصص الأخلاقية للبشرية. يخبرنا أن حضارة قبل أكثر من ثلاثة آلاف سنة آمنت بأن الشخصية أهم من الثروة، وأن الحقيقة أخف من الكذب، وأن كل شخص — فرعون أو فلاح — يواجه نفس الاختبار النهائي. لا تهتم الريشة بلقبك. لا يمكن رشوة الميزان. القلب وحده يعرف الحقيقة."
+                    },
+                    "glyph_annotations": []
+                }
+            ],
+            "interactions": [
+                {
+                    "type": "story_decision",
+                    "after_paragraph": 2,
+                    "prompt": { "en": "What speaks to you most about the Egyptian concept of judgment?", "ar": "ما الذي يحدثك أكثر في مفهوم الحكم المصري؟" },
+                    "choices": [
+                        {
+                            "id": "equality",
+                            "text": { "en": "That everyone — pharaoh or peasant — faces the same test", "ar": "أن الجميع — فرعون أو فلاح — يواجهون نفس الاختبار" },
+                            "outcome": { "en": "This radical equality before the divine was remarkable for the ancient world. While Egyptian society was deeply hierarchical, the afterlife was a great equalizer. Power, wealth, and status could not help you on the scales. Only the weight of your heart mattered.", "ar": "هذه المساواة الجذرية أمام الإلهي كانت ملحوظة في العالم القديم. بينما كان المجتمع المصري هرميًا بعمق، كانت الحياة الآخرة المُساوية الكبرى. القوة والثروة والمكانة لا تستطيع مساعدتك على الميزان. فقط وزن قلبك هو المهم." }
+                        },
+                        {
+                            "id": "truth_as_lightness",
+                            "text": { "en": "That truth is literally light — sins weigh you down", "ar": "أن الحقيقة خفيفة حرفيًا — الذنوب تُثقلك" },
+                            "outcome": { "en": "This beautiful metaphor resonates across cultures and centuries. We still say someone has 'a heavy heart' or 'a clear conscience.' The Egyptians gave this universal feeling its most perfect visual form: a heart, a feather, and a scale. Truth really does set you free — it makes you light enough to enter paradise.", "ar": "هذا التشبيه الجميل يتردد صداه عبر الثقافات والقرون. لا نزال نقول أن شخصًا ما 'قلبه ثقيل' أو 'ضميره مرتاح.' أعطى المصريون هذا الشعور العالمي شكله البصري الأمثل: قلب، وريشة، وميزان. الحقيقة فعلًا تحررك — تجعلك خفيفًا بما يكفي لدخول الفردوس." }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

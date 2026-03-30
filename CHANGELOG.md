@@ -1,5 +1,36 @@
 # Changelog
 
+## v3.0.0 (2026-07-12)
+
+Production release. Promoted from v3.0.0-beta with additional features and deployment fixes.
+
+### 🔐 Google OAuth & Email Verification
+- Google Sign-In (one-tap + redirect flow) via `google-auth` library
+- Resend-powered email verification with branded HTML templates
+- OAuth account linking for existing email users
+- Alembic migration for OAuth + email fields
+
+### 🔬 Scan Pipeline Upgrade
+- Sliding-window detector replaces single-shot connected-components
+- Grok `grok-4-latest` ensemble for top-3 AI classification
+- Groq Scout 17B 16E as secondary vision model
+- Cloudflare Workers AI as tertiary vision model
+- Multi-provider majority-vote with confidence weighting
+- Pipeline returns top-5 results across all providers
+
+### 📖 Stories Enrichment
+- 8 new interactive stories (13 total): The Eye of Horus, The Book of Thoth, The Journey of Ra, The Weighing of the Heart, The Tears of Isis, The Great Pyramid, Akhenaten's Revolution, Cleopatra's Last Stand
+- 88 new hieroglyphs taught across new stories
+- Golden papyrus art style for AI-generated illustrations
+- 4 interaction types: glyph_discovery, choose_glyph, arrange_sentence, write_word
+
+### 🚀 Deployment
+- Dockerfile updated for HuggingFace Space (port 7860)
+- Production config with enforced secrets validation
+- Docker Compose updated for local development parity
+
+---
+
 ## v3.0.0-beta (2026-03-28)
 
 Major upgrade from v2 → v3 beta. 11 phases of development across security, offline support, authentication, UX, performance, internationalization, SEO, storytelling, SaaS features, and finalization.

@@ -46,8 +46,15 @@ def _get_pipeline():
     return get_pipeline()
 
 
+MAX_IMAGE_DIM = 1024  # Resize images larger than this (longest side)
+
+
 async def _read_image_bytes(file: UploadFile) -> tuple[bytes, np.ndarray, str]:
-    """Read an uploaded file into raw bytes + BGR numpy array + detected MIME type."""
+    """Read an uploaded file into raw bytes + BGR numpy array + detected MIME type.
+
+    Handles HEIC conversion, WebP decoding, and resizes images whose longest
+    side exceeds MAX_IMAGE_DIM to avoid OOM on large camera photos.
+    """
     data = await file.read()
     if len(data) == 0:
         raise HTTPException(status_code=400, detail="Empty file uploaded.")
@@ -62,16 +69,54 @@ async def _read_image_bytes(file: UploadFile) -> tuple[bytes, np.ndarray, str]:
                 continue  # RIFF but not WebP
             detected_mime = mime
             break
+
+    # Try HEIC/HEIF detection (magic: 'ftyp' at offset 4)
+    if not detected_mime and len(data) >= 12 and data[4:8] == b'ftyp':
+        ftyp_brand = data[8:12]
+        if ftyp_brand in (b'heic', b'heix', b'hevc', b'mif1'):
+            detected_mime = "image/heic"
+
     if not detected_mime:
         raise HTTPException(
             status_code=400,
-            detail="Unsupported file type. Use JPEG, PNG, or WebP.",
+            detail="Unsupported file type. Use JPEG, PNG, WebP, or HEIC.",
         )
+
+    # Convert HEIC → JPEG via Pillow (pillow-heif registers automatically if installed)
+    if detected_mime == "image/heic":
+        try:
+            from PIL import Image as PILImage
+            import io
+            pil_img = PILImage.open(io.BytesIO(data))
+            pil_img = pil_img.convert("RGB")
+            buf = io.BytesIO()
+            pil_img.save(buf, format="JPEG", quality=92)
+            data = buf.getvalue()
+            detected_mime = "image/jpeg"
+        except Exception as e:
+            logger.warning("HEIC conversion failed: %s", e)
+            raise HTTPException(
+                status_code=400,
+                detail="Could not decode HEIC image. Please convert to JPEG or PNG.",
+            )
 
     arr = np.frombuffer(data, np.uint8)
     image = cv2.imdecode(arr, cv2.IMREAD_COLOR)
     if image is None:
         raise HTTPException(status_code=400, detail="Could not decode image.")
+
+    # Resize large images to prevent OOM and speed up ONNX inference
+    h, w = image.shape[:2]
+    if max(h, w) > MAX_IMAGE_DIM:
+        scale = MAX_IMAGE_DIM / max(h, w)
+        new_w, new_h = int(w * scale), int(h * scale)
+        image = cv2.resize(image, (new_w, new_h), interpolation=cv2.INTER_AREA)
+        # Re-encode to keep raw_bytes consistent with the resized image
+        _, buf = cv2.imencode(".jpg", image, [cv2.IMWRITE_JPEG_QUALITY, 92])
+        data = bytes(buf)
+        detected_mime = "image/jpeg"
+        logger.info("Resized %dx%d → %dx%d for scan", w, h, new_w, new_h)
+
     return data, image, detected_mime
 
 
@@ -560,6 +605,22 @@ async def _verify_glyphs_grok(
         return {}
 
 
+def _enrich_response(response_data: dict, image: np.ndarray) -> dict:
+    """Add image_size and confidence_summary to a scan response dict."""
+    h, w = image.shape[:2]
+    response_data["image_size"] = {"width": w, "height": h}
+    glyphs = response_data.get("glyphs", [])
+    if glyphs:
+        confs = [g.get("class_confidence", 0) for g in glyphs]
+        response_data["confidence_summary"] = {
+            "avg": round(sum(confs) / len(confs), 3),
+            "min": round(min(confs), 3),
+            "max": round(max(confs), 3),
+            "low_count": sum(1 for c in confs if c < LOW_CONF_THRESHOLD),
+        }
+    return response_data
+
+
 @router.post("/scan")
 @limiter.limit("30/minute")
 async def scan_image(
@@ -670,7 +731,7 @@ async def _scan_ai_mode(ai_reader, pipeline, raw_bytes, mime, image, translate, 
         response_data["detection_source"] = f"ai_vision ({reading.provider})"
         response_data["mode"] = "ai"
         response_data["ai_reading"] = reading.to_dict()
-        return JSONResponse(content=response_data)
+        return JSONResponse(content=_enrich_response(response_data, image))
 
     # AI failed → ONNX fallback
     logger.warning("AI mode: all vision providers failed, falling back to ONNX")
@@ -686,7 +747,7 @@ async def _scan_ai_mode(ai_reader, pipeline, raw_bytes, mime, image, translate, 
     response_data = result.to_dict()
     response_data["detection_source"] = "onnx_fallback"
     response_data["mode"] = "ai"
-    return JSONResponse(content=response_data)
+    return JSONResponse(content=_enrich_response(response_data, image))
 
 
 async def _scan_onnx_mode(pipeline, gemini, grok, raw_bytes, mime, image, translate, loop):
@@ -697,9 +758,15 @@ async def _scan_onnx_mode(pipeline, gemini, grok, raw_bytes, mime, image, transl
         result = await loop.run_in_executor(
             None, partial(pipeline.process_image, image, translate=translate),
         )
-    except Exception:
+    except Exception as e:
         logger.exception("Scan pipeline failed")
-        raise HTTPException(status_code=500, detail="An error occurred processing your request.")
+        # Provide hints based on common failure modes
+        h, w = image.shape[:2]
+        if h < 32 or w < 32:
+            detail = "Image is too small for detection. Please use a larger, clearer photo."
+        else:
+            detail = "An error occurred processing your image. Please try a different photo."
+        raise HTTPException(status_code=500, detail=detail)
 
     # AI fallback if ONNX detection was poor
     ai_fallback_used = False
@@ -728,7 +795,7 @@ async def _scan_onnx_mode(pipeline, gemini, grok, raw_bytes, mime, image, transl
     response_data = result.to_dict()
     response_data["detection_source"] = "ai_vision" if ai_fallback_used else "onnx"
     response_data["mode"] = "onnx"
-    return JSONResponse(content=response_data)
+    return JSONResponse(content=_enrich_response(response_data, image))
 
 
 async def _scan_auto_mode(
@@ -775,7 +842,7 @@ async def _scan_auto_mode(
         response_data["detection_source"] = f"ai_vision ({ai_reading.provider})"
         response_data["mode"] = "auto"
         response_data["ai_reading"] = ai_reading.to_dict()
-        return JSONResponse(content=response_data)
+        return JSONResponse(content=_enrich_response(response_data, image))
 
     # AI failed — use ONNX result with legacy verification
     if onnx_result.glyphs:
@@ -802,7 +869,7 @@ async def _scan_auto_mode(
     response_data = onnx_result.to_dict()
     response_data["detection_source"] = "onnx"
     response_data["mode"] = "auto"
-    return JSONResponse(content=response_data)
+    return JSONResponse(content=_enrich_response(response_data, image))
 
 
 # ── Helper: Build PipelineResult from AI reading ──

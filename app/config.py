@@ -9,13 +9,13 @@ class Settings(BaseSettings):
 
     environment: str = "development"
     host: str = "0.0.0.0"
-    port: int = 8000
+    port: int = 7860
 
     # Security
     csrf_secret: str = ""  # Auto-generated if empty (see main.py)
     jwt_secret: str = ""  # Auto-generated if empty (see main.py)
     trusted_proxy_depth: int = 1  # 0=direct, 1=one reverse proxy (Render)
-    base_url: str = "https://wadjet.onrender.com"  # Override in .env for custom domain
+    base_url: str = "https://nadercr7-wadjet-v2.hf.space"  # Override in .env for custom domain
 
     # Admin
     admin_email: str = "naderelakany@gmail.com"
@@ -43,10 +43,20 @@ class Settings(BaseSettings):
     cloudflare_account_id: str = ""
     cloudflare_vision_model: str = "@cf/meta/llama-3.2-11b-vision-instruct"
 
+    # Google Sign-In
+    google_client_id: str = ""
+    google_client_secret: str = ""
+
+    # Email (Resend)
+    resend_api_key: str = ""
+
+    # HuggingFace deployment
+    hf_token: str = ""
+
     # Model paths
     hieroglyph_detector_path: str = "models/hieroglyph/detector/glyph_detector_uint8.onnx"
     hieroglyph_classifier_path: str = (
-        "models/hieroglyph/classifier/hieroglyph_classifier.onnx"
+        "models/hieroglyph/classifier/hieroglyph_classifier_uint8.onnx"
     )
     label_mapping_path: str = "models/hieroglyph/classifier/label_mapping.json"
     landmark_model_path: str = "models/landmark/landmark_classifier_uint8.onnx"

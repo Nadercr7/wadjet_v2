@@ -1,0 +1,392 @@
+{
+    "id": "the-tears-of-isis",
+    "title": { "en": "The Tears of Isis", "ar": "دموع إيزيس" },
+    "subtitle": { "en": "A wife's love, a mother's fury, and the magic that defeated death", "ar": "حب زوجة، غضب أم، والسحر الذي هزم الموت" },
+    "cover_glyph": "𓊨",
+    "difficulty": "beginner",
+    "estimated_minutes": 16,
+    "glyphs_taught": ["Q1", "R11", "N36", "B1", "S34", "G5", "D4", "M17", "N35", "M23", "D21"],
+    "source": "Great Hymn to Osiris (Stela of Amenmose, 18th Dynasty, Louvre C 286), supplemented by Pyramid Texts and Coffin Texts",
+    "period": "New Kingdom tradition based on Old Kingdom sources (~2400–1200 BCE)",
+    "chapters": [
+        {
+            "index": 0,
+            "title": { "en": "The Golden Age of Osiris", "ar": "العصر الذهبي لأوزيريس" },
+            "scene_image_prompt": "Osiris and Isis reigning as king and queen of Egypt in a golden age, lush Nile valley with abundant harvests, people celebrating, Osiris wearing the atef crown teaching agriculture, Isis healing the sick, paradise on earth",
+            "tts_voice": "Aoede",
+            "tts_style": "Warm, nostalgic, idyllic. Paint a picture of the perfect world before it was shattered.",
+            "paragraphs": [
+                {
+                    "text": {
+                        "en": "In the beginning of Egypt's story, Osiris ruled as the first divine king. He was the son of Geb (the earth) and Nut (the sky), and he brought civilization to the Nile Valley. Before Osiris, the Egyptians said, people were savages who ate one another. But Osiris taught them to farm, to bake bread, to brew beer, and to worship the gods. He gave them laws and music and the knowledge of the seasons.",
+                        "ar": "في بداية قصة مصر، حكم أوزيريس كأول ملك إلهي. كان ابن جب (الأرض) ونوت (السماء)، وجلب الحضارة لوادي النيل. قبل أوزيريس، قال المصريون، كان الناس وحوشًا يأكل بعضهم بعضًا. لكن أوزيريس علّمهم الزراعة وصنع الخبز وتخمير البيرة وعبادة الآلهة. أعطاهم القوانين والموسيقى ومعرفة الفصول."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "throne", "ar": "عرش" },
+                            "gardiner_code": "Q1",
+                            "glyph": "𓊨",
+                            "meaning": { "en": "The throne — the hieroglyph in the name of both Osiris and Isis (Aset means 'She of the Throne'). Isis is the very concept of legitimate kingship.", "ar": "العرش — الهيروغليفية في اسم أوزيريس وإيزيس معًا (أست تعني 'صاحبة العرش'). إيزيس هي مفهوم الملكية الشرعية ذاته." },
+                            "transliteration": "st"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "Beside him stood Isis — Aset in Egyptian — the greatest magician in the universe. She was beautiful, brilliant, and fiercely devoted. Where Osiris ruled with gentle wisdom, Isis ruled with powerful magic. Together they created a kingdom so prosperous that even the gods were envious.",
+                        "ar": "بجانبه وقفت إيزيس — أست بالمصرية — أعظم ساحرة في الكون. كانت جميلة، عبقرية، ومخلصة بشراسة. حيث حكم أوزيريس بحكمة لطيفة، حكمت إيزيس بسحر قوي. معًا خلقا مملكة مزدهرة لدرجة أن حتى الآلهة حسدتهما."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "woman", "ar": "امرأة" },
+                            "gardiner_code": "B1",
+                            "glyph": "𓁐",
+                            "meaning": { "en": "Seated woman — the determinative for female names and deities. Isis was the archetype of the divine feminine: wife, mother, magician, queen.", "ar": "امرأة جالسة — المحدد للأسماء والآلهة الأنثوية. كانت إيزيس النموذج الأصلي للأنوثة الإلهية: زوجة، أم، ساحرة، ملكة." },
+                            "transliteration": "st"
+                        }
+                    ]
+                }
+            ],
+            "interactions": [
+                {
+                    "type": "glyph_discovery",
+                    "after_paragraph": 0,
+                    "glyph": "Q1",
+                    "unicode": "𓊨",
+                    "prompt": { "en": "The throne — both Osiris and Isis carry this glyph in their names. The throne is the symbol of legitimate power.", "ar": "العرش — كل من أوزيريس وإيزيس يحملان هذه الهيروغليفية في أسمائهما. العرش رمز السلطة الشرعية." },
+                    "meaning": { "en": "Throne — seat of power, kingship, legitimacy", "ar": "العرش — مقعد السلطة، الملكية، الشرعية" },
+                    "transliteration": "st"
+                },
+                {
+                    "type": "glyph_discovery",
+                    "after_paragraph": 1,
+                    "glyph": "B1",
+                    "unicode": "𓁐",
+                    "prompt": { "en": "The seated woman — Isis was not passive. She was the most powerful magician in all of Egyptian mythology.", "ar": "المرأة الجالسة — لم تكن إيزيس سلبية. كانت أقوى ساحرة في كل الأساطير المصرية." },
+                    "meaning": { "en": "Seated woman — female deity, woman, goddess", "ar": "المرأة الجالسة — إلهة أنثى، امرأة، ربة" },
+                    "transliteration": "st"
+                }
+            ]
+        },
+        {
+            "index": 1,
+            "title": { "en": "The Treachery of Set", "ar": "غدر ست" },
+            "scene_image_prompt": "Set presenting a beautiful ornate golden coffin at a lavish banquet, Osiris climbing inside unsuspecting, seventy-two conspirators watching, torchlit palace hall with beer jars and food, ominous shadows, dramatic betrayal moment",
+            "tts_voice": "Aoede",
+            "tts_style": "Ominous and building dread. The festive atmosphere turns sinister. Every word should feel like a trap closing.",
+            "paragraphs": [
+                {
+                    "text": {
+                        "en": "Set, the brother of Osiris, burned with jealousy. Where Osiris was green and fertile — the color of growing things — Set was red and arid — the color of the desert and rage. Set commanded storms, chaos, and the dangerous borderlands. He could not accept that his brother ruled while he served.",
+                        "ar": "ست، أخ أوزيريس، اشتعل بالغيرة. حيث كان أوزيريس أخضر وخصبًا — لون الأشياء النامية — كان ست أحمر وقاحلًا — لون الصحراء والغضب. أمر ست العواصف والفوضى والأراضي الحدودية الخطرة. لم يستطع أن يقبل أن أخاه يحكم بينما هو يخدم."
+                    },
+                    "glyph_annotations": []
+                },
+                {
+                    "text": {
+                        "en": "Set devised a plan with seventy-two conspirators. He secretly measured Osiris's body and ordered a magnificent coffin built to exact size, decorated with gold and precious stones. At a great feast, Set presented the coffin as a game: whoever fit perfectly inside would receive it as a gift. One by one, the guests tried — and failed. Then Osiris lay down inside.",
+                        "ar": "دبّر ست خطة مع اثنين وسبعين متآمرًا. قاس جسد أوزيريس سرًا وأمر بصنع تابوت رائع بالحجم المضبوط، مزين بالذهب والأحجار الكريمة. في وليمة كبرى، قدم ست التابوت كلعبة: من يناسبه تمامًا سيحصل عليه هدية. واحدًا تلو الآخر، حاول الضيوف — وفشلوا. ثم استلقى أوزيريس بداخله."
+                    },
+                    "glyph_annotations": []
+                },
+                {
+                    "text": {
+                        "en": "The coffin fit perfectly. Set's conspirators slammed the lid shut, sealed it with molten lead, and threw it into the Nile. Osiris, the first divine king, was dead — murdered by his own brother. The Great Hymn to Osiris on the Stela of Amenmose records: 'His brother Set laid a trap for him; he was thrown upon the ground in the place called Nedit.'",
+                        "ar": "ناسب التابوت تمامًا. أغلق متآمرو ست الغطاء بعنف، وختموه بالرصاص المصهور، وألقوه في النيل. أوزيريس، أول ملك إلهي، مات — قتله أخوه. يسجل النشيد العظيم لأوزيريس على لوحة أمنموسه: 'أخوه ست نصب له فخًا؛ أُلقي على الأرض في المكان المسمى نديت.'"
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "water", "ar": "ماء" },
+                            "gardiner_code": "N35",
+                            "glyph": "𓈖",
+                            "meaning": { "en": "Water — the Nile carried Osiris's coffin far from Egypt. The river is both life-giver and bearer of the dead.", "ar": "الماء — حمل النيل تابوت أوزيريس بعيدًا عن مصر. النهر يمنح الحياة ويحمل الموتى في آن واحد." },
+                            "transliteration": "n"
+                        }
+                    ]
+                }
+            ],
+            "interactions": [
+                {
+                    "type": "story_decision",
+                    "after_paragraph": 2,
+                    "prompt": { "en": "Osiris trusted his brother and walked into a trap. What does this say about the Egyptian view of evil?", "ar": "وثق أوزيريس بأخيه وسار إلى فخ. ماذا يقول هذا عن النظرة المصرية للشر؟" },
+                    "choices": [
+                        {
+                            "id": "evil_from_within",
+                            "text": { "en": "Evil comes from within the family — from jealousy and ambition", "ar": "الشر يأتي من داخل العائلة — من الغيرة والطموح" },
+                            "outcome": { "en": "The Egyptians understood that the greatest threats often come from those closest to us. Set was not a foreign enemy — he was kin. This made the betrayal more devastating and more realistic. The myth confronts the darkest possibility in human relationships: that love and hatred can exist between brothers.", "ar": "فهم المصريون أن أكبر التهديدات تأتي غالبًا من أقرب الناس إلينا. لم يكن ست عدوًا أجنبيًا — كان قرابة. هذا جعل الخيانة أكثر تدميرًا وأكثر واقعية. تواجه الأسطورة أظلم احتمال في العلاقات البشرية: أن الحب والكراهية يمكن أن يوجدا بين الإخوة." }
+                        },
+                        {
+                            "id": "goodness_vulnerable",
+                            "text": { "en": "Goodness is vulnerable — the kind are easy to deceive", "ar": "الخير ضعيف — الطيبون سهل خداعهم" },
+                            "outcome": { "en": "Osiris's trust was both his virtue and his weakness. But the story does not tell us to be suspicious — it tells us that goodness, even when destroyed, can be resurrected. The Egyptians valued trust while acknowledging its risks. Osiris dies, but he rises again — and his goodness endures forever.", "ar": "كانت ثقة أوزيريس فضيلته وضعفه معًا. لكن القصة لا تخبرنا أن نكون مرتابين — تخبرنا أن الخير، حتى حين يُدمَّر، يمكن أن يُبعث. قدّر المصريون الثقة مع الاعتراف بمخاطرها. أوزيريس يموت، لكنه يقوم من جديد — وخيره يدوم للأبد." }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "index": 2,
+            "title": { "en": "The Search", "ar": "البحث" },
+            "scene_image_prompt": "Isis wandering through marshes and foreign lands searching for Osiris's body, disguised as a common woman with torn clothes, asking fishermen and children along the Nile, moonlight, sorrow and determination on her face, kite bird flying overhead",
+            "tts_voice": "Aoede",
+            "tts_style": "Heartbroken but determined. The voice of a love that cannot accept death. Raw grief mixed with iron will.",
+            "paragraphs": [
+                {
+                    "text": {
+                        "en": "When Isis learned of her husband's murder, her scream shook the heavens. She cut her hair, tore her garments, and swore she would not rest until she found his body. The Great Hymn says: 'She sought him tirelessly, she roamed the land in sorrow, she did not rest until she found him.' She transformed into a kite bird and flew across Egypt, crying her mournful call.",
+                        "ar": "حين علمت إيزيس بمقتل زوجها، هزّت صرختها السماوات. قصّت شعرها، مزّقت ثيابها، وأقسمت ألا تستريح حتى تجد جسده. يقول النشيد العظيم: 'بحثت عنه بلا كلل، جابت الأرض في حزن، لم تسترح حتى وجدته.' تحولت إلى طائرة حدأة وحلقت عبر مصر، صارخة ندبتها الحزينة."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "canal", "ar": "قناة" },
+                            "gardiner_code": "N36",
+                            "glyph": "𓈗",
+                            "meaning": { "en": "The canal/water channel — Isis searched every waterway of Egypt. The Nile's network of canals was the highway system of the ancient world.", "ar": "القناة/مجرى الماء — بحثت إيزيس في كل مجرى مائي في مصر. شبكة قنوات النيل كانت نظام الطرق السريعة في العالم القديم." },
+                            "transliteration": "mr"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "Isis searched everywhere — through marshes and cities, across deserts and foreign lands. She asked everyone she met: fishermen, children, merchants. The legend says that children finally told her the direction the coffin had floated. She tracked it to the coast of Byblos in Lebanon, where a great tamarisk tree had grown around the coffin, encasing it completely.",
+                        "ar": "بحثت إيزيس في كل مكان — عبر المستنقعات والمدن، عبر الصحاري والأراضي الأجنبية. سألت كل من قابلتهم: صيادين، أطفال، تجار. تقول الأسطورة أن الأطفال أخيرًا أخبروها بالاتجاه الذي طفا فيه التابوت. تتبعته إلى ساحل جبيل في لبنان، حيث نمت شجرة طرفاء عظيمة حول التابوت، محتضنة إياه بالكامل."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "reed", "ar": "قصبة" },
+                            "gardiner_code": "M17",
+                            "glyph": "𓇋",
+                            "meaning": { "en": "The reed — growing along the Nile where Isis searched. Also the hieroglyph for 'I' — the self, the voice of Isis telling her story.", "ar": "القصبة — تنمو على طول النيل حيث بحثت إيزيس. أيضًا الهيروغليفية لـ'أنا' — الذات، صوت إيزيس تروي قصتها." },
+                            "transliteration": "i"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "The king of Byblos had used the tree as a pillar in his palace, not knowing what lay inside. Isis entered the palace in disguise, became nursemaid to the queen's infant son, and gradually revealed her divinity. The king, terrified and awed, gave her the tree-pillar. Isis split it open and found the coffin of Osiris within.",
+                        "ar": "استخدم ملك جبيل الشجرة كعمود في قصره، جاهلًا بما بداخلها. دخلت إيزيس القصر متنكرة، أصبحت مربية لابن الملكة الرضيع، وكشفت تدريجيًا عن ألوهيتها. الملك، مرعوبًا ومهيبًا، أعطاها عمود الشجرة. شقته إيزيس ووجدت تابوت أوزيريس بداخله."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "djed", "ar": "جد" },
+                            "gardiner_code": "R11",
+                            "glyph": "𓊽",
+                            "meaning": { "en": "The djed pillar — 'stability.' Some scholars believe the djed originated from this very myth: the tree-pillar that held Osiris's body. The 'Raising of the Djed' ceremony re-enacted this moment.", "ar": "عمود الجد — 'الاستقرار.' يعتقد بعض العلماء أن الجد نشأ من هذه الأسطورة بالذات: عمود الشجرة الذي حمل جسد أوزيريس. حفل 'رفع الجد' أعاد تمثيل هذه اللحظة." },
+                            "transliteration": "ḏd"
+                        }
+                    ]
+                }
+            ],
+            "interactions": [
+                {
+                    "type": "glyph_discovery",
+                    "after_paragraph": 2,
+                    "glyph": "R11",
+                    "unicode": "𓊽",
+                    "prompt": { "en": "The djed pillar — stability restored. Isis found her husband's body inside a tree that became the most sacred pillar in Egypt.", "ar": "عمود الجد — الاستقرار يعود. وجدت إيزيس جسد زوجها داخل شجرة أصبحت أقدس عمود في مصر." },
+                    "meaning": { "en": "Djed — stability, endurance, backbone of Osiris", "ar": "الجد — الاستقرار، التحمل، العمود الفقري لأوزيريس" },
+                    "transliteration": "ḏd"
+                },
+                {
+                    "type": "choose_glyph",
+                    "after_paragraph": 0,
+                    "question": { "en": "Which glyph represents the waterways Isis searched for Osiris?", "ar": "أي هيروغليفية تمثل المجاري المائية التي بحثت فيها إيزيس عن أوزيريس؟" },
+                    "options": [
+                        { "code": "N36", "glyph": "𓈗" },
+                        { "code": "N35", "glyph": "𓈖" },
+                        { "code": "M17", "glyph": "𓇋" },
+                        { "code": "Q1", "glyph": "𓊨" }
+                    ],
+                    "correct": "N36",
+                    "explanation": { "en": "The canal (N36) 𓈗 — the water channel. Egypt's canals connected the Nile to every village. Isis searched them all.", "ar": "القناة (N36) 𓈗 — مجرى الماء. قنوات مصر ربطت النيل بكل قرية. بحثت إيزيس فيها كلها." }
+                }
+            ]
+        },
+        {
+            "index": 3,
+            "title": { "en": "The Scattering and the Gathering", "ar": "التمزيق والجمع" },
+            "scene_image_prompt": "Isis and Nephthys in a papyrus boat gathering the scattered pieces of Osiris from the Nile marshes, each piece glowing with golden light as it is found, crocodiles swimming nearby, determination and sacred duty, moonlit Delta marshes",
+            "tts_voice": "Aoede",
+            "tts_style": "Determined and sacred. Each piece recovered is a small triumph. Build toward the miraculous act of reconstruction.",
+            "paragraphs": [
+                {
+                    "text": {
+                        "en": "Isis brought the coffin home, but Set discovered her treasure. In a rage, he tore Osiris's body into fourteen pieces and scattered them across Egypt. This was not mere cruelty — Set was trying to prevent burial, which meant preventing resurrection. Without a complete body, the ka and ba would have nowhere to return.",
+                        "ar": "أحضرت إيزيس التابوت إلى البيت، لكن ست اكتشف كنزها. في ثورة غضب، مزّق جسد أوزيريس إلى أربع عشرة قطعة وبعثرها عبر مصر. لم يكن هذا مجرد قسوة — كان ست يحاول منع الدفن، مما يعني منع القيامة. بدون جسم كامل، لن يكون للـ'كا' والـ'با' مكان يعودان إليه."
+                    },
+                    "glyph_annotations": []
+                },
+                {
+                    "text": {
+                        "en": "But Isis was not defeated. With her sister Nephthys, she sailed the length of the Nile, searching the marshes, fields, and riverbanks. Each place where she found a piece of Osiris became a sacred site. The temples of Egypt marked these locations — fourteen temples, one for each piece — making the entire country a holy geography of Osiris's body.",
+                        "ar": "لكن إيزيس لم تُهزم. مع أختها نفتيس، أبحرت طول النيل، تبحث في المستنقعات والحقول وضفاف النهر. كل مكان وجدت فيه قطعة من أوزيريس أصبح موقعًا مقدسًا. معابد مصر حددت هذه المواقع — أربعة عشر معبدًا، واحد لكل قطعة — جاعلة البلد كله جغرافيا مقدسة لجسد أوزيريس."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "sedge", "ar": "سوسن" },
+                            "gardiner_code": "M23",
+                            "glyph": "𓇓",
+                            "meaning": { "en": "The sedge plant — symbol of Upper Egypt. Isis searched both Upper and Lower Egypt: every reed bed, every marsh, every field.", "ar": "نبات السوسن — رمز مصر العليا. بحثت إيزيس في مصر العليا والسفلى: كل حقل قصب، كل مستنقع، كل حقل." },
+                            "transliteration": "sw"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "When she had gathered thirteen of the fourteen pieces, Isis performed the first mummification. She bound the pieces together with linen wrappings, recited sacred spells, and with her wings — for she could transform into a kite bird — she fanned breath back into Osiris's body. For one miraculous moment, he lived again.",
+                        "ar": "حين جمعت ثلاث عشرة من القطع الأربع عشرة، أجرت إيزيس أول تحنيط في التاريخ. ربطت القطع معًا بلفائف كتان، تلت تعاويذ مقدسة، وبأجنحتها — لأنها تستطيع التحول إلى طائرة حدأة — هوّت نفسًا عائدًا في جسد أوزيريس. للحظة معجزة واحدة، عاش من جديد."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "life", "ar": "حياة" },
+                            "gardiner_code": "S34",
+                            "glyph": "𓋹",
+                            "meaning": { "en": "The ankh — the breath of life Isis gave to Osiris. This moment is why the ankh became the most sacred symbol: it represents love conquering death.", "ar": "العنخ — نفس الحياة الذي أعطته إيزيس لأوزيريس. هذه اللحظة هي سبب أن العنخ أصبح أقدس رمز: يمثل الحب يقهر الموت." },
+                            "transliteration": "ꜥnḫ"
+                        }
+                    ]
+                }
+            ],
+            "interactions": [
+                {
+                    "type": "glyph_discovery",
+                    "after_paragraph": 2,
+                    "glyph": "S34",
+                    "unicode": "𓋹",
+                    "prompt": { "en": "The ankh — life itself. Isis's magic gave Osiris one last breath through the power of love and sacred knowledge.", "ar": "العنخ — الحياة ذاتها. سحر إيزيس أعطى أوزيريس نفسًا أخيرًا من خلال قوة الحب والمعرفة المقدسة." },
+                    "meaning": { "en": "Ankh — life, breath, the gift of the gods", "ar": "العنخ — الحياة، النفس، هدية الآلهة" },
+                    "transliteration": "ꜥnḫ"
+                },
+                {
+                    "type": "write_word",
+                    "after_paragraph": 1,
+                    "target_word": { "en": "mouth", "ar": "فم" },
+                    "target_glyph": "𓂋",
+                    "gardiner_code": "D21",
+                    "hint": { "en": "The mouth — through the 'Opening of the Mouth' ceremony, the dead could speak, eat, and breathe again. Isis performed the very first version of this rite.", "ar": "الفم — من خلال حفل 'فتح الفم'، يستطيع الميت أن يتكلم ويأكل ويتنفس مجددًا. أقامت إيزيس أول نسخة من هذا الطقس." }
+                }
+            ]
+        },
+        {
+            "index": 4,
+            "title": { "en": "The Conception of Horus", "ar": "حمل حورس" },
+            "scene_image_prompt": "Isis as a kite bird hovering over the mummified Osiris, golden magical light transferring between them, the conception of Horus, isis transforming back to human form with hands on her belly, sacred intimate moment between life and death",
+            "tts_voice": "Aoede",
+            "tts_style": "Reverent and tender. Life emerging from death. The most sacred mystery of the entire myth — handle with awe.",
+            "paragraphs": [
+                {
+                    "text": {
+                        "en": "In that miraculous moment of Osiris's brief resurrection, Isis conceived their son — Horus, the falcon god, the rightful heir to Egypt's throne. This was the ultimate act of Isis's magic: not just defeating death temporarily, but creating new life from it. The Pyramid Texts say: 'Isis comes to you rejoicing in your love. Your seed issues into her.'",
+                        "ar": "في تلك اللحظة المعجزة من قيامة أوزيريس القصيرة، حملت إيزيس بابنهما — حورس، الإله الصقر، الوريث الشرعي لعرش مصر. كان هذا الفعل الأسمى لسحر إيزيس: ليس فقط هزيمة الموت مؤقتًا، بل خلق حياة جديدة منه. تقول نصوص الأهرام: 'إيزيس تأتي إليك فرحة بحبك. بذرتك تدخل فيها.'"
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "falcon", "ar": "صقر" },
+                            "gardiner_code": "G5",
+                            "glyph": "𓅃",
+                            "meaning": { "en": "The Horus falcon — born from the union of Isis and the resurrected Osiris. Every living pharaoh was the incarnation of Horus.", "ar": "صقر حورس — المولود من اتحاد إيزيس وأوزيريس المبعوث. كل فرعون حي كان تجسيدًا لحورس." },
+                            "transliteration": "ḥr"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "Osiris could not remain in the world of the living. He descended to become eternal king of the Duat — the underworld — where he would judge the dead for all eternity. But he did not leave in sadness. His son would be his living legacy. His resurrection was not complete immortality in the old sense, but something the Egyptians valued even more: continuity. The cycle of life, death, and rebirth.",
+                        "ar": "لم يستطع أوزيريس البقاء في عالم الأحياء. نزل ليصبح ملكًا أبديًا للدوات — العالم السفلي — حيث سيحكم على الموتى إلى الأبد. لكنه لم يرحل في حزن. ابنه سيكون إرثه الحي. قيامته لم تكن خلودًا كاملًا بالمعنى القديم، بل شيئًا قدّره المصريون أكثر: الاستمرارية. دورة الحياة والموت وإعادة الميلاد."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "eye", "ar": "عين" },
+                            "gardiner_code": "D4",
+                            "glyph": "𓂀",
+                            "meaning": { "en": "The eye — seeing across the boundary between life and death. Osiris watches from the underworld; Horus watches from the living world. Together, they see everything.", "ar": "العين — الرؤية عبر الحدود بين الحياة والموت. أوزيريس يراقب من العالم السفلي؛ حورس يراقب من عالم الأحياء. معًا، يريان كل شيء." },
+                            "transliteration": "ir"
+                        }
+                    ]
+                }
+            ],
+            "interactions": [
+                {
+                    "type": "glyph_discovery",
+                    "after_paragraph": 0,
+                    "glyph": "G5",
+                    "unicode": "𓅃",
+                    "prompt": { "en": "The Horus falcon — born from love that conquered death. Every pharaoh was the living Horus.", "ar": "صقر حورس — المولود من حب قهر الموت. كل فرعون كان حورس الحي." },
+                    "meaning": { "en": "Horus falcon — divine kingship, protection, victory", "ar": "صقر حورس — الملكية الإلهية، الحماية، النصر" },
+                    "transliteration": "ḥr"
+                },
+                {
+                    "type": "choose_glyph",
+                    "after_paragraph": 1,
+                    "question": { "en": "Which glyph symbolizes the eternal life that Isis's love gave to Osiris and his legacy?", "ar": "أي هيروغليفية ترمز للحياة الأبدية التي أعطاها حب إيزيس لأوزيريس وإرثه؟" },
+                    "options": [
+                        { "code": "S34", "glyph": "𓋹" },
+                        { "code": "R11", "glyph": "𓊽" },
+                        { "code": "Q1", "glyph": "𓊨" },
+                        { "code": "D4", "glyph": "𓂀" }
+                    ],
+                    "correct": "S34",
+                    "explanation": { "en": "The ankh (S34) 𓋹 — eternal life. Isis's love transcended death itself. The ankh represents the breath she gave Osiris, the life she created in Horus, and the hope of resurrection for all who follow Ma'at.", "ar": "العنخ (S34) 𓋹 — الحياة الأبدية. حب إيزيس تجاوز الموت ذاته. العنخ يمثل النفس الذي أعطته لأوزيريس، والحياة التي خلقتها في حورس، وأمل القيامة لكل من يتبع ماعت." }
+                }
+            ]
+        },
+        {
+            "index": 5,
+            "title": { "en": "The Legacy of Tears", "ar": "إرث الدموع" },
+            "scene_image_prompt": "Isis nursing baby Horus in the papyrus marshes of the Delta, hidden from Set, protective magic glowing around them, kite birds circling overhead, the infant Horus with a falcon aura, a mother's protective love radiating golden light",
+            "tts_voice": "Aoede",
+            "tts_style": "Tender and powerful. A mother's love as the ultimate force. End with hope and the promise of victory.",
+            "paragraphs": [
+                {
+                    "text": {
+                        "en": "Isis hid in the marshes of Khemmis in the Delta, nursing baby Horus in secret. Every day she protected him from Set's assassins — scorpions, snakes, and demons sent to find and kill the child. She spoke spells over him, wove protective magic, and called upon every god who owed her a favor. The baby survived.",
+                        "ar": "اختبأت إيزيس في مستنقعات خمّيس في الدلتا، ترضع حورس الطفل سرًا. كل يوم حمته من قتلة ست — عقارب وثعابين وشياطين أُرسلت لإيجاد وقتل الطفل. تلت تعاويذ عليه، نسجت سحرًا حاميًا، واستدعت كل إله مدين لها بمعروف. نجا الطفل."
+                    },
+                    "glyph_annotations": []
+                },
+                {
+                    "text": {
+                        "en": "When Horus grew to manhood, he challenged Set for the throne of Egypt. The Contendings of Horus and Set — which lasted eighty years in the myth — is itself among the greatest Egyptian stories. But its origin lies here, in the tears of Isis. Every battle Horus won was her victory. Every blow against Set was her justice.",
+                        "ar": "حين بلغ حورس سن الرجولة، تحدى ست على عرش مصر. صراع حورس وست — الذي استمر ثمانين سنة في الأسطورة — هو بذاته من أعظم القصص المصرية. لكن أصله يكمن هنا، في دموع إيزيس. كل معركة انتصر فيها حورس كانت انتصارها. كل ضربة ضد ست كانت عدالتها."
+                    },
+                    "glyph_annotations": []
+                },
+                {
+                    "text": {
+                        "en": "The ancient Egyptians believed that the annual flooding of the Nile was caused by the tears of Isis, still mourning for Osiris. This is why the festival of the 'Night of the Tear Drop' was celebrated at the start of the inundation season. Even the river — Egypt's lifeline — was born from a woman's grief and a wife's undying love.",
+                        "ar": "آمن المصريون القدماء بأن فيضان النيل السنوي سببه دموع إيزيس، لا تزال تبكي أوزيريس. لهذا كان مهرجان 'ليلة الدمعة' يُحتفل به في بداية موسم الفيضان. حتى النهر — شريان حياة مصر — وُلد من حزن امرأة وحب زوجة لا يموت."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "water", "ar": "ماء" },
+                            "gardiner_code": "N35",
+                            "glyph": "𓈖",
+                            "meaning": { "en": "Water — the tears of Isis become the Nile flood. Grief transforms into life. Egypt's greatest gift came from its deepest sorrow.", "ar": "الماء — دموع إيزيس تصبح فيضان النيل. الحزن يتحول إلى حياة. أعظم هدية لمصر جاءت من أعمق أحزانها." },
+                            "transliteration": "n"
+                        }
+                    ]
+                }
+            ],
+            "interactions": [
+                {
+                    "type": "story_decision",
+                    "after_paragraph": 2,
+                    "prompt": { "en": "What is the core lesson of Isis's story?", "ar": "ما الدرس الجوهري في قصة إيزيس؟" },
+                    "choices": [
+                        {
+                            "id": "love_conquers",
+                            "text": { "en": "Love is the most powerful force — stronger than death, stronger than evil", "ar": "الحب أقوى قوة — أقوى من الموت، أقوى من الشر" },
+                            "outcome": { "en": "For four thousand years, Isis was worshipped across three continents — from Egypt to Rome to Britain — as the goddess of love, motherhood, and devotion. Her cult outlasted every other Egyptian deity. When the temples finally closed, her image transformed: many scholars see echoes of Isis and baby Horus in the Madonna and Child of Christian art. Love truly is eternal.", "ar": "لأربعة آلاف سنة، عُبدت إيزيس عبر ثلاث قارات — من مصر إلى روما إلى بريطانيا — كإلهة الحب والأمومة والإخلاص. صمدت عبادتها أكثر من أي إله مصري آخر. حين أُغلقت المعابد أخيرًا، تحولت صورتها: يرى كثير من العلماء أصداء إيزيس وحورس الطفل في العذراء والطفل في الفن المسيحي. الحب فعلًا أبدي." }
+                        },
+                        {
+                            "id": "grief_into_strength",
+                            "text": { "en": "Grief can be transformed into strength and purpose", "ar": "الحزن يمكن تحويله إلى قوة وهدف" },
+                            "outcome": { "en": "Isis did not let grief destroy her — she channeled it into action. She searched, she gathered, she healed, she protected, she fought. The Egyptians turned her tears into the Nile flood itself — the source of all life in Egypt. This is perhaps the deepest wisdom of the myth: that the greatest things can be born from the greatest pain.", "ar": "لم تدع إيزيس الحزن يدمرها — حوّلته إلى فعل. بحثت، جمعت، شفت، حمت، حاربت. حوّل المصريون دموعها إلى فيضان النيل ذاته — مصدر كل الحياة في مصر. هذه ربما أعمق حكمة في الأسطورة: أن أعظم الأشياء يمكن أن تُولد من أعظم الألم." }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

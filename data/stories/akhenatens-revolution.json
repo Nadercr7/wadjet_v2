@@ -1,0 +1,317 @@
+{
+    "id": "akhenatens-revolution",
+    "title": { "en": "Akhenaten's Revolution", "ar": "ثورة إخناتون" },
+    "subtitle": { "en": "The heretic pharaoh who tried to change the gods", "ar": "الفرعون المهرطق الذي حاول تغيير الآلهة" },
+    "cover_glyph": "𓇳",
+    "difficulty": "advanced",
+    "estimated_minutes": 16,
+    "glyphs_taught": ["N5", "S34", "N14", "D21", "S42", "M17", "Q1", "G43", "V28", "R8"],
+    "source": "Amarna Letters (EA 1-382, ~1360-1332 BCE), Boundary Stelae of Akhetaten, Great Hymn to the Aten (Tomb of Ay, Amarna), archaeological record of Amarna (modern Tell el-Amarna)",
+    "period": "New Kingdom, 18th Dynasty (~1353–1336 BCE)",
+    "chapters": [
+        {
+            "index": 0,
+            "title": { "en": "The Son Who Changed Everything", "ar": "الابن الذي غيّر كل شيء" },
+            "scene_image_prompt": "Young Amenhotep IV at Thebes gazing up at the sun disc while priests of Amun worship in a vast dark temple behind him, stark contrast between the open sunlit sky and the closed dark temple, rebellious visionary prince",
+            "tts_voice": "Aoede",
+            "tts_style": "Intriguing and questioning. Introduce a revolutionary figure — not a warrior but a thinker who shook the foundations of civilization.",
+            "paragraphs": [
+                {
+                    "text": {
+                        "en": "In 1353 BCE, a young pharaoh named Amenhotep IV inherited the most powerful empire on Earth. Egypt controlled territory from Sudan to Syria. Its temples were filled with gold. Its priests of Amun-Ra were so wealthy and powerful that they rivaled the pharaoh himself. But this young king had a radical idea — one that would make him the most controversial figure in Egyptian history.",
+                        "ar": "في 1353 قبل الميلاد، ورث فرعون شاب اسمه أمنحتب الرابع أقوى إمبراطورية على الأرض. سيطرت مصر على أراضٍ من السودان إلى سوريا. ملئت معابدها بالذهب. كهنة آمون-رع كانوا أثرياء وأقوياء لدرجة أنهم نافسوا الفرعون ذاته. لكن هذا الملك الشاب كانت لديه فكرة جذرية — فكرة ستجعله أكثر شخصية مثيرة للجدل في التاريخ المصري."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "sun", "ar": "شمس" },
+                            "gardiner_code": "N5",
+                            "glyph": "𓇳",
+                            "meaning": { "en": "The sun disc — the Aten. Akhenaten declared this was not merely a symbol of Ra, but the one true god — the only god. Everything else was false.", "ar": "قرص الشمس — آتون. أعلن إخناتون أن هذا لم يكن مجرد رمز لرع، بل الإله الحقيقي الوحيد — الإله الوحيد. كل شيء آخر كان زيفًا." },
+                            "transliteration": "itn"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "Amenhotep IV changed his name to Akhenaten — 'Effective for the Aten' — and declared that the sun disc, the Aten, was not just a form of the sun god, but the only god. All the other gods — Amun, Isis, Osiris, Thoth, the entire pantheon that had sustained Egypt for 1,700 years — were false. This was, in effect, the world's first recorded attempt at monotheism.",
+                        "ar": "غيّر أمنحتب الرابع اسمه إلى إخناتون — 'الفعّال لآتون' — وأعلن أن قرص الشمس، آتون، لم يكن مجرد شكل لإله الشمس، بل الإله الوحيد. كل الآلهة الأخرى — آمون، إيزيس، أوزيريس، تحوت، كل مجمع الآلهة الذي أعال مصر لـ1,700 سنة — كانت زائفة. كانت هذه، في الواقع، أول محاولة مسجلة للتوحيد في العالم."
+                    },
+                    "glyph_annotations": []
+                }
+            ],
+            "interactions": [
+                {
+                    "type": "glyph_discovery",
+                    "after_paragraph": 0,
+                    "glyph": "N5",
+                    "unicode": "𓇳",
+                    "prompt": { "en": "The sun disc — for Akhenaten, this was the ONLY god. Not one of many, but the one that made all others unnecessary.", "ar": "قرص الشمس — بالنسبة لإخناتون، هذا كان الإله الوحيد. ليس واحدًا من كثيرين، بل الوحيد الذي جعل كل الآخرين غير ضروريين." },
+                    "meaning": { "en": "Sun disc — the Aten, Akhenaten's sole deity", "ar": "قرص الشمس — آتون، إله إخناتون الوحيد" },
+                    "transliteration": "itn"
+                },
+                {
+                    "type": "story_decision",
+                    "after_paragraph": 1,
+                    "prompt": { "en": "A pharaoh declares 1,700 years of religious tradition false. Is this vision or madness?", "ar": "فرعون يعلن أن 1,700 سنة من التقاليد الدينية زيف. هل هذه رؤية أم جنون؟" },
+                    "choices": [
+                        {
+                            "id": "visionary",
+                            "text": { "en": "Visionary — he saw something others couldn't", "ar": "صاحب رؤية — رأى شيئًا لم يستطع الآخرون رؤيته" },
+                            "outcome": { "en": "There is genuine beauty in the Great Hymn to the Aten. It celebrates the sun as the universal source of all life — animals, plants, humans of all nations. Some scholars see parallels with Psalm 104 of the Hebrew Bible. Whether divine inspiration or poetic genius, Akhenaten articulated a vision of universal deity centuries before it became mainstream.", "ar": "هناك جمال حقيقي في النشيد العظيم لآتون. يحتفل بالشمس كمصدر عالمي لكل الحياة — حيوانات، نباتات، بشر من كل الأمم. يرى بعض العلماء تشابهات مع المزمور 104 من الكتاب المقدس العبري. سواء كان إلهامًا إلهيًا أو عبقرية شعرية، صاغ إخناتون رؤية لإله عالمي قبل قرون من أن تصبح سائدة." }
+                        },
+                        {
+                            "id": "political",
+                            "text": { "en": "Political — he wanted to break the priests' power", "ar": "سياسي — أراد كسر سلطة الكهنة" },
+                            "outcome": { "en": "This is the pragmatic view many Egyptologists hold. The priests of Amun controlled enormous wealth — temples, land, trade routes, even armies. By eliminating the traditional gods, Akhenaten stripped the priesthood of its legitimacy. Whether he truly believed in the Aten or simply used it as a political tool is one of history's great unanswered questions.", "ar": "هذا الرأي العملي الذي يتبناه كثير من علماء المصريات. كهنة آمون سيطروا على ثروة هائلة — معابد، أراضٍ، طرق تجارية، حتى جيوش. بإزالة الآلهة التقليدية، جرّد إخناتون الكهنوت من شرعيته. سواء كان يؤمن حقًا بآتون أو ببساطة استخدمه كأداة سياسية هو أحد أعظم الأسئلة التي لم تُجب في التاريخ." }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "index": 1,
+            "title": { "en": "The City of the Sun", "ar": "مدينة الشمس" },
+            "scene_image_prompt": "The new city of Akhetaten (Amarna) being built in the desert, open-air temples with no roofs to let sunlight in, the royal family worshipping under the Aten's rays which end in tiny hands holding ankhs, radical new art style with elongated figures",
+            "tts_voice": "Aoede",
+            "tts_style": "Awe at the scale of change. A man building a new world from scratch in the desert. Revolutionary energy.",
+            "paragraphs": [
+                {
+                    "text": {
+                        "en": "Akhenaten didn't just change the religion — he built an entirely new capital city in the desert. Called Akhetaten ('Horizon of the Aten'), located at modern Tell el-Amarna, it was designed from scratch as a city of light. The temples were open-air — no roofs, no dark inner sanctuaries — because the Aten needed no enclosed shrine. The sun itself was the temple.",
+                        "ar": "لم يغيّر إخناتون الدين فحسب — بنى عاصمة جديدة بالكامل في الصحراء. سُميت أخت أتون ('أفق آتون')، تقع في تل العمارنة الحديثة، صُممت من الصفر كمدينة نور. المعابد كانت مفتوحة — بلا أسقف، بلا مقاصير داخلية مظلمة — لأن آتون لا يحتاج ضريحًا مغلقًا. الشمس ذاتها كانت المعبد."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "life", "ar": "حياة" },
+                            "gardiner_code": "S34",
+                            "glyph": "𓋹",
+                            "meaning": { "en": "The ankh — in Amarna art, the Aten's rays end in tiny hands, many holding ankh signs, literally giving life to the royal family. Only the pharaoh could receive the Aten's grace directly.", "ar": "العنخ — في فن العمارنة، أشعة آتون تنتهي بأيدٍ صغيرة، كثير منها يحمل علامات عنخ، حرفيًا تعطي الحياة للعائلة الملكية. فقط الفرعون يمكنه تلقي نعمة آتون مباشرة." },
+                            "transliteration": "ꜥnḫ"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "Akhenaten also revolutionized Egyptian art. For centuries, art had been formal and idealized — pharaohs shown as perfect, ageless beings. But the Amarna style was shockingly different: Akhenaten is depicted with an elongated skull, a long face, full lips, wide hips, and a pronounced belly. Nefertiti, his queen, is shown with extraordinary beauty but also with a realistic body. Their children are shown playing, kissing, and sitting on their parents' laps.",
+                        "ar": "ثوّر إخناتون أيضًا الفن المصري. لقرون، كان الفن رسميًا ومثاليًا — الفراعنة يُصوَّرون ككائنات مثالية لا تشيخ. لكن أسلوب العمارنة كان مختلفًا بشكل صادم: يُصوَّر إخناتون بجمجمة ممدودة، ووجه طويل، وشفاه ممتلئة، ووركين عريضين، وبطن بارز. نفرتيتي، ملكته، تُصوَّر بجمال استثنائي لكن أيضًا بجسم واقعي. أطفالهما يُصوَّرون يلعبون ويُقبّلون ويجلسون في حضن والديهم."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "beautiful", "ar": "جميل" },
+                            "gardiner_code": "R8",
+                            "glyph": "𓄤",
+                            "meaning": { "en": "Nefer — 'beautiful.' Nefertiti's name means 'The Beautiful One Has Come.' Her painted bust is the most famous portrait from the ancient world.", "ar": "نفر — 'جميل.' اسم نفرتيتي يعني 'الجميلة قد أتت.' تمثالها النصفي الملون هو أشهر صورة من العالم القديم." },
+                            "transliteration": "nfr"
+                        }
+                    ]
+                }
+            ],
+            "interactions": [
+                {
+                    "type": "glyph_discovery",
+                    "after_paragraph": 0,
+                    "glyph": "S34",
+                    "unicode": "𓋹",
+                    "prompt": { "en": "The ankh — in Akhenaten's religion, only the Aten could give life. The ankh became exclusively the sun's gift.", "ar": "العنخ — في دين إخناتون، فقط آتون يستطيع منح الحياة. أصبح العنخ حكرًا على هدية الشمس." },
+                    "meaning": { "en": "Ankh — life, exclusively given by the Aten in Amarna theology", "ar": "العنخ — الحياة، تُمنح حصريًا من آتون في لاهوت العمارنة" },
+                    "transliteration": "ꜥnḫ"
+                },
+                {
+                    "type": "choose_glyph",
+                    "after_paragraph": 1,
+                    "question": { "en": "Nefertiti's name contains which glyph meaning 'beautiful'?", "ar": "اسم نفرتيتي يحتوي على أي هيروغليفية تعني 'جميل'؟" },
+                    "options": [
+                        { "code": "R8", "glyph": "𓄤" },
+                        { "code": "S34", "glyph": "𓋹" },
+                        { "code": "N5", "glyph": "𓇳" },
+                        { "code": "M17", "glyph": "𓇋" }
+                    ],
+                    "correct": "R8",
+                    "explanation": { "en": "Nefer (R8) 𓄤 — 'beautiful, good, perfect.' Nefertiti = Nfr.t-ii.ti = 'The Beautiful One Has Come.' Her bust, discovered in 1912, remains one of the most copied artworks in history.", "ar": "نفر (R8) 𓄤 — 'جميل، جيد، ممتاز.' نفرتيتي = نفرت.إي.تي = 'الجميلة قد أتت.' تمثالها النصفي، المكتشف عام 1912، يبقى أحد أكثر الأعمال الفنية نسخًا في التاريخ." }
+                }
+            ]
+        },
+        {
+            "index": 2,
+            "title": { "en": "The Great Hymn to the Aten", "ar": "النشيد العظيم لآتون" },
+            "scene_image_prompt": "Akhenaten raising his arms in worship to the sun disc Aten in an open temple courtyard, golden rays with ankh-bearing hands descending, his family behind him, the Great Hymn inscribed in hieroglyphs on the temple walls, pure golden sunlight flooding the scene",
+            "tts_voice": "Aoede",
+            "tts_style": "Poetic and exalted. Read the hymn excerpts with genuine reverence — this is genuinely beautiful ancient poetry regardless of politics.",
+            "paragraphs": [
+                {
+                    "text": {
+                        "en": "Whatever we think of Akhenaten's politics, the Great Hymn to the Aten — found inscribed in the tomb of his courtier Ay at Amarna — is one of the most beautiful religious poems ever written. It celebrates the sun as the universal creator of all life, from the chick breaking out of its egg to the fish leaping in the river.",
+                        "ar": "مهما اعتقدنا في سياسة إخناتون، فإن النشيد العظيم لآتون — الموجود منقوشًا في مقبرة رجل بلاطه آي في العمارنة — هو أحد أجمل القصائد الدينية المكتوبة على الإطلاق. يحتفل بالشمس كخالق عالمي لكل الحياة، من الفرخ الذي يخرج من بيضته إلى السمك الذي يقفز في النهر."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "star", "ar": "نجمة" },
+                            "gardiner_code": "N14",
+                            "glyph": "𓇼",
+                            "meaning": { "en": "The star — in Akhenaten's theology, even the stars were servants of the Aten. The night sky existed only to mark the sun's absence.", "ar": "النجمة — في لاهوت إخناتون، حتى النجوم كانت خادمة لآتون. السماء الليلية وُجدت فقط لتعليم غياب الشمس." },
+                            "transliteration": "sbꜣ"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "'When you set in the western horizon, the earth is in darkness like death. People sleep in their chambers, their heads covered. Every lion comes from its den, all serpents bite. Darkness is a tomb, the earth is in silence — for the one who made them rests in his horizon.' Then at dawn: 'You appear beautifully on the horizon of heaven, O living Aten! When you have risen on the eastern horizon, you fill every land with your beauty.'",
+                        "ar": "'حين تغيب في الأفق الغربي، الأرض في ظلام كالموت. الناس ينامون في غرفهم، رؤوسهم مغطاة. كل أسد يخرج من وكره، كل الثعابين تلدغ. الظلام قبر، الأرض في صمت — لأن من صنعهم يستريح في أفقه.' ثم عند الفجر: 'تظهر بجمال على أفق السماء، يا آتون الحي! حين تشرق على الأفق الشرقي، تملأ كل أرض بجمالك.'"
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "reed", "ar": "قصبة" },
+                            "gardiner_code": "M17",
+                            "glyph": "𓇋",
+                            "meaning": { "en": "The reed — the scribe's tool. Akhenaten's hymn was likely composed by royal scribes and is one of the finest examples of New Kingdom literary Egyptian.", "ar": "القصبة — أداة الكاتب. نشيد إخناتون كُتب على الأرجح من كتّاب ملكيين وهو أحد أفضل أمثلة المصرية الأدبية في الدولة الحديثة." },
+                            "transliteration": "i"
+                        }
+                    ]
+                }
+            ],
+            "interactions": [
+                {
+                    "type": "glyph_discovery",
+                    "after_paragraph": 0,
+                    "glyph": "N14",
+                    "unicode": "𓇼",
+                    "prompt": { "en": "The star — the night exists only to mark the Aten's absence. When the sun returns, all creation rejoices.", "ar": "النجمة — الليل يوجد فقط لتعليم غياب آتون. حين تعود الشمس، كل الخلق يبتهج." },
+                    "meaning": { "en": "Star — celestial body, hour, gate", "ar": "النجمة — جرم سماوي، ساعة، بوابة" },
+                    "transliteration": "sbꜣ"
+                },
+                {
+                    "type": "write_word",
+                    "after_paragraph": 1,
+                    "target_word": { "en": "wick", "ar": "فتيلة" },
+                    "target_glyph": "𓎛",
+                    "gardiner_code": "V28",
+                    "hint": { "en": "The wick of twisted flax — the sound 'ḥ.' Found in 'ḥtp' (hotep) meaning 'peace/satisfaction.' Amenhotep means 'Amun is Satisfied' — a name Akhenaten rejected.", "ar": "فتيلة الكتان الملتوي — الصوت 'ح.' توجد في 'حتب' (حوتب) بمعنى 'السلام/الرضا.' أمنحتب تعني 'آمون راضٍ' — اسم رفضه إخناتون." }
+                }
+            ]
+        },
+        {
+            "index": 3,
+            "title": { "en": "The Price of Revolution", "ar": "ثمن الثورة" },
+            "scene_image_prompt": "The city of Amarna falling into neglect, diplomatic letters piling up unread, vassal kingdoms falling to the Hittites, Akhenaten isolated in his palace ignoring foreign affairs, abandoned temples in Thebes with Amun's name chiseled off, empire crumbling",
+            "tts_voice": "Aoede",
+            "tts_style": "Somber and critical. The cost of obsession. An empire neglected by a man focused on heaven while the earth burned.",
+            "paragraphs": [
+                {
+                    "text": {
+                        "en": "While Akhenaten obsessed over his new religion, Egypt's empire crumbled. The Amarna Letters — 382 clay tablets found at the site — reveal desperate pleas from vassal kings in Syria and Palestine begging for military aid. 'Send me soldiers, O King! The Habiru are overrunning my lands!' But Akhenaten, focused on the Aten, appears to have largely ignored these cries.",
+                        "ar": "بينما انهمك إخناتون في دينه الجديد، انهارت إمبراطورية مصر. رسائل العمارنة — 382 لوحًا طينيًا وُجدت في الموقع — تكشف عن توسلات يائسة من ملوك تابعين في سوريا وفلسطين يتوسلون المساعدة العسكرية. 'أرسل لي جنودًا يا ملك! الخابيرو يجتاحون أراضيّ!' لكن إخناتون، المنشغل بآتون، يبدو أنه تجاهل هذه الاستغاثات إلى حد كبير."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "was-scepter", "ar": "صولجان واس" },
+                            "gardiner_code": "S42",
+                            "glyph": "𓌂",
+                            "meaning": { "en": "The was-scepter — power. Akhenaten held divine authority but neglected earthly power, and Egypt's dominion in the Levant contracted dramatically.", "ar": "صولجان واس — القوة. امتلك إخناتون السلطة الإلهية لكنه أهمل القوة الأرضية، وتقلصت سيادة مصر في المشرق بشكل مأساوي." },
+                            "transliteration": "wꜣs"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "At home, Akhenaten ordered the names and images of Amun chiseled off every monument in Egypt — an act of cultural violence that horrified the population. Temples were closed. Priests were dismissed. Festivals that had been celebrated for centuries were banned. For ordinary Egyptians who relied on Osiris for afterlife hope and Hathor for fertility, this was catastrophic.",
+                        "ar": "في الداخل، أمر إخناتون بنحت أسماء وصور آمون من كل أثر في مصر — فعل عنف ثقافي أرعب السكان. أُغلقت المعابد. أُقيل الكهنة. حُظرت مهرجانات كانت تُحتفل بها لقرون. بالنسبة للمصريين العاديين الذين اعتمدوا على أوزيريس لأمل الحياة الآخرة وحتحور للخصوبة، كان هذا كارثيًا."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "throne", "ar": "عرش" },
+                            "gardiner_code": "Q1",
+                            "glyph": "𓊨",
+                            "meaning": { "en": "The throne — the seat of power from which Akhenaten ruled. But a throne built on the destruction of 1,700 years of tradition stands on unstable ground.", "ar": "العرش — مقعد السلطة الذي حكم منه إخناتون. لكن عرشًا مبنيًا على تدمير 1,700 سنة من التقاليد يقف على أرض غير مستقرة." },
+                            "transliteration": "st"
+                        }
+                    ]
+                }
+            ],
+            "interactions": [
+                {
+                    "type": "glyph_discovery",
+                    "after_paragraph": 0,
+                    "glyph": "S42",
+                    "unicode": "𓌂",
+                    "prompt": { "en": "The was-scepter — divine power. But power used only for ideology, ignoring the people, leads to collapse.", "ar": "صولجان واس — القوة الإلهية. لكن القوة المُستخدمة فقط للأيديولوجيا، متجاهلة الشعب، تؤدي للانهيار." },
+                    "meaning": { "en": "Was-scepter — dominion, authority, power", "ar": "صولجان واس — السيادة، السلطة، القوة" },
+                    "transliteration": "wꜣs"
+                }
+            ]
+        },
+        {
+            "index": 4,
+            "title": { "en": "The Restoration — Egypt Forgets", "ar": "الترميم — مصر تنسى" },
+            "scene_image_prompt": "Young Tutankhamun restoring the old gods in the great temple of Karnak, priests of Amun celebrating, the stela of restoration being carved, workers rebuilding statues, a nation returning to its roots, relief and celebration",
+            "tts_voice": "Aoede",
+            "tts_style": "Restorative yet bittersweet. A civilization healing itself by erasing its most radical experiment. The irony that the forgotten heretic became the most famous pharaoh.",
+            "paragraphs": [
+                {
+                    "text": {
+                        "en": "Akhenaten died around 1336 BCE, possibly of disease. Within a few years, his young successor — originally named Tutankhaten ('Living Image of the Aten') — changed his name to Tutankhamun ('Living Image of Amun') and moved the capital back to Thebes. The Restoration Stela declares: 'The temples of the gods had fallen into ruin. The land was in distress. The gods turned their backs on this land.'",
+                        "ar": "مات إخناتون حوالي 1336 قبل الميلاد، ربما من المرض. في غضون سنوات قليلة، غيّر خليفته الشاب — الذي كان اسمه في الأصل توت عنخ آتون ('الصورة الحية لآتون') — اسمه إلى توت عنخ آمون ('الصورة الحية لآمون') ونقل العاصمة إلى طيبة. لوحة الترميم تعلن: 'معابد الآلهة سقطت في الخراب. الأرض كانت في ضيق. الآلهة أداروا ظهورهم لهذه الأرض.'"
+                    },
+                    "glyph_annotations": []
+                },
+                {
+                    "text": {
+                        "en": "The city of Amarna was abandoned and eventually demolished. Akhenaten's name was chiseled off every monument — the same fate he had imposed on Amun. In king lists, he was referred to only as 'that criminal of Akhetaten.' For three thousand years, he was successfully forgotten.",
+                        "ar": "هُجرت مدينة العمارنة وهُدمت في النهاية. نُحت اسم إخناتون من كل أثر — نفس المصير الذي فرضه على آمون. في قوائم الملوك، أُشير إليه فقط كـ'ذلك المجرم من أخت أتون.' لثلاثة آلاف سنة، نُسي بنجاح."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "quail chick", "ar": "فرخ السمان" },
+                            "gardiner_code": "G43",
+                            "glyph": "𓅱",
+                            "meaning": { "en": "The quail chick — the everyman of hieroglyphs. Found in countless common words. While Akhenaten's revolutionary texts were destroyed, the common hieroglyphs endured.", "ar": "فرخ السمان — الإنسان العادي في الهيروغليفيات. يوجد في كلمات شائعة لا تُحصى. بينما دُمرت نصوص إخناتون الثورية، صمدت الهيروغليفيات العادية." },
+                            "transliteration": "w"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "But here is the supreme irony: the boy who undid Akhenaten's revolution — Tutankhamun — became the most famous pharaoh of all when Howard Carter discovered his tomb in 1922. And Akhenaten, the heretic who tried to change everything, has become one of the most studied and debated figures in Egyptology. His revolution failed, but his story endures — perhaps the very fate he would have wanted.",
+                        "ar": "لكن هنا المفارقة العظمى: الصبي الذي ألغى ثورة إخناتون — توت عنخ آمون — أصبح أشهر فرعون على الإطلاق حين اكتشف هوارد كارتر مقبرته عام 1922. وإخناتون، المهرطق الذي حاول تغيير كل شيء، أصبح أحد أكثر الشخصيات دراسة ونقاشًا في علم المصريات. ثورته فشلت، لكن قصته تدوم — ربما المصير الذي كان سيرضيه."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "mouth", "ar": "فم" },
+                            "gardiner_code": "D21",
+                            "glyph": "𓂋",
+                            "meaning": { "en": "The mouth — speech, names, identity. The Egyptians believed that speaking a person's name gave them life. By erasing Akhenaten's name, they tried to kill him twice.", "ar": "الفم — الكلام، الأسماء، الهوية. آمن المصريون بأن نطق اسم الشخص يمنحه الحياة. بمحو اسم إخناتون، حاولوا قتله مرتين." },
+                            "transliteration": "r"
+                        }
+                    ]
+                }
+            ],
+            "interactions": [
+                {
+                    "type": "glyph_discovery",
+                    "after_paragraph": 2,
+                    "glyph": "D21",
+                    "unicode": "𓂋",
+                    "prompt": { "en": "The mouth — to speak a name is to give life. To erase a name is the ultimate punishment in Egyptian culture.", "ar": "الفم — نطق الاسم يمنح الحياة. محو الاسم هو العقوبة القصوى في الثقافة المصرية." },
+                    "meaning": { "en": "Mouth — speech, identity, naming, the power of words", "ar": "الفم — الكلام، الهوية، التسمية، قوة الكلمات" },
+                    "transliteration": "r"
+                },
+                {
+                    "type": "story_decision",
+                    "after_paragraph": 2,
+                    "prompt": { "en": "Akhenaten's revolution lasted only 17 years. Was it a failure or ahead of its time?", "ar": "ثورة إخناتون استمرت 17 سنة فقط. هل كانت فشلًا أم سابقة لعصرها؟" },
+                    "choices": [
+                        {
+                            "id": "ahead_of_time",
+                            "text": { "en": "Ahead of its time — monotheism eventually became the world's dominant idea", "ar": "سابقة لعصرها — التوحيد أصبح في النهاية الفكرة المسيطرة في العالم" },
+                            "outcome": { "en": "Within 800 years of Akhenaten, Judaism had crystallized. Within 1300 years, Christianity spread across the Roman Empire. Within 2000 years, Islam united the Arab world. Whether Akhenaten directly influenced these traditions is debated, but his experiment shows that the human impulse toward monotheism existed far earlier than most people realize.", "ar": "في غضون 800 سنة من إخناتون، تبلورت اليهودية. في غضون 1300 سنة، انتشرت المسيحية عبر الإمبراطورية الرومانية. في غضون 2000 سنة، وحّد الإسلام العالم العربي. سواء أثّر إخناتون مباشرة على هذه التقاليد أمر مُتنازع عليه، لكن تجربته تُظهر أن الدافع البشري نحو التوحيد وُجد أبكر بكثير مما يدركه معظم الناس." }
+                        },
+                        {
+                            "id": "failure",
+                            "text": { "en": "A failure — he destroyed more than he created", "ar": "فشل — دمّر أكثر مما خلق" },
+                            "outcome": { "en": "By most practical measures, yes. He neglected diplomacy, lost territory, damaged the economy, and traumatized his people. His city was demolished, his name erased. But failure is not the end of a story — sometimes it's the beginning of a lesson. Akhenaten teaches us that revolutionary ideas need more than vision; they need empathy, patience, and respect for the people they claim to serve.", "ar": "بمعظم المقاييس العملية، نعم. أهمل الدبلوماسية، فقد أراضي، أضر بالاقتصاد، وصدم شعبه. مدينته هُدمت، اسمه مُحي. لكن الفشل ليس نهاية القصة — أحيانًا هو بداية الدرس. يعلمنا إخناتون أن الأفكار الثورية تحتاج أكثر من رؤية؛ تحتاج التعاطف، والصبر، واحترام الناس التي تدّعي خدمتهم." }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

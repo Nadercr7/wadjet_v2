@@ -1,0 +1,414 @@
+{
+    "id": "the-journey-of-ra",
+    "title": { "en": "The Journey of Ra Through the Underworld", "ar": "رحلة رع عبر العالم السفلي" },
+    "subtitle": { "en": "Twelve hours of darkness, one eternal promise of dawn", "ar": "اثنتا عشرة ساعة من الظلام، ووعد أبدي واحد بالفجر" },
+    "cover_glyph": "𓇳",
+    "difficulty": "intermediate",
+    "estimated_minutes": 18,
+    "glyphs_taught": ["N5", "L1", "N1", "I10", "G5", "N14", "D4", "S42", "O1", "F34", "R11", "N35"],
+    "source": "Book of Gates, Amduat (KV17 — Tomb of Seti I, ~1279 BCE), Book of Caverns (KV9 — Tomb of Ramesses VI)",
+    "period": "New Kingdom, 19th–20th Dynasty (~1292–1077 BCE)",
+    "chapters": [
+        {
+            "index": 0,
+            "title": { "en": "The Sun Sets — Into the Western Horizon", "ar": "الشمس تغيب — إلى الأفق الغربي" },
+            "scene_image_prompt": "Ra as a ram-headed figure descending into the western mountain at sunset, his solar barque entering the mouth of the earth goddess Nut, the twelve hours of night stretching before him as a vast dark river, golden twilight giving way to shadow",
+            "tts_voice": "Aoede",
+            "tts_style": "Majestic and solemn. The voice of the cosmos settling into darkness. Reverent awe as the greatest journey begins.",
+            "paragraphs": [
+                {
+                    "text": {
+                        "en": "Every evening, as the sun slipped below the western horizon, the ancient Egyptians witnessed not a simple sunset but a divine death. Ra, the supreme sun god, transformed from his midday form — the falcon-headed god of blazing noon — into Atum, the aged ram-headed figure of the setting sun. He stepped aboard his night barque, the Mesektet, and descended into the Duat — the underworld.",
+                        "ar": "كل مساء، حين انزلقت الشمس تحت الأفق الغربي، شهد المصريون القدماء ليس مجرد غروب بل موتًا إلهيًا. رع، إله الشمس الأعظم، تحوّل من شكل الظهيرة — الإله صقري الرأس ذو الشمس المتقدة — إلى أتوم، الشكل الكبشي الرأس المسن لشمس الغروب. صعد على مركبه الليلي، المسكتت، ونزل إلى الدوات — العالم السفلي."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "sun", "ar": "شمس" },
+                            "gardiner_code": "N5",
+                            "glyph": "𓇳",
+                            "meaning": { "en": "The sun disc — Ra himself. This glyph appears in the names of gods, pharaohs, and time words. It is one of the most sacred symbols in all of Egyptian writing.", "ar": "قرص الشمس — رع نفسه. تظهر هذه الهيروغليفية في أسماء الآلهة والفراعنة وكلمات الزمن. أحد أقدس الرموز في الكتابة المصرية كلها." },
+                            "transliteration": "rꜥ"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "The Duat was not simply hell or an afterlife. It was a parallel cosmos beneath the earth — a twelve-hour journey through caverns, gates, and rivers of fire that the sun had to navigate every night so that it could be reborn at dawn. If Ra failed to complete the journey, the sun would never rise again. Eternal darkness would consume the world.",
+                        "ar": "لم يكن الدوات ببساطة جحيمًا أو حياة بعد الموت. كان كونًا موازيًا تحت الأرض — رحلة اثنتي عشرة ساعة عبر كهوف وبوابات وأنهار من النار يجب على الشمس عبورها كل ليلة لتُولد من جديد عند الفجر. لو فشل رع في إتمام الرحلة، لن تشرق الشمس أبدًا. ظلام أبدي سيبتلع العالم."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "sky", "ar": "سماء" },
+                            "gardiner_code": "N1",
+                            "glyph": "𓇯",
+                            "meaning": { "en": "The sky — the body of the goddess Nut, who swallows Ra at sunset and gives birth to him at dawn.", "ar": "السماء — جسد الإلهة نوت، التي تبتلع رع عند الغروب وتلده عند الفجر." },
+                            "transliteration": "pt"
+                        }
+                    ]
+                }
+            ],
+            "interactions": [
+                {
+                    "type": "glyph_discovery",
+                    "after_paragraph": 0,
+                    "glyph": "N5",
+                    "unicode": "𓇳",
+                    "prompt": { "en": "The sun disc — Ra himself. Every sunset was a death, every dawn a resurrection.", "ar": "قرص الشمس — رع نفسه. كل غروب كان موتًا، وكل فجر قيامة." },
+                    "meaning": { "en": "Sun, day, time — the face of Ra", "ar": "الشمس، النهار، الزمن — وجه رع" },
+                    "transliteration": "rꜥ"
+                },
+                {
+                    "type": "choose_glyph",
+                    "after_paragraph": 1,
+                    "question": { "en": "Which glyph represents the sky through which Ra travels?", "ar": "أي هيروغليفية تمثل السماء التي يسافر رع خلالها؟" },
+                    "options": [
+                        { "code": "N1", "glyph": "𓇯" },
+                        { "code": "N5", "glyph": "𓇳" },
+                        { "code": "N14", "glyph": "𓇼" },
+                        { "code": "N35", "glyph": "𓈖" }
+                    ],
+                    "correct": "N1",
+                    "explanation": { "en": "The sky (N1) 𓇯 — represents the body of Nut, the sky goddess who arches over the earth. Ra sails across her body each day.", "ar": "السماء (N1) 𓇯 — تمثل جسد نوت، إلهة السماء التي تقوس فوق الأرض. يبحر رع عبر جسدها كل يوم." }
+                }
+            ]
+        },
+        {
+            "index": 1,
+            "title": { "en": "The Serpent Apophis — Chaos Incarnate", "ar": "الثعبان أبوفيس — تجسد الفوضى" },
+            "scene_image_prompt": "Colossal serpent Apophis coiled in the seventh hour of the Duat blocking the solar barque, fire-breathing chaos dragon against Ra's golden light, Egyptian gods fighting with spears and knives, cosmic battle in underground cavern",
+            "tts_voice": "Aoede",
+            "tts_style": "Intense and terrifying. The clash between cosmic order and chaos. Build to the climactic battle, then relief.",
+            "paragraphs": [
+                {
+                    "text": {
+                        "en": "In the seventh hour of the night — the deepest, darkest point of the journey — Ra faced his eternal enemy: Apophis, the serpent of chaos. Apophis was no ordinary snake. He was as old as creation itself, a force of pure uncreation, a being whose sole purpose was to swallow the sun and return the cosmos to the primordial darkness of Nun.",
+                        "ar": "في الساعة السابعة من الليل — أعمق وأظلم نقطة في الرحلة — واجه رع عدوه الأبدي: أبوفيس، ثعبان الفوضى. لم يكن أبوفيس ثعبانًا عاديًا. كان قديمًا قِدم الخلق ذاته، قوة إفناء محض، كائن هدفه الوحيد ابتلاع الشمس وإعادة الكون إلى ظلام نون البدائي."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "serpent", "ar": "ثعبان" },
+                            "gardiner_code": "I10",
+                            "glyph": "𓆗",
+                            "meaning": { "en": "The cobra with hood — representing the sacred uraeus and the deadly power of serpents. Apophis is depicted as a massive version of this sign.", "ar": "الكوبرا بغطاء — تمثل اليوريوس المقدس والقوة المميتة للثعابين. يُصوَّر أبوفيس كنسخة ضخمة من هذه العلامة." },
+                            "transliteration": "ḏ"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "Each night, Apophis tried to drink the waters of the underground Nile dry, creating sandbanks to strand Ra's barque. He hypnotized the crew with his gaze. He coiled his massive body to block the narrow passages. In the tomb of Seti I, these scenes are painted in vivid detail: the serpent is sometimes shown cut into pieces, only to reform the next night.",
+                        "ar": "كل ليلة، حاول أبوفيس شرب مياه نيل العالم السفلي حتى الجفاف، خالقًا ضفافًا رملية لتعليق مركب رع. نوّم طاقم المركب بنظرته. لفّ جسده الضخم ليسد الممرات الضيقة. في مقبرة سيتي الأول، رُسمت هذه المشاهد بتفصيل حي: يُصوَّر الثعبان أحيانًا مقطعًا قطعًا، ليعود ويتشكل الليلة التالية."
+                    },
+                    "glyph_annotations": []
+                },
+                {
+                    "text": {
+                        "en": "The battle was never won permanently. This was perhaps the most profound Egyptian insight: the struggle between order and chaos is eternal. Ma'at and Isfet, truth and disorder, light and darkness — they exist in permanent tension. Ra must fight every single night, and every single night, the outcome is uncertain until he wins.",
+                        "ar": "لم تُحسم المعركة أبدًا نهائيًا. كانت هذه ربما أعمق رؤية مصرية: الصراع بين النظام والفوضى أبدي. ماعت وإسفت، الحقيقة والفوضى، النور والظلام — يوجدان في توتر دائم. يجب أن يقاتل رع كل ليلة، وكل ليلة، النتيجة غير مؤكدة حتى ينتصر."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "falcon", "ar": "صقر" },
+                            "gardiner_code": "G5",
+                            "glyph": "𓅃",
+                            "meaning": { "en": "Horus falcon — Ra in his midday form is a falcon. The falcon soars above chaos, master of the sky.", "ar": "صقر حورس — رع في شكل الظهيرة صقر. الصقر يحلق فوق الفوضى، سيد السماء." },
+                            "transliteration": "ḥr"
+                        }
+                    ]
+                }
+            ],
+            "interactions": [
+                {
+                    "type": "glyph_discovery",
+                    "after_paragraph": 0,
+                    "glyph": "I10",
+                    "unicode": "𓆗",
+                    "prompt": { "en": "The cobra — serpents were both sacred protectors and deadly enemies in Egyptian belief.", "ar": "الكوبرا — الثعابين كانت حامية مقدسة وأعداء مميتين في المعتقد المصري." },
+                    "meaning": { "en": "Cobra — serpent power, protection, danger", "ar": "الكوبرا — قوة الثعبان، الحماية، الخطر" },
+                    "transliteration": "ḏ"
+                },
+                {
+                    "type": "story_decision",
+                    "after_paragraph": 2,
+                    "prompt": { "en": "The Egyptians painted Apophis being defeated every night. Why not just show him permanently destroyed?", "ar": "رسم المصريون أبوفيس مهزومًا كل ليلة. لماذا لم يُظهروه مدمرًا نهائيًا؟" },
+                    "choices": [
+                        {
+                            "id": "eternal_struggle",
+                            "text": { "en": "Because the struggle between order and chaos never truly ends", "ar": "لأن الصراع بين النظام والفوضى لا ينتهي حقًا أبدًا" },
+                            "outcome": { "en": "Exactly. Egyptian theology was remarkably sophisticated. They understood that disorder, entropy, and challenge are permanent features of existence. Ma'at must be actively maintained — it doesn't sustain itself. This is why ritual, prayer, and right action mattered daily, not just once.", "ar": "بالضبط. كان اللاهوت المصري متطورًا بشكل ملحوظ. فهموا أن الفوضى والإنتروبيا والتحدي سمات دائمة للوجود. ماعت يجب أن تُحافظ عليها بنشاط — لا تستمر بنفسها. لهذا كانت الطقوس والصلاة والعمل الصالح مهمة يوميًا، وليس مرة واحدة." }
+                        },
+                        {
+                            "id": "dramatic_tension",
+                            "text": { "en": "Because uncertainty makes the sunrise more meaningful", "ar": "لأن عدم اليقين يجعل شروق الشمس أكثر معنى" },
+                            "outcome": { "en": "There's truth in this too. The Egyptians understood narrative power — the sunrise was not mere astronomy but a daily miracle, a victory that could never be taken for granted. Every dawn was evidence that the gods had prevailed once more.", "ar": "هناك حقيقة في هذا أيضًا. فهم المصريون قوة السرد — شروق الشمس لم يكن مجرد فلك بل معجزة يومية، انتصار لا يمكن أبدًا أن يُعتبر مُسلَّمًا به. كل فجر كان دليلًا على أن الآلهة انتصرت مرة أخرى." }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "index": 2,
+            "title": { "en": "The Crew of the Solar Barque", "ar": "طاقم المركب الشمسي" },
+            "scene_image_prompt": "Ra's golden solar barque sailing through the underground Nile, crewed by major Egyptian gods — Set at the prow with a spear fighting Apophis, Thoth recording, Isis performing protective magic, Hu and Sia navigating, stars reflected in dark water",
+            "tts_voice": "Aoede",
+            "tts_style": "Admirational and warm. Introduce each god with reverence, like presenting heroes of an epic saga.",
+            "paragraphs": [
+                {
+                    "text": {
+                        "en": "Ra did not make the journey alone. His barque carried a crew of gods, each with a critical role. At the prow stood Set — yes, the same Set who murdered Osiris. In this context, Set's violent nature served a purpose: he was the only god strong enough to fight Apophis. Every night, Set drove his spear into the serpent's coils.",
+                        "ar": "لم يقم رع بالرحلة وحده. حمل مركبه طاقمًا من الآلهة، كل منهم بدور حاسم. في المقدمة وقف ست — نعم، نفس ست الذي قتل أوزيريس. في هذا السياق، خدمت طبيعة ست العنيفة غرضًا: كان الإله الوحيد القوي بما يكفي لمحاربة أبوفيس. كل ليلة، غرس ست رمحه في لفات الثعبان."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "was-scepter", "ar": "صولجان واس" },
+                            "gardiner_code": "S42",
+                            "glyph": "𓌂",
+                            "meaning": { "en": "The was-scepter — symbol of divine power and dominion. Set wielded the ultimate weapon against chaos.", "ar": "صولجان واس — رمز القوة الإلهية والسيادة. حمل ست السلاح الأقصى ضد الفوضى." },
+                            "transliteration": "wꜣs"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "Thoth stood at the stern, recording every event and reciting spells of protection. Isis wove protective magic around the barque. Hu — the god of authoritative speech — spoke the words that commanded reality. Sia — the god of perception — navigated the treacherous passages. Ma'at herself stood beside Ra, for without truth, the sun cannot shine.",
+                        "ar": "وقف تحوت في المؤخرة، يسجل كل حدث ويتلو تعاويذ الحماية. نسجت إيزيس سحرًا حاميًا حول المركب. حو — إله الكلام ذي السلطة — نطق الكلمات التي تأمر الواقع. سيا — إله الإدراك — أبحر عبر الممرات الغادرة. ماعت نفسها وقفت بجانب رع، لأنه بدون الحقيقة، لا يمكن للشمس أن تشرق."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "star", "ar": "نجمة" },
+                            "gardiner_code": "N14",
+                            "glyph": "𓇼",
+                            "meaning": { "en": "The star — marking the hours of the night. The decan stars were the Egyptians' clock, tracking the twelve hours of darkness.", "ar": "النجمة — تعلّم ساعات الليل. النجوم العشرية كانت ساعة المصريين، تتبع اثنتي عشرة ساعة من الظلام." },
+                            "transliteration": "sbꜣ"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "This divine crew reflected a profound truth: even the greatest god needed help. The universe functioned through cooperation, not solitary power. The Egyptians projected their own social values — teamwork, specialized skills, hierarchy with purpose — onto the very structure of the cosmos.",
+                        "ar": "عكس هذا الطاقم الإلهي حقيقة عميقة: حتى أعظم إله يحتاج المساعدة. الكون يعمل من خلال التعاون، لا القوة المنفردة. عكس المصريون قيمهم الاجتماعية — العمل الجماعي، المهارات المتخصصة، التسلسل الهرمي بهدف — على بنية الكون ذاته."
+                    },
+                    "glyph_annotations": []
+                }
+            ],
+            "interactions": [
+                {
+                    "type": "glyph_discovery",
+                    "after_paragraph": 0,
+                    "glyph": "S42",
+                    "unicode": "𓌂",
+                    "prompt": { "en": "The was-scepter — power and dominion. Even Set served a divine purpose in the cosmic order.", "ar": "صولجان واس — القوة والسيادة. حتى ست خدم غرضًا إلهيًا في النظام الكوني." },
+                    "meaning": { "en": "Was-scepter — divine power, authority, dominion", "ar": "صولجان واس — القوة الإلهية، السلطة، السيادة" },
+                    "transliteration": "wꜣs"
+                },
+                {
+                    "type": "write_word",
+                    "after_paragraph": 1,
+                    "target_word": { "en": "star", "ar": "نجمة" },
+                    "target_glyph": "𓇼",
+                    "gardiner_code": "N14",
+                    "hint": { "en": "The five-pointed star — the Egyptians mapped thirty-six decan stars to track time through the night", "ar": "النجمة الخماسية — رسم المصريون ست وثلاثين نجمة عشرية لتتبع الزمن خلال الليل" }
+                }
+            ]
+        },
+        {
+            "index": 3,
+            "title": { "en": "The Gates of the Duat", "ar": "بوابات الدوات" },
+            "scene_image_prompt": "Massive ornate gateway in the underworld with fire-breathing serpent guardians on either side, Ra's barque approaching, deceased souls being judged at the gate, hieroglyphic passwords inscribed on the gate posts, flickering torchlight",
+            "tts_voice": "Aoede",
+            "tts_style": "Grave and architectural. The voice of ancient ritual. Each gate is a test, each password a sacred key.",
+            "paragraphs": [
+                {
+                    "text": {
+                        "en": "The Duat was divided by great gates — twelve in the Book of Gates, each guarded by fearsome serpents and gods who demanded a password. These passwords were sacred knowledge, recorded on papyri placed in tombs so the deceased could pass through. Without the right words, even a god could be denied entry.",
+                        "ar": "قُسم الدوات ببوابات عظيمة — اثنتي عشرة في كتاب البوابات، كل منها محروسة بثعابين وآلهة مخيفة تطلب كلمة سر. كانت كلمات السر معرفة مقدسة، مسجلة على لفائف بردي توضع في المقابر حتى يتمكن المتوفى من المرور. بدون الكلمات الصحيحة، حتى إله يمكن أن يُمنع من الدخول."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "house", "ar": "بيت" },
+                            "gardiner_code": "O1",
+                            "glyph": "𓉐",
+                            "meaning": { "en": "The house — determinative for buildings, gates, and enclosed spaces. The gates of the Duat were cosmic architecture.", "ar": "البيت — محدد للمباني والبوابات والمساحات المغلقة. بوابات الدوات كانت عمارة كونية." },
+                            "transliteration": "pr"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "At each gate, the dead were judged. Those who had lived in accordance with Ma'at were allowed through with Ra's barque. Those who had not were consumed by the guardians. The gates bore names like 'She Who Burns the Wicked' and 'Lady of Trembling.' Their serpent guardians breathed fire and bore knives.",
+                        "ar": "عند كل بوابة، حُكم على الموتى. أولئك الذين عاشوا وفق ماعت سُمح لهم بالمرور مع مركب رع. أولئك الذين لم يعيشوا كذلك التهمهم الحراس. حملت البوابات أسماء مثل 'التي تحرق الأشرار' و'سيدة الارتجاف.' حراسها من الثعابين نفثوا النار وحملوا سكاكين."
+                    },
+                    "glyph_annotations": []
+                },
+                {
+                    "text": {
+                        "en": "This system reveals the Egyptian obsession with preparation. Life was a rehearsal for the afterlife. Every moral choice, every act of kindness or cruelty, was being recorded. The Book of Gates was essentially an instruction manual: learn these words, live righteously, and you will pass through the darkness into eternal light.",
+                        "ar": "يكشف هذا النظام عن هوس المصريين بالتحضير. كانت الحياة بروفة للحياة الآخرة. كل خيار أخلاقي، كل فعل لطف أو قسوة، كان يُسجَّل. كتاب البوابات كان في الأساس دليل تعليمات: تعلّم هذه الكلمات، عش بصلاح، وستمر عبر الظلام إلى النور الأبدي."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "eye", "ar": "عين" },
+                            "gardiner_code": "D4",
+                            "glyph": "𓂀",
+                            "meaning": { "en": "The eye — seeing, watching, perceiving. The gods saw everything, and the gates of the Duat were the ultimate accountability.", "ar": "العين — الرؤية، المراقبة، الإدراك. الآلهة رأت كل شيء، وبوابات الدوات كانت المساءلة النهائية." },
+                            "transliteration": "ir"
+                        }
+                    ]
+                }
+            ],
+            "interactions": [
+                {
+                    "type": "glyph_discovery",
+                    "after_paragraph": 0,
+                    "glyph": "O1",
+                    "unicode": "𓉐",
+                    "prompt": { "en": "The house — gates, temples, and tombs were all sacred architecture connecting mortal and divine realms.", "ar": "البيت — البوابات والمعابد والمقابر كلها عمارة مقدسة تربط عالم الفانين بالإلهي." },
+                    "meaning": { "en": "House — building, gate, enclosed space", "ar": "البيت — مبنى، بوابة، مساحة مغلقة" },
+                    "transliteration": "pr"
+                },
+                {
+                    "type": "choose_glyph",
+                    "after_paragraph": 2,
+                    "question": { "en": "Which glyph represents the all-seeing eye that watched for truth at every gate?", "ar": "أي هيروغليفية تمثل العين التي تراقب الجميع وتبحث عن الحقيقة عند كل بوابة؟" },
+                    "options": [
+                        { "code": "D4", "glyph": "𓂀" },
+                        { "code": "N5", "glyph": "𓇳" },
+                        { "code": "G5", "glyph": "𓅃" },
+                        { "code": "O1", "glyph": "𓉐" }
+                    ],
+                    "correct": "D4",
+                    "explanation": { "en": "The eye (D4) 𓂀 — symbol of perception and judgment. In the Duat, nothing could be hidden from the divine gaze.", "ar": "العين (D4) 𓂀 — رمز الإدراك والحكم. في الدوات، لا شيء يمكن إخفاؤه عن النظرة الإلهية." }
+                }
+            ]
+        },
+        {
+            "index": 4,
+            "title": { "en": "Union with Osiris — The Midnight Mystery", "ar": "الاتحاد مع أوزيريس — سر منتصف الليل" },
+            "scene_image_prompt": "Ra and Osiris merging into a single being at midnight in the deepest chamber of the Duat, double-crowned figure glowing with golden and green light, surrounded by mummiform figures of the blessed dead being awakened, profound mystical moment",
+            "tts_voice": "Aoede",
+            "tts_style": "Deeply mystical & hushed. This is the secret heart of the journey — the greatest mystery of Egyptian religion. Whispered revelation.",
+            "paragraphs": [
+                {
+                    "text": {
+                        "en": "At the sixth hour — the exact midpoint of the night — something extraordinary occurred. Ra descended to the deepest chamber of the Duat and merged with Osiris, the lord of the dead. For one sacred moment, the sun god and the death god became one being: a double-crowned figure sometimes shown as a ram-headed mummy.",
+                        "ar": "في الساعة السادسة — النقطة الوسطى بالضبط من الليل — حدث شيء استثنائي. نزل رع إلى أعمق غرفة في الدوات واتحد مع أوزيريس، سيد الموتى. للحظة مقدسة واحدة، أصبح إله الشمس وإله الموت كائنًا واحدًا: شكل مزدوج التاج يُظهر أحيانًا كمومياء كبشية الرأس."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "heart", "ar": "قلب" },
+                            "gardiner_code": "F34",
+                            "glyph": "𓄣",
+                            "meaning": { "en": "The heart — seat of consciousness and identity in Egyptian thought. When Ra and Osiris unite, their hearts beat as one.", "ar": "القلب — مقر الوعي والهوية في الفكر المصري. حين يتحد رع وأوزيريس، ينبض قلباهما كواحد." },
+                            "transliteration": "ib"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "This union was the central mystery of Egyptian religion. Life and death, sun and darkness, were not opposites — they were two aspects of the same eternal cycle. Ra needed Osiris to be rejuvenated; Osiris needed Ra to remain king of the dead. Neither could exist without the other. This duality mirrors the Egyptian understanding that creation itself requires both light and darkness.",
+                        "ar": "كان هذا الاتحاد السر المركزي للدين المصري. الحياة والموت، الشمس والظلام، لم يكونا نقيضين — كانا وجهين لنفس الدورة الأبدية. احتاج رع أوزيريس للتجدد؛ واحتاج أوزيريس رع ليبقى ملك الموتى. لا يمكن لأي منهما أن يوجد بدون الآخر. هذه الثنائية تعكس الفهم المصري بأن الخلق ذاته يتطلب النور والظلام معًا."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "djed pillar", "ar": "عمود الجد" },
+                            "gardiner_code": "R11",
+                            "glyph": "𓊽",
+                            "meaning": { "en": "The djed — 'stability,' the backbone of Osiris. When Ra and Osiris unite, the djed stands tall — stability is restored to the cosmos.", "ar": "الجد — 'الاستقرار'، العمود الفقري لأوزيريس. حين يتحد رع وأوزيريس، ينتصب الجد — يعود الاستقرار للكون." },
+                            "transliteration": "ḏd"
+                        }
+                    ]
+                }
+            ],
+            "interactions": [
+                {
+                    "type": "glyph_discovery",
+                    "after_paragraph": 0,
+                    "glyph": "F34",
+                    "unicode": "𓄣",
+                    "prompt": { "en": "The heart — consciousness, identity, the seat of the soul. In this moment, two divine hearts become one.", "ar": "القلب — الوعي، الهوية، مقر الروح. في هذه اللحظة، يصبح قلبان إلهيان واحدًا." },
+                    "meaning": { "en": "Heart — consciousness, identity, soul", "ar": "القلب — الوعي، الهوية، الروح" },
+                    "transliteration": "ib"
+                },
+                {
+                    "type": "glyph_discovery",
+                    "after_paragraph": 1,
+                    "glyph": "R11",
+                    "unicode": "𓊽",
+                    "prompt": { "en": "The djed pillar — backbone of Osiris, pillar of stability. The universe holds together because of this sacred column.", "ar": "عمود الجد — العمود الفقري لأوزيريس، عمود الاستقرار. الكون يتماسك بسبب هذا العمود المقدس." },
+                    "meaning": { "en": "Djed — stability, endurance, the backbone of Osiris", "ar": "الجد — الاستقرار، التحمل، العمود الفقري لأوزيريس" },
+                    "transliteration": "ḏd"
+                }
+            ]
+        },
+        {
+            "index": 5,
+            "title": { "en": "Khepri Rises — The Dawn Reborn", "ar": "خبري يشرق — الفجر المولود من جديد" },
+            "scene_image_prompt": "Scarab beetle Khepri pushing the newborn sun up through the eastern horizon, the body of Nut giving birth to the golden disc, Egyptian people raising their arms in worship at dawn, lotus flowers opening, vibrant sunrise over the Nile",
+            "tts_voice": "Aoede",
+            "tts_style": "Triumphant, joyful, reverent. Build from quiet anticipation to glorious climax. This is the miracle of every new morning.",
+            "paragraphs": [
+                {
+                    "text": {
+                        "en": "Rejuvenated by his union with Osiris, Ra passed through the final hours. At the twelfth hour, he reached the eastern gate. The great goddess Nut — the sky herself — opened her body, and Ra emerged not as Atum the old one, but as Khepri, the scarab, the symbol of new creation. The sacred beetle pushed the newborn sun into the sky.",
+                        "ar": "متجددًا باتحاده مع أوزيريس، مرّ رع خلال الساعات الأخيرة. في الساعة الثانية عشرة، بلغ البوابة الشرقية. الإلهة العظيمة نوت — السماء ذاتها — فتحت جسدها، وخرج رع ليس كأتوم العجوز، بل كخبري، الجعران، رمز الخلق الجديد. الخنفساء المقدسة دفعت الشمس المولودة إلى السماء."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "scarab", "ar": "جعران" },
+                            "gardiner_code": "L1",
+                            "glyph": "𓆣",
+                            "meaning": { "en": "The scarab beetle — Khepri, 'he who comes into being.' The most hopeful sign in Egyptian writing: transformation, rebirth, eternal renewal.", "ar": "خنفساء الجعران — خبري، 'الذي يأتي إلى الوجود.' أكثر علامة مليئة بالأمل في الكتابة المصرية: التحول، إعادة الميلاد، التجدد الأبدي." },
+                            "transliteration": "ḫpr"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "Along the Nile, people raised their arms in adoration. Lotus flowers opened. Birds called the morning hymn. The temple priests recited: 'Hail to thee, Ra, in thy rising! Thou art Khepri who created himself!' From every village, every temple, every field — the sound of gratitude for one more sunrise, one more victory of light over darkness.",
+                        "ar": "على طول النيل، رفع الناس أذرعهم في عبادة. تفتحت زهور اللوتس. غنّت الطيور ترنيمة الصباح. رتّل كهنة المعبد: 'سلامًا عليك يا رع، في شروقك! أنت خبري الذي خلق نفسه!' من كل قرية، كل معبد، كل حقل — صوت الامتنان لشروق شمس آخر، نصر آخر للنور على الظلام."
+                    },
+                    "glyph_annotations": [
+                        {
+                            "word": { "en": "water", "ar": "ماء" },
+                            "gardiner_code": "N35",
+                            "glyph": "𓈖",
+                            "meaning": { "en": "Water — the Nile at dawn reflects the newborn sun. Water is life, purification, and the medium through which Ra travels.", "ar": "الماء — النيل عند الفجر يعكس الشمس المولودة. الماء حياة، تطهير، والوسيط الذي يسافر رع خلاله." },
+                            "transliteration": "n"
+                        }
+                    ]
+                },
+                {
+                    "text": {
+                        "en": "And then — the cycle began again. The sun climbed to its zenith as Ra the falcon. It descended as Atum the aged. And at sunset, Ra stepped once more into the Mesektet and sailed into the Duat. Twelve hours of danger. Twelve hours of darkness. But always, always, the promise of dawn. This was not a myth — it was the rhythm of the universe itself, written in gold across the tomb walls of kings.",
+                        "ar": "وعندها — بدأت الدورة من جديد. صعدت الشمس إلى ذروتها كرع الصقر. ونزلت كأتوم المسن. وعند الغروب، صعد رع مرة أخرى إلى المسكتت وأبحر في الدوات. اثنتا عشرة ساعة من الخطر. اثنتا عشرة ساعة من الظلام. لكن دائمًا، دائمًا، وعد الفجر. هذه لم تكن أسطورة — كانت إيقاع الكون ذاته، مكتوبًا بالذهب عبر جدران مقابر الملوك."
+                    },
+                    "glyph_annotations": []
+                }
+            ],
+            "interactions": [
+                {
+                    "type": "glyph_discovery",
+                    "after_paragraph": 0,
+                    "glyph": "L1",
+                    "unicode": "𓆣",
+                    "prompt": { "en": "The scarab — Khepri, the god of becoming. Every sunrise is a new creation. Every morning, the world is born again.", "ar": "الجعران — خبري، إله الصيرورة. كل شروق هو خلق جديد. كل صباح، يُولد العالم من جديد." },
+                    "meaning": { "en": "Scarab — transformation, rebirth, becoming", "ar": "الجعران — التحول، إعادة الميلاد، الصيرورة" },
+                    "transliteration": "ḫpr"
+                },
+                {
+                    "type": "choose_glyph",
+                    "after_paragraph": 2,
+                    "question": { "en": "Which glyph represents the eternal cycle of rebirth at the heart of Ra's journey?", "ar": "أي هيروغليفية تمثل دورة إعادة الميلاد الأبدية في قلب رحلة رع؟" },
+                    "options": [
+                        { "code": "L1", "glyph": "𓆣" },
+                        { "code": "I10", "glyph": "𓆗" },
+                        { "code": "R11", "glyph": "𓊽" },
+                        { "code": "D4", "glyph": "𓂀" }
+                    ],
+                    "correct": "L1",
+                    "explanation": { "en": "The scarab (L1) 𓆣 — Khepri, 'he who comes into being.' The scarab beetle rolls its ball of dung (symbolizing the sun) across the ground, just as Khepri rolls the sun across the sky. No other creature so perfectly embodied the Egyptian concept of eternal renewal.", "ar": "الجعران (L1) 𓆣 — خبري، 'الذي يأتي إلى الوجود.' خنفساء الجعران تدحرج كرة الروث (ترمز للشمس) على الأرض، تمامًا كما يدحرج خبري الشمس عبر السماء. لا مخلوق آخر جسّد مفهوم التجدد الأبدي المصري بهذا الكمال." }
+                }
+            ]
+        }
+    ]
+}

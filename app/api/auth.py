@@ -1,8 +1,11 @@
-"""Auth API — register, login, refresh, logout."""
+"""Auth API — register, login, refresh, logout, Google OAuth, email verification, password reset."""
 
 from __future__ import annotations
 
+import hashlib
 import logging
+import secrets
+from datetime import datetime, timedelta, timezone
 
 from fastapi import APIRouter, Depends, HTTPException, Request, Response
 from fastapi.responses import JSONResponse
@@ -11,16 +14,31 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.auth.jwt import create_access_token, create_refresh_token, decode_token
 from app.auth.password import hash_password, verify_password
 from app.db.crud import (
+    create_email_token,
     create_user,
+    delete_email_token,
     delete_refresh_token,
     delete_user_refresh_tokens,
     get_user_by_email,
+    get_user_by_google_id,
+    link_google_account,
     store_refresh_token,
+    validate_email_token,
     validate_refresh_token,
+    verify_user_email,
 )
 from app.config import settings
 from app.db.database import get_db
-from app.db.schemas import LoginRequest, RegisterRequest, TokenResponse, UserResponse
+from app.db.schemas import (
+    ForgotPasswordRequest,
+    GoogleAuthRequest,
+    LoginRequest,
+    RegisterRequest,
+    ResetPasswordRequest,
+    TokenResponse,
+    UserResponse,
+    VerifyEmailRequest,
+)
 from app.rate_limit import limiter
 
 logger = logging.getLogger(__name__)
@@ -170,3 +188,183 @@ async def logout(request: Request, db: AsyncSession = Depends(get_db)):
     _clear_refresh_cookie(response)
     _clear_session_cookie(response)
     return response
+
+
+# ── Helpers for email tokens ──
+
+def _hash_email_token(token: str) -> str:
+    return hashlib.sha256(token.encode()).hexdigest()
+
+
+def _issue_tokens_response(user, request: Request) -> JSONResponse:
+    """Create access + refresh tokens and build a JSON response with cookies."""
+    access_token = create_access_token(user.id)
+    return JSONResponse(content={
+        "access_token": access_token,
+        "token_type": "bearer",
+        "user": UserResponse.model_validate(user).model_dump(mode="json"),
+    })
+
+
+async def _issue_full_session(user, request: Request, db: AsyncSession) -> JSONResponse:
+    """Issue access + refresh tokens with cookies set."""
+    access_token = create_access_token(user.id)
+    refresh_token, expires_at = create_refresh_token(user.id)
+    await store_refresh_token(db, user.id, refresh_token, expires_at)
+
+    response = JSONResponse(content={
+        "access_token": access_token,
+        "token_type": "bearer",
+        "user": UserResponse.model_validate(user).model_dump(mode="json"),
+    })
+    _set_refresh_cookie(response, refresh_token)
+    _set_session_cookie(response, request)
+    return response
+
+
+# ── Google OAuth ──
+
+@router.post("/google")
+@limiter.limit("10/minute")
+async def google_auth(body: GoogleAuthRequest, request: Request, db: AsyncSession = Depends(get_db)):
+    """Authenticate with a Google Sign-In ID token."""
+    from app.auth.oauth import verify_google_token
+
+    google_info = verify_google_token(body.credential)
+    if not google_info:
+        raise HTTPException(status_code=401, detail="Invalid Google credential")
+
+    google_id = google_info["sub"]
+    email = google_info["email"].lower().strip()
+
+    if not email:
+        raise HTTPException(status_code=400, detail="Google account has no email")
+
+    # 1. Check if we already have a user with this google_id
+    user = await get_user_by_google_id(db, google_id)
+    if user:
+        return await _issue_full_session(user, request, db)
+
+    # 2. Check if email already exists (link accounts)
+    user = await get_user_by_email(db, email)
+    if user:
+        user = await link_google_account(db, user, google_id, google_info.get("picture"))
+        return await _issue_full_session(user, request, db)
+
+    # 3. New user — create with Google provider
+    user = await create_user(
+        db,
+        email=email,
+        password_hash=None,
+        display_name=google_info.get("name"),
+        google_id=google_id,
+        auth_provider="google",
+        email_verified=True,  # Google emails are pre-verified
+        avatar_url=google_info.get("picture"),
+    )
+    response = await _issue_full_session(user, request, db)
+    response.status_code = 201
+    return response
+
+
+# ── Email Verification ──
+
+@router.post("/send-verification")
+@limiter.limit("3/minute")
+async def send_verification(request: Request, db: AsyncSession = Depends(get_db)):
+    """Send a verification email to the current user (requires auth)."""
+    from app.auth.dependencies import get_current_user
+    from app.auth.email import send_verification_email
+
+    user = await get_current_user(request, db)
+    if user.email_verified:
+        return JSONResponse(content={"detail": "Email already verified"})
+
+    raw_token = secrets.token_urlsafe(32)
+    token_hash = _hash_email_token(raw_token)
+    expires_at = datetime.now(timezone.utc) + timedelta(hours=24)
+    await create_email_token(db, user.id, token_hash, "verify", expires_at)
+
+    send_verification_email(user.email, raw_token)
+    return JSONResponse(content={"detail": "Verification email sent"})
+
+
+@router.post("/verify-email")
+@limiter.limit("10/minute")
+async def verify_email(body: VerifyEmailRequest, request: Request, db: AsyncSession = Depends(get_db)):
+    """Verify email using a token from the verification email."""
+    token_hash = _hash_email_token(body.token)
+    stored = await validate_email_token(db, token_hash, "verify")
+    if not stored:
+        raise HTTPException(status_code=400, detail="Invalid or expired verification token")
+
+    await verify_user_email(db, stored.user_id)
+    await delete_email_token(db, stored.id)
+    return JSONResponse(content={"detail": "Email verified successfully"})
+
+
+@router.get("/verify-email")
+async def verify_email_get(token: str, request: Request, db: AsyncSession = Depends(get_db)):
+    """Handle GET verification link from email (redirects to frontend)."""
+    token_hash = _hash_email_token(token)
+    stored = await validate_email_token(db, token_hash, "verify")
+    if not stored:
+        from fastapi.responses import RedirectResponse
+        return RedirectResponse(url="/?verified=error", status_code=302)
+
+    await verify_user_email(db, stored.user_id)
+    await delete_email_token(db, stored.id)
+    from fastapi.responses import RedirectResponse
+    return RedirectResponse(url="/?verified=success", status_code=302)
+
+
+# ── Password Reset ──
+
+@router.post("/forgot-password")
+@limiter.limit("3/minute")
+async def forgot_password(body: ForgotPasswordRequest, request: Request, db: AsyncSession = Depends(get_db)):
+    """Send a password reset email. Always returns 200 to prevent email enumeration."""
+    from app.auth.email import send_password_reset_email
+
+    email = body.email.lower().strip()
+    user = await get_user_by_email(db, email)
+
+    # Always return success to prevent email enumeration
+    if not user or user.auth_provider == "google":
+        return JSONResponse(content={"detail": "If an account exists, a reset email has been sent"})
+
+    raw_token = secrets.token_urlsafe(32)
+    token_hash = _hash_email_token(raw_token)
+    expires_at = datetime.now(timezone.utc) + timedelta(hours=1)
+    await create_email_token(db, user.id, token_hash, "reset", expires_at)
+
+    send_password_reset_email(user.email, raw_token)
+    return JSONResponse(content={"detail": "If an account exists, a reset email has been sent"})
+
+
+@router.post("/reset-password")
+@limiter.limit("5/minute")
+async def reset_password(body: ResetPasswordRequest, request: Request, db: AsyncSession = Depends(get_db)):
+    """Reset password using a token from the reset email."""
+    from app.db.crud import get_user_by_id, update_user_password
+
+    token_hash = _hash_email_token(body.token)
+    stored = await validate_email_token(db, token_hash, "reset")
+    if not stored:
+        raise HTTPException(status_code=400, detail="Invalid or expired reset token")
+
+    user = await get_user_by_id(db, stored.user_id)
+    if not user:
+        raise HTTPException(status_code=400, detail="User not found")
+
+    if user.auth_provider == "google":
+        raise HTTPException(status_code=400, detail="Google-only accounts cannot set a password")
+
+    new_hash = hash_password(body.new_password)
+    await update_user_password(db, stored.user_id, new_hash)
+    await delete_email_token(db, stored.id)
+
+    # Invalidate all existing refresh tokens for security
+    await delete_user_refresh_tokens(db, stored.user_id)
+
+    return JSONResponse(content={"detail": "Password reset successfully"})

@@ -2,10 +2,10 @@ services:
   wadjet:
     build: .
     ports:
-      - "8000:8000"
+      - "7860:7860"
     volumes:
       - ./models:/app/models:ro
-      - ./data:/app/data:ro
+      - ./data:/app/data:rw
     env_file:
       - .env
     restart: unless-stopped

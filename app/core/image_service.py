@@ -25,8 +25,10 @@ _FLUX_MODEL = "@cf/black-forest-labs/flux-1-schnell"
 _SDXL_MODEL = "@cf/stabilityai/stable-diffusion-xl-base-1.0"
 
 EGYPTIAN_STYLE_SUFFIX = (
-    ", ancient Egyptian art style, golden tones, hieroglyphs on walls, "
-    "dramatic warm lighting, detailed oil painting, museum quality"
+    ", painted in rich golden and amber tones with deep lapis lazuli blue accents, "
+    "intricate hieroglyphic border frame, style of New Kingdom tomb painting blended "
+    "with Art Deco elegance, detailed ink work on aged yellowed papyrus texture, "
+    "museum-quality archaeological artifact illustration, dramatic lighting"
 )
 
 # Shared HTTP client — reused across all image generation calls
