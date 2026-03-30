@@ -675,5 +675,20 @@
         "signup_btn": "اعمل حساب ببلاش",
         "signup_login": "عندك حساب؟",
         "signup_login_link": "سجّل دخول"
+    },
+    "feedback": {
+        "title": "شاركنا رأيك",
+        "subtitle": "ساعدنا نحسّن واجت — بلّغ عن مشاكل، اقترح أفكار، أو قولنا رأيك!",
+        "category_label": "نوع الملاحظة؟",
+        "message_label": "ملاحظتك",
+        "message_placeholder": "اوصف المشكلة، الفكرة، أو اللي عجبك...",
+        "name_label": "الاسم (اختياري)",
+        "name_placeholder": "اسمك",
+        "email_label": "الإيميل (اختياري)",
+        "email_placeholder": "your@email.com",
+        "submit": "ابعت الملاحظة",
+        "sending": "بيتبعت...",
+        "thanks": "شكراً ليك!",
+        "thanks_sub": "ملاحظتك بتساعدنا نحسّن واجت."
     }
 }

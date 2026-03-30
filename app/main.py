@@ -12,7 +12,7 @@ from fastapi.templating import Jinja2Templates
 from slowapi import _rate_limit_exceeded_handler
 from slowapi.errors import RateLimitExceeded
 
-from app.api import audio, auth, chat, dictionary, explore, health, pages, quiz, scan, stories, translate, user, write
+from app.api import audio, auth, chat, dictionary, explore, feedback, health, pages, quiz, scan, stories, translate, user, write
 from app.config import settings
 from app.rate_limit import limiter
 
@@ -176,6 +176,7 @@ def create_app() -> FastAPI:
             re.compile(r"^/api/dictionary"),
             re.compile(r"^/api/stories"),
             re.compile(r"^/api/user"),
+            re.compile(r"^/api/feedback$"),
             # Read-only documentation (disabled in production via Phase 2)
             re.compile(r"^/docs"),
             re.compile(r"^/openapi\.json$"),
@@ -257,6 +258,7 @@ def create_app() -> FastAPI:
     app.include_router(user.router)
     app.include_router(audio.router)
     app.include_router(health.router, prefix="/api")
+    app.include_router(feedback.router)
 
     # Service Worker — must be served from root for scope='/'
     sw_path = BASE_DIR / "static" / "sw.js"

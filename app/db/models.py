@@ -69,3 +69,16 @@ class RefreshToken(Base):
     token_hash = Column(String, unique=True, nullable=False)
     expires_at = Column(DateTime, nullable=False)
     created_at = Column(DateTime, server_default=func.now())
+
+
+class Feedback(Base):
+    __tablename__ = "feedback"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    category = Column(String, nullable=False)  # 'bug', 'suggestion', 'praise', 'other'
+    message = Column(Text, nullable=False)
+    page_url = Column(String, nullable=True)
+    name = Column(String, nullable=True)
+    email = Column(String, nullable=True)
+    user_agent = Column(String, nullable=True)
+    created_at = Column(DateTime, server_default=func.now())

@@ -675,5 +675,20 @@
         "signup_btn": "Create Free Account",
         "signup_login": "Already have an account?",
         "signup_login_link": "Sign In"
+    },
+    "feedback": {
+        "title": "Share Your Feedback",
+        "subtitle": "Help us improve Wadjet — report bugs, suggest features, or just say hi!",
+        "category_label": "What type of feedback?",
+        "message_label": "Your feedback",
+        "message_placeholder": "Describe the issue, idea, or what you liked...",
+        "name_label": "Name (optional)",
+        "name_placeholder": "Your name",
+        "email_label": "Email (optional)",
+        "email_placeholder": "your@email.com",
+        "submit": "Send Feedback",
+        "sending": "Sending...",
+        "thanks": "Thank you!",
+        "thanks_sub": "Your feedback helps us make Wadjet better."
     }
 }

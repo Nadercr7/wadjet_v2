@@ -1,0 +1,147 @@
+<!-- Beta Feedback FAB + Modal -->
+<div x-data="feedbackApp()" x-cloak>
+  <!-- Floating Action Button -->
+  <button @click="open = true"
+          class="fixed bottom-6 left-6 rtl:left-auto rtl:right-6 z-[9990] w-12 h-12 rounded-full bg-gold text-night shadow-lg hover:bg-gold-light transition-colors flex items-center justify-center group"
+          :aria-label="t('feedback.title', '{{ lang }}')"
+          x-show="!open">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+    </svg>
+  </button>
+
+  <!-- Modal Overlay -->
+  <div x-show="open" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+       x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
+       class="fixed inset-0 z-[9995] flex items-end sm:items-center justify-center p-4" @keydown.escape.window="open && (open = false)">
+    <div class="absolute inset-0 bg-night/70 backdrop-blur-sm" @click="open = false"></div>
+
+    <!-- Modal Card -->
+    <div class="relative bg-surface border border-border rounded-2xl shadow-2xl w-full max-w-md p-6 max-h-[90vh] overflow-y-auto"
+         role="dialog" aria-modal="true" aria-labelledby="feedback-title" x-transition>
+
+      <!-- Close -->
+      <button @click="open = false" class="absolute top-4 right-4 text-text-dim hover:text-text rtl:right-auto rtl:left-4" aria-label="{{ t('common.close', lang) }}">&times;</button>
+
+      <!-- Header -->
+      <h2 id="feedback-title" class="font-display text-xl font-bold text-gold mb-1">{{ t('feedback.title', lang) }}</h2>
+      <p class="text-sm text-text-muted mb-4">{{ t('feedback.subtitle', lang) }}</p>
+
+      <!-- Success State -->
+      <div x-show="success" class="text-center py-6">
+        <div class="text-4xl mb-3">✨</div>
+        <p class="text-gold font-semibold mb-1">{{ t('feedback.thanks', lang) }}</p>
+        <p class="text-sm text-text-muted mb-4">{{ t('feedback.thanks_sub', lang) }}</p>
+        <button @click="open = false; resetForm()" class="btn-ghost text-sm">{{ t('common.close', lang) }}</button>
+      </div>
+
+      <!-- Form -->
+      <form x-show="!success" @submit.prevent="submit()" class="flex flex-col gap-4">
+        <!-- Category Chips -->
+        <div>
+          <label class="text-sm text-text-muted mb-2 block">{{ t('feedback.category_label', lang) }}</label>
+          <div class="flex flex-wrap gap-2">
+            <template x-for="cat in categories" :key="cat.id">
+              <button type="button" @click="category = cat.id"
+                      :class="category === cat.id ? 'bg-gold text-night' : 'bg-night border border-border text-text-muted hover:border-gold/50'"
+                      class="px-3 py-1.5 rounded-full text-sm font-medium transition-colors flex items-center gap-1.5">
+                <span x-text="cat.icon"></span>
+                <span x-text="cat.label"></span>
+              </button>
+            </template>
+          </div>
+        </div>
+
+        <!-- Message -->
+        <div>
+          <label for="fb-message" class="text-sm text-text-muted mb-1 block">{{ t('feedback.message_label', lang) }} *</label>
+          <textarea id="fb-message" x-model="message" required minlength="10" maxlength="1000" rows="4"
+                    class="input w-full resize-none" :placeholder="t('feedback.message_placeholder', '{{ lang }}')"></textarea>
+          <p class="text-xs text-text-dim mt-1 text-end" x-text="message.length + '/1000'"></p>
+        </div>
+
+        <!-- Name -->
+        <div>
+          <label for="fb-name" class="text-sm text-text-muted mb-1 block">{{ t('feedback.name_label', lang) }}</label>
+          <input id="fb-name" x-model="name" type="text" maxlength="100" class="input w-full"
+                 placeholder="{{ t('feedback.name_placeholder', lang) }}">
+        </div>
+
+        <!-- Email -->
+        <div>
+          <label for="fb-email" class="text-sm text-text-muted mb-1 block">{{ t('feedback.email_label', lang) }}</label>
+          <input id="fb-email" x-model="email" type="email" maxlength="200" class="input w-full"
+                 placeholder="{{ t('feedback.email_placeholder', lang) }}">
+        </div>
+
+        <!-- Error -->
+        <p x-show="error" class="text-sm text-red-400" x-text="error"></p>
+
+        <!-- Submit -->
+        <button type="submit" class="btn-gold w-full" :disabled="loading || !category || message.length < 10">
+          <span x-show="!loading">{{ t('feedback.submit', lang) }}</span>
+          <span x-show="loading" x-cloak class="flex items-center justify-center gap-2">
+            <svg class="w-4 h-4 animate-spin text-night" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" opacity="0.25"/><path d="M4 12a8 8 0 018-8" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg>
+            {{ t('feedback.sending', lang) }}
+          </span>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+function feedbackApp() {
+  const lang = document.documentElement.lang || 'en';
+  return {
+    open: false,
+    success: false,
+    loading: false,
+    error: '',
+    category: '',
+    message: '',
+    name: '',
+    email: '',
+    categories: [
+      { id: 'bug', icon: '🐛', label: lang === 'ar' ? 'خلل' : 'Bug' },
+      { id: 'suggestion', icon: '💡', label: lang === 'ar' ? 'اقتراح' : 'Idea' },
+      { id: 'praise', icon: '👍', label: lang === 'ar' ? 'إعجاب' : 'Praise' },
+      { id: 'other', icon: '📋', label: lang === 'ar' ? 'تاني' : 'Other' },
+    ],
+    resetForm() {
+      this.success = false;
+      this.error = '';
+      this.category = '';
+      this.message = '';
+      this.name = '';
+      this.email = '';
+    },
+    async submit() {
+      this.loading = true;
+      this.error = '';
+      try {
+        const res = await fetch('/api/feedback', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            category: this.category,
+            message: this.message,
+            page_url: window.location.pathname,
+            name: this.name,
+            email: this.email,
+          }),
+        });
+        if (!res.ok) {
+          const data = await res.json().catch(() => ({}));
+          throw new Error(data.detail || 'Failed');
+        }
+        this.success = true;
+      } catch (e) {
+        this.error = lang === 'ar' ? 'حصل مشكلة، حاول تاني' : 'Something went wrong. Please try again.';
+      } finally {
+        this.loading = false;
+      }
+    }
+  };
+}
+</script>
