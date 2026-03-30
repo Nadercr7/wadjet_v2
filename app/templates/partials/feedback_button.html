@@ -13,12 +13,14 @@
   <!-- Modal Overlay -->
   <div x-show="open" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
        x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
-       class="fixed inset-0 z-[9995] flex items-end sm:items-center justify-center p-4" @keydown.escape.window="open && (open = false)">
+       class="fixed inset-0 z-[9995] flex items-end sm:items-center justify-center p-4" @keydown.escape.window="if (open) { open = false; if (_trap) { _trap.deactivate(); _trap = null; } }">
     <div class="absolute inset-0 bg-night/70 backdrop-blur-sm" @click="open = false"></div>
 
     <!-- Modal Card -->
-    <div class="relative bg-surface border border-border rounded-2xl shadow-2xl w-full max-w-md p-6 max-h-[90vh] overflow-y-auto"
-         role="dialog" aria-modal="true" aria-labelledby="feedback-title" x-transition>
+    <div x-ref="feedbackModal" class="relative bg-surface border border-border rounded-2xl shadow-2xl w-full max-w-md p-6 max-h-[90vh] overflow-y-auto"
+         role="dialog" aria-modal="true" aria-labelledby="feedback-title" x-transition
+         x-effect="if (open && $refs.feedbackModal && window.createFocusTrap) { _trap = createFocusTrap($refs.feedbackModal); _trap.activate(); $nextTick(() => { const first = $refs.feedbackModal.querySelector('button, input, textarea'); if (first) first.focus(); }); } else if (_trap) { _trap.deactivate(); _trap = null; }"
+         x-init="_trap = null">
 
       <!-- Close -->
       <button @click="open = false" class="absolute top-4 right-4 text-text-dim hover:text-text rtl:right-auto rtl:left-4" aria-label="{{ t('common.close', lang) }}">&times;</button>
@@ -29,7 +31,7 @@
 
       <!-- Success State -->
       <div x-show="success" class="text-center py-6">
-        <div class="text-4xl mb-3">✨</div>
+        <div class="text-gold text-4xl mb-3 font-hieroglyph">𓂋</div>
         <p class="text-gold font-semibold mb-1">{{ t('feedback.thanks', lang) }}</p>
         <p class="text-sm text-text-muted mb-4">{{ t('feedback.thanks_sub', lang) }}</p>
         <button @click="open = false; resetForm()" class="btn-ghost text-sm">{{ t('common.close', lang) }}</button>
@@ -45,7 +47,6 @@
               <button type="button" @click="category = cat.id"
                       :class="category === cat.id ? 'bg-gold text-night' : 'bg-night border border-border text-text-muted hover:border-gold/50'"
                       class="px-3 py-1.5 rounded-full text-sm font-medium transition-colors flex items-center gap-1.5">
-                <span x-text="cat.icon"></span>
                 <span x-text="cat.label"></span>
               </button>
             </template>
@@ -103,10 +104,10 @@ function feedbackApp() {
     name: '',
     email: '',
     categories: [
-      { id: 'bug', icon: '🐛', label: lang === 'ar' ? 'خلل' : 'Bug' },
-      { id: 'suggestion', icon: '💡', label: lang === 'ar' ? 'اقتراح' : 'Idea' },
-      { id: 'praise', icon: '👍', label: lang === 'ar' ? 'إعجاب' : 'Praise' },
-      { id: 'other', icon: '📋', label: lang === 'ar' ? 'تاني' : 'Other' },
+      { id: 'bug', label: lang === 'ar' ? 'خلل' : 'Bug' },
+      { id: 'suggestion', label: lang === 'ar' ? 'اقتراح' : 'Idea' },
+      { id: 'praise', label: lang === 'ar' ? 'إعجاب' : 'Praise' },
+      { id: 'other', label: lang === 'ar' ? 'تاني' : 'Other' },
     ],
     resetForm() {
       this.success = false;
