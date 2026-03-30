@@ -116,13 +116,15 @@ class GeminiService:
         max_output_tokens: int | None = None,
         response_schema: dict[str, Any] | None = None,
     ) -> str:
-        config = genai_types.GenerateContentConfig(
-            system_instruction=system_instruction,
-            temperature=temperature,
-            max_output_tokens=max_output_tokens,
-            response_mime_type="application/json",
-            response_json_schema=response_schema,
-        )
+        config_kwargs: dict[str, Any] = {
+            "system_instruction": system_instruction,
+            "temperature": temperature,
+            "max_output_tokens": max_output_tokens,
+            "response_mime_type": "application/json",
+        }
+        if response_schema is not None:
+            config_kwargs["response_json_schema"] = response_schema
+        config = genai_types.GenerateContentConfig(**config_kwargs)
         response = await self._generate_with_retry(
             model=model or self.default_model, contents=prompt, config=config,
         )
