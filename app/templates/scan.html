@@ -206,11 +206,8 @@
              x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
             <div class="card py-8">
                 <div class="text-center mb-6">
-                    <div class="w-16 h-16 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-4">
-                        <svg class="w-8 h-8 text-gold animate-spin" fill="none" viewBox="0 0 24 24">
-                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
-                        </svg>
+                    <div class="loading-logo mx-auto mb-4" style="width:56px;height:56px;">
+                        <img src="/static/images/logo.png" alt="" width="56" height="56">
                     </div>
                     <h3 class="text-lg font-semibold mb-1">{{ t('scan.analyzing', lang) }}</h3>
                     <p class="text-text-muted text-sm">{{ t('scan.analyzing_desc', lang) }}</p>
@@ -223,8 +220,7 @@
                         setTimeout(() => scanStep = 4, 5000);
                      ">
                     <!-- Step 1: Detecting -->
-                    <div class="flex items-center gap-3 px-4 py-2.5 rounded-lg transition-all duration-300"
-                         :class="scanStep >= 1 ? 'bg-gold/5 border border-gold/20' : 'bg-surface border border-border opacity-40'">
+                    <div class="scan-step" :class="scanStep >= 1 ? (scanStep === 1 ? 'is-active' : 'is-done') : 'is-pending'">
                         <div class="w-6 h-6 flex items-center justify-center shrink-0">
                             <svg x-show="scanStep === 1" class="w-5 h-5 text-gold animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/></svg>
                             <svg x-show="scanStep > 1" x-cloak class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
@@ -232,8 +228,7 @@
                         <span class="text-sm" :class="scanStep >= 1 ? 'text-ivory' : 'text-text-muted'">{{ t('scan.step_detecting', lang) }}</span>
                     </div>
                     <!-- Step 2: Classifying -->
-                    <div class="flex items-center gap-3 px-4 py-2.5 rounded-lg transition-all duration-300"
-                         :class="scanStep >= 2 ? 'bg-gold/5 border border-gold/20' : 'bg-surface border border-border opacity-40'">
+                    <div class="scan-step" :class="scanStep >= 2 ? (scanStep === 2 ? 'is-active' : 'is-done') : 'is-pending'">
                         <div class="w-6 h-6 flex items-center justify-center shrink-0">
                             <svg x-show="scanStep === 2" class="w-5 h-5 text-gold animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/></svg>
                             <svg x-show="scanStep > 2" x-cloak class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
@@ -242,8 +237,7 @@
                         <span class="text-sm" :class="scanStep >= 2 ? 'text-ivory' : 'text-text-muted'">{{ t('scan.step_classifying', lang) }}</span>
                     </div>
                     <!-- Step 3: Transliterating -->
-                    <div class="flex items-center gap-3 px-4 py-2.5 rounded-lg transition-all duration-300"
-                         :class="scanStep >= 3 ? 'bg-gold/5 border border-gold/20' : 'bg-surface border border-border opacity-40'">
+                    <div class="scan-step" :class="scanStep >= 3 ? (scanStep === 3 ? 'is-active' : 'is-done') : 'is-pending'">
                         <div class="w-6 h-6 flex items-center justify-center shrink-0">
                             <svg x-show="scanStep === 3" class="w-5 h-5 text-gold animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/></svg>
                             <svg x-show="scanStep > 3" x-cloak class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
@@ -252,8 +246,7 @@
                         <span class="text-sm" :class="scanStep >= 3 ? 'text-ivory' : 'text-text-muted'">{{ t('scan.step_transliterating', lang) }}</span>
                     </div>
                     <!-- Step 4: Translating -->
-                    <div class="flex items-center gap-3 px-4 py-2.5 rounded-lg transition-all duration-300"
-                         :class="scanStep >= 4 ? 'bg-gold/5 border border-gold/20' : 'bg-surface border border-border opacity-40'">
+                    <div class="scan-step" :class="scanStep >= 4 ? 'is-active' : 'is-pending'">
                         <div class="w-6 h-6 flex items-center justify-center shrink-0">
                             <svg x-show="scanStep === 4" class="w-5 h-5 text-gold animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/></svg>
                             <div x-show="scanStep < 4" class="w-2 h-2 rounded-full bg-dust"></div>

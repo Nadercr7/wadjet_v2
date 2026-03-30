@@ -16,7 +16,7 @@
         <!-- Loading -->
         <template x-if="loading">
             <div class="loader-wadjet py-24">
-                <img src="/static/images/logo.png" alt="" class="w-12 h-12 mx-auto animate-pulse" width="48" height="48">
+                <div class="loading-logo mx-auto" style="width:56px;height:56px;"><img src="/static/images/logo.png" alt="" width="56" height="56"></div>
                 <span class="text-dust text-sm">{{ t('stories.loading', lang) }}</span>
             </div>
         </template>
@@ -75,8 +75,8 @@
                         <template x-if="!chapterImage && imageLoading">
                             <div class="absolute inset-0 flex items-center justify-center">
                                 <div class="loader-wadjet py-0">
-                                    <img src="/static/images/logo.png" alt="" class="w-10 h-10 mx-auto animate-pulse" width="40" height="40">
-                                    <span class="text-dust text-xs">{{ t('stories.generating_image', lang) }}</span>
+                                    <div class="loading-logo mx-auto" style="width:40px;height:40px;"><img src="/static/images/logo.png" alt="" width="40" height="40"></div>
+                                    <span class="text-dust text-xs mt-2">{{ t('stories.generating_image', lang) }}</span>
                                 </div>
                             </div>
                         </template>

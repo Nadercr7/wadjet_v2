@@ -463,17 +463,15 @@
     animation: gradient-sweep 6s linear infinite;
   }
 
-  /* Branded section loader — 𓂀 pulse + contextual text */
+  /* Branded section loader — logo pulse + contextual text */
   .loader-wadjet {
     @apply flex flex-col items-center justify-center gap-2 py-8;
   }
-  .loader-wadjet .brand-mark {
-    animation: pulse-gold 2s ease-in-out infinite;
-    border-radius: 9999px;
-  }
 
-  /* Branded full-page loader — shown before Alpine hydrates */
-  .loader-wadjet-full {
+  /* ── Full-page loading overlay ──
+     Sequence: logo scale-in (0-600ms) → glow ring (200-1200ms) →
+     text fade-up (800-1200ms) → hold → dismiss (opacity+scale 300ms) */
+  .loading-overlay {
     position: fixed;
     inset: 0;
     z-index: 9999;
@@ -481,23 +479,91 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
     background: var(--color-night);
-    transition: opacity 0.4s ease;
+    /* Dismiss transitions */
+    transition: opacity 0.3s cubic-bezier(0.7, 0, 0.84, 0),
+                transform 0.3s cubic-bezier(0.7, 0, 0.84, 0);
+    transform-origin: center;
   }
-  .loader-wadjet-full .brand-mark {
-    animation: pulse-gold 2s ease-in-out infinite;
-    border-radius: 9999px;
+  .loading-overlay.is-leaving {
+    opacity: 0;
+    transform: scale(1.04);
+    pointer-events: none;
   }
-  .loader-wadjet-full .loader-bar {
-    width: 160px;
-    height: 3px;
+
+  /* Logo container — holds the image + glow ring */
+  .loading-logo {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    animation: loader-scale-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  .loading-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 0 0px rgba(212, 175, 55, 0));
+    animation: loader-glow 1.5s cubic-bezier(0.65, 0, 0.35, 1) 0.3s both;
+  }
+
+  /* Orbiting gold particle ring */
+  .loading-logo::before {
+    content: "";
+    position: absolute;
+    inset: -12px;
+    border-radius: 50%;
+    border: 1.5px solid transparent;
+    border-top-color: var(--color-gold);
+    border-right-color: var(--color-gold-light);
+    opacity: 0;
+    animation: loader-ring-spin 1.2s linear infinite,
+               loader-ring-fade 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+  }
+
+  /* Subtle shimmer particles (pseudo) */
+  .loading-logo::after {
+    content: "";
+    position: absolute;
+    inset: -20px;
+    border-radius: 50%;
+    background: conic-gradient(
+      from 0deg,
+      transparent 0%,
+      rgba(212, 175, 55, 0.08) 25%,
+      transparent 50%,
+      rgba(212, 175, 55, 0.05) 75%,
+      transparent 100%
+    );
+    opacity: 0;
+    animation: loader-ring-spin 3s linear infinite reverse,
+               loader-ring-fade 0.8s ease-out 0.4s both;
+  }
+
+  /* Text fade-up below logo */
+  .loading-text {
+    margin-top: 1.25rem;
+    letter-spacing: 0.35em;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: var(--color-gold);
+    opacity: 0;
+    transform: translateY(8px);
+    animation: loader-text-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.8s both;
+  }
+
+  /* Progress bar under text */
+  .loading-bar {
+    width: 120px;
+    height: 2px;
     border-radius: 9999px;
     background: var(--color-border);
     overflow: hidden;
-    margin-top: 0.5rem;
+    margin-top: 0.75rem;
+    opacity: 0;
+    animation: loader-text-in 0.4s ease-out 1s both;
   }
-  .loader-wadjet-full .loader-bar::after {
+  .loading-bar::after {
     content: "";
     display: block;
     width: 40%;
@@ -505,6 +571,32 @@
     border-radius: 9999px;
     background: linear-gradient(to right, var(--color-gold-dark), var(--color-gold), var(--color-gold-light));
     animation: shimmer-bar 1.2s ease-in-out infinite;
+  }
+
+  /* ── Scan progress step indicator ── */
+  .scan-step {
+    @apply flex items-center gap-3 px-4 py-2.5 rounded-lg transition-all;
+    transition-duration: 300ms;
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .scan-step.is-active {
+    background: rgba(212, 175, 55, 0.05);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+  }
+  .scan-step.is-pending {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    opacity: 0.4;
+  }
+  .scan-step.is-done {
+    background: rgba(212, 175, 55, 0.03);
+    border: 1px solid rgba(212, 175, 55, 0.15);
+  }
+
+  /* Noscript: immediately hide loader if no JS */
+  noscript .loading-overlay,
+  .no-js .loading-overlay {
+    display: none !important;
   }
 }
 
@@ -568,6 +660,49 @@
 @keyframes shimmer-bar {
   0%   { transform: translateX(-100%); }
   100% { transform: translateX(350%); }
+}
+
+/* ── Loading overlay keyframes ── */
+
+/* Logo: scale up from 70% + fade in */
+@keyframes loader-scale-in {
+  from { opacity: 0; transform: scale(0.7); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* Logo: gold drop-shadow glow pulse */
+@keyframes loader-glow {
+  0%   { filter: drop-shadow(0 0 0 rgba(212, 175, 55, 0)); }
+  50%  { filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.5)); }
+  100% { filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.25)); }
+}
+
+/* Ring: spin continuously */
+@keyframes loader-ring-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Ring: fade in */
+@keyframes loader-ring-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Text + bar: slide up + fade in */
+@keyframes loader-text-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Reduced motion: skip all animation, show instantly */
+@media (prefers-reduced-motion: reduce) {
+  .loading-overlay,
+  .loading-overlay * {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 /* Shine sweep on borders */

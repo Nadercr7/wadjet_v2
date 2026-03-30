@@ -28,7 +28,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
     <!-- Styles (critical) -->
-    <link rel="stylesheet" href="/static/dist/styles.css?v=36" fetchpriority="high">
+    <link rel="stylesheet" href="/static/dist/styles.css?v=37" fetchpriority="high">
     <link rel="stylesheet" href="/static/css/atropos.css">
 
     {% block head %}{% endblock %}
@@ -51,11 +51,14 @@
     {% include "partials/nav.html" %}
 
     <!-- Full-page branded loader (fades out when Alpine hydrates) -->
-    <div id="app-loader" class="loader-wadjet-full" aria-hidden="true">
-        <img src="/static/images/logo.png" alt="" class="w-14 h-14" width="56" height="56">
-        <span class="brand-text text-lg">W A D J E T</span>
-        <div class="loader-bar"></div>
+    <div id="app-loader" class="loading-overlay" aria-hidden="true">
+        <div class="loading-logo">
+            <img src="/static/images/logo.png" alt="" width="80" height="80">
+        </div>
+        <span class="loading-text">W A D J E T</span>
+        <div class="loading-bar"></div>
     </div>
+    <noscript><style>#app-loader{display:none!important}</style></noscript>
 
     <!-- Main Content -->
     <main class="flex-1" id="main-content" role="main">
@@ -143,16 +146,29 @@
 
     <!-- Fade out branded loader once Alpine is ready -->
     <script>
-    document.addEventListener('alpine:initialized', function() {
-        var el = document.getElementById('app-loader');
-        if (el) { el.style.opacity = '0'; setTimeout(function() { el.remove(); }, 400); }
-    });
-    window.addEventListener('load', function() {
+    (function() {
+        var MIN_SHOW = 1800; // minimum display time (ms) for animation to complete
+        var start = performance.now();
+        function dismiss() {
+            var el = document.getElementById('app-loader');
+            if (!el || el.classList.contains('is-leaving')) return;
+            var elapsed = performance.now() - start;
+            var wait = Math.max(0, MIN_SHOW - elapsed);
+            setTimeout(function() {
+                el.classList.add('is-leaving');
+                el.addEventListener('transitionend', function() { el.remove(); }, { once: true });
+                // Safety: remove after 400ms even if transitionend doesn't fire
+                setTimeout(function() { if (el.parentNode) el.remove(); }, 400);
+            }, wait);
+        }
+        document.addEventListener('alpine:initialized', dismiss);
+        window.addEventListener('load', function() { setTimeout(dismiss, 100); });
+        // Absolute fallback: remove after 5s no matter what
         setTimeout(function() {
             var el = document.getElementById('app-loader');
-            if (el) { el.style.opacity = '0'; setTimeout(function() { el.remove(); }, 400); }
-        }, 200);
-    });
+            if (el) { el.classList.add('is-leaving'); setTimeout(function() { if (el.parentNode) el.remove(); }, 400); }
+        }, 5000);
+    })();
     </script>
 
     {% block scripts %}{% endblock %}
