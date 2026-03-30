@@ -250,6 +250,7 @@ def create_app() -> FastAPI:
     templates.env.globals["t"] = _translate
     templates.env.globals["base_url"] = settings.base_url.rstrip("/")
     templates.env.globals["google_client_id"] = settings.google_client_id
+    templates.env.globals["admin_email"] = settings.admin_email
 
     # Routes
     app.include_router(pages.router)

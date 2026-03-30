@@ -54,6 +54,7 @@
                                  x-transition role="menu" class="absolute right-0 mt-1 w-40 bg-surface border border-border rounded-lg shadow-lg overflow-hidden z-50 rtl:right-auto rtl:left-0">
                                 <a href="/dashboard" role="menuitem" class="block w-full text-left rtl:text-right px-4 py-2.5 text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-colors">{{ t('nav.dashboard', lang) }}</a>
                                 <a href="/settings" role="menuitem" class="block w-full text-left rtl:text-right px-4 py-2.5 text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-colors">{{ t('nav.settings', lang) }}</a>
+                                <a x-show="$store.auth.user && $store.auth.user.email === window.__adminEmail" href="/feedback" role="menuitem" class="block w-full text-left rtl:text-right px-4 py-2.5 text-sm text-gold hover:bg-surface-alt transition-colors" x-cloak>{{ t('nav.feedback', lang) }}</a>
                                 <div class="border-t border-border"></div>
                                 <button @click="$store.auth.logout(); userMenu = false" role="menuitem" class="w-full text-left rtl:text-right px-4 py-2.5 text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-colors">{{ t('nav.sign_out', lang) }}</button>
                             </div>
@@ -113,6 +114,7 @@
                     <template x-if="$store.auth.user">
                         <div class="flex flex-col gap-2">
                             <a href="/dashboard" class="btn-ghost w-full text-center">{{ t('nav.dashboard', lang) }}</a>
+                            <a x-show="$store.auth.user && $store.auth.user.email === window.__adminEmail" href="/feedback" class="btn-ghost w-full text-center text-gold" x-cloak>{{ t('nav.feedback', lang) }}</a>
                             <a href="/scan" class="btn-gold w-full text-center">{{ t('nav.scan_now', lang) }}</a>
                             <button @click="$store.auth.logout(); mobileMenu = false" class="btn-ghost w-full text-center">{{ t('nav.sign_out', lang) }}</button>
                         </div>

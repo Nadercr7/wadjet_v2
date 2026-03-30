@@ -59,6 +59,7 @@
         "sub_write": "↳ Write",
         "dashboard": "Dashboard",
         "settings": "Settings",
+        "feedback": "Feedback",
         "badge_beta": "BETA"
     },
     "auth": {

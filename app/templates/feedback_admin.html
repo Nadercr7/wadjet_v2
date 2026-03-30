@@ -132,7 +132,8 @@ function feedbackAdmin() {
       this.loading = true;
       this.error = '';
       try {
-        const token = localStorage.getItem('wadjet_token');
+        let token = null;
+        try { const auth = JSON.parse(localStorage.getItem('wadjet_auth')); token = auth && auth.token; } catch {}
         const res = await fetch('/api/feedback?limit=200', {
           headers: token ? { 'Authorization': 'Bearer ' + token } : {}
         });
