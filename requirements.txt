@@ -7,18 +7,18 @@ pydantic~=2.9.0
 pydantic-settings~=2.6.0
 
 # Image processing
-pillow~=10.4.0
-numpy~=1.26.0
-opencv-python-headless~=4.10.0
+pillow>=10.4.0
+numpy>=2.1.0
+opencv-python-headless>=4.10.0
 
 # ML - Server
-onnxruntime~=1.19.0
+onnxruntime>=1.19.0
 
 # AI - Gemini
 google-genai~=1.0.0
 
 # Translation - RAG (both optional: Gemini-only fallback if missing)
-faiss-cpu~=1.8.0
+faiss-cpu>=1.8.0
 # sentence-transformers~=3.0.0  # Optional: enables RAG retrieval (requires PyTorch ~2GB)
 
 # Security
