@@ -17,6 +17,9 @@ class Settings(BaseSettings):
     trusted_proxy_depth: int = 1  # 0=direct, 1=one reverse proxy (Render)
     base_url: str = "https://wadjet.onrender.com"  # Override in .env for custom domain
 
+    # Admin
+    admin_email: str = "naderelakany@gmail.com"
+
     # Database
     database_url: str = "sqlite+aiosqlite:///data/wadjet.db"
 

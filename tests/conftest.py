@@ -112,3 +112,43 @@ async def authenticated_client(
         yield client
 
     app.dependency_overrides.clear()
+
+
+@pytest.fixture()
+async def admin_client(
+    test_db: AsyncSession,
+) -> AsyncGenerator[AsyncClient, None]:
+    """Client with a valid auth token for the admin user."""
+    from app.config import settings
+
+    user = User(
+        id="admin-user-id",
+        email=settings.admin_email,
+        password_hash=hash_password("AdminPass123"),
+        display_name="Admin",
+    )
+    test_db.add(user)
+    await test_db.commit()
+
+    token = create_access_token("admin-user-id")
+
+    app = create_app()
+
+    async def _override_get_db():
+        yield test_db
+
+    app.dependency_overrides[get_db] = _override_get_db
+
+    transport = ASGITransport(app=app)
+    async with AsyncClient(
+        transport=transport,
+        base_url="http://testserver",
+        headers={"Authorization": f"Bearer {token}"},
+    ) as client:
+        await client.get("/api/health")
+        csrf_token = client.cookies.get("csrftoken")
+        if csrf_token:
+            client.headers["x-csrftoken"] = csrf_token
+        yield client
+
+    app.dependency_overrides.clear()

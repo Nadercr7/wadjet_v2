@@ -107,13 +107,19 @@ async def test_list_feedback_unauthenticated(test_client: AsyncClient):
     assert resp.status_code == 401
 
 
-async def test_list_feedback_authenticated(authenticated_client: AsyncClient):
-    # Submit some feedback first via unauthenticated path
-    await authenticated_client.post(
+async def test_list_feedback_non_admin_forbidden(authenticated_client: AsyncClient):
+    """Non-admin authenticated user gets 403."""
+    resp = await authenticated_client.get("/api/feedback")
+    assert resp.status_code == 403
+
+
+async def test_list_feedback_admin(admin_client: AsyncClient):
+    # Submit some feedback first
+    await admin_client.post(
         "/api/feedback",
         json={"category": "praise", "message": "Great app, love the Egyptian theme!"},
     )
-    resp = await authenticated_client.get("/api/feedback")
+    resp = await admin_client.get("/api/feedback")
     assert resp.status_code == 200
     body = resp.json()
     assert isinstance(body, list)
@@ -123,8 +129,8 @@ async def test_list_feedback_authenticated(authenticated_client: AsyncClient):
     assert "created_at" in body[0]
 
 
-async def test_list_feedback_pagination(authenticated_client: AsyncClient):
-    resp = await authenticated_client.get("/api/feedback?limit=2&offset=0")
+async def test_list_feedback_pagination(admin_client: AsyncClient):
+    resp = await admin_client.get("/api/feedback?limit=2&offset=0")
     assert resp.status_code == 200
     body = resp.json()
     assert isinstance(body, list)

@@ -5,15 +5,16 @@ from __future__ import annotations
 import logging
 import re
 
-from fastapi import APIRouter, Depends, Request
+from fastapi import APIRouter, Depends, HTTPException, Request
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel, Field, field_validator
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.auth.dependencies import get_current_user
+from app.config import settings
 from app.db.database import get_db
-from app.db.models import Feedback
+from app.db.models import Feedback, User
 from app.rate_limit import limiter
 
 logger = logging.getLogger(__name__)
@@ -75,10 +76,12 @@ async def submit_feedback(
 async def list_feedback(
     request: Request,
     db: AsyncSession = Depends(get_db),
-    _user=Depends(get_current_user),
+    user: User = Depends(get_current_user),
     limit: int = 50,
     offset: int = 0,
 ):
+    if user.email != settings.admin_email:
+        raise HTTPException(status_code=403, detail="Admin access only")
     limit = min(limit, 200)
     offset = max(offset, 0)
     result = await db.execute(

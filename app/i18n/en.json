@@ -696,6 +696,7 @@
         "responses": "responses",
         "export": "Export CSV",
         "filter_all": "All",
-        "empty": "No feedback yet."
+        "empty": "No feedback yet.",
+        "go_home": "Back to Home"
     }
 }

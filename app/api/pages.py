@@ -178,7 +178,7 @@ async def feedback_admin(request: Request):
         return gate
     templates = request.app.state.templates
     lang = get_lang(request)
-    return templates.TemplateResponse(request, "feedback_admin.html", {"lang": lang, "page_name": "feedback"})
+    return templates.TemplateResponse(request, "feedback_admin.html", {"lang": lang, "page_name": "feedback", "admin_email": settings.admin_email})
 
 
 @router.get("/robots.txt", response_class=PlainTextResponse)

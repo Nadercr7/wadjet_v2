@@ -49,7 +49,8 @@
   <!-- Error -->
   <div x-show="error" x-cloak class="text-center py-12">
     <p class="text-red-400 mb-3" x-text="error"></p>
-    <button @click="fetchAll()" class="btn-ghost">{{ t('common.errors.retry', lang) }}</button>
+    <button x-show="!forbidden" @click="fetchAll()" class="btn-ghost">{{ t('common.errors.retry', lang) }}</button>
+    <a x-show="forbidden" href="/" class="btn-ghost inline-block">{{ t('feedback_admin.go_home', lang) }}</a>
   </div>
 
   <!-- Empty -->
@@ -91,6 +92,7 @@ function feedbackAdmin() {
     loading: true,
     error: '',
     filter: 'all',
+    forbidden: false,
 
     get filtered() {
       if (this.filter === 'all') return this.items;
@@ -136,6 +138,11 @@ function feedbackAdmin() {
         });
         if (res.status === 401) {
           this.error = lang === 'ar' ? 'لازم تسجل دخول الأول' : 'You must be logged in to view feedback';
+          return;
+        }
+        if (res.status === 403) {
+          this.forbidden = true;
+          this.error = lang === 'ar' ? 'الصفحة دي للأدمن بس' : 'Admin access only';
           return;
         }
         if (!res.ok) throw new Error('Failed');
