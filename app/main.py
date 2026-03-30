@@ -165,6 +165,17 @@ def create_app() -> FastAPI:
             re.compile(r"^/api/auth/refresh$"),
             # Logout — destroys session, safe to exempt
             re.compile(r"^/api/auth/logout$"),
+            # AJAX-only API endpoints — protected by CORS same-origin, no cookie mutation
+            re.compile(r"^/api/audio/"),
+            re.compile(r"^/api/scan$"),
+            re.compile(r"^/api/translate$"),
+            re.compile(r"^/api/write"),
+            re.compile(r"^/api/chat"),
+            re.compile(r"^/api/landmarks"),
+            re.compile(r"^/api/explore"),
+            re.compile(r"^/api/dictionary"),
+            re.compile(r"^/api/stories"),
+            re.compile(r"^/api/user"),
             # Read-only documentation (disabled in production via Phase 2)
             re.compile(r"^/docs"),
             re.compile(r"^/openapi\.json$"),
@@ -190,15 +201,28 @@ def create_app() -> FastAPI:
         response.headers["Permissions-Policy"] = "camera=(self), microphone=(self), geolocation=()"
         response.headers["Content-Security-Policy"] = (
             "default-src 'self'; "
-            "script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; "
-            "style-src 'self' 'unsafe-inline'; "
+            "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net; "
+            "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; "
             "img-src 'self' data: blob: https:; "
-            "connect-src 'self'; "
-            "font-src 'self'; "
+            "media-src 'self' blob:; "
+            "connect-src 'self' blob:; "
+            "font-src 'self' https://fonts.gstatic.com; "
             "frame-ancestors 'none'; "
             "base-uri 'self'; "
             "form-action 'self'"
         )
+        # Persist ?lang= query param as cookie for hreflang / crawler support
+        lang_param = request.query_params.get("lang")
+        if lang_param in ("en", "ar"):
+            secure = "; Secure" if request.url.scheme == "https" else ""
+            response.set_cookie(
+                key="wadjet_lang",
+                value=lang_param,
+                path="/",
+                max_age=31536000,
+                samesite="lax",
+                secure=request.url.scheme == "https",
+            )
         return response
 
     # Static files

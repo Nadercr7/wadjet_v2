@@ -24,6 +24,9 @@ async def test_health_check(test_client: AsyncClient):
 
 PAGE_ROUTES = [
     "/",
+]
+
+PROTECTED_ROUTES = [
     "/hieroglyphs",
     "/landmarks",
     "/scan",
@@ -40,6 +43,21 @@ PAGE_ROUTES = [
 @pytest.mark.parametrize("path", PAGE_ROUTES)
 async def test_page_renders_html(test_client: AsyncClient, path: str):
     resp = await test_client.get(path)
+    assert resp.status_code == 200
+    assert "<html" in resp.text.lower()
+
+
+@pytest.mark.parametrize("path", PROTECTED_ROUTES)
+async def test_protected_redirects_to_welcome(test_client: AsyncClient, path: str):
+    resp = await test_client.get(path, follow_redirects=False)
+    assert resp.status_code == 302
+    location = resp.headers.get("location", "")
+    assert location.startswith("/welcome?next=")
+
+
+@pytest.mark.parametrize("path", PROTECTED_ROUTES)
+async def test_protected_renders_with_session(test_client: AsyncClient, path: str):
+    resp = await test_client.get(path, cookies={"wadjet_session": "1"})
     assert resp.status_code == 200
     assert "<html" in resp.text.lower()
 
@@ -71,27 +89,27 @@ async def test_nonexistent_page_404(test_client: AsyncClient):
 
 
 async def test_invalid_story_id_404(test_client: AsyncClient):
-    resp = await test_client.get("/stories/../../etc/passwd")
+    resp = await test_client.get("/stories/../../etc/passwd", cookies={"wadjet_session": "1"})
     assert resp.status_code in (404, 422)
 
 
 async def test_nonexistent_story_404(test_client: AsyncClient):
-    resp = await test_client.get("/stories/nonexistent-story-id")
+    resp = await test_client.get("/stories/nonexistent-story-id", cookies={"wadjet_session": "1"})
     assert resp.status_code == 404
 
 
 async def test_lesson_out_of_bounds_lower(test_client: AsyncClient):
-    resp = await test_client.get("/dictionary/lesson/0")
+    resp = await test_client.get("/dictionary/lesson/0", cookies={"wadjet_session": "1"})
     assert resp.status_code == 404
 
 
 async def test_lesson_out_of_bounds_upper(test_client: AsyncClient):
-    resp = await test_client.get("/dictionary/lesson/6")
+    resp = await test_client.get("/dictionary/lesson/6", cookies={"wadjet_session": "1"})
     assert resp.status_code == 404
 
 
 async def test_lesson_valid(test_client: AsyncClient):
-    resp = await test_client.get("/dictionary/lesson/1")
+    resp = await test_client.get("/dictionary/lesson/1", cookies={"wadjet_session": "1"})
     assert resp.status_code == 200
 
 

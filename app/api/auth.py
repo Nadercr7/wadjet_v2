@@ -50,16 +50,37 @@ def _clear_refresh_cookie(response: Response) -> None:
     response.delete_cookie(key=REFRESH_COOKIE, path="/api/auth")
 
 
+SESSION_COOKIE = "wadjet_session"
+SESSION_MAX_AGE = 30 * 24 * 60 * 60  # 30 days
+
+
+def _set_session_cookie(response: Response, request: Request) -> None:
+    response.set_cookie(
+        key=SESSION_COOKIE,
+        value="1",
+        httponly=False,
+        samesite="lax",
+        secure=str(request.url.scheme) == "https",
+        path="/",
+        max_age=SESSION_MAX_AGE,
+    )
+
+
+def _clear_session_cookie(response: Response) -> None:
+    response.delete_cookie(key=SESSION_COOKIE, path="/")
+
+
 @router.post("/register", status_code=201)
 @limiter.limit("5/minute")
 async def register(body: RegisterRequest, request: Request, db: AsyncSession = Depends(get_db)):
     """Register a new user with email and password."""
-    existing = await get_user_by_email(db, body.email)
+    email = body.email.lower().strip()
+    existing = await get_user_by_email(db, email)
     if existing:
         raise HTTPException(status_code=409, detail="Email already registered")
 
     pw_hash = hash_password(body.password)
-    user = await create_user(db, email=body.email, password_hash=pw_hash, display_name=body.display_name)
+    user = await create_user(db, email=email, password_hash=pw_hash, display_name=body.display_name)
 
     access_token = create_access_token(user.id)
     refresh_token, expires_at = create_refresh_token(user.id)
@@ -74,6 +95,7 @@ async def register(body: RegisterRequest, request: Request, db: AsyncSession = D
         },
     )
     _set_refresh_cookie(response, refresh_token)
+    _set_session_cookie(response, request)
     return response
 
 
@@ -81,7 +103,8 @@ async def register(body: RegisterRequest, request: Request, db: AsyncSession = D
 @limiter.limit("10/minute")
 async def login(body: LoginRequest, request: Request, db: AsyncSession = Depends(get_db)):
     """Log in with email and password, receive tokens."""
-    user = await get_user_by_email(db, body.email)
+    email = body.email.lower().strip()
+    user = await get_user_by_email(db, email)
     # Always run verify_password to prevent timing oracle (constant-time regardless of user existence)
     pw_hash = user.password_hash if user else _DUMMY_HASH
     password_ok = verify_password(body.password, pw_hash)
@@ -101,6 +124,7 @@ async def login(body: LoginRequest, request: Request, db: AsyncSession = Depends
         "user": UserResponse.model_validate(user).model_dump(mode="json"),
     })
     _set_refresh_cookie(response, refresh_token)
+    _set_session_cookie(response, request)
     return response
 
 
@@ -144,4 +168,5 @@ async def logout(request: Request, db: AsyncSession = Depends(get_db)):
 
     response = JSONResponse(content={"detail": "Logged out"})
     _clear_refresh_cookie(response)
+    _clear_session_cookie(response)
     return response

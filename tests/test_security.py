@@ -9,17 +9,15 @@ from httpx import AsyncClient
 # ── CSRF ──
 
 
-async def test_csrf_blocks_unprotected_post(test_client: AsyncClient):
-    """POST to a CSRF-protected route without token → 403."""
-    # /api/user/favorites requires CSRF + auth.
-    # The CSRF check happens before auth, so even without auth we should get 403
-    # (unless the middleware skips when there are no sensitive cookies).
-    # With starlette_csrf and sensitive_cookies=None, _has_sensitive_cookies returns True always.
+async def test_csrf_exempt_api_routes(test_client: AsyncClient):
+    """API routes are CSRF-exempt (AJAX-only, protected by CORS same-origin).
+    POST without CSRF token should reach auth layer, not get blocked by CSRF."""
     resp = await test_client.post(
         "/api/user/favorites",
         json={"item_type": "landmark", "item_id": "test"},
     )
-    assert resp.status_code == 403
+    # 401 = auth middleware ran (not blocked by CSRF 403)
+    assert resp.status_code == 401
 
 
 async def test_csrf_allows_exempt_routes(test_client: AsyncClient):

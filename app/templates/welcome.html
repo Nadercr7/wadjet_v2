@@ -1,0 +1,239 @@
+{% extends "base.html" %}
+
+{% block title %}{{ t('welcome.seo_title', lang) }}{% endblock %}
+{% block description %}{{ t('welcome.seo_desc', lang) }}{% endblock %}
+
+{% block seo %}
+<meta property="og:title" content="{{ t('welcome.seo_title', lang) }}">
+<meta property="og:description" content="{{ t('welcome.seo_desc', lang) }}">
+<meta property="og:type" content="website">
+<meta property="og:image" content="/static/images/og-wadjet.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ t('welcome.seo_title', lang) }}">
+<meta name="twitter:description" content="{{ t('welcome.seo_desc', lang) }}">
+{% endblock %}
+
+{% block content %}
+<!-- ══════════════════════════════════════
+     Section 1 — Hero
+     ══════════════════════════════════════ -->
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden" data-animate>
+    <div class="dot-pattern dot-pattern-gold"></div>
+    <span class="meteor" style="--angle:-215deg;top:10%;left:20%" aria-hidden="true"></span>
+    <span class="meteor" style="--angle:-215deg;top:5%;left:55%;animation-delay:2s" aria-hidden="true"></span>
+    <span class="meteor" style="--angle:-215deg;top:15%;left:75%;animation-delay:4s" aria-hidden="true"></span>
+
+    <div class="relative z-10 text-center px-4 max-w-3xl mx-auto">
+        <div class="relative inline-block mb-8">
+            <span class="brand-mark text-7xl md:text-8xl">𓂀</span>
+            <div class="brand-mark-ring"></div>
+        </div>
+
+        <h1 class="text-gold-animated text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight mb-6">
+            {{ t('welcome.hero_title', lang) }}
+        </h1>
+        <p class="text-text-muted text-lg md:text-xl mb-10 max-w-2xl mx-auto">
+            {{ t('welcome.hero_subtitle', lang) }}
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="#signup-section" class="btn-gold btn-lg">{{ t('welcome.cta_start', lang) }}</a>
+            <a href="#demo-section" class="btn-ghost btn-lg">{{ t('welcome.cta_demo', lang) }}</a>
+        </div>
+    </div>
+
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce" aria-hidden="true">
+        <svg class="w-6 h-6 text-gold/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     Section 2 — What is Wadjet
+     ══════════════════════════════════════ -->
+<section class="section bg-surface" data-animate>
+    <div class="container-wide mx-auto">
+        <h2 class="text-center text-gold-gradient mb-4">{{ t('welcome.features_title', lang) }}</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+            <!-- Scan -->
+            <div class="card-glow text-center">
+                <div class="w-16 h-16 rounded-2xl bg-gold/10 flex items-center justify-center mx-auto mb-6">
+                    <svg class="w-8 h-8 text-gold" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 7V5a2 2 0 012-2h2M17 3h2a2 2 0 012 2v2M21 17v2a2 2 0 01-2 2h-2M7 21H5a2 2 0 01-2-2v-2M8 12h8M12 8v8"/></svg>
+                </div>
+                <h3 class="text-lg font-semibold text-text mb-2">{{ t('welcome.feature_scan_title', lang) }}</h3>
+                <p class="text-text-muted text-sm mb-4">{{ t('welcome.feature_scan_desc', lang) }}</p>
+                <div class="text-3xl font-display font-bold text-gold">
+                    <span class="counter-value" data-target="1000">0</span><span class="text-gold/70">+</span>
+                </div>
+                <p class="text-text-dim text-xs mt-1">{{ t('welcome.feature_scan_label', lang) }}</p>
+            </div>
+            <!-- Explore -->
+            <div class="card-glow text-center">
+                <div class="w-16 h-16 rounded-2xl bg-gold/10 flex items-center justify-center mx-auto mb-6">
+                    <svg class="w-8 h-8 text-gold" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
+                </div>
+                <h3 class="text-lg font-semibold text-text mb-2">{{ t('welcome.feature_explore_title', lang) }}</h3>
+                <p class="text-text-muted text-sm mb-4">{{ t('welcome.feature_explore_desc', lang) }}</p>
+                <div class="text-3xl font-display font-bold text-gold">
+                    <span class="counter-value" data-target="260">0</span><span class="text-gold/70">+</span>
+                </div>
+                <p class="text-text-dim text-xs mt-1">{{ t('welcome.feature_explore_label', lang) }}</p>
+            </div>
+            <!-- Stories -->
+            <div class="card-glow text-center">
+                <div class="w-16 h-16 rounded-2xl bg-gold/10 flex items-center justify-center mx-auto mb-6">
+                    <svg class="w-8 h-8 text-gold" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/></svg>
+                </div>
+                <h3 class="text-lg font-semibold text-text mb-2">{{ t('welcome.feature_stories_title', lang) }}</h3>
+                <p class="text-text-muted text-sm mb-4">{{ t('welcome.feature_stories_desc', lang) }}</p>
+                <div class="text-3xl font-display font-bold text-gold">
+                    <span class="counter-value" data-target="5">0</span>
+                </div>
+                <p class="text-text-dim text-xs mt-1">{{ t('welcome.feature_stories_label', lang) }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     Section 3 — See It in Action
+     ══════════════════════════════════════ -->
+<section id="demo-section" class="section" data-animate>
+    <div class="container-narrow mx-auto text-center">
+        <h2 class="text-gold-gradient mb-4">{{ t('welcome.demo_title', lang) }}</h2>
+        <p class="text-text-muted mb-12 max-w-xl mx-auto">{{ t('welcome.demo_desc', lang) }}</p>
+
+        <div class="grid grid-cols-4 gap-4 max-w-lg mx-auto">
+            <div class="flex flex-col items-center gap-3">
+                <div class="w-14 h-14 rounded-xl bg-gold/10 border border-gold/20 flex items-center justify-center">
+                    <svg class="w-6 h-6 text-gold" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"/></svg>
+                </div>
+                <span class="text-xs text-text-muted">{{ t('welcome.demo_step_1', lang) }}</span>
+            </div>
+            <div class="flex flex-col items-center gap-3">
+                <div class="w-14 h-14 rounded-xl bg-gold/10 border border-gold/20 flex items-center justify-center">
+                    <svg class="w-6 h-6 text-gold" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/></svg>
+                </div>
+                <span class="text-xs text-text-muted">{{ t('welcome.demo_step_2', lang) }}</span>
+            </div>
+            <div class="flex flex-col items-center gap-3">
+                <div class="w-14 h-14 rounded-xl bg-gold/10 border border-gold/20 flex items-center justify-center">
+                    <svg class="w-6 h-6 text-gold" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 6h.008v.008H6V6z"/></svg>
+                </div>
+                <span class="text-xs text-text-muted">{{ t('welcome.demo_step_3', lang) }}</span>
+            </div>
+            <div class="flex flex-col items-center gap-3">
+                <div class="w-14 h-14 rounded-xl bg-gold/10 border border-gold/20 flex items-center justify-center">
+                    <svg class="w-6 h-6 text-gold" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 016-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364V3"/></svg>
+                </div>
+                <span class="text-xs text-text-muted">{{ t('welcome.demo_step_4', lang) }}</span>
+            </div>
+        </div>
+
+        <div class="mt-8 flex justify-center">
+            <div class="flex items-center gap-2">
+                <span class="w-12 h-0.5 bg-gold/30 rounded-full"></span>
+                <svg class="w-4 h-4 text-gold rtl:scale-x-[-1]" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                <span class="w-12 h-0.5 bg-gold/30 rounded-full"></span>
+                <svg class="w-4 h-4 text-gold rtl:scale-x-[-1]" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                <span class="w-12 h-0.5 bg-gold/30 rounded-full"></span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     Section 4 — Meet Thoth
+     ══════════════════════════════════════ -->
+<section class="section bg-surface" data-animate>
+    <div class="container-narrow mx-auto">
+        <div class="flex flex-col md:flex-row items-center gap-12">
+            <div class="flex-shrink-0 text-center">
+                <span class="text-7xl font-hieroglyph text-gold" style="text-shadow: 0 0 30px rgba(212,175,55,0.4);" aria-hidden="true">𓁟</span>
+            </div>
+            <div class="flex-1">
+                <h2 class="text-gold-gradient mb-4">{{ t('welcome.thoth_title', lang) }}</h2>
+                <div class="bg-night border border-gold/20 rounded-2xl p-6 mb-6 relative">
+                    <div class="absolute -top-2 start-6 w-4 h-4 bg-night border-t border-s border-gold/20 rotate-45"></div>
+                    <p class="text-ivory italic">{{ t('welcome.thoth_quote', lang) }}</p>
+                </div>
+                <div class="flex flex-wrap gap-3">
+                    <a href="/chat" class="badge-gold hover:bg-gold/25 transition-colors px-4 py-2 rounded-full text-sm">{{ t('welcome.thoth_starter_1', lang) }}</a>
+                    <a href="/chat" class="badge-gold hover:bg-gold/25 transition-colors px-4 py-2 rounded-full text-sm">{{ t('welcome.thoth_starter_2', lang) }}</a>
+                    <a href="/chat" class="badge-gold hover:bg-gold/25 transition-colors px-4 py-2 rounded-full text-sm">{{ t('welcome.thoth_starter_3', lang) }}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     Section 5 — Sign Up CTA
+     ══════════════════════════════════════ -->
+<section id="signup-section" class="section relative overflow-hidden" data-animate
+         x-data="{ name: '', email: '', password: '', error: '', submitting: false }">
+    <div class="absolute inset-0 bg-gradient-to-b from-night via-gold/5 to-night pointer-events-none"></div>
+    <div class="container-narrow mx-auto relative z-10">
+        <div class="text-center mb-10">
+            <h2 class="text-gold-gradient mb-3">{{ t('welcome.signup_title', lang) }}</h2>
+            <p class="text-text-muted">{{ t('welcome.signup_subtitle', lang) }}</p>
+        </div>
+        <div class="max-w-md mx-auto">
+            <form @submit.prevent="
+                error = '';
+                submitting = true;
+                $store.auth.error = '';
+                $store.auth.register(email, password, name).then(ok => {
+                    submitting = false;
+                    if (!ok) { error = $store.auth.error; }
+                }).catch(() => { submitting = false; });
+            " class="space-y-4">
+                <input type="text" x-model="name" class="input" :placeholder="'{{ t('welcome.signup_name', lang) }}'">
+                <input type="email" x-model="email" class="input" :placeholder="'{{ t('welcome.signup_email', lang) }}'" required>
+                <input type="password" x-model="password" class="input" :placeholder="'{{ t('welcome.signup_password', lang) }}'" required minlength="8">
+                <div x-show="error" x-cloak class="text-red-400 text-sm text-center" x-text="error"></div>
+                <button type="submit" class="btn-gold w-full btn-lg" :disabled="submitting">
+                    <template x-if="submitting">
+                        <svg class="animate-spin h-5 w-5 text-night" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" opacity="0.25"/><path d="M4 12a8 8 0 018-8" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg>
+                    </template>
+                    <span x-show="!submitting">{{ t('welcome.signup_btn', lang) }}</span>
+                </button>
+            </form>
+            <p class="text-center text-text-muted text-sm mt-6">
+                {{ t('welcome.signup_login', lang) }}
+                <button @click="$store.auth.showLogin = true" class="text-gold hover:text-gold-light underline">{{ t('welcome.signup_login_link', lang) }}</button>
+            </p>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+(function() {
+    var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var counters = document.querySelectorAll('.counter-value');
+    if (reducedMotion) {
+        counters.forEach(function(el) { el.textContent = el.dataset.target; });
+        return;
+    }
+    var observed = new Set();
+    var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (!entry.isIntersecting || observed.has(entry.target)) return;
+            observed.add(entry.target);
+            var target = parseInt(entry.target.dataset.target, 10);
+            var start = performance.now();
+            var duration = 2000;
+            function step(now) {
+                var t = Math.min((now - start) / duration, 1);
+                var ease = 1 - Math.pow(1 - t, 4);
+                entry.target.textContent = Math.round(ease * target);
+                if (t < 1) requestAnimationFrame(step);
+            }
+            requestAnimationFrame(step);
+        });
+    }, { threshold: 0.3 });
+    counters.forEach(function(el) { observer.observe(el); });
+})();
+</script>
+{% endblock %}

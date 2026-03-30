@@ -60,8 +60,9 @@
                                     class="ml-auto p-1 rounded-md text-text-dim hover:text-gold hover:bg-gold/10 transition-all"
                                     :class="{'!text-gold': ttsState !== 'idle' && ttsActiveId === 'msg-'+idx}"
                                     :aria-label="ttsActiveId === 'msg-'+idx && ttsState === 'playing' ? '{{ t('chat.pause', lang) }}' : '{{ t('chat.listen', lang) }}'">
-                                <svg x-show="!(ttsActiveId === 'msg-'+idx && ttsState === 'playing')" class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
-                                <svg x-show="ttsActiveId === 'msg-'+idx && ttsState === 'playing'" class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <svg x-show="!(ttsActiveId === 'msg-'+idx && (ttsState === 'playing' || ttsState === 'loading'))" class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                                <svg x-show="ttsActiveId === 'msg-'+idx && ttsState === 'loading'" x-cloak class="w-3.5 h-3.5 animate-spin text-gold" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" opacity="0.25"/><path d="M4 12a8 8 0 018-8" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg>
+                                <svg x-show="ttsActiveId === 'msg-'+idx && ttsState === 'playing'" x-cloak class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                             </button>
                         </div>
                         <div class="text-sm leading-relaxed whitespace-pre-wrap chat-content"
@@ -137,7 +138,7 @@
                         <span class="w-2.5 h-2.5 bg-red-500 rounded-full animate-pulse"></span>
                     </span>
                     <!-- Transcribing spinner -->
-                    <svg x-show="transcribing" class="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path></svg>
+                    <svg x-show="transcribing" class="w-5 h-5 animate-spin text-gold" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path></svg>
                 </button>
                 <!-- Send button -->
                 <button type="submit"
@@ -158,7 +159,7 @@
                     </span>
                     <span x-show="messages.length === 0">
                         <button @click="chatHistoryOpen = !chatHistoryOpen" class="hover:text-gold transition-colors">
-                            <span x-text="chatHistoryOpen ? '{{ t('chat.hide_history', lang) }}' : '{{ t('chat.past_convos_pre', lang) }}' + chatHistory.length + '{{ t('chat.past_convos_suf', lang) }}'"></span>
+                            <span x-text="chatHistoryOpen ? (__i18n.chat_hide_history || 'Hide history') : (__i18n.chat_past_convos_pre || 'Past conversations (') + chatHistory.length + (__i18n.chat_past_convos_suf || ')')"></span>
                         </button>
                     </span>
                 </div>
@@ -178,7 +179,7 @@
                         <span class="text-lg">𓁟</span>
                         <div class="flex-1 min-w-0">
                             <p class="text-xs text-text truncate" x-text="item.preview"></p>
-                            <p class="text-[10px] text-text-dim" x-text="item.messageCount + '{{ t('chat.messages_dot', lang) }}' + new Date(item.timestamp).toLocaleDateString()"></p>
+                            <p class="text-[10px] text-text-dim" x-text="item.messageCount + ' ' + (__i18n.chat_messages_dot || 'messages ·') + ' ' + new Date(item.timestamp).toLocaleDateString()"></p>
                         </div>
                         <button @click.stop="WadjetHistory.removeChatItem(item.timestamp); chatHistory = WadjetHistory.getChatHistory()"
                                 class="w-5 h-5 rounded-full bg-surface-alt flex items-center justify-center text-text-dim hover:text-error opacity-0 group-hover:opacity-100 transition-opacity text-xs shrink-0"
@@ -395,7 +396,7 @@ function chatApp() {
                     });
                 }
             } catch (err) {
-                this.error = 'Failed to get response. Please try again.';
+                this.error = '{{ t('chat.error_response', lang) }}';
                 console.error('Chat error:', err);
             } finally {
                 this.isLoading = false;
@@ -586,7 +587,10 @@ function chatApp() {
             if (inTable) result.push('</tbody></table>');
 
             html = result.join('\n');
-            return html;
+            return DOMPurify.sanitize(html, {
+                ALLOWED_TAGS: ['strong','em','code','pre','a','ul','ol','li','br','p','blockquote','h2','h3','h4','span','div','hr','table','thead','tbody','tr','th','td'],
+                ALLOWED_ATTR: ['href','class','target','rel']
+            });
         }
     };
 }

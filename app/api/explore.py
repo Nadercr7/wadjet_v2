@@ -23,6 +23,7 @@ from fastapi import APIRouter, File, HTTPException, Query, Request, UploadFile
 from fastapi.responses import JSONResponse
 
 from app.rate_limit import limiter
+from app.i18n import get_lang
 
 from app.core.landmarks import (
     ATTRACTIONS,
@@ -1097,6 +1098,7 @@ async def identify_landmark(request: Request, file: UploadFile = File(...)):
             }
             if request.headers.get("HX-Request"):
                 templates = request.app.state.templates
+                not_egyptian["lang"] = get_lang(request)
                 return templates.TemplateResponse(
                     request, "partials/identify_result.html", context=not_egyptian,
                 )
@@ -1138,6 +1140,7 @@ async def identify_landmark(request: Request, file: UploadFile = File(...)):
 
     if request.headers.get("HX-Request"):
         templates = request.app.state.templates
+        result["lang"] = get_lang(request)
         return templates.TemplateResponse(
             request,
             "partials/identify_result.html",

@@ -15,9 +15,9 @@
 
         <!-- Loading -->
         <template x-if="loading">
-            <div class="flex flex-col items-center justify-center py-24 gap-4">
-                <div class="w-10 h-10 border-2 border-gold/30 border-t-gold rounded-full animate-spin"></div>
-                <p class="text-text-muted text-sm">{{ t('stories.loading', lang) }}</p>
+            <div class="loader-wadjet py-24">
+                <span class="brand-mark text-4xl">𓂀</span>
+                <span class="text-dust text-sm">{{ t('stories.loading', lang) }}</span>
             </div>
         </template>
 
@@ -44,8 +44,8 @@
                              :style="'width: ' + progressPercent + '%'"></div>
                     </div>
                     <div class="flex justify-between mt-1 text-xs text-text-dim">
-                        <span x-text="'{{ t('stories.chapter', lang) }} ' + (chapterIdx + 1) + ' / ' + story.chapters.length"></span>
-                        <span x-text="glyphsLearned.length + ' {{ t('stories.glyphs_learned', lang) }}'"></span>
+                        <span x-text="(__i18n.stories_chapter || 'Chapter') + ' ' + (chapterIdx + 1) + ' / ' + story.chapters.length"></span>
+                        <span x-text="glyphsLearned.length + ' ' + (__i18n.stories_glyphs_learned || 'glyphs learned')"></span>
                     </div>
                 </div>
 
@@ -74,9 +74,9 @@
                         </template>
                         <template x-if="!chapterImage && imageLoading">
                             <div class="absolute inset-0 flex items-center justify-center">
-                                <div class="text-center">
-                                    <div class="w-8 h-8 border-2 border-gold/30 border-t-gold rounded-full animate-spin mx-auto mb-2"></div>
-                                    <p class="text-text-dim text-xs">{{ t('stories.generating_image', lang) }}</p>
+                                <div class="loader-wadjet py-0">
+                                    <span class="brand-mark text-3xl">𓂀</span>
+                                    <span class="text-dust text-xs">{{ t('stories.generating_image', lang) }}</span>
                                 </div>
                             </div>
                         </template>
@@ -227,12 +227,50 @@
                         </button>
                     </template>
                     <template x-if="chapterIdx >= story.chapters.length - 1">
-                        <a href="/stories?lang={{ lang }}" class="btn-gold inline-flex items-center gap-2">
+                        <button @click="showCompletion = true" class="btn-gold inline-flex items-center gap-2">
                             {{ t('stories.finish', lang) }}
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                        </a>
+                        </button>
                     </template>
                 </div>
+
+                <!-- Story Completion Celebration -->
+                <template x-if="showCompletion">
+                    <div class="mt-10 text-center py-10 px-6 card border border-gold/30 bg-gradient-to-b from-gold/5 to-transparent"
+                         x-transition:enter="transition ease-out duration-500"
+                         x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100">
+                        <div class="brand-mark text-5xl mb-4 inline-block" style="animation: pulse-gold 2s ease-in-out infinite;">𓂀</div>
+                        <h2 class="text-2xl md:text-3xl font-display font-bold mb-2 text-gold-animated">
+                            <span x-text="t('stories.complete_title', lang)"></span>
+                        </h2>
+                        <p class="text-lg text-text-muted mb-1" x-text="story.title[lang] || story.title.en"></p>
+                        <div class="flex items-center justify-center gap-6 my-6">
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-gold" x-text="glyphsLearned.length * 10"></div>
+                                <div class="text-xs text-dust" x-text="t('stories.complete_score', lang)"></div>
+                            </div>
+                            <div class="w-px h-10 bg-border"></div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-gold" x-text="glyphsLearned.length"></div>
+                                <div class="text-xs text-dust" x-text="t('stories.complete_count', lang)"></div>
+                            </div>
+                        </div>
+                        <template x-if="glyphsLearned.length > 0">
+                            <div class="mb-6">
+                                <p class="text-sm text-text-muted mb-2" x-text="t('stories.complete_glyphs', lang)"></p>
+                                <div class="flex flex-wrap justify-center gap-2">
+                                    <template x-for="code in glyphsLearned" :key="code">
+                                        <span class="inline-block px-3 py-1.5 rounded-lg bg-gold/10 border border-gold/20 text-sm font-mono text-gold" dir="ltr" x-text="code"></span>
+                                    </template>
+                                </div>
+                            </div>
+                        </template>
+                        <a href="/stories?lang={{ lang }}" class="btn-gold inline-flex items-center gap-2">
+                            <span x-text="t('stories.complete_cta', lang)"></span>
+                            <svg class="w-4 h-4 rtl:rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </template>
             </div>
         </template>
 
@@ -272,6 +310,7 @@ function storyReader(storyId, lang) {
         writeInputs: {},
         chapterImage: null,
         imageLoading: false,
+        showCompletion: false,
 
         async init() {
             try {
@@ -325,19 +364,23 @@ function storyReader(storyId, lang) {
 
         renderParagraph(para) {
             const esc = (s) => (s||'').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-            let text = para.text?.[this.lang] || para.text?.en || '';
+            let text = esc(para.text?.[this.lang] || para.text?.en || '');
             // Highlight annotated words with gold glow
             for (const ann of (para.glyph_annotations || [])) {
-                const word = ann.word?.[this.lang] || ann.word?.en || '';
-                if (word && text.includes(word)) {
+                const rawWord = ann.word?.[this.lang] || ann.word?.en || '';
+                const escapedWord = esc(rawWord);
+                if (escapedWord && text.includes(escapedWord)) {
                     const highlighted =
                         '<span class="text-gold font-semibold cursor-help border-b border-gold/30"' +
                         ' title="' + esc(ann.glyph) + ' (' + esc(ann.gardiner_code) + ') — ' + esc(ann.transliteration) + '">' +
-                        esc(word) + ' <span class="font-hieroglyph text-gold/70">' + esc(ann.glyph) + '</span></span>';
-                    text = text.split(word).join(highlighted);
+                        escapedWord + ' <span class="font-hieroglyph text-gold/70">' + esc(ann.glyph) + '</span></span>';
+                    text = text.split(escapedWord).join(highlighted);
                 }
             }
-            return text;
+            return DOMPurify.sanitize(text, {
+                ALLOWED_TAGS: ['span'],
+                ALLOWED_ATTR: ['class','title']
+            });
         },
 
         getInteractionsAfter(paragraphIdx) {

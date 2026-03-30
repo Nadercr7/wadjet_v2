@@ -179,25 +179,34 @@
         if (!text || !text.trim()) return;
         activeId = opts.id || null;
 
-        const formData = new FormData();
-        formData.append('text', text.trim());
-        formData.append('lang', opts.lang || _getCurrentLang());
+        var lang = opts.lang || _getCurrentLang();
 
-        fetch('/api/tts', { method: 'POST', body: formData })
+        fetch('/api/audio/speak', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ text: text.trim(), lang: lang, context: 'narration' })
+        })
             .then(function (r) {
                 if (!r.ok) throw new Error('Server TTS unavailable');
                 return r.blob();
             })
             .then(function (blob) {
-                const url = URL.createObjectURL(blob);
-                _serverAudio = new Audio(url);
+                var blobUrl = URL.createObjectURL(blob);
+                _serverAudio = new Audio(blobUrl);
                 _serverAudio.volume = 1.0;
                 _serverAudio.onended = function () {
+                    URL.revokeObjectURL(blobUrl);
                     _serverAudio = null;
                     activeId = null;
                     if (opts.onEnd) opts.onEnd();
                 };
+                _serverAudio.onerror = function () {
+                    URL.revokeObjectURL(blobUrl);
+                    _serverAudio = null;
+                    activeId = null;
+                };
                 _serverAudio.play().catch(function () {
+                    URL.revokeObjectURL(blobUrl);
                     // Audio play failed — fall back to Web Speech
                     TTS.speak(text, opts);
                 });

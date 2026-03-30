@@ -3,29 +3,29 @@
     <div class="container-wide mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
             <!-- Logo -->
-            <a href="/" class="flex items-center gap-2.5 group" aria-label="{{ t('nav.aria_home', lang) }}">
-                <span class="text-2xl" aria-hidden="true">𓂀</span>
-                <span class="font-display font-bold text-lg text-gold-gradient">{{ t('nav.logo', lang) }}</span>
-                <span class="text-[10px] font-semibold tracking-wider uppercase border border-gold/50 text-gold px-1.5 py-0.5 rounded-full leading-none">BETA</span>
+            <a href="/" class="flex items-center gap-2.5 group" aria-label="{{ t('nav.aria_home', lang) }}" {{ 'aria-current=page' if page_name|default('') == 'home' }}>
+                <span class="brand-mark text-2xl" aria-hidden="true">𓂀</span>
+                <span class="brand-text text-lg">{{ t('nav.logo', lang) }}</span>
+                <span class="text-[10px] font-semibold tracking-wider uppercase border border-gold/50 text-gold px-1.5 py-0.5 rounded-full leading-none">{{ t('nav.badge_beta', lang) }}</span>
             </a>
 
             <!-- Desktop Nav -->
             <div class="hidden md:flex items-center gap-1">
-                <a href="/hieroglyphs" class="px-4 py-2 rounded-lg text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-all duration-200">{{ t('nav.hieroglyphs', lang) }}</a>
-                <a href="/scan" class="px-4 py-2 rounded-lg text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-all duration-200">{{ t('nav.scan', lang) }}</a>
-                <a href="/dictionary" class="px-4 py-2 rounded-lg text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-all duration-200">{{ t('nav.dictionary', lang) }}</a>
-                <a href="/landmarks" class="px-4 py-2 rounded-lg text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-all duration-200">{{ t('nav.landmarks_link', lang) }}</a>
-                <a href="/explore" class="px-4 py-2 rounded-lg text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-all duration-200">{{ t('nav.explore', lang) }}</a>
-                <a href="/write" class="px-4 py-2 rounded-lg text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-all duration-200">{{ t('nav.write', lang) }}</a>
-                <a href="/stories" class="px-4 py-2 rounded-lg text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-all duration-200">{{ t('nav.stories', lang) }}</a>
-                <a href="/chat" class="px-4 py-2 rounded-lg text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-all duration-200">{{ t('nav.thoth', lang) }}</a>
+                <a href="/hieroglyphs" class="px-4 py-2 rounded-lg text-sm transition-all duration-200 {{ 'text-gold border-b-2 border-gold' if page_name|default('') == 'hieroglyphs' else 'text-text-muted hover:text-text hover:bg-surface-alt' }}" {{ 'aria-current=page' if page_name|default('') == 'hieroglyphs' }}>{{ t('nav.hieroglyphs', lang) }}</a>
+                <a href="/scan" class="px-4 py-2 rounded-lg text-sm transition-all duration-200 {{ 'text-gold border-b-2 border-gold' if page_name|default('') == 'scan' else 'text-text-muted hover:text-text hover:bg-surface-alt' }}" {{ 'aria-current=page' if page_name|default('') == 'scan' }}>{{ t('nav.scan', lang) }}</a>
+                <a href="/dictionary" class="px-4 py-2 rounded-lg text-sm transition-all duration-200 {{ 'text-gold border-b-2 border-gold' if page_name|default('') == 'dictionary' else 'text-text-muted hover:text-text hover:bg-surface-alt' }}" {{ 'aria-current=page' if page_name|default('') == 'dictionary' }}>{{ t('nav.dictionary', lang) }}</a>
+                <a href="/landmarks" class="px-4 py-2 rounded-lg text-sm transition-all duration-200 {{ 'text-gold border-b-2 border-gold' if page_name|default('') == 'landmarks' else 'text-text-muted hover:text-text hover:bg-surface-alt' }}" {{ 'aria-current=page' if page_name|default('') == 'landmarks' }}>{{ t('nav.landmarks_link', lang) }}</a>
+                <a href="/explore" class="px-4 py-2 rounded-lg text-sm transition-all duration-200 {{ 'text-gold border-b-2 border-gold' if page_name|default('') == 'explore' else 'text-text-muted hover:text-text hover:bg-surface-alt' }}" {{ 'aria-current=page' if page_name|default('') == 'explore' }}>{{ t('nav.explore', lang) }}</a>
+                <a href="/write" class="px-4 py-2 rounded-lg text-sm transition-all duration-200 {{ 'text-gold border-b-2 border-gold' if page_name|default('') == 'write' else 'text-text-muted hover:text-text hover:bg-surface-alt' }}" {{ 'aria-current=page' if page_name|default('') == 'write' }}>{{ t('nav.write', lang) }}</a>
+                <a href="/stories" class="px-4 py-2 rounded-lg text-sm transition-all duration-200 {{ 'text-gold border-b-2 border-gold' if page_name|default('') == 'stories' else 'text-text-muted hover:text-text hover:bg-surface-alt' }}" {{ 'aria-current=page' if page_name|default('') == 'stories' }}>{{ t('nav.stories', lang) }}</a>
+                <a href="/chat" class="px-4 py-2 rounded-lg text-sm transition-all duration-200 {{ 'text-gold border-b-2 border-gold' if page_name|default('') == 'chat' else 'text-text-muted hover:text-text hover:bg-surface-alt' }}" {{ 'aria-current=page' if page_name|default('') == 'chat' }}>{{ t('nav.thoth', lang) }}</a>
             </div>
 
             <!-- CTA + Auth + Lang Toggle -->
             <div class="hidden md:flex items-center gap-2">
                 <!-- Language Toggle -->
                 <button onclick="toggleLang()" class="px-3 py-1.5 rounded-lg text-sm text-text-muted hover:text-gold hover:bg-surface-alt transition-all duration-200 flex items-center gap-1" aria-label="{{ t('nav.toggle_lang', lang) }}">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10A15.3 15.3 0 0112 2z"/></svg>
+                    <svg class="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10A15.3 15.3 0 0112 2z"/></svg>
                     {{ 'عربي' if lang != 'ar' else 'EN' }}
                 </button>
                 <!-- Auth: shown when NOT logged in -->
@@ -39,21 +39,21 @@
                 <template x-if="$store.auth.user">
                     <div class="flex items-center gap-2" x-data="{ userMenu: false }">
                         <a href="/scan" class="btn-gold btn-sm">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            <svg class="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                             {{ t('nav.scan', lang) }}
                         </a>
                         <div class="relative">
-                            <button @click="userMenu = !userMenu" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-all">
+                            <button @click="userMenu = !userMenu" aria-haspopup="true" :aria-expanded="userMenu" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-all">
                                 <div class="w-7 h-7 rounded-full bg-gold/20 flex items-center justify-center text-gold text-xs font-bold"
                                      x-text="($store.auth.user?.display_name || $store.auth.user?.email || '𓂀')[0].toUpperCase()"></div>
                                 <span x-text="$store.auth.user.display_name || $store.auth.user.email.split('@')[0]" class="max-w-[100px] truncate"></span>
                             </button>
                             <div x-show="userMenu" @click.outside="userMenu = false" x-cloak
-                                 x-transition class="absolute right-0 mt-1 w-40 bg-surface border border-border rounded-lg shadow-lg overflow-hidden z-50 rtl:right-auto rtl:left-0">
-                                <a href="/dashboard" class="block w-full text-left rtl:text-right px-4 py-2.5 text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-colors">{{ t('nav.dashboard', lang) }}</a>
-                                <a href="/settings" class="block w-full text-left rtl:text-right px-4 py-2.5 text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-colors">{{ t('nav.settings', lang) }}</a>
+                                 x-transition role="menu" class="absolute right-0 mt-1 w-40 bg-surface border border-border rounded-lg shadow-lg overflow-hidden z-50 rtl:right-auto rtl:left-0">
+                                <a href="/dashboard" role="menuitem" class="block w-full text-left rtl:text-right px-4 py-2.5 text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-colors">{{ t('nav.dashboard', lang) }}</a>
+                                <a href="/settings" role="menuitem" class="block w-full text-left rtl:text-right px-4 py-2.5 text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-colors">{{ t('nav.settings', lang) }}</a>
                                 <div class="border-t border-border"></div>
-                                <button @click="$store.auth.logout(); userMenu = false" class="w-full text-left rtl:text-right px-4 py-2.5 text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-colors">{{ t('nav.sign_out', lang) }}</button>
+                                <button @click="$store.auth.logout(); userMenu = false" role="menuitem" class="w-full text-left rtl:text-right px-4 py-2.5 text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-colors">{{ t('nav.sign_out', lang) }}</button>
                             </div>
                         </div>
                     </div>
@@ -94,14 +94,14 @@
             role="menu"
         >
             <div class="flex flex-col gap-1">
-                <a href="/hieroglyphs" class="px-4 py-3 rounded-lg text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-all">{{ t('nav.hieroglyphs', lang) }}</a>
-                <a href="/scan" class="px-4 py-3 rounded-lg text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-all ps-8">{{ t('nav.sub_scan', lang) }}</a>
-                <a href="/dictionary" class="px-4 py-3 rounded-lg text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-all ps-8">{{ t('nav.sub_dictionary', lang) }}</a>
-                <a href="/landmarks" class="px-4 py-3 rounded-lg text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-all">{{ t('nav.landmarks_link', lang) }}</a>
-                <a href="/explore" class="px-4 py-3 rounded-lg text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-all ps-8">{{ t('nav.sub_explore', lang) }}</a>
-                <a href="/write" class="px-4 py-3 rounded-lg text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-all ps-8">{{ t('nav.sub_write', lang) }}</a>
-                <a href="/stories" class="px-4 py-3 rounded-lg text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-all">{{ t('nav.stories', lang) }}</a>
-                <a href="/chat" class="px-4 py-3 rounded-lg text-sm text-text-muted hover:text-text hover:bg-surface-alt transition-all">{{ t('nav.thoth', lang) }}</a>
+                <a href="/hieroglyphs" class="px-4 py-3 rounded-lg text-sm transition-all {{ 'text-gold bg-gold/5' if page_name|default('') == 'hieroglyphs' else 'text-text-muted hover:text-text hover:bg-surface-alt' }}" {{ 'aria-current=page' if page_name|default('') == 'hieroglyphs' }}>{{ t('nav.hieroglyphs', lang) }}</a>
+                <a href="/scan" class="px-4 py-3 rounded-lg text-sm transition-all ps-8 {{ 'text-gold bg-gold/5' if page_name|default('') == 'scan' else 'text-text-muted hover:text-text hover:bg-surface-alt' }}" {{ 'aria-current=page' if page_name|default('') == 'scan' }}>{{ t('nav.sub_scan', lang) }}</a>
+                <a href="/dictionary" class="px-4 py-3 rounded-lg text-sm transition-all ps-8 {{ 'text-gold bg-gold/5' if page_name|default('') == 'dictionary' else 'text-text-muted hover:text-text hover:bg-surface-alt' }}" {{ 'aria-current=page' if page_name|default('') == 'dictionary' }}>{{ t('nav.sub_dictionary', lang) }}</a>
+                <a href="/landmarks" class="px-4 py-3 rounded-lg text-sm transition-all {{ 'text-gold bg-gold/5' if page_name|default('') == 'landmarks' else 'text-text-muted hover:text-text hover:bg-surface-alt' }}" {{ 'aria-current=page' if page_name|default('') == 'landmarks' }}>{{ t('nav.landmarks_link', lang) }}</a>
+                <a href="/explore" class="px-4 py-3 rounded-lg text-sm transition-all ps-8 {{ 'text-gold bg-gold/5' if page_name|default('') == 'explore' else 'text-text-muted hover:text-text hover:bg-surface-alt' }}" {{ 'aria-current=page' if page_name|default('') == 'explore' }}>{{ t('nav.sub_explore', lang) }}</a>
+                <a href="/write" class="px-4 py-3 rounded-lg text-sm transition-all ps-8 {{ 'text-gold bg-gold/5' if page_name|default('') == 'write' else 'text-text-muted hover:text-text hover:bg-surface-alt' }}" {{ 'aria-current=page' if page_name|default('') == 'write' }}>{{ t('nav.sub_write', lang) }}</a>
+                <a href="/stories" class="px-4 py-3 rounded-lg text-sm transition-all {{ 'text-gold bg-gold/5' if page_name|default('') == 'stories' else 'text-text-muted hover:text-text hover:bg-surface-alt' }}" {{ 'aria-current=page' if page_name|default('') == 'stories' }}>{{ t('nav.stories', lang) }}</a>
+                <a href="/chat" class="px-4 py-3 rounded-lg text-sm transition-all {{ 'text-gold bg-gold/5' if page_name|default('') == 'chat' else 'text-text-muted hover:text-text hover:bg-surface-alt' }}" {{ 'aria-current=page' if page_name|default('') == 'chat' }}>{{ t('nav.thoth', lang) }}</a>
                 <div class="pt-2 flex flex-col gap-2">
                     <template x-if="!$store.auth.user">
                         <div class="flex flex-col gap-2">

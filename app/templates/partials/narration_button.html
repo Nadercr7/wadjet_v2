@@ -1,6 +1,6 @@
 <!-- Floating narration button — include on content pages -->
 <!-- Reads aloud the page's main content via server TTS, falls back to browser -->
-<div class="fixed bottom-20 right-6 z-50" x-data="narrationBtn" x-show="hasContent" x-cloak>
+<div class="fixed bottom-20 right-6 rtl:right-auto rtl:left-6 z-50" x-data="narrationBtn" x-show="hasContent" x-cloak>
     <button @click="toggle()"
             class="w-14 h-14 rounded-full bg-gold/20 border border-gold/50 backdrop-blur-xl flex items-center justify-center shadow-lg hover:bg-gold/30 transition"
             data-label-play="{{ t('common.play_narration', lang) }}"

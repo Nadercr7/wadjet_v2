@@ -46,13 +46,22 @@
 
         <!-- Loading -->
         <template x-if="loading">
-            <div class="flex justify-center py-12">
-                <div class="w-8 h-8 border-2 border-gold/30 border-t-gold rounded-full animate-spin"></div>
+            <div class="loader-wadjet">
+                <span class="brand-mark text-3xl">𓂀</span>
+                <span class="text-dust text-sm">{{ t('common.loading_stories', lang) }}</span>
+            </div>
+        </template>
+
+        <!-- Error state -->
+        <template x-if="!loading && error">
+            <div class="text-center py-8">
+                <p class="text-red-400 mb-3" x-text="error"></p>
+                <button @click="error = ''; loading = true; init()" class="btn-ghost">{{ t('common.error_retry', lang) }}</button>
             </div>
         </template>
 
         <!-- Story Cards Grid -->
-        <template x-if="!loading">
+        <template x-if="!loading && !error">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <template x-for="story in filteredStories" :key="story.id">
                     <a :href="'/stories/' + story.id + '?lang={{ lang }}'"
@@ -73,11 +82,11 @@
                         <div class="flex items-center justify-between text-xs text-text-dim">
                             <span class="inline-flex items-center gap-1">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2"/><circle cx="12" cy="12" r="10"/></svg>
-                                <span x-text="story.estimated_minutes + ' {{ t('stories.minutes', lang) }}'"></span>
+                                <span x-text="story.estimated_minutes + ' ' + (__i18n.stories_minutes || 'min')"></span>
                             </span>
                             <span class="inline-flex items-center gap-1">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
-                                <span x-text="story.chapter_count + ' {{ t('stories.chapters', lang) }}'"></span>
+                                <span x-text="story.chapter_count + ' ' + (__i18n.stories_chapters || 'chapters')"></span>
                             </span>
                         </div>
 
@@ -85,14 +94,14 @@
                         <div class="mt-3 text-center">
                             <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs border"
                                   :class="story.difficulty === 'beginner' ? 'border-green-500/30 text-green-400 bg-green-500/10' : story.difficulty === 'intermediate' ? 'border-gold/30 text-gold bg-gold/10' : 'border-red-500/30 text-red-400 bg-red-500/10'"
-                                  x-text="story.difficulty === 'beginner' ? '{{ t('stories.beginner', lang) }}' : story.difficulty === 'intermediate' ? '{{ t('stories.intermediate', lang) }}' : '{{ t('stories.advanced', lang) }}'">
+                                  x-text="story.difficulty === 'beginner' ? (__i18n.stories_beginner || 'Beginner') : story.difficulty === 'intermediate' ? (__i18n.stories_intermediate || 'Intermediate') : (__i18n.stories_advanced || 'Advanced')">
                             </span>
                         </div>
 
                         <!-- Glyphs Taught Preview -->
                         <div class="mt-3 flex items-center justify-center gap-1 text-text-dim">
                             <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                            <span class="text-xs" x-text="story.glyphs_taught.length + ' {{ t('stories.glyphs_to_learn', lang) }}'"></span>
+                            <span class="text-xs" x-text="story.glyphs_taught.length + ' ' + (__i18n.stories_glyphs_to_learn || 'glyphs to learn')"></span>
                         </div>
 
                         <!-- Progress (logged-in users) -->
@@ -105,8 +114,8 @@
                                 </div>
                                 <div class="flex justify-between mt-1 text-[10px] text-text-dim">
                                     <span x-show="getProgress(story.id).completed" class="text-green-400">{{ t('dashboard.completed', lang) }}</span>
-                                    <span x-show="!getProgress(story.id).completed" x-text="'{{ t('stories.chapter', lang) }} ' + (getProgress(story.id).chapter_index + 1)"></span>
-                                    <span x-text="getProgress(story.id).score + ' pts'"></span>
+                                    <span x-show="!getProgress(story.id).completed" x-text="(__i18n.stories_chapter || 'Chapter') + ' ' + (getProgress(story.id).chapter_index + 1)"></span>
+                                    <span x-text="getProgress(story.id).score + ' ' + (__i18n.stories_score_pts || 'pts')"></span>
                                 </div>
                             </div>
                         </template>
@@ -122,7 +131,7 @@
         </template>
 
         <!-- Empty State -->
-        <template x-if="!loading && filteredStories.length === 0">
+        <template x-if="!loading && !error && filteredStories.length === 0">
             <div class="text-center py-12 text-text-muted">
                 <p>{{ t('stories.no_stories', lang) }}</p>
             </div>
@@ -139,6 +148,7 @@ function storiesApp() {
         stories: [],
         filter: 'all',
         loading: true,
+        error: '',
         progressMap: {},
 
         async init() {
@@ -148,6 +158,7 @@ function storiesApp() {
                 this.stories = data.stories || [];
             } catch (e) {
                 console.error('Failed to load stories:', e);
+                this.error = '{{ t("common.error", lang) }}';
             } finally {
                 this.loading = false;
             }

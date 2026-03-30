@@ -8,6 +8,8 @@
         "skip_to_content": "Skip to content",
         "loading": "Loading...",
         "error": "Something went wrong",
+        "error_network": "Network error. Check your connection.",
+        "error_retry": "Something went wrong. Please try again.",
         "back": "Back",
         "next": "Next",
         "cancel": "Cancel",
@@ -26,7 +28,11 @@
         "signs": "signs",
         "page": "Page",
         "play_narration": "Play narration",
-        "pause_narration": "Pause narration"
+        "pause_narration": "Pause narration",
+        "loading_signs": "Loading signs...",
+        "loading_landmarks": "Loading landmarks...",
+        "loading_stories": "Loading stories...",
+        "loading_lesson": "Loading lesson..."
     },
     "nav": {
         "aria_main": "Main navigation",
@@ -52,7 +58,8 @@
         "sub_explore": "↳ Explore",
         "sub_write": "↳ Write",
         "dashboard": "Dashboard",
-        "settings": "Settings"
+        "settings": "Settings",
+        "badge_beta": "BETA"
     },
     "auth": {
         "welcome_back": "Welcome Back",
@@ -65,10 +72,16 @@
         "join": "Join Wadjet",
         "signup_subtitle": "Create an account to track your discoveries",
         "display_name": "Display Name (optional)",
-        "password_hint": "Password (8+ characters)",
+        "password_hint": "Password (8+ chars, uppercase, lowercase, number)",
         "create_account": "Create Account",
         "creating": "Creating…",
-        "have_account": "Already have an account?"
+        "have_account": "Already have an account?",
+        "toast_welcome": "Welcome to Wadjet!",
+        "toast_welcome_back": "Welcome back!",
+        "toast_signed_out": "Signed out",
+        "toast_login_failed": "Login failed",
+        "toast_register_failed": "Registration failed",
+        "toast_network_error": "Network error"
     },
     "footer": {
         "aria": "Site footer",
@@ -252,7 +265,27 @@
         "listen_translit": "Listen to transliteration",
         "listen_english": "Listen in English",
         "listen_arabic": "Listen in Arabic",
-        "pause": "Pause"
+        "pause": "Pause",
+        "error_file_type": "Please upload a JPEG, PNG, or WebP image.",
+        "error_file_size": "File too large. Maximum 10 MB.",
+        "error_no_image": "Please select an image first.",
+        "error_processing": "Scan failed. Please try again.",
+        "error_camera": "Camera access denied. Please allow camera permissions and try again.",
+        "error_ml_load": "Browser ML libraries failed to load. Try server mode instead.",
+        "error_ml_init": "Failed to load browser models.",
+        "error_client_scan": "Client-side scan failed.",
+        "error_load_image": "Failed to load image",
+        "toast_copied": "Hieroglyphs copied!",
+        "toast_image_saved": "Image saved!",
+        "toast_no_hieroglyphs": "No hieroglyphs detected",
+        "share_text": "Detected {count} hieroglyphs",
+        "share_title": "Hieroglyph Scan — Wadjet",
+        "camera_capture_name": "Camera capture",
+        "toast_voice_captured": "Voice captured!",
+        "toast_voice_no_speech": "No speech detected",
+        "toast_voice_failed": "Voice transcription failed — try typing instead",
+        "error_mic_denied": "Microphone access denied",
+        "error_mic_generic": "Could not start recording"
     },
     "dictionary": {
         "meta_desc": "Browse 1000+ hieroglyphic signs from the Gardiner Sign List — organized by category, searchable, with transliteration and meanings.",
@@ -310,7 +343,17 @@
         "use_in_write": "Use in Write",
         "browse_category": "Browse Category",
         "listen_pronunciation": "Listen to pronunciation",
-        "listen": "Listen"
+        "listen": "Listen",
+        "sign_detail": "Sign detail",
+        "cat_desc_A": "Most signs in this category are determinatives — silent classifiers placed at word endings to indicate people and activities.",
+        "cat_desc_B": "Most signs here are determinatives — they silently classify words related to women.",
+        "cat_desc_C": "Most signs here are determinatives — they appear after names and words related to gods.",
+        "cat_desc_E": "Most signs here are determinatives — they classify words related to animals.",
+        "cat_desc_O": "Most signs here are determinatives — they classify words related to buildings and places.",
+        "cat_desc_T": "Most signs here are determinatives — they classify words related to warfare and tools.",
+        "pronunciation_prefix": "Like",
+        "label_classifier": "classifier",
+        "label_number": "number"
     },
     "write": {
         "meta_desc": "Type English text or Manuel de Codage transliteration and see it rendered as Egyptian hieroglyphs. Copy or share your compositions.",
@@ -319,6 +362,7 @@
         "title": "Write in",
         "title_gold": "Hieroglyphs",
         "subtitle": "Type text and watch it transform into ancient Egyptian hieroglyphs.",
+        "subtitle_smart": "Type anything in English and our AI will write it in hieroglyphs.",
         "mode_alpha": "ABC → 𓏞 English",
         "mode_mdc": "MdC Transliteration",
         "mode_smart": "Smart Write (AI)",
@@ -344,7 +388,9 @@
         "ex_alpha": ["Hello", "Egypt", "Pharaoh", "Sun God"],
         "ex_mdc": ["Htp-nTr", "anx-wAs-Dd", "ra-mn-xpr", "pr-aA"],
         "ex_smart": ["Life is beautiful", "The king of Egypt", "Peace and prosperity", "Son of Ra"],
-        "ex_smart_ar": ["الحياة جميلة", "ملك مصر", "السلام والرخاء", "ابن رع"]
+        "ex_smart_ar": ["الحياة جميلة", "ملك مصر", "السلام والرخاء", "ابن رع"],
+        "mode_arrow": "→",
+        "history_suffix": "glyphs"
     },
     "explore": {
         "meta_desc": "Browse 190+ Egyptian heritage sites — pyramids, temples, mosques, churches, museums, and natural wonders. Filter by category, region, or subcategory.",
@@ -395,7 +441,22 @@
         "detail_wikipedia": "Wikipedia →",
         "favorite": "Add to favorites",
         "unfavorite": "Remove from favorites",
-        "sign_in_favorite": "Sign in to save favorites"
+        "sign_in_favorite": "Sign in to save favorites",
+        "landmark_detail": "Landmark detail",
+        "btn_camera": "Camera",
+        "error_unavailable": "Identification temporarily unavailable. Please try again.",
+        "error_identify_generic": "Something went wrong. Please try again.",
+        "error_file_large": "File too large. Maximum 10 MB.",
+        "error_camera": "Could not access camera. Please check permissions.",
+        "error_detail_load": "Failed to load landmark details. Please try again."
+    },
+    "identify": {
+        "title": "Identification Results",
+        "source": "Source",
+        "confidence": "Confidence",
+        "view_details": "View landmark details →",
+        "other": "Other possibilities:",
+        "view": "View →"
     },
     "chat": {
         "meta_desc": "Chat with Thoth, AI god of wisdom. Ask about hieroglyphs, pharaohs, temples, and Egyptian history.",
@@ -425,7 +486,8 @@
             "What was daily life like in ancient Egypt?",
             "Tell me about the Valley of the Kings",
             "Who built the Sphinx?"
-        ]
+        ],
+        "error_response": "Failed to get response. Please try again."
     },
     "quiz": {
         "meta_desc": "Test your knowledge of ancient Egyptian heritage with our interactive quiz.",
@@ -499,7 +561,13 @@
         "try_again": "Try again",
         "prev_chapter": "← Previous Chapter",
         "next_chapter": "Next Chapter →",
-        "finish": "Finish Story ✓"
+        "finish": "Finish Story ✓",
+        "score_pts": "pts",
+        "complete_title": "Story Complete!",
+        "complete_score": "Score",
+        "complete_glyphs": "Glyphs you learned",
+        "complete_count": "Glyphs Learned",
+        "complete_cta": "Continue to Stories"
     },
     "lesson_page": {
         "meta_desc": "Learn hieroglyphic signs step by step — interactive lessons with audio pronunciation, example words, and practice exercises.",
@@ -564,6 +632,48 @@
         "password_changed": "Password changed successfully!",
         "account": "Account",
         "tier": "Plan",
-        "member_since": "Member Since"
+        "member_since": "Member Since",
+        "lang_english": "English",
+        "lang_arabic": "العربية"
+    },
+    "welcome": {
+        "seo_title": "Welcome to Wadjet",
+        "seo_desc": "Discover ancient Egypt with AI — scan hieroglyphs, explore 260+ landmarks, read mythology stories, and chat with Thoth",
+        "hero_title": "Decode the Secrets of Ancient Egypt",
+        "hero_subtitle": "AI-powered hieroglyph scanning, landmark exploration, and mythology stories",
+        "cta_start": "Get Started",
+        "cta_demo": "See how it works",
+        "features_title": "What is Wadjet?",
+        "feature_scan_title": "Scan Hieroglyphs",
+        "feature_scan_desc": "Point your camera at any hieroglyphic inscription and instantly identify, classify, and translate ancient signs",
+        "feature_scan_stat": "1000+",
+        "feature_scan_label": "signs",
+        "feature_explore_title": "Explore Landmarks",
+        "feature_explore_desc": "Discover Egyptian heritage sites with detailed histories, photos, and location data",
+        "feature_explore_stat": "260+",
+        "feature_explore_label": "landmarks",
+        "feature_stories_title": "Learn Stories",
+        "feature_stories_desc": "Immerse yourself in Egyptian mythology through interactive stories with AI illustrations and narration",
+        "feature_stories_stat": "5",
+        "feature_stories_label": "stories",
+        "demo_title": "See It in Action",
+        "demo_desc": "Our AI scanning pipeline processes hieroglyphic inscriptions in seconds",
+        "demo_step_1": "Upload",
+        "demo_step_2": "Detect",
+        "demo_step_3": "Classify",
+        "demo_step_4": "Translate",
+        "thoth_title": "Meet Thoth",
+        "thoth_quote": "I am Thoth, keeper of knowledge and scribe of the gods. Ask me anything about ancient Egypt.",
+        "thoth_starter_1": "Who built the pyramids?",
+        "thoth_starter_2": "Tell me about Cleopatra",
+        "thoth_starter_3": "What are hieroglyphs?",
+        "signup_title": "Start Your Journey",
+        "signup_subtitle": "Create a free account to unlock all features",
+        "signup_name": "Your Name",
+        "signup_email": "Email Address",
+        "signup_password": "Password (8+ characters)",
+        "signup_btn": "Create Free Account",
+        "signup_login": "Already have an account?",
+        "signup_login_link": "Sign In"
     }
 }

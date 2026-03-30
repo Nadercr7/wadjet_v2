@@ -65,8 +65,8 @@
             </div>
 
             <!-- City filter -->
-            <label for=\"city-filter\" class=\"sr-only\">{{ t('explore.filter_city', lang) }}</label>
-            <select id=\"city-filter\" x-model=\"cityFilter\" @change=\"fetchLandmarks()\"
+            <label for="city-filter" class="sr-only">{{ t('explore.filter_city', lang) }}</label>
+            <select id="city-filter" x-model="cityFilter" @change="fetchLandmarks()"
                     class="input w-full sm:w-48 cursor-pointer">
                 <option value="">{{ t('explore.all_cities', lang) }}</option>
                 <template x-for="c in cities" :key="c.name">
@@ -109,8 +109,9 @@
         <!-- ════════════════════════════════════════════════
              Loading state
              ════════════════════════════════════════════════ -->
-        <div x-show="loading" class="text-center py-12">
-            <svg class="w-8 h-8 animate-spin text-gold mx-auto" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path></svg>
+        <div x-show="loading" class="loader-wadjet">
+            <span class="brand-mark text-3xl">𓂀</span>
+            <span class="text-dust text-sm">{{ t('common.loading_landmarks', lang) }}</span>
         </div>
 
         <!-- Empty state -->
@@ -230,7 +231,7 @@
                       hx-encoding="multipart/form-data"
                       hx-indicator="#identify-spinner"
                       @htmx:before-request.window="if(event.detail.elt.id === 'identify-form') { $refs.identifyBtn.disabled = true; identifyError = ''; }"
-                      @htmx:after-request.window="if(event.detail.elt.id === 'identify-form') { $refs.identifyBtn.disabled = false; if(!event.detail.successful) { identifyError = event.detail.xhr?.status === 503 ? 'Identification temporarily unavailable. Please try again.' : 'Something went wrong (' + (event.detail.xhr?.status || 'network error') + '). Please try again.'; } }"
+                      @htmx:after-request.window="if(event.detail.elt.id === 'identify-form') { $refs.identifyBtn.disabled = false; if(!event.detail.successful) { identifyError = event.detail.xhr?.status === 503 ? '{{ t('explore.error_unavailable', lang) }}' : '{{ t('explore.error_identify_generic', lang) }}'; } }"
                       enctype="multipart/form-data">
 
                     <!-- Tabs: Upload / Camera -->
@@ -243,7 +244,7 @@
                         <button type="button" @click="identifyMode = 'camera'"
                                 :class="identifyMode === 'camera' ? 'btn-gold btn-sm' : 'btn-ghost btn-sm'">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
-                            Camera
+                            {{ t('explore.btn_camera', lang) }}
                         </button>
                     </div>
 
@@ -335,7 +336,7 @@
                         <button type="submit" x-ref="identifyBtn" class="btn-gold">
                             <span class="htmx-indicator-hide">{{ t('explore.identify_btn', lang) }}</span>
                             <span id="identify-spinner" class="htmx-indicator flex items-center gap-2">
-                                <svg class="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path></svg>
+                                <svg class="w-4 h-4 animate-spin text-night" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path></svg>
                                 {{ t('explore.analyzing', lang) }}
                             </span>
                         </button>
@@ -360,6 +361,7 @@
              x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
              x-transition:leave="transition ease-in duration-150"
              x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
+             x-effect="if (detailLandmark) { _modalPrev = document.activeElement; $nextTick(() => { const panel = $el.querySelector('[role=dialog]'); if (panel) { _modalTrap = window.createFocusTrap(panel); _modalTrap.activate(); panel.querySelector('button')?.focus(); } }); } else if (_modalTrap) { _modalTrap.deactivate(); _modalTrap = null; if (_modalPrev) { _modalPrev.focus(); _modalPrev = null; } }"
              class="fixed inset-0 z-50 flex items-center justify-center p-4"
              @click.self="detailLandmark = null" @keydown.escape.window="detailLandmark = null">
 
@@ -370,18 +372,21 @@
             <div x-show="detailLandmark"
                  x-transition:enter="transition ease-out duration-200 delay-75"
                  x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100"
+                 role="dialog" aria-modal="true" aria-label="{{ t('explore.landmark_detail', lang) }}"
                  class="relative bg-surface border border-border rounded-xl max-w-2xl w-full max-h-[85vh] overflow-y-auto p-6 shadow-2xl"
                  data-lenis-prevent>
 
                 <!-- Close button -->
                 <button @click="detailLandmark = null"
+                        aria-label="{{ t('common.close', lang) }}"
                         class="absolute top-4 right-4 z-10 text-text-dim hover:text-text transition-colors bg-surface/80 rounded-full p-1">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                 </button>
 
                 <template x-if="detailLoading">
-                    <div class="text-center py-12">
-                        <svg class="w-8 h-8 animate-spin text-gold mx-auto" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path></svg>
+                    <div class="loader-wadjet">
+                        <span class="brand-mark text-3xl">𓂀</span>
+                        <span class="text-dust text-sm">{{ t('common.loading', lang) }}</span>
                     </div>
                 </template>
 
@@ -620,6 +625,8 @@ function exploreApp() {
         loadingMore: false,
         detailLandmark: null,
         detailLoading: false,
+        _modalTrap: null,
+        _modalPrev: null,
 
         // Favorites
         favoriteIds: new Set(),
@@ -775,7 +782,7 @@ function exploreApp() {
                 this.detailLandmark = await resp.json();
             } catch (err) {
                 console.error('Failed to load landmark detail:', err);
-                this.detailLandmark = { _error: true, name: 'Error', description: 'Failed to load landmark details. Please try again.' };
+                this.detailLandmark = { _error: true, name: '{{ t('common.error', lang) }}', description: '{{ t('explore.error_detail_load', lang) }}' };
             } finally {
                 this.detailLoading = false;
             }
@@ -796,7 +803,7 @@ function exploreApp() {
 
         _setIdentifyFile(file) {
             if (file.size > 10 * 1024 * 1024) {
-                this.identifyError = 'File too large. Maximum 10 MB.';
+                this.identifyError = '{{ t('explore.error_file_large', lang) }}';
                 return;
             }
             this.identifyFile = file;
@@ -836,7 +843,7 @@ function exploreApp() {
                 }
             } catch (err) {
                 console.error('Camera error:', err);
-                this.identifyError = 'Could not access camera. Please check permissions.';
+                this.identifyError = '{{ t('explore.error_camera', lang) }}';
             }
         },
 

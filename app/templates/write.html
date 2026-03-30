@@ -23,57 +23,33 @@
         <div class="text-center mb-10" data-animate>
             <h1 class="mb-4">{{ t('write.title', lang) }} <span class="text-gold-gradient">{{ t('write.title_gold', lang) }}</span></h1>
             <p class="text-text-muted text-lg max-w-2xl mx-auto">
-                {{ t('write.subtitle', lang) }}
+                {{ t('write.subtitle_smart', lang) }}
             </p>
         </div>
 
-        <!-- ════════════════════════════════════════
-             Input Mode Toggle
-             ════════════════════════════════════════ -->
-        <div class="flex justify-center gap-2 mb-6" data-animate>
-            <button @click="mode = 'alpha'; convert()"
-                    :class="mode === 'alpha' ? 'btn-gold btn-sm' : 'btn-ghost btn-sm'">
-                ABC → 𓁞 {{ t('write.mode_alpha', lang) }}
-            </button>
-            <button @click="mode = 'mdc'; convert()"
-                    :class="mode === 'mdc' ? 'btn-gold btn-sm' : 'btn-ghost btn-sm'">
-                {{ t('write.mode_mdc', lang) }}
-            </button>
-            <button @click="mode = 'smart'; convert()"
-                    :class="mode === 'smart' ? 'btn-gold btn-sm' : 'btn-ghost btn-sm'"
-                    class="flex items-center gap-1">
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-                {{ t('write.mode_smart', lang) }}
-            </button>
-        </div>
 
-        <!-- Mode description -->
-        <div class="text-center mb-6">
-            <p class="text-xs text-dust" x-show="mode === 'alpha'">{{ t('write.hint_alpha', lang) }}</p>
-            <p class="text-xs text-dust" x-show="mode === 'mdc'">{{ t('write.hint_mdc', lang) }}</p>
-            <p class="text-xs text-dust" x-show="mode === 'smart'">{{ t('write.hint_smart', lang) }}</p>
-        </div>
 
         <!-- ════════════════════════════════════════
              Text Input
              ════════════════════════════════════════ -->
         <div class="card mb-6" data-animate>
             <label class="block text-sm font-medium text-text-muted mb-2">
-                <span x-show="mode === 'alpha'">{{ t('write.label_alpha', lang) }}</span>
-                <span x-show="mode === 'mdc'">{{ t('write.label_mdc', lang) }}</span>
-                <span x-show="mode === 'smart'">{{ t('write.label_smart', lang) }}</span>
+                {{ t('write.label_smart', lang) }}
             </label>
             <div class="relative">
                 <textarea x-model="inputText" @input.debounce.300ms="convert()"
-                          :placeholder="mode === 'alpha' ? '{{ t('write.placeholder_alpha', lang) }}' : mode === 'mdc' ? '{{ t('write.placeholder_mdc', lang) }}' : '{{ t('write.placeholder_smart', lang) }}'"
+                          placeholder="{{ t('write.placeholder_smart', lang) }}"
                           class="input w-full h-24 resize-none text-lg" maxlength="500"></textarea>
-                <span class="absolute bottom-2 right-3 text-xs text-text-dim" x-text="inputText.length + '/500'"></span>
+                <span class="absolute bottom-2 right-3 text-xs text-text-dim flex items-center gap-2">
+                    <svg x-show="converting" x-cloak class="w-3.5 h-3.5 animate-spin text-gold" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path></svg>
+                    <span x-text="inputText.length + '/500'"></span>
+                </span>
             </div>
 
             <!-- Quick examples -->
             <div class="mt-3 flex flex-wrap gap-2">
                 <span class="text-xs text-text-dim">{{ t('common.try', lang) }}</span>
-                <template x-for="ex in examples[mode]" :key="ex">
+                <template x-for="ex in examples.smart" :key="ex">
                     <button @click="inputText = ex; convert()"
                             class="text-xs px-2 py-0.5 rounded-full bg-surface-alt border border-border text-text-muted hover:border-gold/30 hover:text-gold transition-all cursor-pointer"
                             x-text="ex"></button>
@@ -125,6 +101,12 @@
             </div>
         </div>
 
+        <!-- Error state -->
+        <div x-show="error" x-cloak class="text-center py-8">
+            <p class="text-red-400 mb-3" x-text="error"></p>
+            <button @click="error = ''; convert()" class="btn-ghost">{{ t('common.error_retry', lang) }}</button>
+        </div>
+
         <!-- ════════════════════════════════════════
              Glyph Palette (clickable sign picker)
              ════════════════════════════════════════ -->
@@ -135,7 +117,7 @@
                      fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </div>
 
-            <div x-show="paletteOpen" x-collapse>
+            <div x-show="paletteOpen" x-transition>
                 <!-- Palette type tabs -->
                 <div class="flex gap-2 mb-4 flex-wrap">
                     <template x-for="tab in paletteTabs" :key="tab.key">
@@ -175,7 +157,7 @@
                         <div class="font-hieroglyph text-2xl text-gold shrink-0" x-text="item.hieroglyphs.slice(0, 10)"></div>
                         <div class="flex-1 min-w-0">
                             <p class="text-sm text-text truncate" x-text="item.input"></p>
-                            <p class="text-[10px] text-text-dim" x-text="item.mode.toUpperCase() + ' · ' + item.numGlyphs + ' glyphs · ' + new Date(item.timestamp).toLocaleDateString()"></p>
+                            <p class="text-[10px] text-text-dim" x-text="item.mode.toUpperCase() + ' · ' + item.numGlyphs + ' ' + (__i18n.write_history_suffix || 'glyphs') + ' · ' + new Date(item.timestamp).toLocaleDateString()"></p>
                         </div>
                         <button @click.stop="WadjetHistory.removeWriteItem(item.timestamp); writeHistory = WadjetHistory.getWriteHistory()"
                                 class="w-5 h-5 rounded-full bg-surface-alt flex items-center justify-center text-text-dim hover:text-error opacity-0 group-hover:opacity-100 transition-opacity text-xs shrink-0">&times;</button>
@@ -192,9 +174,11 @@
 function writeApp() {
     return {
         // State
-        mode: 'alpha',
+        mode: 'smart',
         inputText: '',
         result: {},
+        error: '',
+        converting: false,
         copyLabel: '{{ t('common.copy', lang) }}',
         canShare: !!navigator.share,
 
@@ -214,8 +198,6 @@ function writeApp() {
 
         // Quick example texts
         examples: {
-            alpha: {{ t('write.ex_alpha', lang) | tojson }},
-            mdc: {{ t('write.ex_mdc', lang) | tojson }},
             smart: {{ t('write.ex_smart', lang) | tojson }},
         },
 
@@ -226,7 +208,6 @@ function writeApp() {
             const params = new URLSearchParams(window.location.search);
             const glyph = params.get('glyph');
             if (glyph) {
-                this.mode = 'mdc';
                 this.inputText = glyph;
                 this.convert();
             }
@@ -237,9 +218,12 @@ function writeApp() {
             const text = this.inputText.trim();
             if (!text) {
                 this.result = {};
+                this.error = '';
                 return;
             }
 
+            this.converting = true;
+            this.error = '';
             try {
                 const resp = await fetch('/api/write', {
                     method: 'POST',
@@ -249,6 +233,7 @@ function writeApp() {
                 if (!resp.ok) {
                     const err = await resp.json().catch(() => ({}));
                     console.error('Write API error:', err);
+                    this.error = err.detail || '{{ t("common.error", lang) }}';
                     return;
                 }
                 this.result = await resp.json();
@@ -258,6 +243,9 @@ function writeApp() {
                 }
             } catch (err) {
                 console.error('Write failed:', err);
+                this.error = '{{ t("common.error", lang) }}';
+            } finally {
+                this.converting = false;
             }
         },
 

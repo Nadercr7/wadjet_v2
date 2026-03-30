@@ -1,32 +1,38 @@
 <!-- Landmark identification result partial (returned by POST /api/explore/identify) -->
 <div>
-    <h3 class="text-lg font-semibold mb-4 text-center">Identification Results</h3>
+    <h3 class="text-lg font-semibold mb-4 text-center">{{ t('identify.title', lang) }}</h3>
 
     <!-- Top result -->
     <div class="card border-gold/30 mb-4">
         <div class="flex items-start gap-4">
             <div class="w-12 h-12 rounded-lg bg-gold/10 flex items-center justify-center shrink-0">
-                <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 21h18M5 21V7l4-4h6l4 4v14M9 21v-4h6v4M9 10h.01M15 10h.01"/></svg>
+                <svg class="w-6 h-6 text-gold" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 21h18M5 21V7l4-4h6l4 4v14M9 21v-4h6v4M9 10h.01M15 10h.01"/></svg>
             </div>
             <div class="flex-1 min-w-0">
                 <div class="flex items-center gap-2 mb-1">
                     <h4 class="font-semibold text-gold truncate">{{ name }}</h4>
                     <span class="badge-gold text-xs shrink-0">{{ "%.1f"|format(confidence * 100) }}%</span>
                 </div>
-                <div class="w-full bg-night rounded-full h-2 mb-2">
+                <div class="w-full bg-night rounded-full h-2 mb-2"
+                     role="progressbar"
+                     aria-valuenow="{{ (confidence * 100)|round(0)|int }}"
+                     aria-valuemin="0"
+                     aria-valuemax="100"
+                     aria-label="{{ t('identify.confidence', lang) }}">
                     <div class="bg-gold h-2 rounded-full transition-all duration-500"
                          style="width: {{ (confidence * 100)|round(1) }}%"></div>
                 </div>
                 <div class="flex items-center gap-3 text-xs text-text-dim mb-2">
-                    <span>Source: {{ source }}</span>
+                    <span>{{ t('identify.source', lang) }}: {{ source }}</span>
                 </div>
                 {% if description %}
                 <p class="text-text-muted text-sm leading-relaxed mb-2">{{ description }}</p>
                 {% endif %}
                 <a href="javascript:void(0)"
-                   @click="openDetail('{{ slug }}')"
+                   data-slug="{{ slug }}"
+                   @click="openDetail($el.dataset.slug)"
                    class="text-xs text-gold hover:text-gold-light transition-colors">
-                    View landmark details →
+                    {{ t('identify.view_details', lang) }}
                 </a>
             </div>
         </div>
@@ -34,7 +40,7 @@
 
     <!-- Other top matches -->
     {% if top3|length > 1 %}
-    <p class="text-text-dim text-xs mb-2">Other possibilities:</p>
+    <p class="text-text-dim text-xs mb-2">{{ t('identify.other', lang) }}</p>
     <div class="space-y-2">
         {% for match in top3[1:] %}
         <div class="flex items-center gap-3 bg-night/50 rounded-lg p-3">
@@ -42,9 +48,10 @@
             <span class="text-sm text-text-muted flex-1 truncate">{{ match.name }}</span>
             <span class="text-xs text-text-dim">{{ "%.1f"|format(match.confidence * 100) }}%</span>
             <a href="javascript:void(0)"
-               @click="openDetail('{{ match.slug }}')"
+               data-slug="{{ match.slug }}"
+               @click="openDetail($el.dataset.slug)"
                class="text-xs text-gold hover:text-gold-light transition-colors shrink-0 px-2 py-1">
-                View →
+                {{ t('identify.view', lang) }}
             </a>
         </div>
         {% endfor %}

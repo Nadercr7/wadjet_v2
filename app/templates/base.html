@@ -22,7 +22,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
     <!-- Styles (critical) -->
-    <link rel="stylesheet" href="/static/dist/styles.css?v=32" fetchpriority="high">
+    <link rel="stylesheet" href="/static/dist/styles.css?v=36" fetchpriority="high">
     <link rel="stylesheet" href="/static/css/atropos.css">
 
     {% block head %}{% endblock %}
@@ -39,6 +39,13 @@
     <!-- Navigation -->
     {% include "partials/nav.html" %}
 
+    <!-- Full-page branded loader (fades out when Alpine hydrates) -->
+    <div id="app-loader" class="loader-wadjet-full" aria-hidden="true">
+        <span class="brand-mark text-5xl">𓂀</span>
+        <span class="brand-text text-lg">W A D J E T</span>
+        <div class="loader-bar"></div>
+    </div>
+
     <!-- Main Content -->
     <main class="flex-1" id="main-content" role="main">
         {% block content %}{% endblock %}
@@ -52,15 +59,17 @@
 
     <!-- Auth Modals -->
     <!-- Login Modal -->
-    <div x-data="{ email: '', password: '' }"
+    <div x-data="{ email: '', password: '', _trap: null, _prev: null }"
          x-show="$store.auth.showLogin" x-cloak
+         x-effect="if ($store.auth.showLogin) { _prev = document.activeElement; $nextTick(() => { _trap = window.createFocusTrap($el.querySelector('[role=dialog]')); _trap.activate(); $el.querySelector('input')?.focus(); }); } else if (_trap) { _trap.deactivate(); _trap = null; if (_prev) { _prev.focus(); _prev = null; } }"
          @keydown.escape.window="$store.auth.showLogin = false"
          class="fixed inset-0 z-[9999] flex items-center justify-center p-4">
         <div class="absolute inset-0 bg-night/80 backdrop-blur-sm" @click="$store.auth.showLogin = false"></div>
         <div class="relative bg-surface border border-border rounded-2xl shadow-2xl w-full max-w-md p-6"
+             role="dialog" aria-modal="true" aria-labelledby="login-title"
              x-transition>
-            <button @click="$store.auth.showLogin = false" class="absolute top-4 right-4 text-text-dim hover:text-text rtl:right-auto rtl:left-4">&times;</button>
-            <h2 class="font-display text-xl font-bold text-gold mb-1">{{ t('auth.welcome_back', lang) }}</h2>
+            <button @click="$store.auth.showLogin = false" class="absolute top-4 right-4 text-text-dim hover:text-text rtl:right-auto rtl:left-4" aria-label="{{ t('common.close', lang) }}">&times;</button>
+            <h2 id="login-title" class="font-display text-xl font-bold text-gold mb-1">{{ t('auth.welcome_back', lang) }}</h2>
             <p class="text-sm text-text-muted mb-5">{{ t('auth.sign_in_subtitle', lang) }}</p>
             <div x-show="$store.auth.error" class="mb-3 p-2.5 rounded-lg bg-error/10 border border-error/20 text-error text-sm" x-text="$store.auth.error"></div>
             <form @submit.prevent="$store.auth.login(email, password)" class="flex flex-col gap-3">
@@ -79,15 +88,17 @@
     </div>
 
     <!-- Signup Modal -->
-    <div x-data="{ email: '', password: '', displayName: '' }"
+    <div x-data="{ email: '', password: '', displayName: '', _trap: null, _prev: null }"
          x-show="$store.auth.showSignup" x-cloak
+         x-effect="if ($store.auth.showSignup) { _prev = document.activeElement; $nextTick(() => { _trap = window.createFocusTrap($el.querySelector('[role=dialog]')); _trap.activate(); $el.querySelector('input')?.focus(); }); } else if (_trap) { _trap.deactivate(); _trap = null; if (_prev) { _prev.focus(); _prev = null; } }"
          @keydown.escape.window="$store.auth.showSignup = false"
          class="fixed inset-0 z-[9999] flex items-center justify-center p-4">
         <div class="absolute inset-0 bg-night/80 backdrop-blur-sm" @click="$store.auth.showSignup = false"></div>
         <div class="relative bg-surface border border-border rounded-2xl shadow-2xl w-full max-w-md p-6"
+             role="dialog" aria-modal="true" aria-labelledby="signup-title"
              x-transition>
-            <button @click="$store.auth.showSignup = false" class="absolute top-4 right-4 text-text-dim hover:text-text rtl:right-auto rtl:left-4">&times;</button>
-            <h2 class="font-display text-xl font-bold text-gold mb-1">{{ t('auth.join', lang) }}</h2>
+            <button @click="$store.auth.showSignup = false" class="absolute top-4 right-4 text-text-dim hover:text-text rtl:right-auto rtl:left-4" aria-label="{{ t('common.close', lang) }}">&times;</button>
+            <h2 id="signup-title" class="font-display text-xl font-bold text-gold mb-1">{{ t('auth.join', lang) }}</h2>
             <p class="text-sm text-text-muted mb-5">{{ t('auth.signup_subtitle', lang) }}</p>
             <div x-show="$store.auth.error" class="mb-3 p-2.5 rounded-lg bg-error/10 border border-error/20 text-error text-sm" x-text="$store.auth.error"></div>
             <form @submit.prevent="$store.auth.register(email, password, displayName)" class="flex flex-col gap-3">
@@ -114,7 +125,7 @@
          x-transition:leave="transition ease-in duration-200"
          x-transition:leave-start="opacity-100 translate-y-0"
          x-transition:leave-end="opacity-0 translate-y-4"
-         class="fixed bottom-6 right-6 z-[9998] max-w-sm"
+         class="fixed bottom-6 right-6 rtl:right-auto rtl:left-6 z-[9998] max-w-sm"
          role="alert" aria-live="assertive" aria-atomic="true"
          x-cloak>
         <div class="rounded-lg px-4 py-3 shadow-lg border flex items-center gap-3 text-sm"
@@ -140,10 +151,28 @@
     <script src="/static/vendor/alpine-intersect.min.js" defer></script>
     <script src="/static/vendor/alpine.min.js" defer></script>
     <script src="/static/vendor/htmx.min.js" defer></script>
+    <script src="/static/vendor/dompurify.min.js"></script>
+
+    <!-- i18n strings for JS (auth toasts + Alpine x-text patterns) -->
+    <script>window.__i18n={auth_welcome:"{{ t('auth.toast_welcome', lang) }}",auth_welcome_back:"{{ t('auth.toast_welcome_back', lang) }}",auth_signed_out:"{{ t('auth.toast_signed_out', lang) }}",auth_network:"{{ t('auth.toast_network_error', lang) }}",auth_register_fail:"{{ t('auth.toast_register_failed', lang) }}",auth_login_fail:"{{ t('auth.toast_login_failed', lang) }}",scan_glyphs_found:"{{ t('scan.glyphs_found', lang) }}",scan_identified:"{{ t('scan.identified', lang) }}",scan_confidence:"{{ t('scan.confidence', lang) }}",scan_gardiner:"{{ t('scan.gardiner', lang) }}",scan_glyph_singular:"{{ t('scan.glyph_singular', lang) }}",stories_chapter:"{{ t('stories.chapter', lang) }}",stories_glyphs_learned:"{{ t('stories.glyphs_learned', lang) }}",stories_minutes:"{{ t('stories.minutes', lang) }}",stories_chapters:"{{ t('stories.chapters', lang) }}",stories_beginner:"{{ t('stories.beginner', lang) }}",stories_intermediate:"{{ t('stories.intermediate', lang) }}",stories_advanced:"{{ t('stories.advanced', lang) }}",stories_glyphs_to_learn:"{{ t('stories.glyphs_to_learn', lang) }}",stories_score_pts:"{{ t('stories.score_pts', lang) }}",write_history_suffix:"{{ t('write.history_suffix', lang) }}",chat_hide_history:"{{ t('chat.hide_history', lang) }}",chat_past_convos_pre:"{{ t('chat.past_convos_pre', lang) }}",chat_past_convos_suf:"{{ t('chat.past_convos_suf', lang) }}",chat_messages_dot:"{{ t('chat.messages_dot', lang) }}",dict_step_label:"{{ t('dictionary.step_label', lang) }}",dict_of_5:"{{ t('dictionary.of_5', lang) }}",common_of:"{{ t('common.of', lang) }}",quiz_question_label:"{{ t('quiz.question_label', lang) }}",quiz_next_question:"{{ t('quiz.next_question', lang) }}",quiz_see_results:"{{ t('quiz.see_results', lang) }}"};</script>
 
     <!-- App JS -->
     <script src="/static/js/tts.js?v=32"></script>
-    <script src="/static/js/app.js?v=32"></script>
+    <script src="/static/js/app.js?v=33"></script>
+
+    <!-- Fade out branded loader once Alpine is ready -->
+    <script>
+    document.addEventListener('alpine:initialized', function() {
+        var el = document.getElementById('app-loader');
+        if (el) { el.style.opacity = '0'; setTimeout(function() { el.remove(); }, 400); }
+    });
+    window.addEventListener('load', function() {
+        setTimeout(function() {
+            var el = document.getElementById('app-loader');
+            if (el) { el.style.opacity = '0'; setTimeout(function() { el.remove(); }, 400); }
+        }, 200);
+    });
+    </script>
 
     {% block scripts %}{% endblock %}
 </body>

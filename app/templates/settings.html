@@ -22,7 +22,7 @@
                 <!-- Header -->
                 <div class="flex items-center gap-4 mb-8">
                     <a href="/dashboard" class="text-text-dim hover:text-gold transition-colors">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                        <svg class="w-5 h-5 rtl:scale-x-[-1]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
                     </a>
                     <div>
                         <h1 class="text-2xl font-display font-bold text-text">{{ t('settings.title', lang) }}</h1>
@@ -35,24 +35,25 @@
                     <h2 class="text-lg font-display font-semibold text-text mb-4">{{ t('settings.profile', lang) }}</h2>
                     <form @submit.prevent="updateProfile()" class="space-y-4">
                         <div>
-                            <label class="block text-sm text-text-muted mb-1">{{ t('settings.display_name', lang) }}</label>
-                            <input x-model="profileForm.display_name" type="text" maxlength="100" class="input w-full"
+                            <label for="settings-display-name" class="block text-sm text-text-muted mb-1">{{ t('settings.display_name', lang) }}</label>
+                            <input id="settings-display-name" x-model="profileForm.display_name" type="text" maxlength="100" class="input w-full"
                                    placeholder="{{ t('settings.name_placeholder', lang) }}">
                         </div>
                         <div>
-                            <label class="block text-sm text-text-muted mb-1">{{ t('settings.email_label', lang) }}</label>
-                            <input :value="$store.auth.user.email" type="email" disabled
+                            <label for="settings-email" class="block text-sm text-text-muted mb-1">{{ t('settings.email_label', lang) }}</label>
+                            <input id="settings-email" :value="$store.auth.user.email" type="email" disabled
                                    class="input w-full opacity-50 cursor-not-allowed">
                             <p class="text-xs text-text-dim mt-1">{{ t('settings.email_readonly', lang) }}</p>
                         </div>
                         <div>
-                            <label class="block text-sm text-text-muted mb-1">{{ t('settings.language', lang) }}</label>
-                            <select x-model="profileForm.preferred_lang" class="input w-full">
-                                <option value="en">English</option>
-                                <option value="ar">العربية</option>
+                            <label for="settings-language" class="block text-sm text-text-muted mb-1">{{ t('settings.language', lang) }}</label>
+                            <select id="settings-language" x-model="profileForm.preferred_lang" class="input w-full">
+                                <option value="en">{{ t('settings.lang_english', lang) }}</option>
+                                <option value="ar">{{ t('settings.lang_arabic', lang) }}</option>
                             </select>
                         </div>
                         <div class="pt-2">
+                            <div x-show="profileError" x-cloak class="p-2.5 rounded-lg bg-error/10 border border-error/20 text-error text-sm mb-3" x-text="profileError"></div>
                             <button type="submit" class="btn-gold" :disabled="profileSaving">
                                 <span x-show="!profileSaving">{{ t('settings.save_profile', lang) }}</span>
                                 <span x-show="profileSaving" x-cloak>{{ t('common.loading', lang) }}</span>
@@ -66,13 +67,13 @@
                     <h2 class="text-lg font-display font-semibold text-text mb-4">{{ t('settings.change_password', lang) }}</h2>
                     <form @submit.prevent="changePassword()" class="space-y-4">
                         <div>
-                            <label class="block text-sm text-text-muted mb-1">{{ t('settings.current_password', lang) }}</label>
-                            <input x-model="pwForm.current_password" type="password" required minlength="8"
+                            <label for="settings-current-password" class="block text-sm text-text-muted mb-1">{{ t('settings.current_password', lang) }}</label>
+                            <input id="settings-current-password" x-model="pwForm.current_password" type="password" required minlength="8"
                                    autocomplete="current-password" class="input w-full">
                         </div>
                         <div>
-                            <label class="block text-sm text-text-muted mb-1">{{ t('settings.new_password', lang) }}</label>
-                            <input x-model="pwForm.new_password" type="password" required minlength="8"
+                            <label for="settings-new-password" class="block text-sm text-text-muted mb-1">{{ t('settings.new_password', lang) }}</label>
+                            <input id="settings-new-password" x-model="pwForm.new_password" type="password" required minlength="8"
                                    autocomplete="new-password" class="input w-full"
                                    placeholder="{{ t('settings.password_hint', lang) }}">
                         </div>
@@ -115,6 +116,7 @@ function settingsApp() {
         profileForm: { display_name: '', preferred_lang: 'en' },
         pwForm: { current_password: '', new_password: '' },
         profileSaving: false,
+        profileError: '',
         pwSaving: false,
         pwError: '',
 
@@ -127,6 +129,7 @@ function settingsApp() {
 
         async updateProfile() {
             this.profileSaving = true;
+            this.profileError = '';
             const token = Alpine.store('auth').token;
             try {
                 const res = await fetch('/api/user/profile', {
@@ -139,17 +142,18 @@ function settingsApp() {
                     Alpine.store('auth').user = data;
                     Alpine.store('auth')._save();
                     Alpine.store('toast').show('{{ t("settings.profile_saved", lang) }}', 'success');
-                    // If language changed, reload to apply
                     if (data.preferred_lang !== '{{ lang }}') {
-                        document.cookie = 'wadjet_lang=' + data.preferred_lang + ';path=/;max-age=31536000;SameSite=Lax';
+                        var cookieStr = 'wadjet_lang=' + data.preferred_lang + ';path=/;max-age=31536000;SameSite=Lax';
+                        if (location.protocol === 'https:') cookieStr += ';Secure';
+                        document.cookie = cookieStr;
                         window.location.reload();
                     }
                 } else {
                     const err = await res.json();
-                    Alpine.store('toast').show(err.detail || '{{ t("common.error", lang) }}', 'error');
+                    this.profileError = err.detail || '{{ t("common.error", lang) }}';
                 }
             } catch (e) {
-                Alpine.store('toast').show('{{ t("common.error", lang) }}', 'error');
+                this.profileError = '{{ t("common.error", lang) }}';
             }
             this.profileSaving = false;
         },

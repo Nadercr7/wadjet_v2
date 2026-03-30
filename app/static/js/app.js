@@ -137,19 +137,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // GSAP: auto-animate all [data-animate] elements on scroll
     if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-        gsap.utils.toArray('[data-animate]').forEach(function (el) {
-            gsap.from(el, {
-                y: 40,
-                opacity: 0,
-                duration: 0.8,
-                ease: 'power2.out',
-                scrollTrigger: {
-                    trigger: el,
-                    start: 'top 85%',
-                    toggleActions: 'play none none none',
-                },
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            document.querySelectorAll('[data-animate]').forEach(el => el.style.opacity = '1');
+        } else {
+            gsap.utils.toArray('[data-animate]').forEach(function (el) {
+                gsap.from(el, {
+                    y: 40,
+                    opacity: 0,
+                    duration: 0.8,
+                    ease: 'power2.out',
+                    scrollTrigger: {
+                        trigger: el,
+                        start: 'top 85%',
+                        toggleActions: 'play none none none',
+                    },
+                });
             });
-        });
+        }
     }
 });
 
@@ -286,6 +290,15 @@ document.addEventListener('alpine:init', () => {
             }
         },
 
+        _getNextUrl() {
+            const params = new URLSearchParams(window.location.search);
+            const next = params.get('next') || '';
+            if (next && next.startsWith('/') && !next.startsWith('//') && !next.startsWith('/\\')) {
+                return next;
+            }
+            return '/';
+        },
+
         async register(email, password, displayName) {
             this.loading = true;
             this.error = '';
@@ -296,20 +309,24 @@ document.addEventListener('alpine:init', () => {
                     body: JSON.stringify({ email, password, display_name: displayName || null }),
                 });
                 const data = await r.json();
-                if (!r.ok) { this.error = data.detail || 'Registration failed'; return false; }
+                if (!r.ok) {
+                    if (Array.isArray(data.detail)) {
+                        this.error = data.detail.map(e => (e.msg || '').replace(/^Value error, /i, '')).join('. ');
+                    } else {
+                        this.error = data.detail || (window.__i18n && window.__i18n.auth_register_fail) || 'Registration failed';
+                    }
+                    return false;
+                }
                 this.user = data.user;
                 this.token = data.access_token;
                 this._save();
+                document.cookie = 'wadjet_session=1;path=/;SameSite=Lax;max-age=' + (60*60*24*30) + (location.protocol === 'https:' ? ';Secure' : '');
                 this.showSignup = false;
-                Alpine.store('toast').show('Welcome to Wadjet!', 'success');
-                // Redirect to dashboard if on landing, otherwise reload to refresh auth-gated content
-                if (window.location.pathname === '/') {
-                    window.location.href = '/dashboard';
-                } else {
-                    window.location.reload();
-                }
+                Alpine.store('toast').show((window.__i18n && window.__i18n.auth_welcome) || 'Welcome to Wadjet!', 'success');
+                const next = this._getNextUrl();
+                window.location.href = next;
                 return true;
-            } catch { this.error = 'Network error'; return false; }
+            } catch { this.error = (window.__i18n && window.__i18n.auth_network) || 'Network error'; return false; }
             finally { this.loading = false; }
         },
 
@@ -323,20 +340,24 @@ document.addEventListener('alpine:init', () => {
                     body: JSON.stringify({ email, password }),
                 });
                 const data = await r.json();
-                if (!r.ok) { this.error = data.detail || 'Login failed'; return false; }
+                if (!r.ok) {
+                    if (Array.isArray(data.detail)) {
+                        this.error = data.detail.map(e => (e.msg || '').replace(/^Value error, /i, '')).join('. ');
+                    } else {
+                        this.error = data.detail || (window.__i18n && window.__i18n.auth_login_fail) || 'Login failed';
+                    }
+                    return false;
+                }
                 this.user = data.user;
                 this.token = data.access_token;
                 this._save();
+                document.cookie = 'wadjet_session=1;path=/;SameSite=Lax;max-age=' + (60*60*24*30) + (location.protocol === 'https:' ? ';Secure' : '');
                 this.showLogin = false;
-                Alpine.store('toast').show('Welcome back!', 'success');
-                // Redirect to dashboard if on landing, otherwise reload to refresh auth-gated content
-                if (window.location.pathname === '/') {
-                    window.location.href = '/dashboard';
-                } else {
-                    window.location.reload();
-                }
+                Alpine.store('toast').show((window.__i18n && window.__i18n.auth_welcome_back) || 'Welcome back!', 'success');
+                const next = this._getNextUrl();
+                window.location.href = next;
                 return true;
-            } catch { this.error = 'Network error'; return false; }
+            } catch { this.error = (window.__i18n && window.__i18n.auth_network) || 'Network error'; return false; }
             finally { this.loading = false; }
         },
 
@@ -345,7 +366,8 @@ document.addEventListener('alpine:init', () => {
             this.user = null;
             this.token = null;
             this._save();
-            Alpine.store('toast').show('Signed out', 'info');
+            document.cookie = 'wadjet_session=;path=/;max-age=0';
+            Alpine.store('toast').show((window.__i18n && window.__i18n.auth_signed_out) || 'Signed out', 'info');
         },
 
         async refreshToken() {
@@ -367,7 +389,7 @@ const _ttsCacheKeys = []; // track insertion order for eviction
 const _TTS_CACHE_MAX = 50;
 let _ttsCurrentAudio = null;
 
-function speakSign(text) {
+function speakSign(text, btnEl) {
     if (!text) return;
     // Stop any playing audio
     if (_ttsCurrentAudio) {
@@ -376,10 +398,15 @@ function speakSign(text) {
     }
     if (typeof WadjetTTS !== 'undefined') WadjetTTS.stop();
 
+    // Show loading state on the clicked button
+    if (btnEl) { btnEl.classList.add('animate-pulse', 'opacity-50'); btnEl.disabled = true; }
+    const _done = () => { if (btnEl) { btnEl.classList.remove('animate-pulse', 'opacity-50'); btnEl.disabled = false; } };
+
     // Try in-memory JS cache first (instant replay)
     const cacheKey = text.trim().toLowerCase();
     if (_ttsAudioCache[cacheKey]) {
         _playAudio(_ttsAudioCache[cacheKey], text);
+        _done();
         return;
     }
 
@@ -404,11 +431,13 @@ function speakSign(text) {
         _ttsAudioCache[cacheKey] = audioUrl;
         _ttsCacheKeys.push(cacheKey);
         _playAudio(audioUrl, text);
+        _done();
     }).catch(() => {
         // Last resort: browser SpeechSynthesis (voice-selected, slow for clarity)
         if (typeof WadjetTTS !== 'undefined' && WadjetTTS.isSupported()) {
             WadjetTTS.speak(text, { lang: 'en', rate: 0.75 });
         }
+        _done();
     });
 }
 
@@ -422,3 +451,31 @@ function _playAudio(url, fallbackText) {
         }
     });
 }
+
+// ── Focus Trap Utility (WCAG 2.1 AA) ──
+window.createFocusTrap = function(container) {
+    const FOCUSABLE = 'a[href], button:not(:disabled), input, select, textarea, [tabindex]:not([tabindex="-1"])';
+    let _handler = null;
+
+    function _getFocusable() {
+        return Array.from(container.querySelectorAll(FOCUSABLE)).filter(el => el.offsetParent !== null);
+    }
+
+    function _onKeydown(e) {
+        if (e.key !== 'Tab') return;
+        const focusable = _getFocusable();
+        if (!focusable.length) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey) {
+            if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+        } else {
+            if (document.activeElement === last) { e.preventDefault(); first.focus(); }
+        }
+    }
+
+    return {
+        activate() { _handler = _onKeydown; container.addEventListener('keydown', _handler); },
+        deactivate() { if (_handler) { container.removeEventListener('keydown', _handler); _handler = null; } }
+    };
+};

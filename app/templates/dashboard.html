@@ -73,20 +73,27 @@
                     <div class="card p-6">
                         <div class="flex items-center justify-between mb-4">
                             <h2 class="text-lg font-display font-semibold text-text">{{ t('dashboard.recent_scans', lang) }}</h2>
-                            <a href="/scan" class="text-sm text-gold hover:text-gold-light">{{ t('dashboard.scan_more', lang) }} →</a>
+                            <a href="/scan" class="text-sm text-gold hover:text-gold-light">{{ t('dashboard.scan_more', lang) }} <span class="rtl:scale-x-[-1] inline-block">→</span></a>
                         </div>
                         <template x-if="loading">
-                            <div class="flex justify-center py-8">
-                                <div class="w-6 h-6 border-2 border-gold/30 border-t-gold rounded-full animate-spin"></div>
+                            <div class="loader-wadjet">
+                                <span class="brand-mark text-2xl">𓂀</span>
+                                <span class="text-dust text-sm">{{ t('common.loading', lang) }}</span>
                             </div>
                         </template>
-                        <template x-if="!loading && history.length === 0">
+                        <template x-if="!loading && errorScans">
+                            <div class="text-center py-8">
+                                <p class="text-red-400 mb-3" x-text="errorScans"></p>
+                                <button @click="retryScans()" class="btn-ghost text-sm">{{ t('common.error_retry', lang) }}</button>
+                            </div>
+                        </template>
+                        <template x-if="!loading && !errorScans && history.length === 0">
                             <div class="text-center py-8 text-text-dim">
                                 <svg class="w-10 h-10 mx-auto mb-2 opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><circle cx="12" cy="13" r="3"/></svg>
                                 <p class="text-sm">{{ t('dashboard.no_scans', lang) }}</p>
                             </div>
                         </template>
-                        <template x-if="!loading && history.length > 0">
+                        <template x-if="!loading && !errorScans && history.length > 0">
                             <div class="space-y-3">
                                 <template x-for="scan in history.slice(0, 6)" :key="scan.id">
                                     <div class="rounded-lg bg-night/50 border border-border/50 overflow-hidden transition-colors hover:border-gold/30 cursor-pointer"
@@ -135,20 +142,27 @@
                     <div class="card p-6">
                         <div class="flex items-center justify-between mb-4">
                             <h2 class="text-lg font-display font-semibold text-text">{{ t('dashboard.story_progress', lang) }}</h2>
-                            <a href="/stories" class="text-sm text-gold hover:text-gold-light">{{ t('dashboard.browse_stories', lang) }} →</a>
+                            <a href="/stories" class="text-sm text-gold hover:text-gold-light">{{ t('dashboard.browse_stories', lang) }} <span class="rtl:scale-x-[-1] inline-block">→</span></a>
                         </div>
                         <template x-if="loading">
-                            <div class="flex justify-center py-8">
-                                <div class="w-6 h-6 border-2 border-gold/30 border-t-gold rounded-full animate-spin"></div>
+                            <div class="loader-wadjet">
+                                <span class="brand-mark text-2xl">𓂀</span>
+                                <span class="text-dust text-sm">{{ t('common.loading', lang) }}</span>
                             </div>
                         </template>
-                        <template x-if="!loading && storyProgress.length === 0">
+                        <template x-if="!loading && errorStories">
+                            <div class="text-center py-8">
+                                <p class="text-red-400 mb-3" x-text="errorStories"></p>
+                                <button @click="retryStories()" class="btn-ghost text-sm">{{ t('common.error_retry', lang) }}</button>
+                            </div>
+                        </template>
+                        <template x-if="!loading && !errorStories && storyProgress.length === 0">
                             <div class="text-center py-8 text-text-dim">
                                 <svg class="w-10 h-10 mx-auto mb-2 opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
                                 <p class="text-sm">{{ t('dashboard.no_stories', lang) }}</p>
                             </div>
                         </template>
-                        <template x-if="!loading && storyProgress.length > 0">
+                        <template x-if="!loading && !errorStories && storyProgress.length > 0">
                             <div class="space-y-3">
                                 <template x-for="sp in storyProgress" :key="sp.id">
                                     <a :href="'/stories/' + sp.story_id" class="block p-3 rounded-lg bg-night/50 border border-border/50 hover:border-gold/30 transition-colors">
@@ -174,20 +188,27 @@
                     <div class="card p-6 lg:col-span-2">
                         <div class="flex items-center justify-between mb-4">
                             <h2 class="text-lg font-display font-semibold text-text">{{ t('dashboard.your_favorites', lang) }}</h2>
-                            <a href="/explore" class="text-sm text-gold hover:text-gold-light">{{ t('dashboard.explore_more', lang) }} →</a>
+                            <a href="/explore" class="text-sm text-gold hover:text-gold-light">{{ t('dashboard.explore_more', lang) }} <span class="rtl:scale-x-[-1] inline-block">→</span></a>
                         </div>
                         <template x-if="loading">
-                            <div class="flex justify-center py-8">
-                                <div class="w-6 h-6 border-2 border-gold/30 border-t-gold rounded-full animate-spin"></div>
+                            <div class="loader-wadjet">
+                                <span class="brand-mark text-2xl">𓂀</span>
+                                <span class="text-dust text-sm">{{ t('common.loading', lang) }}</span>
                             </div>
                         </template>
-                        <template x-if="!loading && favs.length === 0">
+                        <template x-if="!loading && errorFavs">
+                            <div class="text-center py-8">
+                                <p class="text-red-400 mb-3" x-text="errorFavs"></p>
+                                <button @click="retryFavs()" class="btn-ghost text-sm">{{ t('common.error_retry', lang) }}</button>
+                            </div>
+                        </template>
+                        <template x-if="!loading && !errorFavs && favs.length === 0">
                             <div class="text-center py-8 text-text-dim">
                                 <svg class="w-10 h-10 mx-auto mb-2 opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
                                 <p class="text-sm">{{ t('dashboard.no_favorites', lang) }}</p>
                             </div>
                         </template>
-                        <template x-if="!loading && favs.length > 0">
+                        <template x-if="!loading && !errorFavs && favs.length > 0">
                             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
                                 <template x-for="f in favs" :key="f.id">
                                     <div class="flex items-center justify-between p-3 rounded-lg bg-night/50 border border-border/50">
@@ -229,28 +250,66 @@ function dashboardApp() {
         limits: { tier: 'free', limits: { scans_per_day: 10 }, usage: { scans_today: 0 } },
         loading: true,
         expandedScan: null,
+        errorScans: '',
+        errorStories: '',
+        errorFavs: '',
 
         async init() {
             if (!Alpine.store('auth').user) return;
             const token = Alpine.store('auth').token;
             const headers = { 'Authorization': 'Bearer ' + token };
+            const results = await Promise.allSettled([
+                fetch('/api/user/stats', { headers }),
+                fetch('/api/user/history', { headers }),
+                fetch('/api/user/progress', { headers }),
+                fetch('/api/user/favorites', { headers }),
+                fetch('/api/user/limits', { headers }),
+            ]);
+            try { if (results[0].status === 'fulfilled' && results[0].value.ok) this.stats = await results[0].value.json(); } catch {}
             try {
-                const [statsRes, histRes, progRes, favsRes, limitsRes] = await Promise.all([
-                    fetch('/api/user/stats', { headers }),
-                    fetch('/api/user/history', { headers }),
-                    fetch('/api/user/progress', { headers }),
-                    fetch('/api/user/favorites', { headers }),
-                    fetch('/api/user/limits', { headers }),
-                ]);
-                if (statsRes.ok) this.stats = await statsRes.json();
-                if (histRes.ok) this.history = await histRes.json();
-                if (progRes.ok) this.storyProgress = await progRes.json();
-                if (favsRes.ok) this.favs = await favsRes.json();
-                if (limitsRes.ok) this.limits = await limitsRes.json();
-            } catch (e) {
-                console.error('Dashboard load failed:', e);
-            }
+                if (results[1].status === 'fulfilled' && results[1].value.ok) this.history = await results[1].value.json();
+                else this.errorScans = '{{ t("common.error", lang) }}';
+            } catch { this.errorScans = '{{ t("common.error", lang) }}'; }
+            try {
+                if (results[2].status === 'fulfilled' && results[2].value.ok) this.storyProgress = await results[2].value.json();
+                else this.errorStories = '{{ t("common.error", lang) }}';
+            } catch { this.errorStories = '{{ t("common.error", lang) }}'; }
+            try {
+                if (results[3].status === 'fulfilled' && results[3].value.ok) this.favs = await results[3].value.json();
+                else this.errorFavs = '{{ t("common.error", lang) }}';
+            } catch { this.errorFavs = '{{ t("common.error", lang) }}'; }
+            try { if (results[4].status === 'fulfilled' && results[4].value.ok) this.limits = await results[4].value.json(); } catch {}
             this.loading = false;
+        },
+
+        async retryScans() {
+            this.errorScans = '';
+            const token = Alpine.store('auth').token;
+            try {
+                const res = await fetch('/api/user/history', { headers: { 'Authorization': 'Bearer ' + token } });
+                if (res.ok) this.history = await res.json();
+                else this.errorScans = '{{ t("common.error", lang) }}';
+            } catch { this.errorScans = '{{ t("common.error", lang) }}'; }
+        },
+
+        async retryStories() {
+            this.errorStories = '';
+            const token = Alpine.store('auth').token;
+            try {
+                const res = await fetch('/api/user/progress', { headers: { 'Authorization': 'Bearer ' + token } });
+                if (res.ok) this.storyProgress = await res.json();
+                else this.errorStories = '{{ t("common.error", lang) }}';
+            } catch { this.errorStories = '{{ t("common.error", lang) }}'; }
+        },
+
+        async retryFavs() {
+            this.errorFavs = '';
+            const token = Alpine.store('auth').token;
+            try {
+                const res = await fetch('/api/user/favorites', { headers: { 'Authorization': 'Bearer ' + token } });
+                if (res.ok) this.favs = await res.json();
+                else this.errorFavs = '{{ t("common.error", lang) }}';
+            } catch { this.errorFavs = '{{ t("common.error", lang) }}'; }
         },
 
         parseGlyphs(jsonStr) {
