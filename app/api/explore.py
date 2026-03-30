@@ -20,7 +20,7 @@ from pathlib import Path
 import cv2
 import numpy as np
 from fastapi import APIRouter, File, HTTPException, Query, Request, UploadFile
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, RedirectResponse
 
 from app.rate_limit import limiter
 from app.i18n import get_lang
@@ -172,14 +172,53 @@ _SLUG_ALIASES: dict[str, str] = {
     "catacombs_kom_el_shoqafa": "catacombs_of_kom_el_shoqafa",
     "egyptian_museum_cairo": "egyptian_museum",
     "great_pyramid_of_giza": "great_pyramids_of_giza",
+    "great_pyramid": "great_pyramids_of_giza",
+    "pyramid_of_khufu": "giza_great_pyramid",
+    "pyramid_of_cheops": "giza_great_pyramid",
+    "sphinx": "great_sphinx_of_giza",
+    "great_sphinx": "great_sphinx_of_giza",
+    "the_great_sphinx": "great_sphinx_of_giza",
+    "sphinx_of_giza": "great_sphinx_of_giza",
     "step_pyramid_of_djoser": "pyramid_of_djoser",
+    "step_pyramid": "pyramid_of_djoser",
+    "djoser_pyramid": "pyramid_of_djoser",
     "saladin_citadel": "cairo_citadel",
+    "citadel_of_saladin": "cairo_citadel",
     "qaitbay_citadel": "citadel_of_qaitbay",
+    "fort_qaitbay": "citadel_of_qaitbay",
     "temple_of_isis_philae": "philae_temple",
+    "temple_of_isis_at_philae": "philae_temple",
+    "temple_of_isis": "philae_temple",
+    "temple_of_philae": "philae_temple",
     "temple_of_seti_i_abydos": "abydos_temple",
+    "temple_of_seti_i": "abydos_temple",
     "temple_of_mandulis": "kalabsha_temple",
     "temple_of_derr": "temple_of_amada",
     "wadi_rayan": "wadi_el_rayan",
+    "temple_of_luxor": "luxor_temple",
+    "temple_of_karnak": "karnak_temple",
+    "temple_of_hatshepsut": "deir_el_bahari",
+    "hatshepsut_temple": "deir_el_bahari",
+    "temple_of_horus": "edfu_temple",
+    "temple_of_horus_edfu": "edfu_temple",
+    "temple_of_kom_ombo": "kom_ombo_temple",
+    "temple_of_abu_simbel": "abu_simbel",
+    "abu_simbel_temples": "abu_simbel",
+    "abu_simbel_temple": "abu_simbel",
+    "valley_kings": "valley_of_the_kings",
+    "valley_queens": "valley_of_the_queens",
+    "khan_khalili": "khan_el_khalili",
+    "khan_el_khalili_bazaar": "khan_el_khalili",
+    "khan_khali": "khan_el_khalili",
+    "library_of_alexandria": "bibliotheca_alexandrina",
+    "alexandria_library": "bibliotheca_alexandrina",
+    "mosque_of_muhammad_ali": "muhammad_ali_mosque",
+    "alabaster_mosque": "muhammad_ali_mosque",
+    "colossi_of_memnon": "colossi_of_memnon",
+    "bent_pyramid_dashur": "bent_pyramid",
+    "red_pyramid_dashur": "red_pyramid",
+    "saqqara_pyramids": "saqqara_step_pyramid",
+    "saqqara_pyramid": "saqqara_step_pyramid",
     # Curated slug mismatches
     "the_unfinished_obelisk": "unfinished_obelisk",
     "montazah_palace_gardens": "montaza_palace",
@@ -211,6 +250,45 @@ def _resolve_slug(raw: str) -> str:
     """Resolve slug aliases to canonical slug."""
     normalized = raw.lower().strip().replace("-", "_")
     return _SLUG_ALIASES.get(normalized, normalized)
+
+
+# Stop words to ignore during fuzzy matching
+_SLUG_STOP_WORDS = {"of", "the", "el", "al", "in", "at", "and"}
+
+
+def _fuzzy_find_slug(slug: str) -> str | None:
+    """Fuzzy-match a slug against expanded_sites + wiki + model classes.
+
+    Tokenizes the slug, removes stop words, and finds the best matching
+    known slug by token overlap (Jaccard-like).
+    """
+    tokens = set(slug.split("_")) - _SLUG_STOP_WORDS
+    if not tokens:
+        return None
+
+    all_slugs: set[str] = set()
+    all_slugs.update(_load_expanded_sites().keys())
+    all_slugs.update(_load_wiki_data().keys())
+    all_slugs.update(_load_model_classes())
+
+    best_slug = None
+    best_score = 0.0
+
+    for candidate in all_slugs:
+        candidate_tokens = set(candidate.split("_")) - _SLUG_STOP_WORDS
+        if not candidate_tokens:
+            continue
+        overlap = len(tokens & candidate_tokens)
+        union = len(tokens | candidate_tokens)
+        score = overlap / union if union else 0
+        if score > best_score:
+            best_score = score
+            best_slug = candidate
+
+    # Require at least 50% overlap to avoid bad matches
+    if best_score >= 0.5 and best_slug:
+        return best_slug
+    return None
 
 
 @lru_cache(maxsize=1)
@@ -638,6 +716,10 @@ async def get_landmark(slug: str, request: Request):
                 "original_image": "",
             }
         else:
+            # Fuzzy fallback: tokenize slug and find best match in expanded_sites
+            fuzzy_match = _fuzzy_find_slug(underscore_slug)
+            if fuzzy_match:
+                return RedirectResponse(url=f"/api/landmarks/{fuzzy_match}", status_code=307)
             raise HTTPException(status_code=404, detail=f"Landmark '{slug}' not found")
 
     # Enrich with expanded_sites.json fields
@@ -1112,9 +1194,18 @@ async def identify_landmark(request: Request, file: UploadFile = File(...)):
     # ── Step 4: Check if result is a known landmark ──
     model_classes = set(_load_model_classes())
     wiki_data = _load_wiki_data()
-    known_slugs = model_classes | set(wiki_data.keys())
+    expanded = _load_expanded_sites()
+    known_slugs = model_classes | set(wiki_data.keys()) | set(expanded.keys())
     normalized_slug = _normalize_slug(merged.slug)
-    is_known = normalized_slug in known_slugs
+    resolved_slug = _resolve_slug(normalized_slug)
+
+    # Try fuzzy match if still not found
+    is_known = resolved_slug in known_slugs
+    if not is_known:
+        fuzzy = _fuzzy_find_slug(resolved_slug)
+        if fuzzy:
+            resolved_slug = fuzzy
+            is_known = True
 
     # ── Step 5: Get description if missing ──
     description = merged.description
@@ -1127,7 +1218,7 @@ async def identify_landmark(request: Request, file: UploadFile = File(...)):
     result = {
         "name": merged.name or _load_display_names().get(merged.slug, merged.slug.replace("_", " ").title()),
         "confidence": merged.confidence,
-        "slug": merged.slug,
+        "slug": resolved_slug,
         "source": merged.source,
         "agreement": merged.agreement,
         "description": description,
