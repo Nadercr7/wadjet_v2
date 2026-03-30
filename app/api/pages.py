@@ -171,6 +171,16 @@ async def user_settings(request: Request):
     return templates.TemplateResponse(request, "settings.html", {"lang": lang, "page_name": "settings"})
 
 
+@router.get("/feedback", response_class=HTMLResponse)
+async def feedback_admin(request: Request):
+    gate = _require_session(request)
+    if gate:
+        return gate
+    templates = request.app.state.templates
+    lang = get_lang(request)
+    return templates.TemplateResponse(request, "feedback_admin.html", {"lang": lang, "page_name": "feedback"})
+
+
 @router.get("/robots.txt", response_class=PlainTextResponse)
 async def robots_txt():
     base = settings.base_url.rstrip("/")

@@ -690,5 +690,12 @@
         "sending": "بيتبعت...",
         "thanks": "شكراً ليك!",
         "thanks_sub": "ملاحظتك بتساعدنا نحسّن واجت."
+    },
+    "feedback_admin": {
+        "title": "ردود الملاحظات",
+        "responses": "رد",
+        "export": "تصدير CSV",
+        "filter_all": "الكل",
+        "empty": "مفيش ردود لسه."
     }
 }

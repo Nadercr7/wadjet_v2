@@ -38,6 +38,7 @@ PROTECTED_ROUTES = [
     "/stories",
     "/dashboard",
     "/settings",
+    "/feedback",
 ]
 
 
