@@ -115,14 +115,14 @@ async def lifespan(app: FastAPI):
     logger.info("TLAService ready")
 
     # Initialize database
-    # In production, use Alembic: alembic upgrade head
-    # create_all() is for dev/test only (doesn't handle schema migrations)
-    if settings.environment == "development":
+    # SQLite: always create_all() (ephemeral on HF Spaces, no migration state)
+    # PostgreSQL: skip create_all(), rely on Alembic migrations
+    if "sqlite" in settings.database_url:
         from app.db.database import init_db
         await init_db()
-        logger.info("Database initialized (dev mode — create_all)")
+        logger.info("SQLite database initialized (create_all)")
     else:
-        logger.info("Database ready (production — use 'alembic upgrade head' for migrations)")
+        logger.info("PostgreSQL database ready (use 'alembic upgrade head' for migrations)")
 
     # Pre-warm ONNX models + inject app-level translator into pipeline
     try:

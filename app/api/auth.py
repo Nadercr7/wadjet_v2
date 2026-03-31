@@ -277,31 +277,37 @@ async def google_auth(body: GoogleAuthRequest, request: Request, db: AsyncSessio
     if not email:
         raise HTTPException(status_code=400, detail="Google account has no email")
 
-    # 1. Check if we already have a user with this google_id
-    user = await get_user_by_google_id(db, google_id)
-    if user:
-        return await _issue_full_session(user, request, db)
+    try:
+        # 1. Check if we already have a user with this google_id
+        user = await get_user_by_google_id(db, google_id)
+        if user:
+            return await _issue_full_session(user, request, db)
 
-    # 2. Check if email already exists (link accounts)
-    user = await get_user_by_email(db, email)
-    if user:
-        user = await link_google_account(db, user, google_id, google_info.get("picture"))
-        return await _issue_full_session(user, request, db)
+        # 2. Check if email already exists (link accounts)
+        user = await get_user_by_email(db, email)
+        if user:
+            user = await link_google_account(db, user, google_id, google_info.get("picture"))
+            return await _issue_full_session(user, request, db)
 
-    # 3. New user — create with Google provider
-    user = await create_user(
-        db,
-        email=email,
-        password_hash=None,
-        display_name=google_info.get("name"),
-        google_id=google_id,
-        auth_provider="google",
-        email_verified=True,  # Google emails are pre-verified
-        avatar_url=google_info.get("picture"),
-    )
-    response = await _issue_full_session(user, request, db)
-    response.status_code = 201
-    return response
+        # 3. New user — create with Google provider
+        user = await create_user(
+            db,
+            email=email,
+            password_hash=None,
+            display_name=google_info.get("name"),
+            google_id=google_id,
+            auth_provider="google",
+            email_verified=True,  # Google emails are pre-verified
+            avatar_url=google_info.get("picture"),
+        )
+        response = await _issue_full_session(user, request, db)
+        response.status_code = 201
+        return response
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error("Google auth DB error for %s: %s", email, e, exc_info=True)
+        raise HTTPException(status_code=500, detail="Authentication failed — please try again") from None
 
 
 # ── Email Verification ──
