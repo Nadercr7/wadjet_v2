@@ -271,7 +271,7 @@ async def delete_email_token(db: AsyncSession, token_id: int) -> None:
 
 async def get_user_stats(db: AsyncSession, user_id: str) -> dict:
     # Combined query 1: scan stats (count, total glyphs, today's scans) — 1 round trip
-    today_start = datetime.utcnow().replace(hour=0, minute=0, second=0, microsecond=0)
+    today_start = datetime.now(timezone.utc).replace(hour=0, minute=0, second=0, microsecond=0)
     scan_row = await db.execute(
         select(
             func.count().label("scan_count"),

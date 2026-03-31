@@ -16,8 +16,13 @@ from app.db import models  # noqa: F401
 config = context.config
 
 # Override sqlalchemy.url from environment variable if set
+# Convert async driver URLs to sync equivalents for Alembic
 db_url = os.environ.get("DATABASE_URL")
 if db_url:
+    # asyncpg → psycopg2 (Alembic needs a sync driver)
+    db_url = db_url.replace("postgresql+asyncpg", "postgresql+psycopg2")
+    # aiosqlite → plain sqlite
+    db_url = db_url.replace("sqlite+aiosqlite", "sqlite")
     config.set_main_option("sqlalchemy.url", db_url)
 
 # Interpret the config file for Python logging.

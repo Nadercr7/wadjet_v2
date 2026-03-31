@@ -7,7 +7,25 @@ from sqlalchemy.orm import DeclarativeBase
 
 from app.config import settings
 
-engine = create_async_engine(settings.database_url, echo=False)
+
+def _build_engine():
+    """Create async engine with appropriate settings for SQLite or PostgreSQL."""
+    url = settings.database_url
+    if url.startswith("postgresql"):
+        # PostgreSQL: use connection pooling for production
+        return create_async_engine(
+            url,
+            echo=False,
+            pool_size=5,
+            max_overflow=10,
+            pool_timeout=30,
+            pool_recycle=1800,
+        )
+    # SQLite: default settings (no pooling needed)
+    return create_async_engine(url, echo=False)
+
+
+engine = _build_engine()
 async_session = async_sessionmaker(engine, class_=AsyncSession, expire_on_commit=False)
 
 

@@ -9,3 +9,28 @@ services:
     env_file:
       - .env
     restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  # PostgreSQL for production-like local testing
+  # To use: set DATABASE_URL=postgresql+asyncpg://wadjet:wadjet@postgres:5432/wadjet in .env
+  # Default (.env with sqlite URL) still works — PostgreSQL is optional for local dev.
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: wadjet
+      POSTGRES_PASSWORD: wadjet
+      POSTGRES_DB: wadjet
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U wadjet"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+volumes:
+  pgdata:

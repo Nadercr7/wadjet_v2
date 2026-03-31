@@ -100,9 +100,35 @@ async def lifespan(app: FastAPI):
     logger.info("TLAService ready")
 
     # Initialize database
-    from app.db.database import init_db
-    await init_db()
-    logger.info("Database initialized")
+    # In production, use Alembic: alembic upgrade head
+    # create_all() is for dev/test only (doesn't handle schema migrations)
+    if settings.environment == "development":
+        from app.db.database import init_db
+        await init_db()
+        logger.info("Database initialized (dev mode — create_all)")
+    else:
+        logger.info("Database ready (production — use 'alembic upgrade head' for migrations)")
+
+    # Clean up expired tokens on startup
+    try:
+        from app.db.database import async_session
+        from app.db.models import RefreshToken, EmailToken
+        from datetime import datetime, timezone
+        from sqlalchemy import delete as sa_delete
+        async with async_session() as db:
+            now = datetime.now(timezone.utc)
+            result_rt = await db.execute(
+                sa_delete(RefreshToken).where(RefreshToken.expires_at < now)
+            )
+            result_et = await db.execute(
+                sa_delete(EmailToken).where(EmailToken.expires_at < now)
+            )
+            await db.commit()
+            total = result_rt.rowcount + result_et.rowcount
+            if total > 0:
+                logger.info("Cleaned up %d expired tokens on startup", total)
+    except Exception as e:
+        logger.warning("Token cleanup skipped: %s", e)
 
     yield  # app runs here
 
