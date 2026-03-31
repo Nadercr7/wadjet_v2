@@ -5,7 +5,8 @@ COPY package.json package-lock.json ./
 RUN npm ci
 COPY app/static/css/input.css app/static/css/
 COPY app/templates/ app/templates/
-RUN npx @tailwindcss/cli -i app/static/css/input.css -o app/static/dist/styles.css --minify
+RUN npx @tailwindcss/cli -i app/static/css/input.css -o app/static/dist/styles.css --minify \
+    && test -s app/static/dist/styles.css || (echo "CSS build produced empty file" && exit 1)
 
 # --- Runtime stage ---
 FROM python:3.13-slim
@@ -23,16 +24,11 @@ RUN groupadd -r wadjet && useradd -r -g wadjet -d /app -s /sbin/nologin wadjet
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# App code
+# App code + static assets (JS, fonts, images, vendor, sw.js)
 COPY app/ app/
 
-# CSS build output from first stage
+# CSS build output from first stage (overwrites source input.css with compiled dist)
 COPY --from=css-builder /build/app/static/dist/styles.css app/static/dist/styles.css
-
-# Static assets (JS, fonts, images)
-COPY app/static/js/ app/static/js/
-COPY app/static/fonts/ app/static/fonts/
-COPY app/static/images/ app/static/images/
 
 # ML models (uint8 ONNX + metadata only; .dockerignore excludes full-precision)
 COPY models/ models/

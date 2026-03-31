@@ -1,7 +1,10 @@
+import logging
 from pathlib import Path
 
 from pydantic import model_validator
 from pydantic_settings import BaseSettings
+
+_log = logging.getLogger(__name__)
 
 
 class Settings(BaseSettings):
@@ -83,6 +86,14 @@ class Settings(BaseSettings):
                     "CSRF_SECRET is required when ENVIRONMENT != 'development'. "
                     "Generate one with: python -c \"import secrets; print(secrets.token_hex(32))\""
                 )
+        # Warn about missing AI keys (non-fatal — features degrade gracefully)
+        if self.environment != "development":
+            if not self.gemini_api_keys.strip():
+                _log.warning("GEMINI_API_KEYS not set — scan, translate, chat, TTS will be disabled")
+            if not self.google_client_id:
+                _log.warning("GOOGLE_CLIENT_ID not set — Google Sign-In will be disabled")
+            if not self.resend_api_key:
+                _log.warning("RESEND_API_KEY not set — email verification will be disabled")
         return self
 
     @property
