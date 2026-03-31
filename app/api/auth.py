@@ -5,6 +5,8 @@ from __future__ import annotations
 import hashlib
 import logging
 import secrets
+import time
+from collections import defaultdict
 from datetime import datetime, timedelta, timezone
 
 from fastapi import APIRouter, Depends, HTTPException, Request, Response
@@ -50,6 +52,30 @@ REFRESH_MAX_AGE = 7 * 24 * 60 * 60  # 7 days in seconds
 
 # Dummy bcrypt hash used when user doesn't exist — constant-time defence against timing oracle
 _DUMMY_HASH = "$2b$12$OWl8stzx0kGvRTE254mf.ulqxl8uBqWVaGhAVb6bfXqq3Z2iF2Fay"
+
+# ── Account lockout (SEC-015) ──
+_MAX_FAILED_ATTEMPTS = 10
+_LOCKOUT_SECONDS = 900  # 15 minutes
+_failed_attempts: dict[str, list[float]] = defaultdict(list)
+
+
+def _check_account_lockout(email: str) -> None:
+    """Raise 429 if this email has exceeded max failed login attempts."""
+    now = time.monotonic()
+    attempts = _failed_attempts.get(email, [])
+    # Prune attempts older than the lockout window
+    recent = [t for t in attempts if now - t < _LOCKOUT_SECONDS]
+    _failed_attempts[email] = recent
+    if len(recent) >= _MAX_FAILED_ATTEMPTS:
+        raise HTTPException(status_code=429, detail="Too many failed login attempts. Try again later.")
+
+
+def _record_failed_attempt(email: str) -> None:
+    _failed_attempts[email].append(time.monotonic())
+
+
+def _clear_failed_attempts(email: str) -> None:
+    _failed_attempts.pop(email, None)
 
 
 def _set_refresh_cookie(response: Response, token: str) -> None:
@@ -122,12 +148,20 @@ async def register(body: RegisterRequest, request: Request, db: AsyncSession = D
 async def login(body: LoginRequest, request: Request, db: AsyncSession = Depends(get_db)):
     """Log in with email and password, receive tokens."""
     email = body.email.lower().strip()
+
+    # SEC-015: Per-account lockout check
+    _check_account_lockout(email)
+
     user = await get_user_by_email(db, email)
     # Always run verify_password to prevent timing oracle (constant-time regardless of user existence)
     pw_hash = user.password_hash if user else _DUMMY_HASH
     password_ok = verify_password(body.password, pw_hash)
     if not user or not password_ok:
+        _record_failed_attempt(email)
         raise HTTPException(status_code=401, detail="Invalid email or password")
+
+    # Successful login — clear failed attempts
+    _clear_failed_attempts(email)
 
     # Clean up old refresh tokens for this user before issuing a new one
     await delete_user_refresh_tokens(db, user.id)
@@ -233,6 +267,10 @@ async def google_auth(body: GoogleAuthRequest, request: Request, db: AsyncSessio
     google_info = verify_google_token(body.credential)
     if not google_info:
         raise HTTPException(status_code=401, detail="Invalid Google credential")
+
+    # SEC-013: Reject unverified Google emails
+    if not google_info.get("email_verified"):
+        raise HTTPException(status_code=400, detail="Google email not verified")
 
     google_id = google_info["sub"]
     email = google_info["email"].lower().strip()

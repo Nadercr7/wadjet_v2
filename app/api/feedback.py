@@ -7,6 +7,7 @@ import re
 
 from fastapi import APIRouter, Depends, HTTPException, Request
 from fastapi.responses import JSONResponse
+from markupsafe import escape as html_escape
 from pydantic import BaseModel, Field, field_validator
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -22,6 +23,12 @@ logger = logging.getLogger(__name__)
 router = APIRouter(prefix="/api/feedback", tags=["feedback"])
 
 VALID_CATEGORIES = {"bug", "suggestion", "praise", "other"}
+
+
+def _sanitize(v: str) -> str:
+    """Strip HTML tags then escape remaining entities for defense-in-depth."""
+    stripped = re.sub(r"<[^>]*>", "", v).strip()
+    return str(html_escape(stripped))
 
 
 class FeedbackRequest(BaseModel):
@@ -42,12 +49,12 @@ class FeedbackRequest(BaseModel):
     @field_validator("message")
     @classmethod
     def sanitize_message(cls, v: str) -> str:
-        return re.sub(r"<[^>]*>", "", v).strip()
+        return _sanitize(v)
 
     @field_validator("name", "email")
     @classmethod
     def strip_fields(cls, v: str) -> str:
-        return re.sub(r"<[^>]*>", "", v).strip()
+        return _sanitize(v)
 
 
 @router.post("")

@@ -26,19 +26,24 @@ PAGE_ROUTES = [
     "/welcome",
 ]
 
+# Pages that still require auth (redirect to /welcome without session cookie)
 PROTECTED_ROUTES = [
     "/",
-    "/hieroglyphs",
-    "/landmarks",
     "/scan",
-    "/dictionary",
     "/write",
-    "/explore",
     "/chat",
-    "/stories",
     "/dashboard",
     "/settings",
     "/feedback",
+]
+
+# Read-only pages accessible without auth (MISC-014)
+PUBLIC_CONTENT_ROUTES = [
+    "/hieroglyphs",
+    "/landmarks",
+    "/dictionary",
+    "/explore",
+    "/stories",
 ]
 
 
@@ -60,6 +65,14 @@ async def test_protected_redirects_to_welcome(test_client: AsyncClient, path: st
 @pytest.mark.parametrize("path", PROTECTED_ROUTES)
 async def test_protected_renders_with_session(test_client: AsyncClient, path: str):
     resp = await test_client.get(path, cookies={"wadjet_session": "1"})
+    assert resp.status_code == 200
+    assert "<html" in resp.text.lower()
+
+
+@pytest.mark.parametrize("path", PUBLIC_CONTENT_ROUTES)
+async def test_public_page_accessible_without_auth(test_client: AsyncClient, path: str):
+    """Read-only content pages should be accessible without authentication."""
+    resp = await test_client.get(path, follow_redirects=False)
     assert resp.status_code == 200
     assert "<html" in resp.text.lower()
 

@@ -299,7 +299,16 @@ document.addEventListener('alpine:init', () => {
         _getNextUrl() {
             const params = new URLSearchParams(window.location.search);
             const next = params.get('next') || '';
-            if (next && next.startsWith('/') && !next.startsWith('//') && !next.startsWith('/\\')) {
+            if (next && next.startsWith('/')
+                && !next.startsWith('//')
+                && !next.startsWith('/\\')
+                && !next.includes('@')
+                && !next.includes('\n')
+                && !next.includes('\r')
+                && !next.includes('%0a')
+                && !next.includes('%0d')
+                && !next.includes('%0A')
+                && !next.includes('%0D')) {
                 return next;
             }
             return '/';

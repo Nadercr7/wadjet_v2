@@ -157,21 +157,21 @@ def create_app() -> FastAPI:
         CSRFMiddleware,
         secret=csrf_secret,
         exempt_urls=[
-            # GET-only endpoint — no state mutation
+            # ── GET-only (no state mutation) ──
             re.compile(r"^/api/health$"),
-            # Auth bootstrap — no session/cookie exists yet to carry CSRF token
+            # ── Stateless auth bootstrap (no session cookie exists yet) ──
             re.compile(r"^/api/auth/login$"),
             re.compile(r"^/api/auth/register$"),
             re.compile(r"^/api/auth/refresh$"),
-            # Logout — destroys session, safe to exempt
             re.compile(r"^/api/auth/logout$"),
-            # OAuth + email flows — no CSRF cookie on first request
             re.compile(r"^/api/auth/google$"),
             re.compile(r"^/api/auth/verify-email$"),
             re.compile(r"^/api/auth/forgot-password$"),
             re.compile(r"^/api/auth/reset-password$"),
             re.compile(r"^/api/auth/send-verification$"),
-            # AJAX-only API endpoints — protected by CORS same-origin, no cookie mutation
+            # ── Bearer-token-authenticated AJAX endpoints ──
+            # These are CSRF-immune: browser doesn't auto-attach Authorization headers.
+            # All require `Authorization: Bearer <jwt>` from JS fetch(), not cookies.
             re.compile(r"^/api/audio/"),
             re.compile(r"^/api/scan$"),
             re.compile(r"^/api/translate$"),
@@ -183,7 +183,7 @@ def create_app() -> FastAPI:
             re.compile(r"^/api/stories"),
             re.compile(r"^/api/user"),
             re.compile(r"^/api/feedback$"),
-            # Read-only documentation (disabled in production via Phase 2)
+            # ── Dev-only docs (disabled in production) ──
             re.compile(r"^/docs"),
             re.compile(r"^/openapi\.json$"),
         ],
@@ -203,12 +203,12 @@ def create_app() -> FastAPI:
     async def security_headers(request: Request, call_next):
         response = await call_next(request)
         response.headers["X-Content-Type-Options"] = "nosniff"
-        response.headers["X-Frame-Options"] = "ALLOWALL"
+        response.headers["X-Frame-Options"] = "SAMEORIGIN"
         response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
         response.headers["Permissions-Policy"] = "camera=(self), microphone=(self), geolocation=()"
         response.headers["Content-Security-Policy"] = (
             "default-src 'self'; "
-            "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://accounts.google.com; "
+            "script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://accounts.google.com; "
             "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://accounts.google.com; "
             "img-src 'self' data: blob: https:; "
             "media-src 'self' blob:; "
@@ -219,6 +219,9 @@ def create_app() -> FastAPI:
             "base-uri 'self'; "
             "form-action 'self'"
         )
+        # HSTS — only in production (HTTPS guaranteed)
+        if settings.is_production:
+            response.headers["Strict-Transport-Security"] = "max-age=31536000; includeSubDomains"
         # Persist ?lang= query param as cookie for hreflang / crawler support
         lang_param = request.query_params.get("lang")
         if lang_param in ("en", "ar"):

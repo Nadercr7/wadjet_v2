@@ -43,7 +43,7 @@ async def test_csp_header_present(test_client: AsyncClient):
 async def test_security_headers_present(test_client: AsyncClient):
     resp = await test_client.get("/api/health")
     assert resp.headers.get("x-content-type-options") == "nosniff"
-    assert resp.headers.get("x-frame-options") == "DENY"
+    assert resp.headers.get("x-frame-options") == "SAMEORIGIN"
     assert "strict-origin" in resp.headers.get("referrer-policy", "")
 
 

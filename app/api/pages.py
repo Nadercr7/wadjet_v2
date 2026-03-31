@@ -52,9 +52,6 @@ async def scan(request: Request):
 
 @router.get("/dictionary", response_class=HTMLResponse)
 async def dictionary(request: Request):
-    gate = _require_session(request)
-    if gate:
-        return gate
     templates = request.app.state.templates
     lang = get_lang(request)
     return templates.TemplateResponse(request, "dictionary.html", {"lang": lang, "page_name": "dictionary"})
@@ -72,9 +69,6 @@ async def write(request: Request):
 
 @router.get("/explore", response_class=HTMLResponse)
 async def explore(request: Request):
-    gate = _require_session(request)
-    if gate:
-        return gate
     templates = request.app.state.templates
     lang = get_lang(request)
     return templates.TemplateResponse(request, "explore.html", {"lang": lang, "page_name": "explore"})
@@ -82,9 +76,6 @@ async def explore(request: Request):
 
 @router.get("/hieroglyphs", response_class=HTMLResponse)
 async def hieroglyphs(request: Request):
-    gate = _require_session(request)
-    if gate:
-        return gate
     templates = request.app.state.templates
     lang = get_lang(request)
     return templates.TemplateResponse(request, "hieroglyphs.html", {"lang": lang, "page_name": "hieroglyphs"})
@@ -92,9 +83,6 @@ async def hieroglyphs(request: Request):
 
 @router.get("/landmarks", response_class=HTMLResponse)
 async def landmarks(request: Request):
-    gate = _require_session(request)
-    if gate:
-        return gate
     templates = request.app.state.templates
     lang = get_lang(request)
     return templates.TemplateResponse(request, "landmarks.html", {"lang": lang, "page_name": "landmarks"})
@@ -117,9 +105,6 @@ async def quiz(request: Request):
 
 @router.get("/stories", response_class=HTMLResponse)
 async def stories(request: Request):
-    gate = _require_session(request)
-    if gate:
-        return gate
     templates = request.app.state.templates
     lang = get_lang(request)
     return templates.TemplateResponse(request, "stories.html", {"lang": lang, "page_name": "stories"})
@@ -127,9 +112,6 @@ async def stories(request: Request):
 
 @router.get("/stories/{story_id}", response_class=HTMLResponse)
 async def story_reader(request: Request, story_id: str):
-    gate = _require_session(request)
-    if gate:
-        return gate
     if not _STORY_ID_RE.match(story_id):
         raise HTTPException(status_code=404, detail="Story not found")
     if load_story(story_id) is None:
@@ -141,9 +123,6 @@ async def story_reader(request: Request, story_id: str):
 
 @router.get("/dictionary/lesson/{level}", response_class=HTMLResponse)
 async def dictionary_lesson_page(request: Request, level: int):
-    gate = _require_session(request)
-    if gate:
-        return gate
     if level < 1 or level > 5:
         raise HTTPException(status_code=404, detail="Lesson not found")
     templates = request.app.state.templates
