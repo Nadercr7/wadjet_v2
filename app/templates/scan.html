@@ -129,7 +129,7 @@
                                 <!-- Live mode indicator -->
                                 <div x-show="cameraLiveMode" class="absolute top-3 right-3 flex items-center gap-1.5 bg-night/80 px-2 py-1 rounded text-xs text-gold">
                                     <span class="w-2 h-2 bg-gold rounded-full animate-pulse"></span>
-                                    LIVE
+                                    {{ t('scan.camera_live', lang) }}
                                 </div>
                             </div>
                             <canvas x-ref="canvas" class="hidden"></canvas>
@@ -142,7 +142,7 @@
                                         :class="{'!border-gold !text-gold': cameraLiveMode}"
                                         x-show="processingMode === 'client'">
                                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
-                                    <span x-text="cameraLiveMode ? 'Stop Live' : 'Live Mode'"></span>
+                                    <span x-text="cameraLiveMode ? __i18n.scan_camera_stop_live || 'Stop Live' : __i18n.scan_camera_live_mode || 'Live Mode'"></span>
                                 </button>
                                 <button @click="stopCamera()" class="btn-ghost">{{ t('scan.camera_stop', lang) }}</button>
                             </div>
@@ -197,7 +197,7 @@
                             class="btn-ghost btn-lg relative"
                             :class="{'!border-red-500 !text-red-400': recording}"
                             :disabled="scanning"
-                            :title="recording ? 'Stop recording' : 'Describe what you see'"
+                            :title="recording ? '{{ t('scan.voice_stop', lang) }}' : '{{ t('scan.voice_describe', lang) }}'"
                             aria-label="{{ t('scan.voice_aria', lang) }}">
                         <svg x-show="!recording && !transcribing" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
                         <!-- Recording pulse -->

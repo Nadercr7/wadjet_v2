@@ -60,6 +60,59 @@ CATEGORY_NAMES: dict[str, str] = {
     "Aa": "Unclassified",
 }
 
+CATEGORY_NAMES_AR: dict[str, str] = {
+    "A": "الإنسان وأنشطته",
+    "B": "المرأة وأنشطتها",
+    "C": "الآلهة المجسّمة",
+    "D": "أجزاء جسم الإنسان",
+    "E": "الثدييات",
+    "F": "أجزاء الثدييات",
+    "G": "الطيور",
+    "H": "أجزاء الطيور",
+    "I": "البرمائيات والزواحف",
+    "K": "الأسماك وأجزاؤها",
+    "L": "اللافقاريات والحيوانات الصغيرة",
+    "M": "الأشجار والنباتات",
+    "N": "السماء والأرض والماء",
+    "O": "المباني وأجزاؤها",
+    "P": "السفن وأجزاؤها",
+    "Q": "الأثاث المنزلي والجنائزي",
+    "R": "أثاث المعبد والرموز المقدسة",
+    "S": "التيجان والملابس والصولجانات",
+    "T": "الحرب والصيد والذبح",
+    "U": "الزراعة والحِرَف والمهن",
+    "V": "الحبال والألياف والسلال",
+    "W": "الأواني (حجرية وفخارية)",
+    "X": "الأرغفة والكعك",
+    "Y": "الكتابة والألعاب والموسيقى",
+    "Z": "الخطوط والأشكال الهندسية",
+    "Aa": "غير مصنّف",
+}
+
+TYPE_NAMES_AR: dict[str, str] = {
+    "uniliteral": "أحادي",
+    "biliteral": "ثنائي",
+    "triliteral": "ثلاثي",
+    "logogram": "لوغوغرام",
+    "determinative": "مخصّص",
+    "number": "رقم",
+    "abbreviation": "اختصار",
+}
+
+
+def _get_category_name(code: str, lang: str = "en") -> str:
+    """Get localized category name."""
+    if lang == "ar":
+        return CATEGORY_NAMES_AR.get(code, code)
+    return CATEGORY_NAMES.get(code, code)
+
+
+def _get_type_name(type_val: str, lang: str = "en") -> str:
+    """Get localized type name."""
+    if lang == "ar":
+        return TYPE_NAMES_AR.get(type_val, type_val)
+    return type_val
+
 # Pronunciation guide for the 25 uniliteral sounds
 _PRONUNCIATION_GUIDE: dict[str, tuple[str, str]] = {
     "A": ("glottal stop", "like the pause in 'uh-oh'"),
@@ -87,6 +140,34 @@ _PRONUNCIATION_GUIDE: dict[str, tuple[str, str]] = {
     "T": ("ch", "like 'ch' in 'church'"),
     "d": ("d", "like 'd' in 'dog'"),
     "D": ("j", "like 'j' in 'jump'"),
+}
+
+_PRONUNCIATION_GUIDE_AR: dict[str, tuple[str, str]] = {
+    "A": ("همزة", "مثل الهمزة في 'أحمد'"),
+    "i": ("ي", "مثل الياء في 'يمين'"),
+    "y": ("ي", "مثل الياء في 'يد'"),
+    "a": ("ع", "مثل العين في 'عين'"),
+    "w": ("و", "مثل الواو في 'ولد'"),
+    "b": ("ب", "مثل الباء في 'باب'"),
+    "p": ("پ", "صوت 'ب' بدون تفخيم — لا يوجد في العربية"),
+    "f": ("ف", "مثل الفاء في 'فيل'"),
+    "m": ("م", "مثل الميم في 'ماء'"),
+    "n": ("ن", "مثل النون في 'نور'"),
+    "r": ("ر", "مثل الراء في 'رمل'"),
+    "h": ("هـ", "مثل الهاء في 'هرم'"),
+    "H": ("ح", "مثل الحاء في 'حياة'"),
+    "x": ("خ", "مثل الخاء في 'خير'"),
+    "X": ("خ (خفيفة)", "مثل الخاء الخفيفة"),
+    "z": ("ز", "مثل الزاي في 'زهرة'"),
+    "s": ("س", "مثل السين في 'سماء'"),
+    "S": ("ش", "مثل الشين في 'شمس'"),
+    "q": ("ق", "مثل القاف في 'قمر'"),
+    "k": ("ك", "مثل الكاف في 'كتاب'"),
+    "g": ("ج", "مثل الجيم المصرية في 'جمل'"),
+    "t": ("ت", "مثل التاء في 'تمر'"),
+    "T": ("تش", "مثل 'تش' في 'تشاد'"),
+    "d": ("د", "مثل الدال في 'دار'"),
+    "D": ("ج", "مثل الجيم في 'جبل'"),
 }
 
 # Fun facts for important signs
@@ -664,7 +745,7 @@ def _make_reading(sign: GardinerSign) -> str:
     return ""
 
 
-def _sign_to_dict(sign: GardinerSign) -> dict:
+def _sign_to_dict(sign: GardinerSign, lang: str = "en") -> dict:
     """Serialize a GardinerSign — type-aware, no duplicate fields."""
     t = sign.sign_type
     is_phonetic = t in (
@@ -673,7 +754,8 @@ def _sign_to_dict(sign: GardinerSign) -> dict:
     # Pronunciation guide for uniliterals
     pronunciation = None
     if t == SignType.UNILITERAL and sign.transliteration:
-        pron = _PRONUNCIATION_GUIDE.get(sign.transliteration)
+        guide = _PRONUNCIATION_GUIDE_AR if lang == "ar" else _PRONUNCIATION_GUIDE
+        pron = guide.get(sign.transliteration)
         if pron:
             pronunciation = {"sound": pron[0], "example": pron[1]}
 
@@ -684,9 +766,10 @@ def _sign_to_dict(sign: GardinerSign) -> dict:
         "code": sign.code,
         "transliteration": sign.transliteration,
         "type": t.value,
+        "type_name": _get_type_name(t.value, lang),
         "description": sign.description,
         "category": sign.category,
-        "category_name": CATEGORY_NAMES.get(sign.category, sign.category),
+        "category_name": _get_category_name(sign.category, lang),
         "reading": _make_reading(sign),
         "logographic_value": sign.logographic_value,
         "determinative_class": sign.determinative_class,
@@ -791,7 +874,7 @@ async def speak(request: Request, text: str = Query(..., min_length=1, max_lengt
 # ═══════════════════════════════════════════════════════════════
 
 @router.get("/categories")
-async def list_categories():
+async def list_categories(lang: str = Query("en", description="Language code (en/ar)")):
     """List all Gardiner categories with sign counts."""
     counts: dict[str, int] = {}
     for sign in GARDINER_TRANSLITERATION.values():
@@ -801,7 +884,7 @@ async def list_categories():
     for code in sorted(counts.keys(), key=lambda c: (len(c), c)):
         categories.append({
             "code": code,
-            "name": CATEGORY_NAMES.get(code, code),
+            "name": _get_category_name(code, lang),
             "count": counts[code],
         })
 
@@ -812,18 +895,18 @@ async def list_categories():
 
 
 @router.get("/alphabet")
-async def get_alphabet():
+async def get_alphabet(lang: str = Query("en", description="Language code (en/ar)")):
     """Return the 25 primary uniliteral signs in traditional teaching order."""
     signs = []
     for code in _ALPHABET_CODES:
         sign = GARDINER_TRANSLITERATION.get(code)
         if sign:
-            signs.append(_sign_to_dict(sign))
+            signs.append(_sign_to_dict(sign, lang))
     return JSONResponse(content={"signs": signs, "count": len(signs)})
 
 
 @router.get("/lesson/{level}")
-async def get_lesson(level: int):
+async def get_lesson(level: int, lang: str = Query("en", description="Language code (en/ar)")):
     """Progressive lessons with teaching content."""
     content = _LESSON_CONTENT.get(level)
     if not content:
@@ -844,7 +927,7 @@ async def get_lesson(level: int):
     for code in codes:
         sign = GARDINER_TRANSLITERATION.get(code)
         if sign:
-            signs.append(_sign_to_dict(sign))
+            signs.append(_sign_to_dict(sign, lang))
 
     # Next/prev lesson info
     prev_lesson = None
@@ -917,12 +1000,12 @@ def _find_related_signs(sign: GardinerSign, limit: int = 4) -> list[dict]:
 
 
 @router.get("/{code}")
-async def get_sign(code: str):
+async def get_sign(code: str, lang: str = Query("en", description="Language code (en/ar)")):
     """Get a single sign by Gardiner code — enriched with usages & related signs."""
     sign = GARDINER_TRANSLITERATION.get(code)
     if not sign:
         raise HTTPException(status_code=404, detail=f"Sign '{code}' not found")
-    data = _sign_to_dict(sign)
+    data = _sign_to_dict(sign, lang)
     # Deduplicate usages (same word may appear from multiple codes)
     seen = set()
     usages = []
@@ -943,6 +1026,7 @@ async def list_signs(
     sign_type: str | None = Query(None, alias="type", description="Filter by sign type"),
     page: int = Query(1, ge=1, description="Page number (1-based)"),
     per_page: int = Query(50, ge=1, le=200, description="Signs per page"),
+    lang: str = Query("en", description="Language code (en/ar)"),
 ):
     """List all signs with filtering and pagination."""
     signs = list(GARDINER_TRANSLITERATION.values())
@@ -978,7 +1062,7 @@ async def list_signs(
     page_signs = signs[start:end]
 
     return JSONResponse(content={
-        "signs": [_sign_to_dict(s) for s in page_signs],
+        "signs": [_sign_to_dict(s, lang) for s in page_signs],
         "count": len(page_signs),
         "total": total_filtered,
         "page": page,

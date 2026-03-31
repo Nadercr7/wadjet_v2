@@ -358,9 +358,11 @@ function lessonPageApp(level) {
         _modalTrap: null,
         _modalPrev: null,
 
+        _lang: '{{ lang }}',
+
         async init() {
             try {
-                const resp = await fetch('/api/dictionary/lesson/' + level);
+                const resp = await fetch('/api/dictionary/lesson/' + level + '?lang=' + this._lang);
                 this.lesson = await resp.json();
             } catch (err) {
                 console.error('Failed to load lesson:', err);
