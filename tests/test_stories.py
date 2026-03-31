@@ -149,3 +149,262 @@ async def test_stories_image_bad_story_id(test_client: AsyncClient):
         headers={"x-csrftoken": csrf},
     )
     assert resp.status_code == 400
+
+
+# ── Interaction Scoring Tests (TEST-009) ──
+
+
+async def test_interact_choose_glyph_correct(test_client: AsyncClient):
+    """Submit correct answer to choose_glyph interaction → correct=True."""
+    from app.core.stories_engine import get_story_ids, get_chapter
+
+    ids = get_story_ids()
+    if not ids:
+        pytest.skip("No story files available")
+
+    # Find a story with a choose_glyph interaction
+    for story_id in ids:
+        chapter = get_chapter(story_id, 0)
+        if not chapter:
+            continue
+        interactions = chapter.get("interactions", [])
+        for i, interaction in enumerate(interactions):
+            if interaction["type"] == "choose_glyph":
+                correct_answer = interaction["correct"]
+
+                await test_client.get("/api/health")
+                csrf = test_client.cookies.get("csrftoken", "")
+
+                resp = await test_client.post(
+                    f"/api/stories/{story_id}/interact",
+                    json={
+                        "chapter_index": 0,
+                        "interaction_index": i,
+                        "answer": correct_answer,
+                    },
+                    headers={"x-csrftoken": csrf},
+                )
+                assert resp.status_code == 200
+                body = resp.json()
+                assert body["correct"] is True
+                assert body["type"] == "choose_glyph"
+                return
+
+    pytest.skip("No choose_glyph interaction found in any story chapter 0")
+
+
+async def test_interact_choose_glyph_wrong(test_client: AsyncClient):
+    """Submit wrong answer to choose_glyph interaction → correct=False."""
+    from app.core.stories_engine import get_story_ids, get_chapter
+
+    ids = get_story_ids()
+    if not ids:
+        pytest.skip("No story files available")
+
+    for story_id in ids:
+        chapter = get_chapter(story_id, 0)
+        if not chapter:
+            continue
+        interactions = chapter.get("interactions", [])
+        for i, interaction in enumerate(interactions):
+            if interaction["type"] == "choose_glyph":
+                correct = interaction["correct"]
+                # Pick a wrong answer from options
+                options = interaction.get("options", [])
+                wrong = next(
+                    (o["code"] for o in options if o["code"] != correct),
+                    "WRONG",
+                )
+
+                await test_client.get("/api/health")
+                csrf = test_client.cookies.get("csrftoken", "")
+
+                resp = await test_client.post(
+                    f"/api/stories/{story_id}/interact",
+                    json={
+                        "chapter_index": 0,
+                        "interaction_index": i,
+                        "answer": wrong,
+                    },
+                    headers={"x-csrftoken": csrf},
+                )
+                assert resp.status_code == 200
+                body = resp.json()
+                assert body["correct"] is False
+                assert body["type"] == "choose_glyph"
+                return
+
+    pytest.skip("No choose_glyph interaction found")
+
+
+async def test_interact_glyph_discovery(test_client: AsyncClient):
+    """Glyph discovery interaction always returns correct=True."""
+    from app.core.stories_engine import get_story_ids, get_chapter
+
+    ids = get_story_ids()
+    if not ids:
+        pytest.skip("No story files available")
+
+    for story_id in ids:
+        chapter = get_chapter(story_id, 0)
+        if not chapter:
+            continue
+        interactions = chapter.get("interactions", [])
+        for i, interaction in enumerate(interactions):
+            if interaction["type"] == "glyph_discovery":
+                await test_client.get("/api/health")
+                csrf = test_client.cookies.get("csrftoken", "")
+
+                resp = await test_client.post(
+                    f"/api/stories/{story_id}/interact",
+                    json={
+                        "chapter_index": 0,
+                        "interaction_index": i,
+                        "answer": "seen",
+                    },
+                    headers={"x-csrftoken": csrf},
+                )
+                assert resp.status_code == 200
+                body = resp.json()
+                assert body["correct"] is True
+                assert body["type"] == "glyph_discovery"
+                return
+
+    pytest.skip("No glyph_discovery interaction found")
+
+
+async def test_interact_out_of_bounds(test_client: AsyncClient):
+    """Interaction index out of bounds → 404."""
+    from app.core.stories_engine import get_story_ids
+
+    ids = get_story_ids()
+    if not ids:
+        pytest.skip("No story files available")
+
+    await test_client.get("/api/health")
+    csrf = test_client.cookies.get("csrftoken", "")
+
+    resp = await test_client.post(
+        f"/api/stories/{ids[0]}/interact",
+        json={"chapter_index": 0, "interaction_index": 999, "answer": "x"},
+        headers={"x-csrftoken": csrf},
+    )
+    assert resp.status_code == 404
+
+
+async def test_interact_write_word(test_client: AsyncClient):
+    """Submit correct Gardiner code to write_word → correct=True."""
+    from app.core.stories_engine import get_story_ids, load_story, get_chapter
+
+    ids = get_story_ids()
+    if not ids:
+        pytest.skip("No story files available")
+
+    for story_id in ids:
+        story = load_story(story_id)
+        if not story:
+            continue
+        for ch_idx, chapter in enumerate(story.get("chapters", [])):
+            interactions = chapter.get("interactions", [])
+            for i, interaction in enumerate(interactions):
+                if interaction["type"] == "write_word":
+                    target_code = interaction["gardiner_code"]
+
+                    await test_client.get("/api/health")
+                    csrf = test_client.cookies.get("csrftoken", "")
+
+                    resp = await test_client.post(
+                        f"/api/stories/{story_id}/interact",
+                        json={
+                            "chapter_index": ch_idx,
+                            "interaction_index": i,
+                            "answer": target_code,
+                        },
+                        headers={"x-csrftoken": csrf},
+                    )
+                    assert resp.status_code == 200
+                    body = resp.json()
+                    assert body["correct"] is True
+                    assert body["type"] == "write_word"
+                    assert body["gardiner_code"] == target_code
+                    return
+
+    pytest.skip("No write_word interaction found")
+
+
+async def test_interact_story_decision(test_client: AsyncClient):
+    """Submit a valid choice to story_decision → correct=True with outcome."""
+    from app.core.stories_engine import get_story_ids, load_story
+
+    ids = get_story_ids()
+    if not ids:
+        pytest.skip("No story files available")
+
+    for story_id in ids:
+        story = load_story(story_id)
+        if not story:
+            continue
+        for ch_idx, chapter in enumerate(story.get("chapters", [])):
+            interactions = chapter.get("interactions", [])
+            for i, interaction in enumerate(interactions):
+                if interaction["type"] == "story_decision":
+                    choices = interaction.get("choices", [])
+                    if not choices:
+                        continue
+                    choice_id = choices[0]["id"]
+
+                    await test_client.get("/api/health")
+                    csrf = test_client.cookies.get("csrftoken", "")
+
+                    resp = await test_client.post(
+                        f"/api/stories/{story_id}/interact",
+                        json={
+                            "chapter_index": ch_idx,
+                            "interaction_index": i,
+                            "answer": choice_id,
+                        },
+                        headers={"x-csrftoken": csrf},
+                    )
+                    assert resp.status_code == 200
+                    body = resp.json()
+                    assert body["correct"] is True
+                    assert body["type"] == "story_decision"
+                    assert body["choice_id"] == choice_id
+                    assert "outcome" in body
+                    return
+
+    pytest.skip("No story_decision interaction found")
+
+
+async def test_interact_story_decision_invalid_choice(test_client: AsyncClient):
+    """Invalid choice in story_decision → 400."""
+    from app.core.stories_engine import get_story_ids, load_story
+
+    ids = get_story_ids()
+    if not ids:
+        pytest.skip("No story files available")
+
+    for story_id in ids:
+        story = load_story(story_id)
+        if not story:
+            continue
+        for ch_idx, chapter in enumerate(story.get("chapters", [])):
+            interactions = chapter.get("interactions", [])
+            for i, interaction in enumerate(interactions):
+                if interaction["type"] == "story_decision":
+                    await test_client.get("/api/health")
+                    csrf = test_client.cookies.get("csrftoken", "")
+
+                    resp = await test_client.post(
+                        f"/api/stories/{story_id}/interact",
+                        json={
+                            "chapter_index": ch_idx,
+                            "interaction_index": i,
+                            "answer": "nonexistent_choice_xyz",
+                        },
+                        headers={"x-csrftoken": csrf},
+                    )
+                    assert resp.status_code == 400
+                    return
+
+    pytest.skip("No story_decision interaction found")
