@@ -15,7 +15,7 @@ import base64
 import json
 import logging
 import time
-from functools import partial
+
 
 import cv2
 import numpy as np
@@ -644,7 +644,6 @@ async def scan_image(
     """
     raw_bytes, image, mime = await _read_image_bytes(file)
     pipeline = _get_pipeline()
-    loop = asyncio.get_running_loop()
 
     # Normalize mode
     mode = mode.strip().lower()
@@ -658,17 +657,17 @@ async def scan_image(
     # ── AI-only mode ──
     if mode == "ai":
         response = await _scan_ai_mode(
-            ai_reader, pipeline, raw_bytes, mime, image, translate, loop,
+            ai_reader, pipeline, raw_bytes, mime, image, translate,
         )
     # ── ONNX-only mode ──
     elif mode == "onnx":
         response = await _scan_onnx_mode(
-            pipeline, gemini, grok, raw_bytes, mime, image, translate, loop,
+            pipeline, gemini, grok, raw_bytes, mime, image, translate,
         )
     # ── Auto mode (default): AI-first with ONNX assist ──
     else:
         response = await _scan_auto_mode(
-            ai_reader, pipeline, gemini, grok, raw_bytes, mime, image, translate, loop,
+            ai_reader, pipeline, gemini, grok, raw_bytes, mime, image, translate,
         )
 
     # Save scan history for authenticated users (fire-and-forget)
@@ -704,16 +703,14 @@ async def _save_scan_history(request: Request, response: JSONResponse):
         logger.debug("Scan history save failed (non-critical)", exc_info=True)
 
 
-async def _scan_ai_mode(ai_reader, pipeline, raw_bytes, mime, image, translate, loop):
+async def _scan_ai_mode(ai_reader, pipeline, raw_bytes, mime, image, translate):
     """AI Vision reads inscription directly. ONNX only for bboxes."""
     from app.core.hieroglyph_pipeline import GlyphResult, PipelineResult
 
     t0 = time.perf_counter()
 
     # Run ONNX detection in parallel for bbox visualization
-    onnx_bboxes_task = loop.run_in_executor(
-        None, partial(_detect_only, pipeline, image),
-    )
+    onnx_bboxes_task = asyncio.to_thread(_detect_only, pipeline, image)
 
     # AI reading (primary)
     reading = None
@@ -736,9 +733,7 @@ async def _scan_ai_mode(ai_reader, pipeline, raw_bytes, mime, image, translate, 
     # AI failed → ONNX fallback
     logger.warning("AI mode: all vision providers failed, falling back to ONNX")
     try:
-        result = await loop.run_in_executor(
-            None, partial(pipeline.process_image, image, translate=translate),
-        )
+        result = await asyncio.to_thread(pipeline.process_image, image, translate=translate)
     except Exception as e:
         logger.exception("ONNX fallback failed in AI mode")
         raise HTTPException(status_code=500, detail="An error occurred processing your request.")
@@ -750,14 +745,12 @@ async def _scan_ai_mode(ai_reader, pipeline, raw_bytes, mime, image, translate, 
     return JSONResponse(content=_enrich_response(response_data, image))
 
 
-async def _scan_onnx_mode(pipeline, gemini, grok, raw_bytes, mime, image, translate, loop):
+async def _scan_onnx_mode(pipeline, gemini, grok, raw_bytes, mime, image, translate):
     """ONNX pipeline with existing AI verification (legacy behavior)."""
     t0 = time.perf_counter()
 
     try:
-        result = await loop.run_in_executor(
-            None, partial(pipeline.process_image, image, translate=translate),
-        )
+        result = await asyncio.to_thread(pipeline.process_image, image, translate=translate)
     except Exception as e:
         logger.exception("Scan pipeline failed")
         # Provide hints based on common failure modes
@@ -776,7 +769,7 @@ async def _scan_onnx_mode(pipeline, gemini, grok, raw_bytes, mime, image, transl
             _apply_ai_results(result, ai_data, image)
             ai_fallback_used = True
             await _onnx_reclassify_and_retranslate(
-                pipeline, result, image, ai_data, translate, loop,
+                pipeline, result, image, ai_data, translate,
             )
 
     # Full-sequence verification (when ONNX succeeded)
@@ -789,7 +782,7 @@ async def _scan_onnx_mode(pipeline, gemini, grok, raw_bytes, mime, image, transl
             )
             result.glyphs = corrected_glyphs
             if corrections_applied:
-                _retransliterate_and_translate(pipeline, result, translate)
+                await _retransliterate_and_translate(pipeline, result, translate)
 
     result.total_ms = (time.perf_counter() - t0) * 1000
     response_data = result.to_dict()
@@ -799,7 +792,7 @@ async def _scan_onnx_mode(pipeline, gemini, grok, raw_bytes, mime, image, transl
 
 
 async def _scan_auto_mode(
-    ai_reader, pipeline, gemini, grok, raw_bytes, mime, image, translate, loop,
+    ai_reader, pipeline, gemini, grok, raw_bytes, mime, image, translate,
 ):
     """Auto mode: AI-first with ONNX bboxes. Best quality."""
     from app.core.hieroglyph_pipeline import PipelineResult
@@ -807,9 +800,7 @@ async def _scan_auto_mode(
     t0 = time.perf_counter()
 
     # Run ONNX full pipeline and AI reading concurrently
-    onnx_task = loop.run_in_executor(
-        None, partial(pipeline.process_image, image, translate=translate),
-    )
+    onnx_task = asyncio.to_thread(pipeline.process_image, image, translate=translate)
 
     ai_reading = None
     if ai_reader and ai_reader.available:
@@ -855,14 +846,14 @@ async def _scan_auto_mode(
             )
             onnx_result.glyphs = corrected_glyphs
             if corrections_applied:
-                _retransliterate_and_translate(pipeline, onnx_result, translate)
+                await _retransliterate_and_translate(pipeline, onnx_result, translate)
     elif _needs_ai_fallback(onnx_result):
         # ONNX detection was poor — try legacy AI fallback
         ai_data = await _ai_full_reading(gemini, raw_bytes, mime, image)
         if ai_data and ai_data.get("glyphs"):
             _apply_ai_results(onnx_result, ai_data, image)
             await _onnx_reclassify_and_retranslate(
-                pipeline, onnx_result, image, ai_data, translate, loop,
+                pipeline, onnx_result, image, ai_data, translate,
             )
 
     onnx_result.total_ms = (time.perf_counter() - t0) * 1000
@@ -1000,7 +991,7 @@ def _detect_only(pipeline, image):
 
 
 async def _onnx_reclassify_and_retranslate(
-    pipeline, result, image, ai_data, translate, loop,
+    pipeline, result, image, ai_data, translate,
 ):
     """Re-classify AI-detected bboxes with ONNX, then re-transliterate."""
     ONNX_RECLASSIFY_THRESHOLD = 0.30
@@ -1009,8 +1000,8 @@ async def _onnx_reclassify_and_retranslate(
             (g.gardiner_code, g.class_confidence) for g in result.glyphs
         ]
         try:
-            onnx_glyphs = await loop.run_in_executor(
-                None, partial(pipeline._classify_crops, image, result.glyphs),
+            onnx_glyphs = await asyncio.to_thread(
+                pipeline._classify_crops, image, result.glyphs,
             )
             if onnx_glyphs:
                 for i, og in enumerate(onnx_glyphs):
@@ -1025,11 +1016,11 @@ async def _onnx_reclassify_and_retranslate(
         except Exception:
             logger.warning("ONNX re-classification after AI fallback failed")
 
-    _retransliterate_and_translate(pipeline, result, translate)
+    await _retransliterate_and_translate(pipeline, result, translate)
 
 
-def _retransliterate_and_translate(pipeline, result, translate):
-    """Re-run transliteration and translation on corrected glyphs."""
+async def _retransliterate_and_translate(pipeline, result, translate):
+    """Re-run transliteration and (async) translation on corrected glyphs."""
     if result.glyphs:
         try:
             trans = pipeline._transliterate(result.glyphs)
@@ -1042,10 +1033,19 @@ def _retransliterate_and_translate(pipeline, result, translate):
 
     if translate and result.transliteration:
         try:
-            translation = pipeline._translate(result.transliteration)
-            result.translation_en = translation["en"]
-            result.translation_ar = translation["ar"]
-            result.translation_error = translation["error"]
+            translator = pipeline._get_translator()
+            if translator and hasattr(translator, 'translate_async'):
+                raw = await translator.translate_async(result.transliteration)
+                result.translation_en = raw.get("english", "")
+                result.translation_ar = raw.get("arabic", "")
+                result.translation_error = raw.get("error", "")
+            else:
+                translation = await asyncio.to_thread(
+                    pipeline._translate, result.transliteration,
+                )
+                result.translation_en = translation["en"]
+                result.translation_ar = translation["ar"]
+                result.translation_error = translation["error"]
         except Exception:
             logger.warning("Translation failed")
 
@@ -1061,9 +1061,8 @@ async def detect_glyphs(request: Request, file: UploadFile = File(...)):
         detector = pipeline._get_detector()
         return detector.detect(image)
 
-    loop = asyncio.get_running_loop()
     try:
-        detections = await loop.run_in_executor(None, _run_detection)
+        detections = await asyncio.to_thread(_run_detection)
     except Exception:
         logger.exception("Detection failed")
         raise HTTPException(status_code=500, detail="An error occurred processing your request.")

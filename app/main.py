@@ -109,6 +109,30 @@ async def lifespan(app: FastAPI):
     else:
         logger.info("Database ready (production — use 'alembic upgrade head' for migrations)")
 
+    # Pre-warm ONNX models + inject app-level translator into pipeline
+    try:
+        import asyncio
+        from app.dependencies import get_pipeline
+        from app.core.landmark_pipeline import LandmarkPipeline
+
+        pipeline = get_pipeline()
+        # Inject app-level translator so pipeline has full AI access (HIERO-006)
+        if app.state.translator:
+            pipeline.set_translator(app.state.translator)
+
+        # Pre-warm ONNX sessions in thread pool (avoids first-request penalty)
+        await asyncio.to_thread(pipeline._get_detector)
+        await asyncio.to_thread(pipeline._get_classifier)
+        logger.info("Hieroglyph ONNX models pre-warmed")
+
+        # Pre-warm landmark model
+        landmark_pipeline = LandmarkPipeline()
+        await asyncio.to_thread(landmark_pipeline._get_session)
+        app.state.landmark_pipeline = landmark_pipeline
+        logger.info("Landmark ONNX model pre-warmed")
+    except Exception as e:
+        logger.warning("Model pre-warm failed (will lazy-load on first request): %s", e)
+
     # Clean up expired tokens on startup
     try:
         from app.db.database import async_session
@@ -260,6 +284,14 @@ def create_app() -> FastAPI:
                 samesite="lax",
                 secure=request.url.scheme == "https",
             )
+        return response
+
+    # Cache headers for static assets (1 year, immutable — cache-busted via ?v=N)
+    @app.middleware("http")
+    async def static_cache_headers(request: Request, call_next):
+        response = await call_next(request)
+        if request.url.path.startswith("/static/") or request.url.path.startswith("/models/"):
+            response.headers["Cache-Control"] = "public, max-age=31536000, immutable"
         return response
 
     # Static files

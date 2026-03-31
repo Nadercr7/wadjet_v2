@@ -189,6 +189,10 @@ class HieroglyphPipeline:
             )
         return self._transliteration_engine
 
+    def set_translator(self, translator) -> None:
+        """Inject an externally-configured RAGTranslator (with full AI access)."""
+        self._translator = translator
+
     def _get_translator(self):
         if self._translator is None and self._enable_translation:
             from app.core.rag_translator import RAGTranslator
