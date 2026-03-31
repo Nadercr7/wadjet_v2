@@ -1115,13 +1115,18 @@ def _merge_ai_and_onnx(ai_reading, onnx_result, image, pipeline, translate):
 
     ONNX provides precise pixel-level bounding boxes for visualization.
     AI provides the correct Gardiner codes, transliteration, and translation.
-    We map AI codes onto ONNX bboxes so the UI shows correct codes on each glyph.
+
+    Strategy:
+    - If ONNX and AI glyph counts are close (within 50%), use ONNX bboxes
+      with AI codes mapped onto them (best visualization).
+    - If counts diverge (ONNX found way more/fewer), use AI's glyph list
+      directly (AI's detection is more reliable than noisy ONNX).
     """
     from app.core.hieroglyph_pipeline import GlyphResult, PipelineResult
 
     result = PipelineResult()
 
-    # Build AI glyph objects (for spatial mapping)
+    # Build AI glyph objects (for spatial mapping or direct use)
     h, w = image.shape[:2]
     ai_glyphs = []
     for g in ai_reading.glyphs:
@@ -1140,21 +1145,43 @@ def _merge_ai_and_onnx(ai_reading, onnx_result, image, pipeline, translate):
             class_confidence=conf,
         ))
 
-    # Use ONNX bboxes if available, else AI bboxes
-    if onnx_result.glyphs:
+    n_onnx = len(onnx_result.glyphs) if onnx_result.glyphs else 0
+    n_ai = len(ai_glyphs)
+
+    # Decide: use ONNX bboxes (precise pixels) or AI glyphs (correct codes)?
+    # Use ONNX only when counts are compatible — otherwise ONNX is noisy.
+    use_onnx_bboxes = (
+        n_onnx > 0
+        and n_ai > 0
+        and n_onnx <= n_ai * 1.5  # ONNX didn't detect too many ghosts
+        and n_onnx >= n_ai * 0.5  # ONNX didn't miss too many
+    )
+
+    if use_onnx_bboxes:
         result.glyphs = onnx_result.glyphs
         result.num_detections = onnx_result.num_detections
         result.detection_ms = onnx_result.detection_ms
         result.classification_ms = onnx_result.classification_ms
 
-        # Map AI codes onto ONNX bboxes (spatial proximity or sequence-based)
-        if ai_glyphs:
-            _map_ai_codes_to_onnx_bboxes(result.glyphs, ai_glyphs)
-        elif ai_reading.gardiner_sequence:
+        # Map AI codes onto ONNX bboxes by spatial proximity
+        _map_ai_codes_to_onnx_bboxes(result.glyphs, ai_glyphs)
+    elif ai_glyphs:
+        # AI reading is the authority — use AI glyphs directly
+        result.glyphs = ai_glyphs
+        result.num_detections = len(ai_glyphs)
+        logger.info(
+            "Merge: using AI glyphs (%d) over ONNX (%d) — count mismatch",
+            n_ai, n_onnx,
+        )
+    elif onnx_result.glyphs:
+        # No AI glyphs but have ONNX — map sequence if available
+        result.glyphs = onnx_result.glyphs
+        result.num_detections = onnx_result.num_detections
+        result.detection_ms = onnx_result.detection_ms
+        if ai_reading.gardiner_sequence:
             _map_sequence_to_glyphs(result.glyphs, ai_reading.gardiner_sequence)
     else:
-        result.glyphs = ai_glyphs
-        result.num_detections = len(result.glyphs)
+        result.num_detections = 0
 
     # Use AI reading for text fields (superior accuracy)
     result.gardiner_sequence = ai_reading.gardiner_sequence
