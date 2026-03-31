@@ -2,10 +2,10 @@ import logging
 import re
 import secrets
 from contextlib import asynccontextmanager
+from datetime import UTC
 from pathlib import Path
 
 from fastapi import FastAPI, Request
-from fastapi.exceptions import HTTPException as StarletteHTTPException
 from fastapi.middleware.gzip import GZipMiddleware
 from fastapi.responses import FileResponse, HTMLResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
@@ -13,7 +13,21 @@ from fastapi.templating import Jinja2Templates
 from slowapi import _rate_limit_exceeded_handler
 from slowapi.errors import RateLimitExceeded
 
-from app.api import audio, auth, chat, dictionary, explore, feedback, health, pages, scan, stories, translate, user, write
+from app.api import (
+    audio,
+    auth,
+    chat,
+    dictionary,
+    explore,
+    feedback,
+    health,
+    pages,
+    scan,
+    stories,
+    translate,
+    user,
+    write,
+)
 from app.config import settings
 from app.rate_limit import limiter
 
@@ -113,8 +127,9 @@ async def lifespan(app: FastAPI):
     # Pre-warm ONNX models + inject app-level translator into pipeline
     try:
         import asyncio
-        from app.dependencies import get_pipeline
+
         from app.core.landmark_pipeline import LandmarkPipeline
+        from app.dependencies import get_pipeline
 
         pipeline = get_pipeline()
         # Inject app-level translator so pipeline has full AI access (HIERO-006)
@@ -136,12 +151,14 @@ async def lifespan(app: FastAPI):
 
     # Clean up expired tokens on startup
     try:
-        from app.db.database import async_session
-        from app.db.models import RefreshToken, EmailToken
-        from datetime import datetime, timezone
+        from datetime import datetime
+
         from sqlalchemy import delete as sa_delete
+
+        from app.db.database import async_session
+        from app.db.models import EmailToken, RefreshToken
         async with async_session() as db:
-            now = datetime.now(timezone.utc)
+            now = datetime.now(UTC)
             result_rt = await db.execute(
                 sa_delete(RefreshToken).where(RefreshToken.expires_at < now)
             )
@@ -309,7 +326,6 @@ def create_app() -> FastAPI:
         # Persist ?lang= query param as cookie for hreflang / crawler support
         lang_param = request.query_params.get("lang")
         if lang_param in ("en", "ar"):
-            secure = "; Secure" if request.url.scheme == "https" else ""
             response.set_cookie(
                 key="wadjet_lang",
                 value=lang_param,

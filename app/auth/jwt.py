@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from datetime import datetime, timedelta, timezone
+from datetime import UTC, datetime, timedelta
 from uuid import uuid4
 
 from jose import JWTError, jwt
@@ -19,13 +19,13 @@ def _get_secret() -> str:
 
 
 def create_access_token(user_id: str) -> str:
-    expire = datetime.now(timezone.utc) + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
+    expire = datetime.now(UTC) + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
     return jwt.encode({"sub": user_id, "exp": expire, "jti": uuid4().hex}, _get_secret(), algorithm=ALGORITHM)
 
 
 def create_refresh_token(user_id: str) -> tuple[str, datetime]:
     """Return (token, expires_at) tuple."""
-    expires_at = datetime.now(timezone.utc) + timedelta(days=REFRESH_TOKEN_EXPIRE_DAYS)
+    expires_at = datetime.now(UTC) + timedelta(days=REFRESH_TOKEN_EXPIRE_DAYS)
     token = jwt.encode({"sub": user_id, "exp": expires_at, "type": "refresh", "jti": uuid4().hex}, _get_secret(), algorithm=ALGORITHM)
     return token, expires_at
 

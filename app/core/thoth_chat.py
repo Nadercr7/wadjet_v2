@@ -17,6 +17,7 @@ from app.core.landmarks import get_by_name, get_by_slug
 
 if TYPE_CHECKING:
     from collections.abc import AsyncIterator
+
     from app.core.gemini_service import GeminiService
     from app.core.grok_service import GrokService
     from app.core.groq_service import GroqService
@@ -81,6 +82,13 @@ CONVERSATION_STARTERS = [
 # ── Session store ──
 
 class _SessionStore:
+    """In-memory chat session store with LRU eviction and TTL expiry.
+
+    LIMITATION: Sessions are lost on server restart or redeployment.
+    For production persistence, migrate to Redis or database-backed sessions.
+    Current capacity: 500 sessions × 10 message pairs, 1-hour idle TTL.
+    """
+
     def __init__(self, max_sessions: int = _MAX_SESSIONS, ttl: int = _SESSION_TTL) -> None:
         self._store: OrderedDict[str, list[dict[str, str]]] = OrderedDict()
         self._timestamps: dict[str, float] = {}

@@ -4,7 +4,6 @@ from __future__ import annotations
 
 from unittest.mock import AsyncMock, MagicMock, patch
 
-import pytest
 from httpx import AsyncClient
 
 
@@ -112,7 +111,6 @@ async def test_chat_message_error_returns_500(test_client: AsyncClient):
 
 async def test_chat_stream_success(test_client: AsyncClient):
     """POST /api/chat/stream with mocked gemini → SSE stream."""
-    import json as _json
 
     gemini_mock = MagicMock()
     test_client._transport.app.state.gemini = gemini_mock  # type: ignore[attr-defined]

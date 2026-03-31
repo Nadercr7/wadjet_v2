@@ -4,6 +4,7 @@
 {% block seo %}
 {% set og_title = t('scan.title', lang) + ' ' + t('scan.title_gold', lang) + ' — ' + t('app.name', lang) %}
 {% set og_description = t('scan.meta_desc', lang) %}
+{% set og_image = base_url + '/static/images/og-wadjet.png' %}
 {% set canonical_url = base_url + '/scan' %}
 {% include "partials/seo.html" %}
 {% endblock %}

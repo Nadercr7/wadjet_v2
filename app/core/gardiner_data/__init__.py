@@ -8,6 +8,7 @@ Each sign is a tuple:
 from __future__ import annotations
 
 from app.core.gardiner_data.a_man import SIGNS as _A_SIGNS
+from app.core.gardiner_data.aa_unclassified import SIGNS as _AA_SIGNS
 from app.core.gardiner_data.b_woman import SIGNS as _B_SIGNS
 from app.core.gardiner_data.c_deities import SIGNS as _C_SIGNS
 from app.core.gardiner_data.d_body import SIGNS as _D_SIGNS
@@ -32,7 +33,6 @@ from app.core.gardiner_data.w_vessels import SIGNS as _W_SIGNS
 from app.core.gardiner_data.x_loaves import SIGNS as _X_SIGNS
 from app.core.gardiner_data.y_writings import SIGNS as _Y_SIGNS
 from app.core.gardiner_data.z_strokes import SIGNS as _Z_SIGNS
-from app.core.gardiner_data.aa_unclassified import SIGNS as _AA_SIGNS
 
 ALL_SIGNS: list[tuple[str, int, str, str, str, str, str]] = []
 ALL_SIGNS.extend(_A_SIGNS)

@@ -2,10 +2,8 @@
 
 from __future__ import annotations
 
-import io
-from unittest.mock import AsyncMock, MagicMock, patch
+from unittest.mock import MagicMock, patch
 
-import pytest
 from httpx import AsyncClient
 
 
@@ -81,8 +79,8 @@ async def test_read_empty_file(test_client: AsyncClient):
 
 def _make_test_jpeg() -> bytes:
     """Create a minimal valid JPEG image for testing."""
-    import numpy as np
     import cv2
+    import numpy as np
 
     img = np.full((64, 64, 3), 128, dtype=np.uint8)
     _, buf = cv2.imencode(".jpg", img)
@@ -253,8 +251,8 @@ async def test_read_ai_unavailable(test_client: AsyncClient):
 
 async def test_scan_png_accepted(test_client: AsyncClient):
     """PNG files with correct magic bytes are accepted."""
-    import numpy as np
     import cv2
+    import numpy as np
 
     img = np.full((64, 64, 3), 128, dtype=np.uint8)
     _, buf = cv2.imencode(".png", img)

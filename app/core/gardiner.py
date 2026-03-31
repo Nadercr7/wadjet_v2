@@ -217,11 +217,7 @@ def is_determinative(gardiner_code: str) -> bool:
         return False
     # Only pure determinatives — signs whose primary type is DETERMINATIVE
     # and that have no phonetic value
-    if sign.sign_type == SignType.DETERMINATIVE:
-        return True
-    # Signs with a phonetic/logographic reading are NOT determinatives
-    # even if they have a determinative_class
-    return False
+    return sign.sign_type == SignType.DETERMINATIVE
 
 
 def get_determinative_class(gardiner_code: str) -> str:

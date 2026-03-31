@@ -112,7 +112,7 @@ async def add_fav(
     try:
         fav = await add_favorite(db, user.id, body.item_type, body.item_id)
     except IntegrityError:
-        raise HTTPException(status_code=409, detail="Already favorited")
+        raise HTTPException(status_code=409, detail="Already favorited") from None
     return JSONResponse(content={"id": fav.id, "item_type": fav.item_type, "item_id": fav.item_id}, status_code=201)
 
 

@@ -10,6 +10,7 @@ POST /api/explore/identify     — Hybrid ONNX + Gemini landmark identification
 from __future__ import annotations
 
 import asyncio
+import contextlib
 import json
 import logging
 import threading
@@ -22,17 +23,14 @@ import numpy as np
 from fastapi import APIRouter, File, HTTPException, Query, Request, UploadFile
 from fastapi.responses import JSONResponse, RedirectResponse
 
-from app.rate_limit import limiter
-from app.i18n import get_lang
-
 from app.core.landmarks import (
     ATTRACTIONS,
     Attraction,
-    AttractionType,
-    City,
     get_by_slug,
     get_slug,
 )
+from app.i18n import get_lang
+from app.rate_limit import limiter
 
 logger = logging.getLogger(__name__)
 
@@ -641,7 +639,6 @@ async def get_landmark(slug: str, request: Request):
 
     # Build base response from expanded sites + wiki + curated enrichment
     if attraction:
-        img_counts = _load_image_counts()
 
         # Recommendations
         from app.core.recommendation_engine import recommend
@@ -831,9 +828,7 @@ def _normalize_slug(raw_slug: str) -> str:
     # Check known class as prefix of raw slug (e.g. "bibliotheca_alexandrina" in "bibliotheca_alexandrina_planetarium")
     best_match = ""
     for cls in classes:
-        if normalized.startswith(cls) and len(cls) > len(best_match):
-            best_match = cls
-        elif cls.startswith(normalized) and len(cls) > len(best_match):
+        if normalized.startswith(cls) and len(cls) > len(best_match) or cls.startswith(normalized) and len(cls) > len(best_match):
             best_match = cls
 
     if best_match and best_match in class_set:
@@ -1055,6 +1050,7 @@ async def identify_landmark(request: Request, file: UploadFile = File(...)):
     3. Normalize slug + generate description
     """
     import asyncio
+
     from app.core.ensemble import Candidate, merge_landmark
 
     # Validate file
@@ -1228,10 +1224,8 @@ async def identify_landmark(request: Request, file: UploadFile = File(...)):
     # ── Step 5: Get description if missing ──
     description = merged.description
     if not description and gemini and gemini.available:
-        try:
+        with contextlib.suppress(Exception):
             description = await gemini.describe_landmark(merged.slug, merged.name)
-        except Exception:
-            pass
 
     result = {
         "name": merged.name or _load_display_names().get(merged.slug, merged.slug.replace("_", " ").title()),

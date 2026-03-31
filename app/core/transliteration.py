@@ -21,11 +21,8 @@ from __future__ import annotations
 import json
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Optional
 
 from app.core.gardiner import (
-    GARDINER_TRANSLITERATION,
-    SignType,
     get_determinative_class,
     get_sign_type,
     get_transliteration,
@@ -34,7 +31,6 @@ from app.core.gardiner import (
 from app.core.reading_order import (
     BBox,
     Direction,
-    GlyphGroup,
     LayoutMode,
     detect_layout_mode,
     detect_reading_direction,
@@ -66,7 +62,7 @@ class TransliterationEngine:
 
     def __init__(
         self,
-        label_mapping_path: Optional[str | Path] = None,
+        label_mapping_path: str | Path | None = None,
         show_determinatives: bool = True,
         show_unknown: bool = True,
         group_separator: str = "-",
@@ -123,7 +119,7 @@ class TransliterationEngine:
     def transliterate(
         self,
         boxes: list[BBox],
-        direction: Optional[Direction] = None,
+        direction: Direction | None = None,
     ) -> TransliterationResult:
         """Full transliteration pipeline.
 
@@ -243,7 +239,7 @@ class TransliterationEngine:
     def transliterate_from_raw(
         self,
         raw_boxes: list[dict],
-        direction: Optional[Direction] = None,
+        direction: Direction | None = None,
     ) -> TransliterationResult:
         """Convenience method: raw detection dicts -> transliteration."""
         bboxes = self.boxes_to_bboxes(raw_boxes)

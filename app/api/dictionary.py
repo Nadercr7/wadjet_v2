@@ -18,13 +18,12 @@ from functools import lru_cache
 from fastapi import APIRouter, HTTPException, Query, Request
 from fastapi.responses import JSONResponse, Response
 
-from app.rate_limit import limiter
-
 from app.core.gardiner import (
     GARDINER_TRANSLITERATION,
     GardinerSign,
     SignType,
 )
+from app.rate_limit import limiter
 
 router = APIRouter(prefix="/api/dictionary", tags=["dictionary"])
 
@@ -957,7 +956,7 @@ async def list_signs(
             signs = [s for s in signs if s.sign_type == st]
         except ValueError:
             valid = [t.value for t in SignType]
-            raise HTTPException(status_code=400, detail=f"Invalid type. Valid: {valid}")
+            raise HTTPException(status_code=400, detail=f"Invalid type. Valid: {valid}") from None
 
     if search:
         q = search.lower()

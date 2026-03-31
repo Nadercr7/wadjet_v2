@@ -60,4 +60,4 @@ async def translate_transliteration(req: TranslateRequest, request: Request):
         })
     except Exception:
         logger.exception("Translation failed")
-        raise HTTPException(status_code=500, detail="An error occurred processing your request.")
+        raise HTTPException(status_code=500, detail="An error occurred processing your request.") from None

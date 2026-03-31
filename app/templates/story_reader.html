@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 {% block body_attrs %}data-narration-context="story_narration"{% endblock %}
-{% block title %}{{ t('stories.reader_title', lang) }} — {{ t('app.name', lang) }}{% endblock %}
-{% block description %}{{ t('stories.meta_desc', lang) }}{% endblock %}
+{% block title %}{{ story_title | default(t('stories.reader_title', lang)) }} — {{ t('app.name', lang) }}{% endblock %}
+{% block description %}{{ story_subtitle | default(t('stories.meta_desc', lang)) }}{% endblock %}
 {% block seo %}
-{% set og_title = t('stories.reader_title', lang) + ' — ' + t('app.name', lang) %}
-{% set og_description = t('stories.meta_desc', lang) %}
+{% set og_title = (story_title | default(t('stories.reader_title', lang))) + ' — ' + t('app.name', lang) %}
+{% set og_description = story_subtitle | default(t('stories.meta_desc', lang)) %}
 {% set canonical_url = base_url + '/stories/' + story_id %}
 {% include "partials/seo.html" %}
 {% endblock %}

@@ -33,7 +33,6 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from enum import Enum
-from typing import Optional
 
 
 class Direction(Enum):
@@ -211,7 +210,7 @@ def detect_layout_mode(
 
 def detect_reading_direction(
     boxes: list[BBox],
-    layout: Optional[LayoutMode] = None,
+    layout: LayoutMode | None = None,
 ) -> Direction:
     """Detect reading direction from facing signs.
 
@@ -244,8 +243,7 @@ def detect_reading_direction(
         return Direction.RIGHT_TO_LEFT
 
     # Compute overall inscription center
-    all_cx = [(b.x1 + b.x2) / 2 for b in boxes]
-    inscription_center = (min(b.x1 for b in boxes) + max(b.x2 for b in boxes)) / 2
+    # (unused vars removed — direction is determined by facing signs)
 
     # Count facing signs left vs right of center
     # Standard (right-facing) signs in right-to-left text tend to be
@@ -323,9 +321,7 @@ def _cluster_horizontal(
 
         # Check if overlap is significant relative to box height
         box_height = box.height
-        if box_height > 0 and overlap / box_height >= overlap_threshold:
-            current_line.append(box)
-        elif line_height > 0 and overlap / line_height >= overlap_threshold:
+        if box_height > 0 and overlap / box_height >= overlap_threshold or line_height > 0 and overlap / line_height >= overlap_threshold:
             current_line.append(box)
         else:
             lines.append(current_line)
@@ -354,9 +350,7 @@ def _cluster_vertical(
         overlap = max(0, overlap_x2 - overlap_x1)
 
         box_width = box.width
-        if box_width > 0 and overlap / box_width >= overlap_threshold:
-            current_col.append(box)
-        elif col_width > 0 and overlap / col_width >= overlap_threshold:
+        if box_width > 0 and overlap / box_width >= overlap_threshold or col_width > 0 and overlap / col_width >= overlap_threshold:
             current_col.append(box)
         else:
             columns.append(current_col)
@@ -439,10 +433,7 @@ def group_into_quadrats(
         curr = sorted_line[i]
 
         # Horizontal gap between adjacent signs
-        if direction == Direction.RIGHT_TO_LEFT:
-            gap = prev.x1 - curr.x2  # prev is to the right
-        else:
-            gap = curr.x1 - prev.x2
+        gap = prev.x1 - curr.x2 if direction == Direction.RIGHT_TO_LEFT else curr.x1 - prev.x2
 
         # Vertical overlap check -- stacked signs have high vertical overlap
         v_overlap_top = max(prev.y1, curr.y1)
@@ -463,7 +454,7 @@ def group_into_quadrats(
 
 def establish_reading_order(
     boxes: list[BBox],
-    direction: Optional[Direction] = None,
+    direction: Direction | None = None,
 ) -> list[GlyphGroup]:
     """Full pipeline: boxes -> layout detection -> line clustering -> quadrat
     grouping -> ordered sequence of glyph groups.

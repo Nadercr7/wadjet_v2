@@ -21,8 +21,7 @@ from app.db.crud import (
     update_user_profile,
     upsert_story_progress,
 )
-from app.db.models import Favorite, ScanHistory, StoryProgress, User
-
+from app.db.models import Favorite, ScanHistory, StoryProgress
 
 # ── User CRUD ──
 

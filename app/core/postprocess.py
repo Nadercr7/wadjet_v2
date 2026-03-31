@@ -5,11 +5,12 @@ hieroglyph bounding box detection using the YOLO26s model (NMS-free).
 Includes greedy IoU suppression to remove residual overlapping detections.
 """
 
+from dataclasses import dataclass
+from pathlib import Path
+
+import cv2
 import numpy as np
 import onnxruntime as ort
-import cv2
-from pathlib import Path
-from dataclasses import dataclass, field
 
 # ── Default tuning parameters ────────────────────────────────
 CONF_THRESHOLD = 0.20       # Minimum detection confidence (balanced for stone inscriptions)
@@ -195,12 +196,12 @@ class GlyphDetector:
                 if j == i or j in suppressed:
                     continue
                 # Check if small is fully contained inside big
+                # and big is >4x the area — suppress the bigger box
                 if (big.x1 <= small.x1 and big.y1 <= small.y1 and
-                        big.x2 >= small.x2 and big.y2 >= small.y2):
-                    # big contains small — suppress the bigger box if it's >4x the area
-                    if big.area > small.area * 4:
-                        suppressed.add(i)
-                        break
+                        big.x2 >= small.x2 and big.y2 >= small.y2
+                        and big.area > small.area * 4):
+                    suppressed.add(i)
+                    break
         return [d for i, d in enumerate(detections) if i not in suppressed]
 
     @staticmethod

@@ -7,7 +7,7 @@ import logging
 import secrets
 import time
 from collections import defaultdict
-from datetime import datetime, timedelta, timezone
+from datetime import UTC, datetime, timedelta
 
 from fastapi import APIRouter, Depends, HTTPException, Request, Response
 from fastapi.responses import JSONResponse
@@ -15,6 +15,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.auth.jwt import create_access_token, create_refresh_token, decode_token
 from app.auth.password import hash_password, verify_password
+from app.config import settings
 from app.db.crud import (
     create_email_token,
     create_user,
@@ -29,7 +30,6 @@ from app.db.crud import (
     validate_refresh_token,
     verify_user_email,
 )
-from app.config import settings
 from app.db.database import get_db
 from app.db.schemas import (
     ForgotPasswordRequest,
@@ -37,7 +37,6 @@ from app.db.schemas import (
     LoginRequest,
     RegisterRequest,
     ResetPasswordRequest,
-    TokenResponse,
     UserResponse,
     VerifyEmailRequest,
 )
@@ -320,7 +319,7 @@ async def send_verification(request: Request, db: AsyncSession = Depends(get_db)
 
     raw_token = secrets.token_urlsafe(32)
     token_hash = _hash_email_token(raw_token)
-    expires_at = datetime.now(timezone.utc) + timedelta(hours=24)
+    expires_at = datetime.now(UTC) + timedelta(hours=24)
     await create_email_token(db, user.id, token_hash, "verify", expires_at)
 
     send_verification_email(user.email, raw_token)
@@ -373,7 +372,7 @@ async def forgot_password(body: ForgotPasswordRequest, request: Request, db: Asy
 
     raw_token = secrets.token_urlsafe(32)
     token_hash = _hash_email_token(raw_token)
-    expires_at = datetime.now(timezone.utc) + timedelta(hours=1)
+    expires_at = datetime.now(UTC) + timedelta(hours=1)
     await create_email_token(db, user.id, token_hash, "reset", expires_at)
 
     send_password_reset_email(user.email, raw_token)

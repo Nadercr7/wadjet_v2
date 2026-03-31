@@ -43,7 +43,7 @@ def mock_settings() -> Settings:
 
 
 @pytest.fixture()
-async def test_db() -> AsyncGenerator[AsyncSession, None]:
+async def test_db() -> AsyncGenerator[AsyncSession]:
     """Create a fresh in-memory SQLite DB per test."""
     engine = create_async_engine("sqlite+aiosqlite:///:memory:", echo=False)
     async with engine.begin() as conn:
@@ -57,7 +57,7 @@ async def test_db() -> AsyncGenerator[AsyncSession, None]:
 
 
 @pytest.fixture()
-async def test_client(test_db: AsyncSession) -> AsyncGenerator[AsyncClient, None]:
+async def test_client(test_db: AsyncSession) -> AsyncGenerator[AsyncClient]:
     """Async HTTP client wired to a fresh test DB."""
     app = create_app()
 
@@ -76,7 +76,7 @@ async def test_client(test_db: AsyncSession) -> AsyncGenerator[AsyncClient, None
 @pytest.fixture()
 async def authenticated_client(
     test_db: AsyncSession,
-) -> AsyncGenerator[AsyncClient, None]:
+) -> AsyncGenerator[AsyncClient]:
     """Client with a valid auth token for a pre-created test user."""
     # Create test user directly in DB
     user = User(
@@ -117,7 +117,7 @@ async def authenticated_client(
 @pytest.fixture()
 async def admin_client(
     test_db: AsyncSession,
-) -> AsyncGenerator[AsyncClient, None]:
+) -> AsyncGenerator[AsyncClient]:
     """Client with a valid auth token for the admin user."""
     from app.config import settings
 

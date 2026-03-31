@@ -84,7 +84,7 @@ async def chat_message(body: ChatRequest, request: Request):
         })
     except Exception:
         logger.exception("Chat error")
-        raise HTTPException(status_code=500, detail="Failed to generate response")
+        raise HTTPException(status_code=500, detail="Failed to generate response") from None
 
 
 @router.post("/stream")

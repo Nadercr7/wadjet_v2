@@ -5,7 +5,7 @@ Server-side TTS (Gemini → Groq fallback) and speech-to-text.
 
 import logging
 
-from fastapi import APIRouter, HTTPException, Request, UploadFile, File, Form
+from fastapi import APIRouter, File, Form, HTTPException, Request, UploadFile
 from fastapi.responses import FileResponse, Response
 from pydantic import BaseModel, Field
 
@@ -109,7 +109,7 @@ async def speech_to_text(
 
     except Exception as e:
         logger.warning("Groq STT failed: %s", e)
-        raise HTTPException(status_code=502, detail="Speech-to-text failed")
+        raise HTTPException(status_code=502, detail="Speech-to-text failed") from None
 
 
 # ── Gemini TTS (Smart Fallback Primary) ───────────────────────────────────

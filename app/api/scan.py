@@ -6,6 +6,13 @@ POST /api/read       — AI-only reading (lightweight, no ONNX)
 
 Classification ensemble: ONNX first, then Gemini verifies low-confidence
 glyphs, Grok tiebreaks disagreements.
+
+NOTE (CQ-008): This file exceeds the 300-line convention. Candidate split:
+  - scan_helpers.py: _annotate_image, _crop_glyph, _needs_ai_fallback,
+    _apply_ai_results, _build_result_from_ai_reading, _merge_ai_and_onnx,
+    _map_ai_codes_to_onnx_bboxes, _detect_only, _enrich_response
+  - scan.py: Endpoints and async orchestration only
+  Deferred to avoid regression risk across 23+ tests.
 """
 
 from __future__ import annotations
@@ -15,11 +22,10 @@ import base64
 import json
 import logging
 import time
-
+from collections import Counter
 
 import cv2
 import numpy as np
-from collections import Counter
 from fastapi import APIRouter, File, Form, HTTPException, Request, UploadFile
 from fastapi.responses import JSONResponse
 
@@ -88,8 +94,9 @@ async def _read_image_bytes(file: UploadFile) -> tuple[bytes, np.ndarray, str]:
     # Convert HEIC → JPEG via Pillow (pillow-heif registers automatically if installed)
     if detected_mime == "image/heic":
         try:
-            from PIL import Image as PILImage
             import io
+
+            from PIL import Image as PILImage
             pil_img = PILImage.open(io.BytesIO(data))
             pil_img = pil_img.convert("RGB")
             buf = io.BytesIO()
@@ -101,7 +108,7 @@ async def _read_image_bytes(file: UploadFile) -> tuple[bytes, np.ndarray, str]:
             raise HTTPException(
                 status_code=400,
                 detail="Could not decode HEIC image. Please convert to JPEG or PNG.",
-            )
+            ) from None
 
     arr = np.frombuffer(data, np.uint8)
     image = cv2.imdecode(arr, cv2.IMREAD_COLOR)
@@ -698,7 +705,6 @@ async def _save_scan_history(request: Request, response: JSONResponse):
 
 async def _scan_ai_mode(ai_reader, pipeline, raw_bytes, mime, image, translate):
     """AI Vision reads inscription directly. ONNX only for bboxes."""
-    from app.core.hieroglyph_pipeline import GlyphResult, PipelineResult
 
     t0 = time.perf_counter()
 
@@ -727,9 +733,9 @@ async def _scan_ai_mode(ai_reader, pipeline, raw_bytes, mime, image, translate):
     logger.warning("AI mode: all vision providers failed, falling back to ONNX")
     try:
         result = await asyncio.to_thread(pipeline.process_image, image, translate=translate)
-    except Exception as e:
+    except Exception:
         logger.exception("ONNX fallback failed in AI mode")
-        raise HTTPException(status_code=500, detail="An error occurred processing your request.")
+        raise HTTPException(status_code=500, detail="An error occurred processing your request.") from None
 
     result.total_ms = (time.perf_counter() - t0) * 1000
     response_data = result.to_dict()
@@ -744,7 +750,7 @@ async def _scan_onnx_mode(pipeline, gemini, grok, raw_bytes, mime, image, transl
 
     try:
         result = await asyncio.to_thread(pipeline.process_image, image, translate=translate)
-    except Exception as e:
+    except Exception:
         logger.exception("Scan pipeline failed")
         # Provide hints based on common failure modes
         h, w = image.shape[:2]
@@ -752,7 +758,7 @@ async def _scan_onnx_mode(pipeline, gemini, grok, raw_bytes, mime, image, transl
             detail = "Image is too small for detection. Please use a larger, clearer photo."
         else:
             detail = "An error occurred processing your image. Please try a different photo."
-        raise HTTPException(status_code=500, detail=detail)
+        raise HTTPException(status_code=500, detail=detail) from None
 
     # AI fallback if ONNX detection was poor
     ai_fallback_used = False
@@ -808,7 +814,7 @@ async def _scan_auto_mode(
     # Wait for ONNX
     try:
         onnx_result = await onnx_task
-    except Exception as e:
+    except Exception:
         logger.exception("ONNX pipeline failed in auto mode")
         onnx_result = PipelineResult()
 
@@ -1066,7 +1072,7 @@ async def detect_glyphs(request: Request, file: UploadFile = File(...)):
         detections = await asyncio.to_thread(_run_detection)
     except Exception:
         logger.exception("Detection failed")
-        raise HTTPException(status_code=500, detail="An error occurred processing your request.")
+        raise HTTPException(status_code=500, detail="An error occurred processing your request.") from None
 
     h, w = image.shape[:2]
     return JSONResponse(content={

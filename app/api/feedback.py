@@ -3,11 +3,10 @@
 from __future__ import annotations
 
 import logging
-import re
 
+import bleach
 from fastapi import APIRouter, Depends, HTTPException, Request
 from fastapi.responses import JSONResponse
-from markupsafe import escape as html_escape
 from pydantic import BaseModel, Field, field_validator
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -26,9 +25,8 @@ VALID_CATEGORIES = {"bug", "suggestion", "praise", "other"}
 
 
 def _sanitize(v: str) -> str:
-    """Strip HTML tags then escape remaining entities for defense-in-depth."""
-    stripped = re.sub(r"<[^>]*>", "", v).strip()
-    return str(html_escape(stripped))
+    """Strip ALL HTML tags via bleach (zero allowed tags) and normalize whitespace."""
+    return bleach.clean(v, tags=[], attributes={}, strip=True).strip()
 
 
 class FeedbackRequest(BaseModel):

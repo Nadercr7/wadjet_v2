@@ -8,7 +8,6 @@ from __future__ import annotations
 
 import logging
 from collections import OrderedDict
-from functools import lru_cache
 from typing import Any
 
 import httpx

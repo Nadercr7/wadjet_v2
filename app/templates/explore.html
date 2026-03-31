@@ -5,6 +5,7 @@
 {% block seo %}
 {% set og_title = t('explore.title', lang) + ' ' + t('explore.title_gold', lang) + ' — ' + t('app.name', lang) %}
 {% set og_description = t('explore.meta_desc', lang) %}
+{% set og_image = base_url + '/static/images/og-wadjet.png' %}
 {% set canonical_url = base_url + '/explore' %}
 {% include "partials/seo.html" %}
 {% endblock %}

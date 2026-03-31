@@ -49,3 +49,8 @@
     }
 }
 </script>
+{% if extra_jsonld %}
+<script type="application/ld+json">
+{{ extra_jsonld | tojson }}
+</script>
+{% endif %}

@@ -16,13 +16,12 @@ from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel, Field
 
-from app.rate_limit import limiter
-
 from app.core.gardiner import (
     GARDINER_TRANSLITERATION,
     GardinerSign,
     SignType,
 )
+from app.rate_limit import limiter
 
 logger = logging.getLogger(__name__)
 
@@ -462,7 +461,7 @@ async def convert_text(req: WriteRequest, request: Request):
         raise
     except Exception:
         logger.exception("Unexpected error in convert_text")
-        raise HTTPException(status_code=500, detail="An error occurred processing your request.")
+        raise HTTPException(status_code=500, detail="An error occurred processing your request.") from None
 
 
 async def _convert_text_inner(req: WriteRequest, request: Request):

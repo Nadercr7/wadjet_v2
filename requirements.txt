@@ -24,6 +24,7 @@ faiss-cpu>=1.8.0
 # Security
 slowapi~=0.1.9
 starlette-csrf~=3.0.0
+bleach>=6.0
 
 # Database & Auth
 sqlalchemy[asyncio]~=2.0

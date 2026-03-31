@@ -14,7 +14,7 @@ from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel, Field
 
-from app.core.stories_engine import get_chapter, get_story_ids, load_all_stories, load_story
+from app.core.stories_engine import get_chapter, load_all_stories, load_story
 from app.rate_limit import limiter
 
 logger = logging.getLogger(__name__)

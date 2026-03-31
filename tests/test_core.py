@@ -2,9 +2,6 @@
 
 from __future__ import annotations
 
-import pytest
-
-
 # ── Stories Engine ──
 
 
@@ -125,8 +122,9 @@ def test_decode_invalid_token():
 
 
 def test_decode_expired_token():
-    from jose import jwt as jose_jwt
     from datetime import datetime, timedelta
+
+    from jose import jwt as jose_jwt
 
     token = jose_jwt.encode(
         {"sub": "user", "exp": datetime.utcnow() - timedelta(hours=1)},

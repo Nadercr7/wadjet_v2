@@ -17,7 +17,6 @@ from __future__ import annotations
 
 import json
 import logging
-import os
 import time
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -259,7 +258,7 @@ class HieroglyphPipeline:
             probs = exp / exp.sum(axis=-1, keepdims=True)
 
         results = []
-        for (det, _), prob in zip(crops, probs):
+        for (det, _), prob in zip(crops, probs, strict=False):
             class_id = int(np.argmax(prob))
             class_conf = float(prob[class_id])
             gardiner = self._idx_to_gardiner.get(class_id, f"UNK_{class_id}")

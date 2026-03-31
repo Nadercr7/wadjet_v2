@@ -140,8 +140,9 @@ async def test_logout_clears_cookie(logged_in_client: AsyncClient):
 
 
 async def test_expired_token_rejected(test_client: AsyncClient):
-    from jose import jwt
     from datetime import datetime, timedelta
+
+    from jose import jwt
 
     token = jwt.encode(
         {"sub": "test-user", "exp": datetime.utcnow() - timedelta(hours=1)},

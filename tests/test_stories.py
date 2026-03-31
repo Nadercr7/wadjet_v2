@@ -2,8 +2,6 @@
 
 from __future__ import annotations
 
-from unittest.mock import AsyncMock, patch
-
 import pytest
 from httpx import AsyncClient
 
@@ -156,7 +154,7 @@ async def test_stories_image_bad_story_id(test_client: AsyncClient):
 
 async def test_interact_choose_glyph_correct(test_client: AsyncClient):
     """Submit correct answer to choose_glyph interaction → correct=True."""
-    from app.core.stories_engine import get_story_ids, get_chapter
+    from app.core.stories_engine import get_chapter, get_story_ids
 
     ids = get_story_ids()
     if not ids:
@@ -195,7 +193,7 @@ async def test_interact_choose_glyph_correct(test_client: AsyncClient):
 
 async def test_interact_choose_glyph_wrong(test_client: AsyncClient):
     """Submit wrong answer to choose_glyph interaction → correct=False."""
-    from app.core.stories_engine import get_story_ids, get_chapter
+    from app.core.stories_engine import get_chapter, get_story_ids
 
     ids = get_story_ids()
     if not ids:
@@ -239,7 +237,7 @@ async def test_interact_choose_glyph_wrong(test_client: AsyncClient):
 
 async def test_interact_glyph_discovery(test_client: AsyncClient):
     """Glyph discovery interaction always returns correct=True."""
-    from app.core.stories_engine import get_story_ids, get_chapter
+    from app.core.stories_engine import get_chapter, get_story_ids
 
     ids = get_story_ids()
     if not ids:
@@ -294,7 +292,7 @@ async def test_interact_out_of_bounds(test_client: AsyncClient):
 
 async def test_interact_write_word(test_client: AsyncClient):
     """Submit correct Gardiner code to write_word → correct=True."""
-    from app.core.stories_engine import get_story_ids, load_story, get_chapter
+    from app.core.stories_engine import get_story_ids, load_story
 
     ids = get_story_ids()
     if not ids:

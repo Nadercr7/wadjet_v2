@@ -54,7 +54,15 @@ async def scan(request: Request):
 async def dictionary(request: Request):
     templates = request.app.state.templates
     lang = get_lang(request)
-    return templates.TemplateResponse(request, "dictionary.html", {"lang": lang, "page_name": "dictionary"})
+    extra_jsonld = {
+        "@context": "https://schema.org",
+        "@type": "DefinedTermSet",
+        "name": "Gardiner Sign List",
+        "description": "Comprehensive dictionary of 1,000+ ancient Egyptian hieroglyphic signs",
+        "inLanguage": ["en", "ar"],
+        "educationalLevel": "Beginner to Advanced",
+    }
+    return templates.TemplateResponse(request, "dictionary.html", {"lang": lang, "page_name": "dictionary", "extra_jsonld": extra_jsonld})
 
 
 @router.get("/write", response_class=HTMLResponse)
@@ -71,7 +79,15 @@ async def write(request: Request):
 async def explore(request: Request):
     templates = request.app.state.templates
     lang = get_lang(request)
-    return templates.TemplateResponse(request, "explore.html", {"lang": lang, "page_name": "explore"})
+    extra_jsonld = {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Egyptian Heritage Sites",
+        "description": "Explore 260+ ancient Egyptian landmarks and heritage sites",
+        "numberOfItems": 260,
+        "itemListOrder": "Unordered",
+    }
+    return templates.TemplateResponse(request, "explore.html", {"lang": lang, "page_name": "explore", "extra_jsonld": extra_jsonld})
 
 
 @router.get("/hieroglyphs", response_class=HTMLResponse)
@@ -114,11 +130,27 @@ async def stories(request: Request):
 async def story_reader(request: Request, story_id: str):
     if not _STORY_ID_RE.match(story_id):
         raise HTTPException(status_code=404, detail="Story not found")
-    if load_story(story_id) is None:
+    story = load_story(story_id)
+    if story is None:
         raise HTTPException(status_code=404, detail="Story not found")
     templates = request.app.state.templates
     lang = get_lang(request)
-    return templates.TemplateResponse(request, "story_reader.html", {"story_id": story_id, "lang": lang, "page_name": "stories"})
+    # Per-page JSON-LD for story (CreativeWork)
+    extra_jsonld = {
+        "@context": "https://schema.org",
+        "@type": "CreativeWork",
+        "name": story.get("title", story_id),
+        "description": story.get("subtitle", ""),
+        "inLanguage": ["en", "ar"],
+        "genre": "Mythology",
+        "author": {"@type": "Person", "name": "Mr Robot"},
+    }
+    return templates.TemplateResponse(request, "story_reader.html", {
+        "story_id": story_id, "lang": lang, "page_name": "stories",
+        "story_title": story.get("title", story_id),
+        "story_subtitle": story.get("subtitle", ""),
+        "extra_jsonld": extra_jsonld,
+    })
 
 
 @router.get("/dictionary/lesson/{level}", response_class=HTMLResponse)
@@ -177,30 +209,39 @@ async def robots_txt():
 
 @router.get("/sitemap.xml")
 async def sitemap_xml():
+    from datetime import date
+
+    from app.core.stories_engine import get_story_ids
+
     base = settings.base_url.rstrip("/")
+    today = date.today().isoformat()
+
+    # Page priorities for SEO weighting
+    priorities = {
+        "/": "0.8", "/welcome": "0.9", "/stories": "0.7",
+        "/scan": "0.7", "/dictionary": "0.7", "/explore": "0.7",
+    }
+
     pages = [
-        "/",
-        "/welcome",
-        "/hieroglyphs",
-        "/landmarks",
-        "/scan",
-        "/dictionary",
-        "/write",
-        "/explore",
-        "/chat",
-        "/stories",
+        "/", "/welcome", "/hieroglyphs", "/landmarks",
+        "/scan", "/dictionary", "/write", "/explore", "/chat", "/stories",
     ]
     # Add lesson pages (5 levels)
     for level in range(1, 6):
         pages.append(f"/dictionary/lesson/{level}")
+    # Add all story detail pages
+    for sid in get_story_ids():
+        pages.append(f"/stories/{sid}")
+
     urls = ""
     for page in pages:
-        priority = "0.9" if page == "/welcome" else ""
+        prio = priorities.get(page, "")
         urls += "  <url>\n"
         urls += f"    <loc>{base}{page}</loc>\n"
+        urls += f"    <lastmod>{today}</lastmod>\n"
         urls += "    <changefreq>weekly</changefreq>\n"
-        if priority:
-            urls += f"    <priority>{priority}</priority>\n"
+        if prio:
+            urls += f"    <priority>{prio}</priority>\n"
         urls += "  </url>\n"
     xml = (
         '<?xml version="1.0" encoding="UTF-8"?>\n'

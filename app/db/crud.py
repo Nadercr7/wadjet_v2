@@ -3,14 +3,13 @@
 from __future__ import annotations
 
 import hashlib
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
-from sqlalchemy import case, func, select, delete
+from sqlalchemy import case, delete, func, select
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.db.models import EmailToken, Favorite, RefreshToken, ScanHistory, StoryProgress, User
-
 
 # ── Users ──
 
@@ -71,7 +70,7 @@ async def validate_refresh_token(db: AsyncSession, token: str) -> RefreshToken |
     result = await db.execute(
         select(RefreshToken).where(
             RefreshToken.token_hash == token_hash,
-            RefreshToken.expires_at > datetime.now(timezone.utc),
+            RefreshToken.expires_at > datetime.now(UTC),
         )
     )
     return result.scalar_one_or_none()
@@ -256,7 +255,7 @@ async def validate_email_token(db: AsyncSession, token_hash: str, token_type: st
         select(EmailToken).where(
             EmailToken.token_hash == token_hash,
             EmailToken.token_type == token_type,
-            EmailToken.expires_at > datetime.now(timezone.utc),
+            EmailToken.expires_at > datetime.now(UTC),
         )
     )
     return result.scalar_one_or_none()
@@ -271,7 +270,7 @@ async def delete_email_token(db: AsyncSession, token_id: int) -> None:
 
 async def get_user_stats(db: AsyncSession, user_id: str) -> dict:
     # Combined query 1: scan stats (count, total glyphs, today's scans) — 1 round trip
-    today_start = datetime.now(timezone.utc).replace(hour=0, minute=0, second=0, microsecond=0)
+    today_start = datetime.now(UTC).replace(hour=0, minute=0, second=0, microsecond=0)
     scan_row = await db.execute(
         select(
             func.count().label("scan_count"),

@@ -27,7 +27,6 @@ import numpy as np
 
 if TYPE_CHECKING:
     from app.core.ai_service import AIService
-    from app.core.groq_service import GroqService
     from app.core.gemini_service import GeminiService
 
 try:
@@ -140,7 +139,7 @@ class TranslationCache:
     def _key(transliteration: str) -> str:
         """Normalize and hash the transliteration."""
         normalized = transliteration.strip().lower()
-        return hashlib.md5(normalized.encode()).hexdigest()
+        return hashlib.sha256(normalized.encode()).hexdigest()
 
     def get(self, transliteration: str) -> dict | None:
         key = self._key(transliteration)
@@ -248,10 +247,10 @@ class RAGTranslator:
         k = top_k or self._top_k
         try:
             query_vec = self._embedder.embed_single(transliteration)
-            D, I = self._index.search(query_vec, k)
+            distances, indices = self._index.search(query_vec, k)
 
             results = []
-            for dist, idx in zip(D[0], I[0]):
+            for dist, idx in zip(distances[0], indices[0], strict=False):
                 if idx < 0 or idx >= len(self._corpus):
                     continue
                 entry = self._corpus[idx].copy()
