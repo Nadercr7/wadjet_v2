@@ -48,39 +48,7 @@ def _validate_audio_magic(data: bytes, mime_type: str) -> bool:
     return any(data[:len(m)] == m for m in magic_options)
 
 
-@router.post("/tts")
-@limiter.limit("20/minute")
-async def text_to_speech(
-    request: Request,
-    text: str = Form(..., min_length=1, max_length=2000),
-    lang: str = Form("en"),
-):
-    """Convert text to speech audio via Groq PlayAI TTS.
-
-    Returns audio/wav. Falls back to 404 if Groq unavailable.
-    """
-    groq = getattr(request.app.state, "groq", None)
-    if not groq:
-        raise HTTPException(status_code=404, detail="Groq TTS not available")
-
-    voice = _VOICE_MAP.get(lang, _VOICE_MAP["en"])
-
-    try:
-        audio_bytes = await groq.tts(
-            text[:2000],
-            model=_TTS_MODEL,
-            voice=voice,
-            response_format="wav",
-        )
-        return Response(
-            content=audio_bytes,
-            media_type="audio/wav",
-            headers={"Cache-Control": "public, max-age=3600"},
-        )
-
-    except Exception as e:
-        logger.warning("Groq TTS failed: %s", e)
-        raise HTTPException(status_code=502, detail="TTS generation failed")
+# /api/tts removed (HIERO-005): use /api/audio/speak instead
 
 
 # ── Groq STT ──────────────────────────────────────────────────────────────

@@ -130,6 +130,27 @@ class GeminiService:
         )
         return response.text or "{}"
 
+    async def generate_vision_json(
+        self,
+        contents: list[Any],
+        *,
+        model: str | None = None,
+        system_instruction: str | None = None,
+        temperature: float | None = None,
+        max_output_tokens: int | None = None,
+    ) -> str:
+        """Multimodal → JSON: accepts a list of text/image Parts."""
+        config = genai_types.GenerateContentConfig(
+            system_instruction=system_instruction,
+            temperature=temperature,
+            max_output_tokens=max_output_tokens,
+            response_mime_type="application/json",
+        )
+        response = await self._generate_with_retry(
+            model=model or self.default_model, contents=contents, config=config,
+        )
+        return response.text or "{}"
+
     async def generate_text_stream(
         self,
         prompt: str,

@@ -151,6 +151,9 @@ def merge_hieroglyph(
     if grok and grok.slug:
         candidates.append(grok)
 
+    # Filter out candidates with empty slugs (HIERO-013)
+    candidates = [c for c in candidates if c.slug]
+
     if not candidates:
         return "", 0.0, "none"
 

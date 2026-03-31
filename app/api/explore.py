@@ -55,11 +55,16 @@ class _EnrichmentCache:
     """LRU cache for AI-generated landmark detail fields.
 
     Persists to disk so regeneration only happens once per site.
+    Batches disk writes: saves at most once per _SAVE_INTERVAL seconds.
     """
+
+    _SAVE_INTERVAL = 30  # seconds between disk flushes
 
     def __init__(self) -> None:
         self._cache: OrderedDict[str, dict] = OrderedDict()
         self._loaded = False
+        self._dirty = False
+        self._save_task: asyncio.Task | None = None
 
     def _load(self) -> None:
         if self._loaded:
@@ -89,7 +94,19 @@ class _EnrichmentCache:
 
     async def put_async(self, slug: str, fields: dict) -> None:
         self.put(slug, fields)
-        await self.save_async()
+        self._dirty = True
+        self._schedule_save()
+
+    def _schedule_save(self) -> None:
+        """Debounce disk writes — save after _SAVE_INTERVAL seconds of quiet."""
+        if self._save_task and not self._save_task.done():
+            return  # already scheduled
+        self._save_task = asyncio.create_task(self._deferred_save())
+
+    async def _deferred_save(self) -> None:
+        await asyncio.sleep(self._SAVE_INTERVAL)
+        if self._dirty:
+            await self.save_async()
 
     def _save(self) -> None:
         try:
@@ -97,6 +114,7 @@ class _EnrichmentCache:
             tmp = _ENRICHMENT_CACHE_FILE.with_suffix('.tmp')
             tmp.write_text(data, encoding="utf-8")
             tmp.replace(_ENRICHMENT_CACHE_FILE)
+            self._dirty = False
         except Exception:
             logger.warning("Failed to save enrichment cache")
 

@@ -32,6 +32,9 @@ router = APIRouter(prefix="/api", tags=["scan"])
 MAX_FILE_SIZE = 10 * 1024 * 1024
 LOW_CONF_THRESHOLD = 0.5  # glyphs below this get AI verification
 
+# AI call budget per scan request (HIERO-015)
+MAX_AI_CALLS_PER_SCAN = 3  # ai_reading + verify + tiebreak = 3 max
+
 # Magic byte signatures for image validation (not just Content-Type header)
 MAGIC_BYTES = {
     b'\xff\xd8\xff': 'image/jpeg',
@@ -283,18 +286,13 @@ async def _ai_full_reading(
         from google.genai import types as genai_types
 
         image_part = genai_types.Part.from_bytes(data=image_bytes, mime_type=mime)
-        config = genai_types.GenerateContentConfig(
+        response_text = await gemini.generate_vision_json(
+            contents=[prompt, image_part],
             system_instruction=system,
             temperature=0.1,
             max_output_tokens=2048,
-            response_mime_type="application/json",
         )
-        response = await gemini._generate_with_retry(
-            model=gemini.default_model,
-            contents=[prompt, image_part],
-            config=config,
-        )
-        data = json.loads(response.text or "{}")
+        data = json.loads(response_text or "{}")
         if data.get("glyphs"):
             logger.info("AI full reading: found %d glyphs", len(data["glyphs"]))
             return data
@@ -421,18 +419,13 @@ async def _full_sequence_verify(
                     data=crop_bytes, mime_type="image/jpeg",
                 ))
 
-        config = genai_types.GenerateContentConfig(
+        response_text = await gemini.generate_vision_json(
+            contents=contents,
             system_instruction=system,
             temperature=0.1,
             max_output_tokens=1024,
-            response_mime_type="application/json",
         )
-        response = await gemini._generate_with_retry(
-            model=gemini.default_model,
-            contents=contents,
-            config=config,
-        )
-        data = json.loads(response.text or "{}")
+        data = json.loads(response_text or "{}")
         gemini_corrections = {
             int(k): v for k, v in data.get("corrections", {}).items()
             if v and int(k) < len(glyphs)
@@ -798,6 +791,7 @@ async def _scan_auto_mode(
     from app.core.hieroglyph_pipeline import PipelineResult
 
     t0 = time.perf_counter()
+    ai_calls_used = 0  # Track AI call budget (HIERO-015)
 
     # Run ONNX full pipeline and AI reading concurrently
     onnx_task = asyncio.to_thread(pipeline.process_image, image, translate=translate)
@@ -807,6 +801,7 @@ async def _scan_auto_mode(
         ai_task = asyncio.create_task(
             ai_reader.read_inscription(raw_bytes, mime),
         )
+        ai_calls_used += 1
     else:
         ai_task = None
 
@@ -832,6 +827,7 @@ async def _scan_auto_mode(
         response_data = result.to_dict()
         response_data["detection_source"] = f"ai_vision ({ai_reading.provider})"
         response_data["mode"] = "auto"
+        response_data["ai_calls_used"] = ai_calls_used
         response_data["ai_reading"] = ai_reading.to_dict()
         return JSONResponse(content=_enrich_response(response_data, image))
 
@@ -840,15 +836,19 @@ async def _scan_auto_mode(
         # Run verification on ONNX results if confidence is low
         VERIFY_CONFIDENCE_THRESHOLD = 0.6
         avg_class_conf = sum(g.class_confidence for g in onnx_result.glyphs) / len(onnx_result.glyphs)
-        if avg_class_conf < VERIFY_CONFIDENCE_THRESHOLD and gemini:
+        if avg_class_conf < VERIFY_CONFIDENCE_THRESHOLD and gemini and ai_calls_used < MAX_AI_CALLS_PER_SCAN:
+            ai_calls_used += 1  # verify call
             corrected_glyphs, corrections_applied = await _full_sequence_verify(
-                gemini, grok, image, onnx_result.glyphs,
+                gemini, grok if ai_calls_used < MAX_AI_CALLS_PER_SCAN else None, image, onnx_result.glyphs,
             )
+            if grok and corrections_applied:
+                ai_calls_used += 1  # tiebreak call
             onnx_result.glyphs = corrected_glyphs
             if corrections_applied:
                 await _retransliterate_and_translate(pipeline, onnx_result, translate)
-    elif _needs_ai_fallback(onnx_result):
+    elif _needs_ai_fallback(onnx_result) and ai_calls_used < MAX_AI_CALLS_PER_SCAN:
         # ONNX detection was poor — try legacy AI fallback
+        ai_calls_used += 1
         ai_data = await _ai_full_reading(gemini, raw_bytes, mime, image)
         if ai_data and ai_data.get("glyphs"):
             _apply_ai_results(onnx_result, ai_data, image)
@@ -860,6 +860,7 @@ async def _scan_auto_mode(
     response_data = onnx_result.to_dict()
     response_data["detection_source"] = "onnx"
     response_data["mode"] = "auto"
+    response_data["ai_calls_used"] = ai_calls_used
     return JSONResponse(content=_enrich_response(response_data, image))
 
 

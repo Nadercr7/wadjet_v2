@@ -248,6 +248,11 @@ class HieroglyphPipeline:
         outputs = session.run(None, {input_name: batch})
         probs = outputs[0]
 
+        # Verify model output matches label mapping (HIERO-009)
+        assert probs.shape[-1] == len(self._idx_to_gardiner), (
+            f"Model output classes {probs.shape[-1]} != label mapping {len(self._idx_to_gardiner)}"
+        )
+
         # Apply softmax if logits (check if already normalized)
         if probs.shape[-1] > 1 and not np.allclose(probs.sum(axis=-1), 1.0, atol=0.1):
             exp = np.exp(probs - probs.max(axis=-1, keepdims=True))

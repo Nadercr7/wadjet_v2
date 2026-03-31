@@ -12,7 +12,7 @@ from fastapi.templating import Jinja2Templates
 from slowapi import _rate_limit_exceeded_handler
 from slowapi.errors import RateLimitExceeded
 
-from app.api import audio, auth, chat, dictionary, explore, feedback, health, pages, quiz, scan, stories, translate, user, write
+from app.api import audio, auth, chat, dictionary, explore, feedback, health, pages, scan, stories, translate, user, write
 from app.config import settings
 from app.rate_limit import limiter
 
@@ -155,6 +155,14 @@ async def lifespan(app: FastAPI):
         logger.warning("Token cleanup skipped: %s", e)
 
     yield  # app runs here
+
+    # Flush enrichment cache before shutdown
+    try:
+        from app.api.explore import enrichment_cache
+        if enrichment_cache._dirty:
+            await enrichment_cache.save_async()
+    except Exception:
+        pass
 
     # Cleanup
     if hasattr(app.state, "ai_service") and app.state.ai_service:
@@ -322,7 +330,6 @@ def create_app() -> FastAPI:
     app.include_router(explore.router)
     app.include_router(explore.identify_router)
     app.include_router(chat.router)
-    app.include_router(quiz.router)
     app.include_router(stories.router)
     app.include_router(auth.router)
     app.include_router(user.router)

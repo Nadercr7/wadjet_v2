@@ -6,6 +6,7 @@ image generation, and progress tracking.
 
 from __future__ import annotations
 
+import asyncio
 import logging
 import re
 
@@ -19,6 +20,9 @@ from app.rate_limit import limiter
 logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/api/stories", tags=["stories"])
+
+# ── Concurrency limiter for image generation (STORY-005) ──
+_IMAGE_GEN_SEMAPHORE = asyncio.Semaphore(3)  # max 3 concurrent image gen requests
 
 # ── Story Listing ─────────────────────────────────────────────────────────
 
@@ -159,7 +163,8 @@ async def generate_chapter_image(request: Request, story_id: str, index: int):
 
     from app.core.image_service import generate_story_image
 
-    image_url = await generate_story_image(prompt, story_id, index)
+    async with _IMAGE_GEN_SEMAPHORE:
+        image_url = await generate_story_image(prompt, story_id, index)
     if image_url:
         return {"image_url": image_url, "status": "ok"}
 

@@ -12,7 +12,7 @@ from pathlib import Path
 from dataclasses import dataclass, field
 
 # ── Default tuning parameters ────────────────────────────────
-CONF_THRESHOLD = 0.10       # Minimum detection confidence (lowered for stone inscriptions)
+CONF_THRESHOLD = 0.20       # Minimum detection confidence (balanced for stone inscriptions)
 MIN_BOX_AREA_RATIO = 0.0005 # Minimum box area as fraction of image area
 MAX_BOX_AREA_RATIO = 0.10   # Maximum box area as fraction of image area
 MIN_BOX_DIM = 10            # Minimum box dimension in pixels (at original scale)

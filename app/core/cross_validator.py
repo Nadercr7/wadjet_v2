@@ -108,7 +108,7 @@ def cross_validate(
     # Match each AI glyph to nearest ONNX glyph by IoU
     for i, (ai_g, ai_bbox) in enumerate(zip(ai_glyphs, ai_pixel_bboxes)):
         ai_code = ai_g.get("gardiner_code", "").upper()
-        ai_conf = float(ai_g.get("confidence", 0.8))
+        ai_conf = float(ai_g.get("confidence", 0.5))
 
         best_iou = 0.0
         best_j = -1
