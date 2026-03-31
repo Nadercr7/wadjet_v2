@@ -58,33 +58,51 @@ class InscriptionReading:
 _SYSTEM_PROMPT = (
     "You are a world-class Egyptologist with complete mastery of the Gardiner "
     "Sign List (700+ hieroglyphs). You can read ancient Egyptian hieroglyphic "
-    "inscriptions from photographs with near-perfect accuracy.\n\n"
+    "inscriptions from photographs with near-perfect accuracy, including "
+    "weathered stone carvings, painted reliefs, and papyrus.\n\n"
     "IMPORTANT RULES:\n"
     "- Use STANDARD Gardiner codes only (e.g., A1, D21, G1, M17, N35)\n"
     "- The category letter is uppercase, followed by a number\n"
-    "- Common signs: M17=reed (i), D21=mouth (r), N35=water (n), "
-    "G43=quail chick (w), X1=bread (t), D4=eye (ir), O1=house (pr)\n"
+    "- Common uniliterals: M17=reed (i), D21=mouth (r), N35=water (n), "
+    "G43=quail chick (w), X1=bread (t), D4=eye (ir), O1=house (pr), "
+    "V4=lasso (wA), S29=folded cloth (s), Q3=stool (p), V31=basket (k), "
+    "D46=hand (d), I9=horned viper (f), G17=owl (m), N29=hillslope (q)\n"
+    "- Common logograms: N5=sun disk (Ra), M23=sedge plant (nsw/sw), "
+    "L2=bee (bity), S34=ankh (life), R4=Hotep altar, Aa1=placenta (x), "
+    "U1=sickle (mA), Y5=game board (mn)\n"
+    "- CARTOUCHES: oval frames containing royal names. Read signs inside "
+    "the cartouche as a group. Look for common pharaoh name patterns:\n"
+    "  * Ra + mn + kheper = Menkheperra (Thutmose III)\n"
+    "  * Imn + Ra + ms + s = Ramesses\n"
+    "  * Wsr + mAat + Ra = Usermaatre (Ramesses II)\n"
+    "  * twt + anx + Imn = Tutankhamun\n"
     "- For MdC: use hyphens between signs, colons for vertical stacking, "
     "asterisks for horizontal juxtaposition\n"
     "- Respond ONLY with valid JSON. No markdown, no explanation outside JSON."
 )
 
 _USER_PROMPT = """\
-Read the hieroglyphs in this photograph.
+Read the hieroglyphs in this photograph of an ancient Egyptian inscription.
 
-For EACH hieroglyph visible:
-1. Identify its Gardiner code (e.g., G1, D21, M17)
-2. Estimate its bounding box as percentages of image dimensions [x1%, y1%, x2%, y2%]
+STEP 1 — Survey the image:
+- Identify all inscription areas (cartouches, columns, registers)
+- Determine the reading direction (signs face INTO the reading direction)
+- Note the surface type (stone relief, painted, papyrus)
+
+STEP 2 — For EACH hieroglyph visible:
+1. Identify its Gardiner code precisely (e.g., G1, D21, M17)
+2. Estimate its bounding box as percentages [x1%, y1%, x2%, y2%]
 3. State if it's a phonogram, logogram, or determinative
 4. Provide its transliteration value
 
-Then:
-5. Determine reading direction (look at which way birds/people face)
-6. Read the inscription in correct order
-7. Provide MdC (Manuel de Codage) transliteration
-8. Provide literal English translation
-9. Provide Arabic translation (فصحى)
-10. Add brief scholarly notes (e.g., "royal titulary", "offering formula")
+STEP 3 — Read and translate:
+5. Read the full inscription in the correct order
+6. Provide MdC (Manuel de Codage) transliteration
+7. Provide literal English translation
+8. Provide Arabic translation (فصحى)
+9. Add brief scholarly notes (period, formula type, significance)
+
+IMPORTANT: If you see cartouches, identify the royal name(s) they contain.
 
 Return ONLY valid JSON in this exact format:
 {

@@ -69,14 +69,10 @@ DIRECTOR_NOTES: dict[str, str] = {
         "Precise pronunciation, confident delivery."
     ),
     "pronunciation": (
-        "You are an Egyptology professor teaching hieroglyphic pronunciation. "
-        "Speak clearly, slowly, and precisely with academic authority. "
-        "Pronounce this ancient Egyptian sound:"
+        "Say this sound clearly and slowly. Just the sound, nothing else."
     ),
     "scan_pronunciation": (
-        "You are an Egyptology professor reading an ancient Egyptian word aloud. "
-        "Speak clearly, slowly, and precisely with academic authority. "
-        "Pronounce this ancient Egyptian sound:"
+        "Say this word clearly and slowly. Just the word, nothing else."
     ),
 }
 

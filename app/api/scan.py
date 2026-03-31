@@ -39,7 +39,12 @@ MAX_FILE_SIZE = 10 * 1024 * 1024
 LOW_CONF_THRESHOLD = 0.5  # glyphs below this get AI verification
 
 # AI call budget per scan request (HIERO-015)
-MAX_AI_CALLS_PER_SCAN = 3  # ai_reading + verify + tiebreak = 3 max
+MAX_AI_CALLS_PER_SCAN = 5  # ai_reading + fresh_reading + verify + tiebreak + translate
+
+# When ONNX avg classification confidence is below this, try a fresh AI reading
+# instead of just verifying individual codes. This catches the case where ONNX
+# found many detections but classified them all wrong.
+FRESH_AI_READING_THRESHOLD = 0.50
 
 # Magic byte signatures for image validation (not just Content-Type header)
 MAGIC_BYTES = {
@@ -232,18 +237,22 @@ def _crop_glyph(image: np.ndarray, g, pad: int = _CROP_PAD) -> bytes:
 
 AI_FALLBACK_MAX_DETECTIONS = 2    # Trigger AI if ONNX finds this many or fewer
 AI_FALLBACK_MIN_AVG_CONF = 0.30   # Trigger AI if avg ONNX confidence below this
+AI_FALLBACK_MIN_CLASS_CONF = 0.35  # Trigger if avg classification confidence below this
 
 
 def _needs_ai_fallback(result) -> bool:
     """Check if ONNX detection was poor enough to warrant AI fallback."""
     if result.num_detections == 0:
         return True
+    if not result.glyphs:
+        return True
     if result.num_detections <= AI_FALLBACK_MAX_DETECTIONS:
-        if not result.glyphs:
-            return True
         avg_conf = sum(g.confidence for g in result.glyphs) / len(result.glyphs)
-        return avg_conf < AI_FALLBACK_MIN_AVG_CONF
-    return False
+        if avg_conf < AI_FALLBACK_MIN_AVG_CONF:
+            return True
+    # Also trigger when many detections but classification is terrible
+    avg_class_conf = sum(g.class_confidence for g in result.glyphs) / len(result.glyphs)
+    return avg_class_conf < AI_FALLBACK_MIN_CLASS_CONF
 
 
 async def _ai_full_reading(
@@ -307,6 +316,89 @@ async def _ai_full_reading(
     except Exception:
         logger.warning("AI full reading failed", exc_info=True)
         return None
+
+
+async def _ai_fresh_reading(
+    ai_service,
+    gemini,
+    image_bytes: bytes,
+    mime: str,
+    image: np.ndarray,
+) -> dict | None:
+    """Fresh AI reading using the unified AIService (multi-provider fallback).
+
+    This is a higher-quality alternative to _ai_full_reading:
+    - Uses AIService (Gemini → Groq → Grok) instead of Gemini-only
+    - Has a more detailed Egyptologist prompt with cartouche awareness
+    - Asks for translation in addition to transliteration
+    - Falls back to _ai_full_reading (Gemini-only) if AIService unavailable
+
+    Returns dict with: glyphs, gardiner_sequence, transliteration,
+    translation_en, translation_ar, direction, notes
+    or None on failure.
+    """
+    h, w = image.shape[:2]
+
+    system = (
+        "You are a world-class Egyptologist with complete mastery of the Gardiner "
+        "Sign List (700+ hieroglyphs). You can read ancient Egyptian hieroglyphic "
+        "inscriptions from photographs of stone carvings, papyri, and temple walls.\n\n"
+        "KEY RULES:\n"
+        "- Use STANDARD Gardiner codes: uppercase category letter + number (A1, D21, G1, M17, N35)\n"
+        "- Be precise: distinguish similar signs carefully (e.g., M17 reed vs M18 reed+legs)\n"
+        "- Recognize CARTOUCHES (oval frames) as royal name enclosures\n"
+        "- Common royal name signs: L1/L2 (nsw-bity), G5 (Horus falcon), S34 (ankh), "
+        "  N5 (sun disk = Ra), M23 (sedge = sw), L2 (bee = bity), S29 (folded cloth = s)\n"
+        "- For MdC: use hyphens between signs, colons for vertical stacking, "
+        "asterisks for horizontal juxtaposition\n"
+        "- Respond ONLY with valid JSON. No markdown, no explanation outside JSON."
+    )
+
+    prompt = (
+        f"This photograph ({w}×{h}px) contains Egyptian hieroglyphs carved or painted "
+        f"on an ancient surface. Read the entire inscription carefully.\n\n"
+        f"INSTRUCTIONS:\n"
+        f"1. Determine reading direction (signs face into the reading direction)\n"
+        f"2. If cartouches are present, read them as royal names\n"
+        f"3. Identify EVERY hieroglyph with its standard Gardiner code\n"
+        f"4. For each glyph, estimate its bounding box as [x1%, y1%, x2%, y2%]\n"
+        f"5. Provide the full Manuel de Codage (MdC) transliteration\n"
+        f"6. Translate into English and Arabic (فصحى)\n"
+        f"7. Add scholarly notes (period, context, significance)\n\n"
+        f"Return ONLY valid JSON:\n"
+        f'{{\n'
+        f'  "glyphs": [\n'
+        f'    {{"gardiner_code": "N5", "bbox_pct": [10,20,25,45], "confidence": 0.95}}\n'
+        f'  ],\n'
+        f'  "direction": "right-to-left",\n'
+        f'  "gardiner_sequence": "N5-L1-M23-...",\n'
+        f'  "transliteration": "MdC string",\n'
+        f'  "translation_en": "English translation",\n'
+        f'  "translation_ar": "الترجمة العربية",\n'
+        f'  "notes": "Brief scholarly context"\n'
+        f'}}'
+    )
+
+    # Try unified AIService first (supports Gemini → Groq → Grok fallback)
+    if ai_service and ai_service.available:
+        try:
+            data, provider = await ai_service.vision_json(
+                image_bytes, mime, system, prompt, max_tokens=4096,
+            )
+            if data and data.get("glyphs"):
+                data["_provider"] = provider
+                logger.info(
+                    "AI fresh reading (%s): found %d glyphs, seq=%s",
+                    provider, len(data["glyphs"]),
+                    str(data.get("gardiner_sequence", ""))[:60],
+                )
+                return data
+            logger.info("AI fresh reading via AIService returned empty")
+        except Exception:
+            logger.warning("AI fresh reading via AIService failed", exc_info=True)
+
+    # Fallback to legacy Gemini-only reading
+    return await _ai_full_reading(gemini, image_bytes, mime, image)
 
 
 def _apply_ai_results(result, ai_data: dict, image: np.ndarray) -> None:
@@ -433,10 +525,29 @@ async def _full_sequence_verify(
             max_output_tokens=1024,
         )
         data = json.loads(response_text or "{}")
+
+        accuracy = data.get("accuracy_assessment", "").lower()
+        ai_full_seq = data.get("your_full_sequence", [])
         gemini_corrections = {
             int(k): v for k, v in data.get("corrections", {}).items()
             if v and int(k) < len(glyphs)
         }
+
+        # When AI says the ONNX reading is "poor" and provides its own
+        # full sequence, replace ALL glyph codes with AI's reading.
+        # This handles the case where ONNX got everything wrong.
+        if accuracy == "poor" and ai_full_seq and len(ai_full_seq) >= len(glyphs) // 2:
+            logger.info(
+                "Sequence verify: AI says 'poor' accuracy, replacing with AI sequence (%d codes)",
+                len(ai_full_seq),
+            )
+            for i, g in enumerate(glyphs):
+                if i < len(ai_full_seq):
+                    new_code = ai_full_seq[i].upper().strip()
+                    if new_code and new_code != g.gardiner_code.upper():
+                        g.gardiner_code = new_code
+                        g.class_confidence = 0.65
+            return glyphs, True
 
         if not gemini_corrections:
             return glyphs, False
@@ -653,6 +764,7 @@ async def scan_image(
     ai_reader = getattr(request.app.state, "ai_reader", None)
     gemini = getattr(request.app.state, "gemini", None)
     grok = getattr(request.app.state, "grok", None)
+    ai_service = getattr(request.app.state, "ai_service", None)
 
     # ── AI-only mode ──
     if mode == "ai":
@@ -667,7 +779,8 @@ async def scan_image(
     # ── Auto mode (default): AI-first with ONNX assist ──
     else:
         response = await _scan_auto_mode(
-            ai_reader, pipeline, gemini, grok, raw_bytes, mime, image, translate,
+            ai_reader, pipeline, gemini, grok, ai_service,
+            raw_bytes, mime, image, translate,
         )
 
     # Save scan history for authenticated users (fire-and-forget)
@@ -791,9 +904,21 @@ async def _scan_onnx_mode(pipeline, gemini, grok, raw_bytes, mime, image, transl
 
 
 async def _scan_auto_mode(
-    ai_reader, pipeline, gemini, grok, raw_bytes, mime, image, translate,
+    ai_reader, pipeline, gemini, grok, ai_service,
+    raw_bytes, mime, image, translate,
 ):
-    """Auto mode: AI-first with ONNX bboxes. Best quality."""
+    """Auto mode: AI-first with ONNX bboxes. Best quality.
+
+    Strategy:
+    1. Run AI reader + ONNX in parallel
+    2. If AI reader succeeds → merge AI text + ONNX bboxes (best path)
+    3. If AI reader fails:
+       a. If ONNX confidence is very low (< FRESH_AI_READING_THRESHOLD):
+          try a fresh AI reading via AIService → use it directly
+       b. If ONNX confidence is moderate (< VERIFY_THRESHOLD):
+          verify individual codes with Gemini + Grok tiebreak
+       c. If ONNX detection itself failed: try AI full reading fallback
+    """
     from app.core.hieroglyph_pipeline import PipelineResult
 
     t0 = time.perf_counter()
@@ -825,9 +950,8 @@ async def _scan_auto_mode(
         except Exception:
             logger.warning("AI reading failed in auto mode", exc_info=True)
 
-    # Decide which result to use
+    # ── Path A: AI reader succeeded — best quality path ──
     if ai_reading and ai_reading.success:
-        # AI succeeded — use AI reading for text, ONNX for bboxes
         result = _merge_ai_and_onnx(ai_reading, onnx_result, image, pipeline, translate)
         result.total_ms = (time.perf_counter() - t0) * 1000
         response_data = result.to_dict()
@@ -837,34 +961,93 @@ async def _scan_auto_mode(
         response_data["ai_reading"] = ai_reading.to_dict()
         return JSONResponse(content=_enrich_response(response_data, image))
 
-    # AI failed — use ONNX result with legacy verification
+    # ── Path B: AI reader failed — improve ONNX results ──
+    detection_source = "onnx"
+
     if onnx_result.glyphs:
-        # Run verification on ONNX results if confidence is low
-        VERIFY_CONFIDENCE_THRESHOLD = 0.6
         avg_class_conf = sum(g.class_confidence for g in onnx_result.glyphs) / len(onnx_result.glyphs)
-        if avg_class_conf < VERIFY_CONFIDENCE_THRESHOLD and gemini and ai_calls_used < MAX_AI_CALLS_PER_SCAN:
-            ai_calls_used += 1  # verify call
+        VERIFY_CONFIDENCE_THRESHOLD = 0.6
+
+        # B1: Very low confidence — ONNX classification is unreliable.
+        # Try a fresh AI reading using AIService (multi-provider fallback).
+        if avg_class_conf < FRESH_AI_READING_THRESHOLD and ai_calls_used < MAX_AI_CALLS_PER_SCAN:
+            logger.info(
+                "Auto mode: ONNX avg confidence %.1f%% < threshold %.0f%%, trying fresh AI reading",
+                avg_class_conf * 100, FRESH_AI_READING_THRESHOLD * 100,
+            )
+            ai_calls_used += 1
+            fresh_data = await _ai_fresh_reading(ai_service, gemini, raw_bytes, mime, image)
+            if fresh_data and fresh_data.get("glyphs"):
+                # AI reading succeeded — use it directly (don't re-classify with weak ONNX)
+                _apply_ai_results(onnx_result, fresh_data, image)
+                detection_source = f"ai_fresh ({fresh_data.get('_provider', 'ai')})"
+                # Translate with RAG translator for quality bilingual output
+                if translate and onnx_result.transliteration:
+                    try:
+                        translator = pipeline._get_translator()
+                        if translator and hasattr(translator, 'translate_async'):
+                            raw = await translator.translate_async(onnx_result.transliteration)
+                            onnx_result.translation_en = raw.get("english", "") or onnx_result.translation_en
+                            onnx_result.translation_ar = raw.get("arabic", "") or onnx_result.translation_ar
+                    except Exception:
+                        logger.warning("Translation after fresh AI reading failed")
+                # Also use AI-provided translation/notes if RAG didn't provide one
+                if not onnx_result.translation_en and fresh_data.get("translation_en"):
+                    onnx_result.translation_en = fresh_data["translation_en"]
+                if not onnx_result.translation_ar and fresh_data.get("translation_ar"):
+                    onnx_result.translation_ar = fresh_data["translation_ar"]
+            else:
+                # Fresh AI also failed — fall through to verification
+                logger.info("Fresh AI reading failed, trying sequence verification")
+                if avg_class_conf < VERIFY_CONFIDENCE_THRESHOLD and gemini and ai_calls_used < MAX_AI_CALLS_PER_SCAN:
+                    ai_calls_used += 1
+                    corrected_glyphs, corrections_applied = await _full_sequence_verify(
+                        gemini, grok if ai_calls_used < MAX_AI_CALLS_PER_SCAN else None,
+                        image, onnx_result.glyphs,
+                    )
+                    if grok and corrections_applied:
+                        ai_calls_used += 1
+                    onnx_result.glyphs = corrected_glyphs
+                    if corrections_applied:
+                        await _retransliterate_and_translate(pipeline, onnx_result, translate)
+
+        # B2: Moderate confidence — verify individual codes with AI
+        elif avg_class_conf < VERIFY_CONFIDENCE_THRESHOLD and gemini and ai_calls_used < MAX_AI_CALLS_PER_SCAN:
+            ai_calls_used += 1
             corrected_glyphs, corrections_applied = await _full_sequence_verify(
-                gemini, grok if ai_calls_used < MAX_AI_CALLS_PER_SCAN else None, image, onnx_result.glyphs,
+                gemini, grok if ai_calls_used < MAX_AI_CALLS_PER_SCAN else None,
+                image, onnx_result.glyphs,
             )
             if grok and corrections_applied:
-                ai_calls_used += 1  # tiebreak call
+                ai_calls_used += 1
             onnx_result.glyphs = corrected_glyphs
             if corrections_applied:
                 await _retransliterate_and_translate(pipeline, onnx_result, translate)
+
     elif _needs_ai_fallback(onnx_result) and ai_calls_used < MAX_AI_CALLS_PER_SCAN:
-        # ONNX detection was poor — try legacy AI fallback
+        # B3: ONNX detection itself was poor — try AI full reading
         ai_calls_used += 1
-        ai_data = await _ai_full_reading(gemini, raw_bytes, mime, image)
+        ai_data = await _ai_fresh_reading(ai_service, gemini, raw_bytes, mime, image)
         if ai_data and ai_data.get("glyphs"):
             _apply_ai_results(onnx_result, ai_data, image)
-            await _onnx_reclassify_and_retranslate(
-                pipeline, onnx_result, image, ai_data, translate,
-            )
+            detection_source = f"ai_fresh ({ai_data.get('_provider', 'ai')})"
+            if translate and onnx_result.transliteration:
+                try:
+                    translator = pipeline._get_translator()
+                    if translator and hasattr(translator, 'translate_async'):
+                        raw = await translator.translate_async(onnx_result.transliteration)
+                        onnx_result.translation_en = raw.get("english", "") or onnx_result.translation_en
+                        onnx_result.translation_ar = raw.get("arabic", "") or onnx_result.translation_ar
+                except Exception:
+                    logger.warning("Translation after AI fallback failed")
+            if not onnx_result.translation_en and ai_data.get("translation_en"):
+                onnx_result.translation_en = ai_data["translation_en"]
+            if not onnx_result.translation_ar and ai_data.get("translation_ar"):
+                onnx_result.translation_ar = ai_data["translation_ar"]
 
     onnx_result.total_ms = (time.perf_counter() - t0) * 1000
     response_data = onnx_result.to_dict()
-    response_data["detection_source"] = "onnx"
+    response_data["detection_source"] = detection_source
     response_data["mode"] = "auto"
     response_data["ai_calls_used"] = ai_calls_used
     return JSONResponse(content=_enrich_response(response_data, image))
@@ -928,10 +1111,34 @@ def _build_result_from_ai_reading(reading, image, onnx_detections, pipeline, tra
 
 
 def _merge_ai_and_onnx(ai_reading, onnx_result, image, pipeline, translate):
-    """Merge AI reading (for text) with ONNX result (for bboxes)."""
-    from app.core.hieroglyph_pipeline import PipelineResult
+    """Merge AI reading (for text) with ONNX result (for bboxes).
+
+    ONNX provides precise pixel-level bounding boxes for visualization.
+    AI provides the correct Gardiner codes, transliteration, and translation.
+    We map AI codes onto ONNX bboxes so the UI shows correct codes on each glyph.
+    """
+    from app.core.hieroglyph_pipeline import GlyphResult, PipelineResult
 
     result = PipelineResult()
+
+    # Build AI glyph objects (for spatial mapping)
+    h, w = image.shape[:2]
+    ai_glyphs = []
+    for g in ai_reading.glyphs:
+        bbox = g.get("bbox_pct", [0, 0, 100, 100])
+        if not isinstance(bbox, list) or len(bbox) != 4:
+            bbox = [0, 0, 100, 100]
+        conf = float(g.get("confidence", 0.8))
+        ai_glyphs.append(GlyphResult(
+            x1=max(0.0, bbox[0] * w / 100.0),
+            y1=max(0.0, bbox[1] * h / 100.0),
+            x2=min(float(w), bbox[2] * w / 100.0),
+            y2=min(float(h), bbox[3] * h / 100.0),
+            confidence=conf,
+            class_id=0,
+            gardiner_code=g.get("gardiner_code", ""),
+            class_confidence=conf,
+        ))
 
     # Use ONNX bboxes if available, else AI bboxes
     if onnx_result.glyphs:
@@ -939,22 +1146,14 @@ def _merge_ai_and_onnx(ai_reading, onnx_result, image, pipeline, translate):
         result.num_detections = onnx_result.num_detections
         result.detection_ms = onnx_result.detection_ms
         result.classification_ms = onnx_result.classification_ms
+
+        # Map AI codes onto ONNX bboxes (spatial proximity or sequence-based)
+        if ai_glyphs:
+            _map_ai_codes_to_onnx_bboxes(result.glyphs, ai_glyphs)
+        elif ai_reading.gardiner_sequence:
+            _map_sequence_to_glyphs(result.glyphs, ai_reading.gardiner_sequence)
     else:
-        h, w = image.shape[:2]
-        from app.core.hieroglyph_pipeline import GlyphResult
-        result.glyphs = [
-            GlyphResult(
-                x1=max(0.0, g["bbox_pct"][0] * w / 100.0),
-                y1=max(0.0, g["bbox_pct"][1] * h / 100.0),
-                x2=min(float(w), g["bbox_pct"][2] * w / 100.0),
-                y2=min(float(h), g["bbox_pct"][3] * h / 100.0),
-                confidence=float(g.get("confidence", 0.8)),
-                class_id=0,
-                gardiner_code=g.get("gardiner_code", ""),
-                class_confidence=float(g.get("confidence", 0.8)),
-            )
-            for g in ai_reading.glyphs
-        ]
+        result.glyphs = ai_glyphs
         result.num_detections = len(result.glyphs)
 
     # Use AI reading for text fields (superior accuracy)
@@ -968,23 +1167,56 @@ def _merge_ai_and_onnx(ai_reading, onnx_result, image, pipeline, translate):
 
 
 def _map_ai_codes_to_onnx_bboxes(onnx_glyphs, ai_glyphs):
-    """Map AI Gardiner codes to ONNX bboxes by spatial proximity."""
-    for og in onnx_glyphs:
+    """Map AI Gardiner codes to ONNX bboxes by spatial proximity.
+
+    Uses nearest-neighbor matching, but each AI glyph can only be matched
+    once (prevents multiple ONNX boxes from getting the same code).
+    """
+    used_ai = set()
+    # Sort ONNX glyphs by reading order (top-to-bottom, right-to-left)
+    indexed = list(enumerate(onnx_glyphs))
+
+    for _idx, og in indexed:
         best_dist = float("inf")
-        best_code = ""
+        best_ai_idx = -1
         ox = (og.x1 + og.x2) / 2
         oy = (og.y1 + og.y2) / 2
-        for ag in ai_glyphs:
+        for ai_idx, ag in enumerate(ai_glyphs):
+            if ai_idx in used_ai:
+                continue
             ax = (ag.x1 + ag.x2) / 2
             ay = (ag.y1 + ag.y2) / 2
             dist = ((ox - ax) ** 2 + (oy - ay) ** 2) ** 0.5
             if dist < best_dist:
                 best_dist = dist
-                best_code = ag.gardiner_code
-                best_conf = ag.class_confidence
-        if best_code:
-            og.gardiner_code = best_code
-            og.class_confidence = best_conf
+                best_ai_idx = ai_idx
+        if best_ai_idx >= 0:
+            ag = ai_glyphs[best_ai_idx]
+            og.gardiner_code = ag.gardiner_code
+            og.class_confidence = ag.class_confidence
+            used_ai.add(best_ai_idx)
+
+
+def _map_sequence_to_glyphs(glyphs, gardiner_sequence: str):
+    """Map a Gardiner sequence string onto glyphs sorted by reading order.
+
+    When AI provides gardiner_sequence (e.g. "N5-L1-M23-X1") but no
+    per-glyph bboxes, we parse the codes and assign them to glyphs
+    sorted by spatial position (reading order).
+    """
+    import re
+    # Parse codes from sequence: handle hyphens, colons (vertical), stars (horizontal)
+    codes = [c.strip() for c in re.split(r'[-:*\s]+', gardiner_sequence) if c.strip()]
+    if not codes:
+        return
+
+    # Sort glyphs by reading order: group by rows (Y), then right-to-left (X desc)
+    sorted_glyphs = sorted(glyphs, key=lambda g: (round(g.y1 / 30) * 30, -g.x1))
+
+    for i, g in enumerate(sorted_glyphs):
+        if i < len(codes):
+            g.gardiner_code = codes[i]
+            g.class_confidence = 0.75  # AI-assigned confidence
 
 
 def _detect_only(pipeline, image):
