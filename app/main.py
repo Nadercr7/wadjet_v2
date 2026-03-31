@@ -313,7 +313,7 @@ def create_app() -> FastAPI:
             "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://accounts.google.com; "
             "img-src 'self' data: blob: https:; "
             "media-src 'self' blob:; "
-            "connect-src 'self' blob: https://accounts.google.com; "
+            "connect-src 'self' blob: https://accounts.google.com https://oauth2.googleapis.com https://www.googleapis.com; "
             "font-src 'self' https://fonts.gstatic.com; "
             "frame-src https://accounts.google.com; "
             "frame-ancestors 'self' https://huggingface.co https://*.hf.space; "

@@ -46,3 +46,6 @@ def verify_google_token(credential: str) -> dict | None:
     except ValueError as e:
         logger.warning("Google token verification failed: %s", e)
         return None
+    except Exception as e:
+        logger.error("Google token verification error: %s", e)
+        return None
