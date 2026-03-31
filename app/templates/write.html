@@ -129,7 +129,7 @@
                 </div>
 
                 <!-- Palette grid -->
-                <div class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-2 max-h-64 overflow-y-auto pr-1">
+                <div class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-2 max-h-64 overflow-y-auto pe-1">
                     <template x-for="sign in (palette[paletteTab] || [])" :key="sign.code">
                         <button @click="insertFromPalette(sign)"
                                 class="bg-night border border-border rounded-lg p-2 text-center hover:border-gold/40 hover:bg-surface-hover transition-all group"

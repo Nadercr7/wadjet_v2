@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}{{ error_code }} — {{ error_title }}{% endblock %}
+{% block description %}{{ error_message }}{% endblock %}
+
+{% block content %}
+<section class="section min-h-[60vh] flex items-center justify-center">
+    <div class="container-narrow text-center">
+        <!-- Hieroglyph decorative number -->
+        <div class="text-8xl md:text-9xl font-hieroglyph text-gold/20 mb-4 select-none" aria-hidden="true">𓂀</div>
+
+        <!-- Error code -->
+        <h1 class="text-gold mb-2">{{ error_code }}</h1>
+
+        <!-- Error title -->
+        <h2 class="text-ivory mb-4">{{ error_title }}</h2>
+
+        <!-- Error message -->
+        <p class="text-dust text-lg mb-8 max-w-md mx-auto">{{ error_message }}</p>
+
+        <!-- Navigation links -->
+        <div class="flex flex-wrap items-center justify-center gap-3">
+            <a href="/" class="btn-gold">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0h4"></path></svg>
+                {{ t('common.home', lang) }}
+            </a>
+            <a href="/stories" class="btn-ghost">
+                {{ t('nav.stories', lang) }}
+            </a>
+            <a href="/dictionary" class="btn-ghost">
+                {{ t('nav.dictionary', lang) }}
+            </a>
+        </div>
+
+        <!-- Decorative divider -->
+        <div class="divider mt-12 mb-6"></div>
+        <p class="text-dust text-sm">{{ t('error.lost_message', lang) }}</p>
+    </div>
+</section>
+{% endblock %}

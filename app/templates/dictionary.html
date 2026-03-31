@@ -34,12 +34,12 @@
         <div class="flex gap-1 mb-8 border-b border-border" data-animate role="tablist" @keydown.arrow-right.prevent="tab = tab === 'browse' ? 'learn' : 'browse'; $nextTick(() => $el.querySelector('[aria-selected=true]')?.focus())" @keydown.arrow-left.prevent="tab = tab === 'browse' ? 'learn' : 'browse'; $nextTick(() => $el.querySelector('[aria-selected=true]')?.focus())">
             <button @click="tab = 'browse'" role="tab" id="dict-tab-browse" :aria-selected="tab === 'browse' ? 'true' : 'false'" aria-controls="dict-panel-browse" :tabindex="tab === 'browse' ? 0 : -1" class="px-5 py-3 text-sm font-medium transition-all border-b-2 -mb-px"
                     :class="tab === 'browse' ? 'border-gold text-gold' : 'border-transparent text-text-muted hover:text-text'">
-                <svg class="w-4 h-4 inline -mt-0.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path></svg>
+                <svg class="w-4 h-4 inline -mt-0.5 me-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path></svg>
                 {{ t('dictionary.tab_browse', lang) }}
             </button>
             <button @click="tab = 'learn'" role="tab" id="dict-tab-learn" :aria-selected="tab === 'learn' ? 'true' : 'false'" aria-controls="dict-panel-learn" :tabindex="tab === 'learn' ? 0 : -1" class="px-5 py-3 text-sm font-medium transition-all border-b-2 -mb-px"
                     :class="tab === 'learn' ? 'border-gold text-gold' : 'border-transparent text-text-muted hover:text-text'">
-                <svg class="w-4 h-4 inline -mt-0.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                <svg class="w-4 h-4 inline -mt-0.5 me-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
                 {{ t('dictionary.tab_learn', lang) }}
             </button>
         </div>
@@ -52,11 +52,11 @@
             <!-- Search + Filters -->
             <div class="mb-6 flex flex-col sm:flex-row gap-3" data-animate>
                 <div class="flex-1 relative">
-                    <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-text-dim" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    <svg class="absolute start-3 top-1/2 -translate-y-1/2 w-4 h-4 text-text-dim" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                     <label for="dict-search" class="sr-only">{{ t('dictionary.search_aria', lang) }}</label>
                     <input id="dict-search" type="text" x-model.debounce.300ms="searchQuery" @input="currentPage = 1; fetchSigns()"
                            placeholder="{{ t('dictionary.search_placeholder', lang) }}"
-                           class="input pl-10 w-full">
+                           class="input ps-10 w-full">
                 </div>
                 <label for="dict-type-filter" class="sr-only">{{ t('dictionary.filter_type', lang) }}</label>
                 <select id="dict-type-filter" x-model="typeFilter" @change="currentPage = 1; fetchSigns()"
@@ -74,7 +74,7 @@
             <div class="mb-6 flex flex-wrap gap-2" data-animate>
                 <button @click="selectCategory(null)" class="px-3 py-2 rounded-full text-sm font-medium transition-all"
                         :class="!activeCategory ? 'bg-gold text-night' : 'bg-surface border border-border text-text-muted hover:border-gold/30 hover:text-text'">
-                    {{ t('common.all', lang) }} <span class="ml-1 opacity-60" x-text="totalSigns"></span>
+                    {{ t('common.all', lang) }} <span class="ms-1 opacity-60" x-text="totalSigns"></span>
                 </button>
                 <template x-for="cat in categories" :key="cat.code">
                     <button @click="selectCategory(cat.code)"
@@ -83,7 +83,7 @@
                             :title="cat.name">
                         <span x-text="cat.code"></span>
                         <span class="hidden lg:inline text-[11px] opacity-70" x-text="'· ' + cat.name.split(' ')[0]"></span>
-                        <span class="ml-1 opacity-60 text-xs" x-text="cat.count"></span>
+                        <span class="ms-1 opacity-60 text-xs" x-text="cat.count"></span>
                     </button>
                 </template>
             </div>

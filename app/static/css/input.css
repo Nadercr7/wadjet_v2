@@ -29,7 +29,7 @@
   --color-text-dim: #7E7E7E;
   --color-ivory: #F5F0E8;
   --color-sand: #C4A265;
-  --color-dust: #8B7355;
+  --color-dust: #A89070;
 
   /* Semantic */
   --color-success: #4CAF50;
@@ -106,19 +106,27 @@
   }
 
   h1 {
-    @apply text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight;
+    font-size: clamp(1.75rem, 4vw + 0.5rem, 3.5rem);
+    @apply font-bold tracking-tight;
   }
 
   h2 {
-    @apply text-3xl md:text-4xl font-semibold tracking-tight;
+    font-size: clamp(1.25rem, 2.5vw + 0.5rem, 2.25rem);
+    @apply font-semibold tracking-tight;
   }
 
   h3 {
-    @apply text-2xl font-semibold;
+    font-size: clamp(1.125rem, 1.5vw + 0.5rem, 1.5rem);
+    @apply font-semibold;
   }
 
   h4 {
-    @apply text-xl font-semibold;
+    font-size: clamp(1rem, 1vw + 0.5rem, 1.25rem);
+    @apply font-semibold;
+  }
+
+  body {
+    font-size: clamp(0.875rem, 0.5vw + 0.75rem, 1.0625rem);
   }
 
   ::selection {
@@ -158,6 +166,13 @@
   @keyframes page-enter {
     from { opacity: 0; transform: translateY(8px); }
     to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Camera landscape mode — reduce video height, reflow controls */
+  @media (orientation: landscape) and (max-height: 500px) {
+    .landscape\:max-h-52 {
+      max-height: 13rem; /* 208px — leaves room for controls */
+    }
   }
 }
 

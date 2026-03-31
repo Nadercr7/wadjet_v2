@@ -101,6 +101,8 @@ async def test_sitemap_xml(test_client: AsyncClient):
 async def test_nonexistent_page_404(test_client: AsyncClient):
     resp = await test_client.get("/this-does-not-exist")
     assert resp.status_code == 404
+    # Should be branded HTML, not plain JSON
+    assert "𓂀" in resp.text or "Page Not Found" in resp.text or "error_code" in resp.text
 
 
 async def test_invalid_story_id_404(test_client: AsyncClient):
@@ -192,3 +194,36 @@ async def test_stories_list(test_client: AsyncClient):
 async def test_stories_invalid_id(test_client: AsyncClient):
     resp = await test_client.get("/api/stories/!!invalid!!")
     assert resp.status_code == 400
+
+
+# ── i18n Key Parity ──
+
+
+def test_i18n_key_parity():
+    """Ensure Arabic translation file has every key that English has."""
+    import json
+    from pathlib import Path
+
+    i18n_dir = Path(__file__).parent.parent / "app" / "i18n"
+
+    def flatten_keys(d: dict, prefix: str = "") -> set[str]:
+        keys: set[str] = set()
+        for k, v in d.items():
+            full = f"{prefix}{k}"
+            if isinstance(v, dict):
+                keys.update(flatten_keys(v, f"{full}."))
+            else:
+                keys.add(full)
+        return keys
+
+    en = json.loads((i18n_dir / "en.json").read_text(encoding="utf-8"))
+    ar = json.loads((i18n_dir / "ar.json").read_text(encoding="utf-8"))
+
+    en_keys = flatten_keys(en)
+    ar_keys = flatten_keys(ar)
+
+    missing_in_ar = en_keys - ar_keys
+    assert not missing_in_ar, f"Arabic missing {len(missing_in_ar)} keys: {sorted(missing_in_ar)[:10]}"
+
+    extra_in_ar = ar_keys - en_keys
+    assert not extra_in_ar, f"Arabic has {len(extra_in_ar)} extra keys: {sorted(extra_in_ar)[:10]}"

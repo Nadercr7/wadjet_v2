@@ -32,7 +32,15 @@
         "loading_signs": "Loading signs...",
         "loading_landmarks": "Loading landmarks...",
         "loading_stories": "Loading stories...",
-        "loading_lesson": "Loading lesson..."
+        "loading_lesson": "Loading lesson...",
+        "home": "Home"
+    },
+    "error": {
+        "not_found_title": "Page Not Found",
+        "not_found_message": "The ancient scrolls contain no record of this path.",
+        "server_title": "Something Went Wrong",
+        "server_message": "The temple scribes are investigating. Please try again shortly.",
+        "lost_message": "Even the greatest explorers sometimes lose their way in the sands of time."
     },
     "nav": {
         "aria_main": "Main navigation",

@@ -5,6 +5,7 @@ from contextlib import asynccontextmanager
 from pathlib import Path
 
 from fastapi import FastAPI, Request
+from fastapi.exceptions import HTTPException as StarletteHTTPException
 from fastapi.middleware.gzip import GZipMiddleware
 from fastapi.responses import FileResponse, HTMLResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
@@ -247,11 +248,36 @@ def create_app() -> FastAPI:
         ],
     )
 
-    # Global 500 handler — never leak internals to clients
+    # ── Branded error pages (404 / 500) ──
+    def _error_context(request: Request, code: int, title: str, message: str) -> dict:
+        lang = request.cookies.get("wadjet_lang", "en")
+        return {
+            "request": request, "lang": lang,
+            "error_code": code, "error_title": title, "error_message": message,
+            "page_name": "error",
+        }
+
+    @app.exception_handler(404)
+    async def not_found_handler(request: Request, exc):
+        if request.url.path.startswith("/api/"):
+            return JSONResponse(status_code=404, content={"detail": "Not found"})
+        tpl = app.state.templates
+        ctx = _error_context(request, 404, "Page Not Found",
+                             "The ancient scrolls contain no record of this path.")
+        return HTMLResponse(tpl.get_template("error.html").render(**ctx), status_code=404)
+
     @app.exception_handler(Exception)
     async def global_exception_handler(request: Request, exc: Exception):
         logger.error("Unhandled error on %s %s: %s", request.method, request.url.path, exc, exc_info=True)
-        return JSONResponse(status_code=500, content={"detail": "An internal error occurred. Please try again later."})
+        if request.url.path.startswith("/api/"):
+            return JSONResponse(status_code=500, content={"detail": "An internal error occurred. Please try again later."})
+        try:
+            tpl = app.state.templates
+            ctx = _error_context(request, 500, "Something Went Wrong",
+                                 "The temple scribes are investigating. Please try again shortly.")
+            return HTMLResponse(tpl.get_template("error.html").render(**ctx), status_code=500)
+        except Exception:
+            return JSONResponse(status_code=500, content={"detail": "An internal error occurred. Please try again later."})
 
     # GZip compression for responses > 500 bytes
     app.add_middleware(GZipMiddleware, minimum_size=500)

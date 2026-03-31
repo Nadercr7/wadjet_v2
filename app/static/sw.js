@@ -130,8 +130,45 @@ async function networkFirst(request, cacheName) {
         return response;
     } catch {
         const cached = await caches.match(request);
-        return cached || new Response('Offline', { status: 503, headers: { 'Content-Type': 'text/plain' } });
+        if (cached) return cached;
+        // Return branded offline page for navigation requests
+        if (request.mode === 'navigate') return offlinePage();
+        return new Response('Offline', { status: 503, headers: { 'Content-Type': 'text/plain' } });
     }
+}
+
+function offlinePage() {
+    const html = `<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offline — Wadjet</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{min-height:100vh;display:flex;align-items:center;justify-content:center;flex-direction:column;background:#0A0A0A;color:#F5F0E8;font-family:Inter,system-ui,sans-serif;text-align:center;padding:2rem}
+        .logo{font-size:4rem;margin-bottom:1rem;opacity:.2;font-family:serif}
+        h1{font-family:'Playfair Display',Georgia,serif;font-size:2rem;color:#D4AF37;margin-bottom:.5rem}
+        p{color:#A89070;margin-bottom:1.5rem;max-width:24rem}
+        .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.5rem;border-radius:.5rem;font-size:.875rem;font-weight:500;text-decoration:none;transition:all .2s;background:#D4AF37;color:#0A0A0A;border:none;cursor:pointer}
+        .btn:hover{background:#E5C76B}
+        .divider{width:8rem;height:1px;background:linear-gradient(to right,transparent,#2A2A2A,transparent);margin:2rem auto}
+        .sub{font-size:.75rem;color:#A89070}
+    </style>
+</head>
+<body>
+    <div class="logo">𓂀</div>
+    <h1>You're Offline</h1>
+    <p>The connection to the ancient archives has been lost. Please check your internet and try again.</p>
+    <button class="btn" onclick="location.reload()">
+        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+        Try Again
+    </button>
+    <div class="divider"></div>
+    <p class="sub">Wadjet — Egyptian Heritage Explorer</p>
+</body>
+</html>`;
+    return new Response(html, { status: 503, headers: { 'Content-Type': 'text/html; charset=UTF-8' } });
 }
 
 async function staleWhileRevalidate(request, cacheKey, cacheName) {
@@ -140,6 +177,6 @@ async function staleWhileRevalidate(request, cacheKey, cacheName) {
     const fetchPromise = fetch(request).then(response => {
         if (response.ok) cache.put(cacheKey, response.clone());
         return response;
-    }).catch(() => cached || new Response('Offline', { status: 503, headers: { 'Content-Type': 'text/plain' } }));
+    }).catch(() => cached || offlinePage());
     return cached || fetchPromise;
 }
