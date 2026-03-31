@@ -340,42 +340,34 @@ async def _ai_fresh_reading(
     h, w = image.shape[:2]
 
     system = (
-        "You are a world-class Egyptologist with complete mastery of the Gardiner "
-        "Sign List (700+ hieroglyphs). You can read ancient Egyptian hieroglyphic "
-        "inscriptions from photographs of stone carvings, papyri, and temple walls.\n\n"
+        "You are a world-class Egyptologist who reads ancient Egyptian hieroglyphic "
+        "inscriptions from photographs. You read WORDS and PHRASES, not just "
+        "individual signs.\n\n"
         "KEY RULES:\n"
-        "- Use STANDARD Gardiner codes: uppercase category letter + number (A1, D21, G1, M17, N35)\n"
-        "- Be precise: distinguish similar signs carefully (e.g., M17 reed vs M18 reed+legs)\n"
-        "- Recognize CARTOUCHES (oval frames) as royal name enclosures\n"
-        "- Common royal name signs: L1/L2 (nsw-bity), G5 (Horus falcon), S34 (ankh), "
-        "  N5 (sun disk = Ra), M23 (sedge = sw), L2 (bee = bity), S29 (folded cloth = s)\n"
-        "- For MdC: use hyphens between signs, colons for vertical stacking, "
-        "asterisks for horizontal juxtaposition\n"
-        "- Respond ONLY with valid JSON. No markdown, no explanation outside JSON."
+        "- Standard Gardiner codes: uppercase letter + number (A1, D21, N5)\n"
+        "- CARTOUCHES (oval frames) = royal names. Read as NAMES, not sign lists.\n"
+        "  Two cartouches = prenomen (throne name) + nomen (birth name)\n"
+        "- Transliterate as WORDS (e.g., 'wsr-mAat-ra' not 'U-s-r-m-A-a-t-R-a')\n"
+        "- Translate the MEANING (e.g., 'Ramesses II' not 'strong-truth-sun')\n"
+        "- Respond ONLY with valid JSON."
     )
 
     prompt = (
-        f"This photograph ({w}×{h}px) contains Egyptian hieroglyphs carved or painted "
-        f"on an ancient surface. Read the entire inscription carefully.\n\n"
-        f"INSTRUCTIONS:\n"
-        f"1. Determine reading direction (signs face into the reading direction)\n"
-        f"2. If cartouches are present, read them as royal names\n"
-        f"3. Identify EVERY hieroglyph with its standard Gardiner code\n"
-        f"4. For each glyph, estimate its bounding box as [x1%, y1%, x2%, y2%]\n"
-        f"5. Provide the full Manuel de Codage (MdC) transliteration\n"
-        f"6. Translate into English and Arabic (فصحى)\n"
-        f"7. Add scholarly notes (period, context, significance)\n\n"
+        f"This photograph ({w}×{h}px) contains Egyptian hieroglyphs.\n\n"
+        f"PRIORITY: Read the inscription as WORDS and NAMES, not individual signs.\n\n"
+        f"1. If cartouches are present, identify the PHARAOH'S NAME(S)\n"
+        f"2. Transliterate as words (e.g., 'mn-xpr-ra' for Menkheperra)\n"
+        f"3. Translate naturally (e.g., 'Thutmose III' not 'enduring-form-of-Ra')\n"
+        f"4. For each glyph: Gardiner code + bounding box [x1%, y1%, x2%, y2%]\n\n"
         f"Return ONLY valid JSON:\n"
         f'{{\n'
-        f'  "glyphs": [\n'
-        f'    {{"gardiner_code": "N5", "bbox_pct": [10,20,25,45], "confidence": 0.95}}\n'
-        f'  ],\n'
+        f'  "glyphs": [{{"gardiner_code": "N5", "bbox_pct": [10,20,25,45], "confidence": 0.9}}],\n'
         f'  "direction": "right-to-left",\n'
-        f'  "gardiner_sequence": "N5-L1-M23-...",\n'
-        f'  "transliteration": "MdC string",\n'
-        f'  "translation_en": "English translation",\n'
-        f'  "translation_ar": "الترجمة العربية",\n'
-        f'  "notes": "Brief scholarly context"\n'
+        f'  "gardiner_sequence": "N5-L1-M23-X1",\n'
+        f'  "transliteration": "mn-xpr-ra",\n'
+        f'  "translation_en": "Menkheperra (Thutmose III)",\n'
+        f'  "translation_ar": "من خبر رع (تحتمس الثالث)",\n'
+        f'  "notes": "Royal cartouche, New Kingdom"\n'
         f'}}'
     )
 
@@ -981,21 +973,21 @@ async def _scan_auto_mode(
                 # AI reading succeeded — use it directly (don't re-classify with weak ONNX)
                 _apply_ai_results(onnx_result, fresh_data, image)
                 detection_source = f"ai_fresh ({fresh_data.get('_provider', 'ai')})"
-                # Translate with RAG translator for quality bilingual output
-                if translate and onnx_result.transliteration:
+                # Prefer AI-provided translation (reads as words/names, not individual signs)
+                if fresh_data.get("translation_en"):
+                    onnx_result.translation_en = fresh_data["translation_en"]
+                if fresh_data.get("translation_ar"):
+                    onnx_result.translation_ar = fresh_data["translation_ar"]
+                # Only use RAG translator if AI didn't provide translation
+                if translate and not onnx_result.translation_en and onnx_result.transliteration:
                     try:
                         translator = pipeline._get_translator()
                         if translator and hasattr(translator, 'translate_async'):
                             raw = await translator.translate_async(onnx_result.transliteration)
-                            onnx_result.translation_en = raw.get("english", "") or onnx_result.translation_en
-                            onnx_result.translation_ar = raw.get("arabic", "") or onnx_result.translation_ar
+                            onnx_result.translation_en = raw.get("english", "")
+                            onnx_result.translation_ar = raw.get("arabic", "")
                     except Exception:
-                        logger.warning("Translation after fresh AI reading failed")
-                # Also use AI-provided translation/notes if RAG didn't provide one
-                if not onnx_result.translation_en and fresh_data.get("translation_en"):
-                    onnx_result.translation_en = fresh_data["translation_en"]
-                if not onnx_result.translation_ar and fresh_data.get("translation_ar"):
-                    onnx_result.translation_ar = fresh_data["translation_ar"]
+                        logger.warning("RAG translation after fresh AI reading failed")
             else:
                 # Fresh AI also failed — fall through to verification
                 logger.info("Fresh AI reading failed, trying sequence verification")
@@ -1031,19 +1023,20 @@ async def _scan_auto_mode(
         if ai_data and ai_data.get("glyphs"):
             _apply_ai_results(onnx_result, ai_data, image)
             detection_source = f"ai_fresh ({ai_data.get('_provider', 'ai')})"
-            if translate and onnx_result.transliteration:
+            # Prefer AI translation (reads words/names, not individual signs)
+            if ai_data.get("translation_en"):
+                onnx_result.translation_en = ai_data["translation_en"]
+            if ai_data.get("translation_ar"):
+                onnx_result.translation_ar = ai_data["translation_ar"]
+            if translate and not onnx_result.translation_en and onnx_result.transliteration:
                 try:
                     translator = pipeline._get_translator()
                     if translator and hasattr(translator, 'translate_async'):
                         raw = await translator.translate_async(onnx_result.transliteration)
-                        onnx_result.translation_en = raw.get("english", "") or onnx_result.translation_en
-                        onnx_result.translation_ar = raw.get("arabic", "") or onnx_result.translation_ar
+                        onnx_result.translation_en = raw.get("english", "")
+                        onnx_result.translation_ar = raw.get("arabic", "")
                 except Exception:
-                    logger.warning("Translation after AI fallback failed")
-            if not onnx_result.translation_en and ai_data.get("translation_en"):
-                onnx_result.translation_en = ai_data["translation_en"]
-            if not onnx_result.translation_ar and ai_data.get("translation_ar"):
-                onnx_result.translation_ar = ai_data["translation_ar"]
+                    logger.warning("RAG translation after AI fallback failed")
 
     onnx_result.total_ms = (time.perf_counter() - t0) * 1000
     response_data = onnx_result.to_dict()
