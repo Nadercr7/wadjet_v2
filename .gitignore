@@ -59,21 +59,12 @@ tmp_kaggle_output/
 scripts/test_*.py
 scripts/dataprep-env/
 
-# Archived planning (all moved into archive/)
-archive/v2-planning/
-archive/v3-planning-snapshot/
-
 # Test / Coverage
 htmlcov/
 .coverage
 .pytest_cache/
 scripts/_test_*.wav
 *.bak
-
-# Large archive files (not pushed)
-archive/original-horus/last_model_bgd.keras
-archive/original-horus/HORUS AI .mp4
-archive/original-horus/*.pdf
 
 # Internal development files (not public)
 CLAUDE.md

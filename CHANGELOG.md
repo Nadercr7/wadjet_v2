@@ -1,5 +1,18 @@
 # Changelog
 
+## v3.1.1 (2026-03-31)
+
+Archive externalization. All project history moved outside the production repo.
+
+### 📦 Archive Organization
+- Moved all archive content (174 tracked + 100 local files) out of v3-beta repo
+- Renamed external `Wadjet/` → `Wadjet-v2/` for clear naming
+- Copied v3-specific planning docs to `Wadjet-v2/archive/` (v3-beta-planning, v3-upgrade-planning, v3-planning-snapshot)
+- Deleted empty `Wadjet-v2-archive/` and `_wadjet_temp_backup/` folders
+- Updated `.gitignore`, `.dockerignore`, `CLAUDE.md` to remove archive references
+- Updated `JOURNEY.md` with v3 upgrade chapter and archive chapter
+- External folder structure: `Wadjet-v2/` (full v2 codebase + all history) + `Wadjet-v3-beta/` (production only)
+
 ## v3.1.0 (2026-03-31)
 
 Post-launch polish. Final quality pass: cleanup, performance, accessibility, brand consistency.

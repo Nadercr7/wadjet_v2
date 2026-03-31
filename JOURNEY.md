@@ -76,6 +76,38 @@ After the core was solid, the scope grew:
 | Landmark sites recognized | 52 |
 | Total model size (all three) | ~42 MB |
 | Image URLs for landmarks | 1,220+ |
+| Interactive mythology stories | 13 |
+| Translatable hieroglyphs | 88 |
+
+---
+
+## Chapter 6: The v3 Upgrade
+
+The v3 beta took everything from v2 and rebuilt it from the ground up:
+
+- **Security**: Full auth system — register, login, JWT tokens, Google OAuth, email verification via Resend
+- **Scan pipeline upgrade**: Improved hieroglyph detection → classification → translation chain
+- **Stories**: 13 interactive Egyptian mythology stories with AI-generated illustrations (Cloudflare FLUX.1), TTS narration (Gemini 2.5 Flash), and immersive reading experience
+- **Brand identity**: Custom Wadjet serpent logo, full favicon set, branded loading screens
+- **Loading experience**: Animated loading overlay with logo scale-in, gold shimmer ring, and branded section loaders across all pages
+- **Design polish**: Black & Gold design system consistently applied across every template, `prefers-reduced-motion` support, noscript fallbacks
+- **Cleanup**: Removed orphaned v2 model files, zero TODO/FIXME in codebase, all images have alt text, all icon buttons have aria-labels
+
+The v3 codebase was promoted to HuggingFace Spaces as v3.0.0, replacing the original v2 deployment.
+
+---
+
+## Chapter 7: The Archive
+
+With v3 production-ready, the project history was organized into a clean external archive at `Wadjet-v2/`:
+
+- **Original Horus AI** — the graduation project that started it all (Flask app, 254 MB Keras model, demo video, academic papers)
+- **v1 reference** — key files from the first FastAPI rewrite
+- **v2 codebase** — the complete v2 production code with full git history
+- **Training artifacts** — Kaggle notebooks, training results, data catalogs
+- **Planning docs** — every spec, plan, constitution, and session log from v2 through v3
+
+The v3-beta repo was cleaned to contain only production code — no archive, no planning docs, no historical artifacts.
 
 ---
 

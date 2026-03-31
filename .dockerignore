@@ -38,8 +38,7 @@ data/detection/
 logs/
 *.log
 
-# Planning / scripts / archive / notebooks
-archive/
+# Planning / scripts / notebooks
 scripts/
 kaggle_logs/
 tmp_pull_test/
