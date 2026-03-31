@@ -59,8 +59,9 @@ tmp_kaggle_output/
 scripts/test_*.py
 scripts/dataprep-env/
 
-# Archived planning (per-date snapshots)
-wadjet-v3-planning-ARCHIVED-*
+# Archived planning (all moved into archive/)
+archive/v2-planning/
+archive/v3-planning-snapshot/
 
 # Test / Coverage
 htmlcov/
@@ -76,4 +77,3 @@ archive/original-horus/*.pdf
 
 # Internal development files (not public)
 CLAUDE.md
-planning/

@@ -39,9 +39,8 @@ logs/
 *.log
 
 # Planning / scripts / archive / notebooks
-planning/
-scripts/
 archive/
+scripts/
 kaggle_logs/
 tmp_pull_test/
 tmp_kaggle_hiero/
