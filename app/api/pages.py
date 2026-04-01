@@ -135,20 +135,25 @@ async def story_reader(request: Request, story_id: str):
         raise HTTPException(status_code=404, detail="Story not found")
     templates = request.app.state.templates
     lang = get_lang(request)
+    # Story title/subtitle may be dicts (bilingual) — extract current language
+    raw_title = story.get("title", story_id)
+    raw_subtitle = story.get("subtitle", "")
+    story_title = raw_title.get(lang, raw_title.get("en", story_id)) if isinstance(raw_title, dict) else raw_title
+    story_subtitle = raw_subtitle.get(lang, raw_subtitle.get("en", "")) if isinstance(raw_subtitle, dict) else raw_subtitle
     # Per-page JSON-LD for story (CreativeWork)
     extra_jsonld = {
         "@context": "https://schema.org",
         "@type": "CreativeWork",
-        "name": story.get("title", story_id),
-        "description": story.get("subtitle", ""),
+        "name": story_title,
+        "description": story_subtitle,
         "inLanguage": ["en", "ar"],
         "genre": "Mythology",
         "author": {"@type": "Person", "name": "Mr Robot"},
     }
     return templates.TemplateResponse(request, "story_reader.html", {
         "story_id": story_id, "lang": lang, "page_name": "stories",
-        "story_title": story.get("title", story_id),
-        "story_subtitle": story.get("subtitle", ""),
+        "story_title": story_title,
+        "story_subtitle": story_subtitle,
         "extra_jsonld": extra_jsonld,
     })
 
