@@ -239,38 +239,46 @@ _PHONEME_MAP: dict[str, str] = {
 
 # Hand-curated overrides for common multi-consonant signs (better quality)
 # Differentiate: H=emphatic h, x=velar kh, X=palatal kh, q=deep k, a=ayin, A=aleph
+# NOTE: Values must be TTS-friendly — NO hyphens. Use spaces for syllable breaks.
 _SPEECH_MAP: dict[str, str] = {
     "ir": "eer", "mn": "men", "pr": "per", "wr": "wer",
     "Htp": "hotep", "nfr": "nefer", "anx": "ankh",
     "wAs": "waas", "nTr": "netcher", "xpr": "kheper",
-    "mAat": "mah-aht", "rnp": "renep", "snTr": "sentcher",
-    "wAst": "waast", "DHwty": "jehuti", "aA": "aah-ah",
+    "mAat": "maat", "rnp": "renep", "snTr": "sentcher",
+    "wAst": "waast", "DHwty": "jehuti", "aA": "ah ah",
     "nb": "neb", "Dd": "djed", "mr": "mer", "kA": "kah",
     "bA": "baa", "ms": "mes", "sA": "saa", "wDAt": "wedjat",
     "stp": "setep", "Hr": "her", "sw": "soo",
     "km": "kem", "tp": "tep", "wn": "wen", "Sd": "shed",
     "sk": "sek", "xn": "khen", "xnt": "khent", "Ab": "ahb",
-    "ix": "eekh", "im": "eem", "in": "een", "iw": "ee-oo",
+    "ix": "eekh", "im": "eem", "in": "een", "iw": "eeyoo",
     "ib": "eeb", "ip": "eep", "it": "eet", "is": "ees",
-    "aH": "aah-hha", "ai": "aah-ee", "wa": "wah", "wi": "wee",
+    "aH": "ah hha", "ai": "ah ee", "wa": "wah", "wi": "wee",
     "wp": "wep", "wD": "wedj",
-    "bH": "beh-hha", "pA": "pah", "pH": "peh-hha", "pD": "pedj",
-    "mH": "meh-hha", "mi": "mee", "mw": "moo", "nw": "noo",
+    "bH": "beh hha", "pA": "pah", "pH": "peh hha", "pD": "pedj",
+    "mH": "meh hha", "mi": "mee", "mw": "moo", "nw": "noo",
     "nn": "nen", "ni": "nee", "rw": "roo", "rd": "red",
     "hA": "hah", "Hm": "hhem", "HH": "hheh", "Hw": "hhoo",
-    "xA": "khah", "Xn": "kheh-n", "zA": "zah", "zS": "zesh",
+    "xA": "khah", "Xn": "khen", "zA": "zah", "zS": "zesh",
     "sn": "sen", "st": "set", "Sw": "shoo", "Sm": "shem",
     "qd": "qed", "gs": "ges", "gm": "gem", "gb": "geb",
     "tA": "tah", "ti": "tee", "tm": "tem", "Tn": "chen",
     "di": "dee", "dw": "doo", "DA": "jaa", "Db": "jeb",
-    # Lesson words (multi-consonant words students encounter)
-    "prt": "peret", "iwf": "ee-oo-ef", "stt": "setet",
-    "mnw": "menoo", "mntw": "montoo", "pri": "peree",
-    "sx": "sekh", "nfrt": "neferet", "anxw": "ankh-oo",
-    "nb tAwy": "neb tawy", "xpri": "khepree",
-    "irt": "eeret", "mniw": "men-ee-oo",
+    # ── Lesson example & practice words ──
+    # L1: alphabet words
+    "r": "rah", "prt": "peret", "iwf": "eewef", "stt": "setet",
+    "mnw": "menoo",
+    # L2: biliteral words
+    "irt": "eeret", "mntw": "montoo", "pri": "peree",
+    "mniw": "meneeoo",
+    # L3: triliteral words
+    "xpri": "khepree", "nfrt": "neferet", "anxw": "ankhoo",
+    # L4: logogram words
+    "raanx": "rah ankh", "prnfr": "per nefer",
+    # L5: determinative words
+    "sx": "sekh", "nb tAwy": "neb tawy", "nTr ra": "netcher rah",
     # Common logograms
-    "ra": "rah", "niwt": "nee-oot", "rxyt": "rekh-eet",
+    "ra": "rah", "niwt": "neeyoot", "rxyt": "rekheet",
 }
 
 
@@ -279,6 +287,7 @@ def _transliteration_to_speech(translit: str) -> str | None:
 
     1. Try exact match in _SPEECH_MAP (hand-curated, best quality).
     2. Fall back to character-by-character mapping from _PHONEME_MAP.
+    Output is always TTS-friendly (no hyphens — uses spaces).
     """
     if not translit:
         return None
@@ -289,13 +298,13 @@ def _transliteration_to_speech(translit: str) -> str | None:
     # Also check uniliteral in curated map
     if translit in _PHONEME_MAP:
         return _PHONEME_MAP[translit]
-    # Auto-generate: map each character, join with hyphens
+    # Auto-generate: map each character, join with spaces (TTS-friendly)
     parts = []
     for ch in translit:
         phoneme = _PHONEME_MAP.get(ch)
         if phoneme:
             parts.append(phoneme)
-    return "-".join(parts) if parts else None
+    return " ".join(parts) if parts else None
 
 
 def _word_to_speech(translit: str) -> str | None:
@@ -306,6 +315,7 @@ def _word_to_speech(translit: str) -> str | None:
       1. Try the full string (stripped of hyphens) in _SPEECH_MAP.
       2. Split on hyphens/spaces and resolve each segment.
       3. Fall back to _transliteration_to_speech() per segment.
+    Output never contains hyphens (TTS-hostile).
     """
     if not translit:
         return None
