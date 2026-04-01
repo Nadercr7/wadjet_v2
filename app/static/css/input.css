@@ -978,6 +978,67 @@
   right: 51%;
 }
 
+/* ========================================
+   Beta Notes / Contextual Tips
+   ======================================== */
+
+/* Typewriter cursor blink */
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: var(--color-gold); }
+}
+
+/* Beta banner — typewriter container */
+.beta-banner {
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.06) 0%, rgba(20, 20, 20, 0.95) 100%);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  border-radius: 0.75rem;
+  backdrop-filter: blur(8px);
+}
+
+.beta-banner-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.1em;
+  background: var(--color-gold);
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  animation: blink-caret 0.8s step-end infinite;
+}
+[dir="rtl"] .beta-banner-cursor {
+  margin-left: 0;
+  margin-right: 2px;
+}
+
+/* Contextual tip note */
+.tip-note {
+  background: rgba(212, 175, 55, 0.04);
+  border: 1px solid rgba(212, 175, 55, 0.12);
+  border-radius: 0.75rem;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.tip-note.is-hiding {
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+}
+
+/* Audio loading indicator — subtle top banner */
+.audio-note {
+  background: linear-gradient(90deg, rgba(212, 175, 55, 0.08) 0%, rgba(212, 175, 55, 0.03) 100%);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  border-radius: 0.5rem;
+}
+
+/* Slide-down entrance for notes */
+@keyframes note-slide-down {
+  from { opacity: 0; transform: translateY(-12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.note-enter {
+  animation: note-slide-down 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
 /* ── GSAP fallback — elements become visible after 3s if GSAP fails ── */
 @keyframes fade-in-fallback {
   to { opacity: 1; }

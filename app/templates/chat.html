@@ -253,6 +253,8 @@ function chatApp() {
                 return;
             }
             this.ttsActiveId = msgId;
+            // Dispatch audio-loading event for beta note system
+            try { document.dispatchEvent(new CustomEvent('wadjet:audio-loading')); } catch(e) {}
             // Try server TTS when online
             if (navigator.onLine) {
                 try {

@@ -724,5 +724,24 @@
         "filter_all": "All",
         "empty": "No feedback yet.",
         "go_home": "Back to Home"
+    },
+    "notes": {
+        "beta_welcome": "Welcome to Wadjet Beta!",
+        "beta_typing": "This is an early beta version — things may break, features may change. Your feedback shapes the final product.",
+        "beta_cta": "Share your thoughts",
+        "beta_dismiss": "Got it",
+        "audio_loading": "Audio is being generated — this may take a few seconds on first play.",
+        "audio_dismiss": "OK",
+        "scan_tip_title": "Scanning Tip",
+        "scan_tip": "For best results, use clear photos with visible hieroglyphs and good lighting.",
+        "chat_tip_title": "Meet Thoth",
+        "chat_tip": "Thoth knows about Egyptian history, hieroglyphs, pharaohs, and landmarks. Ask anything!",
+        "story_narration_tip_title": "Listen Along",
+        "story_narration_tip": "Use the narration button in the bottom corner to hear the story read aloud by AI.",
+        "dict_tip_title": "Hear the Sounds",
+        "dict_tip": "Click the speaker icon on any sign to hear its ancient Egyptian pronunciation.",
+        "explore_tip_title": "Discover Egypt",
+        "explore_tip": "Sign in to save your favorite landmarks and build your personal collection.",
+        "dismiss": "Dismiss"
     }
 }

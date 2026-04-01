@@ -181,6 +181,9 @@
 
         var lang = opts.lang || _getCurrentLang();
 
+        // Dispatch audio-loading event for beta note system
+        try { document.dispatchEvent(new CustomEvent('wadjet:audio-loading')); } catch(e) {}
+
         fetch('/api/audio/speak', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },

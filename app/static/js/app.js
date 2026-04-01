@@ -420,6 +420,9 @@ function speakSign(text, btnEl) {
         return;
     }
 
+    // Dispatch audio-loading event for beta note system
+    document.dispatchEvent(new CustomEvent('wadjet:audio-loading'));
+
     // Smart TTS chain: Gemini (multi-key pool, disk cached) → Groq → 204
     fetch('/api/audio/speak', {
         method: 'POST',
