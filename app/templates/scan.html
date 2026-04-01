@@ -835,11 +835,20 @@ function scanApp() {
                     video: { facingMode: 'environment', width: { ideal: 1280 }, height: { ideal: 720 } }
                 });
                 this.cameraActive = true;
-                this.$nextTick(async () => {
-                    const video = this.$refs.video;
-                    video.srcObject = this.stream;
-                    try { await video.play(); } catch (_) { /* autoplay attr handles it */ }
-                });
+                // x-if fully re-creates DOM — $nextTick alone isn't enough.
+                // Poll until Alpine mounts the <video x-ref="video"> element.
+                const self = this;
+                let attempts = 0;
+                const waitForVideo = () => {
+                    const video = self.$refs.video;
+                    if (video) {
+                        video.srcObject = self.stream;
+                        video.play().catch(() => {});
+                    } else if (++attempts < 20) {
+                        requestAnimationFrame(waitForVideo);
+                    }
+                };
+                this.$nextTick(waitForVideo);
             } catch (err) {
                 this.showError('{{ t('scan.error_camera', lang) }}');
             }
