@@ -5,6 +5,11 @@ if [ -d "/data" ] && [ -n "$PERSISTENT_DATA_DIR" ]; then
     mkdir -p /data/cache/audio /data/cache/images
     chown -R wadjet:wadjet /data
 
+    # Copy pre-generated story images to persistent storage (skip existing)
+    if [ -d "/app/app/static/cache/images" ]; then
+        cp -n /app/app/static/cache/images/story_*.png /data/cache/images/ 2>/dev/null || true
+    fi
+
     # Replace ephemeral cache dir with symlink to persistent volume
     if [ -d "/app/app/static/cache" ] && [ ! -L "/app/app/static/cache" ]; then
         rm -rf /app/app/static/cache
