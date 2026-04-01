@@ -5,7 +5,7 @@ from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import HTMLResponse, PlainTextResponse, RedirectResponse, Response
 
 from app.config import settings
-from app.core.stories_engine import load_story
+from app.core.stories_engine import load_all_stories, load_story
 from app.i18n import get_lang
 
 _STORY_ID_RE = re.compile(r"^[a-z0-9\-]{1,50}$")
@@ -37,7 +37,18 @@ async def welcome(request: Request):
     templates = request.app.state.templates
     lang = get_lang(request)
     next_url = request.query_params.get("next", "")
-    return templates.TemplateResponse(request, "welcome.html", {"lang": lang, "page_name": "welcome", "next_url": next_url})
+
+    # Dynamic counts
+    from app.core.gardiner import GARDINER_TRANSLITERATION
+    from app.api.explore import _load_expanded_sites
+    sign_count = len(GARDINER_TRANSLITERATION)
+    landmark_count = len(_load_expanded_sites())
+    story_count = len(load_all_stories())
+
+    return templates.TemplateResponse(request, "welcome.html", {
+        "lang": lang, "page_name": "welcome", "next_url": next_url,
+        "sign_count": sign_count, "landmark_count": landmark_count, "story_count": story_count,
+    })
 
 
 @router.get("/scan", response_class=HTMLResponse)
@@ -83,12 +94,14 @@ async def explore(request: Request):
         return gate
     templates = request.app.state.templates
     lang = get_lang(request)
+    from app.api.explore import _load_expanded_sites
+    lm_count = len(_load_expanded_sites())
     extra_jsonld = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Egyptian Heritage Sites",
-        "description": "Explore 260+ ancient Egyptian landmarks and heritage sites",
-        "numberOfItems": 260,
+        "description": f"Explore {lm_count}+ ancient Egyptian landmarks and heritage sites",
+        "numberOfItems": lm_count,
         "itemListOrder": "Unordered",
     }
     return templates.TemplateResponse(request, "explore.html", {"lang": lang, "page_name": "explore", "extra_jsonld": extra_jsonld})

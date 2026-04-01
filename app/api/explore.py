@@ -340,6 +340,24 @@ def _clamp_wiki_image(url: str, max_width: int = 800) -> str:
     return url
 
 
+def _clamp_image_list(images: list[dict]) -> list[dict]:
+    """Clamp all Wikimedia URLs in an images array to 800px max."""
+    return [
+        {**img, "url": _clamp_wiki_image(img.get("url", ""), 800)}
+        for img in images
+    ]
+
+
+def _first_image_thumb(site: dict) -> str:
+    """Get clamped thumbnail from first image in expanded site, or empty string."""
+    imgs = site.get("images", [])
+    if imgs:
+        url = imgs[0].get("url", "")
+        if url:
+            return _clamp_wiki_image(url, 400)
+    return ""
+
+
 @lru_cache(maxsize=1)
 def _load_wiki_data() -> dict[str, dict]:
     """Load Wikipedia text data for all landmarks."""
@@ -547,14 +565,14 @@ def _get_all_landmarks() -> list[dict]:
             "description": curated.description if curated else site.get("description", ""),
             "coordinates": [coords["lat"], coords["lng"]] if coords else None,
             "maps_url": curated.maps_url if curated else f"https://www.google.com/maps/search/?api=1&query={site.get('name', '').replace(' ', '+')}",
-            "thumbnail": wiki.get("thumbnail", "") or wiki.get("original_image", ""),
+            "thumbnail": wiki.get("thumbnail", "") or wiki.get("original_image", "") or _first_image_thumb(site),
             "image_count": img_counts.get(slug, 0),
             "tags": site.get("tags", []),
             "related_sites": site.get("related_sites", []),
             "parent_slug": (site.get("parent_slug") or "").replace("_", "-") or None,
             "children_slugs": [c.replace("_", "-") for c in site.get("children_slugs", [])],
             "featured": site.get("featured", False),
-            "images": site.get("images", []),
+            "images": _clamp_image_list(site.get("images", [])),
             "sections": site.get("sections", []),
             "source": "curated" if curated else "expanded",
         }

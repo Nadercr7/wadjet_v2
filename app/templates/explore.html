@@ -136,7 +136,11 @@
                         <template x-if="lm.thumbnail">
                             <img :src="lm.thumbnail" :alt="lm.name"
                                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                                 loading="lazy">
+                                 loading="lazy" decoding="async"
+                                 @error="$el.style.display='none'; $el.nextElementSibling?.classList.remove('hidden')">
+                            <div class="hidden w-full h-full flex items-center justify-center bg-gradient-to-br from-surface to-night absolute inset-0">
+                                <span class="text-4xl opacity-30">𓉐</span>
+                            </div>
                         </template>
                         <template x-if="!lm.thumbnail">
                             <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-surface to-night">
@@ -336,9 +340,12 @@
                     <div>
                         <!-- Hero image -->
                         <template x-if="detailLandmark.original_image || detailLandmark.thumbnail">
-                            <div class="aspect-video rounded-lg overflow-hidden mb-6 -mt-1 -mx-1">
+                            <div class="aspect-video rounded-lg overflow-hidden mb-6 -mt-1 -mx-1 bg-night">
                                 <img :src="detailLandmark.original_image || detailLandmark.thumbnail"
                                      :alt="detailLandmark.name"
+                                     class="w-full h-full object-cover"
+                                     loading="lazy" decoding="async"
+                                     @error="$el.parentElement.style.display='none'">
                                      class="w-full h-full object-cover"
                                      loading="lazy">
                             </div>
@@ -455,7 +462,8 @@
                                             <div class="flex items-start gap-3">
                                                 <template x-if="child.thumbnail">
                                                     <img :src="child.thumbnail" :alt="child.name"
-                                                         class="w-14 h-14 rounded-md object-cover flex-shrink-0" loading="lazy">
+                                                         class="w-14 h-14 rounded-md object-cover flex-shrink-0" loading="lazy" decoding="async"
+                                                         @error="$el.style.display='none'">
                                                 </template>
                                                 <template x-if="!child.thumbnail">
                                                     <div class="w-14 h-14 rounded-md bg-surface flex items-center justify-center flex-shrink-0">

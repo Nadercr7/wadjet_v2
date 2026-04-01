@@ -61,7 +61,7 @@
                 <h3 class="text-lg font-semibold text-text mb-2">{{ t('welcome.feature_scan_title', lang) }}</h3>
                 <p class="text-text-muted text-sm mb-4">{{ t('welcome.feature_scan_desc', lang) }}</p>
                 <div class="text-3xl font-display font-bold text-gold">
-                    <span class="counter-value" data-target="1000">0</span><span class="text-gold/70">+</span>
+                    <span class="counter-value" data-target="{{ sign_count }}">0</span><span class="text-gold/70">+</span>
                 </div>
                 <p class="text-text-dim text-xs mt-1">{{ t('welcome.feature_scan_label', lang) }}</p>
             </div>
@@ -73,7 +73,7 @@
                 <h3 class="text-lg font-semibold text-text mb-2">{{ t('welcome.feature_explore_title', lang) }}</h3>
                 <p class="text-text-muted text-sm mb-4">{{ t('welcome.feature_explore_desc', lang) }}</p>
                 <div class="text-3xl font-display font-bold text-gold">
-                    <span class="counter-value" data-target="260">0</span><span class="text-gold/70">+</span>
+                    <span class="counter-value" data-target="{{ landmark_count }}">0</span><span class="text-gold/70">+</span>
                 </div>
                 <p class="text-text-dim text-xs mt-1">{{ t('welcome.feature_explore_label', lang) }}</p>
             </div>
@@ -85,7 +85,7 @@
                 <h3 class="text-lg font-semibold text-text mb-2">{{ t('welcome.feature_stories_title', lang) }}</h3>
                 <p class="text-text-muted text-sm mb-4">{{ t('welcome.feature_stories_desc', lang) }}</p>
                 <div class="text-3xl font-display font-bold text-gold">
-                    <span class="counter-value" data-target="5">0</span>
+                    <span class="counter-value" data-target="{{ story_count }}">0</span>
                 </div>
                 <p class="text-text-dim text-xs mt-1">{{ t('welcome.feature_stories_label', lang) }}</p>
             </div>
