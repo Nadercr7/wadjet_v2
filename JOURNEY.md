@@ -119,4 +119,4 @@ The platform is live and deployed. Future plans include a deeper Egyptian transl
 
 ---
 
-*Built by Mr Robot*
+*Built by Nader Mohamed*

@@ -332,7 +332,7 @@ Set your secrets in the Render dashboard (marked `sync: false` in the config).
 
 <br/>
 
-<sub><strong>Built by Mr Robot</strong></sub>
+<sub><strong>Built by <a href="https://linktr.ee/nader__7">Nader Mohamed</a></strong></sub>
 
 <br/><br/>
 

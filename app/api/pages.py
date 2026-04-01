@@ -164,7 +164,7 @@ async def story_reader(request: Request, story_id: str):
         "description": story_subtitle,
         "inLanguage": ["en", "ar"],
         "genre": "Mythology",
-        "author": {"@type": "Person", "name": "Mr Robot"},
+        "author": {"@type": "Person", "name": "Nader Mohamed", "url": "https://linktr.ee/nader__7"},
     }
     return templates.TemplateResponse(request, "story_reader.html", {
         "story_id": story_id, "lang": lang, "page_name": "stories",
@@ -248,7 +248,7 @@ async def sitemap_xml():
 
     pages = [
         "/", "/welcome", "/hieroglyphs", "/landmarks",
-        "/scan", "/dictionary", "/write", "/explore", "/chat", "/stories",
+        "/scan", "/dictionary", "/explore", "/chat", "/stories",
     ]
     # Add lesson pages (5 levels)
     for level in range(1, 6):

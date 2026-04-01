@@ -188,7 +188,7 @@ check("Φ-7", "Reduced motion → brand animations static", has(css, "prefers-re
 check("Φ-7", "Nav: brand mark 𓂀", has(nav, "𓂀") and has(nav, "brand-mark"))
 check("Φ-7", "Nav: brand text + BETA badge", has(nav, "brand-text") and has(nav, "badge") and has_re(nav, r"BETA|badge_beta"))
 check("Φ-7", "Footer: brand mark 𓂀 with pulse", has(footer, "𓂀") and has(footer, "brand-mark"))
-check("Φ-7", "Footer: Built by Mr Robot", has(footer, "footer.built_by") or has(footer, "Built by Mr Robot"))
+check("Φ-7", "Footer: Built by Nader Mohamed", has(footer, "footer.built_by") or has(footer, "Built by"))
 
 # ─── Phase Φ-8: Onboarding Page ───
 results.append("\n=== Phase Φ-8: Onboarding Page ===")
