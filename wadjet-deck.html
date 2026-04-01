@@ -555,17 +555,20 @@
         @media print {
             html { scroll-snap-type: none; }
             .slide {
-                height: auto !important;
-                min-height: 100vh;
-                overflow: visible !important;
+                height: 100vh !important;
+                max-height: 100vh !important;
+                overflow: hidden !important;
                 page-break-after: always;
                 page-break-inside: avoid;
             }
+            .slide:last-of-type { page-break-after: avoid; }
             .progress-bar, .nav-dots, .keyboard-hint { display: none !important; }
             .reveal { opacity: 1 !important; transform: none !important; }
             .meteor, .glow-ring, .dot-pattern { display: none; }
             body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
             a.btn-gold { pointer-events: none; }
+            /* Scale down dense slides to fit one page */
+            [data-slide="13"] > div { transform: scale(0.85); transform-origin: top center; }
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -1618,10 +1621,8 @@
                     <div class="card">
                         <h4 style="margin-bottom:0.75rem;color:var(--gold);">What Happens Next</h4>
                         <ul class="feature-list" style="font-size:0.85rem;">
-                            <li>Every submission goes to a dashboard I review</li>
-                            <li>Bugs get prioritized and fixed fast</li>
-                            <li>Good suggestions get built into the next update</li>
-                            <li>Your input directly improves the app for everyone</li>
+                            <li>I review every submission personally</li>
+                            <li>Bugs get fixed fast, good ideas get built</li>
                         </ul>
                     </div>
                 </div>
@@ -1672,20 +1673,6 @@
                 </div>
             </div>
 
-            <div class="reveal reveal-d3" style="display:flex;gap:1.5rem;flex-wrap:wrap;">
-                <div class="card" style="flex:1;min-width:140px;text-align:center;padding:1rem;">
-                    <div class="stat-number" style="font-size:1.8rem;">100%</div>
-                    <div class="stat-label">Free Forever</div>
-                </div>
-                <div class="card" style="flex:1;min-width:140px;text-align:center;padding:1rem;">
-                    <div class="stat-number" style="font-size:1.8rem;">EN/AR</div>
-                    <div class="stat-label">Bilingual</div>
-                </div>
-                <div class="card" style="flex:1;min-width:140px;text-align:center;padding:1rem;">
-                    <div class="stat-number" style="font-size:1.8rem;">A11y</div>
-                    <div class="stat-label">Accessible</div>
-                </div>
-            </div>
         </div>
         <span class="slide-number">13 / 15</span>
     </section>
