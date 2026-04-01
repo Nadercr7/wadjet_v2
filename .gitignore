@@ -30,6 +30,8 @@ data/reference/
 
 # Generated cache (TTS audio, AI images)
 app/static/cache/
+!app/static/cache/images/
+!app/static/cache/images/story_*.png
 
 # TailwindCSS build output
 app/static/dist/
