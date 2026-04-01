@@ -64,7 +64,7 @@ After the core was solid, the scope grew:
 
 ---
 
-## Chapter 5: By The Numbers
+## Chapter 5: By The Numbers (v2)
 
 | What | How Much |
 |------|----------|
@@ -76,7 +76,7 @@ After the core was solid, the scope grew:
 | Landmark sites recognized | 52 |
 | Total model size (all three) | ~42 MB |
 | Image URLs for landmarks | 1,220+ |
-| Interactive mythology stories | 13 |
+| Interactive mythology stories | 12 |
 | Translatable hieroglyphs | 88 |
 
 ---
@@ -111,9 +111,50 @@ The v3-beta repo was cleaned to contain only production code — no archive, no 
 
 ---
 
+## Chapter 8: The Polish
+
+With v3 live, the focus shifted to real-world usability — the kind of issues you only find when people actually use the thing.
+
+**UX restructure**: The navigation was simplified. The Write feature merged into the Dictionary as a tab — one less top-level page, cleaner flow. Scan and Dictionary grouped under a "Hieroglyphs" dropdown. Landmarks got its own clear nav entry. Thoth AI kept its spot. The footer attribution updated to the actual author.
+
+**Bilingual lessons**: The dictionary's Learn tab got full Arabic/English lesson support with audio pronunciation on example words and practice exercises. TTS was fixed to pronounce actual Egyptian words instead of spelling them letter by letter.
+
+**Write tab pronunciation**: Instead of translating back to the language the user already typed in (useless), the Write tab now shows the ancient Egyptian transliteration and lets you hear how the hieroglyphs would have been pronounced — using a deep, resonant voice meant to evoke an ancient Egyptian scribe reading aloud in a temple.
+
+**Auth token refresh**: Every page that called `/api/user/*` endpoints (explore favorites, story progress, settings, dashboard) was using raw `fetch()` with a manually-attached token. When the access token expired, these calls silently 401'd with no retry. All replaced with `_authFetch()` — the auth store's wrapper that auto-refreshes expired tokens and retries.
+
+**Dashboard counters**: The scan page wasn't sending the JWT `Authorization` header when uploading images. The backend's `get_optional_user()` reads the token from the header only — no header meant no user, so scan history was never saved and dashboard counters stayed at zero. Fixed by attaching the token from Alpine's auth store.
+
+**Welcome page accuracy**: The welcome page had hardcoded numbers (1,000 signs, 260 landmarks, 5 stories) that drifted from reality. Now dynamically pulled from actual data sources: 1,023 Gardiner signs, 260 heritage sites, 12 mythology stories.
+
+**Wikimedia image reliability**: The landmark explorer loaded raw full-resolution Wikimedia URLs (5–20 MB each). With 24+ images loading concurrently and Alpine.js re-rendering the grid, the browser cancelled in-flight requests — causing NS_BINDING_ABORTED errors and broken images everywhere. All URLs now clamped to thumbnail size, with `decoding="async"` and `@error` fallbacks on every `<img>`.
+
+**Camera tab**: Temporarily removed from both scan and explore pages after discovering cross-browser issues with `getUserMedia` — the video element was being destroyed and recreated by Alpine's `x-if`, causing black screens on mobile.
+
+---
+
+## Chapter 9: By The Numbers (Current)
+
+| What | How Much |
+|------|----------|
+| Gardiner signs in dictionary | 1,023 |
+| Egyptian heritage sites | 260+ |
+| Interactive mythology stories | 12 |
+| Hieroglyph recognition accuracy | 98.2% |
+| Landmark recognition accuracy | 93.8% |
+| Hieroglyph classes supported | 171 |
+| Landmark sites recognized | 52 |
+| Total model size (all three) | ~42 MB |
+| Image URLs for landmarks | 1,220+ |
+| AI providers in rotation | 4 (Gemini, Grok, Groq, Cloudflare) |
+| TTS voices configured | 6 contexts |
+| Translatable hieroglyphs | 88 |
+
+---
+
 ## What's Next
 
-The platform is live and deployed. Future plans include a deeper Egyptian translation engine, enhanced landmark experiences with multi-modal AI, and continued improvements to detection accuracy.
+The platform is live and deployed. Future plans include a deeper Egyptian translation engine, enhanced landmark experiences with multi-modal AI, camera-based scanning restoration, and continued improvements to detection accuracy.
 
 **Try it**: [nadercr7-wadjet-v2.hf.space](https://nadercr7-wadjet-v2.hf.space)
 
