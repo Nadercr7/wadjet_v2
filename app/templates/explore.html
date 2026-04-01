@@ -237,22 +237,8 @@
                       @htmx:after-request.window="if(event.detail.elt.id === 'identify-form') { $refs.identifyBtn.disabled = false; if(!event.detail.successful) { identifyError = event.detail.xhr?.status === 503 ? '{{ t('explore.error_unavailable', lang) }}' : '{{ t('explore.error_identify_generic', lang) }}'; } }"
                       enctype="multipart/form-data">
 
-                    <!-- Tabs: Upload / Camera -->
-                    <div class="flex justify-center gap-2 mb-6">
-                        <button type="button" @click="identifyMode = 'upload'; stopIdentifyCamera()"
-                                :class="identifyMode === 'upload' ? 'btn-gold btn-sm' : 'btn-ghost btn-sm'">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
-                            {{ t('explore.tab_upload', lang) }}
-                        </button>
-                        <button type="button" @click="identifyMode = 'camera'"
-                                :class="identifyMode === 'camera' ? 'btn-gold btn-sm' : 'btn-ghost btn-sm'">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
-                            {{ t('explore.btn_camera', lang) }}
-                        </button>
-                    </div>
-
-                    <!-- Upload area -->
-                    <div x-show="identifyMode === 'upload'" class="card border-dashed border-2 border-border hover:border-gold/30 transition-colors text-center py-16 cursor-pointer relative mb-6"
+                    <!-- Upload area (camera tab removed — to be re-added later) -->
+                    <div class="card border-dashed border-2 border-border hover:border-gold/30 transition-colors text-center py-16 cursor-pointer relative mb-6"
                          @click="$refs.identifyInput.click()"
                          @dragover.prevent="identifyDragOver = true"
                          @dragleave.prevent="identifyDragOver = false"
@@ -277,61 +263,12 @@
                             </div>
                         </template>
 
-                        <template x-if="identifyPreview && identifyMode === 'upload'">
+                        <template x-if="identifyPreview">
                             <div>
                                 <img :src="identifyPreview" class="max-h-64 rounded-lg mx-auto mb-4 object-contain" alt="{{ t('explore.uploaded_landmark', lang) }}">
                                 <p class="text-text-dim text-sm">{{ t('explore.change_image', lang) }}</p>
                             </div>
                         </template>
-                    </div>
-
-                    <!-- Camera mode -->
-                    <div x-show="identifyMode === 'camera'" x-transition>
-                        <div class="card text-center mb-6">
-                            <template x-if="!identifyCameraActive && !identifyPreview">
-                                <div class="py-12">
-                                    <div class="w-20 h-20 rounded-full bg-gold/10 border border-gold/20 flex items-center justify-center mx-auto mb-6">
-                                        <svg class="w-10 h-10 text-gold/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
-                                        </svg>
-                                    </div>
-                                    <button type="button" @click="startIdentifyCamera()" class="btn-gold">
-                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
-                                        {{ t('explore.camera_start', lang) }}
-                                    </button>
-                                    <p class="text-text-dim text-sm mt-3">{{ t('explore.camera_hint', lang) }}</p>
-                                </div>
-                            </template>
-
-                            <template x-if="identifyCameraActive">
-                                <div>
-                                    <div class="relative inline-block">
-                                        <video x-ref="identifyVideo" autoplay playsinline class="max-h-80 rounded-lg border border-border"></video>
-                                        <div class="absolute inset-0 border-2 border-gold/30 rounded-lg pointer-events-none">
-                                            <div class="absolute top-2 left-2 w-6 h-6 border-t-2 border-l-2 border-gold"></div>
-                                            <div class="absolute top-2 right-2 w-6 h-6 border-t-2 border-r-2 border-gold"></div>
-                                            <div class="absolute bottom-2 left-2 w-6 h-6 border-b-2 border-l-2 border-gold"></div>
-                                            <div class="absolute bottom-2 right-2 w-6 h-6 border-b-2 border-r-2 border-gold"></div>
-                                        </div>
-                                    </div>
-                                    <canvas x-ref="identifyCanvas" class="hidden"></canvas>
-                                    <div class="flex justify-center gap-3 mt-4">
-                                        <button type="button" @click="captureIdentifyPhoto()" class="btn-gold">
-                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path></svg>
-                                            {{ t('explore.camera_capture', lang) }}
-                                        </button>
-                                        <button type="button" @click="stopIdentifyCamera()" class="btn-ghost">{{ t('explore.camera_stop', lang) }}</button>
-                                    </div>
-                                </div>
-                            </template>
-
-                            <template x-if="!identifyCameraActive && identifyPreview && identifyMode === 'camera'">
-                                <div class="py-6">
-                                    <img :src="identifyPreview" class="max-h-64 rounded-lg mx-auto mb-4 object-contain" alt="{{ t('explore.captured_landmark', lang) }}">
-                                    <button type="button" @click="identifyPreview = null; identifyFile = null;" class="btn-ghost btn-sm">{{ t('explore.camera_retake', lang) }}</button>
-                                </div>
-                            </template>
-                        </div>
                     </div>
 
                     <!-- Identify button -->
