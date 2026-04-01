@@ -32,16 +32,41 @@
         <!-- ════════════════════════════════════════════════
              Tab navigation: Browse | Learn
              ════════════════════════════════════════════════ -->
-        <div class="flex gap-1 mb-8 border-b border-border" data-animate role="tablist" @keydown.arrow-right.prevent="tab = tab === 'browse' ? 'learn' : 'browse'; $nextTick(() => $el.querySelector('[aria-selected=true]')?.focus())" @keydown.arrow-left.prevent="tab = tab === 'browse' ? 'learn' : 'browse'; $nextTick(() => $el.querySelector('[aria-selected=true]')?.focus())">
-            <button @click="tab = 'browse'" role="tab" id="dict-tab-browse" :aria-selected="tab === 'browse' ? 'true' : 'false'" aria-controls="dict-panel-browse" :tabindex="tab === 'browse' ? 0 : -1" class="px-5 py-3 text-sm font-medium transition-all border-b-2 -mb-px"
-                    :class="tab === 'browse' ? 'border-gold text-gold' : 'border-transparent text-text-muted hover:text-text'">
-                <svg class="w-4 h-4 inline -mt-0.5 me-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path></svg>
-                {{ t('dictionary.tab_browse', lang) }}
+        <div class="grid grid-cols-2 gap-3 sm:gap-4 mb-10" data-animate role="tablist" @keydown.arrow-right.prevent="tab = tab === 'browse' ? 'learn' : 'browse'; $nextTick(() => $el.querySelector('[aria-selected=true]')?.focus())" @keydown.arrow-left.prevent="tab = tab === 'browse' ? 'learn' : 'browse'; $nextTick(() => $el.querySelector('[aria-selected=true]')?.focus())">
+            <!-- Browse tab -->
+            <button @click="tab = 'browse'" role="tab" id="dict-tab-browse" :aria-selected="tab === 'browse' ? 'true' : 'false'" aria-controls="dict-panel-browse" :tabindex="tab === 'browse' ? 0 : -1"
+                    class="relative rounded-xl p-4 sm:p-5 text-start transition-all border-2"
+                    :class="tab === 'browse' ? 'border-gold/60 bg-gold/5 shadow-[0_0_20px_rgba(212,175,55,0.08)]' : 'border-border bg-surface hover:border-gold/30'">
+                <div class="flex items-center gap-2.5 mb-1.5">
+                    <span class="w-9 h-9 rounded-lg flex items-center justify-center transition-colors"
+                          :class="tab === 'browse' ? 'bg-gold/15 text-gold' : 'bg-white/5 text-text-muted'">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path></svg>
+                    </span>
+                    <span class="font-semibold text-base sm:text-lg transition-colors"
+                          :class="tab === 'browse' ? 'text-gold' : 'text-text'">{{ t('dictionary.tab_browse', lang) }}</span>
+                </div>
+                <p class="text-xs sm:text-sm text-text-dim ps-[46px]">{{ t('dictionary.tab_browse_desc', lang) }}</p>
             </button>
-            <button @click="tab = 'learn'" role="tab" id="dict-tab-learn" :aria-selected="tab === 'learn' ? 'true' : 'false'" aria-controls="dict-panel-learn" :tabindex="tab === 'learn' ? 0 : -1" class="px-5 py-3 text-sm font-medium transition-all border-b-2 -mb-px"
-                    :class="tab === 'learn' ? 'border-gold text-gold' : 'border-transparent text-text-muted hover:text-text'">
-                <svg class="w-4 h-4 inline -mt-0.5 me-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-                {{ t('dictionary.tab_learn', lang) }}
+
+            <!-- Learn tab — highlighted with pulse & recommended badge -->
+            <button @click="tab = 'learn'" role="tab" id="dict-tab-learn" :aria-selected="tab === 'learn' ? 'true' : 'false'" aria-controls="dict-panel-learn" :tabindex="tab === 'learn' ? 0 : -1"
+                    class="relative rounded-xl p-4 sm:p-5 text-start transition-all border-2"
+                    :class="tab === 'learn' ? 'border-gold bg-gold/8 shadow-[0_0_24px_rgba(212,175,55,0.12)]' : 'border-gold/30 bg-gold/3 hover:border-gold/50'">
+                <!-- Recommended badge -->
+                <span class="absolute -top-2.5 end-3 sm:end-4 px-2 py-0.5 bg-gold text-night text-[10px] sm:text-xs font-bold rounded-full tracking-wide uppercase"
+                      :class="tab !== 'learn' ? 'animate-pulse-gold' : ''">
+                    {{ t('dictionary.tab_learn_badge', lang) }}
+                </span>
+                <div class="flex items-center gap-2.5 mb-1.5">
+                    <span class="w-9 h-9 rounded-lg flex items-center justify-center transition-colors"
+                          :class="tab === 'learn' ? 'bg-gold/20 text-gold' : 'bg-gold/10 text-gold-light'">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    </span>
+                    <span class="font-semibold text-base sm:text-lg transition-colors"
+                          :class="tab === 'learn' ? 'text-gold' : 'text-gold-light'">{{ t('dictionary.tab_learn', lang) }}</span>
+                </div>
+                <p class="text-xs sm:text-sm ps-[46px] transition-colors"
+                   :class="tab === 'learn' ? 'text-text-muted' : 'text-text-dim'">{{ t('dictionary.tab_learn_desc', lang) }}</p>
             </button>
         </div>
 
