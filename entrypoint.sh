@@ -1,7 +1,16 @@
 #!/bin/sh
 # Fix ownership of mounted storage volumes (HF Storage Buckets mount as root)
-if [ -d "/data" ]; then
-    chown -R wadjet:wadjet /data 2>/dev/null || true
+# and set up cache symlink — all as root before dropping privileges.
+if [ -d "/data" ] && [ -n "$PERSISTENT_DATA_DIR" ]; then
+    mkdir -p /data/cache/audio /data/cache/images
+    chown -R wadjet:wadjet /data
+
+    # Replace ephemeral cache dir with symlink to persistent volume
+    if [ -d "/app/app/static/cache" ] && [ ! -L "/app/app/static/cache" ]; then
+        rm -rf /app/app/static/cache
+        ln -s /data/cache /app/app/static/cache
+        chown -h wadjet:wadjet /app/app/static/cache
+    fi
 fi
 
 # Drop to non-root user and exec the server
