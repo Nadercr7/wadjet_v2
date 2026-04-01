@@ -41,11 +41,13 @@ COPY data/ data/
 RUN mkdir -p app/static/cache/audio app/static/cache/images data /data \
     && chown -R wadjet:wadjet app/static/cache data /data
 
-USER wadjet
+# Entrypoint fixes permissions on mounted volumes then drops to wadjet user
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 
 EXPOSE 7860
 
 HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
     CMD curl -f http://localhost:7860/api/health || exit 1
 
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "7860"]
+ENTRYPOINT ["/entrypoint.sh"]
