@@ -97,57 +97,55 @@
             <!-- Camera mode -->
             <div x-show="inputMode === 'camera'" x-transition role="tabpanel" id="scan-panel-camera" aria-labelledby="scan-tab-camera">
                 <div class="card text-center">
-                    <template x-if="!cameraActive">
-                        <div class="py-12">
-                            <div class="w-20 h-20 rounded-full bg-gold/10 border border-gold/20 flex items-center justify-center mx-auto mb-6">
-                                <svg class="w-10 h-10 text-gold/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
-                                </svg>
-                            </div>
-                            <button @click="startCamera()" class="btn-gold">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
-                                {{ t('scan.camera_start', lang) }}
-                            </button>
-                            <p class="text-text-dim text-sm mt-3">{{ t('scan.camera_hint', lang) }}</p>
+                    <!-- Start camera prompt (hidden once active) -->
+                    <div x-show="!cameraActive" class="py-12">
+                        <div class="w-20 h-20 rounded-full bg-gold/10 border border-gold/20 flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-10 h-10 text-gold/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
                         </div>
-                    </template>
+                        <button @click="startCamera()" class="btn-gold">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                            {{ t('scan.camera_start', lang) }}
+                        </button>
+                        <p class="text-text-dim text-sm mt-3">{{ t('scan.camera_hint', lang) }}</p>
+                    </div>
 
-                    <template x-if="cameraActive">
-                        <div>
-                            <div class="relative inline-block">
-                                <video x-ref="video" autoplay playsinline muted class="max-h-80 landscape:max-h-52 rounded-lg border border-border"></video>
-                                <!-- Live detection overlay -->
-                                <canvas x-ref="liveOverlay" class="absolute inset-0 w-full h-full pointer-events-none rounded-lg"
-                                        x-show="cameraLiveMode"></canvas>
-                                <!-- Scanning overlay -->
-                                <div class="absolute inset-0 border-2 border-gold/30 rounded-lg pointer-events-none">
-                                    <div class="absolute top-2 left-2 w-6 h-6 border-t-2 border-l-2 border-gold"></div>
-                                    <div class="absolute top-2 right-2 w-6 h-6 border-t-2 border-r-2 border-gold"></div>
-                                    <div class="absolute bottom-2 left-2 w-6 h-6 border-b-2 border-l-2 border-gold"></div>
-                                    <div class="absolute bottom-2 right-2 w-6 h-6 border-b-2 border-r-2 border-gold"></div>
-                                </div>
-                                <!-- Live mode indicator -->
-                                <div x-show="cameraLiveMode" class="absolute top-3 right-3 flex items-center gap-1.5 bg-night/80 px-2 py-1 rounded text-xs text-gold">
-                                    <span class="w-2 h-2 bg-gold rounded-full animate-pulse"></span>
-                                    {{ t('scan.camera_live', lang) }}
-                                </div>
+                    <!-- Active camera view (always in DOM, shown/hidden) -->
+                    <div x-show="cameraActive">
+                        <div class="relative inline-block">
+                            <video x-ref="video" autoplay playsinline muted class="max-h-80 landscape:max-h-52 rounded-lg border border-border"></video>
+                            <!-- Live detection overlay -->
+                            <canvas x-ref="liveOverlay" class="absolute inset-0 w-full h-full pointer-events-none rounded-lg"
+                                    x-show="cameraLiveMode"></canvas>
+                            <!-- Scanning overlay -->
+                            <div class="absolute inset-0 border-2 border-gold/30 rounded-lg pointer-events-none">
+                                <div class="absolute top-2 left-2 w-6 h-6 border-t-2 border-l-2 border-gold"></div>
+                                <div class="absolute top-2 right-2 w-6 h-6 border-t-2 border-r-2 border-gold"></div>
+                                <div class="absolute bottom-2 left-2 w-6 h-6 border-b-2 border-l-2 border-gold"></div>
+                                <div class="absolute bottom-2 right-2 w-6 h-6 border-b-2 border-r-2 border-gold"></div>
                             </div>
-                            <canvas x-ref="canvas" class="hidden"></canvas>
-                            <div class="flex justify-center gap-3 mt-4">
-                                <button @click="capturePhoto()" class="btn-gold" x-show="!cameraLiveMode">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path></svg>
-                                    {{ t('scan.camera_capture', lang) }}
-                                </button>
-                                <button @click="toggleLiveMode()" class="btn-ghost"
-                                        :class="{'!border-gold !text-gold': cameraLiveMode}"
-                                        x-show="processingMode === 'client'">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
-                                    <span x-text="cameraLiveMode ? __i18n.scan_camera_stop_live || 'Stop Live' : __i18n.scan_camera_live_mode || 'Live Mode'"></span>
-                                </button>
-                                <button @click="stopCamera()" class="btn-ghost">{{ t('scan.camera_stop', lang) }}</button>
+                            <!-- Live mode indicator -->
+                            <div x-show="cameraLiveMode" class="absolute top-3 right-3 flex items-center gap-1.5 bg-night/80 px-2 py-1 rounded text-xs text-gold">
+                                <span class="w-2 h-2 bg-gold rounded-full animate-pulse"></span>
+                                {{ t('scan.camera_live', lang) }}
                             </div>
                         </div>
-                    </template>
+                        <canvas x-ref="canvas" class="hidden"></canvas>
+                        <div class="flex justify-center gap-3 mt-4">
+                            <button @click="capturePhoto()" class="btn-gold" x-show="!cameraLiveMode">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path></svg>
+                                {{ t('scan.camera_capture', lang) }}
+                            </button>
+                            <button @click="toggleLiveMode()" class="btn-ghost"
+                                    :class="{'!border-gold !text-gold': cameraLiveMode}"
+                                    x-show="processingMode === 'client'">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                                <span x-text="cameraLiveMode ? __i18n.scan_camera_stop_live || 'Stop Live' : __i18n.scan_camera_live_mode || 'Live Mode'"></span>
+                            </button>
+                            <button @click="stopCamera()" class="btn-ghost">{{ t('scan.camera_stop', lang) }}</button>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -835,20 +833,10 @@ function scanApp() {
                     video: { facingMode: 'environment', width: { ideal: 1280 }, height: { ideal: 720 } }
                 });
                 this.cameraActive = true;
-                // x-if fully re-creates DOM — $nextTick alone isn't enough.
-                // Poll until Alpine mounts the <video x-ref="video"> element.
-                const self = this;
-                let attempts = 0;
-                const waitForVideo = () => {
-                    const video = self.$refs.video;
-                    if (video) {
-                        video.srcObject = self.stream;
-                        video.play().catch(() => {});
-                    } else if (++attempts < 20) {
-                        requestAnimationFrame(waitForVideo);
-                    }
-                };
-                this.$nextTick(waitForVideo);
+                // Video element always in DOM (x-show, not x-if) — ref is safe
+                const video = this.$refs.video;
+                video.srcObject = this.stream;
+                video.play().catch(() => {});
             } catch (err) {
                 this.showError('{{ t('scan.error_camera', lang) }}');
             }
