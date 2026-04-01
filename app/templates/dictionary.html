@@ -30,9 +30,9 @@
         </div>
 
         <!-- ════════════════════════════════════════════════
-             Tab navigation: Browse | Learn
+             Tab navigation: Browse | Learn | Write
              ════════════════════════════════════════════════ -->
-        <div class="grid grid-cols-2 gap-3 sm:gap-4 mb-10" data-animate role="tablist" @keydown.arrow-right.prevent="tab = tab === 'browse' ? 'learn' : 'browse'; $nextTick(() => $el.querySelector('[aria-selected=true]')?.focus())" @keydown.arrow-left.prevent="tab = tab === 'browse' ? 'learn' : 'browse'; $nextTick(() => $el.querySelector('[aria-selected=true]')?.focus())">
+        <div class="grid grid-cols-3 gap-3 sm:gap-4 mb-10" data-animate role="tablist" @keydown.arrow-right.prevent="tab = tab === 'browse' ? 'learn' : (tab === 'learn' ? 'write' : 'browse'); $nextTick(() => $el.querySelector('[aria-selected=true]')?.focus())" @keydown.arrow-left.prevent="tab = tab === 'write' ? 'learn' : (tab === 'learn' ? 'browse' : 'write'); $nextTick(() => $el.querySelector('[aria-selected=true]')?.focus())">
             <!-- Browse tab -->
             <button @click="tab = 'browse'" role="tab" id="dict-tab-browse" :aria-selected="tab === 'browse' ? 'true' : 'false'" aria-controls="dict-panel-browse" :tabindex="tab === 'browse' ? 0 : -1"
                     class="relative rounded-xl p-4 sm:p-5 text-start transition-all border-2"
@@ -67,6 +67,22 @@
                 </div>
                 <p class="text-xs sm:text-sm ps-[46px] transition-colors"
                    :class="tab === 'learn' ? 'text-text-muted' : 'text-text-dim'">{{ t('dictionary.tab_learn_desc', lang) }}</p>
+            </button>
+
+            <!-- Write tab -->
+            <button @click="tab = 'write'" role="tab" id="dict-tab-write" :aria-selected="tab === 'write' ? 'true' : 'false'" aria-controls="dict-panel-write" :tabindex="tab === 'write' ? 0 : -1"
+                    class="relative rounded-xl p-4 sm:p-5 text-start transition-all border-2"
+                    :class="tab === 'write' ? 'border-gold/60 bg-gold/5 shadow-[0_0_20px_rgba(212,175,55,0.08)]' : 'border-border bg-surface hover:border-gold/30'">
+                <div class="flex items-center gap-2.5 mb-1.5">
+                    <span class="w-9 h-9 rounded-lg flex items-center justify-center transition-colors"
+                          :class="tab === 'write' ? 'bg-gold/15 text-gold' : 'bg-white/5 text-text-muted'">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
+                    </span>
+                    <span class="font-semibold text-base sm:text-lg transition-colors"
+                          :class="tab === 'write' ? 'text-gold' : 'text-text'">{{ t('dictionary.tab_write', lang) }}</span>
+                </div>
+                <p class="text-xs sm:text-sm ps-[46px] transition-colors"
+                   :class="tab === 'write' ? 'text-text-muted' : 'text-text-dim'">{{ t('dictionary.tab_write_desc', lang) }}</p>
             </button>
         </div>
 
@@ -228,175 +244,143 @@
         </div>
 
         <!-- ════════════════════════════════════════════════
-             Detail Modal — redesigned with visual hierarchy
+             WRITE TAB — AI-powered hieroglyph writing
              ════════════════════════════════════════════════ -->
-        <div x-show="detailSign" x-transition:enter="transition ease-out duration-200"
-             x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
-             x-transition:leave="transition ease-in duration-150"
-             x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
-             x-effect="if (detailSign) { _modalPrev = document.activeElement; $nextTick(() => { const panel = $el.querySelector('[role=dialog]'); if (panel) { _modalTrap = window.createFocusTrap(panel); _modalTrap.activate(); panel.querySelector('button')?.focus(); } }); } else if (_modalTrap) { _modalTrap.deactivate(); _modalTrap = null; if (_modalPrev) { _modalPrev.focus(); _modalPrev = null; } }"
-             class="fixed inset-0 z-50 flex items-center justify-center p-4"
-             @click.self="detailSign = null" @keydown.escape.window="detailSign = null">
+        <div x-show="tab === 'write'" role="tabpanel" id="dict-panel-write" aria-labelledby="dict-tab-write">
 
-            <div class="absolute inset-0 bg-night/80 backdrop-blur-sm"></div>
+            <!-- Text Input -->
+            <div class="card mb-6">
+                <label class="block text-sm font-medium text-text-muted mb-2">
+                    {{ t('write.label_smart', lang) }}
+                </label>
+                <div class="relative">
+                    <textarea x-model="writeInput" @input.debounce.300ms="writeConvert()"
+                              placeholder="{{ t('write.placeholder_smart', lang) }}"
+                              class="input w-full h-24 resize-none text-lg" maxlength="500"></textarea>
+                    <span class="absolute bottom-2 right-3 text-xs text-text-dim flex items-center gap-2">
+                        <svg x-show="writeConverting" x-cloak class="w-3.5 h-3.5 animate-spin text-gold" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path></svg>
+                        <span x-text="writeInput.length + '/500'"></span>
+                    </span>
+                </div>
 
-            <div x-show="detailSign"
-                 x-transition:enter="transition ease-out duration-200 delay-75"
-                 x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100"
-                 role="dialog" aria-modal="true" aria-label="{{ t('dictionary.sign_detail', lang) }}"
-                 class="relative bg-surface border border-border rounded-2xl max-w-lg w-full shadow-2xl max-h-[90vh] overflow-y-auto">
-
-                <button @click="detailSign = null"
-                        aria-label="{{ t('common.close', lang) }}"
-                        class="absolute top-4 right-4 text-text-dim hover:text-text transition-colors z-10">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-                </button>
-
-                <template x-if="detailSign">
-                    <div>
-                        <!-- ── Hero zone ── -->
-                        <div class="relative text-center pt-8 pb-6 px-6 border-b border-border">
-                            <div class="absolute inset-0 bg-gradient-to-b from-gold/5 to-transparent rounded-t-2xl"></div>
-                            <div class="relative">
-                                <div class="font-hieroglyph text-8xl text-gold mb-3 drop-shadow-[0_0_20px_rgba(212,175,55,0.3)]"
-                                     x-text="detailSign.unicode_char || detailSign.code"></div>
-                                <div class="text-sm font-mono text-text-muted tracking-wider" dir="ltr" x-text="detailSign.code"></div>
-                            </div>
-                        </div>
-
-                        <div class="p-6 space-y-5">
-
-                            <!-- ── Primary identity ── -->
-                            <!-- Phonetic signs: big transliteration + pronunciation + audio -->
-                            <div x-show="detailSign.is_phonetic && detailSign.transliteration" class="text-center">
-                                <div class="flex items-center justify-center gap-3 mb-1">
-                                    <span class="text-gold text-3xl font-bold tracking-wide" x-text="detailSign.transliteration"></span>
-                                    <button x-show="detailSign.speech_text" @click="speakSign(detailSign.speech_text, $el)"
-                                            class="p-1.5 rounded-full bg-gold/10 hover:bg-gold/20 text-gold transition-colors" aria-label="{{ t('dictionary.listen_pronunciation', lang) }}">
-                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
-                                    </button>
-                                </div>
-                                <div x-show="detailSign.pronunciation" class="text-text-muted text-sm">
-                                    <span x-text="detailSign.pronunciation ? formatPronunciation(detailSign.pronunciation) : ''"></span>
-                                </div>
-                            </div>
-
-                            <!-- Logograms: meaning front and center -->
-                            <div x-show="detailSign.type === 'logogram' && detailSign.logographic_value" class="text-center">
-                                <p class="text-xs text-text-dim uppercase tracking-wider mb-1">{{ t('dictionary.means', lang) }}</p>
-                                <p class="text-green-400 text-2xl font-semibold" x-text="detailSign.logographic_value"></p>
-                                <div x-show="detailSign.transliteration" class="mt-2 flex items-center justify-center gap-2">
-                                    <span class="text-text-muted text-sm">{{ t('dictionary.also_reads', lang) }}</span>
-                                    <span class="text-gold font-medium" x-text="detailSign.transliteration"></span>
-                                    <button x-show="detailSign.speech_text" @click="speakSign(detailSign.speech_text, $el)"
-                                            class="p-1 rounded-full bg-gold/10 hover:bg-gold/20 text-gold transition-colors" aria-label="{{ t('dictionary.listen_pronunciation', lang) }}">
-                                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
-                                    </button>
-                                </div>
-                            </div>
-
-                            <!-- Determinatives: silent classifier callout -->
-                            <div x-show="detailSign.type === 'determinative'"
-                                 class="bg-orange-500/10 border border-orange-500/20 rounded-xl p-4 text-center">
-                                <div class="flex items-center justify-center gap-1.5 mb-2">
-                                    <svg class="w-4 h-4 text-orange-400/70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"></path></svg>
-                                    <p class="text-xs text-orange-400/70 uppercase tracking-wider font-medium">{{ t('dictionary.silent_sign', lang) }}</p>
-                                </div>
-                                <p class="text-sm text-text-muted leading-relaxed mb-2">{{ t('dictionary.silent_desc', lang) }}</p>
-                                <p x-show="detailSign.determinative_class" class="text-orange-400 text-lg font-semibold" x-text="detailSign.determinative_class"></p>
-                            </div>
-
-                            <!-- ── Info cards grid ── -->
-                            <div class="grid grid-cols-2 gap-3">
-                                <!-- Type -->
-                                <div class="bg-night/50 border border-border rounded-lg p-3">
-                                    <p class="text-[11px] text-text-dim uppercase tracking-wider mb-1">{{ t('dictionary.type_label', lang) }}</p>
-                                    <span class="inline-block px-2 py-0.5 text-xs rounded-full font-medium" :class="typeClass(detailSign.type)" x-text="detailSign.type_name || detailSign.type"></span>
-                                </div>
-                                <!-- Category -->
-                                <div class="bg-night/50 border border-border rounded-lg p-3">
-                                    <p class="text-[11px] text-text-dim uppercase tracking-wider mb-1">{{ t('dictionary.category_label', lang) }}</p>
-                                    <p class="text-sm"><span class="text-gold font-medium" x-text="detailSign.category"></span> <span class="text-text-muted" x-text="'\u00B7 ' + detailSign.category_name"></span></p>
-                                </div>
-                                <!-- Depicts -->
-                                <div class="bg-night/50 border border-border rounded-lg p-3 col-span-2">
-                                    <p class="text-[11px] text-text-dim uppercase tracking-wider mb-1">{{ t('dictionary.depicts', lang) }}</p>
-                                    <p class="text-sm text-text leading-relaxed" x-text="detailSign.description"></p>
-                                </div>
-                                <!-- Also means (for non-logograms that have logographic value) -->
-                                <template x-if="detailSign.type !== 'logogram' && detailSign.logographic_value">
-                                    <div class="bg-night/50 border border-border rounded-lg p-3 col-span-2">
-                                        <p class="text-[11px] text-text-dim uppercase tracking-wider mb-1">{{ t('dictionary.also_means', lang) }}</p>
-                                        <p class="text-sm text-text" x-text="detailSign.logographic_value"></p>
-                                    </div>
-                                </template>
-                            </div>
-
-                            <!-- ── Fun fact ── -->
-                            <div x-show="detailSign.fun_fact"
-                                 class="bg-gold/5 border border-gold/20 rounded-xl p-4">
-                                <div class="flex gap-3">
-                                    <svg class="w-4 h-4 text-gold shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456z"></path></svg>
-                                    <p class="text-sm text-text leading-relaxed" x-text="detailSign.fun_fact"></p>
-                                </div>
-                            </div>
-
-                            <!-- ── Used in (example words containing this sign) ── -->
-                            <div x-show="detailSign.example_usages && detailSign.example_usages.length > 0">
-                                <p class="text-[11px] text-text-dim uppercase tracking-wider mb-2 flex items-center gap-1.5">
-                                    <svg class="w-3.5 h-3.5 text-gold/60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-                                    {{ t('dictionary.used_in', lang) }}
-                                </p>
-                                <div class="space-y-2">
-                                    <template x-for="usage in detailSign.example_usages" :key="usage.transliteration">
-                                        <div class="bg-night/50 border border-border rounded-lg p-3 flex items-center gap-3">
-                                            <span class="font-hieroglyph text-2xl text-gold shrink-0" x-text="usage.hieroglyphs"></span>
-                                            <div class="min-w-0">
-                                                <p class="text-sm text-gold/80 font-medium" x-text="usage.transliteration"></p>
-                                                <p class="text-xs text-text-muted truncate" x-text="usage.translation"></p>
-                                            </div>
-                                        </div>
-                                    </template>
-                                </div>
-                            </div>
-
-                            <!-- ── See also (related signs from same category) ── -->
-                            <div x-show="detailSign.related_signs && detailSign.related_signs.length > 0">
-                                <p class="text-[11px] text-text-dim uppercase tracking-wider mb-2 flex items-center gap-1.5">
-                                    <svg class="w-3.5 h-3.5 text-gold/60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
-                                    {{ t('dictionary.see_also', lang) }}
-                                </p>
-                                <div class="flex flex-wrap gap-2">
-                                    <template x-for="rel in detailSign.related_signs" :key="rel.code">
-                                        <button @click="fetchAndOpenDetail(rel.code)"
-                                                class="bg-night/50 border border-border hover:border-gold/30 rounded-lg px-3 py-2 flex items-center gap-2 transition-colors">
-                                            <span class="font-hieroglyph text-xl text-gold" x-text="rel.unicode_char || rel.code"></span>
-                                            <div class="text-left">
-                                                <p class="text-xs font-mono text-text-muted" dir="ltr" x-text="rel.code"></p>
-                                                <p class="text-[10px] text-text-dim truncate max-w-[80px]" x-text="rel.reading"></p>
-                                            </div>
-                                        </button>
-                                    </template>
-                                </div>
-                            </div>
-
-                            <!-- ── Actions ── -->
-                            <div class="flex items-center justify-center gap-3 pt-1">
-                                <a x-show="detailSign.is_phonetic" :href="'/write?glyph=' + detailSign.code" class="btn-ghost btn-sm flex items-center gap-1.5">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
-                                    {{ t('dictionary.use_in_write', lang) }}
-                                </a>
-                                <button @click="selectCategory(detailSign.category); detailSign = null; tab = 'browse'"
-                                        class="btn-ghost btn-sm flex items-center gap-1.5">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
-                                    {{ t('dictionary.browse_category', lang) }}
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </template>
+                <!-- Quick examples -->
+                <div class="mt-3 flex flex-wrap gap-2">
+                    <span class="text-xs text-text-dim">{{ t('common.try', lang) }}</span>
+                    <template x-for="ex in writeExamples" :key="ex">
+                        <button @click="writeInput = ex; writeConvert()"
+                                class="text-xs px-2 py-0.5 rounded-full bg-surface-alt border border-border text-text-muted hover:border-gold/30 hover:text-gold transition-all cursor-pointer"
+                                x-text="ex"></button>
+                    </template>
+                </div>
             </div>
+
+            <!-- Hieroglyph Output -->
+            <div class="card mb-6" x-show="writeResult.hieroglyphs || writeResult.glyphs"
+                 x-transition:enter="transition ease-out duration-300"
+                 x-transition:enter-start="opacity-0 translate-y-2" x-transition:enter-end="opacity-100 translate-y-0">
+
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-sm font-semibold text-text-muted">{{ t('write.output', lang) }}</h3>
+                    <div class="flex gap-2">
+                        <button @click="writeCopy()" class="btn-ghost btn-sm" title="{{ t('common.copy', lang) }}">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                            <span x-text="writeCopyLabel"></span>
+                        </button>
+                        <button @click="writeShare()" class="btn-ghost btn-sm"
+                                x-show="writeCanShare" title="{{ t('common.share', lang) }}">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path></svg>
+                            {{ t('common.share', lang) }}
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Large hieroglyph display -->
+                <div class="bg-night rounded-lg p-6 border border-border text-center min-h-[80px] flex items-center justify-center">
+                    <p class="font-hieroglyph text-5xl sm:text-6xl text-gold leading-relaxed tracking-wider select-all"
+                       x-text="writeResult.hieroglyphs" dir="rtl"></p>
+                </div>
+
+                <!-- Glyph breakdown -->
+                <div class="mt-4 flex flex-wrap gap-2 justify-center" x-show="writeResult.glyphs && writeResult.glyphs.length > 0">
+                    <template x-for="(g, i) in writeResult.glyphs" :key="i">
+                        <template x-if="g.type === 'glyph'">
+                            <div class="bg-surface-alt border border-border rounded-lg px-3 py-2 text-center min-w-[60px]">
+                                <div class="font-hieroglyph text-2xl text-gold" x-text="g.unicode_char || g.code"></div>
+                                <div class="text-[10px] font-mono text-text-dim mt-1" x-text="g.code"></div>
+                                <div class="text-xs text-gold/70" x-text="g.transliteration"></div>
+                            </div>
+                        </template>
+                    </template>
+                </div>
+            </div>
+
+            <!-- Error state -->
+            <div x-show="writeError" x-cloak class="text-center py-8">
+                <p class="text-red-400 mb-3" x-text="writeError"></p>
+                <button @click="writeError = ''; writeConvert()" class="btn-ghost">{{ t('common.error_retry', lang) }}</button>
+            </div>
+
+            <!-- Glyph Palette -->
+            <div class="card">
+                <div class="flex items-center justify-between mb-4 cursor-pointer" @click="writePaletteOpen = !writePaletteOpen">
+                    <h3 class="text-sm font-semibold text-text-muted">{{ t('write.palette_title', lang) }}</h3>
+                    <svg class="w-5 h-5 text-text-dim transition-transform" :class="{'rotate-180': writePaletteOpen}"
+                         fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+
+                <div x-show="writePaletteOpen" x-transition>
+                    <!-- Palette type tabs -->
+                    <div class="flex gap-2 mb-4 flex-wrap">
+                        <template x-for="pt in writePaletteTabs" :key="pt.key">
+                            <button @click="writePaletteTab = pt.key"
+                                    class="px-3 py-1 rounded-full text-xs font-medium transition-all"
+                                    :class="writePaletteTab === pt.key ? 'bg-gold text-night' : 'bg-surface-alt border border-border text-text-muted hover:border-gold/30'"
+                                    x-text="pt.label + ' (' + (writePalette[pt.key]?.length || 0) + ')'"></button>
+                        </template>
+                    </div>
+
+                    <!-- Palette grid -->
+                    <div class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-2 max-h-64 overflow-y-auto pe-1">
+                        <template x-for="sign in (writePalette[writePaletteTab] || [])" :key="sign.code">
+                            <button @click="writeInsertFromPalette(sign)"
+                                    class="bg-night border border-border rounded-lg p-2 text-center hover:border-gold/40 hover:bg-surface-hover transition-all group"
+                                    :title="sign.code + ' — ' + sign.transliteration + ' — ' + sign.description">
+                                <div class="font-hieroglyph text-xl text-gold group-hover:scale-110 transition-transform"
+                                     x-text="sign.unicode_char || sign.code"></div>
+                                <div class="text-[10px] font-mono text-text-dim mt-0.5" x-text="sign.transliteration"></div>
+                            </button>
+                        </template>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Translations -->
+            <div x-show="writeHistory.length > 0" class="mt-8">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-sm font-semibold text-text-muted">{{ t('write.recent', lang) }}</h3>
+                    <button @click="writeHistory = []; WadjetHistory.clearWriteHistory()" class="text-xs text-text-muted hover:text-gold transition-colors">{{ t('common.clear_all', lang) }}</button>
+                </div>
+                <div class="space-y-2">
+                    <template x-for="item in writeHistory" :key="item.timestamp">
+                        <div class="card !p-3 flex items-center gap-4 group cursor-pointer" @click="writeInput = item.input; writeConvert()">
+                            <div class="font-hieroglyph text-2xl text-gold shrink-0" x-text="item.hieroglyphs.slice(0, 10)"></div>
+                            <div class="flex-1 min-w-0">
+                                <p class="text-sm text-text truncate" x-text="item.input"></p>
+                                <p class="text-[10px] text-text-dim" x-text="item.numGlyphs + ' ' + (__i18n.write_history_suffix || 'glyphs') + ' · ' + new Date(item.timestamp).toLocaleDateString()"></p>
+                            </div>
+                            <button @click.stop="WadjetHistory.removeWriteItem(item.timestamp); writeHistory = WadjetHistory.getWriteHistory()"
+                                    class="w-5 h-5 rounded-full bg-surface-alt flex items-center justify-center text-text-dim hover:text-error opacity-0 group-hover:opacity-100 transition-opacity text-xs shrink-0">&times;</button>
+                        </div>
+                    </template>
+                </div>
+            </div>
+
         </div>
+
+        <!-- ════════════════════════════════════════════════
+             Detail Modal
+             ════════════════════════════════════════════════ -->
+        {% include "partials/sign_detail_modal.html" %}
 
     </div>
 </section>
@@ -457,7 +441,55 @@ function dictionaryApp() {
             'T': '{{ t('dictionary.cat_desc_T', lang) }}',
         },
 
+        // ── Write tab state ──
+        writeInput: '',
+        writeResult: {},
+        writeError: '',
+        writeConverting: false,
+        writeCopyLabel: '{{ t('common.copy', lang) }}',
+        writeCanShare: false,
+        writeHistory: [],
+        writePaletteOpen: false,
+        writePaletteTab: 'uniliteral',
+        writePalette: {},
+        writePaletteLoaded: false,
+        writePaletteTabs: [
+            { key: 'uniliteral', label: '{{ t('write.palette_uni', lang) }}' },
+            { key: 'biliteral', label: '{{ t('write.palette_bi', lang) }}' },
+            { key: 'triliteral', label: '{{ t('write.palette_tri', lang) }}' },
+            { key: 'logogram', label: '{{ t('write.palette_logo', lang) }}' },
+        ],
+        writeExamples: {{ t('write.ex_smart', lang) | tojson }},
+
         async init() {
+            // Check URL params for tab selection
+            const params = new URLSearchParams(window.location.search);
+            const requestedTab = params.get('tab');
+            if (requestedTab === 'write' || requestedTab === 'learn') {
+                this.tab = requestedTab;
+            }
+
+            // Init write-specific state
+            this.writeCanShare = !!navigator.share;
+            this.writeHistory = WadjetHistory.getWriteHistory();
+
+            // If Write tab requested with ?glyph= param, pre-fill
+            if (this.tab === 'write') {
+                const glyph = params.get('glyph');
+                if (glyph) {
+                    this.writeInput = glyph;
+                    this.writeConvert();
+                }
+                this.writeLoadPalette();
+            }
+
+            // Watch for tab changes to lazy-load palette
+            this.$watch('tab', (val) => {
+                if (val === 'write' && !this.writePaletteLoaded) {
+                    this.writeLoadPalette();
+                }
+            });
+
             await this.fetchCategories();
             await this.fetchSigns();
         },
@@ -595,6 +627,89 @@ function dictionaryApp() {
         formatPronunciation(pron) {
             if (!pron) return '';
             return '{{ t('dictionary.pronunciation_prefix', lang) }} \u201C' + pron.sound + '\u201D \u2014 ' + pron.example;
+        },
+
+        // ── Write tab methods ──
+        async writeConvert() {
+            const text = this.writeInput.trim();
+            if (!text) {
+                this.writeResult = {};
+                this.writeError = '';
+                return;
+            }
+            this.writeConverting = true;
+            this.writeError = '';
+            try {
+                const resp = await fetch('/api/write', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ text: text, mode: 'smart' }),
+                });
+                if (!resp.ok) {
+                    const err = await resp.json().catch(() => ({}));
+                    this.writeError = err.detail || '{{ t("common.error", lang) }}';
+                    return;
+                }
+                this.writeResult = await resp.json();
+                if (this.writeResult.hieroglyphs) {
+                    WadjetHistory.addWrite(text, 'smart', this.writeResult);
+                    this.writeHistory = WadjetHistory.getWriteHistory();
+                }
+            } catch (err) {
+                this.writeError = '{{ t("common.error", lang) }}';
+            } finally {
+                this.writeConverting = false;
+            }
+        },
+
+        async writeLoadPalette() {
+            try {
+                const resp = await fetch('/api/write/palette');
+                if (resp.ok) {
+                    const data = await resp.json();
+                    this.writePalette = data.groups;
+                    this.writePaletteLoaded = true;
+                }
+            } catch (err) {
+                console.error('Failed to load palette:', err);
+            }
+        },
+
+        writeInsertFromPalette(sign) {
+            this.writeInput += sign.transliteration;
+            this.writeConvert();
+        },
+
+        async writeCopy() {
+            if (!this.writeResult.hieroglyphs) return;
+            try {
+                await navigator.clipboard.writeText(this.writeResult.hieroglyphs);
+                this.writeCopyLabel = '{{ t('common.copied', lang) }}';
+                Alpine.store('toast').show('{{ t('write.toast_copied', lang) }}', 'success');
+                setTimeout(() => { this.writeCopyLabel = '{{ t('common.copy', lang) }}'; }, 2000);
+            } catch (err) {
+                const ta = document.createElement('textarea');
+                ta.value = this.writeResult.hieroglyphs;
+                ta.style.position = 'fixed';
+                ta.style.left = '-9999px';
+                document.body.appendChild(ta);
+                ta.select();
+                document.execCommand('copy');
+                document.body.removeChild(ta);
+                this.writeCopyLabel = '{{ t('common.copied', lang) }}';
+                setTimeout(() => { this.writeCopyLabel = '{{ t('common.copy', lang) }}'; }, 2000);
+            }
+        },
+
+        async writeShare() {
+            if (!navigator.share || !this.writeResult.hieroglyphs) return;
+            try {
+                await navigator.share({
+                    title: '{{ t('write.share_title', lang) }}',
+                    text: this.writeResult.hieroglyphs + '\n\n(' + this.writeInput + ' {{ t('write.share_suffix', lang) }})',
+                    url: window.location.origin + '/dictionary?tab=write',
+                });
+            } catch (err) { /* user cancelled */ }
         },
     };
 }

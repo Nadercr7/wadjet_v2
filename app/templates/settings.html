@@ -62,8 +62,8 @@
                     </form>
                 </div>
 
-                <!-- Password Section -->
-                <div class="card p-6 mb-6">
+                <!-- Password Section — only for email-based accounts -->
+                <div class="card p-6 mb-6" x-show="$store.auth.user && $store.auth.user.auth_provider !== 'google'" x-cloak>
                     <h2 class="text-lg font-display font-semibold text-text mb-4">{{ t('settings.change_password', lang) }}</h2>
                     <form @submit.prevent="changePassword()" class="space-y-4">
                         <div>

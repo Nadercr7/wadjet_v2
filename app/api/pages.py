@@ -68,14 +68,12 @@ async def dictionary(request: Request):
     return templates.TemplateResponse(request, "dictionary.html", {"lang": lang, "page_name": "dictionary", "extra_jsonld": extra_jsonld})
 
 
-@router.get("/write", response_class=HTMLResponse)
+@router.get("/write", response_class=RedirectResponse)
 async def write(request: Request):
-    gate = _require_session(request)
-    if gate:
-        return gate
-    templates = request.app.state.templates
-    lang = get_lang(request)
-    return templates.TemplateResponse(request, "write.html", {"lang": lang, "page_name": "write"})
+    # Preserve ?glyph= param through the redirect
+    glyph = request.query_params.get("glyph")
+    url = "/dictionary?tab=write" + (f"&glyph={glyph}" if glyph else "")
+    return RedirectResponse(url, status_code=302)
 
 
 @router.get("/explore", response_class=HTMLResponse)

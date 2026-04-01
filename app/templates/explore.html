@@ -35,7 +35,7 @@
 
         <!-- Mode Tabs -->
         <div class="flex justify-center gap-2 mb-10" data-animate>
-            <button @click="mode = 'browse'; stopIdentifyCamera()"
+            <button @click="mode = 'browse'"
                     :class="mode === 'browse' ? 'btn-gold btn-sm' : 'btn-ghost btn-sm'">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                 {{ t('explore.tab_browse', lang) }}
@@ -579,8 +579,6 @@ function exploreApp() {
         identifyDragOver: false,
         identifyFile: null,
         identifyError: '',
-        identifyCameraActive: false,
-        identifyStream: null,
 
         // Init
         async init() {
@@ -765,54 +763,6 @@ function exploreApp() {
             if (this.$refs.identifyInput) {
                 this.$refs.identifyInput.files = dt.files;
             }
-        },
-
-        // ── Identify: camera ──
-
-        async startIdentifyCamera() {
-            try {
-                this.identifyError = '';
-                this.identifyPreview = null;
-                this.identifyFile = null;
-                const stream = await navigator.mediaDevices.getUserMedia({
-                    video: { facingMode: 'environment', width: { ideal: 1280 }, height: { ideal: 720 } }
-                });
-                this.identifyStream = stream;
-                this.identifyCameraActive = true;
-                await this.$nextTick();
-                if (this.$refs.identifyVideo) {
-                    this.$refs.identifyVideo.srcObject = stream;
-                }
-            } catch (err) {
-                console.error('Camera error:', err);
-                this.identifyError = '{{ t('explore.error_camera', lang) }}';
-            }
-        },
-
-        captureIdentifyPhoto() {
-            const video = this.$refs.identifyVideo;
-            const canvas = this.$refs.identifyCanvas;
-            if (!video || !canvas) return;
-
-            canvas.width = video.videoWidth;
-            canvas.height = video.videoHeight;
-            canvas.getContext('2d').drawImage(video, 0, 0);
-
-            this.stopIdentifyCamera();
-
-            canvas.toBlob((blob) => {
-                if (!blob) return;
-                const file = new File([blob], 'camera-capture.jpg', { type: 'image/jpeg' });
-                this._setIdentifyFile(file);
-            }, 'image/jpeg', 0.9);
-        },
-
-        stopIdentifyCamera() {
-            if (this.identifyStream) {
-                this.identifyStream.getTracks().forEach(t => t.stop());
-                this.identifyStream = null;
-            }
-            this.identifyCameraActive = false;
         },
 
     };
