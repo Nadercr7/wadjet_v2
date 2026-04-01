@@ -12,8 +12,25 @@
 
             <!-- Desktop Nav -->
             <div class="hidden md:flex items-center gap-1">
-                <a href="/scan" class="px-4 py-2 rounded-lg text-sm transition-all duration-200 {{ 'text-gold border-b-2 border-gold' if page_name|default('') == 'scan' else 'text-text-muted hover:text-text hover:bg-surface-alt' }}" {{ 'aria-current=page' if page_name|default('') == 'scan' }}>{{ t('nav.scan', lang) }}</a>
-                <a href="/dictionary" class="px-4 py-2 rounded-lg text-sm transition-all duration-200 {{ 'text-gold border-b-2 border-gold' if page_name|default('') == 'dictionary' else 'text-text-muted hover:text-text hover:bg-surface-alt' }}" {{ 'aria-current=page' if page_name|default('') == 'dictionary' }}>{{ t('nav.dictionary', lang) }}</a>
+                <!-- Hieroglyphs dropdown group -->
+                <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+                    <button @click="open = !open" :aria-expanded="open"
+                            class="px-4 py-2 rounded-lg text-sm transition-all duration-200 flex items-center gap-1 {{ 'text-gold' if page_name|default('') in ('scan', 'dictionary', 'hieroglyphs') else 'text-text-muted hover:text-text hover:bg-surface-alt' }}">
+                        {{ t('nav.hieroglyphs', lang) }}
+                        <svg class="w-3.5 h-3.5 transition-transform" :class="open && 'rotate-180'" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div x-show="open" x-cloak x-transition:enter="transition ease-out duration-150" x-transition:enter-start="opacity-0 -translate-y-1" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-100" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
+                         class="absolute start-0 mt-0.5 w-44 bg-surface border border-border rounded-lg shadow-lg overflow-hidden z-50">
+                        <a href="/scan" class="flex items-center gap-2.5 px-4 py-2.5 text-sm transition-colors {{ 'text-gold bg-gold/5' if page_name|default('') == 'scan' else 'text-text-muted hover:text-text hover:bg-surface-alt' }}" {{ 'aria-current=page' if page_name|default('') == 'scan' }}>
+                            <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><circle cx="12" cy="13" r="3"/></svg>
+                            {{ t('nav.scan', lang) }}
+                        </a>
+                        <a href="/dictionary" class="flex items-center gap-2.5 px-4 py-2.5 text-sm transition-colors {{ 'text-gold bg-gold/5' if page_name|default('') == 'dictionary' else 'text-text-muted hover:text-text hover:bg-surface-alt' }}" {{ 'aria-current=page' if page_name|default('') == 'dictionary' }}>
+                            <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                            {{ t('nav.dictionary', lang) }}
+                        </a>
+                    </div>
+                </div>
                 <a href="/explore" class="px-4 py-2 rounded-lg text-sm transition-all duration-200 {{ 'text-gold border-b-2 border-gold' if page_name|default('') == 'explore' else 'text-text-muted hover:text-text hover:bg-surface-alt' }}" {{ 'aria-current=page' if page_name|default('') == 'explore' }}>{{ t('nav.explore', lang) }}</a>
                 <a href="/stories" class="px-4 py-2 rounded-lg text-sm transition-all duration-200 {{ 'text-gold border-b-2 border-gold' if page_name|default('') == 'stories' else 'text-text-muted hover:text-text hover:bg-surface-alt' }}" {{ 'aria-current=page' if page_name|default('') == 'stories' }}>{{ t('nav.stories', lang) }}</a>
                 <a href="/chat" class="px-4 py-2 rounded-lg text-sm transition-all duration-200 {{ 'text-gold border-b-2 border-gold' if page_name|default('') == 'chat' else 'text-text-muted hover:text-text hover:bg-surface-alt' }}" {{ 'aria-current=page' if page_name|default('') == 'chat' }}>{{ t('nav.thoth', lang) }}</a>
@@ -95,8 +112,12 @@
             role="menu"
         >
             <div class="flex flex-col gap-1">
-                <a href="/scan" class="px-4 py-3 rounded-lg text-sm transition-all {{ 'text-gold bg-gold/5' if page_name|default('') == 'scan' else 'text-text-muted hover:text-text hover:bg-surface-alt' }}" {{ 'aria-current=page' if page_name|default('') == 'scan' }}>{{ t('nav.scan', lang) }}</a>
-                <a href="/dictionary" class="px-4 py-3 rounded-lg text-sm transition-all {{ 'text-gold bg-gold/5' if page_name|default('') == 'dictionary' else 'text-text-muted hover:text-text hover:bg-surface-alt' }}" {{ 'aria-current=page' if page_name|default('') == 'dictionary' }}>{{ t('nav.dictionary', lang) }}</a>
+                <!-- Hieroglyphs group -->
+                <div class="px-4 pt-2 pb-1 text-[10px] font-bold tracking-widest uppercase text-gold/60">{{ t('nav.hieroglyphs', lang) }}</div>
+                <a href="/scan" class="px-4 py-3 ps-8 rounded-lg text-sm transition-all {{ 'text-gold bg-gold/5' if page_name|default('') == 'scan' else 'text-text-muted hover:text-text hover:bg-surface-alt' }}" {{ 'aria-current=page' if page_name|default('') == 'scan' }}>{{ t('nav.scan', lang) }}</a>
+                <a href="/dictionary" class="px-4 py-3 ps-8 rounded-lg text-sm transition-all {{ 'text-gold bg-gold/5' if page_name|default('') == 'dictionary' else 'text-text-muted hover:text-text hover:bg-surface-alt' }}" {{ 'aria-current=page' if page_name|default('') == 'dictionary' }}>{{ t('nav.dictionary', lang) }}</a>
+                <!-- Standalone items -->
+                <div class="border-t border-border/30 my-1"></div>
                 <a href="/explore" class="px-4 py-3 rounded-lg text-sm transition-all {{ 'text-gold bg-gold/5' if page_name|default('') == 'explore' else 'text-text-muted hover:text-text hover:bg-surface-alt' }}" {{ 'aria-current=page' if page_name|default('') == 'explore' }}>{{ t('nav.explore', lang) }}</a>
                 <a href="/stories" class="px-4 py-3 rounded-lg text-sm transition-all {{ 'text-gold bg-gold/5' if page_name|default('') == 'stories' else 'text-text-muted hover:text-text hover:bg-surface-alt' }}" {{ 'aria-current=page' if page_name|default('') == 'stories' }}>{{ t('nav.stories', lang) }}</a>
                 <a href="/chat" class="px-4 py-3 rounded-lg text-sm transition-all {{ 'text-gold bg-gold/5' if page_name|default('') == 'chat' else 'text-text-muted hover:text-text hover:bg-surface-alt' }}" {{ 'aria-current=page' if page_name|default('') == 'chat' }}>{{ t('nav.thoth', lang) }}</a>
