@@ -115,7 +115,7 @@
                     <template x-if="cameraActive">
                         <div>
                             <div class="relative inline-block">
-                                <video x-ref="video" autoplay playsinline class="max-h-80 landscape:max-h-52 rounded-lg border border-border"></video>
+                                <video x-ref="video" autoplay playsinline muted class="max-h-80 landscape:max-h-52 rounded-lg border border-border"></video>
                                 <!-- Live detection overlay -->
                                 <canvas x-ref="liveOverlay" class="absolute inset-0 w-full h-full pointer-events-none rounded-lg"
                                         x-show="cameraLiveMode"></canvas>
@@ -835,8 +835,10 @@ function scanApp() {
                     video: { facingMode: 'environment', width: { ideal: 1280 }, height: { ideal: 720 } }
                 });
                 this.cameraActive = true;
-                this.$nextTick(() => {
-                    this.$refs.video.srcObject = this.stream;
+                this.$nextTick(async () => {
+                    const video = this.$refs.video;
+                    video.srcObject = this.stream;
+                    try { await video.play(); } catch (_) { /* autoplay attr handles it */ }
                 });
             } catch (err) {
                 this.showError('{{ t('scan.error_camera', lang) }}');
