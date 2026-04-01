@@ -349,18 +349,67 @@ document.addEventListener('alpine:init', () => {
         },
 
         async googleSignIn() {
-            if (typeof google === 'undefined' || !google.accounts) {
-                this.error = 'Google Sign-In not available';
-                return;
-            }
             const self = this;
+            const clientId = document.querySelector('meta[name="google-client-id"]')?.content || '';
+            self.error = '';
+
+            // If GSI script isn't loaded yet, wait up to 5s with loading indicator
+            if (typeof google === 'undefined' || !google.accounts) {
+                self.loading = true;
+                const ok = await self._waitForGSI(5000);
+                self.loading = false;
+                if (!ok) {
+                    self.error = (window.__i18n && window.__i18n.auth_gsi_slow) || 'Google Sign-In is loading. Please try again.';
+                    return;
+                }
+            }
+
             google.accounts.id.initialize({
-                client_id: document.querySelector('meta[name="google-client-id"]')?.content || '',
+                client_id: clientId,
                 callback: function(response) {
                     self._handleGoogleCredential(response.credential);
                 },
+                use_fedcm_for_prompt: true,
             });
-            google.accounts.id.prompt();
+
+            // Try One Tap first — fall back to rendered button if suppressed
+            google.accounts.id.prompt(function(notification) {
+                if (notification.isNotDisplayed() || notification.isSkippedMoment()) {
+                    // One Tap was suppressed (mobile Safari, cooldown, etc.)
+                    // Fall back to Google's rendered button in the modal
+                    self._renderGoogleButton(clientId);
+                }
+            });
+        },
+
+        _renderGoogleButton(clientId) {
+            const container = document.getElementById('g-btn-fallback');
+            if (!container) return;
+            container.innerHTML = '';
+            container.style.display = 'flex';
+            // Hide our custom button
+            const customBtn = container.previousElementSibling;
+            if (customBtn && customBtn.tagName === 'BUTTON') customBtn.style.display = 'none';
+
+            google.accounts.id.renderButton(container, {
+                type: 'standard',
+                theme: 'filled_black',
+                size: 'large',
+                text: 'continue_with',
+                width: 320,
+                logo_alignment: 'center',
+            });
+        },
+
+        _waitForGSI(timeout) {
+            return new Promise(function(resolve) {
+                var start = Date.now();
+                (function check() {
+                    if (typeof google !== 'undefined' && google.accounts) return resolve(true);
+                    if (Date.now() - start >= timeout) return resolve(false);
+                    setTimeout(check, 200);
+                })();
+            });
         },
 
         async _handleGoogleCredential(credential) {
