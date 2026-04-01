@@ -268,6 +268,7 @@ _SPEECH_MAP: dict[str, str] = {
     "mnw": "menoo", "mntw": "montoo", "pri": "peree",
     "sx": "sekh", "nfrt": "neferet", "anxw": "ankh-oo",
     "nb tAwy": "neb tawy", "xpri": "khepree",
+    "irt": "eeret", "mniw": "men-ee-oo",
     # Common logograms
     "ra": "rah", "niwt": "nee-oot", "rxyt": "rekh-eet",
 }
@@ -295,6 +296,48 @@ def _transliteration_to_speech(translit: str) -> str | None:
         if phoneme:
             parts.append(phoneme)
     return "-".join(parts) if parts else None
+
+
+def _word_to_speech(translit: str) -> str | None:
+    """Convert a word transliteration (possibly hyphenated/spaced) to speech text.
+
+    Handles lesson-style transliterations like "m-n-w", "mn-t-w", "ra-anx",
+    "nTr ra" by:
+      1. Try the full string (stripped of hyphens) in _SPEECH_MAP.
+      2. Split on hyphens/spaces and resolve each segment.
+      3. Fall back to _transliteration_to_speech() per segment.
+    """
+    if not translit:
+        return None
+    # 1. Strip hyphens → try exact match (covers "m-n-w" → "mnw" → "menoo")
+    stripped = translit.replace("-", "")
+    exact = _SPEECH_MAP.get(stripped)
+    if exact:
+        return exact
+    # Also try the raw string (handles "nb tAwy" etc.)
+    exact = _SPEECH_MAP.get(translit)
+    if exact:
+        return exact
+    # 2. Split on spaces first, then resolve each space-segment
+    space_parts = translit.split()
+    if len(space_parts) > 1:
+        resolved = []
+        for sp in space_parts:
+            r = _word_to_speech(sp)
+            if r:
+                resolved.append(r)
+        return " ".join(resolved) if resolved else _transliteration_to_speech(stripped)
+    # 3. Split on hyphens, resolve each segment
+    segments = translit.split("-")
+    if len(segments) > 1:
+        resolved = []
+        for seg in segments:
+            r = _SPEECH_MAP.get(seg) or _transliteration_to_speech(seg)
+            if r:
+                resolved.append(r)
+        return " ".join(resolved) if resolved else _transliteration_to_speech(stripped)
+    # 4. Single segment fallback
+    return _transliteration_to_speech(translit)
 
 # ═══════════════════════════════════════════════════════════════
 # Example words — 5 per lesson, with sign sequences and highlights
@@ -1004,6 +1047,9 @@ async def get_lesson(level: int, lang: str = Query("en", description="Language c
             for k in ("translation", "hint"):
                 if k in lw:
                     lw[k] = _loc(lw[k], lang)
+            # Generate speech_text from transliteration (resolves hyphens)
+            if "transliteration" in lw:
+                lw["speech_text"] = _word_to_speech(lw["transliteration"])
             out.append(lw)
         return out
 

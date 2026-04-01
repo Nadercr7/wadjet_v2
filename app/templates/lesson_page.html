@@ -143,7 +143,7 @@
                                 <div class="flex items-center justify-between mb-3">
                                     <div class="font-hieroglyph text-3xl text-gold tracking-wider" x-text="word.hieroglyphs"></div>
                                     <!-- Audio button for word -->
-                                    <button x-show="word.transliteration" @click="speakSign(word.transliteration, $el)"
+                                    <button x-show="word.speech_text || word.transliteration" @click="speakSign(word.speech_text || word.transliteration, $el)"
                                             class="p-1.5 rounded-full bg-gold/10 hover:bg-gold/20 text-gold/60 hover:text-gold transition-colors shrink-0"
                                             :aria-label="'{{ t('lesson_page.listen_word', lang) }}: ' + word.transliteration">
                                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
@@ -194,7 +194,7 @@
                                     <div class="flex items-center justify-center gap-2">
                                         <span class="text-sm font-mono text-gold" x-text="pw.transliteration"></span>
                                         <!-- Audio button for practice word -->
-                                        <button x-show="pw.transliteration" @click="speakSign(pw.transliteration, $el)"
+                                        <button x-show="pw.speech_text || pw.transliteration" @click="speakSign(pw.speech_text || pw.transliteration, $el)"
                                                 class="p-1 rounded-full bg-gold/10 hover:bg-gold/20 text-gold/60 hover:text-gold transition-colors"
                                                 :aria-label="'{{ t('lesson_page.listen_word', lang) }}: ' + pw.transliteration">
                                             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
