@@ -49,7 +49,7 @@ function HieroglyphPipeline(opts) {
 
     // URLs (v2 paths — models served at /models/ mount)
     this._detectorUrl    = opts.detectorUrl    || '/models/hieroglyph/detector/glyph_detector_uint8.onnx';
-    this._classifierUrl  = opts.classifierUrl  || '/models/hieroglyph/classifier/hieroglyph_classifier.onnx';
+    this._classifierUrl  = opts.classifierUrl  || '/models/hieroglyph/classifier/hieroglyph_classifier_uint8.onnx';
     this._labelMapUrl    = opts.labelMapUrl    || '/models/hieroglyph/classifier/label_mapping.json';
     this._translationApi = opts.translationApi || '/api/translate';
     this._aiReadApi      = opts.aiReadApi      || '/api/read';

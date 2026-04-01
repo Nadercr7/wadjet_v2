@@ -877,7 +877,7 @@ function scanApp() {
         },
 
         async startLiveMode() {
-            if (!this._pipeline) {
+            if (!this.pipeline) {
                 await this.ensurePipeline();
             }
             if (this.pipelineState !== 'ready') {
@@ -912,7 +912,7 @@ function scanApp() {
                 return;
             }
             try {
-                const detections = await this._pipeline.detect(video);
+                const detections = await this.pipeline.detect(video);
                 this.liveDetections = detections || [];
                 this._drawLiveOverlay(detections || []);
             } catch (e) {
