@@ -742,6 +742,17 @@
         "dict_tip": "Click the speaker icon on any sign to hear its ancient Egyptian pronunciation.",
         "explore_tip_title": "Discover Egypt",
         "explore_tip": "Sign in to save your favorite landmarks and build your personal collection.",
+        "write_tip_title": "Write in Hieroglyphs",
+        "write_tip": "Type in English or Arabic and see it converted to hieroglyphs. Try the glyph palette for manual input!",
+        "hieroglyphs_tip_title": "Your Gateway",
+        "hieroglyphs_tip": "Scan symbols from photos, browse 1,000+ signs in the dictionary, or write your own hieroglyphs.",
+        "landmarks_tip_title": "Explore Egypt",
+        "landmarks_tip": "Discover 260+ Egyptian landmarks — from the Great Pyramids to hidden temples and sacred sites.",
+        "dashboard_tip_title": "Your Journey",
+        "dashboard_tip": "Track your progress, manage favorites, and pick up where you left off.",
+        "welcome_typing": "Early beta — sign in to explore 5,000 years of Egyptian heritage. Your feedback helps us improve!",
+        "feedback_pointer": "Share feedback here",
+        "narration_pointer": "Tap to listen",
         "dismiss": "Dismiss"
     }
 }
