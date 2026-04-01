@@ -140,7 +140,15 @@
                         <template x-for="(word, wi) in lesson.example_words" :key="'ew-'+wi">
                             <div class="bg-surface border border-border rounded-xl p-5 hover:border-gold/30 transition-colors">
                                 <!-- Hieroglyphic sequence -->
-                                <div class="font-hieroglyph text-3xl text-gold mb-3 tracking-wider" x-text="word.hieroglyphs"></div>
+                                <div class="flex items-center justify-between mb-3">
+                                    <div class="font-hieroglyph text-3xl text-gold tracking-wider" x-text="word.hieroglyphs"></div>
+                                    <!-- Audio button for word -->
+                                    <button x-show="word.transliteration" @click="speakSign(word.transliteration, $el)"
+                                            class="p-1.5 rounded-full bg-gold/10 hover:bg-gold/20 text-gold/60 hover:text-gold transition-colors shrink-0"
+                                            :aria-label="'{{ t('lesson_page.listen_word', lang) }}: ' + word.transliteration">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                                    </button>
+                                </div>
                                 <!-- Transliteration -->
                                 <div class="text-sm font-mono text-gold/70 mb-1" x-text="word.transliteration"></div>
                                 <!-- Translation -->
@@ -183,7 +191,15 @@
                                     </button>
                                 </div>
                                 <div x-show="revealed" x-transition class="space-y-1">
-                                    <div class="text-sm font-mono text-gold" x-text="pw.transliteration"></div>
+                                    <div class="flex items-center justify-center gap-2">
+                                        <span class="text-sm font-mono text-gold" x-text="pw.transliteration"></span>
+                                        <!-- Audio button for practice word -->
+                                        <button x-show="pw.transliteration" @click="speakSign(pw.transliteration, $el)"
+                                                class="p-1 rounded-full bg-gold/10 hover:bg-gold/20 text-gold/60 hover:text-gold transition-colors"
+                                                :aria-label="'{{ t('lesson_page.listen_word', lang) }}: ' + pw.transliteration">
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                                        </button>
+                                    </div>
                                     <div class="text-text font-medium" x-text="pw.translation"></div>
                                 </div>
                             </div>

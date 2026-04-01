@@ -608,7 +608,8 @@
         "next_lesson": "الدرس التالي",
         "browse_dict": "تصفّح القاموس الكامل",
         "silent_adds": "صامت — يضيف معنى",
-        "listen_label": "استمع"
+        "listen_label": "استمع",
+        "listen_word": "استمع للنطق"
     },
     "dashboard": {
         "title": "لوحة التحكم",

@@ -608,7 +608,8 @@
         "next_lesson": "Next Lesson",
         "browse_dict": "Browse Full Dictionary",
         "silent_adds": "silent — adds meaning",
-        "listen_label": "listen"
+        "listen_label": "listen",
+        "listen_word": "Listen to pronunciation"
     },
     "dashboard": {
         "title": "Dashboard",

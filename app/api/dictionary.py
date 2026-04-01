@@ -306,35 +306,35 @@ _EXAMPLE_WORDS: dict[int, list[dict]] = {
             "hieroglyphs": "𓂋𓏤",
             "codes": ["D21", "Z1"],
             "transliteration": "r",
-            "translation": "mouth",
+            "translation": {"en": "mouth", "ar": "فم"},
             "highlight_codes": ["D21"],
         },
         {
             "hieroglyphs": "𓊪𓂋𓏏𓉐",
             "codes": ["Q3", "D21", "X1", "O1"],
             "transliteration": "p-r-t",
-            "translation": "to go out",
+            "translation": {"en": "to go out", "ar": "يخرج"},
             "highlight_codes": ["Q3", "D21", "X1"],
         },
         {
             "hieroglyphs": "𓅓𓈖",
             "codes": ["G17", "N35"],
             "transliteration": "m-n",
-            "translation": "to remain, endure",
+            "translation": {"en": "to remain, endure", "ar": "يبقى، يدوم"},
             "highlight_codes": ["G17", "N35"],
         },
         {
             "hieroglyphs": "𓊃𓈖",
             "codes": ["S29", "N35"],
             "transliteration": "s-n",
-            "translation": "brother",
+            "translation": {"en": "brother", "ar": "أخ"},
             "highlight_codes": ["S29", "N35"],
         },
         {
             "hieroglyphs": "𓇋𓅱𓆑",
             "codes": ["M17", "G43", "I9"],
             "transliteration": "i-w-f",
-            "translation": "flesh, meat",
+            "translation": {"en": "flesh, meat", "ar": "لحم"},
             "highlight_codes": ["M17", "G43", "I9"],
         },
     ],
@@ -343,35 +343,35 @@ _EXAMPLE_WORDS: dict[int, list[dict]] = {
             "hieroglyphs": "𓇋𓂋𓏏",
             "codes": ["M17", "D21", "X1"],
             "transliteration": "ir-t",
-            "translation": "eye",
+            "translation": {"en": "eye", "ar": "عين"},
             "highlight_codes": ["D4"],
         },
         {
             "hieroglyphs": "𓅓𓈖𓏏𓅱",
             "codes": ["G17", "N35", "X1", "G43"],
             "transliteration": "mn-t-w",
-            "translation": "Montu (war god)",
+            "translation": {"en": "Montu (war god)", "ar": "مونتو (إله الحرب)"},
             "highlight_codes": ["G17", "N35"],
         },
         {
             "hieroglyphs": "𓊪𓂋𓏤",
             "codes": ["Q3", "D21", "Z1"],
             "transliteration": "pr",
-            "translation": "house",
+            "translation": {"en": "house", "ar": "بيت"},
             "highlight_codes": ["O1"],
         },
         {
             "hieroglyphs": "𓅱𓂋",
             "codes": ["G43", "D21"],
             "transliteration": "wr",
-            "translation": "great, chief",
+            "translation": {"en": "great, chief", "ar": "عظيم، رئيس"},
             "highlight_codes": ["G43", "D21"],
         },
         {
             "hieroglyphs": "𓎡𓏤",
             "codes": ["V31", "Z1"],
             "transliteration": "kA",
-            "translation": "ka (spirit double)",
+            "translation": {"en": "ka (spirit double)", "ar": "كا (الروح المزدوجة)"},
             "highlight_codes": ["D28"],
         },
     ],
@@ -380,35 +380,35 @@ _EXAMPLE_WORDS: dict[int, list[dict]] = {
             "hieroglyphs": "𓋹𓈖𓐍",
             "codes": ["S34", "N35", "Aa1"],
             "transliteration": "anx",
-            "translation": "life, to live",
+            "translation": {"en": "life, to live", "ar": "حياة، يعيش"},
             "highlight_codes": ["S34"],
         },
         {
             "hieroglyphs": "𓄤𓆑𓂋",
             "codes": ["F35", "I9", "D21"],
             "transliteration": "nfr",
-            "translation": "beautiful, good, perfect",
+            "translation": {"en": "beautiful, good, perfect", "ar": "جميل، طيب، كامل"},
             "highlight_codes": ["F35"],
         },
         {
             "hieroglyphs": "𓆣𓂋𓇋",
             "codes": ["L1", "D21", "M17"],
             "transliteration": "xpr-i",
-            "translation": "to come into being",
+            "translation": {"en": "to come into being", "ar": "يأتي إلى الوجود"},
             "highlight_codes": ["L1"],
         },
         {
             "hieroglyphs": "𓊵𓏏𓊪",
             "codes": ["R4", "X1", "Q3"],
             "transliteration": "Htp",
-            "translation": "peace, offering, to be content",
+            "translation": {"en": "peace, offering, to be content", "ar": "سلام، قربان، رضا"},
             "highlight_codes": ["R4"],
         },
         {
             "hieroglyphs": "𓌳𓁹𓏏",
             "codes": ["U1", "D4", "X1"],
             "transliteration": "mAat",
-            "translation": "truth, justice, cosmic order",
+            "translation": {"en": "truth, justice, cosmic order", "ar": "حقيقة، عدالة، نظام كوني"},
             "highlight_codes": ["H6"],
         },
     ],
@@ -417,35 +417,35 @@ _EXAMPLE_WORDS: dict[int, list[dict]] = {
             "hieroglyphs": "𓇳𓏤",
             "codes": ["N5", "Z1"],
             "transliteration": "ra",
-            "translation": "sun, Ra (the sun god)",
+            "translation": {"en": "sun, Ra (the sun god)", "ar": "شمس، رع (إله الشمس)"},
             "highlight_codes": ["N5"],
         },
         {
             "hieroglyphs": "𓉐𓏤",
             "codes": ["O1", "Z1"],
             "transliteration": "pr",
-            "translation": "house",
+            "translation": {"en": "house", "ar": "بيت"},
             "highlight_codes": ["O1"],
         },
         {
             "hieroglyphs": "𓋹𓏤",
             "codes": ["S34", "Z1"],
             "transliteration": "anx",
-            "translation": "life",
+            "translation": {"en": "life", "ar": "حياة"},
             "highlight_codes": ["S34"],
         },
         {
             "hieroglyphs": "𓌻𓏤",
             "codes": ["U35", "Z1"],
             "transliteration": "wAs",
-            "translation": "dominion, power",
+            "translation": {"en": "dominion, power", "ar": "سيادة، قوة"},
             "highlight_codes": ["S42"],
         },
         {
             "hieroglyphs": "𓊹𓏤",
             "codes": ["R8", "Z1"],
             "transliteration": "nTr",
-            "translation": "god, divine",
+            "translation": {"en": "god, divine", "ar": "إله، إلهي"},
             "highlight_codes": ["R8"],
         },
     ],
@@ -454,35 +454,35 @@ _EXAMPLE_WORDS: dict[int, list[dict]] = {
             "hieroglyphs": "𓋴𓈖𓀀",
             "codes": ["S29", "N35", "A1"],
             "transliteration": "sn",
-            "translation": "brother (male person)",
+            "translation": {"en": "brother (male person)", "ar": "أخ (شخص ذكر)"},
             "highlight_codes": ["A1"],
         },
         {
             "hieroglyphs": "𓊪𓂋𓏏𓂻",
             "codes": ["Q3", "D21", "X1", "D54"],
             "transliteration": "prt",
-            "translation": "to go out (with motion)",
+            "translation": {"en": "to go out (with motion)", "ar": "يخرج (مع حركة)"},
             "highlight_codes": ["D54"],
         },
         {
             "hieroglyphs": "𓊃𓐍𓏛",
             "codes": ["S29", "Aa1", "Y1"],
             "transliteration": "sx",
-            "translation": "writing, document (abstract)",
+            "translation": {"en": "writing, document (abstract)", "ar": "كتابة، وثيقة (مجرد)"},
             "highlight_codes": ["Y1"],
         },
         {
             "hieroglyphs": "𓇋𓅱𓀁",
             "codes": ["M17", "G43", "A2"],
             "transliteration": "iw",
-            "translation": "to say (speech act)",
+            "translation": {"en": "to say (speech act)", "ar": "يقول (فعل كلام)"},
             "highlight_codes": ["A2"],
         },
         {
             "hieroglyphs": "𓎟𓇿𓇿",
             "codes": ["V30", "N16", "N16"],
             "transliteration": "nb tAwy",
-            "translation": "lord of the Two Lands",
+            "translation": {"en": "lord of the Two Lands", "ar": "سيد الأرضين"},
             "highlight_codes": ["O49"],
         },
     ],
@@ -493,70 +493,70 @@ _PRACTICE_WORDS: dict[int, list[dict]] = {
         {
             "hieroglyphs": "𓅓𓈖𓅱",
             "transliteration": "m-n-w",
-            "translation": "Minu (the god Min)",
-            "hint": "Sound out each sign: m + n + w",
+            "translation": {"en": "Minu (the god Min)", "ar": "مينو (الإله مين)"},
+            "hint": {"en": "Sound out each sign: m + n + w", "ar": "انطق كل علامة: م + ن + و"},
         },
         {
             "hieroglyphs": "𓊃𓏏𓏏",
             "transliteration": "s-t-t",
-            "translation": "to shoot (an arrow)",
-            "hint": "Three consonants: s + t + t",
+            "translation": {"en": "to shoot (an arrow)", "ar": "يطلق (سهمًا)"},
+            "hint": {"en": "Three consonants: s + t + t", "ar": "ثلاثة حروف ساكنة: س + ت + ت"},
         },
     ],
     2: [
         {
             "hieroglyphs": "𓅓𓈖𓇋𓅱",
             "transliteration": "mn-i-w",
-            "translation": "herdsman",
-            "hint": "mn is a biliteral + alphabet signs",
+            "translation": {"en": "herdsman", "ar": "راعي الماشية"},
+            "hint": {"en": "mn is a biliteral + alphabet signs", "ar": "من هي ثنائية + علامات أبجدية"},
         },
         {
             "hieroglyphs": "𓊪𓂋𓇋",
             "transliteration": "pr-i",
-            "translation": "to go forth",
-            "hint": "pr is a biliteral + complement",
+            "translation": {"en": "to go forth", "ar": "يمضي قُدمًا"},
+            "hint": {"en": "pr is a biliteral + complement", "ar": "بر هي ثنائية + مكمّل"},
         },
     ],
     3: [
         {
             "hieroglyphs": "𓄤𓆑𓂋𓏏",
             "transliteration": "nfr-t",
-            "translation": "beautiful woman (Nefret)",
-            "hint": "nfr is a triliteral + feminine ending t",
+            "translation": {"en": "beautiful woman (Nefret)", "ar": "المرأة الجميلة (نفرت)"},
+            "hint": {"en": "nfr is a triliteral + feminine ending t", "ar": "نفر هي ثلاثية + نهاية مؤنثة ت"},
         },
         {
             "hieroglyphs": "𓋹𓈖𓐍𓅱",
             "transliteration": "anx-w",
-            "translation": "may he live!",
-            "hint": "anx is a triliteral + w ending",
+            "translation": {"en": "may he live!", "ar": "عاش! (ليحيا)"},
+            "hint": {"en": "anx is a triliteral + w ending", "ar": "عنخ هي ثلاثية + نهاية و"},
         },
     ],
     4: [
         {
             "hieroglyphs": "𓇳𓏤𓋹𓏤",
             "transliteration": "ra-anx",
-            "translation": "Ra lives",
-            "hint": "Two logograms — each has the stroke marker 𓏤",
+            "translation": {"en": "Ra lives", "ar": "رع يعيش"},
+            "hint": {"en": "Two logograms — each has the stroke marker 𓏤", "ar": "لوغوغرامان — كل واحد له علامة الخط 𓏤"},
         },
         {
             "hieroglyphs": "𓉐𓄤",
             "transliteration": "pr-nfr",
-            "translation": "beautiful house",
-            "hint": "Logogram + triliteral",
+            "translation": {"en": "beautiful house", "ar": "البيت الجميل"},
+            "hint": {"en": "Logogram + triliteral", "ar": "لوغوغرام + ثلاثية"},
         },
     ],
     5: [
         {
             "hieroglyphs": "𓋴𓏏𓀁",
             "transliteration": "st",
-            "translation": "she (with female + speech determinative)",
-            "hint": "s + t are phonetic — A2 at the end is SILENT",
+            "translation": {"en": "she (with female + speech determinative)", "ar": "هي (مع مخصّص المؤنث + الكلام)"},
+            "hint": {"en": "s + t are phonetic — A2 at the end is SILENT", "ar": "س + ت صوتية — A2 في النهاية صامتة"},
         },
         {
             "hieroglyphs": "𓊹𓇳𓀭",
             "transliteration": "nTr ra",
-            "translation": "the sun god (with deity determinative)",
-            "hint": "Look for the seated god at the end — it adds no sound",
+            "translation": {"en": "the sun god (with deity determinative)", "ar": "إله الشمس (مع مخصّص الإله)"},
+            "hint": {"en": "Look for the seated god at the end — it adds no sound", "ar": "ابحث عن الإله الجالس في النهاية — لا يضيف صوتًا"},
         },
     ],
 }
@@ -650,62 +650,112 @@ _COMMON_DETERMINATIVES = [
     "Z4",   # two diagonal strokes → dual marker
 ]
 
-# Lesson content — intro paragraphs, tips, subtitles
+# Lesson content — intro paragraphs, tips, subtitles (bilingual)
 _LESSON_CONTENT: dict[int, dict] = {
     1: {
-        "title": "The Egyptian Alphabet",
-        "subtitle": "25 single-consonant signs",
-        "desc": "25 uniliteral signs — each represents one consonant sound.",
-        "intro": [
-            "Ancient Egyptian hieroglyphs only wrote consonants — no vowels at all! These 25 signs are the building blocks of the entire writing system. Each one represents a single consonant sound.",
-            "Modern Egyptologists add an 'e' between consonants to make words pronounceable. So the word 'nfr' (beautiful) is spoken as 'nefer', and 'Htp' (peace) becomes 'hotep'.",
-            "Master these 25 signs and you can sound out any Egyptian word, letter by letter. They work just like an alphabet — which is fitting, since the Phoenician alphabet (ancestor of our own) was inspired by Egyptian hieroglyphs!",
-        ],
-        "tip": "Try pronouncing 'nfr' (beautiful) as \"nefer\" — just add an 'e' between each consonant. That's how Egyptologists read hieroglyphs aloud!",
+        "title": {"en": "The Egyptian Alphabet", "ar": "الأبجدية المصرية"},
+        "subtitle": {"en": "25 single-consonant signs", "ar": "٢٥ علامة أحادية الصوت"},
+        "desc": {"en": "25 uniliteral signs — each represents one consonant sound.", "ar": "٢٥ علامة أحادية — كل واحدة تمثّل صوتًا ساكنًا واحدًا."},
+        "intro": {
+            "en": [
+                "Ancient Egyptian hieroglyphs only wrote consonants — no vowels at all! These 25 signs are the building blocks of the entire writing system. Each one represents a single consonant sound.",
+                "Modern Egyptologists add an 'e' between consonants to make words pronounceable. So the word 'nfr' (beautiful) is spoken as 'nefer', and 'Htp' (peace) becomes 'hotep'.",
+                "Master these 25 signs and you can sound out any Egyptian word, letter by letter. They work just like an alphabet — which is fitting, since the Phoenician alphabet (ancestor of our own) was inspired by Egyptian hieroglyphs!",
+            ],
+            "ar": [
+                "الهيروغليفية المصرية القديمة كانت تكتب الحروف الساكنة فقط — بدون حركات نهائيًا! هذه الـ ٢٥ علامة هي اللبنات الأساسية لنظام الكتابة بأكمله. كل علامة تمثّل صوتًا ساكنًا واحدًا.",
+                "علماء المصريات الحديثون يضيفون حرف 'e' بين الحروف الساكنة لتسهيل النطق. فكلمة 'nfr' (جميل) تُنطق 'نِفِر'، و'Htp' (سلام) تصبح 'حوتب'.",
+                "أتقن هذه الـ ٢٥ علامة وستتمكن من قراءة أي كلمة مصرية، حرفًا بحرف. إنها تعمل تمامًا كالأبجدية — وهذا منطقي، فالأبجدية الفينيقية (جدّة أبجديتنا) كانت مستوحاة من الهيروغليفية المصرية!",
+            ],
+        },
+        "tip": {
+            "en": "Try pronouncing 'nfr' (beautiful) as \"nefer\" — just add an 'e' between each consonant. That's how Egyptologists read hieroglyphs aloud!",
+            "ar": "جرّب نطق 'nfr' (جميل) كـ \"نِفِر\" — فقط أضف حرف 'e' بين كل ساكنين. هكذا يقرأ علماء المصريات الهيروغليفية بصوت عالٍ!",
+        },
     },
     2: {
-        "title": "Common Biliterals",
-        "subtitle": "Two-consonant signs",
-        "desc": "Two-consonant signs used frequently in hieroglyphic writing.",
-        "intro": [
-            "Biliterals pack two consonant sounds into a single sign. Instead of writing 'm' + 'n' as two separate signs, scribes could write one biliteral sign 'mn' — faster and more elegant.",
-            "Ancient scribes often added a 'phonetic complement' after a biliteral — one of the alphabet signs repeating the last consonant. For example: 𓅓𓈖 = mn + n. The extra 'n' isn't pronounced again; it just confirms the reading.",
-            "Think of biliterals as the common two-letter combinations of Egyptian. Once you recognize them, you'll read inscriptions much faster.",
-        ],
-        "tip": "When you see a biliteral followed by one of its consonants repeated as an alphabet sign — that's a phonetic complement. It confirms the reading, not a new sound!",
+        "title": {"en": "Common Biliterals", "ar": "الثنائيات الشائعة"},
+        "subtitle": {"en": "Two-consonant signs", "ar": "علامات ذات صوتين ساكنين"},
+        "desc": {"en": "Two-consonant signs used frequently in hieroglyphic writing.", "ar": "علامات ذات صوتين ساكنين تُستخدم بكثرة في الكتابة الهيروغليفية."},
+        "intro": {
+            "en": [
+                "Biliterals pack two consonant sounds into a single sign. Instead of writing 'm' + 'n' as two separate signs, scribes could write one biliteral sign 'mn' — faster and more elegant.",
+                "Ancient scribes often added a 'phonetic complement' after a biliteral — one of the alphabet signs repeating the last consonant. For example: 𓅓𓈖 = mn + n. The extra 'n' isn't pronounced again; it just confirms the reading.",
+                "Think of biliterals as the common two-letter combinations of Egyptian. Once you recognize them, you'll read inscriptions much faster.",
+            ],
+            "ar": [
+                "الثنائيات تجمع صوتين ساكنين في علامة واحدة. بدلًا من كتابة 'م' + 'ن' كعلامتين منفصلتين، كان الكتبة يكتبون علامة ثنائية واحدة 'من' — أسرع وأكثر أناقة.",
+                "كان الكتبة القدماء يضيفون 'مكمّل صوتي' بعد الثنائية — واحدة من علامات الأبجدية تكرر الحرف الساكن الأخير. مثلًا: 𓅓𓈖 = من + ن. الـ 'ن' الإضافية لا تُنطق مرة أخرى؛ إنها فقط تؤكد القراءة.",
+                "فكّر في الثنائيات كالمقاطع الشائعة ذات الحرفين في المصرية. بمجرد أن تتعرف عليها، ستقرأ النقوش بسرعة أكبر بكثير.",
+            ],
+        },
+        "tip": {
+            "en": "When you see a biliteral followed by one of its consonants repeated as an alphabet sign — that's a phonetic complement. It confirms the reading, not a new sound!",
+            "ar": "عندما ترى ثنائية يتبعها أحد حروفها مكررًا كعلامة أبجدية — هذا مكمّل صوتي. إنه يؤكد القراءة، وليس صوتًا جديدًا!",
+        },
     },
     3: {
-        "title": "Common Triliterals",
-        "subtitle": "Three-consonant signs",
-        "desc": "Three-consonant signs — each one packs an entire syllable.",
-        "intro": [
-            "Triliterals are the powerhouses of Egyptian writing — one sign represents three consonants at once. Many of these signs depict the very thing they spell.",
-            "The famous ankh (𓋹) is a triliteral for 'anx' — and it means 'life'. The nefer sign (𓄤) represents 'nfr' — 'beautiful, good, perfect'. The name Nefertiti literally means 'the beautiful one has come'.",
-            "Like biliterals, triliterals are often followed by one or two phonetic complements. When you see 𓋹𓈖𓐍, that's ankh + n + kh — the last two signs just confirm the reading of the triliteral.",
-        ],
-        "tip": "Many triliterals depict the very word they spell — the ankh sign means 'life', the nefer sign means 'beautiful'. Look for the connection between the picture and the word!",
+        "title": {"en": "Common Triliterals", "ar": "الثلاثيات الشائعة"},
+        "subtitle": {"en": "Three-consonant signs", "ar": "علامات ذات ثلاثة أصوات ساكنة"},
+        "desc": {"en": "Three-consonant signs — each one packs an entire syllable.", "ar": "علامات ذات ثلاثة أصوات ساكنة — كل واحدة تتضمن مقطعًا كاملًا."},
+        "intro": {
+            "en": [
+                "Triliterals are the powerhouses of Egyptian writing — one sign represents three consonants at once. Many of these signs depict the very thing they spell.",
+                "The famous ankh (𓋹) is a triliteral for 'anx' — and it means 'life'. The nefer sign (𓄤) represents 'nfr' — 'beautiful, good, perfect'. The name Nefertiti literally means 'the beautiful one has come'.",
+                "Like biliterals, triliterals are often followed by one or two phonetic complements. When you see 𓋹𓈖𓐍, that's ankh + n + kh — the last two signs just confirm the reading of the triliteral.",
+            ],
+            "ar": [
+                "الثلاثيات هي القوة المحركة للكتابة المصرية — علامة واحدة تمثل ثلاثة أصوات ساكنة دفعة واحدة. كثير من هذه العلامات تصوّر الشيء الذي تكتبه بالضبط.",
+                "العنخ الشهير (𓋹) هو ثلاثي لـ 'anx' — ومعناه 'حياة'. وعلامة النفر (𓄤) تمثل 'nfr' — 'جميل، طيب، كامل'. واسم نفرتيتي يعني حرفيًا 'الجميلة قد أتت'.",
+                "مثل الثنائيات، غالبًا ما تُتبع الثلاثيات بمكمّل صوتي واحد أو اثنين. عندما ترى 𓋹𓈖𓐍، هذا عنخ + ن + خ — العلامتان الأخيرتان تؤكدان فقط قراءة الثلاثي.",
+            ],
+        },
+        "tip": {
+            "en": "Many triliterals depict the very word they spell — the ankh sign means 'life', the nefer sign means 'beautiful'. Look for the connection between the picture and the word!",
+            "ar": "كثير من الثلاثيات تصوّر الكلمة التي تكتبها — علامة العنخ تعني 'حياة'، وعلامة النفر تعني 'جميل'. ابحث عن العلاقة بين الصورة والكلمة!",
+        },
     },
     4: {
-        "title": "Common Logograms",
-        "subtitle": "Signs that ARE the word",
-        "desc": "Logograms represent entire words — the sign IS the meaning.",
-        "intro": [
-            "Some hieroglyphs skip phonetics entirely — the picture IS the word. A house plan (𓉐) means 'house' (pr). A sun disk (𓇳) means 'sun, day, Ra'. These are logograms (also called ideograms).",
-            "How do you know when a sign is being used as a logogram rather than a phonogram? Ancient scribes added a single vertical stroke (𓏤) underneath to say 'read this sign as the word it depicts'.",
-            "Most logograms pull double duty — they can also be used for their sound value in other words. Context tells you which reading to use. This flexibility is part of what makes hieroglyphs so rich.",
-        ],
-        "tip": "Look for the single stroke (𓏤) under a sign — it's the scribe's way of saying 'this sign means exactly what it shows!'",
+        "title": {"en": "Common Logograms", "ar": "اللوغوغرامات الشائعة"},
+        "subtitle": {"en": "Signs that ARE the word", "ar": "علامات هي الكلمة نفسها"},
+        "desc": {"en": "Logograms represent entire words — the sign IS the meaning.", "ar": "اللوغوغرامات تمثل كلمات كاملة — العلامة هي المعنى نفسه."},
+        "intro": {
+            "en": [
+                "Some hieroglyphs skip phonetics entirely — the picture IS the word. A house plan (𓉐) means 'house' (pr). A sun disk (𓇳) means 'sun, day, Ra'. These are logograms (also called ideograms).",
+                "How do you know when a sign is being used as a logogram rather than a phonogram? Ancient scribes added a single vertical stroke (𓏤) underneath to say 'read this sign as the word it depicts'.",
+                "Most logograms pull double duty — they can also be used for their sound value in other words. Context tells you which reading to use. This flexibility is part of what makes hieroglyphs so rich.",
+            ],
+            "ar": [
+                "بعض الهيروغليفية تتخطى الأصوات تمامًا — الصورة هي الكلمة. مخطط المنزل (𓉐) يعني 'بيت' (pr). قرص الشمس (𓇳) يعني 'شمس، يوم، رع'. هذه هي اللوغوغرامات (تُسمى أيضًا الأيديوغرامات).",
+                "كيف تعرف أن العلامة تُستخدم كلوغوغرام وليس كصوت؟ الكتبة القدماء كانوا يضيفون خطًا عموديًا واحدًا (𓏤) تحتها ليقولوا 'اقرأ هذه العلامة ككلمة تصوّرها'.",
+                "معظم اللوغوغرامات تعمل بشكل مزدوج — يمكن استخدامها أيضًا لقيمتها الصوتية في كلمات أخرى. السياق يخبرك أي قراءة تستخدم. هذه المرونة هي جزء مما يجعل الهيروغليفية غنية جدًا.",
+            ],
+        },
+        "tip": {
+            "en": "Look for the single stroke (𓏤) under a sign — it's the scribe's way of saying 'this sign means exactly what it shows!'",
+            "ar": "ابحث عن الخط الواحد (𓏤) تحت العلامة — إنها طريقة الكاتب ليقول 'هذه العلامة تعني بالضبط ما تُظهره!'",
+        },
     },
     5: {
-        "title": "Determinatives",
-        "subtitle": "Silent classifiers at word endings",
-        "desc": "Determinatives are SILENT — they classify a word's meaning, not its sound.",
-        "intro": [
-            "Here's the key insight that explains why so many signs have no pronunciation: determinatives are completely SILENT. They appear at the end of a word to classify its meaning — like a visual category tag.",
-            "Walking legs (𓂻) after a verb means it involves motion. A seated man (𓀀) after a name means it's a male person. A papyrus roll (𓏛) means the word is abstract or related to writing. A sun disk (𓇳) tells you the word relates to time or the sun god.",
-            "Without determinatives, Egyptian would be deeply ambiguous — many words share the same consonants. The word 'pr' could mean 'house', 'go out', 'winter', or more. Only the determinative tells you which meaning is intended!",
-        ],
-        "tip": "Think of determinatives as hashtags — they don't change the pronunciation, but they tell you what category the word belongs to. That's why ~80% of all Gardiner signs have no sound value!",
+        "title": {"en": "Determinatives", "ar": "المخصّصات"},
+        "subtitle": {"en": "Silent classifiers at word endings", "ar": "مصنّفات صامتة في نهاية الكلمات"},
+        "desc": {"en": "Determinatives are SILENT — they classify a word's meaning, not its sound.", "ar": "المخصّصات صامتة تمامًا — تصنّف معنى الكلمة، وليس صوتها."},
+        "intro": {
+            "en": [
+                "Here's the key insight that explains why so many signs have no pronunciation: determinatives are completely SILENT. They appear at the end of a word to classify its meaning — like a visual category tag.",
+                "Walking legs (𓂻) after a verb means it involves motion. A seated man (𓀀) after a name means it's a male person. A papyrus roll (𓏛) means the word is abstract or related to writing. A sun disk (𓇳) tells you the word relates to time or the sun god.",
+                "Without determinatives, Egyptian would be deeply ambiguous — many words share the same consonants. The word 'pr' could mean 'house', 'go out', 'winter', or more. Only the determinative tells you which meaning is intended!",
+            ],
+            "ar": [
+                "هذه هي النقطة الجوهرية التي تفسّر لماذا كثير من العلامات ليس لها نطق: المخصّصات صامتة تمامًا. تظهر في نهاية الكلمة لتصنّف معناها — مثل وسم تصنيف مرئي.",
+                "أرجل تمشي (𓂻) بعد الفعل تعني أنه يتضمن حركة. رجل جالس (𓀀) بعد الاسم يعني أنه شخص ذكر. لفافة بردي (𓏛) تعني أن الكلمة مجردة أو متعلقة بالكتابة. قرص الشمس (𓇳) يخبرك أن الكلمة تتعلق بالوقت أو إله الشمس.",
+                "بدون المخصّصات، ستكون المصرية غامضة جدًا — كثير من الكلمات تشترك في نفس الحروف الساكنة. كلمة 'pr' يمكن أن تعني 'بيت' أو 'يخرج' أو 'شتاء' أو غيرها. فقط المخصّص يخبرك أي معنى مقصود!",
+            ],
+        },
+        "tip": {
+            "en": "Think of determinatives as hashtags — they don't change the pronunciation, but they tell you what category the word belongs to. That's why ~80% of all Gardiner signs have no sound value!",
+            "ar": "فكّر في المخصّصات كالهاشتاغات — لا تغيّر النطق، لكنها تخبرك بالفئة التي تنتمي إليها الكلمة. لهذا السبب ~٨٠٪ من علامات جاردنر ليس لها قيمة صوتية!",
+        },
     },
 }
 
@@ -905,6 +955,13 @@ async def get_alphabet(lang: str = Query("en", description="Language code (en/ar
     return JSONResponse(content={"signs": signs, "count": len(signs)})
 
 
+def _loc(val, lang: str = "en"):
+    """Extract localized text from a bilingual dict or return string as-is."""
+    if isinstance(val, dict):
+        return val.get(lang, val.get("en", ""))
+    return val
+
+
 @router.get("/lesson/{level}")
 async def get_lesson(level: int, lang: str = Query("en", description="Language code (en/ar)")):
     """Progressive lessons with teaching content."""
@@ -934,25 +991,36 @@ async def get_lesson(level: int, lang: str = Query("en", description="Language c
     next_lesson = None
     if level > 1:
         pc = _LESSON_CONTENT[level - 1]
-        prev_lesson = {"level": level - 1, "title": pc["title"]}
+        prev_lesson = {"level": level - 1, "title": _loc(pc["title"], lang)}
     if level < 5:
         nc = _LESSON_CONTENT[level + 1]
-        next_lesson = {"level": level + 1, "title": nc["title"]}
+        next_lesson = {"level": level + 1, "title": _loc(nc["title"], lang)}
+
+    # Localize example & practice words
+    def _loc_words(words: list[dict]) -> list[dict]:
+        out = []
+        for w in words:
+            lw = {**w}
+            for k in ("translation", "hint"):
+                if k in lw:
+                    lw[k] = _loc(lw[k], lang)
+            out.append(lw)
+        return out
 
     return JSONResponse(content={
         "level": level,
-        "title": content["title"],
-        "subtitle": content["subtitle"],
-        "description": content["desc"],
-        "intro_paragraphs": content["intro"],
-        "tip": content["tip"],
+        "title": _loc(content["title"], lang),
+        "subtitle": _loc(content["subtitle"], lang),
+        "description": _loc(content["desc"], lang),
+        "intro_paragraphs": _loc(content["intro"], lang),
+        "tip": _loc(content["tip"], lang),
         "prev_lesson": prev_lesson,
         "next_lesson": next_lesson,
         "total_lessons": 5,
         "signs": signs,
         "count": len(signs),
-        "example_words": _EXAMPLE_WORDS.get(level, []),
-        "practice_words": _PRACTICE_WORDS.get(level, []),
+        "example_words": _loc_words(_EXAMPLE_WORDS.get(level, [])),
+        "practice_words": _loc_words(_PRACTICE_WORDS.get(level, [])),
     })
 
 
