@@ -32,7 +32,7 @@
         <!-- ════════════════════════════════════════════════
              Tab navigation: Browse | Learn | Write
              ════════════════════════════════════════════════ -->
-        <div class="grid grid-cols-3 gap-3 sm:gap-4 mb-10" data-animate role="tablist" @keydown.arrow-right.prevent="tab = tab === 'browse' ? 'learn' : (tab === 'learn' ? 'write' : 'browse'); $nextTick(() => $el.querySelector('[aria-selected=true]')?.focus())" @keydown.arrow-left.prevent="tab = tab === 'write' ? 'learn' : (tab === 'learn' ? 'browse' : 'write'); $nextTick(() => $el.querySelector('[aria-selected=true]')?.focus())">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mb-10" data-animate role="tablist" @keydown.arrow-right.prevent="tab = tab === 'browse' ? 'learn' : (tab === 'learn' ? 'write' : 'browse'); $nextTick(() => $el.querySelector('[aria-selected=true]')?.focus())" @keydown.arrow-left.prevent="tab = tab === 'write' ? 'learn' : (tab === 'learn' ? 'browse' : 'write'); $nextTick(() => $el.querySelector('[aria-selected=true]')?.focus())">
             <!-- Browse tab -->
             <button @click="tab = 'browse'" role="tab" id="dict-tab-browse" :aria-selected="tab === 'browse' ? 'true' : 'false'" aria-controls="dict-panel-browse" :tabindex="tab === 'browse' ? 0 : -1"
                     class="relative rounded-xl p-4 sm:p-5 text-start transition-all border-2"
