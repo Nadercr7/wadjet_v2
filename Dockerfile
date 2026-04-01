@@ -37,8 +37,9 @@ COPY models/ models/
 COPY data/ data/
 
 # Ensure cache directories are writable by non-root user
-RUN mkdir -p app/static/cache/audio app/static/cache/images data \
-    && chown -R wadjet:wadjet app/static/cache data
+# /data is HF Spaces persistent storage mount point
+RUN mkdir -p app/static/cache/audio app/static/cache/images data /data \
+    && chown -R wadjet:wadjet app/static/cache data /data
 
 USER wadjet
 

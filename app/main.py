@@ -36,9 +36,55 @@ logger = logging.getLogger(__name__)
 BASE_DIR = Path(__file__).parent
 
 
+def _setup_persistent_storage():
+    """Set up symlinks from ephemeral paths to persistent volume.
+
+    HF Spaces mounts persistent storage at PERSISTENT_DATA_DIR (e.g. /data).
+    We symlink app/static/cache → /data/cache so generated TTS audio and
+    AI images persist across container rebuilds. The SQLite DB URL is already
+    rewritten by config.py to point inside the persistent dir.
+    """
+    pdir = settings.persistent_data_dir
+    if not pdir:
+        return
+
+    pdir = Path(pdir)
+    if not pdir.exists():
+        logger.warning("PERSISTENT_DATA_DIR=%s does not exist — skipping", pdir)
+        return
+
+    logger.info("Persistent storage: %s", pdir)
+
+    # Ensure subdirectories exist on persistent volume
+    (pdir / "cache" / "audio").mkdir(parents=True, exist_ok=True)
+    (pdir / "cache" / "images").mkdir(parents=True, exist_ok=True)
+
+    # Symlink app/static/cache → persistent/cache
+    cache_link = BASE_DIR / "static" / "cache"
+    persistent_cache = pdir / "cache"
+
+    if cache_link.is_symlink():
+        # Already linked (e.g. from a previous startup without rebuild)
+        logger.info("Cache symlink already exists: %s → %s", cache_link, cache_link.resolve())
+    elif cache_link.is_dir():
+        # Ephemeral cache dir from Dockerfile — replace with symlink
+        import shutil
+        shutil.rmtree(cache_link)
+        cache_link.symlink_to(persistent_cache)
+        logger.info("Replaced cache dir with symlink: %s → %s", cache_link, persistent_cache)
+    else:
+        cache_link.symlink_to(persistent_cache)
+        logger.info("Created cache symlink: %s → %s", cache_link, persistent_cache)
+
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Initialize services on startup, clean up on shutdown."""
+    # ── Persistent storage setup (HF Spaces) ──
+    # When PERSISTENT_DATA_DIR is set, use it for DB + cache so data
+    # survives container rebuilds on push.
+    _setup_persistent_storage()
+
     # Initialize Gemini
     keys = settings.gemini_keys_list
     if keys:

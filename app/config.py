@@ -24,6 +24,9 @@ class Settings(BaseSettings):
     admin_email: str = "naderelakany@gmail.com"
 
     # Database
+    # HF Spaces persistent storage: when PERSISTENT_DATA_DIR is set (e.g. /data),
+    # the DB + cache survive container rebuilds across pushes.
+    persistent_data_dir: str = ""  # Set via HF Space env var (e.g. /data)
     database_url: str = "sqlite+aiosqlite:///data/wadjet.db"
 
     # Gemini
@@ -75,6 +78,13 @@ class Settings(BaseSettings):
     @model_validator(mode="after")
     def _enforce_production_secrets(self) -> "Settings":
         """Refuse to start in production without real secrets."""
+        # When persistent storage is configured, redirect SQLite DB there
+        if self.persistent_data_dir and "sqlite" in self.database_url:
+            pdir = Path(self.persistent_data_dir)
+            db_path = pdir / "wadjet.db"
+            self.database_url = f"sqlite+aiosqlite:///{db_path}"
+            _log.info("Using persistent database at %s", db_path)
+
         if self.environment != "development":
             if not self.jwt_secret:
                 raise ValueError(
