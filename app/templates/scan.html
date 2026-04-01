@@ -483,9 +483,17 @@
                     <span class="text-3xl opacity-40">𓊹</span>
                 </div>
                 <h3 class="text-lg font-semibold mb-2">{{ t('scan.no_glyphs', lang) }}</h3>
-                <p class="text-text-muted text-sm mb-6 max-w-md mx-auto">
+                <p class="text-text-muted text-sm mb-4 max-w-md mx-auto">
                     {{ t('scan.no_glyphs_desc', lang) }}
                 </p>
+                <!-- Quality hints from backend image analysis -->
+                <template x-if="result.quality_hints && result.quality_hints.length">
+                    <ul class="text-sm text-sand mb-6 max-w-md mx-auto space-y-1 text-left list-disc list-inside">
+                        <template x-for="hint in result.quality_hints" :key="hint">
+                            <li x-text="hint"></li>
+                        </template>
+                    </ul>
+                </template>
                 <button @click="resetScan()" class="btn-gold">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
                     {{ t('scan.try_another', lang) }}

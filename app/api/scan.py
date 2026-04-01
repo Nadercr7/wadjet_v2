@@ -61,13 +61,41 @@ def _get_pipeline():
 
 
 MAX_IMAGE_DIM = 1024  # Resize images larger than this (longest side)
+MIN_IMAGE_DIM = 32    # Reject images smaller than this
+
+# Timeout for individual AI calls (seconds). Prevents hanging on slow providers.
+AI_CALL_TIMEOUT = 30
+
+
+def _fix_exif_orientation(data: bytes) -> bytes:
+    """Apply EXIF orientation tag and strip metadata.
+
+    Phone cameras store rotation in EXIF instead of rotating pixels.
+    Without this, a portrait photo arrives sideways and detection fails.
+    Returns corrected JPEG bytes, or original bytes on failure.
+    """
+    try:
+        import io
+
+        from PIL import Image as PILImage, ImageOps
+        pil_img = PILImage.open(io.BytesIO(data))
+        # exif_transpose rotates pixels per EXIF Orientation tag, then strips it
+        pil_img = ImageOps.exif_transpose(pil_img)
+        if pil_img is None:
+            return data
+        pil_img = pil_img.convert("RGB")
+        buf = io.BytesIO()
+        pil_img.save(buf, format="JPEG", quality=92)
+        return buf.getvalue()
+    except Exception:
+        return data
 
 
 async def _read_image_bytes(file: UploadFile) -> tuple[bytes, np.ndarray, str]:
     """Read an uploaded file into raw bytes + BGR numpy array + detected MIME type.
 
-    Handles HEIC conversion, WebP decoding, and resizes images whose longest
-    side exceeds MAX_IMAGE_DIM to avoid OOM on large camera photos.
+    Handles EXIF orientation, HEIC conversion, WebP decoding, and resizes
+    images whose longest side exceeds MAX_IMAGE_DIM to avoid OOM.
     """
     data = await file.read()
     if len(data) == 0:
@@ -115,13 +143,27 @@ async def _read_image_bytes(file: UploadFile) -> tuple[bytes, np.ndarray, str]:
                 detail="Could not decode HEIC image. Please convert to JPEG or PNG.",
             ) from None
 
+    # Fix EXIF orientation for JPEG (phone cameras store rotation in metadata)
+    if detected_mime == "image/jpeg":
+        data = _fix_exif_orientation(data)
+
     arr = np.frombuffer(data, np.uint8)
     image = cv2.imdecode(arr, cv2.IMREAD_COLOR)
     if image is None:
         raise HTTPException(status_code=400, detail="Could not decode image.")
 
-    # Resize large images to prevent OOM and speed up ONNX inference
+    # Reject tiny images that can't contain readable hieroglyphs
     h, w = image.shape[:2]
+    if max(h, w) < MIN_IMAGE_DIM:
+        raise HTTPException(
+            status_code=400,
+            detail=(
+                "Image is too small for hieroglyph detection. "
+                "Please use a photo at least 100×100 pixels."
+            ),
+        )
+
+    # Resize large images to prevent OOM and speed up ONNX inference
     if max(h, w) > MAX_IMAGE_DIM:
         scale = MAX_IMAGE_DIM / max(h, w)
         new_w, new_h = int(w * scale), int(h * scale)
@@ -302,16 +344,22 @@ async def _ai_full_reading(
         from google.genai import types as genai_types
 
         image_part = genai_types.Part.from_bytes(data=image_bytes, mime_type=mime)
-        response_text = await gemini.generate_vision_json(
-            contents=[prompt, image_part],
-            system_instruction=system,
-            temperature=0.1,
-            max_output_tokens=2048,
+        response_text = await asyncio.wait_for(
+            gemini.generate_vision_json(
+                contents=[prompt, image_part],
+                system_instruction=system,
+                temperature=0.1,
+                max_output_tokens=2048,
+            ),
+            timeout=AI_CALL_TIMEOUT,
         )
         data = json.loads(response_text or "{}")
         if data.get("glyphs"):
             logger.info("AI full reading: found %d glyphs", len(data["glyphs"]))
             return data
+        return None
+    except asyncio.TimeoutError:
+        logger.warning("AI full reading timed out after %ds", AI_CALL_TIMEOUT)
         return None
     except Exception:
         logger.warning("AI full reading failed", exc_info=True)
@@ -374,8 +422,11 @@ async def _ai_fresh_reading(
     # Try unified AIService first (supports Gemini → Groq → Grok fallback)
     if ai_service and ai_service.available:
         try:
-            data, provider = await ai_service.vision_json(
-                image_bytes, mime, system, prompt, max_tokens=4096,
+            data, provider = await asyncio.wait_for(
+                ai_service.vision_json(
+                    image_bytes, mime, system, prompt, max_tokens=4096,
+                ),
+                timeout=AI_CALL_TIMEOUT,
             )
             if data and data.get("glyphs"):
                 data["_provider"] = provider
@@ -386,6 +437,8 @@ async def _ai_fresh_reading(
                 )
                 return data
             logger.info("AI fresh reading via AIService returned empty")
+        except asyncio.TimeoutError:
+            logger.warning("AI fresh reading via AIService timed out after %ds", AI_CALL_TIMEOUT)
         except Exception:
             logger.warning("AI fresh reading via AIService failed", exc_info=True)
 
@@ -510,11 +563,14 @@ async def _full_sequence_verify(
                     data=crop_bytes, mime_type="image/jpeg",
                 ))
 
-        response_text = await gemini.generate_vision_json(
-            contents=contents,
-            system_instruction=system,
-            temperature=0.1,
-            max_output_tokens=1024,
+        response_text = await asyncio.wait_for(
+            gemini.generate_vision_json(
+                contents=contents,
+                system_instruction=system,
+                temperature=0.1,
+                max_output_tokens=1024,
+            ),
+            timeout=AI_CALL_TIMEOUT,
         )
         data = json.loads(response_text or "{}")
 
@@ -709,7 +765,7 @@ async def _verify_glyphs_grok(
 
 
 def _enrich_response(response_data: dict, image: np.ndarray) -> dict:
-    """Add image_size and confidence_summary to a scan response dict."""
+    """Add image_size, confidence_summary, and quality hints to response."""
     h, w = image.shape[:2]
     response_data["image_size"] = {"width": w, "height": h}
     glyphs = response_data.get("glyphs", [])
@@ -721,7 +777,41 @@ def _enrich_response(response_data: dict, image: np.ndarray) -> dict:
             "max": round(max(confs), 3),
             "low_count": sum(1 for c in confs if c < LOW_CONF_THRESHOLD),
         }
+    else:
+        # Add actionable hints when no hieroglyphs were found
+        hints = _image_quality_hints(image)
+        if hints:
+            response_data["quality_hints"] = hints
     return response_data
+
+
+def _image_quality_hints(image: np.ndarray) -> list[str]:
+    """Estimate image quality issues and return user-friendly tips."""
+    hints = []
+    h, w = image.shape[:2]
+
+    # Blur detection via Laplacian variance
+    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    laplacian_var = cv2.Laplacian(gray, cv2.CV_64F).var()
+    if laplacian_var < 50:
+        hints.append("Image appears blurry — try holding your camera steady or moving closer.")
+
+    # Dark/underexposed detection
+    mean_brightness = gray.mean()
+    if mean_brightness < 40:
+        hints.append("Image is very dark — try using flash or better lighting.")
+    elif mean_brightness > 240:
+        hints.append("Image is overexposed — try reducing glare or avoiding direct flash.")
+
+    # Low resolution (after resize)
+    if max(h, w) < 200:
+        hints.append("Image resolution is low — try using a higher-quality photo.")
+
+    # Generic tip if no specific issues detected
+    if not hints:
+        hints.append("Make sure the hieroglyphs are clearly visible and fill most of the frame.")
+
+    return hints
 
 
 @router.post("/scan")
@@ -816,10 +906,18 @@ async def _scan_ai_mode(ai_reader, pipeline, raw_bytes, mime, image, translate):
     # Run ONNX detection in parallel for bbox visualization
     onnx_bboxes_task = asyncio.to_thread(_detect_only, pipeline, image)
 
-    # AI reading (primary)
+    # AI reading (primary — with timeout)
     reading = None
     if ai_reader and ai_reader.available:
-        reading = await ai_reader.read_inscription(raw_bytes, mime)
+        try:
+            reading = await asyncio.wait_for(
+                ai_reader.read_inscription(raw_bytes, mime),
+                timeout=AI_CALL_TIMEOUT,
+            )
+        except asyncio.TimeoutError:
+            logger.warning("AI reading timed out in AI mode after %ds", AI_CALL_TIMEOUT)
+        except Exception:
+            logger.warning("AI reading failed in AI mode", exc_info=True)
 
     onnx_detections = await onnx_bboxes_task
 
@@ -935,10 +1033,12 @@ async def _scan_auto_mode(
         logger.exception("ONNX pipeline failed in auto mode")
         onnx_result = PipelineResult()
 
-    # Wait for AI
+    # Wait for AI (with timeout to prevent hanging on slow providers)
     if ai_task:
         try:
-            ai_reading = await ai_task
+            ai_reading = await asyncio.wait_for(ai_task, timeout=AI_CALL_TIMEOUT)
+        except asyncio.TimeoutError:
+            logger.warning("AI reading timed out after %ds", AI_CALL_TIMEOUT)
         except Exception:
             logger.warning("AI reading failed in auto mode", exc_info=True)
 
