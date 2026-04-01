@@ -590,7 +590,7 @@ function exploreApp() {
         },
 
         async _loadFavorites() {
-            if (!Alpine.store('auth').user) return;
+            if (!Alpine.store('auth').user || !Alpine.store('auth').token) return;
             try {
                 const res = await fetch('/api/user/favorites', {
                     headers: { 'Authorization': 'Bearer ' + Alpine.store('auth').token },

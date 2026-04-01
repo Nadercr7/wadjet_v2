@@ -307,6 +307,39 @@ def _fuzzy_find_slug(slug: str) -> str | None:
     return None
 
 
+import re as _re
+
+_WIKI_THUMB_RE = _re.compile(r"/(\d+)px-([^/]+)$")
+
+
+def _clamp_wiki_image(url: str, max_width: int = 800) -> str:
+    """Clamp a Wikimedia Commons image URL to *max_width* pixels.
+
+    Handles three cases:
+    * ``/thumb/…/NNNpx-File.jpg`` → replace NNN with *max_width* if larger
+    * Full-res ``/commons/X/XX/File.jpg`` → convert to thumb URL
+    * Non-Wikimedia URLs → returned unchanged
+    """
+    if not url or "upload.wikimedia.org" not in url:
+        return url
+    # Already a thumb URL — clamp the size
+    m = _WIKI_THUMB_RE.search(url)
+    if m:
+        current_px = int(m.group(1))
+        if current_px > max_width:
+            return url[: m.start(1)] + str(max_width) + url[m.end(1) :]
+        return url
+    # Full-resolution URL — convert to thumb
+    # .../commons/X/XX/File.jpg → .../commons/thumb/X/XX/File.jpg/800px-File.jpg
+    # Also handles /wikipedia/en/ and other language paths
+    for segment in ("/commons/", "/en/", "/ar/"):
+        parts = url.split(segment)
+        if len(parts) == 2:
+            filename = parts[1].rsplit("/", 1)[-1]
+            return f"{parts[0]}{segment}thumb/{parts[1]}/{max_width}px-{filename}"
+    return url
+
+
 @lru_cache(maxsize=1)
 def _load_wiki_data() -> dict[str, dict]:
     """Load Wikipedia text data for all landmarks."""
@@ -323,8 +356,8 @@ def _load_wiki_data() -> dict[str, dict]:
                 "extract": en.get("extract", ""),
                 "description": en.get("description", ""),
                 "coordinates": en.get("coordinates"),
-                "thumbnail": en.get("thumbnail", ""),
-                "original_image": en.get("original_image", ""),
+                "thumbnail": _clamp_wiki_image(en.get("thumbnail", ""), 400),
+                "original_image": _clamp_wiki_image(en.get("original_image", ""), 800),
                 "wikipedia_url": en.get("wikipedia_url", ""),
             }
         except Exception:
