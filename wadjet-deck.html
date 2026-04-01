@@ -555,14 +555,17 @@
         @media print {
             html { scroll-snap-type: none; }
             .slide {
+                height: auto !important;
                 min-height: 100vh;
+                overflow: visible !important;
                 page-break-after: always;
                 page-break-inside: avoid;
             }
             .progress-bar, .nav-dots, .keyboard-hint { display: none !important; }
             .reveal { opacity: 1 !important; transform: none !important; }
-            .meteor { display: none; }
+            .meteor, .glow-ring, .dot-pattern { display: none; }
             body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            a.btn-gold { pointer-events: none; }
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -825,6 +828,7 @@
                     Try It Live →
                 </a>
             </div>
+            <p class="reveal reveal-d4 text-xs text-muted pdf-url" style="margin-top:0.5rem;">nadercr7-wadjet-v2.hf.space</p>
 
             <p class="reveal reveal-d5 text-muted text-xs" style="margin-top:2.5rem;">
                 <span class="hieroglyph" style="font-size:1rem;">𓁹 𓂋 𓏏 𓅱 𓆓 𓊹 𓋴 𓂧 𓏲 𓎼</span>
@@ -1627,6 +1631,7 @@
                         <h4 style="margin-bottom:0.75rem;">Try It Yourself</h4>
                         <p class="text-sm text-muted" style="margin-bottom:1.25rem;">Scan a hieroglyph, explore a landmark, read a story, or chat with Thoth — then tell me what you liked or what needs work.</p>
                         <a href="https://nadercr7-wadjet-v2.hf.space" class="btn-gold" target="_blank" style="display:inline-block;">Open Wadjet →</a>
+                        <p class="text-xs text-muted pdf-url" style="margin-top:0.5rem;">nadercr7-wadjet-v2.hf.space</p>
                     </div>
                     <div class="card" style="padding:1.25rem;">
                         <p class="text-sm text-muted" style="margin-bottom:0.75rem;">
@@ -1735,11 +1740,12 @@
                 Learn from Thoth. All free.
             </p>
 
-            <div class="reveal reveal-d3" style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:3rem;">
+            <div class="reveal reveal-d3" style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.5rem;">
                 <a href="https://nadercr7-wadjet-v2.hf.space" class="btn-gold" target="_blank">
                     𓊹 Launch App
                 </a>
             </div>
+            <p class="reveal reveal-d3 text-xs text-muted pdf-url" style="margin-bottom:2rem;">nadercr7-wadjet-v2.hf.space</p>
 
             <div class="divider divider-center reveal reveal-d4"></div>
 
@@ -1750,10 +1756,10 @@
                 <p class="text-sm text-muted" style="margin-bottom:0.75rem;">
                     Mr Robot — Data Science Intern
                 </p>
-                <div style="display:flex;gap:1rem;justify-content:center;font-size:0.85rem;">
-                    <a href="https://linktr.ee/nadercr7" target="_blank" style="color:var(--sand);">Linktree ↗</a>
-                    <a href="https://github.com/Nadercr7" target="_blank" style="color:var(--sand);">GitHub ↗</a>
-                    <a href="https://linkedin.com/in/nadercr7" target="_blank" style="color:var(--sand);">LinkedIn ↗</a>
+                <div style="display:flex;gap:1.5rem;justify-content:center;font-size:0.85rem;">
+                    <a href="https://linktr.ee/nadercr7" target="_blank" style="color:var(--sand);">linktr.ee/nadercr7</a>
+                    <a href="https://github.com/Nadercr7" target="_blank" style="color:var(--sand);">github.com/Nadercr7</a>
+                    <a href="https://www.linkedin.com/in/nadercr7" target="_blank" style="color:var(--sand);">linkedin.com/in/nadercr7</a>
                 </div>
             </div>
 
