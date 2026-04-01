@@ -77,7 +77,8 @@ def _fix_exif_orientation(data: bytes) -> bytes:
     try:
         import io
 
-        from PIL import Image as PILImage, ImageOps
+        from PIL import Image as PILImage
+        from PIL import ImageOps
         pil_img = PILImage.open(io.BytesIO(data))
         # exif_transpose rotates pixels per EXIF Orientation tag, then strips it
         pil_img = ImageOps.exif_transpose(pil_img)
@@ -297,6 +298,38 @@ def _needs_ai_fallback(result) -> bool:
     return avg_class_conf < AI_FALLBACK_MIN_CLASS_CONF
 
 
+# ── Repetition anomaly: detect confidently-wrong ONNX ──
+
+ANOMALY_REPEAT_RATIO = 0.40  # Flag if any single code is ≥40% of all glyphs
+ANOMALY_MIN_GLYPHS = 5       # Only check when there are enough glyphs
+
+
+def _has_classification_anomaly(glyphs: list) -> bool:
+    """Detect suspicious ONNX classification patterns.
+
+    The ONNX classifier can be confidently wrong — e.g. classifying 7 out
+    of 14 glyphs as N24 at 100% confidence.  This function catches:
+    - Excessive repetition: any single Gardiner code appears in ≥40% of
+      all detections (unlikely in real inscriptions with 5+ glyphs)
+    """
+    if not glyphs or len(glyphs) < ANOMALY_MIN_GLYPHS:
+        return False
+    codes = [g.gardiner_code for g in glyphs if g.gardiner_code]
+    if not codes:
+        return False
+    counts = Counter(codes)
+    most_common_count = counts.most_common(1)[0][1]
+    ratio = most_common_count / len(codes)
+    if ratio >= ANOMALY_REPEAT_RATIO:
+        logger.info(
+            "Classification anomaly: code '%s' appears %d/%d times (%.0f%%)",
+            counts.most_common(1)[0][0], most_common_count, len(codes),
+            ratio * 100,
+        )
+        return True
+    return False
+
+
 async def _ai_full_reading(
     gemini,
     image_bytes: bytes,
@@ -358,7 +391,7 @@ async def _ai_full_reading(
             logger.info("AI full reading: found %d glyphs", len(data["glyphs"]))
             return data
         return None
-    except asyncio.TimeoutError:
+    except TimeoutError:
         logger.warning("AI full reading timed out after %ds", AI_CALL_TIMEOUT)
         return None
     except Exception:
@@ -437,7 +470,7 @@ async def _ai_fresh_reading(
                 )
                 return data
             logger.info("AI fresh reading via AIService returned empty")
-        except asyncio.TimeoutError:
+        except TimeoutError:
             logger.warning("AI fresh reading via AIService timed out after %ds", AI_CALL_TIMEOUT)
         except Exception:
             logger.warning("AI fresh reading via AIService failed", exc_info=True)
@@ -914,7 +947,7 @@ async def _scan_ai_mode(ai_reader, pipeline, raw_bytes, mime, image, translate):
                 ai_reader.read_inscription(raw_bytes, mime),
                 timeout=AI_CALL_TIMEOUT,
             )
-        except asyncio.TimeoutError:
+        except TimeoutError:
             logger.warning("AI reading timed out in AI mode after %ds", AI_CALL_TIMEOUT)
         except Exception:
             logger.warning("AI reading failed in AI mode", exc_info=True)
@@ -1037,7 +1070,7 @@ async def _scan_auto_mode(
     if ai_task:
         try:
             ai_reading = await asyncio.wait_for(ai_task, timeout=AI_CALL_TIMEOUT)
-        except asyncio.TimeoutError:
+        except TimeoutError:
             logger.warning("AI reading timed out after %ds", AI_CALL_TIMEOUT)
         except Exception:
             logger.warning("AI reading failed in auto mode", exc_info=True)
@@ -1053,86 +1086,114 @@ async def _scan_auto_mode(
         response_data["ai_reading"] = ai_reading.to_dict()
         return JSONResponse(content=_enrich_response(response_data, image))
 
-    # ── Path B: AI reader failed — improve ONNX results ──
+    # ── Path B: AI reader failed — ALWAYS try fresh AI reading ──
+    # The primary AI reader failed (timeout/error/unavailable).
+    # CRITICAL: Never trust ONNX classification alone — even "high confidence"
+    # ONNX is often confidently wrong (e.g., classifying everything as N24
+    # at 100%). Always attempt a fresh AI reading before falling back to
+    # unverified ONNX output.
     detection_source = "onnx"
+    ai_verified = False
+    VERIFY_CONFIDENCE_THRESHOLD = 0.6
 
-    if onnx_result.glyphs:
-        avg_class_conf = sum(g.class_confidence for g in onnx_result.glyphs) / len(onnx_result.glyphs)
-        VERIFY_CONFIDENCE_THRESHOLD = 0.6
+    # B1: ALWAYS try fresh AI reading (the most important fallback).
+    # This catches the critical case where ONNX is high-confidence but
+    # completely wrong — confidence thresholds can't detect that.
+    if ai_calls_used < MAX_AI_CALLS_PER_SCAN:
+        logger.info(
+            "Auto mode: primary AI reader failed, trying fresh AI reading "
+            "(ONNX has %d glyphs, avg_conf=%.0f%%)",
+            len(onnx_result.glyphs) if onnx_result.glyphs else 0,
+            (sum(g.class_confidence for g in onnx_result.glyphs)
+             / len(onnx_result.glyphs) * 100)
+            if onnx_result.glyphs else 0,
+        )
+        ai_calls_used += 1
+        fresh_data = await _ai_fresh_reading(
+            ai_service, gemini, raw_bytes, mime, image,
+        )
+        if fresh_data and fresh_data.get("glyphs"):
+            _apply_ai_results(onnx_result, fresh_data, image)
+            detection_source = (
+                f"ai_fresh ({fresh_data.get('_provider', 'ai')})"
+            )
+            ai_verified = True
+            if fresh_data.get("translation_en"):
+                onnx_result.translation_en = fresh_data["translation_en"]
+            if fresh_data.get("translation_ar"):
+                onnx_result.translation_ar = fresh_data["translation_ar"]
+            if (translate and not onnx_result.translation_en
+                    and onnx_result.transliteration):
+                try:
+                    translator = pipeline._get_translator()
+                    if translator and hasattr(translator, 'translate_async'):
+                        raw = await translator.translate_async(
+                            onnx_result.transliteration,
+                        )
+                        onnx_result.translation_en = raw.get("english", "")
+                        onnx_result.translation_ar = raw.get("arabic", "")
+                except Exception:
+                    logger.warning("RAG translation after fresh AI failed")
 
-        # B1: Very low confidence — ONNX classification is unreliable.
-        # Try a fresh AI reading using AIService (multi-provider fallback).
-        if avg_class_conf < FRESH_AI_READING_THRESHOLD and ai_calls_used < MAX_AI_CALLS_PER_SCAN:
+    # B2: Fresh AI also failed — try sequence verification if ONNX
+    # confidence is moderate (AI can at least correct individual codes).
+    if (not ai_verified and onnx_result.glyphs
+            and ai_calls_used < MAX_AI_CALLS_PER_SCAN):
+        avg_class_conf = (
+            sum(g.class_confidence for g in onnx_result.glyphs)
+            / len(onnx_result.glyphs)
+        )
+        has_anomaly = _has_classification_anomaly(onnx_result.glyphs)
+
+        # Verify when confidence is moderate OR when anomalies detected
+        if ((avg_class_conf < VERIFY_CONFIDENCE_THRESHOLD or has_anomaly)
+                and gemini):
             logger.info(
-                "Auto mode: ONNX avg confidence %.1f%% < threshold %.0f%%, trying fresh AI reading",
-                avg_class_conf * 100, FRESH_AI_READING_THRESHOLD * 100,
+                "Auto mode: trying sequence verify "
+                "(avg_conf=%.0f%%, anomaly=%s)",
+                avg_class_conf * 100, has_anomaly,
             )
             ai_calls_used += 1
-            fresh_data = await _ai_fresh_reading(ai_service, gemini, raw_bytes, mime, image)
-            if fresh_data and fresh_data.get("glyphs"):
-                # AI reading succeeded — use it directly (don't re-classify with weak ONNX)
-                _apply_ai_results(onnx_result, fresh_data, image)
-                detection_source = f"ai_fresh ({fresh_data.get('_provider', 'ai')})"
-                # Prefer AI-provided translation (reads as words/names, not individual signs)
-                if fresh_data.get("translation_en"):
-                    onnx_result.translation_en = fresh_data["translation_en"]
-                if fresh_data.get("translation_ar"):
-                    onnx_result.translation_ar = fresh_data["translation_ar"]
-                # Only use RAG translator if AI didn't provide translation
-                if translate and not onnx_result.translation_en and onnx_result.transliteration:
-                    try:
-                        translator = pipeline._get_translator()
-                        if translator and hasattr(translator, 'translate_async'):
-                            raw = await translator.translate_async(onnx_result.transliteration)
-                            onnx_result.translation_en = raw.get("english", "")
-                            onnx_result.translation_ar = raw.get("arabic", "")
-                    except Exception:
-                        logger.warning("RAG translation after fresh AI reading failed")
-            else:
-                # Fresh AI also failed — fall through to verification
-                logger.info("Fresh AI reading failed, trying sequence verification")
-                if avg_class_conf < VERIFY_CONFIDENCE_THRESHOLD and gemini and ai_calls_used < MAX_AI_CALLS_PER_SCAN:
-                    ai_calls_used += 1
-                    corrected_glyphs, corrections_applied = await _full_sequence_verify(
-                        gemini, grok if ai_calls_used < MAX_AI_CALLS_PER_SCAN else None,
-                        image, onnx_result.glyphs,
-                    )
-                    if grok and corrections_applied:
-                        ai_calls_used += 1
-                    onnx_result.glyphs = corrected_glyphs
-                    if corrections_applied:
-                        await _retransliterate_and_translate(pipeline, onnx_result, translate)
-
-        # B2: Moderate confidence — verify individual codes with AI
-        elif avg_class_conf < VERIFY_CONFIDENCE_THRESHOLD and gemini and ai_calls_used < MAX_AI_CALLS_PER_SCAN:
-            ai_calls_used += 1
-            corrected_glyphs, corrections_applied = await _full_sequence_verify(
-                gemini, grok if ai_calls_used < MAX_AI_CALLS_PER_SCAN else None,
+            corrected, corrections_applied = await _full_sequence_verify(
+                gemini,
+                grok if ai_calls_used < MAX_AI_CALLS_PER_SCAN else None,
                 image, onnx_result.glyphs,
             )
             if grok and corrections_applied:
                 ai_calls_used += 1
-            onnx_result.glyphs = corrected_glyphs
+            onnx_result.glyphs = corrected
             if corrections_applied:
-                await _retransliterate_and_translate(pipeline, onnx_result, translate)
+                ai_verified = True
+                detection_source = "onnx_ai_verified"
+                await _retransliterate_and_translate(
+                    pipeline, onnx_result, translate,
+                )
 
-    elif _needs_ai_fallback(onnx_result) and ai_calls_used < MAX_AI_CALLS_PER_SCAN:
-        # B3: ONNX detection itself was poor — try AI full reading
+    # B3: ONNX detection itself was poor — last resort AI reading
+    if (not ai_verified and _needs_ai_fallback(onnx_result)
+            and ai_calls_used < MAX_AI_CALLS_PER_SCAN):
         ai_calls_used += 1
-        ai_data = await _ai_fresh_reading(ai_service, gemini, raw_bytes, mime, image)
+        ai_data = await _ai_fresh_reading(
+            ai_service, gemini, raw_bytes, mime, image,
+        )
         if ai_data and ai_data.get("glyphs"):
             _apply_ai_results(onnx_result, ai_data, image)
-            detection_source = f"ai_fresh ({ai_data.get('_provider', 'ai')})"
-            # Prefer AI translation (reads words/names, not individual signs)
+            detection_source = (
+                f"ai_fresh ({ai_data.get('_provider', 'ai')})"
+            )
+            ai_verified = True
             if ai_data.get("translation_en"):
                 onnx_result.translation_en = ai_data["translation_en"]
             if ai_data.get("translation_ar"):
                 onnx_result.translation_ar = ai_data["translation_ar"]
-            if translate and not onnx_result.translation_en and onnx_result.transliteration:
+            if (translate and not onnx_result.translation_en
+                    and onnx_result.transliteration):
                 try:
                     translator = pipeline._get_translator()
                     if translator and hasattr(translator, 'translate_async'):
-                        raw = await translator.translate_async(onnx_result.transliteration)
+                        raw = await translator.translate_async(
+                            onnx_result.transliteration,
+                        )
                         onnx_result.translation_en = raw.get("english", "")
                         onnx_result.translation_ar = raw.get("arabic", "")
                 except Exception:
@@ -1143,6 +1204,9 @@ async def _scan_auto_mode(
     response_data["detection_source"] = detection_source
     response_data["mode"] = "auto"
     response_data["ai_calls_used"] = ai_calls_used
+    # Warn frontend when ONNX results were NOT verified by any AI
+    if not ai_verified and onnx_result.glyphs:
+        response_data["ai_unverified"] = True
     return JSONResponse(content=_enrich_response(response_data, image))
 
 

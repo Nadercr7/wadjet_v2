@@ -277,6 +277,8 @@
         "no_glyphs": "No Hieroglyphs Found",
         "no_glyphs_desc": "The AI didn't detect any hieroglyphs in this image. Try a photo with clear, visible hieroglyphic inscriptions.",
         "try_another": "Try Another Image",
+        "ai_unavailable_title": "AI verification unavailable",
+        "ai_unavailable_desc": "Results are from the offline model only and may be less accurate. Try again for AI-verified results.",
         "recent_scans": "Recent Scans",
         "glyph_singular": "glyph",
         "glyph_plural": "glyphs",
