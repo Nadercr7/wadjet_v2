@@ -331,9 +331,7 @@ function storyReader(storyId, lang) {
                 // If logged in, prefer server progress over localStorage
                 if (Alpine.store('auth').user) {
                     try {
-                        const progResp = await fetch('/api/user/progress', {
-                            headers: { 'Authorization': 'Bearer ' + Alpine.store('auth').token },
-                        });
+                        const progResp = await Alpine.store('auth')._authFetch('/api/user/progress');
                         if (progResp.ok) {
                             const allProgress = await progResp.json();
                             const sp = allProgress.find(p => p.story_id === this.storyId);
@@ -551,10 +549,9 @@ function storyReader(storyId, lang) {
             }));
             // Sync to server for logged-in users
             if (Alpine.store('auth').user) {
-                const token = Alpine.store('auth').token;
-                fetch('/api/user/progress', {
+                Alpine.store('auth')._authFetch('/api/user/progress', {
                     method: 'POST',
-                    headers: { 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' },
+                    headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
                         story_id: this.storyId,
                         chapter_index: this.chapterIdx,

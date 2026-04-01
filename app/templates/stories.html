@@ -168,9 +168,7 @@ function storiesApp() {
         async _loadProgress() {
             if (!Alpine.store('auth').user) return;
             try {
-                const res = await fetch('/api/user/progress', {
-                    headers: { 'Authorization': 'Bearer ' + Alpine.store('auth').token },
-                });
+                const res = await Alpine.store('auth')._authFetch('/api/user/progress');
                 if (res.ok) {
                     const items = await res.json();
                     for (const sp of items) {

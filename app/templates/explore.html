@@ -596,11 +596,10 @@ function exploreApp() {
         },
 
         async _loadFavorites() {
-            if (!Alpine.store('auth').user || !Alpine.store('auth').token) return;
+            const auth = Alpine.store('auth');
+            if (!auth.user || !auth.token) return;
             try {
-                const res = await fetch('/api/user/favorites', {
-                    headers: { 'Authorization': 'Bearer ' + Alpine.store('auth').token },
-                });
+                const res = await auth._authFetch('/api/user/favorites');
                 if (res.ok) {
                     const favs = await res.json();
                     this.favoriteIds = new Set(favs.filter(f => f.item_type === 'landmark').map(f => f.item_id));
@@ -613,21 +612,21 @@ function exploreApp() {
         },
 
         async toggleFavorite(slug) {
-            const token = Alpine.store('auth').token;
-            if (!token) return;
+            const auth = Alpine.store('auth');
+            if (!auth.user || !auth.token) return;
             if (this.isFavorited(slug)) {
                 try {
-                    await fetch(`/api/user/favorites/landmark/${encodeURIComponent(slug)}`, {
-                        method: 'DELETE', headers: { 'Authorization': 'Bearer ' + token },
+                    await auth._authFetch(`/api/user/favorites/landmark/${encodeURIComponent(slug)}`, {
+                        method: 'DELETE',
                     });
                     this.favoriteIds.delete(slug);
                     this.favoriteIds = new Set(this.favoriteIds);
                 } catch (e) { /* ignore */ }
             } else {
                 try {
-                    await fetch('/api/user/favorites', {
+                    await auth._authFetch('/api/user/favorites', {
                         method: 'POST',
-                        headers: { 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' },
+                        headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({ item_type: 'landmark', item_id: slug }),
                     });
                     this.favoriteIds.add(slug);

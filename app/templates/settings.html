@@ -130,11 +130,10 @@ function settingsApp() {
         async updateProfile() {
             this.profileSaving = true;
             this.profileError = '';
-            const token = Alpine.store('auth').token;
             try {
-                const res = await fetch('/api/user/profile', {
+                const res = await Alpine.store('auth')._authFetch('/api/user/profile', {
                     method: 'PATCH',
-                    headers: { 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' },
+                    headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(this.profileForm),
                 });
                 if (res.ok) {
@@ -161,11 +160,10 @@ function settingsApp() {
         async changePassword() {
             this.pwSaving = true;
             this.pwError = '';
-            const token = Alpine.store('auth').token;
             try {
-                const res = await fetch('/api/user/password', {
+                const res = await Alpine.store('auth')._authFetch('/api/user/password', {
                     method: 'PATCH',
-                    headers: { 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' },
+                    headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(this.pwForm),
                 });
                 if (res.ok) {
