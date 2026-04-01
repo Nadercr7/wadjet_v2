@@ -67,8 +67,16 @@ def _setup_persistent_storage():
         # Already linked (e.g. from a previous startup without rebuild)
         logger.info("Cache symlink already exists: %s → %s", cache_link, cache_link.resolve())
     elif cache_link.is_dir():
-        # Ephemeral cache dir from Dockerfile — replace with symlink
+        # Copy pre-generated story images to persistent storage before destroying
         import shutil
+        src_images = cache_link / "images"
+        dst_images = persistent_cache / "images"
+        if src_images.is_dir():
+            for f in src_images.glob("story_*.png"):
+                dst = dst_images / f.name
+                if not dst.exists():
+                    shutil.copy2(f, dst)
+                    logger.info("Copied pre-generated image to persistent: %s", f.name)
         shutil.rmtree(cache_link)
         cache_link.symlink_to(persistent_cache)
         logger.info("Replaced cache dir with symlink: %s → %s", cache_link, persistent_cache)
@@ -390,8 +398,8 @@ def create_app() -> FastAPI:
             response.headers["Cache-Control"] = "public, max-age=31536000, immutable"
         return response
 
-    # Static files
-    app.mount("/static", StaticFiles(directory=BASE_DIR / "static"), name="static")
+    # Static files (follow_symlink=True for cache → persistent storage symlink)
+    app.mount("/static", StaticFiles(directory=BASE_DIR / "static", follow_symlink=True), name="static")
 
     # Serve ML models for client-side pipeline (ONNX + TF.js)
     models_dir = BASE_DIR.parent / "models"
