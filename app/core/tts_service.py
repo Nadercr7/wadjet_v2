@@ -35,6 +35,7 @@ VOICE_PRESETS: dict[str, str] = {
     "explore": "Charon",         # Informative — landmark descriptions
     "scan": "Charon",            # Informative — scan results
     "scan_pronunciation": "Rasalgethi",  # Academic — scan transliteration
+    "write": "Charon",            # Informative — hieroglyph translations
     "default": "Charon",         # Informative — general fallback
 }
 

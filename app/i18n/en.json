@@ -421,7 +421,10 @@
         "ex_smart": ["Life is beautiful", "The king of Egypt", "Peace and prosperity", "Son of Ra"],
         "ex_smart_ar": ["الحياة جميلة", "ملك مصر", "السلام والرخاء", "ابن رع"],
         "mode_arrow": "→",
-        "history_suffix": "glyphs"
+        "history_suffix": "glyphs",
+        "meaning": "Meaning",
+        "translating": "Translating…",
+        "listen": "Listen to translation"
     },
     "explore": {
         "meta_desc": "Browse 190+ Egyptian heritage sites — pyramids, temples, mosques, churches, museums, and natural wonders. Filter by category, region, or subcategory.",
