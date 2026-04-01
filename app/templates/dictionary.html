@@ -314,26 +314,18 @@
                 </div>
 
                 <!-- Translation -->
-                <div class="mt-5 border-t border-border pt-4">
-                    <!-- Loading state -->
-                    <div x-show="writeTranslating" class="flex items-center gap-2 text-sm text-text-dim">
-                        <svg class="w-4 h-4 animate-spin text-gold" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path></svg>
-                        {{ t('write.translating', lang) }}
-                    </div>
-                    <!-- Translation result -->
-                    <div x-show="writeTranslation && !writeTranslating" x-transition>
-                        <div class="flex items-center justify-between gap-3">
-                            <div class="flex-1 min-w-0">
-                                <span class="text-xs font-medium text-text-dim uppercase tracking-wider">{{ t('write.meaning', lang) }}</span>
-                                <p class="text-lg text-ivory mt-1 leading-relaxed" x-text="writeTranslation"></p>
-                            </div>
-                            <button @click="writeListen()" class="shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-all"
-                                    :class="writeListening ? 'bg-gold text-night animate-pulse-gold' : 'bg-gold/10 text-gold hover:bg-gold/20'"
-                                    :title="writeListening ? '{{ t('common.pause_narration', lang) }}' : '{{ t('write.listen', lang) }}'">
-                                <svg x-show="!writeListening" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
-                                <svg x-show="writeListening" x-cloak class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                            </button>
+                <div class="mt-5 border-t border-border pt-4" x-show="writePronunciation" x-transition>
+                    <div class="flex items-center justify-between gap-3">
+                        <div class="flex-1 min-w-0">
+                            <span class="text-xs font-medium text-text-dim uppercase tracking-wider">{{ t('write.pronunciation', lang) }}</span>
+                            <p class="text-lg text-gold-light mt-1 leading-relaxed font-medium tracking-wide" x-text="writePronunciation" dir="ltr"></p>
                         </div>
+                        <button @click="writeListen()" class="shrink-0 w-11 h-11 rounded-full flex items-center justify-center transition-all"
+                                :class="writeListening ? 'bg-gold text-night animate-pulse-gold' : 'bg-gold/10 text-gold hover:bg-gold/20 hover:scale-105'"
+                                :title="writeListening ? '{{ t('common.pause_narration', lang) }}' : '{{ t('write.listen', lang) }}'">
+                            <svg x-show="!writeListening" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                            <svg x-show="writeListening" x-cloak class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -470,8 +462,7 @@ function dictionaryApp() {
         writeResult: {},
         writeError: '',
         writeConverting: false,
-        writeTranslation: '',
-        writeTranslating: false,
+        writePronunciation: '',
         writeListening: false,
         _writeAudio: null,
         writeCopyLabel: '{{ t('common.copy', lang) }}',
@@ -663,7 +654,7 @@ function dictionaryApp() {
             if (!text) {
                 this.writeResult = {};
                 this.writeError = '';
-                this.writeTranslation = '';
+                this.writePronunciation = '';
                 return;
             }
             this.writeConverting = true;
@@ -683,7 +674,7 @@ function dictionaryApp() {
                 if (this.writeResult.hieroglyphs) {
                     WadjetHistory.addWrite(text, 'smart', this.writeResult);
                     this.writeHistory = WadjetHistory.getWriteHistory();
-                    this.writeTranslate();
+                    this.writeBuildPronunciation();
                 }
             } catch (err) {
                 this.writeError = '{{ t("common.error", lang) }}';
@@ -692,32 +683,18 @@ function dictionaryApp() {
             }
         },
 
-        async writeTranslate() {
-            if (!this.writeResult.glyphs || this.writeResult.glyphs.length === 0) return;
-            const glyphs = this.writeResult.glyphs.filter(g => g.type === 'glyph');
-            if (glyphs.length === 0) return;
-            const translit = glyphs.map(g => g.transliteration).filter(Boolean).join('-');
-            const gardiner = glyphs.map(g => g.code).join('-');
-            if (!translit) return;
-            this.writeTranslating = true;
-            this.writeTranslation = '';
-            try {
-                const resp = await fetch('/api/translate', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ transliteration: translit, gardiner_sequence: gardiner }),
-                });
-                if (resp.ok) {
-                    const data = await resp.json();
-                    const lang = this._lang;
-                    this.writeTranslation = (lang === 'ar' ? data.arabic : data.english) || data.english || '';
-                }
-            } catch (e) { /* silent — translation is supplementary */ }
-            finally { this.writeTranslating = false; }
+        writeBuildPronunciation() {
+            if (!this.writeResult.glyphs || this.writeResult.glyphs.length === 0) {
+                this.writePronunciation = '';
+                return;
+            }
+            const glyphs = this.writeResult.glyphs.filter(g => g.type === 'glyph' && g.transliteration);
+            if (glyphs.length === 0) { this.writePronunciation = ''; return; }
+            this.writePronunciation = glyphs.map(g => g.transliteration).join(' ');
         },
 
         writeListen() {
-            const text = this.writeTranslation;
+            const text = this.writePronunciation;
             if (!text) return;
             // If already playing, stop
             if (this.writeListening && this._writeAudio) {
@@ -728,16 +705,14 @@ function dictionaryApp() {
                 return;
             }
             this.writeListening = true;
-            const lang = this._lang;
             fetch('/api/audio/speak', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ text, lang, context: 'write' }),
+                body: JSON.stringify({ text, lang: 'en', context: 'write_pronunciation' }),
             }).then(resp => {
                 if (resp.status === 204) {
-                    // Fallback to browser TTS
                     if (typeof WadjetTTS !== 'undefined') {
-                        WadjetTTS.speak(text, { lang, id: 'write-tts', onEnd: () => { this.writeListening = false; } });
+                        WadjetTTS.speak(text, { lang: 'en', rate: 0.7, id: 'write-tts', onEnd: () => { this.writeListening = false; } });
                     } else { this.writeListening = false; }
                     return;
                 }
@@ -751,12 +726,12 @@ function dictionaryApp() {
                 audio.onended = () => { this.writeListening = false; this._writeAudio = null; URL.revokeObjectURL(url); };
                 audio.onerror = () => {
                     this.writeListening = false; this._writeAudio = null; URL.revokeObjectURL(url);
-                    if (typeof WadjetTTS !== 'undefined') WadjetTTS.speak(text, { lang, id: 'write-tts', onEnd: () => { this.writeListening = false; } });
+                    if (typeof WadjetTTS !== 'undefined') WadjetTTS.speak(text, { lang: 'en', rate: 0.7, id: 'write-tts', onEnd: () => { this.writeListening = false; } });
                 };
                 audio.play().catch(() => { this.writeListening = false; this._writeAudio = null; });
             }).catch(() => {
                 this.writeListening = false;
-                if (typeof WadjetTTS !== 'undefined') WadjetTTS.speak(text, { lang, id: 'write-tts', onEnd: () => { this.writeListening = false; } });
+                if (typeof WadjetTTS !== 'undefined') WadjetTTS.speak(text, { lang: 'en', rate: 0.7, id: 'write-tts', onEnd: () => { this.writeListening = false; } });
             });
         },
 

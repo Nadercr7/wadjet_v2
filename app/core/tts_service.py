@@ -35,7 +35,8 @@ VOICE_PRESETS: dict[str, str] = {
     "explore": "Charon",         # Informative — landmark descriptions
     "scan": "Charon",            # Informative — scan results
     "scan_pronunciation": "Rasalgethi",  # Academic — scan transliteration
-    "write": "Charon",            # Informative — hieroglyph translations
+    "write": "Rasalgethi",           # Academic — ancient Egyptian pronunciation
+    "write_pronunciation": "Rasalgethi",  # Academic — ancient Egyptian pronunciation
     "default": "Charon",         # Informative — general fallback
 }
 
@@ -74,6 +75,18 @@ DIRECTOR_NOTES: dict[str, str] = {
     ),
     "scan_pronunciation": (
         "Say this word clearly and slowly. Just the word, nothing else."
+    ),
+    "write": (
+        "You are pronouncing ancient Egyptian hieroglyphic transliteration. "
+        "Read each word slowly, clearly, and with reverence — as an ancient Egyptian "
+        "scribe would have spoken these sacred words in a temple. "
+        "Measured pace, deep resonance. Pronounce each syllable distinctly."
+    ),
+    "write_pronunciation": (
+        "You are pronouncing ancient Egyptian hieroglyphic transliteration. "
+        "Read each word slowly, clearly, and with reverence — as an ancient Egyptian "
+        "scribe would have spoken these sacred words in a temple. "
+        "Measured pace, deep resonance. Pronounce each syllable distinctly."
     ),
 }
 
