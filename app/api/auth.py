@@ -306,8 +306,13 @@ async def google_auth(body: GoogleAuthRequest, request: Request, db: AsyncSessio
     except HTTPException:
         raise
     except Exception as e:
-        logger.error("Google auth DB error for %s: %s", email, e, exc_info=True)
-        raise HTTPException(status_code=500, detail="Authentication failed — please try again") from None
+        err_type = type(e).__name__
+        logger.error("Google auth DB error for %s: [%s] %s", email, err_type, e, exc_info=True)
+        # Include error type in response so we can diagnose remotely
+        raise HTTPException(
+            status_code=500,
+            detail=f"Authentication failed ({err_type}) — please try again",
+        ) from None
 
 
 # ── Email Verification ──

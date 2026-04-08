@@ -175,6 +175,35 @@ async def lifespan(app: FastAPI):
         from app.db.database import init_db
         await init_db()
         logger.info("SQLite database initialized (create_all)")
+
+        # Patch persistent DB schema if columns are missing (create_all doesn't
+        # add columns to existing tables — only creates missing tables).
+        # Also check for SQLite corruption (common on HF Spaces after crashes).
+        try:
+            from sqlalchemy import text as sa_text
+            from app.db.database import engine as db_engine
+
+            async with db_engine.begin() as conn:
+                # Quick integrity check
+                result = await conn.execute(sa_text("PRAGMA integrity_check"))
+                integrity = result.scalar()
+                if integrity != "ok":
+                    logger.error("SQLite INTEGRITY CHECK FAILED: %s", integrity)
+
+                _REQUIRED_USER_COLS = {
+                    "google_id": "VARCHAR",
+                    "auth_provider": "VARCHAR DEFAULT 'email'",
+                    "email_verified": "BOOLEAN DEFAULT 0",
+                    "avatar_url": "VARCHAR",
+                }
+                rows = await conn.execute(sa_text("PRAGMA table_info(users)"))
+                existing = {r[1] for r in rows}
+                for col, col_type in _REQUIRED_USER_COLS.items():
+                    if col not in existing:
+                        await conn.execute(sa_text(f"ALTER TABLE users ADD COLUMN {col} {col_type}"))
+                        logger.warning("Auto-added missing column users.%s", col)
+        except Exception as e:
+            logger.error("Schema patch failed: %s", e)
     else:
         logger.info("PostgreSQL database ready (use 'alembic upgrade head' for migrations)")
 
