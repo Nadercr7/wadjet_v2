@@ -156,7 +156,18 @@
         "quiz_title": "Egyptian Heritage Quiz",
         "quiz_desc": "Test your knowledge of pharaohs, pyramids, and ancient wonders. Quick quiz or AI-generated challenges.",
         "take_quiz": "Take the Quiz",
-        "featured_site": "Featured Site"
+        "featured_site": "Featured Site",
+        "android_badge": "Android App",
+        "android_title": "Take Wadjet",
+        "android_title_accent": "on the go",
+        "android_sub": "Download the native Android app — scan hieroglyphs with your camera, browse landmarks offline, and explore Egypt from your pocket.",
+        "android_download": "Download APK",
+        "android_size": "~88 MB · Android 8.0+",
+        "android_install_hint": "Enable \"Install from unknown sources\" in your phone settings first.",
+        "android_feat_native": "Native camera scanning",
+        "android_feat_offline": "Full offline dictionary",
+        "android_feat_fast": "Optimized for mobile",
+        "android_version": "Version 1.0.0"
     },
     "hieroglyphs_hub": {
         "badge": "𓊹 Hieroglyphs Path",

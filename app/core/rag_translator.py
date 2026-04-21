@@ -287,7 +287,9 @@ class RAGTranslator:
             "language translation. You know the Gardiner Sign List, Manuel de "
             "Codage notation, and standard Egyptological terminology.\n\n"
             "RULES:\n"
-            "- Produce a LITERAL, word-for-word translation\n"
+            "- English: produce a LITERAL, word-for-word scholarly translation\n"
+            "- Arabic: translate the MEANING into فصحى مبسطة (simplified MSA), "
+            "natural and readable — NOT a word-for-word calque of the English\n"
             "- Reuse exact vocabulary from the reference examples when available\n"
             "- Do NOT paraphrase or use synonyms when an example shows the standard\n"
             "- Determinatives (marked {det:...} or <...>) are semantic, not pronounced\n"
@@ -318,12 +320,17 @@ class RAGTranslator:
         parts.append(
             "\nProvide:\n"
             '1. "translation_en": Literal English translation (scholarly)\n'
-            '2. "translation_ar": Arabic translation (Modern Standard فصحى)\n'
+            '2. "translation_ar": Arabic translation in فصحى مبسطة — translate the '
+            "MEANING naturally, not word-for-word from English. "
+            "Write clear, readable Arabic that an educated reader would understand. "
+            "Include Egyptological context where relevant.\n"
             '3. "context": Brief inscription type (offering formula, royal titulary, etc.)\n\n'
             "Arabic conventions:\n"
             "- God names: آمون، رع، أوزيريس، إيزيس، حورس، تحوت، أنوبيس\n"
             "- Pharaoh names: رمسيس، تحتمس، إخناتون، خوفو\n"
-            "- Titles: use standard Arabic Egyptological forms\n\n"
+            "- Titles: use standard Arabic Egyptological forms\n"
+            "- Offering formulae: use 'قربان يُقدَّم إلى ...' not literal calque\n"
+            "- Royal titulary: use known Arabic forms (e.g., 'ملك الوجهين' for nsw-bity)\n\n"
             "Return JSON:\n"
             '{"translation_en": "...", "translation_ar": "...", "context": "..."}'
         )

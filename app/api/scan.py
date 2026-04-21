@@ -430,6 +430,8 @@ async def _ai_fresh_reading(
         "  Two cartouches = prenomen (throne name) + nomen (birth name)\n"
         "- Transliterate as WORDS (e.g., 'wsr-mAat-ra' not 'U-s-r-m-A-a-t-R-a')\n"
         "- Translate the MEANING (e.g., 'Ramesses II' not 'strong-truth-sun')\n"
+        "- Arabic translation: use فصحى مبسطة (simplified MSA), translate the meaning "
+        "naturally — not a literal calque of the English\n"
         "- Respond ONLY with valid JSON."
     )
 
