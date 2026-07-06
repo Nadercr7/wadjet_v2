@@ -38,6 +38,9 @@ pydantic[email]~=2.0
 # Google OAuth
 google-auth~=2.38
 
+# Firebase (Android app ID-token verification — /api/auth/firebase)
+firebase-admin>=6.5
+
 # Email (Resend)
 resend~=2.26
 

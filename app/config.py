@@ -53,6 +53,12 @@ class Settings(BaseSettings):
     google_client_id: str = ""
     google_client_secret: str = ""
 
+    # Firebase (Android app token exchange — POST /api/auth/firebase)
+    firebase_project_id: str = ""
+
+    # Pexels (landmark thumbnail proxy — /api/images/pexels-search)
+    pexels_api_keys: str = ""
+
     # Email (Resend)
     resend_api_key: str = ""
 
@@ -125,6 +131,10 @@ class Settings(BaseSettings):
     @property
     def groq_keys_list(self) -> list[str]:
         return [k.strip() for k in self.groq_api_keys.split(",") if k.strip()]
+
+    @property
+    def pexels_keys_list(self) -> list[str]:
+        return [k.strip() for k in self.pexels_api_keys.split(",") if k.strip()]
 
 
 settings = Settings()

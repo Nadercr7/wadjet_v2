@@ -47,6 +47,10 @@ class GoogleAuthRequest(BaseModel):
     credential: str = Field(min_length=1, max_length=4096)
 
 
+class FirebaseAuthRequest(BaseModel):
+    id_token: str = Field(min_length=1, max_length=8192)
+
+
 class ForgotPasswordRequest(BaseModel):
     email: EmailStr
 

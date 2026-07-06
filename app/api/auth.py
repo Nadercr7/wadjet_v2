@@ -32,6 +32,7 @@ from app.db.crud import (
 )
 from app.db.database import get_db
 from app.db.schemas import (
+    FirebaseAuthRequest,
     ForgotPasswordRequest,
     GoogleAuthRequest,
     LoginRequest,
@@ -309,6 +310,78 @@ async def google_auth(body: GoogleAuthRequest, request: Request, db: AsyncSessio
         err_type = type(e).__name__
         logger.error("Google auth DB error for %s: [%s] %s", email, err_type, e, exc_info=True)
         # Include error type in response so we can diagnose remotely
+        raise HTTPException(
+            status_code=500,
+            detail=f"Authentication failed ({err_type}) — please try again",
+        ) from None
+
+
+# ── Firebase (Android app) ──
+
+@router.post("/firebase")
+@limiter.limit("10/minute")
+async def firebase_auth(body: FirebaseAuthRequest, request: Request, db: AsyncSession = Depends(get_db)):
+    """Exchange a Firebase-issued ID token for an app session (Android).
+
+    The Android app authenticates users with Firebase Auth (email/password or
+    Google) and calls this endpoint with the Firebase ID token. Trust policy:
+    the token must carry a verified email, or come from the google.com
+    provider (Google has already verified the address). Unverified tokens are
+    rejected so an attacker cannot claim an existing account by creating an
+    unverified Firebase user with the victim's email.
+    """
+    from app.auth.firebase import verify_firebase_token
+
+    info = verify_firebase_token(body.id_token)
+    if not info:
+        raise HTTPException(status_code=401, detail="Invalid Firebase credential")
+
+    email = (info.get("email") or "").lower().strip()
+    if not email:
+        raise HTTPException(status_code=400, detail="Firebase account has no email")
+
+    if not (info.get("email_verified") or info.get("provider") == "google.com"):
+        raise HTTPException(status_code=403, detail="Email not verified")
+
+    google_sub = info.get("google_sub")
+
+    try:
+        # 1. Google-backed Firebase accounts: match by google_id first (same rule as /google)
+        if google_sub:
+            user = await get_user_by_google_id(db, google_sub)
+            if user:
+                return await _issue_full_session(user, request, db)
+
+        # 2. Existing account with this (verified) email — link/refresh and sign in
+        user = await get_user_by_email(db, email)
+        if user:
+            if google_sub and not user.google_id:
+                user = await link_google_account(db, user, google_sub, info.get("picture"))
+            elif not user.email_verified:
+                # Firebase verified the address; mirror that here
+                await verify_user_email(db, user.id)
+                await db.refresh(user)
+            return await _issue_full_session(user, request, db)
+
+        # 3. New user
+        user = await create_user(
+            db,
+            email=email,
+            password_hash=None,
+            display_name=info.get("name"),
+            google_id=google_sub,
+            auth_provider="google" if google_sub else "firebase",
+            email_verified=True,
+            avatar_url=info.get("picture"),
+        )
+        response = await _issue_full_session(user, request, db)
+        response.status_code = 201
+        return response
+    except HTTPException:
+        raise
+    except Exception as e:
+        err_type = type(e).__name__
+        logger.error("Firebase auth DB error for %s: [%s] %s", email, err_type, e, exc_info=True)
         raise HTTPException(
             status_code=500,
             detail=f"Authentication failed ({err_type}) — please try again",

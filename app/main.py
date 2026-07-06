@@ -21,6 +21,7 @@ from app.api import (
     explore,
     feedback,
     health,
+    images,
     pages,
     scan,
     stories,
@@ -285,6 +286,9 @@ async def lifespan(app: FastAPI):
     # Close shared image generation HTTP client
     from app.core.image_service import close_image_client
     await close_image_client()
+    # Close shared image proxy HTTP client
+    from app.api.images import close_images_client
+    await close_images_client()
 
 
 def create_app() -> FastAPI:
@@ -324,6 +328,7 @@ def create_app() -> FastAPI:
             re.compile(r"^/api/auth/refresh$"),
             re.compile(r"^/api/auth/logout$"),
             re.compile(r"^/api/auth/google$"),
+            re.compile(r"^/api/auth/firebase$"),
             re.compile(r"^/api/auth/verify-email$"),
             re.compile(r"^/api/auth/forgot-password$"),
             re.compile(r"^/api/auth/reset-password$"),
@@ -461,6 +466,7 @@ def create_app() -> FastAPI:
     app.include_router(audio.router)
     app.include_router(health.router, prefix="/api")
     app.include_router(feedback.router)
+    app.include_router(images.router)
 
     # Service Worker — must be served from root for scope='/'
     sw_path = BASE_DIR / "static" / "sw.js"
