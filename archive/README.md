@@ -37,6 +37,21 @@ Kaggle training notebooks (5 total):
 - `hieroglyph_detector_v2.ipynb` — YOLO26s v2 (resumed training)
 - `hieroglyph_detector_v3.ipynb` — YOLO26s v3 (balanced dataset)
 
+### `v3-beta-planning/`
+Planning docs for the v3 beta rewrite (originally `wadjet-planning/` at v3-beta root):
+- `00_MASTER_PLAN.md` through `05_QUALITY_CHECKLIST.md` — 11-phase beta plan
+- `PHASE_PROMPT_TEMPLATE.txt` — Template for phase execution prompts
+
+### `v3-upgrade-planning/`
+Comprehensive upgrade planning for v3's final push (originally `comprehensive-upgrade/`):
+- Version promotion, auth, design system, scan pipeline audit
+- Stories enrichment, testing, credentials setup, quality gates
+
+### `v3-planning-snapshot/`
+Snapshot of v3 planning state from 2026-03-29 (originally `wadjet-v3-planning-ARCHIVED-2026-03-29/`):
+- Constitution, spec, plan, progress, work-log
+- Phase prompts (0–10), version replacement script
+
 ## See Also
-- `JOURNEY.md` in the project root — complete narrative of the development journey
-- `planning/` — All planning documents, rebuild plans, and session logs
+- `Wadjet-v3-beta/` — The active v3 production codebase (separate folder)
+- `planning/` — v2-era planning documents, rebuild plans, and session logs
