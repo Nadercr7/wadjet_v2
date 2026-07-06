@@ -5,7 +5,7 @@ from contextlib import asynccontextmanager
 from datetime import UTC
 from pathlib import Path
 
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.gzip import GZipMiddleware
 from fastapi.responses import FileResponse, HTMLResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
@@ -23,6 +23,7 @@ from app.api import (
     health,
     images,
     pages,
+    push,
     scan,
     stories,
     translate,
@@ -347,6 +348,7 @@ def create_app() -> FastAPI:
             re.compile(r"^/api/stories"),
             re.compile(r"^/api/user"),
             re.compile(r"^/api/feedback$"),
+            re.compile(r"^/api/push/send$"),
             # ── Dev-only docs (disabled in production) ──
             re.compile(r"^/docs"),
             re.compile(r"^/openapi\.json$"),
@@ -467,6 +469,7 @@ def create_app() -> FastAPI:
     app.include_router(health.router, prefix="/api")
     app.include_router(feedback.router)
     app.include_router(images.router)
+    app.include_router(push.router)
 
     # Service Worker — must be served from root for scope='/'
     sw_path = BASE_DIR / "static" / "sw.js"
@@ -481,6 +484,25 @@ def create_app() -> FastAPI:
     @app.get("/favicon.ico", include_in_schema=False)
     async def favicon():
         return FileResponse(favicon_path, media_type="image/svg+xml")
+
+    # E-P8: Android App Links verification statement. Built from env so the
+    # release cert fingerprint never lives in code. 404 while unconfigured
+    # (an empty statement list would make Android mark the domain as failed).
+    @app.get("/.well-known/assetlinks.json", include_in_schema=False)
+    async def assetlinks():
+        fingerprints = [f.strip().upper() for f in settings.android_cert_sha256.split(",") if f.strip()]
+        if not fingerprints:
+            raise HTTPException(status_code=404, detail="Not configured")
+        return JSONResponse(content=[
+            {
+                "relation": ["delegate_permission/common.handle_all_urls"],
+                "target": {
+                    "namespace": "android_app",
+                    "package_name": settings.android_package_name,
+                    "sha256_cert_fingerprints": fingerprints,
+                },
+            }
+        ])
 
     return app
 

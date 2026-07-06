@@ -56,6 +56,11 @@ class Settings(BaseSettings):
     # Firebase (Android app token exchange — POST /api/auth/firebase)
     firebase_project_id: str = ""
 
+    # Android App Links (/.well-known/assetlinks.json) — comma-separated
+    # SHA-256 cert fingerprints (colon-separated hex, as printed by keytool)
+    android_package_name: str = "com.wadjet.app"
+    android_cert_sha256: str = ""
+
     # Pexels (landmark thumbnail proxy — /api/images/pexels-search)
     pexels_api_keys: str = ""
 
