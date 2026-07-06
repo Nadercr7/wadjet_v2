@@ -29,7 +29,6 @@ PAGE_ROUTES = [
 PROTECTED_ROUTES = [
     "/",
     "/scan",
-    "/write",
     "/chat",
     "/dashboard",
     "/settings",
@@ -62,6 +61,16 @@ async def test_protected_renders_with_session(test_client: AsyncClient, path: st
     resp = await test_client.get(path, cookies={"wadjet_session": "1"})
     assert resp.status_code == 200
     assert "<html" in resp.text.lower()
+
+
+async def test_write_redirects_to_dictionary_tab(test_client: AsyncClient):
+    """/write is a permanent alias for the dictionary Write tab (glyph param preserved)."""
+    resp = await test_client.get("/write", follow_redirects=False)
+    assert resp.status_code == 302
+    assert resp.headers.get("location") == "/dictionary?tab=write"
+
+    resp = await test_client.get("/write", params={"glyph": "A1"}, follow_redirects=False)
+    assert resp.headers.get("location") == "/dictionary?tab=write&glyph=A1"
 
 
 async def test_quiz_redirects_to_stories(test_client: AsyncClient):
