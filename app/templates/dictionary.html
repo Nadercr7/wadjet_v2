@@ -36,7 +36,7 @@
             <!-- Browse tab -->
             <button @click="tab = 'browse'" role="tab" id="dict-tab-browse" :aria-selected="tab === 'browse' ? 'true' : 'false'" aria-controls="dict-panel-browse" :tabindex="tab === 'browse' ? 0 : -1"
                     class="relative rounded-xl p-4 sm:p-5 text-start transition-all border-2"
-                    :class="tab === 'browse' ? 'border-gold/60 bg-gold/5 shadow-[0_0_20px_rgba(212,175,55,0.08)]' : 'border-border bg-surface hover:border-gold/30'">
+                    :class="tab === 'browse' ? 'border-gold/60 bg-gold/5 shadow-[0_0_20px_rgba(200,162,75,0.08)]' : 'border-border bg-surface hover:border-gold/30'">
                 <div class="flex items-center gap-2.5 mb-1.5">
                     <span class="w-9 h-9 rounded-lg flex items-center justify-center transition-colors"
                           :class="tab === 'browse' ? 'bg-gold/15 text-gold' : 'bg-white/5 text-text-muted'">
@@ -51,7 +51,7 @@
             <!-- Learn tab — highlighted with pulse & recommended badge -->
             <button @click="tab = 'learn'" role="tab" id="dict-tab-learn" :aria-selected="tab === 'learn' ? 'true' : 'false'" aria-controls="dict-panel-learn" :tabindex="tab === 'learn' ? 0 : -1"
                     class="relative rounded-xl p-4 sm:p-5 text-start transition-all border-2"
-                    :class="tab === 'learn' ? 'border-gold bg-gold/8 shadow-[0_0_24px_rgba(212,175,55,0.12)]' : 'border-gold/30 bg-gold/3 hover:border-gold/50'">
+                    :class="tab === 'learn' ? 'border-gold bg-gold/8 shadow-[0_0_24px_rgba(200,162,75,0.12)]' : 'border-gold/30 bg-gold/3 hover:border-gold/50'">
                 <!-- Recommended badge -->
                 <span class="absolute -top-2.5 end-3 sm:end-4 px-2 py-0.5 bg-gold text-night text-[10px] sm:text-xs font-bold rounded-full tracking-wide uppercase"
                       :class="tab !== 'learn' ? 'animate-pulse-gold' : ''">
@@ -72,7 +72,7 @@
             <!-- Write tab -->
             <button @click="tab = 'write'" role="tab" id="dict-tab-write" :aria-selected="tab === 'write' ? 'true' : 'false'" aria-controls="dict-panel-write" :tabindex="tab === 'write' ? 0 : -1"
                     class="relative rounded-xl p-4 sm:p-5 text-start transition-all border-2"
-                    :class="tab === 'write' ? 'border-gold/60 bg-gold/5 shadow-[0_0_20px_rgba(212,175,55,0.08)]' : 'border-border bg-surface hover:border-gold/30'">
+                    :class="tab === 'write' ? 'border-gold/60 bg-gold/5 shadow-[0_0_20px_rgba(200,162,75,0.08)]' : 'border-border bg-surface hover:border-gold/30'">
                 <div class="flex items-center gap-2.5 mb-1.5">
                     <span class="w-9 h-9 rounded-lg flex items-center justify-center transition-colors"
                           :class="tab === 'write' ? 'bg-gold/15 text-gold' : 'bg-white/5 text-text-muted'">
@@ -164,7 +164,7 @@
                 <template x-for="sign in signs" :key="sign.code">
                     <button @click="openDetail(sign)"
                             class="bg-surface border rounded-lg p-4 text-center hover:bg-surface-hover transition-all group cursor-pointer"
-                            :class="sign.fun_fact || sign.type === 'uniliteral' ? 'border-gold/20 hover:border-gold/50 hover:shadow-[0_0_16px_rgba(212,175,55,0.08)]' : 'border-border hover:border-gold/30'">
+                            :class="sign.fun_fact || sign.type === 'uniliteral' ? 'border-gold/20 hover:border-gold/50 hover:shadow-[0_0_16px_rgba(200,162,75,0.08)]' : 'border-border hover:border-gold/30'">
                         <!-- Glyph -->
                         <div class="font-hieroglyph text-gold mb-2 group-hover:scale-110 transition-transform"
                              :class="sign.fun_fact || sign.type === 'uniliteral' ? 'text-5xl' : 'text-4xl'"
@@ -227,7 +227,7 @@
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
                 <template x-for="lv in [1,2,3,4,5]" :key="lv">
                     <a :href="'/dictionary/lesson/' + lv"
-                       class="bg-surface border border-border rounded-xl p-6 text-left hover:border-gold/40 hover:bg-surface-hover hover:shadow-[0_0_20px_rgba(212,175,55,0.06)] transition-all group cursor-pointer block">
+                       class="bg-surface border border-border rounded-xl p-6 text-left hover:border-gold/40 hover:bg-surface-hover hover:shadow-[0_0_20px_rgba(200,162,75,0.06)] transition-all group cursor-pointer block">
                         <div class="flex items-center gap-3 mb-3">
                             <span class="w-8 h-8 rounded-full bg-gold/15 text-gold flex items-center justify-center text-sm font-bold" x-text="lv"></span>
                             <span class="text-sm text-text-dim" x-text="(__i18n.dict_step_label || 'Step') + ' ' + lv + ' ' + (__i18n.dict_of_5 || 'of 5')"></span>

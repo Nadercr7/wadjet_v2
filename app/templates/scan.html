@@ -900,7 +900,7 @@ function scanApp() {
                         const h = y2 - y1;
 
                         // Box
-                        ctx.strokeStyle = '#D4AF37';
+                        ctx.strokeStyle = '#C8A24B';
                         ctx.lineWidth = 2;
                         ctx.strokeRect(x1, y1, w, h);
 
@@ -910,7 +910,7 @@ function scanApp() {
                         const metrics = ctx.measureText(label);
                         const lw = metrics.width + 8;
                         const lh = 18;
-                        ctx.fillStyle = 'rgba(212, 175, 55, 0.9)';
+                        ctx.fillStyle = 'rgba(200,162,75, 0.9)';
                         ctx.fillRect(x1, y1 - lh, lw, lh);
 
                         // Label text
@@ -973,12 +973,10 @@ function scanApp() {
                 URL.revokeObjectURL(this.previewUrl);
                 this.previewUrl = null;
             }
-            this.stopCamera();
         },
 
         // Cleanup on unmount
         destroy() {
-            this.stopCamera();
             if (this.previewUrl) URL.revokeObjectURL(this.previewUrl);
             if (this.pipeline) this.pipeline.dispose();
             if (this._ttsPoller) clearInterval(this._ttsPoller);

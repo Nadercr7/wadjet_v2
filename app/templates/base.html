@@ -7,6 +7,7 @@
     <meta name="description" content="{% block description %}{{ t('app.site_desc', lang) }}{% endblock %}">
     <meta name="robots" content="index, follow">
     <meta name="view-transition" content="same-origin">
+    <meta name="theme-color" content="#0A0A0A">
     {% if google_client_id %}<meta name="google-client-id" content="{{ google_client_id }}">{% endif %}
     <!-- Favicons -->
     <link rel="icon" href="/static/images/favicon-32.png" sizes="32x32" type="image/png">
@@ -18,16 +19,10 @@
     <!-- SEO: OG, Twitter Cards, JSON-LD, canonical, hreflang -->
     {% block seo %}{% include "partials/seo.html" %}{% endblock %}
 
-    <!-- DNS prefetch for Google Fonts (Playfair + Inter only — Cairo is self-hosted) -->
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-
-    <!-- Fonts: Playfair + Inter from Google, Cairo self-hosted in /static/fonts/ -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Fonts: Playfair + Inter + JetBrains Mono + Cairo all self-hosted in /static/fonts/ (U10: no Google Fonts CDN, works fully offline) -->
 
     <!-- Styles (critical) -->
-    <link rel="stylesheet" href="/static/dist/styles.css?v=41" fetchpriority="high">
+    <link rel="stylesheet" href="/static/dist/styles.css?v=42" fetchpriority="high">
     <link rel="stylesheet" href="/static/css/atropos.css">
 
     {% block head %}{% endblock %}
@@ -44,7 +39,7 @@
 
     <!-- Page loading progress bar -->
     <div id="page-loader" class="fixed top-0 left-0 w-0 h-0.5 bg-gold z-[9999] transition-all duration-300"
-         style="box-shadow: 0 0 10px rgba(212,175,55,0.5)" role="progressbar" aria-hidden="true"></div>
+         style="box-shadow: 0 0 10px rgba(200,162,75,0.5)" role="progressbar" aria-hidden="true"></div>
 
     <!-- Navigation -->
     {% include "partials/nav.html" %}
