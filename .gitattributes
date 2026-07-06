@@ -18,3 +18,4 @@ models/hieroglyph/classifier/hieroglyph_classifier.onnx filter=lfs diff=lfs merg
 *.keras filter=lfs diff=lfs merge=lfs -text
 *.sh text eol=lf
 *.apk filter=lfs diff=lfs merge=lfs -text
+*.glb filter=lfs diff=lfs merge=lfs -text
