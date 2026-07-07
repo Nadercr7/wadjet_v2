@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% block body_attrs %}data-narration-context="dictionary"{% endblock %}
-{% block title %}{{ t('dictionary.breadcrumb', lang) }} - {{ t('app.name', lang) }}{% endblock %}
+{% block title %}{{ t('dictionary.breadcrumb', lang) }} · {{ t('app.name', lang) }}{% endblock %}
 {% block description %}{{ t('dictionary.meta_desc', lang) }}{% endblock %}
 {% block seo %}
-{% set og_title = t('dictionary.title', lang) + ' ' + t('dictionary.title_gold', lang) + ' - ' + t('app.name', lang) %}
+{% set og_title = t('dictionary.title', lang) + ' ' + t('dictionary.title_gold', lang) + ' · ' + t('app.name', lang) %}
 {% set og_description = t('dictionary.meta_desc', lang) %}
 {% set og_image = base_url + '/static/images/og-wadjet.png' %}
 {% set canonical_url = base_url + '/dictionary' %}
@@ -360,7 +360,7 @@
                         <template x-for="sign in (writePalette[writePaletteTab] || [])" :key="sign.code">
                             <button @click="writeInsertFromPalette(sign)"
                                     class="bg-night border border-border rounded-lg p-2 text-center hover:border-gold/40 hover:bg-surface-hover transition-all group"
-                                    :title="sign.code + ' - ' + sign.transliteration + ' - ' + sign.description">
+                                    :title="sign.code + ' · ' + sign.transliteration + ' · ' + sign.description">
                                 <div class="font-hieroglyph text-xl text-gold group-hover:scale-110 transition-transform"
                                      x-text="sign.unicode_char || sign.code"></div>
                                 <div class="text-[10px] font-mono text-text-dim mt-0.5" x-text="sign.transliteration"></div>

@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% block body_attrs %}data-narration-context="story_narration"{% endblock %}
-{% block title %}{{ t('stories.title', lang) }} {{ t('stories.title_gold', lang) }} - {{ t('app.name', lang) }}{% endblock %}
+{% block title %}{{ t('stories.title', lang) }} {{ t('stories.title_gold', lang) }} · {{ t('app.name', lang) }}{% endblock %}
 {% block description %}{{ t('stories.meta_desc', lang) }}{% endblock %}
 {% block seo %}
-{% set og_title = t('stories.title', lang) + ' ' + t('stories.title_gold', lang) + ' - ' + t('app.name', lang) %}
+{% set og_title = t('stories.title', lang) + ' ' + t('stories.title_gold', lang) + ' · ' + t('app.name', lang) %}
 {% set og_description = t('stories.meta_desc', lang) %}
 {% set canonical_url = base_url + '/stories' %}
 {% include "partials/seo.html" %}
