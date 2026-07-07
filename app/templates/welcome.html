@@ -24,8 +24,23 @@
     <span class="meteor" style="--angle:-215deg;top:15%;left:75%;animation-delay:4s" aria-hidden="true"></span>
 
     <div class="relative z-10 text-center px-4 max-w-3xl mx-auto">
-        <div class="mb-8">
-            <img src="/static/images/wadjet-eye.svg" alt="" aria-hidden="true" class="w-28 h-28 md:w-36 md:h-36 mx-auto drop-shadow-[0_0_24px_rgba(200,162,75,0.3)]" width="144" height="144">
+        <!-- 3D golden Eye-of-Wadjet stela showpiece (lazy, self-hosted model-viewer; static poster + no-JS fallback) -->
+        <div class="mb-8 flex justify-center">
+            <model-viewer id="hero-eye"
+                src="/static/models/wadjet-eye3d.glb"
+                poster="/static/images/wadjet-eye-hero.png"
+                alt="{{ t('welcome.hero_title', lang) }}"
+                loading="lazy" reveal="auto"
+                environment-image="neutral" exposure="1.05" shadow-intensity="0"
+                camera-orbit="0deg 82deg 105%" field-of-view="26deg"
+                disable-zoom disable-pan disable-tap interaction-prompt="none"
+                class="mx-auto"
+                style="width:14rem;height:16rem;background:transparent;--poster-color:transparent">
+                <div slot="poster" class="w-full h-full flex items-center justify-center">
+                    <img src="/static/images/wadjet-eye.svg" alt="" aria-hidden="true" class="w-28 h-28 md:w-36 md:h-36 drop-shadow-[0_0_24px_rgba(200,162,75,0.3)]" width="144" height="144">
+                </div>
+            </model-viewer>
+            <noscript><img src="/static/images/wadjet-eye.svg" alt="" class="w-28 h-28 md:w-36 md:h-36 mx-auto drop-shadow-[0_0_24px_rgba(200,162,75,0.3)]" width="144" height="144"></noscript>
         </div>
 
         <h1 class="text-gold-animated text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight mb-6">
@@ -45,6 +60,31 @@
         <svg class="w-6 h-6 text-gold/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
     </div>
 </section>
+
+<!-- 3D hero showpiece: self-hosted model-viewer + reduced-motion-aware gentle sway (+-23deg) -->
+<script defer src="/static/vendor/model-viewer.min.js"></script>
+<script>
+(function () {
+  function initSway() {
+    var mv = document.getElementById('hero-eye');
+    if (!mv) return;
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) return; // keep the stela static under reduced-motion
+    var start = null, period = 9000, amp = 23;
+    function tick(ts) {
+      if (start === null) start = ts;
+      var t = (ts - start) / period;
+      var az = amp * Math.sin(2 * Math.PI * t);
+      var el = 82 + 4 * Math.sin(Math.PI * t);
+      mv.setAttribute('camera-orbit', az.toFixed(2) + 'deg ' + el.toFixed(2) + 'deg 105%');
+      requestAnimationFrame(tick);
+    }
+    mv.addEventListener('load', function () { requestAnimationFrame(tick); }, { once: true });
+  }
+  if (document.readyState !== 'loading') initSway();
+  else document.addEventListener('DOMContentLoaded', initSway);
+})();
+</script>
 
 <!-- ══════════════════════════════════════
      Section 2 - What is Wadjet
