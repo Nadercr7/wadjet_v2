@@ -1,8 +1,8 @@
 {% extends "base.html" %}
-{% block title %}{{ t('dictionary.step_label', lang) }} {{ level }} — {{ t('dictionary.title_gold', lang) }} — {{ t('app.name', lang) }}{% endblock %}
+{% block title %}{{ t('dictionary.step_label', lang) }} {{ level }} - {{ t('dictionary.title_gold', lang) }} - {{ t('app.name', lang) }}{% endblock %}
 {% block description %}{{ t('lesson_page.meta_desc', lang) }}{% endblock %}
 {% block seo %}
-{% set og_title = t('dictionary.step_label', lang) + ' ' + level|string + ' — ' + t('dictionary.title_gold', lang) + ' — ' + t('app.name', lang) %}
+{% set og_title = t('dictionary.step_label', lang) + ' ' + level|string + ' - ' + t('dictionary.title_gold', lang) + ' - ' + t('app.name', lang) %}
 {% set og_description = t('lesson_page.meta_desc', lang) %}
 {% set canonical_url = base_url + '/dictionary/lesson/' + level|string %}
 {% include "partials/seo.html" %}
@@ -127,7 +127,7 @@
                 <div class="divider mb-10"></div>
 
                 <!-- ═══════════════════════════════════════
-                     EXAMPLE WORDS — "See it in action"
+                     EXAMPLE WORDS - "See it in action"
                      ═══════════════════════════════════════ -->
                 <div class="mb-12" x-show="lesson.example_words && lesson.example_words.length > 0">
                     <div class="flex items-center gap-3 mb-6" data-animate>
@@ -167,7 +167,7 @@
                 </div>
 
                 <!-- ═══════════════════════════════════════
-                     PRACTICE — "Can you read this?"
+                     PRACTICE - "Can you read this?"
                      ═══════════════════════════════════════ -->
                 <div class="mb-12" x-show="lesson.practice_words && lesson.practice_words.length > 0">
                     <div class="flex items-center gap-3 mb-6" data-animate>

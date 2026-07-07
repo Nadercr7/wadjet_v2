@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% block body_attrs %}data-narration-context="story_narration"{% endblock %}
-{% block title %}{{ story_title | default(t('stories.reader_title', lang)) }} — {{ t('app.name', lang) }}{% endblock %}
+{% block title %}{{ story_title | default(t('stories.reader_title', lang)) }} - {{ t('app.name', lang) }}{% endblock %}
 {% block description %}{{ story_subtitle | default(t('stories.meta_desc', lang)) }}{% endblock %}
 {% block seo %}
-{% set og_title = (story_title | default(t('stories.reader_title', lang))) + ' — ' + t('app.name', lang) %}
+{% set og_title = (story_title | default(t('stories.reader_title', lang))) + ' - ' + t('app.name', lang) %}
 {% set og_description = story_subtitle | default(t('stories.meta_desc', lang)) %}
 {% set canonical_url = base_url + '/stories/' + story_id %}
 {% include "partials/seo.html" %}
@@ -370,7 +370,7 @@ function storyReader(storyId, lang) {
                 if (escapedWord && text.includes(escapedWord)) {
                     const highlighted =
                         '<span class="text-gold font-semibold cursor-help border-b border-gold/30"' +
-                        ' title="' + esc(ann.glyph) + ' (' + esc(ann.gardiner_code) + ') — ' + esc(ann.transliteration) + '">' +
+                        ' title="' + esc(ann.glyph) + ' (' + esc(ann.gardiner_code) + ') - ' + esc(ann.transliteration) + '">' +
                         escapedWord + ' <span class="font-hieroglyph text-gold/70">' + esc(ann.glyph) + '</span></span>';
                     text = text.split(escapedWord).join(highlighted);
                 }

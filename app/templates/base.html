@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}{{ t('app.name', lang) }}{% endblock %} — {{ t('app.tagline', lang) }}</title>
+    <title>{% block title %}{{ t('app.name', lang) }}{% endblock %} - {{ t('app.tagline', lang) }}</title>
     <meta name="description" content="{% block description %}{{ t('app.site_desc', lang) }}{% endblock %}">
     <meta name="robots" content="index, follow">
     <meta name="view-transition" content="same-origin">
@@ -27,7 +27,7 @@
 
     {% block head %}{% endblock %}
 
-    <!-- Google Sign-In (GSI) client — loads only if GOOGLE_CLIENT_ID is set -->
+    <!-- Google Sign-In (GSI) client - loads only if GOOGLE_CLIENT_ID is set -->
     {% if google_client_id %}
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     {% endif %}

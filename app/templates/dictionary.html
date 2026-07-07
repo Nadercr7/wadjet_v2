@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% block body_attrs %}data-narration-context="dictionary"{% endblock %}
-{% block title %}{{ t('dictionary.breadcrumb', lang) }} — {{ t('app.name', lang) }}{% endblock %}
+{% block title %}{{ t('dictionary.breadcrumb', lang) }} - {{ t('app.name', lang) }}{% endblock %}
 {% block description %}{{ t('dictionary.meta_desc', lang) }}{% endblock %}
 {% block seo %}
-{% set og_title = t('dictionary.title', lang) + ' ' + t('dictionary.title_gold', lang) + ' — ' + t('app.name', lang) %}
+{% set og_title = t('dictionary.title', lang) + ' ' + t('dictionary.title_gold', lang) + ' - ' + t('app.name', lang) %}
 {% set og_description = t('dictionary.meta_desc', lang) %}
 {% set og_image = base_url + '/static/images/og-wadjet.png' %}
 {% set canonical_url = base_url + '/dictionary' %}
@@ -48,7 +48,7 @@
                 <p class="text-xs sm:text-sm text-text-dim ps-[46px]">{{ t('dictionary.tab_browse_desc', lang) }}</p>
             </button>
 
-            <!-- Learn tab — highlighted with pulse & recommended badge -->
+            <!-- Learn tab - highlighted with pulse & recommended badge -->
             <button @click="tab = 'learn'" role="tab" id="dict-tab-learn" :aria-selected="tab === 'learn' ? 'true' : 'false'" aria-controls="dict-panel-learn" :tabindex="tab === 'learn' ? 0 : -1"
                     class="relative rounded-xl p-4 sm:p-5 text-start transition-all border-2"
                     :class="tab === 'learn' ? 'border-gold bg-gold/8 shadow-[0_0_24px_rgba(200,162,75,0.12)]' : 'border-gold/30 bg-gold/3 hover:border-gold/50'">
@@ -134,7 +134,7 @@
             <div class="mb-6" x-show="activeCategory" x-transition>
                 <h2 class="text-xl font-semibold">
                     <span class="text-gold" x-text="activeCategory"></span>
-                    — <span x-text="activeCategoryName" class="text-text-muted"></span>
+                    - <span x-text="activeCategoryName" class="text-text-muted"></span>
                 </h2>
                 <p class="text-sm text-text-dim mt-1" x-show="activeCategoryDetHint" x-text="activeCategoryDetHint"></p>
             </div>
@@ -158,7 +158,7 @@
                 <p class="text-sm text-text-dim">{{ t('dictionary.no_results_hint', lang) }} <button @click="selectCategory('D')" class="text-gold hover:underline">{{ t('dictionary.hint_body', lang) }}</button>, <button @click="selectCategory('G')" class="text-gold hover:underline">{{ t('dictionary.hint_birds', lang) }}</button>, <button @click="selectCategory('N')" class="text-gold hover:underline">{{ t('dictionary.hint_sky', lang) }}</button></p>
             </div>
 
-            <!-- Signs grid — type-aware cards with size variation -->
+            <!-- Signs grid - type-aware cards with size variation -->
             <div x-show="!loading && !error && signs.length > 0" x-transition
                  class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3">
                 <template x-for="sign in signs" :key="sign.code">
@@ -217,7 +217,7 @@
         </div>
 
         <!-- ════════════════════════════════════════════════
-             LEARN TAB — Progressive course (links to lesson pages)
+             LEARN TAB - Progressive course (links to lesson pages)
              ════════════════════════════════════════════════ -->
         <div x-show="tab === 'learn'" role="tabpanel" id="dict-panel-learn" aria-labelledby="dict-tab-learn">
             <div class="text-center mb-8">
@@ -244,7 +244,7 @@
         </div>
 
         <!-- ════════════════════════════════════════════════
-             WRITE TAB — AI-powered hieroglyph writing
+             WRITE TAB - AI-powered hieroglyph writing
              ════════════════════════════════════════════════ -->
         <div x-show="tab === 'write'" role="tabpanel" id="dict-panel-write" aria-labelledby="dict-tab-write">
 
@@ -360,7 +360,7 @@
                         <template x-for="sign in (writePalette[writePaletteTab] || [])" :key="sign.code">
                             <button @click="writeInsertFromPalette(sign)"
                                     class="bg-night border border-border rounded-lg p-2 text-center hover:border-gold/40 hover:bg-surface-hover transition-all group"
-                                    :title="sign.code + ' — ' + sign.transliteration + ' — ' + sign.description">
+                                    :title="sign.code + ' - ' + sign.transliteration + ' - ' + sign.description">
                                 <div class="font-hieroglyph text-xl text-gold group-hover:scale-110 transition-transform"
                                      x-text="sign.unicode_char || sign.code"></div>
                                 <div class="text-[10px] font-mono text-text-dim mt-0.5" x-text="sign.transliteration"></div>
@@ -431,7 +431,7 @@ function dictionaryApp() {
         perPage: 60,
         totalPages: 1,
 
-        // Learn tab — names/descriptions for lesson cards
+        // Learn tab - names/descriptions for lesson cards
         lessonNames: [
             '{{ t('dictionary.lesson_1', lang) }}',
             '{{ t('dictionary.lesson_2', lang) }}',
@@ -564,7 +564,7 @@ function dictionaryApp() {
             this.fetchSigns();
         },
 
-        // Type-aware card label — replaces transliteration || '—'
+        // Type-aware card label - replaces transliteration || '-'
         cardLabel(sign) {
             if (sign.is_phonetic && sign.transliteration) return sign.transliteration;
             if (sign.type === 'logogram' && sign.logographic_value) return '= ' + sign.logographic_value.split(';')[0].trim();

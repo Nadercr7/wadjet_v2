@@ -1,8 +1,8 @@
 {% extends "base.html" %}
-{% block title %}{{ t('scan.breadcrumb', lang) }} — {{ t('app.name', lang) }}{% endblock %}
+{% block title %}{{ t('scan.breadcrumb', lang) }} - {{ t('app.name', lang) }}{% endblock %}
 {% block description %}{{ t('scan.meta_desc', lang) }}{% endblock %}
 {% block seo %}
-{% set og_title = t('scan.title', lang) + ' ' + t('scan.title_gold', lang) + ' — ' + t('app.name', lang) %}
+{% set og_title = t('scan.title', lang) + ' ' + t('scan.title_gold', lang) + ' - ' + t('app.name', lang) %}
 {% set og_description = t('scan.meta_desc', lang) %}
 {% set og_image = base_url + '/static/images/og-wadjet.png' %}
 {% set canonical_url = base_url + '/scan' %}
@@ -453,7 +453,7 @@
                         <img x-show="item.thumb" :src="item.thumb" class="w-full h-16 object-cover rounded mb-2 bg-surface-alt" alt="{{ t('scan.preview_alt', lang) }}" loading="lazy">
                         <div x-show="!item.thumb" class="w-full h-16 rounded mb-2 bg-surface-alt flex items-center justify-center text-2xl opacity-30">𓊹</div>
                         <p class="text-xs text-gold font-medium" x-text="item.numGlyphs + ' ' + (__i18n.scan_glyph_singular || 'glyph')"></p>
-                        <p class="text-xs text-text-muted truncate" x-text="item.transliteration || item.gardiner || '—'"></p>
+                        <p class="text-xs text-text-muted truncate" x-text="item.transliteration || item.gardiner || '-'"></p>
                         <p class="text-[10px] text-text-dim mt-1" x-text="new Date(item.timestamp).toLocaleDateString()"></p>
                     </div>
                 </template>
@@ -503,7 +503,7 @@ function scanApp() {
         // History
         scanHistory: WadjetHistory.getScanHistory(),
 
-        // TTS state poller — sync Alpine state with Web Speech API / server audio
+        // TTS state poller - sync Alpine state with Web Speech API / server audio
         _ttsPoller: null,
         _scanAudio: null,
         _scanAudioUrl: null,
