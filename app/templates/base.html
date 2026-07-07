@@ -47,7 +47,7 @@
     <!-- Full-page branded loader (fades out when Alpine hydrates) -->
     <div id="app-loader" class="loading-overlay" aria-hidden="true">
         <div class="loading-logo">
-            <img src="/static/images/logo.png" alt="" width="80" height="80">
+            <img src="/static/images/wadjet-eye.svg" alt="" width="80" height="80">
         </div>
         <span class="loading-text">W A D J E T</span>
         <div class="loading-bar"></div>
@@ -77,7 +77,7 @@
              role="dialog" aria-modal="true" aria-labelledby="auth-title"
              x-transition>
             <button @click="$store.auth.showLogin = false; $store.auth.showSignup = false" class="absolute top-4 right-4 text-text-dim hover:text-text rtl:right-auto rtl:left-4" aria-label="{{ t('common.close', lang) }}">&times;</button>
-            <img src="/static/images/logo.png" alt="" aria-hidden="true" class="w-12 h-12 mx-auto mb-3" width="48" height="48">
+            <img src="/static/images/wadjet-eye.svg" alt="" aria-hidden="true" class="w-12 h-12 mx-auto mb-3" width="48" height="48">
             <h2 id="auth-title" class="font-display text-xl font-bold text-gold mb-2">{{ t('auth.welcome_back', lang) }}</h2>
             <p class="text-sm text-text-muted mb-6">{{ t('auth.sign_in_subtitle', lang) }}</p>
             <div x-show="$store.auth.error" class="mb-4 p-2.5 rounded-lg bg-error/10 border border-error/20 text-error text-sm" x-text="$store.auth.error"></div>
