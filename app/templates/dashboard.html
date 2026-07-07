@@ -34,6 +34,9 @@
                 <!-- Header -->
                 <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
                     <div>
+                        <!-- Gold ankh accent (static hero-lit 3D, used sparingly) -->
+                        <img src="/static/images/accent-ankh.png" alt="" aria-hidden="true"
+                             class="h-12 w-auto opacity-90 mb-3" width="240" height="293" loading="lazy" decoding="async">
                         <h1 class="text-3xl font-display font-bold">
                             <span class="text-text">{{ t('dashboard.welcome', lang) }},</span>
                             <span class="text-gold" x-text="$store.auth.user.display_name || $store.auth.user.email.split('@')[0]"></span>

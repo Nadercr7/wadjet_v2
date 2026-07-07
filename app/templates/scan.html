@@ -415,9 +415,8 @@
         <div x-show="step === 'empty'" x-transition:enter="transition ease-out duration-300"
              x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100">
             <div class="card text-center py-12">
-                <div class="w-16 h-16 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-4">
-                    <span class="text-3xl opacity-40">𓊹</span>
-                </div>
+                <img src="/static/images/accent-panel.png" alt="" aria-hidden="true"
+                     class="mx-auto mb-4 h-16 w-auto opacity-90" width="640" height="347" loading="lazy" decoding="async">
                 <h3 class="text-lg font-semibold mb-2">{{ t('scan.no_glyphs', lang) }}</h3>
                 <p class="text-text-muted text-sm mb-4 max-w-md mx-auto">
                     {{ t('scan.no_glyphs_desc', lang) }}
