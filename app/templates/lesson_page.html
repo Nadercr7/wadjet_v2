@@ -1,8 +1,8 @@
 {% extends "base.html" %}
-{% block title %}{{ t('dictionary.step_label', lang) }} {{ level }} — {{ t('dictionary.title_gold', lang) }} — {{ t('app.name', lang) }}{% endblock %}
+{% block title %}{{ t('dictionary.step_label', lang) }} {{ level }} - {{ t('dictionary.title_gold', lang) }} · {{ t('app.name', lang) }}{% endblock %}
 {% block description %}{{ t('lesson_page.meta_desc', lang) }}{% endblock %}
 {% block seo %}
-{% set og_title = t('dictionary.step_label', lang) + ' ' + level|string + ' — ' + t('dictionary.title_gold', lang) + ' — ' + t('app.name', lang) %}
+{% set og_title = t('dictionary.step_label', lang) + ' ' + level|string + ' - ' + t('dictionary.title_gold', lang) + ' · ' + t('app.name', lang) %}
 {% set og_description = t('lesson_page.meta_desc', lang) %}
 {% set canonical_url = base_url + '/dictionary/lesson/' + level|string %}
 {% include "partials/seo.html" %}
@@ -14,7 +14,7 @@
 
         <!-- Loading -->
         <div x-show="loading" class="loader-wadjet py-20">
-            <div class="loading-logo mx-auto" style="width:48px;height:48px;"><img src="/static/images/logo.png" alt="" width="48" height="48"></div>
+            <div class="loading-logo mx-auto" style="width:48px;height:48px;"><img src="/static/images/wadjet-eye.svg" alt="" width="48" height="48"></div>
             <span class="text-dust text-sm">{{ t('common.loading_lesson', lang) }}</span>
         </div>
 
@@ -92,7 +92,7 @@
                     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
                         <template x-for="(sign, idx) in lesson.signs" :key="sign.code">
                             <button @click="openDetail(sign)"
-                                    class="bg-surface border border-gold/15 rounded-xl p-5 text-center hover:border-gold/40 hover:shadow-[0_0_20px_rgba(212,175,55,0.08)] transition-all group cursor-pointer relative"
+                                    class="bg-surface border border-gold/15 rounded-xl p-5 text-center hover:border-gold/40 hover:shadow-[0_0_20px_rgba(200,162,75,0.08)] transition-all group cursor-pointer relative"
                                     :style="'animation: fade-up 0.5s ease both; animation-delay: ' + (idx * 30) + 'ms'">
                                 <!-- Number -->
                                 <div class="absolute top-2 left-3 w-5 h-5 rounded-full bg-gold/10 text-gold text-[10px] flex items-center justify-center font-medium" x-text="idx+1"></div>
@@ -127,7 +127,7 @@
                 <div class="divider mb-10"></div>
 
                 <!-- ═══════════════════════════════════════
-                     EXAMPLE WORDS — "See it in action"
+                     EXAMPLE WORDS - "See it in action"
                      ═══════════════════════════════════════ -->
                 <div class="mb-12" x-show="lesson.example_words && lesson.example_words.length > 0">
                     <div class="flex items-center gap-3 mb-6" data-animate>
@@ -167,7 +167,7 @@
                 </div>
 
                 <!-- ═══════════════════════════════════════
-                     PRACTICE — "Can you read this?"
+                     PRACTICE - "Can you read this?"
                      ═══════════════════════════════════════ -->
                 <div class="mb-12" x-show="lesson.practice_words && lesson.practice_words.length > 0">
                     <div class="flex items-center gap-3 mb-6" data-animate>
@@ -231,7 +231,7 @@
                     <div>
                         <template x-if="lesson.next_lesson">
                             <a :href="'/dictionary/lesson/' + lesson.next_lesson.level"
-                               class="block bg-surface border border-gold/20 rounded-xl p-5 hover:border-gold/40 hover:shadow-[0_0_20px_rgba(212,175,55,0.08)] transition-all group text-end">
+                               class="block bg-surface border border-gold/20 rounded-xl p-5 hover:border-gold/40 hover:shadow-[0_0_20px_rgba(200,162,75,0.08)] transition-all group text-end">
                                 <div class="flex items-center justify-end gap-2 text-sm text-gold/70 mb-2">
                                     {{ t('lesson_page.next_lesson', lang) }}
                                     <svg class="w-4 h-4 rtl:scale-x-[-1]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>

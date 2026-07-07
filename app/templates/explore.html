@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% block body_attrs %}data-narration-context="explore"{% endblock %}
-{% block title %}{{ t('explore.title', lang) }} {{ t('explore.title_gold', lang) }} — {{ t('app.name', lang) }}{% endblock %}
+{% block title %}{{ t('explore.title', lang) }} {{ t('explore.title_gold', lang) }} · {{ t('app.name', lang) }}{% endblock %}
 {% block description %}{{ t('explore.meta_desc', lang) }}{% endblock %}
 {% block seo %}
-{% set og_title = t('explore.title', lang) + ' ' + t('explore.title_gold', lang) + ' — ' + t('app.name', lang) %}
+{% set og_title = t('explore.title', lang) + ' ' + t('explore.title_gold', lang) + ' · ' + t('app.name', lang) %}
 {% set og_description = t('explore.meta_desc', lang) %}
 {% set og_image = base_url + '/static/images/og-wadjet.png' %}
 {% set canonical_url = base_url + '/explore' %}
@@ -112,7 +112,7 @@
              ════════════════════════════════════════════════ -->
         <div x-show="loading" class="loader-wadjet py-12">
             <div class="loading-logo mx-auto" style="width:48px;height:48px;">
-                <img src="/static/images/logo.png" alt="" width="48" height="48">
+                <img src="/static/images/wadjet-eye.svg" alt="" width="48" height="48">
             </div>
             <span class="text-dust text-sm mt-3">{{ t('common.loading_landmarks', lang) }}</span>
         </div>
@@ -241,7 +241,7 @@
                       @htmx:after-request.window="if(event.detail.elt.id === 'identify-form') { $refs.identifyBtn.disabled = false; if(!event.detail.successful) { identifyError = event.detail.xhr?.status === 503 ? '{{ t('explore.error_unavailable', lang) }}' : '{{ t('explore.error_identify_generic', lang) }}'; } }"
                       enctype="multipart/form-data">
 
-                    <!-- Upload area (camera tab removed — to be re-added later) -->
+                    <!-- Upload area (camera tab removed - to be re-added later) -->
                     <div class="card border-dashed border-2 border-border hover:border-gold/30 transition-colors text-center py-16 cursor-pointer relative mb-6"
                          @click="$refs.identifyInput.click()"
                          @dragover.prevent="identifyDragOver = true"
@@ -330,7 +330,7 @@
                 <template x-if="detailLoading">
                     <div class="loader-wadjet py-12">
                         <div class="loading-logo mx-auto" style="width:48px;height:48px;">
-                            <img src="/static/images/logo.png" alt="" width="48" height="48">
+                            <img src="/static/images/wadjet-eye.svg" alt="" width="48" height="48">
                         </div>
                         <span class="text-dust text-sm mt-3">{{ t('common.loading', lang) }}</span>
                     </div>
@@ -346,8 +346,6 @@
                                      class="w-full h-full object-cover"
                                      loading="lazy" decoding="async"
                                      @error="$el.parentElement.style.display='none'">
-                                     class="w-full h-full object-cover"
-                                     loading="lazy">
                             </div>
                         </template>
 
@@ -756,7 +754,7 @@ function exploreApp() {
             this.identifyFile = file;
             this.identifyResults = [];
             this.identifyError = '';
-            // Use object URL — instant, no base64 encoding lag
+            // Use object URL - instant, no base64 encoding lag
             if (this.identifyPreview) URL.revokeObjectURL(this.identifyPreview);
             this.identifyPreview = URL.createObjectURL(file);
 

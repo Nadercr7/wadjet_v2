@@ -1,8 +1,8 @@
 {% extends "base.html" %}
-{% block title %}{{ t('scan.breadcrumb', lang) }} — {{ t('app.name', lang) }}{% endblock %}
+{% block title %}{{ t('scan.breadcrumb', lang) }} · {{ t('app.name', lang) }}{% endblock %}
 {% block description %}{{ t('scan.meta_desc', lang) }}{% endblock %}
 {% block seo %}
-{% set og_title = t('scan.title', lang) + ' ' + t('scan.title_gold', lang) + ' — ' + t('app.name', lang) %}
+{% set og_title = t('scan.title', lang) + ' ' + t('scan.title_gold', lang) + ' · ' + t('app.name', lang) %}
 {% set og_description = t('scan.meta_desc', lang) %}
 {% set og_image = base_url + '/static/images/og-wadjet.png' %}
 {% set canonical_url = base_url + '/scan' %}
@@ -149,7 +149,7 @@
             <div class="card py-8">
                 <div class="text-center mb-6">
                     <div class="loading-logo mx-auto mb-4" style="width:56px;height:56px;">
-                        <img src="/static/images/logo.png" alt="" width="56" height="56">
+                        <img src="/static/images/wadjet-eye.svg" alt="" width="56" height="56">
                     </div>
                     <h3 class="text-lg font-semibold mb-1">{{ t('scan.analyzing', lang) }}</h3>
                     <p class="text-text-muted text-sm">{{ t('scan.analyzing_desc', lang) }}</p>
@@ -415,9 +415,8 @@
         <div x-show="step === 'empty'" x-transition:enter="transition ease-out duration-300"
              x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100">
             <div class="card text-center py-12">
-                <div class="w-16 h-16 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-4">
-                    <span class="text-3xl opacity-40">𓊹</span>
-                </div>
+                <img src="/static/images/accent-panel.png" alt="" aria-hidden="true"
+                     class="mx-auto mb-4 h-16 w-auto opacity-90" width="640" height="347" loading="lazy" decoding="async">
                 <h3 class="text-lg font-semibold mb-2">{{ t('scan.no_glyphs', lang) }}</h3>
                 <p class="text-text-muted text-sm mb-4 max-w-md mx-auto">
                     {{ t('scan.no_glyphs_desc', lang) }}
@@ -453,7 +452,7 @@
                         <img x-show="item.thumb" :src="item.thumb" class="w-full h-16 object-cover rounded mb-2 bg-surface-alt" alt="{{ t('scan.preview_alt', lang) }}" loading="lazy">
                         <div x-show="!item.thumb" class="w-full h-16 rounded mb-2 bg-surface-alt flex items-center justify-center text-2xl opacity-30">𓊹</div>
                         <p class="text-xs text-gold font-medium" x-text="item.numGlyphs + ' ' + (__i18n.scan_glyph_singular || 'glyph')"></p>
-                        <p class="text-xs text-text-muted truncate" x-text="item.transliteration || item.gardiner || '—'"></p>
+                        <p class="text-xs text-text-muted truncate" x-text="item.transliteration || item.gardiner || '-'"></p>
                         <p class="text-[10px] text-text-dim mt-1" x-text="new Date(item.timestamp).toLocaleDateString()"></p>
                     </div>
                 </template>
@@ -503,7 +502,7 @@ function scanApp() {
         // History
         scanHistory: WadjetHistory.getScanHistory(),
 
-        // TTS state poller — sync Alpine state with Web Speech API / server audio
+        // TTS state poller - sync Alpine state with Web Speech API / server audio
         _ttsPoller: null,
         _scanAudio: null,
         _scanAudioUrl: null,
@@ -900,7 +899,7 @@ function scanApp() {
                         const h = y2 - y1;
 
                         // Box
-                        ctx.strokeStyle = '#D4AF37';
+                        ctx.strokeStyle = '#C8A24B';
                         ctx.lineWidth = 2;
                         ctx.strokeRect(x1, y1, w, h);
 
@@ -910,7 +909,7 @@ function scanApp() {
                         const metrics = ctx.measureText(label);
                         const lw = metrics.width + 8;
                         const lh = 18;
-                        ctx.fillStyle = 'rgba(212, 175, 55, 0.9)';
+                        ctx.fillStyle = 'rgba(200,162,75, 0.9)';
                         ctx.fillRect(x1, y1 - lh, lw, lh);
 
                         // Label text
@@ -973,12 +972,10 @@ function scanApp() {
                 URL.revokeObjectURL(this.previewUrl);
                 this.previewUrl = null;
             }
-            this.stopCamera();
         },
 
         // Cleanup on unmount
         destroy() {
-            this.stopCamera();
             if (this.previewUrl) URL.revokeObjectURL(this.previewUrl);
             if (this.pipeline) this.pipeline.dispose();
             if (this._ttsPoller) clearInterval(this._ttsPoller);

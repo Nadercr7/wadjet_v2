@@ -1,4 +1,4 @@
-<!-- Beta Notes System — contextual tips & beta banner -->
+<!-- Beta Notes System - contextual tips & beta banner -->
 <!-- Alpine component: manages all note visibility via localStorage flags -->
 <div x-data="betaNotes()" x-cloak>
 
@@ -126,7 +126,7 @@ function betaNotes() {
     var lang = document.documentElement.lang || 'en';
     var isAr = lang === 'ar';
 
-    // i18n map for tips — keyed by page_name template var
+    // i18n map for tips - keyed by page_name template var
     var tipStrings = {
         scan: {
             title: isAr ? '{{ t("notes.scan_tip_title", "ar") }}' : '{{ t("notes.scan_tip_title", "en") }}',
@@ -197,12 +197,12 @@ function betaNotes() {
         init() {
             var self = this;
 
-            // 1. Beta banner — show on landing AND welcome page if not dismissed
+            // 1. Beta banner - show on landing AND welcome page if not dismissed
             if ((pageName === 'home' || pageName === 'landing' || pageName === 'welcome') && !localStorage.getItem('wadjet_beta_dismissed')) {
                 setTimeout(function() { self.showBeta = true; self.showFeedbackArrow = true; self.startTypewriter(); }, 1500);
             }
 
-            // 2. Audio note — listen for first audio trigger
+            // 2. Audio note - listen for first audio trigger
             if (!localStorage.getItem('wadjet_audio_note_seen')) {
                 self._audioListener = function() {
                     if (!self.showAudioNote && !localStorage.getItem('wadjet_audio_note_seen')) {

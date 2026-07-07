@@ -10,7 +10,7 @@
         <!-- Auth Gate -->
         <template x-if="!$store.auth.user">
             <div class="text-center py-20">
-                <img src="/static/images/logo.png" alt="" class="w-16 h-16 mx-auto mb-4 opacity-40" width="64" height="64">
+                <img src="/static/images/wadjet-eye.svg" alt="" class="w-16 h-16 mx-auto mb-4 opacity-40" width="64" height="64">
                 <h1 class="text-2xl font-display font-bold text-text mb-2">{{ t('dashboard.login_required', lang) }}</h1>
                 <p class="text-text-muted mb-6">{{ t('dashboard.login_required_desc', lang) }}</p>
                 <button @click="$store.auth.showLogin = true" class="btn-gold">{{ t('nav.sign_in', lang) }}</button>
@@ -62,7 +62,7 @@
                     </form>
                 </div>
 
-                <!-- Password Section — only for email-based accounts -->
+                <!-- Password Section - only for email-based accounts -->
                 <div class="card p-6 mb-6" x-show="$store.auth.user && $store.auth.user.auth_provider !== 'google'" x-cloak>
                     <h2 class="text-lg font-display font-semibold text-text mb-4">{{ t('settings.change_password', lang) }}</h2>
                     <form @submit.prevent="changePassword()" class="space-y-4">

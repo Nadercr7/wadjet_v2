@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Feedback — {{ t('app.name', lang) }}{% endblock %}
+{% block title %}Feedback · {{ t('app.name', lang) }}{% endblock %}
 {% block description %}Beta feedback responses{% endblock %}
 
 {% block content %}
@@ -41,7 +41,7 @@
   <!-- Loading -->
   <div x-show="loading" class="text-center py-12">
     <div class="loader-wadjet">
-      <img src="/static/images/logo.png" alt="" class="w-10 h-10 mx-auto" width="40" height="40">
+      <img src="/static/images/wadjet-eye.svg" alt="" class="w-10 h-10 mx-auto" width="40" height="40">
       <span class="text-dust text-sm mt-2">{{ t('common.loading', lang) }}</span>
     </div>
   </div>
